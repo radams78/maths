@@ -1,0 +1,35 @@
+\documentclass{article}
+
+\usepackage{amsthm}
+
+\title{Topology}
+\author{Robin Adams}
+
+\theoremstyle{definition}
+\newtheorem{df}{Definition}
+
+\newcommand{\pow}{\ensuremath{\mathcal{P}}}
+
+\newcommand{\TT}{\ensuremath{\mathcal{T}}}
+\newcommand{\UU}{\ensuremath{\mathcal{U}}}
+
+\begin{document}
+\maketitle
+
+\section{Topological Spaces}
+
+\begin{df}[Topology]
+    A \emph{topology} on a set $X$ is a set $\TT \subseteq \pow X$ such that:
+    \begin{itemize}
+        \item $X \in \TT$.
+        \item For all $\UU \subseteq \TT$ we have $\bigcup \UU \in \TT$.
+        \item For all $U, V \in \TT$ we have $U \cap V \in \TT$.
+    \end{itemize}
+    We call the elements of $X$ \emph{points} and the elements of $\TT$ \emph{open sets}.
+\end{df}
+
+\begin{df}[Topological Space]
+    A \emph{topological space} $X$ consists of a set $X$ and a topology on $X$.
+\end{df}
+
+\end{document}
