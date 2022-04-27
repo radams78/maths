@@ -1,5 +1,6 @@
 \documentclass{article}
 
+\usepackage{amsmath}
 \usepackage{amsthm}
 
 \title{Topology}
@@ -30,6 +31,31 @@
 
 \begin{df}[Topological Space]
     A \emph{topological space} $X$ consists of a set $X$ and a topology on $X$.
+\end{df}
+
+\begin{df}[Discrete Space]
+    For any set $X$, the \emph{discrete} topology on $X$ is $\pow X$.
+\end{df}
+
+\begin{df}[Indiscrete Space]
+    For any set $X$, the \emph{indiscrete} or \emph{trivial} topology on $X$ is $\{ \emptyset, X \}$.
+\end{df}
+
+\begin{df}[Finite Complement Topology]
+    For any set $X$, the \emph{finite complement topology} on $X$ is $\{ U \in \pow X \mid X \setminus U \text{ is finite} \} 
+    \cup \{ \emptyset \}$.
+\end{df}
+
+\begin{df}[Countable Complement Topology]
+    For any set $X$, the \emph{countable complement topology} on $X$ is $\{ U \in \pow X \mid X \setminus U \text{ is countable} \} 
+    \cup \{ \emptyset \}$.
+\end{df}
+
+\begin{df}[Finer, Coarser]
+    Suppose that $\TT$ and $\TT'$ are two topologies on a given set $X$. If $\TT' \supseteq \TT$, we say that $\TT'$ is \emph{finer} than
+    $\TT$; if $\TT'$ \emph{properly} contains $\TT$, we say that $\TT'$ is \emph{strictly} finer than $\TT$. We also say that $\TT$ is
+    \emph{coarser} than $\TT'$, or \emph{stricly} coarser, in these two respective situations. We say $\TT$ is \emph{comparable} with
+    $\TT'$ if either $\TT' \supseteq \TT$ or $\TT \supseteq \TT'$.
 \end{df}
 
 \end{document}
