@@ -2,15 +2,22 @@
 
 \usepackage{amsmath}
 \usepackage{amsthm}
+\let\proof\relax
+\let\endproof\relax
+\let\qed\relax
+\usepackage{pf2}
 
 \title{Topology}
 \author{Robin Adams}
 
+\newtheorem{lemma}{Lemma}
 \theoremstyle{definition}
 \newtheorem{df}{Definition}
 
 \newcommand{\pow}{\ensuremath{\mathcal{P}}}
 
+\renewcommand{\AA}{\ensuremath{\mathcal{A}}}
+\newcommand{\BB}{\ensuremath{\mathcal{B}}}
 \newcommand{\TT}{\ensuremath{\mathcal{T}}}
 \newcommand{\UU}{\ensuremath{\mathcal{U}}}
 
@@ -57,5 +64,91 @@
     \emph{coarser} than $\TT'$, or \emph{stricly} coarser, in these two respective situations. We say $\TT$ is \emph{comparable} with
     $\TT'$ if either $\TT' \supseteq \TT$ or $\TT \supseteq \TT'$.
 \end{df}
+
+\section{Basis for a Topology}
+
+\begin{df}[Basis]
+    If $X$ is a set, a \emph{basis} for a topology on $X$ is a set $\BB \subseteq \pow X$ called \emph{basis elements} such that
+    \begin{enumerate}
+        \item For all $x \in X$, there exists $B \in \BB$ such that $x \in B$.
+        \item For all $B_1, B_2 \in \BB$ and $x \in B_1 \cap B_2$, there exists $B_3 \in \BB$ such that
+        $x \in B_3 \subseteq B_1 \cap B_2$.
+    \end{enumerate}
+
+    If $\BB$ satisfies these two conditions, then we define the topology \emph{generated} by $\BB$ to be
+    $\TT = \{ U \in \pow X \mid \forall x \in U. \exists B \in \BB. x \in B \subseteq U \}$.
+\end{df}
+
+We prove this is a topology.
+
+\begin{proof}
+    \pf
+    \step{1}{$X \in \TT$}
+    \begin{proof}
+        \pf\ For all $x \in X$ there exists $B \in \BB$ such that $x \in B \subseteq X$ by condition 1.
+    \end{proof}
+    \step{2}{For all $\UU \subseteq \TT$ we have $\bigcup \UU \in \TT$}
+    \begin{proof}
+        \step{a}{\pflet{$\UU \subseteq \TT$}}
+        \step{b}{\pflet{$x \in \bigcup \UU$}}
+        \step{c}{\pick\ $U \in \UU$ such that $x \in U$}
+        \step{d}{\pick\ $B \in \BB$ such that $x \in B \subseteq U$}
+        \begin{proof}
+            \pf\ Since $U \in \TT$ by \stepref{a} and \stepref{c}.
+        \end{proof}
+        \step{e}{$x \in B \subseteq \bigcup \UU$}
+    \end{proof}
+    \step{3}{For all $U, V \in \TT$ we have $U \cap V \in \TT$}
+    \begin{proof}
+        \step{a}{\pflet{$U, V \in \TT$}}
+        \step{b}{\pflet{$x \in U \cap V$}}
+        \step{c}{\pick\ $B_1 \in \BB$ such that $x \in B_1 \subseteq U$}
+        \step{d}{\pick\ $B_2 \in \BB$ such that $x \in B_2 \subseteq V$}
+        \step{e}{\pick\ $B_3 \in \BB$ such that $x \in B_3 \subseteq B_1 \cap B_2$}
+        \begin{proof}
+            \pf\ By condition 2.
+        \end{proof}
+        \step{f}{$x \in B_3 \subseteq U \cap V$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $X$ be a set. Let $\BB$ be a basis for a topology $\TT$ on $X$. Then $\TT$ is the set of all unions of subsets of $\BB$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $U \in \TT$, there exists $\AA \subseteq \BB$ such that $U = \bigcup \AA$}
+    \begin{proof}
+        \step{a}{\pflet{$U \in \TT$}}
+        \step{b}{\pflet{$\AA = \{ B \in \BB \mid B \subseteq U \}$}}
+        \step{c}{$U \subseteq \bigcup \AA$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in U$}}
+            \step{ii}{\pick\ $B \in \BB$ such that $x \in B \subseteq U$}
+            \begin{proof}
+                \pf\ Since $\BB$ is a basis for $\TT$.
+            \end{proof}
+            \step{iii}{$x \in B \in \AA$}
+        \end{proof}
+        \step{d}{$\bigcup \AA \subseteq U$}
+        \begin{proof}
+            \pf\ From the definition of $\AA$ (\stepref{b}).
+        \end{proof}
+    \end{proof}
+    \step{2}{For all $\AA \subseteq \BB$ we have $\bigcup \AA \in \TT$}
+    \begin{proof}
+        \step{a}{$\BB \subseteq \TT$}
+        \begin{proof}
+            \pf\ If $B \in \BB$ and $x \in B$, then there exists $B' \in \BB$ such that $x \in B' \subseteq B$, namely $B' = B$.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Since $\TT$ is closed under union.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
 
 \end{document}
