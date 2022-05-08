@@ -19,6 +19,7 @@
 \newtheorem{definition}[lemma]{Definition}
 \newtheorem{example}[lemma]{Example}
 
+\newcommand{\id}[1]{\ensuremath{\mathrm{id}_{#1}}}
 \newcommand{\Int}{\ensuremath{\operatorname{Int}}}
 \newcommand{\pow}{\ensuremath{\mathcal{P}}}
 \newcommand{\inv}[1]{\ensuremath{{#1}^{-1}}}
@@ -37,6 +38,12 @@
 
 \begin{document}
 \maketitle
+
+\section{Real Numbers}
+
+\begin{definition}
+    Let $\RR^\infty$ be the subset of $\RR^\omega$ consisting of all sequences $(a_n)$ such that $a_n = 0$ for all but finitely many $n$.
+\end{definition}
 
 \section{Order Theory}
 
@@ -1121,7 +1128,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{theorem}
-    \label{theorem:closure_open}
+    \label{theorem:closure_neighbourhood}
     Let $X$ be a topological space, $A \subseteq X$ and $x \in X$. Then $x \in \overline{A}$ if and only if
     every neighbourhood of $x$ intersects $A$.
 \end{theorem}
@@ -1145,7 +1152,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \pf
     \step{1}{If $x \in \overline{A}$ then, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.}
     \begin{proof}
-        \pf\ This follows from Theorem \ref{theorem:closure_open} since every element of $\BB$ is open
+        \pf\ This follows from Theorem \ref{theorem:closure_neighbourhood} since every element of $\BB$ is open
         (Corollary \ref{cor:basis_open}).
     \end{proof}
     \step{2}{Suppose that, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$. Then $x \in \overline{A}$.}
@@ -1160,7 +1167,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
         \step{e}{$U$ intersects $A$.}
         \qedstep
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_open}.
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
         \end{proof}
     \end{proof}
     \qed
@@ -1198,7 +1205,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
         \step{d}{$U \cap V$ is a neighbourhood of $x$}
         \step{e}{$U \cap V$ intersects $A \cup B$}
         \begin{proof}
-            \pf\ From \stepref{a} and Theorem \ref{theorem:closure_open}.
+            \pf\ From \stepref{a} and Theorem \ref{theorem:closure_neighbourhood}.
         \end{proof}
         \step{f}{$U \cap V$ intersects $B$}
         \begin{proof}
@@ -1207,7 +1214,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
         \step{g}{$V$ intersects $B$}
         \qedstep
         \begin{proof}
-            \pf\ We have $x \in \overline{B}$ from Theorem \ref{theorem:closure_open}.
+            \pf\ We have $x \in \overline{B}$ from Theorem \ref{theorem:closure_neighbourhood}.
         \end{proof}
     \end{proof}
     \qed
@@ -1240,13 +1247,31 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
         \step{c}{\pick\ $V_i$ open in $X_i$ such that $x \in \prod_{i \in I} V_i \subseteq U$ with $V_i = X_i$ except for $i = i_1, \ldots, i_n$}
         \step{d}{For $i \in I$, pick $a_i \in V_i \cap A_i$}
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_open} and \stepref{a} using the Axiom of Choice.
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood} and \stepref{a} using the Axiom of Choice.
         \end{proof}
         \step{f}{$U$ intersects $\prod_{i \in I} A_i$}
         \qedstep
         \begin{proof}
             \pf\ $a \in U \cap \prod_{i \in I} A_i$
         \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    The closure of $\RR^\infty$ in $\RR^\omega$ is $\RR^\omega$
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a \in \RR^\omega$}}
+    \step{2}{\pflet{$U$ be any neighbourhoods of $a$.}}
+    \step{3}{\pick\ $U_n$ open in $\RR$ for all $n$ such that $a \in \prod_{n \geq 0} U_n \subseteq U$ and $U_n = \RR$ for all $n$ except $n_1$, \ldots, $n_k$}
+    \step{4}{\pflet{$b_n = a_n$ for $n = n_1, \ldots, n_k$ and $b_n = 0$ for all other $n$}}
+    \step{5}{$b \in \RR^\infty \cap U$}
+    \qedstep
+    \begin{proof}
+        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
     \end{proof}
     \qed
 \end{proof}
@@ -1264,7 +1289,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{lemma}
 
 \begin{proof}
-    \pf\ From Theorem \ref{theorem:closure_open}. \qed
+    \pf\ From Theorem \ref{theorem:closure_neighbourhood}. \qed
 \end{proof}
 
 \begin{theorem}
@@ -1276,7 +1301,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \pf
     \step{1}{For all $x \in \overline{A}$, if $x \notin A$ then $x \in A'$}
     \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_open}.
+        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
     \end{proof}
     \step{2}{$A \subseteq \overline{A}$}
     \begin{proof}
@@ -1284,7 +1309,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \end{proof}
     \step{3}{$A' \subseteq \overline{A}$}
     \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_open}.
+        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
     \end{proof}
     \qed
 \end{proof}
@@ -1401,7 +1426,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \step{3}{\pick\ disjoint neighbourhoods $U$ of $a$ and $V$ of $b$.}
     \step{4}{$U$ intersects $\{b\}$}
     \begin{proof}
-        \pf\ Theorem \ref{theorem:closure_open}.
+        \pf\ Theorem \ref{theorem:closure_neighbourhood}.
     \end{proof}
     \step{5}{$b \in U$}
     \qedstep
@@ -1448,6 +1473,55 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \qed
 \end{proof}
 
+\begin{theorem}
+    Every linearly ordered set under the order topology is Hausdorff.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a linearly ordered set under the order topology.}}
+    \step{2}{\pflet{$a, b \in X$ with $a \neq b$}}
+    \step{3}{\assume{w.l.o.g.~$a < b$}}
+    \step{4}{\case{There exists $c$ such that $a < c < b$}}
+    \begin{proof}
+        \pf\ The sets $(-\infty,c)$ and $(c,+\infty)$ are disjoint neighbourhoods of $a$ and $b$
+        respectively.
+    \end{proof}
+    \step{5}{\case{There is no $c$ such that $a < c < b$}}
+    \begin{proof}
+        \pf\ The sets $(-\infty, b)$ and $(a,+\infty)$ are disjoint neighbourhoods of $a$ and $b$
+        respectively.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    A subspace of a Hausdorff space is Hausdorff.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a Hausdorff space and $Y$ a subspace of $X$.}}
+    \step{2}{\pflet{$x, y \in Y$ with $x \neq y$}}
+    \step{3}{\pick\ disjoint neighbourhoods $U$ of $x$ and $V$ of $y$ in $X$.}
+    \step{4}{$U \cap Y$ and $V \cap Y$ are disjoint neighbourhoods of $x$ and $y$ respectively in $Y$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    A space $X$ is Hausdorff if and only if the diagonal $\Delta = \{ (x,x) \mid x \in X \}$ is closed in $X^2$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \begin{align*}
+        & X \text{ is Hausdorff} \\
+        \Leftrightarrow & \forall x,y \in X. x \neq y \Rightarrow \exists V, W \text{ open}. x \in V \wedge y \in W \wedge V \cap W = \emptyset \\
+        \Leftrightarrow & \forall (x,y) \in X^2 \setminus \Delta. \exists V,W \text{ open}. (x,y) \subseteq V \times W \subseteq X^2 \setminus \Delta \\
+        \Leftrightarrow & \Delta \text{ is closed} & \qed
+    \end{align*}
+\end{proof}
+
 \section{Convergence}
 
 \begin{definition}[Convergence]
@@ -1490,69 +1564,6 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 \begin{proof}
     \pf\ Let $U$ be any neighbourhood of $l$. Since $X \setminus U$ is finite, there must exist $N$
     such that, for all $n \geq N$, we have $a_n \in U$. \qed
-\end{proof}
-
-\begin{theorem}
-    Every linearly ordered set under the order topology is Hausdorff.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a linearly ordered set under the order topology.}}
-    \step{2}{\pflet{$a, b \in X$ with $a \neq b$}}
-    \step{3}{\assume{w.l.o.g.~$a < b$}}
-    \step{4}{\case{There exists $c$ such that $a < c < b$}}
-    \begin{proof}
-        \pf\ The sets $(-\infty,c)$ and $(c,+\infty)$ are disjoint neighbourhoods of $a$ and $b$
-        respectively.
-    \end{proof}
-    \step{5}{\case{There is no $c$ such that $a < c < b$}}
-    \begin{proof}
-        \pf\ The sets $(-\infty, b)$ and $(a,+\infty)$ are disjoint neighbourhoods of $a$ and $b$
-        respectively.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{theorem}
-    The product of two Hausdorff spaces is Hausdorff.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ and $Y$ be Hausdorff spaces.}}
-    \step{2}{\pflet{$(x_1, y_1)$ and $(x_2, y_2)$ be distinct points in $X \times Y$}}
-    \step{3}{\assume{w.l.o.g.~$x_1 \neq x_2$}}
-    \step{4}{\pick\ disjoint neighbourhoods $U$ of $x_1$ and $V$ of $x_2$.}
-    \step{5}{$U \times Y$ and $V \times Y$ are disjoint neighbourhoods of $(x_1, y_1)$ and $(x_2, y_2)$.}
-    \qed
-\end{proof}
-
-\begin{theorem}
-    A subspace of a Hausdorff space is Hausdorff.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a Hausdorff space and $Y$ a subspace of $X$.}}
-    \step{2}{\pflet{$x, y \in Y$ with $x \neq y$}}
-    \step{3}{\pick\ disjoint neighbourhoods $U$ of $x$ and $V$ of $y$ in $X$.}
-    \step{4}{$U \cap Y$ and $V \cap Y$ are disjoint neighbourhoods of $x$ and $y$ respectively in $Y$.}
-    \qed
-\end{proof}
-
-\begin{proposition}
-    A space $X$ is Hausdorff if and only if the diagonal $\Delta = \{ (x,x) \mid x \in X \}$ is closed in $X^2$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \begin{align*}
-        & X \text{ is Hausdorff} \\
-        \Leftrightarrow & \forall x,y \in X. x \neq y \Rightarrow \exists V, W \text{ open}. x \in V \wedge y \in W \wedge V \cap W = \emptyset \\
-        \Leftrightarrow & \forall (x,y) \in X^2 \setminus \Delta. \exists V,W \text{ open}. (x,y) \subseteq V \times W \subseteq X^2 \setminus \Delta \\
-        \Leftrightarrow & \Delta \text{ is closed} & \qed
-    \end{align*}
 \end{proof}
 
 \section{Boundary}
@@ -1728,12 +1739,12 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
         \step{e}{$\inv{f}(V)$ is a neighbourhood of $x$}
         \step{f}{\pick\ $y \in A \cap \inv{f}(V)$}
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_open}.
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
         \end{proof}
         \step{g}{$f(y) \in V \cap f(A)$}
         \qedstep
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_open}.
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
         \end{proof}
     \end{proof}
     \step{2}{$2 \Rightarrow 3$}
@@ -2026,6 +2037,45 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{proposition}
+    \label{proposition:converge_continuous}
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be continuous. If $a_n \rightarrow l$ as $n \rightarrow \infty$ in $X$ then
+    $f(a_n) \rightarrow f(l)$ as $n \rightarrow \infty$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$V$ be a neighbourhood of $f(l)$}}
+    \step{2}{\pick\ a neighbourhood $U$ of $l$ such that $f(U) \subseteq V$}
+    \step{3}{\pick\ $N$ such that, for all $n \geq N$, we have $a_n \in U$}
+    \step{4}{For all $n \geq N$ we have $f(n) \in V$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:converge_product}
+    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $(a_n)$ be a sequence in $\prod_{i \in I} X_i$ and $l \in \prod_{i \in I} X_i$.
+    Then $a_n \rightarrow l$ as $n \rightarrow \infty$ if and only if, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $a_n \rightarrow l$ as $n \rightarrow \infty$ then, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:converge_continuous}.
+    \end{proof}
+    \step{2}{If, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$, then $a_n \rightarrow l$ as $n \rightarrow \infty$}
+    \begin{proof}
+        \step{a}{\assume{For all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}}
+        \step{b}{\pflet{$V$ be a neighbourhood of $l$}}
+        \step{c}{\pick\ open sets $U_i$ in $X_i$ such that $l \in \prod_{i \in I} U_i \subseteq V$ and $U_i = X_i$ for all $i$ except $i = i_1, \ldots, i_k$}
+        \step{d}{For $j = 1, \ldots, k$, \pick\ $N_j$ such that, for all $n \geq N_j$, we have $\pi_{i_j}(a_n) \in U_{i_j}$}
+        \step{e}{\pflet{$N = \max(N_1, \ldots, N_k)$}}
+        \step{f}{For all $n \geq N$ we have $a_n \in V$}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Homeomorphisms}
 
 \begin{definition}[Homeomorphism]
@@ -2299,7 +2349,7 @@ This is a basis since it covers $\prod_{i \in I} A_i$ and is closed under inters
         \step{c}{\pick\ $V_i$ open in $X_i$ such that $x \in \prod_{i \in I} V_i \subseteq U$}
         \step{d}{For $i \in I$, pick $a_i \in V_i \cap A_i$}
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_open} and \stepref{a} using the Axiom of Choice.
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood} and \stepref{a} using the Axiom of Choice.
         \end{proof}
         \step{f}{$U$ intersects $\prod_{i \in I} A_i$}
         \qedstep
@@ -2310,4 +2360,21 @@ This is a basis since it covers $\prod_{i \in I} A_i$ and is closed under inters
     \qed
 \end{proof}
 
+The following example shows that Theorem \ref{theorem:product_continuous} fails in the box topology.
+
+\begin{example}
+    Define $f : \RR \rightarrow \RR^\omega$ by $f(t) = (t, t, \ldots)$. Then $\pi_n \circ f = \id{\RR}$ is continuous for all $n$.
+    But $f$ is not continuous when $\RR^\omega$ is given the box topology because the inverse image of
+    \[ (-1,1) \times (-1/2, 1/2) \times (-1/3,1/3) \times \cdots \]
+    is $\{0\}$ which is not open.
+\end{example}
+
+The following example shows that Proposition \ref{proposition:converge_product} fails in the box topology.
+
+\begin{example}
+    Give $\RR^\omega$ the box topology. Let $a_n = (1/n, 1/n, \ldots)$ for $n \geq 1$ and $l = (0, 0, \ldots)$. Then $\pi_i(a_n) \rightarrow \pi_i(l)$
+    as $n \rightarrow \infty$ for all $i$, but $a_n \not\rightarrow l$ as $n \rightarrow \infty$ since the open set
+    \[ (-1,1) \times (-1/2, 1/2) \times (-1/3,1/3) \times \cdots \]
+    contains $l$ but does not contain any $a_n$.
+\end{example}
 \end{document}
