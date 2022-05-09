@@ -1659,6 +1659,38 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{proposition}
+    \label{proposition:convergence_basis}
+    Let $X$ be a topological space. Let $\BB$ be a basis for the topology on $X$.
+    Let $(a_n)$ be a sequence in $X$ and $l \in X$. Then $a_n \rightarrow l$ as
+    $n \rightarrow \infty$ if and only if, for every $B \in \BB$ with $l \in B$,
+    there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $a_n \rightarrow l$ as
+    $n \rightarrow \infty$ then, for every $B \in \BB$ with $l \in B$,
+    there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$.}
+    \begin{proof}
+        \pf\ Since every element of $\BB$ is open (Corollary \ref{cor:basis_open}).
+    \end{proof}
+    \step{2}{If, for every $B \in \BB$ with $l \in B$,
+    there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$,
+    then $a_n \rightarrow l$ as $n \rightarrow \infty$.}
+    \begin{proof}
+        \step{a}{\assume{for every $B \in \BB$ with $l \in B$, there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$}}
+        \step{b}{\pflet{$U$ be a neighbourhood of $l$.}}
+        \step{c}{\pick\ $B \in \BB$ such that $l \in B \subseteq U$}
+        \step{d}{\pick\ $N$ such that, for all $n \geq N$, we have $a_n \in B$}
+        \begin{proof}
+            \pf\ From \stepref{a}.
+        \end{proof}
+        \step{e}{For all $n \geq N$ we have $a_n \in U$}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Boundary}
 
 \begin{definition}[Boundary]
@@ -2842,6 +2874,37 @@ We prove this is a metric.
         \begin{proof}
             \pf\ Theorem \ref{theorem:continuous}.
         \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:convergence_metric}
+    Let $X$ be a metric space. Let $(a_n)$ be a sequence in $X$ and $l \in X$.
+    Then $a_n \rightarrow l$ as $n \rightarrow \infty$ if and only if,
+    for all $\epsilon > 0$, there exists $N$ such that, for all $n \geq N$,
+    we have $d(a_n, l) < \epsilon$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ From Proposition \ref{proposition:convergence_basis}. \qed
+\end{proof}
+
+\begin{lemma}[Sequence Lemma (CC)]
+    Let $X$ be a metrizable space. Let $A \subseteq X$ and $l \in \overline{A}$.
+    Then there exists a sequence in $A$ that converges to $l$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $n \geq 1$, \pick\ $a_n \in A \cap B(l, 1/n)$
+    \prove{$a_n \rightarrow l$ as $n \rightarrow \infty$}}
+    \step{2}{\pflet{$\epsilon > 0$}}
+    \step{3}{\pick\ $N$ such that $1 / \epsilon < N$}
+    \step{4}{For $n \geq N$ we have $d(a_n, l) < \epsilon$}
+    \qedstep
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:convergence_metric}.
     \end{proof}
     \qed
 \end{proof}

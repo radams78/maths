@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1652104125 "/home/robin/fun/maths/notes.tex" "/home/robin/fun/maths/notes.pdf" "notes" 1652104125
+["pdflatex"] 1652106305 "/home/robin/fun/maths/notes.tex" "/home/robin/fun/maths/notes.pdf" "notes" 1652106306
   "/etc/texmf/web2c/texmf.cnf" 1626265647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/robin/fun/maths/notes.aux" 1652104125 4694 5ae2341c3e4482ab68f13edd7b7fb9bd ""
-  "/home/robin/fun/maths/notes.tex" 1652104123 120452 cac217e343b6165c1c92dc00d2a16658 ""
+  "/home/robin/fun/maths/notes.aux" 1652106306 4798 8bccf05cea9a75ba493c364f502cc337 ""
+  "/home/robin/fun/maths/notes.tex" 1652106304 122949 39963e8c08b6806db94c653e1abf0cb4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty" 1513722769 12604 3dec726c041422879dc3268237f09026 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
@@ -70,11 +70,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1626264333 4131335 97f357c35ef03853631f523ecab90976 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1626264381 8269926 c6f0aa12f3019b9156b681964aec4572 ""
-  "notes.aux" 1652104125 4694 5ae2341c3e4482ab68f13edd7b7fb9bd "pdflatex"
-  "notes.tex" 1652104123 120452 cac217e343b6165c1c92dc00d2a16658 ""
+  "notes.aux" 1652106306 4798 8bccf05cea9a75ba493c364f502cc337 "pdflatex"
+  "notes.tex" 1652106304 122949 39963e8c08b6806db94c653e1abf0cb4 ""
   (generated)
-  "notes.aux"
   "notes.log"
   "/home/robin/fun/maths/notes.log"
-  "/home/robin/fun/maths/notes.pdf"
   "notes.pdf"
+  "notes.aux"
+  "/home/robin/fun/maths/notes.pdf"
