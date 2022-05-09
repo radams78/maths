@@ -2659,6 +2659,7 @@ We prove this is a metric.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:standard_bounded_metric}
     Let $d$ be a metric on the set $X$. Then the standard bounded metric $\overline{d}$ induces the same metric as $d$.
 \end{proposition}
 
@@ -2737,6 +2738,85 @@ We prove this is a metric.
         \pf\ Since $B(a, \epsilon) = \inv{d_a}((-\infty, \epsilon))$
     \end{proof}
     \qed    
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a metric space with metric $d$ and $A \subseteq X$. The restriction of $d$ to $A$ is a metric on $A$ that induces the subspace topology.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{The restriction of $d$ to $A$ is a metric on $A$.}
+    \step{2}{Every open ball under $d \restriction A$ is open under the subspace topology.}
+    \begin{proof}
+        \pf\ $B_{d \restriction A}(a, \epsilon) = B_d(a, \epsilon) \cap A$.
+    \end{proof}
+    \step{3}{If $U$ is open in the subspace topology and $x \in U$, then there exists a $d \restriction A$-ball $B$ such that $x \in B \subseteq U$.}
+    \begin{proof}
+        \step{a}{\pick\ $V$ open in $X$ such that $U = V \cap A$}
+        \step{b}{\pick\ $\epsilon > 0$ such that $B_d(x, \epsilon) \subseteq V$}
+        \step{c}{Take $B = B_{d \restriction A}(x, \epsilon)$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    A subspace of a metrizable space is metrizable.
+\end{corollary}
+
+\begin{proposition}
+    Every metrizable space is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space}}
+    \step{2}{\pflet{$a, b \in X$ with $a \neq b$}}
+    \step{3}{\pflet{$\epsilon = d(a,b) / 2$}}
+    \step{4}{\pflet{$U = B(a, \epsilon)$ and $V = B(b, \epsilon)$}}
+    \step{5}{$U$ and $V$ are disjoint neighbourhoods of $a$ and $b$ respectively.}
+    \qed
+\end{proof}
+
+\begin{proposition}[CC]
+    The product of a countable family of metrizable spaces is metrizable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{0}{\pflet{$(X_n, d_n)$ be a sequence of metric spaces.}}
+    \step{0a}{\assume{w.l.o.g.~each $d_n$ is bounded above by 1.}}
+    \begin{proof}
+        \pf\ By Proposition \ref{proposition:standard_bounded_metric}.
+    \end{proof}
+    \step{1}{\pflet{$D$ be the metric on $\RR^\omega$ defined by $D(x,y) = \sup_i (d_i(x_i, y_i) / i)$.}}
+    \begin{proof}
+        \step{a}{$D(x,y) \geq 0$}
+        \step{b}{$D(x,y) = 0$ if and only if $x = y$}
+        \step{c}{$D(x,y) = D(y,x)$}
+        \step{d}{$D(x,z) \leq D(x,y) + D(y,z)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                D(x,z) & = \sup_i \frac{d_i(x_i, z_i)}{i} \\
+                & \leq \sup_i \frac{d_i(x_i, y_i) + d_i(y_i, z_i)}{i} \\
+                & \leq \sup_i \frac{d_i(x_i, y_i)}{i} + \sup_i \frac{d_i(y_i, z_i)}{i} \\
+                & = D(x,y) + D(y,z)
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{2}{Every open ball $B_D(a, \epsilon)$ is open in the product topology.}
+    \begin{proof}
+        \step{b}{\pick\ $N$ such that $1 / \epsilon < N$}
+        \step{c}{$B_D(a,\epsilon) = \prod_{i=1}^\infty U_i$ where $U_i = B(a_i, i \epsilon)$ if $i \leq N$, and $U_i = X_i$ if $i > N$}
+    \end{proof}
+    \step{3}{For any open set $U$ and $a \in U$, there exists $\epsilon > 0$ such that $B_D(a, \epsilon) \subseteq U$.}
+    \begin{proof}
+        \step{a}{\pflet{$n \geq 1$, $V$ be an open set in $\RR$ and $a \in \inv{\pi_n}(V)$}}
+        \step{b}{\pick\ $\epsilon > 0$ such that $B_{d_n}(a, \epsilon) \subseteq V$}
+        \step{c}{$B_D(a, \epsilon / n) \subseteq \inv{\pi_n}(V)$}
+    \end{proof}
+    \qed
 \end{proof}
 
 \section{Real Linear Algebra}
@@ -2920,42 +3000,6 @@ We prove this is a metric.
     \qedstep
     \begin{proof}
         \pf\ By Lemma \ref{lemma:metrics_same_topology}.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}
-    The space $\RR^\omega$ is metrizable.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$D$ be the metric on $\RR^\omega$ defined by $D(x,y) = \sup_i (\overline{d}(x_i, y_i) / i)$ where $\overline{d}$ is the standard bounded metric.}}
-    \begin{proof}
-        \step{a}{$D(x,y) \geq 0$}
-        \step{b}{$D(x,y) = 0$ if and only if $x = y$}
-        \step{c}{$D(x,y) = D(y,x)$}
-        \step{d}{$D(x,z) \leq D(x,y) + D(y,z)$}
-        \begin{proof}
-            \pf
-            \begin{align*}
-                D(x,z) & = \sup_i \frac{\overline{d}(x_i, z_i)}{i} \\
-                & \leq \sup_i \frac{\overline{d}(x_i, y_i) + \overline{d}(y_i, z_i)}{i} \\
-                & \leq \sup_i \frac{\overline{d}(x_i, y_i)}{i} + \sup_i \frac{\overline{d}(y_i, z_i)}{i} \\
-                & = D(x,y) + D(y,z)
-            \end{align*}
-        \end{proof}
-    \end{proof}
-    \step{2}{Every open ball $B_D(a, \epsilon)$ is open in the product topology.}
-    \begin{proof}
-        \step{b}{\pick\ $N$ such that $1 / \epsilon < N$}
-        \step{c}{$B_D(a,\epsilon) = \prod_{i=1}^\infty U_i$ where $U_i = (a_i - i \epsilon, a_i + i \epsilon)$ if $i \leq N$, and $U_i = \RR$ if $i > N$}
-    \end{proof}
-    \step{3}{For any open set $U$ and $a \in U$, there exists $\epsilon > 0$ such that $B(a, \epsilon) \subseteq U$.}
-    \begin{proof}
-        \step{a}{\pflet{$n \geq 1$, $V$ be an open set in $\RR$ and $a \in \inv{\pi_n}(V)$}}
-        \step{b}{\pick\ $\epsilon > 0$ such that $(a - \epsilon, a + \epsilon) \subseteq V$}
-        \step{c}{$B(a, \epsilon / n) \subseteq \inv{\pi_n}(V)$}
     \end{proof}
     \qed
 \end{proof}
