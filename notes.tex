@@ -40,11 +40,86 @@
 \begin{document}
 \maketitle
 
-\section{Real Numbers}
+\section{Real Analysis}
 
 \begin{definition}
     Let $\RR^\infty$ be the subset of $\RR^\omega$ consisting of all sequences $(a_n)$ such that $a_n = 0$ for all but finitely many $n$.
 \end{definition}
+
+\begin{theorem}
+    If $(s_n)$ is a bounded sequence of real numbers and $s_n \leq s_{n+1}$ for all $n$ then $(s_n)$ converges to its supremum.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Let $l = \sup_n s_n$ and let $\epsilon > 0$. Then $l - \epsilon$ is not an upper bound for $(s_n)$. Pick $N$ such that $s_N > l - \epsilon$. Then $|s_n - l| < \epsilon$
+    for all $n \geq N$. \qed
+\end{proof}
+
+\begin{theorem}
+    If $\sum_{i=0}^\infty a_i = s$ and $\sum_{i=0}^\infty b_i = t$ then $\sum_{i=0}^\infty (ca_i + b_i) = cs+t$.
+\end{theorem}
+
+\begin{proof}
+    \pf $\sum_{i=0}^N (ca_i + b_i) = c \sum_{i=0}^N a_i + \sum_{i=0}^N b_i \rightarrow cs+t$ as $n \rightarrow \infty$. \qed
+\end{proof}
+
+\begin{theorem}[Comparison Test]
+    If $|a_i| \leq b_i$ for all $i$ and $\sum_{i=0}^\infty b_i$ converges then $\sum_{i=0}^\infty a_i$ converges.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$\sum_{i=0}^\infty |a_i|$ converges}
+    \begin{proof}
+        \pf\ The partial sums $\sum_{i=0}^N |a_i|$ form an increasing sequence bounded above by $\sum_{i=0}^\infty b_i$.
+    \end{proof}
+    \step{2}{\pflet{$c_i = |a_i| + a_i$ for all $i$}}
+    \step{3}{$\sum_{i=0}^\infty c_i$ converges}
+    \begin{proof}
+        \pf\ Each $c_i$ is either $2|a_i|$ or 0. So the partial sums $\sum_{i=0}^N c_i$ form an increasing sequence bounded above by $2 \sum_{i=0}^\infty b_i$.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $a_i = c_i - |a_i|$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    If $\sum_{i=0}^\infty |a_i|$ converges then $\sum_{i=0}^\infty a_i$ converges.
+\end{corollary}
+
+\begin{theorem}[Weierstrass $M$-test]
+    Let $X$ be a set and $(f_n : X \rightarrow \RR)$ be a sequence of functions. Let
+    \[ s_n(x) = \sum_{i=0}^n f_i(x) \]
+    for all $n$, $x$. Suppose $|f_i(x)| \leq M_i$ for all $i \geq 0$ and $x \in X$.
+    If the series $\sum_{i=0}^\infty M_i$ converges, then the sequence $(s_n)$ converges uniformly to
+    \[ s(x) = \sum_{i=0}^\infty f_i(x) \enspace . \]
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$r_n = \sum_{i=n+1}^\infty M_i$ for all $n$}}
+    \step{2}{Given $0 \leq n < k$, we have $|s_k(x) - s_n(x)| \leq r_n$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            |s_k(x) - s_n(x)| & = |\sum_{i=n+1}^k f_i(x)| \\
+            & \leq \sum_{i=n+1}^k |f_i(x)| \\
+            & \leq \sum_{i=n+1}^k M_i \\
+            & \leq r_n
+        \end{align*}
+    \end{proof}
+    \step{3}{Given $n \geq 0$ we have $|s(x) - s_n(x)| \leq r_n$}
+    \begin{proof}
+        \pf\ By taking the limit $k \rightarrow \infty$ in \stepref{2}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $r_n \rightarrow 0$ as $n \rightarrow \infty$.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Order Theory}
 
@@ -2885,6 +2960,57 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{lemma}
+    If $\sum_{i=0}^\infty x_i^2$ and $\sum_{i=0}^\infty y_i^2$ converge then $\sum_{i=0}^\infty |x_i y_i|$ converges.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $N \geq 0$ we have
+        $\sum_{i=0}^N |x_i y_i| \leq \sqrt{\sum_{i=0}^N |x_i|^2} \sqrt{\sum_{i=0}^N |y_i|^2}$}
+    \begin{proof}
+        \pf\ By the Cauchy-Schwarz inequality
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $\sum_{i=0}^N |x_i y_i|$ is an increasing sequence bounded above by \\ $(\sum_{i=0}^\infty x_i^2) (\sum_{i=0}^\infty y_i^2)$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    \label{corollary:l2_sum_converge}
+    If $\sum_{i=0}^\infty x_i^2$ and $\sum_{i=0}^\infty y_i^2$ converge then $\sum_{i=0}^\infty (x_i + y_i)^2$ converges.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Since $\sum_{i=0}^\infty x_i^ 2$, $\sum_{i=0}^\infty y_i^2$ and $2 \sum_{i=0}^\infty x_i y_i$ all converge.
+\end{proof}
+
+\begin{definition}[$l^2$-metric]
+    The \emph{$l^2$-metric} on 
+    \[ \left\{ (x_n) \in \RR^\omega \mid \sum_{n=0}^\infty x_n^2 \text{ converges} \right\} \] is defined by
+    \[ d(x,y) = \left( \sum_{n=0}^\infty (x_n - y_n)^2 \right)^{1/2} \]
+\end{definition}
+
+We prove this is a metric.
+
+\begin{proof}
+    \pf
+    \step{1}{$d$ is well-defined.}
+    \begin{proof}
+        \pf\ By Corollary \ref{corollary:l2_sum_converge}.
+    \end{proof}
+    \step{2}{$d(x,y) \geq 0$}
+    \step{3}{$d(x,y) = 0$ if and only if $x = y$}
+    \step{4}{$d(x,y) = d(y,x)$}
+    \step{5}{$d(x,z) \leq d(x,y) + d(y,z)$}
+    \begin{proof}
+        \pf\ By Lemma \ref{lemma:triangle_inequality}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The Uniform Topology}
 
 \begin{definition}[Uniform Metric]
@@ -2984,6 +3110,15 @@ We prove this is a metric.
         Then $\vec{0} \in U$ but there is no $\epsilon > 0$ such that $B(\vec{0}, \epsilon) \subseteq U$.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{proposition}
+    The closure of $\RR^\infty$ in $\RR^\omega$ under the uniform topology is $\RR^\omega$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Given any open ball $B(a, \epsilon)$, pick an integer $N$ such that $1 / \epsilon < N$. Then $B(a, \epsilon)$ includes sequences whose $n$th entry is 0
+    for all $n \geq N$. \qed
 \end{proof}
 
 \end{document}
