@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1651990181 "/home/robin/fun/maths/notes.tex" "/home/robin/fun/maths/notes.pdf" "notes" 1651990182
+["pdflatex"] 1652068376 "/home/robin/fun/maths/notes.tex" "/home/robin/fun/maths/notes.pdf" "notes" 1652068377
   "/etc/texmf/web2c/texmf.cnf" 1626265647 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/robin/fun/maths/notes.aux" 1651990182 4008 ef0e41fa53b35b84f91dd4fed469dee9 ""
-  "/home/robin/fun/maths/notes.tex" 1651990180 89678 964fec6905f15dc49d55dfd37cbcdadd ""
+  "/home/robin/fun/maths/notes.aux" 1652068377 4581 02fbf571d9a340603f330a66ec1cdbee ""
+  "/home/robin/fun/maths/notes.tex" 1652068375 113187 66a055f2c14ec52d2d7496b3a84c0ffa ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty" 1513722769 12604 3dec726c041422879dc3268237f09026 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
@@ -58,6 +58,7 @@
   "/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1564827484 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1564827484 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1564827484 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1564827484 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1564827484 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1564827484 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1564827484 31764 459c573c03a4949a528c2cc7f557e217 ""
@@ -68,11 +69,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1626264333 4131335 97f357c35ef03853631f523ecab90976 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1626264381 8269926 c6f0aa12f3019b9156b681964aec4572 ""
-  "notes.aux" 1651990182 4008 ef0e41fa53b35b84f91dd4fed469dee9 "pdflatex"
-  "notes.tex" 1651990180 89678 964fec6905f15dc49d55dfd37cbcdadd ""
+  "notes.aux" 1652068377 4581 02fbf571d9a340603f330a66ec1cdbee "pdflatex"
+  "notes.tex" 1652068375 113187 66a055f2c14ec52d2d7496b3a84c0ffa ""
   (generated)
-  "notes.aux"
-  "notes.pdf"
-  "notes.log"
-  "/home/robin/fun/maths/notes.log"
   "/home/robin/fun/maths/notes.pdf"
+  "notes.aux"
+  "/home/robin/fun/maths/notes.log"
+  "notes.log"
+  "notes.pdf"
