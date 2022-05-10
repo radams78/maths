@@ -1,6 +1,16 @@
 \section{Order Theory}
 
+\begin{definition}[Preorder]
+    Let $X$ be a set. A \emph{preorder} on $X$ is a binary relation $\leq$ on $X$ such that:
+    \begin{description}
+        \item[Reflexivity] For all $x \in X$, we have $x \leq x$
+        \item[Transitivity] For all $x, y, z \in X$, if $x \leq y$ and $y \leq z$ then $x \leq z$.  
+    \end{description}
+
+    A \emph{preordered set} consists of a set $X$ and a preorder $\leq$ on $X$.
+\end{definition}
+
 \begin{definition}[Interval]
-    Let $X$ be a linearly ordered set and $Y \subseteq X$. Then $Y$ is an \emph{interval} if and only if, for
-    all $a, b \in Y$ and $c \in X$, if $a < c < b$ then $c \in Y$.
+    Let $X$ be a preordered set and $Y \subseteq X$. Then $Y$ is an \emph{interval} if and only if, for
+    all $a, b \in Y$ and $c \in X$, if $a \leq c \leq b$ then $c \in Y$.
 \end{definition}
