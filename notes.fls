@@ -31,6 +31,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /home/robin/fun/maths/notes.aux
 INPUT /home/robin/fun/maths/notes.aux
+INPUT /home/robin/fun/maths/order.aux
+INPUT /home/robin/fun/maths/order.aux
 INPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/analysis.aux
 OUTPUT /home/robin/fun/maths/notes.aux
@@ -61,9 +63,9 @@ INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT /home/robin/fun/maths/notes.pdf
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-OUTPUT /home/robin/fun/maths/analysis.aux
-INPUT /home/robin/fun/maths/analysis.tex
-INPUT /home/robin/fun/maths/analysis.tex
+OUTPUT /home/robin/fun/maths/order.aux
+INPUT /home/robin/fun/maths/order.tex
+INPUT /home/robin/fun/maths/order.tex
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmbx10.tfm
@@ -76,6 +78,9 @@ INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmti10.tfm
+OUTPUT /home/robin/fun/maths/analysis.aux
+INPUT /home/robin/fun/maths/analysis.tex
+INPUT /home/robin/fun/maths/analysis.tex
 INPUT /usr/share/texmf/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmti7.tfm
@@ -86,6 +91,8 @@ INPUT /usr/share/texmf/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /home/robin/fun/maths/notes.aux
+INPUT /home/robin/fun/maths/order.aux
+INPUT /home/robin/fun/maths/order.aux
 INPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/analysis.aux
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
