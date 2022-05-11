@@ -373,6 +373,109 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \qed
 \end{proof}
 
+\section{Boundary}
+
+\begin{definition}[Boundary]
+    The \emph{boundary} of a set $A$ is the set $\partial A = \overline{A} \cap \overline{X \setminus A}$.
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:int_partial_disjoint}
+    \[ \Int A \cap \partial A = \emptyset \]
+\end{proposition}
+
+\begin{proof}
+    \pf\ Since $\overline{X \setminus A} = X \setminus \Int A$. \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:closure_int_boundary}
+    \[ \overline{A} = \Int A \cup \partial A \]
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \begin{align*}
+        \Int A \cup \partial A & = \Int A \cup (\overline{A} \cap \overline{X \setminus A}) \\
+        & = (\Int A \cup \overline{A}) \cap (\Int A \cup \overline{X \setminus A}) \\
+        & = \overline{A} \cap X \\
+        & = \overline{A}
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    $\partial A = \emptyset$ if and only if $A$ is open and closed.
+\end{proposition}
+
+\begin{proof}
+    \pf\ If $\partial A = \emptyset$ then $\overline{A} = \Int A$ by Proposition \ref{proposition:closure_int_boundary}.
+\end{proof}
+
+\begin{proposition}
+    A set $U$ is open if and only if $\partial U = \overline{U} \setminus U$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \begin{align*}
+        & \partial U = \overline{U} \setminus U \\
+        \Leftrightarrow & \overline{U} \setminus \Int U = \overline{U} \setminus U & (\text{Propositions \ref{proposition:int_partial_disjoint}, \ref{proposition:closure_int_boundary}})\\
+        \Leftrightarrow & \Int U = U & \qed
+    \end{align*}
+\end{proof}
+
+\section{Limit Points}
+
+\begin{definition}[Limit Point]
+    Let $X$ be a topological space, $a \in X$ and $A \subseteq X$. Then $a$ is a \emph{limit point},
+    \emph{cluster point} or \emph{point of accumulation} for $A$ if and only if every neighbourhood of $a$
+    intersects $A$ at a point other than $a$.
+\end{definition}
+
+\begin{lemma}
+    The point $a$ is an accumulation point for $A$ if and only if $a \in \overline{A \setminus \{a\}}$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ From Theorem \ref{theorem:closure_neighbourhood}. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a topological space and $A \subseteq X$. Let $A'$ be the set of all limit points of $A$.
+    Then $\overline{A} = A \cup A'$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $x \in \overline{A}$, if $x \notin A$ then $x \in A'$}
+    \begin{proof}
+        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
+    \end{proof}
+    \step{2}{$A \subseteq \overline{A}$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closure_subset}.
+    \end{proof}
+    \step{3}{$A' \subseteq \overline{A}$}
+    \begin{proof}
+        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    A set is closed if and only if it contains all its limit points.
+\end{corollary}
+
+\begin{proposition}
+    \label{proposition:indiscrete_limit_point}
+    In an indiscrete topology, every point is a limit point of any set that has more than one point.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Let $X$ be an indiscrete space. Let $A$ be a set with more than one point and $x$ be a point.
+    The only neighbourhood of $x$ is $X$, which must intersect $A$ at a point other than $x$. \qed
+\end{proof}
+
 \section{Basis for a Topology}
 
 \begin{definition}[Basis]
@@ -1239,58 +1342,6 @@ This example shows that we cannot remove the hypothesis that $Y$ is an interval:
     The \emph{unit circle} $S^1$ is $\{ (x,y) \in \RR^2 \mid x^2 + y^2 = 1 \}$
 \end{definition}
 
-\section{Limit Points}
-
-\begin{definition}[Limit Point]
-    Let $X$ be a topological space, $a \in X$ and $A \subseteq X$. Then $a$ is a \emph{limit point},
-    \emph{cluster point} or \emph{point of accumulation} for $A$ if and only if every neighbourhood of $a$
-    intersects $A$ at a point other than $a$.
-\end{definition}
-
-\begin{lemma}
-    The point $a$ is an accumulation point for $A$ if and only if $a \in \overline{A \setminus \{a\}}$.
-\end{lemma}
-
-\begin{proof}
-    \pf\ From Theorem \ref{theorem:closure_neighbourhood}. \qed
-\end{proof}
-
-\begin{theorem}
-    Let $X$ be a topological space and $A \subseteq X$. Let $A'$ be the set of all limit points of $A$.
-    Then $\overline{A} = A \cup A'$.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{For all $x \in \overline{A}$, if $x \notin A$ then $x \in A'$}
-    \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
-    \end{proof}
-    \step{2}{$A \subseteq \overline{A}$}
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:closure_subset}.
-    \end{proof}
-    \step{3}{$A' \subseteq \overline{A}$}
-    \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{corollary}
-    A set is closed if and only if it contains all its limit points.
-\end{corollary}
-
-\begin{proposition}
-    \label{proposition:indiscrete_limit_point}
-    In an indiscrete topology, every point is a limit point of any set that has more than one point.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Let $X$ be an indiscrete space. Let $A$ be a set with more than one point and $x$ be a point.
-    The only neighbourhood of $x$ is $X$, which must intersect $A$ at a point other than $x$. \qed
-\end{proof}
-
 \section{$T_1$ Spaces}
 
 \begin{definition}[$T_1$ Space]
@@ -1670,57 +1721,6 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
         \pf\ Since $r_n \rightarrow 0$ as $n \rightarrow \infty$.
     \end{proof}
     \qed
-\end{proof}
-
-\section{Boundary}
-
-\begin{definition}[Boundary]
-    The \emph{boundary} of a set $A$ is the set $\partial A = \overline{A} \cap \overline{X \setminus A}$.
-\end{definition}
-
-\begin{proposition}
-    \label{proposition:int_partial_disjoint}
-    \[ \Int A \cap \partial A = \emptyset \]
-\end{proposition}
-
-\begin{proof}
-    \pf\ Since $\overline{X \setminus A} = X \setminus \Int A$. \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:closure_int_boundary}
-    \[ \overline{A} = \Int A \cup \partial A \]
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \begin{align*}
-        \Int A \cup \partial A & = \Int A \cup (\overline{A} \cap \overline{X \setminus A}) \\
-        & = (\Int A \cup \overline{A}) \cap (\Int A \cup \overline{X \setminus A}) \\
-        & = \overline{A} \cap X \\
-        & = \overline{A}
-    \end{align*}
-\end{proof}
-
-\begin{proposition}
-    $\partial A = \emptyset$ if and only if $A$ is open and closed.
-\end{proposition}
-
-\begin{proof}
-    \pf\ If $\partial A = \emptyset$ then $\overline{A} = \Int A$ by Proposition \ref{proposition:closure_int_boundary}.
-\end{proof}
-
-\begin{proposition}
-    A set $U$ is open if and only if $\partial U = \overline{U} \setminus U$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \begin{align*}
-        & \partial U = \overline{U} \setminus U \\
-        \Leftrightarrow & \overline{U} \setminus \Int U = \overline{U} \setminus U & (\text{Propositions \ref{proposition:int_partial_disjoint}, \ref{proposition:closure_int_boundary}})\\
-        \Leftrightarrow & \Int U = U & \qed
-    \end{align*}
 \end{proof}
 
 \section{Continuous Functions}
