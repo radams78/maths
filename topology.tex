@@ -99,6 +99,10 @@
     The set is nonempty since it contains the discrete topology. \qed
 \end{proof}
 
+\begin{definition}[Neighbourhood]
+    A \emph{neighbourhood} of a point $x$ is an open set that contains $x$.
+\end{definition}
+
 \section{Closed Set}
 
 \begin{definition}[Closed Set]
@@ -220,6 +224,153 @@
 
 \begin{proof}
     \pf\ $A \setminus U = A \cap (X \setminus U)$ is the intersection of two closed sets. \qed
+\end{proof}
+
+\section{Interior}
+
+\begin{definition}[Interior]
+    Let $X$ be a topological space and $A \subseteq X$. The \emph{interior} of $A$, $\Int A$, is the union
+    of all the open subsets of $A$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:interior_open}
+    The interior of a set is open.
+\end{lemma}
+
+\begin{proof}
+    \pf\ It is a union of open sets. \qed
+\end{proof}
+
+\begin{lemma}
+    \[ \Int A \subseteq A \]
+\end{lemma}
+
+\begin{proof}
+    \pf\ Immediate from definition. \qed
+\end{proof}
+
+\begin{lemma}
+    If $U$ is open and $U \subseteq A$ then $U \subseteq \Int A$
+\end{lemma}
+
+\begin{proof}
+    \pf\ Immediate from definition. \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:open_interior}
+    A set $A$ is open if and only if $A = \Int A$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ If $A = \Int A$ then $A$ is open by Lemma \ref{lemma:interior_open}. Conversely if
+    $A$ is open then $A \subseteq \Int A$ by the definition of interior and so $A = \Int A$.
+\end{proof}
+
+\section{Closure}
+
+\begin{definition}[Closure]
+    Let $X$ be a topological space and $A \subseteq X$. The \emph{closure} of $A$, $\overline{A}$, is the
+    intersection of all the closed sets that include $A$.
+\end{definition}
+
+This intersection exists since $X$ is a closed set that includes A (Lemma \ref{lemma:closed_whole_set}).
+
+\begin{lemma}
+    The closure of a set is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Dual to Lemma \ref{lemma:interior_open}. \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:closure_subset}
+    \[ A \subseteq \overline{A} \]
+\end{lemma}
+
+\begin{proof}
+    \pf\ Immediate from definition. \qed
+\end{proof}
+
+\begin{lemma}
+    If $C$ is closed and $A \subseteq C$ then $\overline{A} \subseteq C$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Immediate from definition. \qed
+\end{proof}
+
+\begin{lemma}
+    A set $A$ is closed if and only if $A = \overline{A}$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Dual to Lemma \ref{lemma:open_interior}. \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:closure_neighbourhood}
+    Let $X$ be a topological space, $A \subseteq X$ and $x \in X$. Then $x \in \overline{A}$ if and only if
+    every neighbourhood of $x$ intersects $A$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ We have
+    \begin{align*}
+        & x \in \overline{A} \\
+        \Leftrightarrow & \forall C. C \text{ closed } \wedge A \subseteq C \Rightarrow x \in C \\
+        \Leftrightarrow & \forall U. U \text{ open } \wedge A \cap U = \emptyset \Rightarrow x \notin U \\
+        \Leftrightarrow & \forall U. U \text{ open } \wedge x \in U \Rightarrow U \text{ intersects } A & \qed
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:closure_monotone}
+    If $A \subseteq B$ then $\overline{A} \subseteq \overline{B}$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ This holds because $\overline{B}$ is a closed set that includes $A$. \qed
+\end{proof}
+
+\begin{proposition}
+    \[ \overline{A \cup B} = \overline{A} \cup \overline{B} \]
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{A} \subseteq \overline{A \cup B}$}
+    \begin{proof}
+        \pf\ By Proposition \ref{proposition:closure_monotone}.
+    \end{proof}
+    \step{2}{$\overline{B} \subseteq \overline{A \cup B}$}
+    \begin{proof}
+        \pf\ By Proposition \ref{proposition:closure_monotone}.
+    \end{proof}
+    \step{3}{$\overline{A \cup B} \subseteq \overline{A} \cup \overline{B}$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in \overline{A \cup B}$}}
+        \step{b}{\assume{$x \notin \overline{A}$} \prove{$x \in \overline{B}$}}
+        \step{c}{\pick\ a neighbourhood $U$ of $x$ that does not intersect $A$}
+        \step{c}{\pflet{$V$ be any neighbourhood of $x$}}
+        \step{d}{$U \cap V$ is a neighbourhood of $x$}
+        \step{e}{$U \cap V$ intersects $A \cup B$}
+        \begin{proof}
+            \pf\ From \stepref{a} and Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
+        \step{f}{$U \cap V$ intersects $B$}
+        \begin{proof}
+            \pf\ From \stepref{c}
+        \end{proof}
+        \step{g}{$V$ intersects $B$}
+        \qedstep
+        \begin{proof}
+            \pf\ We have $x \in \overline{B}$ from Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
+    \end{proof}
+    \qed
 \end{proof}
 
 \section{Basis for a Topology}
@@ -388,6 +539,36 @@ We prove this is a topology.
             \pf\ By \stepref{a}.
         \end{proof}
         \step{f}{$x \in B' \subseteq U$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a topological space, $A \subseteq X$ and $x \in X$. Let $\BB$ be a basis for $X$. Then $x \in 
+    \overline{A}$ if and only if, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If $x \in \overline{A}$ then, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.}
+    \begin{proof}
+        \pf\ This follows from Theorem \ref{theorem:closure_neighbourhood} since every element of $\BB$ is open
+        (Corollary \ref{cor:basis_open}).
+    \end{proof}
+    \step{2}{Suppose that, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$. Then $x \in \overline{A}$.}
+    \begin{proof}
+        \step{a}{\assume{For all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.}}
+        \step{b}{\pflet{$U$ be an open set that contains $x$} \prove{$U$ intersects $A$.}}
+        \step{c}{\pick\ $B \in \BB$ such that $x \in B \subseteq U$.}
+        \step{d}{$B$ intersects $A$.}
+        \begin{proof}
+            \pf\ From \stepref{a}.
+        \end{proof}
+        \step{e}{$U$ intersects $A$.}
+        \qedstep
+        \begin{proof}
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
     \end{proof}
     \qed
 \end{proof}
@@ -769,6 +950,62 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
+\begin{proposition}[AC]
+    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $A_i \subseteq X_i$ for all $i \in I$.
+    Then
+    \[ \prod_{i \in I} \overline{A_i} = \overline{\prod_{i \in I} A_i} \enspace . \]
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{\prod_{i \in I} A_i} \subseteq \prod_{i \in I} \overline{A_i}$}
+    \begin{proof}
+        \step{a}{For all $i \in I$ we have $A_i \subseteq \overline{A_i}$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:closure_subset}.
+        \end{proof}
+        \step{c}{$\prod_{i \in I} A_i \subseteq \prod_{i \in I} \overline{A_i}$}
+        \qedstep
+        \begin{proof}
+            \pf\ Since $\prod_{i \in I} A_i$ is closed by Proposition \ref{proposition:closed_product}.
+        \end{proof}
+    \end{proof}
+    \step{2}{$\prod_{i \in I} \overline{A_i} \subseteq \overline{\prod_{i \in I} A_i}$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in \prod_{i \in I} \overline{A_i}$}}
+        \step{b}{\pflet{$U$ be a neighbourhood of $x$}}
+        \step{c}{\pick\ $V_i$ open in $X_i$ such that $x \in \prod_{i \in I} V_i \subseteq U$ with $V_i = X_i$ except for $i = i_1, \ldots, i_n$}
+        \step{d}{For $i \in I$, pick $a_i \in V_i \cap A_i$}
+        \begin{proof}
+            \pf\ By Theorem \ref{theorem:closure_neighbourhood} and \stepref{a} using the Axiom of Choice.
+        \end{proof}
+        \step{f}{$U$ intersects $\prod_{i \in I} A_i$}
+        \qedstep
+        \begin{proof}
+            \pf\ $a \in U \cap \prod_{i \in I} A_i$
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    The closure of $\RR^\infty$ in $\RR^\omega$ is $\RR^\omega$
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a \in \RR^\omega$}}
+    \step{2}{\pflet{$U$ be any neighbourhoods of $a$.}}
+    \step{3}{\pick\ $U_n$ open in $\RR$ for all $n$ such that $a \in \prod_{n \geq 0} U_n \subseteq U$ and $U_n = \RR$ for all $n$ except $n_1$, \ldots, $n_k$}
+    \step{4}{\pflet{$b_n = a_n$ for $n = n_1, \ldots, n_k$ and $b_n = 0$ for all other $n$}}
+    \step{5}{$b \in \RR^\infty \cap U$}
+    \qedstep
+    \begin{proof}
+        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The Subspace Topology}
 
 \begin{definition}[Subspace Topology]
@@ -814,6 +1051,22 @@ We prove this is a topology.
         \Leftrightarrow & \exists U \text{ open in } X. Y \setminus A = Y \cap U \\
         \Leftrightarrow & \exists C \text{ closed in } X. Y \setminus A = Y \cap (X \setminus U) \\
         \Leftrightarrow & \exists C \text{ closed in } X. A = Y \cap U & \qed
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Let $Y$ be a subspace of $X$. Let $A \subseteq Y$. Let $\overline{A}$ be the closure of $A$ in $X$.
+    Then the closure of $A$ in $Y$ is $\overline{A} \cap Y$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ The closure of $A$ in $Y$ is
+    \begin{align*}
+        & \bigcap \{ C \text{ closed in } Y \mid A \subseteq C \} \\
+        = & \bigcap \{ D \cap Y \mid D \text{ closed in } X, A \subseteq D \cap Y \} 
+            & (\text{Theorem \ref{theorem:closed}})\\
+        = & \bigcap \{ D \mid D \text{ closed in } X, A \subseteq D \} \cap Y \\
+        = & \overline{A} \cap Y & \qed
     \end{align*}
 \end{proof}
 
@@ -985,245 +1238,6 @@ This example shows that we cannot remove the hypothesis that $Y$ is an interval:
 \begin{definition}[Unit Circle]
     The \emph{unit circle} $S^1$ is $\{ (x,y) \in \RR^2 \mid x^2 + y^2 = 1 \}$
 \end{definition}
-
-\section{Interior}
-
-\begin{definition}[Interior]
-    Let $X$ be a topological space and $A \subseteq X$. The \emph{interior} of $A$, $\Int A$, is the union
-    of all the open subsets of $A$.
-\end{definition}
-
-\begin{lemma}
-    \label{lemma:interior_open}
-    The interior of a set is open.
-\end{lemma}
-
-\begin{proof}
-    \pf\ It is a union of open sets. \qed
-\end{proof}
-
-\begin{lemma}
-    \[ \Int A \subseteq A \]
-\end{lemma}
-
-\begin{proof}
-    \pf\ Immediate from definition. \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:open_interior}
-    A set $A$ is open if and only if $A = \Int A$.
-\end{lemma}
-
-\begin{proof}
-    \pf\ If $A = \Int A$ then $A$ is open by Lemma \ref{lemma:interior_open}. Conversely if
-    $A$ is open then $A \subseteq \Int A$ by the definition of interior and so $A = \Int A$.
-\end{proof}
-
-\section{Neighbourhood}
-
-\begin{definition}[Neighbourhood]
-    A \emph{neighbourhood} of a point $x$ is an open set that contains $x$.
-\end{definition}
-
-\section{Closure}
-
-\begin{definition}[Closure]
-    Let $X$ be a topological space and $A \subseteq X$. The \emph{closure} of $A$, $\overline{A}$, is the
-    intersection of all the closed sets that include $A$.
-\end{definition}
-
-This intersection exists since $X$ is a closed set that includes A (Lemma \ref{lemma:closed_whole_set}).
-
-\begin{lemma}
-    The closure of a set is closed.
-\end{lemma}
-
-\begin{proof}
-    \pf\ Dual to Lemma \ref{lemma:interior_open}. \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:closure_subset}
-    \[ A \subseteq \overline{A} \]
-\end{lemma}
-
-\begin{proof}
-    \pf\ Immediate from definition. \qed
-\end{proof}
-
-\begin{lemma}
-    A set $A$ is closed if and only if $A = \overline{A}$.
-\end{lemma}
-
-\begin{proof}
-    \pf\ Dual to Lemma \ref{lemma:open_interior}. \qed
-\end{proof}
-
-\begin{theorem}
-    Let $Y$ be a subspace of $X$. Let $A \subseteq Y$. Let $\overline{A}$ be the closure of $A$ in $X$.
-    Then the closure of $A$ in $Y$ is $\overline{A} \cap Y$.
-\end{theorem}
-
-\begin{proof}
-    \pf\ The closure of $A$ in $Y$ is
-    \begin{align*}
-        & \bigcap \{ C \text{ closed in } Y \mid A \subseteq C \} \\
-        = & \bigcap \{ D \cap Y \mid D \text{ closed in } X, A \subseteq D \cap Y \} 
-            & (\text{Theorem \ref{theorem:closed}})\\
-        = & \bigcap \{ D \mid D \text{ closed in } X, A \subseteq D \} \cap Y \\
-        = & \overline{A} \cap Y & \qed
-    \end{align*}
-\end{proof}
-
-\begin{theorem}
-    \label{theorem:closure_neighbourhood}
-    Let $X$ be a topological space, $A \subseteq X$ and $x \in X$. Then $x \in \overline{A}$ if and only if
-    every neighbourhood of $x$ intersects $A$.
-\end{theorem}
-
-\begin{proof}
-    \pf\ We have
-    \begin{align*}
-        & x \in \overline{A} \\
-        \Leftrightarrow & \forall C. C \text{ closed } \wedge A \subseteq C \Rightarrow x \in C \\
-        \Leftrightarrow & \forall U. U \text{ open } \wedge A \cap U = \emptyset \Rightarrow x \notin U \\
-        \Leftrightarrow & \forall U. U \text{ open } \wedge x \in U \Rightarrow U \text{ intersects } A & \qed
-    \end{align*}
-\end{proof}
-
-\begin{theorem}
-    Let $X$ be a topological space, $A \subseteq X$ and $x \in X$. Let $\BB$ be a basis for $X$. Then $x \in 
-    \overline{A}$ if and only if, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{If $x \in \overline{A}$ then, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.}
-    \begin{proof}
-        \pf\ This follows from Theorem \ref{theorem:closure_neighbourhood} since every element of $\BB$ is open
-        (Corollary \ref{cor:basis_open}).
-    \end{proof}
-    \step{2}{Suppose that, for all $B \in \BB$, if $x \in B$ then $B$ intersects $A$. Then $x \in \overline{A}$.}
-    \begin{proof}
-        \step{a}{\assume{For all $B \in \BB$, if $x \in B$ then $B$ intersects $A$.}}
-        \step{b}{\pflet{$U$ be an open set that contains $x$} \prove{$U$ intersects $A$.}}
-        \step{c}{\pick\ $B \in \BB$ such that $x \in B \subseteq U$.}
-        \step{d}{$B$ intersects $A$.}
-        \begin{proof}
-            \pf\ From \stepref{a}.
-        \end{proof}
-        \step{e}{$U$ intersects $A$.}
-        \qedstep
-        \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:closure_monotone}
-    If $A \subseteq B$ then $\overline{A} \subseteq \overline{B}$.
-\end{proposition}
-
-\begin{proof}
-    \pf\ This holds because $\overline{B}$ is a closed set that includes $A$. \qed
-\end{proof}
-
-\begin{proposition}
-    \[ \overline{A \cup B} = \overline{A} \cup \overline{B} \]
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{$\overline{A} \subseteq \overline{A \cup B}$}
-    \begin{proof}
-        \pf\ By Proposition \ref{proposition:closure_monotone}.
-    \end{proof}
-    \step{2}{$\overline{B} \subseteq \overline{A \cup B}$}
-    \begin{proof}
-        \pf\ By Proposition \ref{proposition:closure_monotone}.
-    \end{proof}
-    \step{3}{$\overline{A \cup B} \subseteq \overline{A} \cup \overline{B}$}
-    \begin{proof}
-        \step{a}{\pflet{$x \in \overline{A \cup B}$}}
-        \step{b}{\assume{$x \notin \overline{A}$} \prove{$x \in \overline{B}$}}
-        \step{c}{\pick\ a neighbourhood $U$ of $x$ that does not intersect $A$}
-        \step{c}{\pflet{$V$ be any neighbourhood of $x$}}
-        \step{d}{$U \cap V$ is a neighbourhood of $x$}
-        \step{e}{$U \cap V$ intersects $A \cup B$}
-        \begin{proof}
-            \pf\ From \stepref{a} and Theorem \ref{theorem:closure_neighbourhood}.
-        \end{proof}
-        \step{f}{$U \cap V$ intersects $B$}
-        \begin{proof}
-            \pf\ From \stepref{c}
-        \end{proof}
-        \step{g}{$V$ intersects $B$}
-        \qedstep
-        \begin{proof}
-            \pf\ We have $x \in \overline{B}$ from Theorem \ref{theorem:closure_neighbourhood}.
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}[AC]
-    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $A_i \subseteq X_i$ for all $i \in I$.
-    Then
-    \[ \prod_{i \in I} \overline{A_i} = \overline{\prod_{i \in I} A_i} \enspace . \]
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{$\overline{\prod_{i \in I} A_i} \subseteq \prod_{i \in I} \overline{A_i}$}
-    \begin{proof}
-        \step{a}{For all $i \in I$ we have $A_i \subseteq \overline{A_i}$}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:closure_subset}.
-        \end{proof}
-        \step{c}{$\prod_{i \in I} A_i \subseteq \prod_{i \in I} \overline{A_i}$}
-        \qedstep
-        \begin{proof}
-            \pf\ Since $\prod_{i \in I} A_i$ is closed by Proposition \ref{proposition:closed_product}.
-        \end{proof}
-    \end{proof}
-    \step{2}{$\prod_{i \in I} \overline{A_i} \subseteq \overline{\prod_{i \in I} A_i}$}
-    \begin{proof}
-        \step{a}{\pflet{$x \in \prod_{i \in I} \overline{A_i}$}}
-        \step{b}{\pflet{$U$ be a neighbourhood of $x$}}
-        \step{c}{\pick\ $V_i$ open in $X_i$ such that $x \in \prod_{i \in I} V_i \subseteq U$ with $V_i = X_i$ except for $i = i_1, \ldots, i_n$}
-        \step{d}{For $i \in I$, pick $a_i \in V_i \cap A_i$}
-        \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_neighbourhood} and \stepref{a} using the Axiom of Choice.
-        \end{proof}
-        \step{f}{$U$ intersects $\prod_{i \in I} A_i$}
-        \qedstep
-        \begin{proof}
-            \pf\ $a \in U \cap \prod_{i \in I} A_i$
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{example}
-    The closure of $\RR^\infty$ in $\RR^\omega$ is $\RR^\omega$
-\end{example}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$a \in \RR^\omega$}}
-    \step{2}{\pflet{$U$ be any neighbourhoods of $a$.}}
-    \step{3}{\pick\ $U_n$ open in $\RR$ for all $n$ such that $a \in \prod_{n \geq 0} U_n \subseteq U$ and $U_n = \RR$ for all $n$ except $n_1$, \ldots, $n_k$}
-    \step{4}{\pflet{$b_n = a_n$ for $n = n_1, \ldots, n_k$ and $b_n = 0$ for all other $n$}}
-    \step{5}{$b \in \RR^\infty \cap U$}
-    \qedstep
-    \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
-    \end{proof}
-    \qed
-\end{proof}
 
 \section{Limit Points}
 
