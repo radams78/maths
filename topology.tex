@@ -99,6 +99,129 @@
     The set is nonempty since it contains the discrete topology. \qed
 \end{proof}
 
+\section{Closed Set}
+
+\begin{definition}[Closed Set]
+    Let $X$ be a topological space and $A \subseteq X$. Then $A$ is \emph{closed} if and only if $X \setminus
+    A$ is open.
+\end{definition}
+
+\begin{lemma}
+    The empty set is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Since the whole space $X$ is always open. \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:closed_whole_set}
+    The topological space $X$ is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Since $\emptyset$ is open. \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:closed_intersection}
+    The intersection of a nonempty set of closed sets is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Let $\mathcal{C}$ be a nonempty set of closed sets. Then $X \setminus \bigcap \mathcal{C}
+    = \bigcup \{ X \setminus C \mid C \in \mathcal{C} \}$ is open. \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:closed_union}
+    The union of two closed sets is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Let $C$ and $D$ be closed. Then $X \setminus (C \cup D) = (X \setminus C) \cap (X \setminus D)$
+    is open. \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a set and $\mathcal{C} \subseteq \pow X$ a set such that:
+    \begin{enumerate}
+        \item $\emptyset \in \mathcal{C}$
+        \item $X \in \mathcal{C}$
+        \item For all $\AA \subseteq \mathcal{C}$ nonempty we have $\bigcap \AA \in \mathcal{C}$
+        \item For all $C, D \in \mathcal{C}$ we have $C \cup D \in \mathcal{C}$.
+    \end{enumerate}
+    Then there exists a unique topology $\TT$ such that $\mathcal{C}$ is the set of closed sets, namely
+    \[ \TT = \{ X \setminus C \mid C \in \mathcal{C} \} \]
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\TT = \{ X \setminus C \mid C \in \mathcal{C} \}$}}
+    \step{2}{$\TT$ is a topology}
+    \begin{proof}
+        \step{a}{$X \in \TT$}
+        \begin{proof}
+            \pf\ Since $\emptyset \in \mathcal{C}$
+        \end{proof}
+        \step{b}{For all $\UU \subseteq \TT$ we have $\bigcup \UU \in \TT$}
+        \begin{proof}
+            \step{i}{\pflet{$\UU \subseteq \TT$}}
+            \step{ii}{\case{$\UU = \emptyset$}}
+            \begin{proof}
+                \pf\ In this case $\bigcup \UU = \emptyset \in \TT$ since $X \in \mathcal{C}$
+            \end{proof}
+            \step{iii}{\case{$\UU \neq \emptyset$}}
+            \begin{proof}
+                \pf\ In this case $X \setminus \bigcup \UU = \bigcap \{ X \setminus U \mid U \in \UU \} \in
+                \mathcal{C}$.
+            \end{proof}
+        \end{proof}
+        \step{c}{For all $U, V \in \TT$ we have $U \cap V \in \TT$}
+        \begin{proof}
+            \pf\ Since $X \setminus (U \cap V) = (X \setminus U) \cup (X \setminus V) \in \mathcal{C}$.
+        \end{proof}
+    \end{proof}
+    \step{3}{$\mathcal{C}$ is the set of all closed sets in $\TT$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            & C \text{ is closed in } \TT \\
+            \Leftrightarrow & X \setminus C \in \TT \\
+            \Leftrightarrow & C \in \mathcal{C}
+        \end{align*}
+    \end{proof}
+    \step{4}{If $\TT'$ is a topology and $\mathcal{C}$ is the set of closed sets in $\TT'$ then
+    $\TT' = \TT$}
+    \begin{proof}
+        \pf\ 
+        We have
+        \begin{align*}
+            & U \in \TT \\
+            \Leftrightarrow & X \setminus U \in \mathcal{C} \\
+            \Leftrightarrow & X \setminus U \text{ is closed in } \TT' \\
+            \Leftrightarrow & U \in \TT'
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    If $U$ is open and $A$ is closed then $U \setminus A$ is open.
+\end{proposition}
+
+\begin{proof}
+    \pf\ $U \setminus A = U \cap (X \setminus A)$ is the intersection of two open sets. \qed
+\end{proof}
+
+\begin{proposition}
+    If $U$ is open and $A$ is closed then $A \setminus U$ is closed.
+\end{proposition}
+
+\begin{proof}
+    \pf\ $A \setminus U = A \cap (X \setminus U)$ is the intersection of two closed sets. \qed
+\end{proof}
+
 \section{Basis for a Topology}
 
 \begin{definition}[Basis]
@@ -574,6 +697,16 @@ We prove this is a basis for a topology.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:closed_product}
+    If $A_i$ is closed in $X_i$ for all $i \in I$ then $\prod_{i \in I} A_i$ is closed in $\prod_{i \in I} X_i$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \[ (\prod_{i \in I} X_i) \setminus (\prod_{i \in I} A_i) = \bigcup_{j \in I} \left( \prod_{i \in I} X_i \setminus \inv{\pi_j}(A_j) \right) \qed \]
+\end{proof}
+
+\begin{proposition}
     Let $\{ A_i \}_{i \in I}$ be a family of topological spaces. For $i \in I$, let $\BB_i$ be a basis for the topology on $A_i$. Then $\BB = \{ \prod_{i \in I} B_i \mid
     \forall i \in I. B_i \in \BB_i, B_i = A_i \text{ for all but finitely many } i \}$ is a basis for the box topology on $\prod_{i \in I} A_i$.
 \end{proposition}
@@ -666,6 +799,24 @@ We prove this is a topology.
     \qed
 \end{proof}
 
+\begin{theorem}
+    \label{theorem:closed}
+    Let $X$ be a topological space and $Y$ a subspace of $X$. Let $A \subseteq Y$. Then $A$ is closed in $Y$
+    if and only if there exists a closed set $C$ in $X$ such that $A = C \cap Y$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ 
+    We have
+    \begin{align*}
+        & A \text{ is closed in } Y \\
+        \Leftrightarrow & Y \setminus A \text{ is open in } Y \\
+        \Leftrightarrow & \exists U \text{ open in } X. Y \setminus A = Y \cap U \\
+        \Leftrightarrow & \exists C \text{ closed in } X. Y \setminus A = Y \cap (X \setminus U) \\
+        \Leftrightarrow & \exists C \text{ closed in } X. A = Y \cap U & \qed
+    \end{align*}
+\end{proof}
+
 \begin{lemma}
     \label{lemma:subspace_basis}
     Let $X$ be a topological space and $Y \subseteq X$. Let $\BB$ be a basis for the topology on $X$.
@@ -717,6 +868,17 @@ We prove this is a topology.
         \pf\ Since it is the intersection of two open sets $V$ and $Y$.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:closed_subspace}
+    Let $Y$ be a subspace of $X$ and $A \subseteq Y$. If $A$ is closed in $Y$ and $Y$ is closed in $X$
+    then $A$ is closed in $X$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Pick a closed set $C$ in $X$ such that $A = C \cap Y$ (Theorem \ref{theorem:closed}). Then
+    $A$ is the intersection of two sets closed in $X$, hence $A$ is closed in $X$ (Lemma \ref{lemma:closed_intersection}). \qed
 \end{proof}
 
 \begin{theorem}
@@ -823,168 +985,6 @@ This example shows that we cannot remove the hypothesis that $Y$ is an interval:
 \begin{definition}[Unit Circle]
     The \emph{unit circle} $S^1$ is $\{ (x,y) \in \RR^2 \mid x^2 + y^2 = 1 \}$
 \end{definition}
-
-\section{Closed Set}
-
-\begin{definition}[Closed Set]
-    Let $X$ be a topological space and $A \subseteq X$. Then $A$ is \emph{closed} if and only if $X \setminus
-    A$ is open.
-\end{definition}
-
-\begin{lemma}
-    The empty set is closed.
-\end{lemma}
-
-\begin{proof}
-    \pf\ Since the whole space $X$ is always open. \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:closed_whole_set}
-    The topological space $X$ is closed.
-\end{lemma}
-
-\begin{proof}
-    \pf\ Since $\emptyset$ is open. \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:closed_intersection}
-    The intersection of a nonempty set of closed sets is closed.
-\end{lemma}
-
-\begin{proof}
-    \pf\ Let $\mathcal{C}$ be a nonempty set of closed sets. Then $X \setminus \bigcap \mathcal{C}
-    = \bigcup \{ X \setminus C \mid C \in \mathcal{C} \}$ is open. \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:closed_union}
-    The union of two closed sets is closed.
-\end{lemma}
-
-\begin{proof}
-    \pf\ Let $C$ and $D$ be closed. Then $X \setminus (C \cup D) = (X \setminus C) \cap (X \setminus D)$
-    is open. \qed
-\end{proof}
-
-\begin{theorem}
-    \label{theorem:closed}
-    Let $X$ be a topological space and $Y$ a subspace of $X$. Let $A \subseteq Y$. Then $A$ is closed in $Y$
-    if and only if there exists a closed set $C$ in $X$ such that $A = C \cap Y$.
-\end{theorem}
-
-\begin{proof}
-    \pf\ 
-    We have
-    \begin{align*}
-        & A \text{ is closed in } Y \\
-        \Leftrightarrow & Y \setminus A \text{ is open in } Y \\
-        \Leftrightarrow & \exists U \text{ open in } X. Y \setminus A = Y \cap U \\
-        \Leftrightarrow & \exists C \text{ closed in } X. Y \setminus A = Y \cap (X \setminus U) \\
-        \Leftrightarrow & \exists C \text{ closed in } X. A = Y \cap U & \qed
-    \end{align*}
-\end{proof}
-
-\begin{theorem}
-    \label{theorem:closed_subspace}
-    Let $Y$ be a subspace of $X$ and $A \subseteq Y$. If $A$ is closed in $Y$ and $Y$ is closed in $X$
-    then $A$ is closed in $X$.
-\end{theorem}
-
-\begin{proof}
-    \pf\ Pick a closed set $C$ in $X$ such that $A = C \cap Y$ (Theorem \ref{theorem:closed}). Then
-    $A$ is the intersection of two sets closed in $X$, hence $A$ is closed in $X$ (Lemma \ref{lemma:closed_intersection}). \qed
-\end{proof}
-
-\begin{proposition}
-    Let $X$ be a set and $\mathcal{C} \subseteq \pow X$ a set such that:
-    \begin{enumerate}
-        \item $\emptyset \in \mathcal{C}$
-        \item $X \in \mathcal{C}$
-        \item For all $\AA \subseteq \mathcal{C}$ nonempty we have $\bigcap \AA \in \mathcal{C}$
-        \item For all $C, D \in \mathcal{C}$ we have $C \cup D \in \mathcal{C}$.
-    \end{enumerate}
-    Then there exists a unique topology $\TT$ such that $\mathcal{C}$ is the set of closed sets, namely
-    \[ \TT = \{ X \setminus C \mid C \in \mathcal{C} \} \]
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$\TT = \{ X \setminus C \mid C \in \mathcal{C} \}$}}
-    \step{2}{$\TT$ is a topology}
-    \begin{proof}
-        \step{a}{$X \in \TT$}
-        \begin{proof}
-            \pf\ Since $\emptyset \in \mathcal{C}$
-        \end{proof}
-        \step{b}{For all $\UU \subseteq \TT$ we have $\bigcup \UU \in \TT$}
-        \begin{proof}
-            \step{i}{\pflet{$\UU \subseteq \TT$}}
-            \step{ii}{\case{$\UU = \emptyset$}}
-            \begin{proof}
-                \pf\ In this case $\bigcup \UU = \emptyset \in \TT$ since $X \in \mathcal{C}$
-            \end{proof}
-            \step{iii}{\case{$\UU \neq \emptyset$}}
-            \begin{proof}
-                \pf\ In this case $X \setminus \bigcup \UU = \bigcap \{ X \setminus U \mid U \in \UU \} \in
-                \mathcal{C}$.
-            \end{proof}
-        \end{proof}
-        \step{c}{For all $U, V \in \TT$ we have $U \cap V \in \TT$}
-        \begin{proof}
-            \pf\ Since $X \setminus (U \cap V) = (X \setminus U) \cup (X \setminus V) \in \mathcal{C}$.
-        \end{proof}
-    \end{proof}
-    \step{3}{$\mathcal{C}$ is the set of all closed sets in $\TT$}
-    \begin{proof}
-        \pf
-        \begin{align*}
-            & C \text{ is closed in } \TT \\
-            \Leftrightarrow & X \setminus C \in \TT \\
-            \Leftrightarrow & C \in \mathcal{C}
-        \end{align*}
-    \end{proof}
-    \step{4}{If $\TT'$ is a topology and $\mathcal{C}$ is the set of closed sets in $\TT'$ then
-    $\TT' = \TT$}
-    \begin{proof}
-        \pf\ 
-        We have
-        \begin{align*}
-            & U \in \TT \\
-            \Leftrightarrow & X \setminus U \in \mathcal{C} \\
-            \Leftrightarrow & X \setminus U \text{ is closed in } \TT' \\
-            \Leftrightarrow & U \in \TT'
-        \end{align*}
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:closed_product}
-    If $A_i$ is closed in $X_i$ for all $i \in I$ then $\prod_{i \in I} A_i$ is closed in $\prod_{i \in I} X_i$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \[ (\prod_{i \in I} X_i) \setminus (\prod_{i \in I} A_i) = \bigcup_{j \in I} \left( \prod_{i \in I} X_i \setminus \inv{\pi_j}(A_j) \right) \qed \]
-\end{proof}
-
-\begin{proposition}
-    If $U$ is open and $A$ is closed then $U \setminus A$ is open.
-\end{proposition}
-
-\begin{proof}
-    \pf\ $U \setminus A = U \cap (X \setminus A)$ is the intersection of two open sets. \qed
-\end{proof}
-
-\begin{proposition}
-    If $U$ is open and $A$ is closed then $A \setminus U$ is closed.
-\end{proposition}
-
-\begin{proof}
-    \pf\ $A \setminus U = A \cap (X \setminus U)$ is the intersection of two closed sets. \qed
-\end{proof}
 
 \section{Interior}
 
