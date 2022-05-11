@@ -802,6 +802,13 @@ We have simultaneously proved:
     elements of $\mathcal{S}$. \qed
 \end{proof}
 
+\section{Local Basis at a Point}
+
+\begin{definition}[Local Basis]
+    Let $X$ be a topological space and $a \in X$. A \emph{(local) basis at $a$} is a set $\BB$ of neighbourhoods of $a$ such that every neighbourhood of $a$ includes some
+    member of $\BB$.
+\end{definition}
+
 \section{Convergence}
 
 \begin{definition}[Convergence]
@@ -846,7 +853,8 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     such that, for all $n \geq N$, we have $a_n \in U$. \qed
 \end{proof}
 
-\begin{lemma}[Sequence Lemma]
+\begin{lemma}
+    \label{lemma:sequence_lemma1}
     Let $X$ be a topological space. Let $A \subseteq X$ and $l \in X$. If there is a sequence of points in $A$ that converges to $l$ then $l \in \overline{A}$.
 \end{lemma}
 
@@ -1474,30 +1482,6 @@ The following example shows that we cannot remove the assumption of local finite
     \qed
 \end{proof}
 
-\begin{proposition}
-    \label{proposition:converge_product}
-    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $(a_n)$ be a sequence in $\prod_{i \in I} X_i$ and $l \in \prod_{i \in I} X_i$.
-    Then $a_n \rightarrow l$ as $n \rightarrow \infty$ if and only if, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{If $a_n \rightarrow l$ as $n \rightarrow \infty$ then, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}
-    \begin{proof}
-        \pf\ Proposition \ref{proposition:converge_continuous}.
-    \end{proof}
-    \step{2}{If, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$, then $a_n \rightarrow l$ as $n \rightarrow \infty$}
-    \begin{proof}
-        \step{a}{\assume{For all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}}
-        \step{b}{\pflet{$V$ be a neighbourhood of $l$}}
-        \step{c}{\pick\ open sets $U_i$ in $X_i$ such that $l \in \prod_{i \in I} U_i \subseteq V$ and $U_i = X_i$ for all $i$ except $i = i_1, \ldots, i_k$}
-        \step{d}{For $j = 1, \ldots, k$, \pick\ $N_j$ such that, for all $n \geq N_j$, we have $\pi_{i_j}(a_n) \in U_{i_j}$}
-        \step{e}{\pflet{$N = \max(N_1, \ldots, N_k)$}}
-        \step{f}{For all $n \geq N$ we have $a_n \in V$}
-    \end{proof}
-    \qed
-\end{proof}
-
 \section{Homeomorphisms}
 
 \begin{definition}[Homeomorphism]
@@ -1843,6 +1827,30 @@ We prove this is a basis for a topology.
     \qedstep
     \begin{proof}
         \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:converge_product}
+    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $(a_n)$ be a sequence in $\prod_{i \in I} X_i$ and $l \in \prod_{i \in I} X_i$.
+    Then $a_n \rightarrow l$ as $n \rightarrow \infty$ if and only if, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $a_n \rightarrow l$ as $n \rightarrow \infty$ then, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:converge_continuous}.
+    \end{proof}
+    \step{2}{If, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$, then $a_n \rightarrow l$ as $n \rightarrow \infty$}
+    \begin{proof}
+        \step{a}{\assume{For all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}}
+        \step{b}{\pflet{$V$ be a neighbourhood of $l$}}
+        \step{c}{\pick\ open sets $U_i$ in $X_i$ such that $l \in \prod_{i \in I} U_i \subseteq V$ and $U_i = X_i$ for all $i$ except $i = i_1, \ldots, i_k$}
+        \step{d}{For $j = 1, \ldots, k$, \pick\ $N_j$ such that, for all $n \geq N_j$, we have $\pi_{i_j}(a_n) \in U_{i_j}$}
+        \step{e}{\pflet{$N = \max(N_1, \ldots, N_k)$}}
+        \step{f}{For all $n \geq N$ we have $a_n \in V$}
     \end{proof}
     \qed
 \end{proof}
@@ -2453,3 +2461,49 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \end{align*}
 \end{proof}
 
+\section{The First Countability Axiom}
+
+\begin{definition}[First Countability Axiom]
+    A topological space $X$ satisfies the \emph{first countability axiom}, or is \emph{first countable}, if and only if every point has a countable local basis.
+\end{definition}
+
+\begin{lemma}[Sequence Lemma (CC)]
+    Let $X$ be a first countable space. Let $A \subseteq X$ and $l \in \overline{A}$.
+    Then there exists a sequence in $A$ that converges to $l$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{0}{\pick\ a countable local bases $\{ B_n \mid n \in \ZZ^+ \}$ at $l$.}
+    \step{1}{For all $n \geq 1$, \pick\ $a_n \in A \cap B_1 \cap \cdots \cap B_n$
+    \prove{$a_n \rightarrow l$ as $n \rightarrow \infty$}}
+    \step{2}{\pflet{$U$ b a neighbourhood of $A$}}
+    \step{3}{\pick\ $N$ such that $B_N \subseteq A$}
+    \step{4}{For $n \geq N$ we have $a_n \in U$}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a first countable space and $Y$ a topological space. Let $f : X \rightarrow Y$. Suppose that, for every sequence $(x_n)$ in $X$ and $l \in X$, if $x_n \rightarrow l$
+    as $n \rightarrow \infty$, then $f(x_n) \rightarrow f(l)$ as $n \rightarrow \infty$. Then $f$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A \subseteq X$}}
+    \step{2}{\pflet{$a \in A$} \prove{$f(a) \in \overline{f(A)}$}}
+    \step{3}{\pick\ a sequence $(x_n)$ in $A$ that converges to $a$.}
+    \begin{proof}
+        \pf\ By the Sequence Lemma.
+    \end{proof}
+    \step{4}{$f(x_n) \rightarrow f(a)$}
+    \step{5}{$f(a) \in \overline{f(A)}$}
+    \begin{proof}
+        \pf\ By Lemma \ref{lemma:sequence_lemma1}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ By Theorem \ref{theorem:continuous}.
+    \end{proof}
+    \qed
+\end{proof}

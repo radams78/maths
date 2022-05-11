@@ -37,6 +37,8 @@ INPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/topology.aux
 INPUT /home/robin/fun/maths/topology.aux
+INPUT /home/robin/fun/maths/metric.aux
+INPUT /home/robin/fun/maths/metric.aux
 OUTPUT /home/robin/fun/maths/notes.aux
 INPUT /usr/share/texmf/fonts/map/fontname/texfonts.map
 INPUT /usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map
@@ -96,6 +98,9 @@ INPUT /usr/share/texmf/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+OUTPUT /home/robin/fun/maths/metric.aux
+INPUT /home/robin/fun/maths/metric.tex
+INPUT /home/robin/fun/maths/metric.tex
 INPUT /home/robin/fun/maths/notes.aux
 INPUT /home/robin/fun/maths/order.aux
 INPUT /home/robin/fun/maths/order.aux
@@ -103,6 +108,8 @@ INPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/topology.aux
 INPUT /home/robin/fun/maths/topology.aux
+INPUT /home/robin/fun/maths/metric.aux
+INPUT /home/robin/fun/maths/metric.aux
 INPUT /usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb
