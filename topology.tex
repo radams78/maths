@@ -809,6 +809,15 @@ We have simultaneously proved:
     member of $\BB$.
 \end{definition}
 
+\begin{lemma}
+    \label{lemma:countable_local_basis}
+    If there exists a countable local basis at a point $a$, then there exists a countable local basis $\{ B_n \mid n \geq 1 \}$ such that $B_1 \supseteq B_2 \supseteq \cdots$. 
+\end{lemma}
+
+\begin{proof}
+    \pf\ Given a countable local basis $\{ C_n \mid n \geq 1 \}$, take $B_n = C_1 \cap \cdots \cap C_n$. \qed
+\end{proof}
+
 \section{Convergence}
 
 \begin{definition}[Convergence]
@@ -2474,12 +2483,18 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 
 \begin{proof}
     \pf
-    \step{0}{\pick\ a countable local bases $\{ B_n \mid n \in \ZZ^+ \}$ at $l$.}
-    \step{1}{For all $n \geq 1$, \pick\ $a_n \in A \cap B_1 \cap \cdots \cap B_n$
+    \step{0}{\pick\ a countable local basis $\{ B_n \mid n \in \ZZ^+ \}$ at $l$ such that $B_1 \supseteq B_2 \supseteq \cdots$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:countable_local_basis}.
+    \end{proof}
+    \step{1}{For all $n \geq 1$, \pick\ $a_n \in A \cap B_n$.
     \prove{$a_n \rightarrow l$ as $n \rightarrow \infty$}}
-    \step{2}{\pflet{$U$ b a neighbourhood of $A$}}
-    \step{3}{\pick\ $N$ such that $B_N \subseteq A$}
+    \step{2}{\pflet{$U$ be a neighbourhood of $A$}}
+    \step{3}{\pick\ $N$ such that $B_N \subseteq U$}
     \step{4}{For $n \geq N$ we have $a_n \in U$}
+    \begin{proof}
+        \pf\ $a_n \in B_n \subseteq B_N \subseteq U$
+    \end{proof}
     \qed
 \end{proof}
 
