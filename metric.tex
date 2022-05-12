@@ -359,6 +359,7 @@ We prove this is a metric.
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:continuous_metric}
     Let $X$ and $Y$ be metric spaces and $f : X \rightarrow Y$. Then $f$ is continuous if and only if, for all $x \in X$ and $\epsilon > 0$,
     there exists $\delta > 0$ such that, for all $y \in X$, if $d(x,y) < \delta$ then $d(f(x), f(y)) < \epsilon$.
 \end{theorem}
@@ -658,6 +659,34 @@ We prove this is a metric.
     \step{5}{$d(x,z) \leq d(x,y) + d(y,z)$}
     \begin{proof}
         \pf\ By Lemma \ref{lemma:triangle_inequality}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Addition is a continuous function $\RR^2 \rightarrow \RR$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a, b \in \RR$}}
+    \step{2}{\pflet{$\epsilon > 0$}}
+    \step{3}{\pflet{$\delta = \epsilon / 2$}}
+    \step{4}{\pflet{$x, y \in \RR$}}
+    \step{5}{\assume{$\rho((a,b),(x,y)) < \delta$}}
+    \step{6}{$|(a+b)-(x+y)| < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            |(a+b)-(x+y)| & = |a-x| + |b-y| \\
+            & \leq 2 \rho((a,b),(x,y)) \\
+            & < 2 \delta \\
+            & = \epsilon
+        \end{align*}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:continuous_metric}
     \end{proof}
     \qed
 \end{proof}
