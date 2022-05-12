@@ -447,6 +447,14 @@ We prove this is a metric.
     \pf\ In any metric space $X$, the open balls $B(a,1/n)$ for $n \geq 1$ form a local basis at $a$.
 \end{proof}
 
+\begin{example}
+    $\RR^\omega$ under the box topology is not metrizable.
+\end{example}
+
+\begin{example}
+    If $J$ is uncountable then $\RR^J$ under the product topology is not metrizable.
+\end{example}
+
 \section{Real Linear Algebra}
 
 \begin{definition}[Square Metric]
@@ -875,4 +883,58 @@ We prove this is a metric.
 \begin{proof}
     \pf\ Given any open ball $B(a, \epsilon)$, pick an integer $N$ such that $1 / \epsilon < N$. Then $B(a, \epsilon)$ includes sequences whose $n$th entry is 0
     for all $n \geq N$. \qed
+\end{proof}
+
+\section{Uniform Convergence}
+
+\begin{definition}[Uniform Convergence]
+    Let $X$ be a set and $Y$ a metric space. Let $(f_n : X \rightarrow Y)$ be a sequence of functions and $f : X \rightarrow Y$ be a function.
+    Then $f_n$ \emph{converges uniformly} to $f$ as $n \rightarrow \infty$ if and only if, for all $\epsilon > 0$, there exists $N$ such that, for all $n \geq N$ and $x \in X$,
+    we have $d(f_n(x),f(x)) < \epsilon$.
+\end{definition}
+
+\begin{theorem}[Uniform Limit Theorem]
+    Let $X$ be a topological space and $Y$ a metric space.  Let $(f_n : X \rightarrow Y)$ be a sequence of continuous functions and $f : X \rightarrow Y$ be a function.
+    If $f_n$ converges uniformly to $f$ as $n \rightarrow \infty$, then $f$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in X$ and $\epsilon > 0$}}
+    \step{2}{\pick\ $N$ such that, for all $n \geq N$ and $y \in X$, we have $d(f_n(y), f(y)) < \epsilon / 3$}
+    \step{3}{\pick\ a neighbourhood $U$ of $x$ such that $f_N(U) \subseteq B(f_N(x), \epsilon / 3)$ \prove{$f(U) \subseteq B(f(x), \epsilon)$}}
+    \step{4}{\pflet{$y \in U$}}
+    \step{5}{$d(f(y),f(x)) < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(f(y),f(x)) & \leq d(f(y),f_N(y)) + d(f_N(y),f_N(x)) + d(f_N(x),f(x)) & (\text{Triangle Inequality}) \\
+            & < \epsilon / 3 + \epsilon / 3 + \epsilon / 3 & (\text{\stepref{2}, \stepref{3}})\\
+            & = \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a set. Let $(f_n : X \rightarrow \RR)$ be a sequence of functions and $f : X \rightarrow \RR$ be a function.
+    Then $f_n$ converges unifomly to $f$ as $n \rightarrow \infty$ if and only if $f_n \rightarrow f$ as $n \rightarrow \infty$
+    in $\RR^X$ under the uniform topology.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $f_n$ converges uniformly to $f$ then $f_n$ converges to $f$ under the uniform topology.}
+    \begin{proof}
+        \step{a}{\assume{$f_n$ converges uniformly to $f$}}
+        \step{b}{\pflet{$\epsilon > 0$}}
+        \step{c}{\pick\ $N$ such that, for all $n \geq N$ and $x \in X$, we have $d(f_n(x),f(x)) < \epsilon / 2$}
+        \step{d}{For all $n \geq N$ we have $\overline{\rho}(f_n,f) \leq \epsilon / 2$}
+        \step{e}{For all $n \geq N$ we have $\overline{\rho}(f_n,f) < \epsilon$}
+    \end{proof}
+    \step{2}{If $f_n$ converges to $f$ under the uniform topology then $f_n$ converges uniformly to $f$.}
+    \begin{proof}
+        \pf\ Since if $\overline{\rho}(f_n, f) < \epsilon$ then $d(f_n(x),f(x)) < \epsilon$ for all $x \in X$.
+    \end{proof}
+    \qed
 \end{proof}

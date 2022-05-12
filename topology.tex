@@ -2498,7 +2498,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \qed
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[CC]
     Let $X$ be a first countable space and $Y$ a topological space. Let $f : X \rightarrow Y$. Suppose that, for every sequence $(x_n)$ in $X$ and $l \in X$, if $x_n \rightarrow l$
     as $n \rightarrow \infty$, then $f(x_n) \rightarrow f(l)$ as $n \rightarrow \infty$. Then $f$ is continuous.
 \end{theorem}
@@ -2520,5 +2520,36 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \begin{proof}
         \pf\ By Theorem \ref{theorem:continuous}.
     \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}[CC]
+    The space $\RR^\omega$ under the box product is not first countable.
+\end{example}
+
+\begin{proof}
+    \pf\ Let $\{ B_n \mid n \geq 0 \}$ be a countable set of neighbourhoods of $\vec{0}$. We will construct a neighbourhood of $\vec{0}$ that does not include any of these.
+
+    For $n \geq 0$, pick a neighbourhood $U_n$ of 0 such that $U_n \subset \pi_n(B_p)$. Then $\prod_{n=0}^\infty U_n$ is a neighbourhood of $\vec{0}$ that does not
+    include any $B_n$. \qed
+\end{proof}
+
+\begin{example}
+    If $J$ is an uncountable set then $\RR^J$ is not first countable.
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{ B_n \mid n \geq 0 \}$ be any countable set of neighbourhoods of $\vec{0}$.}}
+    \step{2}{For $n \geq 0$, \pick\ a basis element $\prod_{\alpha \in J} U_{n \alpha}$ that contains $\vec{0}$ and is included in $B_n$.}
+    \begin{proof}
+        \pf\ Using the Axiom of Countable Choice.
+    \end{proof}
+    \step{3}{For $n \geq 0$, \pflet{$J_n = \{ \alpha \in J \mid U_{n \alpha} \neq \RR \}$}}
+    \step{4}{\pick\ $\beta \in J$ such that $\beta \notin J_n$ for any $n$.}
+    \begin{proof}
+        \pf\ Since each $J_n$ is finite so $\bigcup_n J_n$ is countable.
+    \end{proof}
+    \step{5}{$\pi_\beta((-1,1))$ is a neighbourhood of $\vec{0}$ that does not include any $B_n$.}
     \qed
 \end{proof}
