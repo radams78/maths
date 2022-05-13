@@ -893,6 +893,11 @@ We prove this is a metric.
     we have $d(f_n(x),f(x)) < \epsilon$.
 \end{definition}
 
+\begin{example}
+    Define $f_n : [0,1] \rightarrow \RR$ by $f_n(x) = x^n$ for $n \geq 1$, and $f : [0,1] \rightarrow \RR$ by $f(x) = 0$ if $x < 1$, $f(1) = 1$.  Then $f_n$ converges to $f$
+    pointwise but not uniformly.
+\end{example}
+
 \begin{theorem}[Uniform Limit Theorem]
     Let $X$ be a topological space and $Y$ a metric space.  Let $(f_n : X \rightarrow Y)$ be a sequence of continuous functions and $f : X \rightarrow Y$ be a function.
     If $f_n$ converges uniformly to $f$ as $n \rightarrow \infty$, then $f$ is continuous.
@@ -917,6 +922,34 @@ We prove this is a metric.
 \end{proof}
 
 \begin{proposition}
+    Let $X$ be a topological space and $Y$ a metric space.  Let $(f_n : X \rightarrow Y)$ be a sequence of continuous functions and $f : X \rightarrow Y$ be a function.
+    Let $(a_n)$ be a sequence of points in $X$ and $a \in X$. If $f_n$ converges uniformly to $f$ and $a_n$ converges to $a$ in $X$ then $f_n(a_n)$ converges to $f(a)$
+    uniformly in $Y$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\epsilon > 0$}}
+    \step{2}{\pick\ $N_1$ such that, for all $n \geq N_1$ and $x \in X$, we have $d(f_n(x),f(x)) < \epsilon / 2$}
+    \step{3}{\pick\ $N_2$ such that, for all $n \geq N_2$, we have $a_n \in \inv{f}(B(a,\epsilon/2))$}
+    \begin{proof}
+        \pf\ Using the fact that $f$ is continuous from the Uniform Limit Theorem.
+    \end{proof}
+    \step{4}{\pflet{$N = \max(N_1,N_2)$}}
+    \step{5}{\pflet{$n \geq N$}}
+    \step{6}{$d(f_n(a_n),f(a)) < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(f_n(a_n),f(a)) & \leq d(f_n(a_n),f(a_n)) + d(f(a_n),f(a)) & (\text{Triangle Inequality}) \\
+            & < \epsilon / 2 + \epsilon / 2 & (\text{\stepref{2}, \stepref{3}}) \\
+            & = \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
     Let $X$ be a set. Let $(f_n : X \rightarrow \RR)$ be a sequence of functions and $f : X \rightarrow \RR$ be a function.
     Then $f_n$ converges unifomly to $f$ as $n \rightarrow \infty$ if and only if $f_n \rightarrow f$ as $n \rightarrow \infty$
     in $\RR^X$ under the uniform topology.
@@ -934,10 +967,21 @@ We prove this is a metric.
     \end{proof}
     \step{2}{If $f_n$ converges to $f$ under the uniform topology then $f_n$ converges uniformly to $f$.}
     \begin{proof}
-        \pf\ Since if $\overline{\rho}(f_n, f) < \epsilon$ then $d(f_n(x),f(x)) < \epsilon$ for all $x \in X$.
+        \step{a}{\assume{$f_n$ converges to $f$ under the uniform topology.}}
+        \step{b}{\pflet{$\epsilon > 0$}}
+        \step{c}{\pick\ $N$ such that, for all $n \geq N$, we have $\overline{\rho}(f_n,f) < \min(\epsilon,1/2)$}
+        \step{d}{\pflet{$n \geq N$}}
+        \step{e}{\pflet{$x \in X$}}
+        \step{f}{$\overline{\rho}(f_n,f) < \min(\epsilon,1/2)$}
+        \begin{proof}
+            \pf\ From \stepref{c}.
+        \end{proof}
+        \step{f}{$d(f_n(x),f(x)) < \min(\epsilon,1/2)$}
+        \step{g}{$d(f_n(x),f(x)) < \epsilon$}
     \end{proof}
     \qed
 \end{proof}
+
 
 \section{Isometric Imbeddings}
 
