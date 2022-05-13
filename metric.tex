@@ -938,3 +938,31 @@ We prove this is a metric.
     \end{proof}
     \qed
 \end{proof}
+
+\section{Isometric Imbeddings}
+
+\begin{definition}
+    Let $X$ and $Y$ be metric spaces. An \emph{isometric imbedding} $f : X \rightarrow Y$ is a function such that, for all $x, y \in X$, we have $d(f(x),f(y)) = d(x,y)$.
+\end{definition}
+
+\begin{proposition}
+    Every isometric imbedding is an imbedding.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f : X \rightarrow Y$ be an isometric imbedding.}}
+    \step{2}{$f$ is injective.}
+    \begin{proof}
+        \pf\ If $f(x) = f(y)$ then $d(f(x),f(y)) = 0$ hence $d(x,y) = 0$ hence $x = y$.
+    \end{proof}
+    \step{3}{$f$ is continuous.}
+    \begin{proof}
+        \pf\ For all $\epsilon > 0$, if $d(x,y) < \epsilon$ then $d(f(x),f(y)) < \epsilon$.
+    \end{proof}
+    \step{4}{$f : X \rightarrow f(X)$ is an open map.}
+    \begin{proof}
+        \pf\ $f(B(a,\epsilon)) = B(f(a),\epsilon) \cap f(X)$.
+    \end{proof}
+    \qed
+\end{proof}
