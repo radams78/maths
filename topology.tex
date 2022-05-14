@@ -1094,6 +1094,18 @@ The following example shows that we cannot remove the assumption of local finite
     \pf\ From Lemma \ref{lemma:basis_unions}. \qed
 \end{proof}
 
+\begin{proposition}
+    \label{proposition:open_map_basis}
+    Let $X$ and $Y$ be topological spaces. Let $\BB$ be a basis for the topology on $X$.
+    Let $f : X \rightarrow Y$. Suppose that, for all $B \in \BB$, we have $f(B)$
+    is open tn $Y$. Then $f$ is an open map.
+\end{proposition}
+
+\begin{proof}
+    \pf\ For any $\AA \subseteq \BB$, we have $f(\bigcup \AA) = \bigcup_{B \in \BB} f(B)$
+    is open in $Y$. The result follows from Lemma \ref{lemma:basis_unions}. \qed
+\end{proof}
+
 \section{Continuous Functions}
 
 \begin{definition}[Continuous]
@@ -1289,7 +1301,7 @@ The following example shows that we cannot remove the assumption of local finite
 \end{proof}
 
 \begin{theorem}
-    \label{theorem:composite_continuous}
+    \label{theorem:continuous_composite}
     The composite of two continuous functions is continuous.
 \end{theorem}
 
@@ -1345,23 +1357,6 @@ The following example shows that we cannot remove the assumption of local finite
     \step{4}{For all $U \in \UU$, we have $\inv{(f \restriction U)}(V)$ is open in $X$.}
     \begin{proof}
         \pf\ Lemma \ref{lemma:subspace_open}.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{theorem}
-    \label{theorem:product_continuous}
-        Let $A$ be a topological space and $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $f : A \rightarrow \prod_{i \in I} X_i$ be a function.
-        If $\pi_i \circ f$ is continuous for all $i \in I$ then $f$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$i \in I$ and $U$ be open in $X_i$}}
-    \step{2}{$\inv{f}(\inv{\pi_i}(U))$ is open in $A$}
-    \qedstep
-    \begin{proof}
-        \pf\ Proposition \ref{proposition:continuous_subbasis}.
     \end{proof}
     \qed
 \end{proof}
@@ -1452,7 +1447,7 @@ The following example shows that we cannot remove the assumption of local finite
 
 \begin{proof}
     \pf\ $\pi_1 \circ (f \times g) = f \circ \pi_1$ and $\pi_2 \circ (f \times g) = g \circ \pi_2$ are continuous
-    by Theorem \ref{theorem:composite_continuous}. The result follows by Theorem \ref{theorem:product_continuous}.
+    by Theorem \ref{theorem:continuous_composite}. The result follows by Theorem \ref{theorem:product_continuous}.
 \end{proof}
 
 \begin{proposition}
@@ -1869,6 +1864,23 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
+\begin{theorem}
+    \label{theorem:product_continuous}
+        Let $A$ be a topological space and $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $f : A \rightarrow \prod_{i \in I} X_i$ be a function.
+        If $\pi_i \circ f$ is continuous for all $i \in I$ then $f$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$i \in I$ and $U$ be open in $X_i$}}
+    \step{2}{$\inv{f}(\inv{\pi_i}(U))$ is open in $A$}
+    \qedstep
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:continuous_subbasis}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \subsection{Continuous in Each Variable Separately}
 
 \begin{definition}[Continuous in Each Variable Separately]
@@ -1887,7 +1899,7 @@ We prove this is a basis for a topology.
 
 \begin{proof}
     \pf\ For $a \in X$, the function $\lambda y \in Y. F(a,y)$ is $F \circ i$ where $i : Y \rightarrow X \times Y$ maps $y$ to $(a,y)$.
-    We have $i$ is continuous by Proposition \ref{proposition:imbedding_product}, hence $F \circ i$ is continuous by Theorem \ref{theorem:composite_continuous}.
+    We have $i$ is continuous by Proposition \ref{proposition:imbedding_product}, hence $F \circ i$ is continuous by Theorem \ref{theorem:continuous_composite}.
 
     Similarly for $\lambda x \in X. F(x,b)$ for $b \in Y$. \qed
 \end{proof}
@@ -1900,6 +1912,16 @@ We prove this is a basis for a topology.
     \end{cases} \]
     Then $F$ is continuous in each variable separately but not continuous.
 \end{example}
+
+\begin{proposition}
+    \label{proposition:open_map_product}
+    Let $f : A \rightarrow C$ and $g : B \rightarrow D$ be open maps. Then $f \times g : A \times B \rightarrow C \times D$ is an open map.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Given $U$ open in $A$ and $V$ open in $B$. Then $(f \times g)(U \times V) = f(U) \times g(V)$ is open in $C \times D$.
+    The result follows from Proposition \ref{proposition:open_map_basis}. \qed
+\end{proof}
 
 \section{The Subspace Topology}
 
@@ -2594,6 +2616,50 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \pf\ Since $X \setminus \inv{f}(C) = \inv{f}(Y \setminus C)$. \qed
 \end{proof}
 
+\begin{proposition}
+    \label{proposition:strongly_continuous_composite}
+    Let $X$, $Y$ and $Z$ be topological spaces. Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$. If $f$ and $g$ are strongly continuous then so is $g \circ f$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Since $\inv{(g \circ f)}(U) = \inv{f}(\inv{g}(U))$. \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:continuous_strongly_continuous}
+    Let $X$, $Y$ and $Z$ be topological spaces.
+    Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$.
+    If $g \circ f$ is continuous and $f$ is strongly continuous then 
+    $g$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{b}{\pflet{$V \subseteq Z$ be open.}}
+    \step{c}{$\inv{f}(\inv{g}(V))$ is open in $X$.}
+    \begin{proof}
+        \pf\ Since $g \circ f$ is continuous.
+    \end{proof}
+    \step{d}{$\inv{f}(V)$ is open in $Y$.}
+    \begin{proof}
+        \pf\ Since $g$ is strongly continuous.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:strongly_continuous_strongly_continuous}
+    Let $X$, $Y$ and $Z$ be topological spaces.
+    Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$.
+    If $g \circ f$ is strongly continuous and $f$ is strongly continuous then 
+    $g$ is strongly continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf\ For $V \subseteq Z$, we have $V$ is open iff $\inv{f}(\inv{g}(V))$ is
+    open iff $\inv{g}(V)$ is open.
+\end{proof}
+
 \section{Saturated Sets}
 
 \begin{definition}
@@ -2696,6 +2762,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:quotient_continuous_open}
     Every surjective continuous open map is a quotient map.
 \end{corollary}
 
@@ -2841,6 +2908,45 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 
 For a counterexample where $A$ is saturated, see Example \ref{example:quotient_restriction}.
 
+\begin{proposition}
+    Let $p : A \twoheadrightarrow C$ and $q : B \twoheadrightarrow D$ be open quotient maps. Then $p \times q : A \times B \rightarrow C \times D$ is an open quotient map.
+\end{proposition}
+
+\begin{proof}
+    \pf\ From Corollary \ref{corollary:quotient_continuous_open}, Proposition \ref{proposition:open_map_product}
+    and Theorem \ref{theorem:product_continuous}. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $p : X \twoheadrightarrow Y$ be a quotient map. Let $Z$
+    be a topological space and $f : Y \rightarrow Z$ be a function. Then
+    \begin{enumerate}
+        \item $f \circ p$ is continuous if and only if $f$ is continuous.
+        \item $f \circ p$ is a quotient map if and only if $f$ is a quotient map.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If $f \circ p$ is continuous then $f$ is continuous.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:continuous_strongly_continuous}.
+    \end{proof}
+    \step{2}{If $f$ is continuous then $f \circ p$ is continuous.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:continuous_composite}.
+    \end{proof}
+    \step{3}{If $f \circ p$ is a quotient map then $f$ is a quotient map.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:strongly_continuous_strongly_continuous}.
+    \end{proof}
+    \step{4}{If $f$ is a quotient map then $f \circ p$ is a quotient map.}
+    \begin{proof}
+        \pf\ From Proposition \ref{proposition:strongly_continuous_composite}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Quotient Topology}
 
 \begin{definition}[Quotient Topology]
@@ -2888,3 +2994,56 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     is not a quotient map because it maps the saturated open set $\{1\}$
     to $\{1\}$ which is not open in $p(A)$.
 \end{example}
+
+\begin{proposition}
+    Let $X$, $Y$ and $Z$ be topological spaces. Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$. If $f$ and $g$ are quotient maps then so is $g \circ f$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ From Proposition \ref{proposition:strongly_continuous_composite}. \qed
+\end{proof}
+
+\begin{example}
+    The product of two quotient maps is not necessarily a quotient map.
+
+    Let $X = \RR$ and $X^*$ the quotient space formed by identifying all positive integers. Let $p : X \twoheadrightarrow X^*$ be the canonical surjection.
+
+    We prove $p \times \id{\QQ} : X \times \QQ \rightarrow X^* \times \QQ$ is not a quotient map.
+
+    \begin{proof}
+        \pf
+        \step{1}{For $n \geq 1$, \pflet{$c_n = \sqrt{2} / n$}}
+        \step{2}{For $n \geq 1$, \pflet{$U_n = \{ (x,y) \in X \times \QQ \mid n - 1/4 < x < n + 1/4, (y + n > x + c_n \text{ and } y + n > -x + c_n) \text{ or }
+        (y + n < x + c_n \text{ and } y + n < -x + c_n) \}$}}
+        \step{3}{For $n \geq 1$, we have $U_n$ is open in $X \times \QQ$}
+        \step{4}{For $n \geq 1$, we have $\{ n \} \times \QQ \subseteq U_n$}
+        \step{5}{\pflet{$U = \bigcup_{n=1}^\infty U_n$}}
+        \step{6}{$U$ is open in $X \times \QQ$}
+        \step{7}{$U$ is saturated with respect to $p \times \id{\QQ}$}
+        \step{7a}{\pflet{$U' = (p \times \id{\QQ})(U)$}}
+        \step{7a}{\assume{for a contradiction $U'$ is open in $X^* \times \QQ$}}
+        \step{8}{$(1,0) \in U'$}
+        \step{9}{\pick\ a neighbourhood $W$ of $1$ in $X^*$ and $\delta > 0$ such that $W \times (- \delta, \delta) \subseteq U'$}
+        \step{10}{$\inv{p}(W) \times (-\delta, \delta) \subseteq U$}
+        \step{11}{\pick\ $n$ such that $c_n < \delta$}
+        \step{12}{$n \in \inv{p}(W)$}
+        \step{13}{\pick\ $\epsilon > 0$ such that $\epsilon < \delta - c_n$ and $\epsilon < 1/4$ and $(n - \epsilon, n + \epsilon) \subseteq \inv{p}(W)$}
+        \step{14}{$(n - \epsilon, n + \epsilon) \times (- \delta, \delta) \subseteq U$}
+        \step{15}{\pick\ a rational $y$ such that $c_n - \epsilon / 2 < y < c_n + \epsilon / 2$}
+        \step{16}{$(n + \epsilon / 2, y) \notin U$}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{14}.
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
+
+\begin{proposition}
+    Let $X$ be a topological space and $\sim$ an equivalence relation on $X$.
+    Then $X / \sim$ is $T_1$ if and only if every equivalence class is closed in $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
