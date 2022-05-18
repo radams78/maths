@@ -441,6 +441,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:limit_point_closure}
     Let $X$ be a topological space and $A \subseteq X$. Let $A'$ be the set of all limit points of $A$.
     Then $\overline{A} = A \cup A'$.
 \end{theorem}
@@ -463,6 +464,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:closed_limit_point}
     A set is closed if and only if it contains all its limit points.
 \end{corollary}
 
@@ -474,6 +476,16 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \begin{proof}
     \pf\ Let $X$ be an indiscrete space. Let $A$ be a set with more than one point and $x$ be a point.
     The only neighbourhood of $x$ is $X$, which must intersect $A$ at a point other than $x$. \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:limit_point_subset}
+    Let $X$ be a topological space and $A \subseteq B \subseteq X$. Then every limit
+    point of $A$ is a limit point of $B$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
 \end{proof}
 
 \section{Basis for a Topology}
@@ -2160,6 +2172,42 @@ This example shows that we cannot remove the hypothesis that $Y$ is an interval:
     The \emph{unit 2-sphere} is $S^2 = \{ (x,y,z) \mid x^2 + y^2 + z^2 \leq 1 \}$ as a subspace of $\RR^3$.
 \end{definition}
 
+\begin{proposition}
+    Let $f : X \rightarrow Y$ be an open map and $A \subseteq X$ be open. Then the restriction $f \restriction A : A \rightarrow f(A)$ is an open map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$U$ be open in $A$}}
+    \step{2}{$U$ is open in $X$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subspace_open}.
+    \end{proof}
+    \step{3}{$f(U)$ is open in $Y$}
+    \step{4}{$f(U)$ is open in $f(A)$}
+    \begin{proof}
+        \pf\ Since $f(U) = f(U) \cap f(A)$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    This example shows that we cannot remove the hypothesis that $A$ is open.
+
+    Let $A = \{ (x,y) \in \RR^2 \mid (x > 0 \text{ and } y = 1/x) \text{ or } x=y=0 \}$.
+    Then $\pi_1 : \RR^2 \rightarrow \RR$ is an open map, but $\pi_1 \restriction A : A \rightarrow [0, + \infty)$
+    is not, because it maps the set $\{ 0,0 \}$ which is open in $A$ to $\{0\}$ which is not open in $[0,+\infty)$.
+\end{example}
+
+\begin{proposition}
+    \label{proposition:limit_point_subspace}
+    Let $Y$ be a subspace of $X$. Let $A \subseteq Y$ and $l \in Y$. Then $l$ is a limit point
+    of $A$ in $Y$ if and only if $l$ is a limit point of $A$ in $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Both are equivalent to the condition that any neighbourhood of $l$ in $X$ intersects $A$ in a point other than $l$. \qed
+\end{proof}
 \section{The Box Topology}
 
 \begin{definition}[Box Topology]
@@ -2383,6 +2431,15 @@ The following example shows that Proposition \ref{proposition:converge_product} 
         \end{proof}
     \end{proof}
     \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:T1_subspace}
+    A subspace of a $T_1$ space is $T_1$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ From Proposition \ref{theorem:closed_subspace}.
 \end{proof}
 
 \section{Hausdorff Spaces}
@@ -2909,6 +2966,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 For a counterexample where $A$ is saturated, see Example \ref{example:quotient_restriction}.
 
 \begin{proposition}
+    \label{proposition:quotient_product}
     Let $p : A \twoheadrightarrow C$ and $q : B \twoheadrightarrow D$ be open quotient maps. Then $p \times q : A \times B \rightarrow C \times D$ is an open quotient map.
 \end{proposition}
 
@@ -2918,6 +2976,7 @@ For a counterexample where $A$ is saturated, see Example \ref{example:quotient_r
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:quotient_composite}
     Let $p : X \twoheadrightarrow Y$ be a quotient map. Let $Z$
     be a topological space and $f : Y \rightarrow Z$ be a function. Then
     \begin{enumerate}
@@ -2943,6 +3002,26 @@ For a counterexample where $A$ is saturated, see Example \ref{example:quotient_r
     \step{4}{If $f$ is a quotient map then $f \circ p$ is a quotient map.}
     \begin{proof}
         \pf\ From Proposition \ref{proposition:strongly_continuous_composite}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:quotient_retraction}
+    Let $X$ and $Y$ be topological spaces. Let $p : X \rightarrow Y$ and $f : Y \rightarrow X$ be continuous maps such that $p \circ f = \id{Y}$. Then $p$ is a quotient map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$V \subseteq Y$}}
+    \step{2}{\assume{$\inv{p}(V)$ is open in $X$.}}
+    \step{3}{$\inv{f}(\inv{p}(V))$ is open in $Y$.}
+    \begin{proof}
+        \pf\ Because $f$ is continuous.
+    \end{proof}
+    \step{4}{$V$ is open in $Y$.}
+    \begin{proof}
+        \pf\ Because $\inv{f}(\inv{p}(V)) = V$.
     \end{proof}
     \qed
 \end{proof}
@@ -3046,4 +3125,901 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 
 \begin{proof}
     \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\section{Retractions}
+
+\begin{definition}[Retraction]
+    Let $X$ be a topological space and $A \subseteq X$. A \emph{retraction} of $X$ onto $A$ is a continuous map $r : X \rightarrow A$ such that, for all $a \in A$,
+    we have $r(a) = a$.    
+\end{definition}
+
+\begin{proposition}
+    Every retraction is a quotient map.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:quotient_retraction} with $f$ the inclusion $A \hookrightarrow X$. \qed
+\end{proof}
+
+\section{Homogeneous Spaces}
+
+\begin{definition}[Homogeneous]
+    A topological space $X$ is \emph{homogeneous} if and only if, for any
+    points $a, b \in X$, there exists a homeomorphism $\phi : X \cong X$
+    such that $\phi(a) = b$.
+\end{definition}
+
+\section{Regular Spaces}
+
+\begin{definition}[Regular Space]
+    A topological space $X$ is \emph{regular} if and only if, for any closed set $A$ and point $a \notin A$, there exist disjoint open sets $U$, $V$ such that
+    $A \subseteq U$ and $a \in V$.    
+\end{definition}
+
+\section{Connected Spaces}
+
+\begin{definition}[Separation]
+    A \emph{separation} of a topological space $X$ is a pair of disjoint open sets $U$, $V$ such that $U \cup V = \emptyset$.
+\end{definition}
+
+\begin{definition}[Connected]
+    A topological space is \emph{connected} if and only if it has no separation; otherwise it is \emph{disconnected}.
+\end{definition}
+
+\begin{proposition}
+    A topological space $X$ is connected if and only if the only sets that are both open and closed are $X$ and $\emptyset$.
+\end{proposition}
+
+\begin{proof}
+    Immediate from defintions.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:limit_point_separation}
+    If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint nonempty sets $A$ and $B$ whose union is $Y$, neither of which contains a limit point of the other.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A, B \subseteq Y$}}
+    \step{2}{If $A$ and $B$ form a separation of $Y$ then $A$ and $B$ are disjoint and nonempty, $A \cup B = Y$, and neither of $A$ and $B$ contains a limit point of the other.}
+    \begin{proof}
+        \step{a}{\assume{$A$ and $B$ form a separation of $Y$}}
+        \step{b}{$A$ and $B$ are disjoint and nonempty and $A \cup B = Y$}
+        \begin{proof}
+            \pf\ From \stepref{a} and the definition of separation.
+        \end{proof}
+        \step{c}{$A$ does not contain a limit point of $B$}
+        \begin{proof}
+            \step{i}{\assume{for a contradiction $l \in A$ and $l$ is a limit point of $B$ in $X$.}}
+            \step{ii}{$l$ is a limit point of $B$ in $Y$}
+            \begin{proof}
+                \pf\ Proposition \ref{proposition:limit_point_subspace}.
+            \end{proof}
+            \step{iii}{$l \in B$}
+            \begin{proof}
+                \step{one}{$B$ is closed in $Y$}
+                \begin{proof}
+                    \pf\ Since $A$ is open in $Y$ and $B = Y \setminus A$ from \stepref{a}.
+                \end{proof}
+                \qedstep
+                \begin{proof}
+                    \pf\ Corollary \ref{corollary:closed_limit_point}.
+                \end{proof}
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts the fact that $A \cap B = \emptyset$ (\stepref{a}).
+            \end{proof}
+        \end{proof}
+        \step{d}{$B$ does not contain a limit point of $A$}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \step{3}{If $A$ and $B$ are disjoint and nonempty, $A \cup B = Y$, and neither of $A$ and $B$ contains a limit point of the other, then $A$ and $B$ form a separation of $Y$.}
+    \begin{proof}
+        \step{a}{\assume{$A$ and $B$ are disjoint and nonempty, $A \cup B = Y$, and neither of $A$ and $B$ contains a limit point of the other.}}
+        \step{b}{$A$ is open in $Y$}
+        \begin{proof}
+            \step{i}{$B$ is closed in $Y$}
+            \begin{proof}
+                \step{one}{\pflet{$l$ be a limit point of $B$ in $Y$}}
+                \step{two}{$l$ is a limit point of $B$ in $X$}
+                \begin{proof}
+                    \pf\ Proposition \ref{proposition:limit_point_subspace}.
+                \end{proof}
+                \step{three}{$l \notin A$}
+                \begin{proof}
+                    \pf\ By \stepref{a}
+                \end{proof}
+                \step{four}{$l \in B$}
+                \begin{proof}
+                    \pf\ By \stepref{a} since $A \cup B = Y$
+                \end{proof}
+                \qedstep
+                \begin{proof}
+                    \pf\ Corollary \ref{corollary:closed_limit_point}.
+                \end{proof}
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ Since $A = Y \setminus B$.
+            \end{proof}
+        \end{proof}
+        \step{c}{$B$ is open in $Y$}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    Every set under the indiscrete topology is connected.
+\end{example}
+
+\begin{example}
+    The discrete topology on a set $X$ is connected if and only if $|X| \leq 1$.
+\end{example}
+
+\begin{example}
+    The finite complement topology on a set $X$ is connected if and only if either $|X| \leq 1$ or $X$ is infinite.
+\end{example}
+
+\begin{example}
+    The countable complement topology on a set $X$ is connected if and only if either $|X| \leq 1$ or $X$ is uncountable.
+\end{example}
+
+\begin{example}
+    The rationals $\QQ$ are disconnected. For any irrational $a$, the sets $(- \infty, a) \cap \QQ$ and $(a, + \infty) \cap \QQ$ form a separation of $\QQ$.
+\end{example}
+
+\begin{lemma}
+    \label{lemma:subset_connected_subspace}
+    Let $X$ be a topological space. If $C$ and $D$ form a separation of $X$, and $Y$ is a connected subspace of $X$, then either $Y \subseteq C$ or $Y \subseteq D$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Otherwise $Y \cap C$ and $Y \cap D$ would form a separation of $Y$. \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:connected_union}
+    The union of a set of connected subspaces of a space $X$ that have a point in common is connected.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\AA$ be a set of connected subspaces of the space $X$ that have the point $a$ in common.}}
+    \step{2}{\assume{for a contradiction $C$ and $D$ form a separation of $\bigcup \AA$}}
+    \step{3}{\assume{without loss of generality $a \in C$}}
+    \step{4}{For all $A \in \AA$ we have $A \subseteq C$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subset_connected_subspace}.
+    \end{proof}
+    \step{5}{$D = \emptyset$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{2}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:connected_closure}
+    Let $X$ be a topological space and $A$ a connected subspace of $X$. If $A \subseteq B \subseteq \overline{A}$ then $B$ is connected.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $C$ and $D$ form a separation of $B$.}}
+    \step{2}{\assume{without loss of generality $A \subseteq C$}}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subset_connected_subspace}.
+    \end{proof}
+    \step{3}{$B \subseteq C$}
+    \begin{proof}
+        \step{3}{\pflet{$x \in B$}}
+        \step{4}{$x \in \overline{A}$}
+        \step{5}{Either $x \in A$ or $x$ is a limit point of $A$.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:limit_point_closure}.
+        \end{proof}
+        \step{6}{Either $x \in A$ or $x$ is a limit point of $C$.}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:limit_point_subset}, \stepref{2}.
+        \end{proof}
+        \step{7}{$x \in C$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:limit_point_separation}.
+        \end{proof}
+    \end{proof}
+    \step{8}{$D = \emptyset$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{1}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    The image of a connected space under a continuous map is connected.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f : X \twoheadrightarrow Y$ be a surjective continuous map where $X$ is connected.}}
+    \step{2}{\assume{for a contradiction $C$ and $D$ form a separation of $Y$.}}
+    \step{3}{$\inv{f}(C)$ and $\inv{f}(D)$ form a separation of $X$.}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    The product of a family of connected spaces is connected.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{One}{The product of two connected spaces is connected.}
+    \begin{proof}
+        \step{1}{\pflet{$X$ and $Y$ be connected spaces.}}
+        \step{2}{\pick\ $a \in X$ and $b \in Y$}
+        \begin{proof}
+            \pf\ We may assume $X$ and $Y$ are nonempty since otherwise $X \times Y = \emptyset$ which is connected.
+        \end{proof}
+        \step{3}{$X \times \{b\}$ is connected.}
+        \begin{proof}
+            \pf\ It is homeomorphic to $X$.
+        \end{proof}
+        \step{4}{For all $x \in X$ we have $\{x\} \times Y$ is connected.}
+        \begin{proof}
+            \pf\ It is homeomorphic to $Y$.
+        \end{proof}
+        \step{5}{For any $x \in X$ \pflet{$T_x = (X \times \{b\}) \cup (\{x\} \times Y)$}}
+        \step{6}{For all $x \in X$, $T_x$ is connected.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:connected_union} since $(x,b) \in (X \times \{b\}) \cap (\{x\} \times Y)$.
+        \end{proof}
+        \step{7}{$X \times Y$ is connected.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:connected_union} since $X \times Y = \bigcup_{x \in X} T_x$ and $(a,b)$ is a point in every $T_x$.
+        \end{proof}
+    \end{proof}
+    \step{Two}{The product of a finite family of connected spaces is connected.}
+    \begin{proof}
+        \pf\ From \stepref{One} by induction.
+    \end{proof}
+    \step{Three}{The product of any family of connected spaces is connected.}
+    \begin{proof}
+        \step{1}{\pflet{$\{ X_\alpha \}_{\alpha \in J}$ be a family of connected spaces.}}
+        \step{2}{\pflet{$X = \prod_{\alpha \in J} X_\alpha$}}
+        \step{3}{\pick\ $a \in X$}
+        \begin{proof}
+            \pf\ We may assume $X \neq \emptyset$ as the empty space is connected.
+        \end{proof}
+        \step{4}{For every finite subset $K$ of $J$, \pflet{$X_K = \{ x \in X \mid \forall \alpha \in J \setminus K. x_\alpha = a_\alpha \}$}}
+        \step{5}{For every finite $K \subseteq J$, we have $X_K$ is connected.}
+        \begin{proof}
+            \pf\ From \stepref{Two} since $X_K \cong \prod_{\alpha \in K} X_K$.
+        \end{proof}
+        \step{6}{\pflet{$Y = \bigcup_K X_K$}}
+        \step{7}{$Y$ is connected}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:connected_union} since $a$ is a common point.
+        \end{proof}
+        \step{8}{$X = \overline{Y}$}
+        \begin{proof}
+            \step{a}{\pflet{$x \in X$}}
+            \step{b}{\pflet{$U = \prod_{\alpha \in J} U_\alpha$ be a basic neighbourhood of $x$ where $U_\alpha = X_\alpha$ for all $\alpha$ except
+            $\alpha \in K$ for some finite $K \subseteq J$}}
+            \step{c}{\pflet{$y \in X$ be the point with $y_\alpha = x_\alpha$ for $\alpha \in K$ and $y_\alpha = a_\alpha$ for all other $\alpha$}}
+            \step{d}{$y \in U \cap X_K$}
+            \step{e}{$y \in U \cap Y$}
+        \end{proof}
+        \step{9}{$X$ is connected.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:connected_closure}.
+        \end{proof}          
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    The set $\RR^\omega$ is disconnected under the uniform and box topologies. Under either topology, the set of bounded sequences and the set of unbounded sequences form
+    a separation.
+\end{example}
+
+\begin{proposition}
+    Let $\TT$ and $\TT'$ be two topologies on the same set $X$. If $\TT \subseteq \TT'$ and $(X, \TT')$ is connected then $(X, \TT)$ is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ If $U$ and $V$ form a separation of $(X, \TT)$ then they form a separation of $(X, \TT')$. \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a topological space and $(A_n)$ a sequence of connected subspaces of $X$. If $A_n \cap A_{n+1} \neq \emptyset$ for all $n$ then $\bigcup_n A_n$ is
+    connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $C$ and $D$ form a separation of $\bigcup_n A_n$}}
+    \step{2}{\assume{without loss of generality $A_0 \subseteq C$}}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subset_connected_subspace}.
+    \end{proof}
+    \step{3}{For all $n$ we gave $A_n \subseteq C$}
+    \begin{proof}
+        \pf
+        \step{i}{\assume{$A_n \subseteq C$}}
+        \step{ii}{\pick\ $x \in A_n \cap A_{n+1}$}
+        \step{iii}{$x \in C$}
+        \step{iv}{$A_{n+1} \subseteq C$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:subset_connected_subspace}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ The result follows by induction.
+        \end{proof}
+    \end{proof}
+    \step{4}{$D = \emptyset$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{1}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a topological space. Let $A, C \subseteq X$. If $C$ is connected and intersects both $A$ and $X \setminus A$ then $C$ intersects $\partial A$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Otherwise $C \cap A^\circ$ and $C \setminus \overline{A}$ would form a separation of $C$. \qed
+\end{proof}
+
+\begin{example}
+    The space $\RR_l$ is disconnected. For any real $x$, the sets $(- \infty, x)$ and $[x, +\infty)$ form a separation.
+\end{example}
+
+\begin{proposition}
+    Let $X$ and $Y$ be connected spaces. Let $A$ be a proper subset of $X$ and $B$ a proper subset of $Y$. Then $(X \times Y) \setminus (A \times B)$ is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ $a \in X \setminus A$ and $b \in Y \setminus B$}
+    \step{2}{For $x \in X \setminus A$ we have $(X \times \{b\}) \cup (\{x\} \times Y)$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_union} since $(x,b)$ is a common point.
+    \end{proof}
+    \step{3}{For $y \in Y \setminus B$ we have $(X \times \{y\}) \cup (\{a\} \times Y)$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_union} since $(a,y)$ is a common point.
+    \end{proof}
+    \step{4}{$(X \times Y) \setminus (A \times B)$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_union} since it is the union of the sets in \stepref{2} and \stepref{3} with $(a,b)$ as a common point.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $p : X \twoheadrightarrow Y$ be a quotient map. If $Y$ is connected and $\inv{p}(y)$ is connected for all $y \in Y$, then $X$ is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $C$ and $D$ form a separation of $X$.}}
+    \step{2}{$C$ is saturated.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in C$, $y \in X$ with $p(x) = p(y) = a$, say}}
+        \step{b}{$y \notin D$}
+        \begin{proof}
+            \pf\ Otherwise $\inv{p}(a) \cap C$ and $\inv{p}(a) \cap D$ form a separation of $\inv{p}(a)$.
+        \end{proof}
+        \step{c}{$y \in C$}
+    \end{proof}
+    \step{3}{$D$ is saturated.}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{4}{$p(C)$ and $p(D)$ form a separation of $Y$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a connected space and $Y$ a connected subspace of $X$. Suppose $A$ and $B$ form a separation of $X \setminus Y$. Then $Y \cup A$ and $Y \cup B$ are both connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$Y \cup A$ is connected.}
+    \begin{proof}
+        \step{a}{\assume{for a contradiction $C$ and $D$ form a separation of $Y \cup A$}}
+        \step{b}{\assume{without loss of generality $Y \subseteq C$}}
+        \step{c}{\pick\ open sets $A_1$, $B_1$, $C_1$, $D_1$ in $X$ with
+        \begin{align*}
+            A & = A_1 \setminus Y \\
+            B & = B_1 \setminus Y \\
+            C & = C_1 \cap (Y \cup A) \\
+            D & = D_1 \cap (Y \cup A)
+        \end{align*}
+        }
+        \step{d}{$B_1 \cup C_1$ and $A_1 \cap D_1$ form a separation of $X$}
+    \end{proof}
+    \step{2}{$Y \cup B$ is connected.}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Totally Disconnected Spaces}
+
+\begin{definition}[Totally Disconnected]
+    A topological space $X$ is \emph{totally disconnected} if and only if the only connected subspaces are the singletons.
+\end{definition}
+
+\begin{example}
+    Every discrete space is totally disconnected.
+\end{example}
+
+\begin{example}
+    The rationals $\QQ$ are totally disconnected.
+\end{example}
+
+\section{Topological Groups}
+
+\begin{definition}[Topological Group]
+    A \emph{topological group} $G$ consists of a $T_1$ space $G$ and continuous maps
+    $\cdot : G^2 \rightarrow G$ and $\inv{(\ )} : G \rightarrow G$ such that $(G, \cdot, \inv{(\ )})$
+    is a group.
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item The integers $\ZZ$ under addition are a topological group.
+        \item The real numbers $\RR$ under addition are a topological group.
+        \item The positive reals under multiplication are a topological group.
+        \item The set $\{ z \in \mathbb{C} \mid |z| = 1 \}$ under multiplication
+        and given the topology of $S^1$ is a topological group.
+        \item For any $n \geq 0$, the general linear group $GL_n(\RR)$ is a topological
+        group under matrix multiplication, considered as a subspace of $\RR^{n^2}$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}
+    Let $G$ be a $T_1$ space and $\cdot : G^2 \rightarrow G$, $\inv{(\ )} : G \rightarrow G$
+    be functions such that $(G, \cdot, \inv{(\ )})$ is a group. Then $G$ is a
+    topological group if and only if the function $f : G^2 \rightarrow G$ that maps
+    $(x,y)$ to $x \inv{y}$ is continuous.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{If $G$ is a topological group then $f$ is continuous.}
+    \begin{proof}
+        \pf\ From Theorem \ref{theorem:continuous_composite}.
+    \end{proof}
+    \step{2}{If $f$ is continuous then $G$ is a topological group.}
+    \begin{proof}
+        \step{a}{\assume{$f$ is continuous.}}
+        \step{b}{$\inv{(\ )}$ is continuous.}
+        \begin{proof}
+            \pf\ Since $\inv{x} = f(e,x)$.
+        \end{proof}
+        \step{c}{$\cdot$ is continuous.}
+        \begin{proof}
+            \pf\ Since $xy = f(x,\inv{y})$.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Then $H$ is a topological group
+    under the subspace topology.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{$H$ is $T_1$.}
+    \begin{proof}
+        \pf\ From Proposition \ref{proposition:T1_subspace}.
+    \end{proof}
+    \step{2}{multiplication and inverse on $H$ are continuous.}
+    \begin{proof}
+        \pf\ From Theorem \ref{theorem:continuous_restriction}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Then 
+    $\overline{H}$ is a subgroup of $G$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x, y \in \overline{H}$} \prove{$x\inv{y} \in \overline{H}$}}
+    \step{2}{\pflet{$U$ be any neighbourhood of $x \inv{y}$}}
+    \step{3}{\pflet{$f : G^2 \rightarrow G$, $f(a,b) = a \inv{b}$}}
+    \step{4}{$\inv{f}(U)$ is a neighbourhood of $(x,y)$}
+    \step{5}{\pick\ neighbourhoods $V$, $W$ of $x$ and $y$ respectively
+    such that $f(V \times W) \subseteq U$.}
+    \step{6}{\pick\ $a \in V \cap H$ and $b \in W \cap H$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+    \end{proof}
+    \step{7}{$a \inv{b} \in U \cap H$}
+    \qedstep
+    \begin{proof}
+        \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $G$ be a topological group and $\alpha \in G$. Then the maps
+    $l_\alpha, r_\alpha : G \rightarrow G$ defined by $l_\alpha(x) = \alpha x$,
+    $r_\alpha(x) = x\alpha$ are homeomorphisms of $G$ with itself.
+\end{proposition}
+
+\begin{proof}
+    \pf\ They are continuous with continuous inverses $l_{\inv{\alpha}}$ and
+    $r_{\inv{\alpha}}$. \qed
+\end{proof}
+
+\begin{corollary}
+    Every topological group is homogeneous.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Given a topological group $G$ and $a, b \in G$, we have $l_{b\inv{a}}$
+    is a homeomorphism that maps $a$ to $b$. \qed
+\end{proof}
+
+\begin{proposition}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Give $G / H$
+    the quotient topology. For all $\alpha \in G$, the map $\overline{f_\alpha}$ that
+    sends $xH$ to $\alpha xH$ is a homeomorphism $G / H \cong G / H$.    
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{f_\alpha}$ is well-defined.}
+    \begin{proof}
+        \pf\ If $x\inv{y} \in H$ then $(\alpha x) \inv{(\alpha y)} = x \inv{y}
+        \in H$.
+    \end{proof}
+    \step{2}{$\overline{f_\alpha}$ is continuous.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:quotient_composite} since $\overline{f_\alpha} \circ p
+        = p \circ f_\alpha$ is continuous, where $p : G \twoheadrightarrow G / H$
+        is the canonical surjection.
+    \end{proof}
+    \step{3}{$\inv{\overline{f_\alpha}}$ is continuous.}
+    \begin{proof}
+        \pf\ Similar since $\inv{\overline{f_\alpha}} = \overline{f_{\inv{\alpha}}}$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Give $G / H$
+    the quotient topology. Then $G / H$ is homogeneous.
+\end{corollary}
+
+\begin{proposition}
+    \label{proposition:T1_quotient}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Give $G / H$
+    the quotient topology. If $H$ is closed in $G$ then $G / H$ is $T_1$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$p : G \twoheadrightarrow G / H$ be the canonical surjection}}
+    \step{2}{\pflet{$x \in G$}}
+    \step{3}{$\inv{p}(xH) = f_x(H)$}
+    \step{4}{$\inv{p}(xH)$ is closed in $G$}
+    \begin{proof}
+        \pf\ Since $H$ is closed and $f_x$ is a homemorphism of $G$ with
+        itself.
+    \end{proof}
+    \step{5}{$\{xH\}$ is closed in $G / H$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:quotient_group_open_map}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Give $G / H$ the
+    quotient topology. Then the canonical surjection $p : G \twoheadrightarrow G / H$
+    is an open map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$U \subseteq G$ be open.}}
+    \step{2}{$\inv{p}(p(U)) = \bigcup_{h \in H} r_h(U)$}
+    \step{3}{$\inv{p}(p(U))$ is open.}
+    \step{4}{$p(U)$ is open.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $G$ be a topological group and $H$ a closed normal subgroup of $G$.
+    Then $G / H$ is a topological group under the quotient topology.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$G / H$ is $T_1$} 
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:T1_quotient}.
+    \end{proof}
+    \step{2}{The map $\overline{m} : (xH,yH) \mapsto x\inv{y}H$ is continuous.}
+    \begin{proof}
+        \step{a}{$p^2 : G^2 \rightarrow (G / H)^2$ is a quotient map.}
+        \begin{proof}
+            \pf\ Propositions \ref{proposition:quotient_product}, \ref{proposition:quotient_group_open_map}.
+        \end{proof}
+        \step{b}{$\overline{m} \circ p^2$ is continuous.}
+        \begin{proof}
+            \pf\ As it is $p^2 \circ m$ where $m : G^2 \rightarrow G$ with
+            $m(x,y) = x\inv{y}$
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:open_subset_mult}
+    Let $G$ be a topological group and $A, B \subseteq G$. If either $A$ or $B$ is open then $AB$ is open.
+\end{lemma}
+
+\begin{proof}
+    \pf\ If $A$ is open we have $AB = \bigcup_{b \in B} r_b(A)$. Similarly if $B$ is open. \qed
+\end{proof}
+
+\begin{definition}[Symmetric Neighbourhood]
+    Let $G$ be a topological group. A neighbourhood $V$ of $e$ is \emph{symmetric}
+    if and only if $V = \inv{V}$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:symmetric_neighbourhood}
+    Let $G$ be a topological group. Let $V$ be a neighbourhood of $e$. Then $V$ is symmetric if and only if, for all $x \in V$, we have $\inv{x} \in V$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{If $V$ is symmetric then, for all $x \in V$, we have $\inv{x} \in V$}
+    \begin{proof}
+        \pf\ Immediate from defintions.
+    \end{proof}
+    \step{2}{If, for all $x \in V$, we have $\inv{x} \in V$, then $V$ is symmetric.}
+    \begin{proof}
+        \step{a}{\assume{for all $x \in V$ we have $\inv{x} \in V$}}
+        \step{b}{$V \subseteq \inv{V}$}
+        \begin{proof}
+            \pf\ If $x \in V$ then there exists $y \in V$ such that $x = \inv{y}$, namely $y = \inv{x}$
+        \end{proof}
+        \step{c}{$\inv{V} \subseteq V$}
+        \begin{proof}
+            \pf\ Immediate from \stepref{a}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:symmetric_subneighbourhood}
+    Let $G$ be a topological group. For every neighbourhood $U$ of $e$, there exists a symmetric neighbourhood $V$ of $e$ such that $V^2 \subseteq U$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$U$ be a neighbourhood of $e$.}}
+    \step{2}{\pick\ a neighbourhood $V'$ of $e$ such that $V'V' \subseteq U$}
+    \begin{proof}
+        \pf\ Such a neighbourhood exists because multiplication in $G$ is continuous.
+    \end{proof}
+    \step{3}{\pick\ a neighbourhood $W$ of $e$ such that $W \inv{W} \subseteq V'$}
+    \begin{proof}
+        \pf\ Such a neighbourhood exists because the function that maps $(x,y)$ to $x \inv{y}$ is continuous.
+    \end{proof}
+    \step{4}{\pflet{$V = W \inv{W}$}}
+    \step{5}{$V$ is a neighbourhood of $e$}
+    \begin{proof}
+        \step{a}{$e \in V$}
+        \begin{proof}
+            \pf\ Since $e \in W$ so $e = e \inv{e} \in V$.
+        \end{proof}
+        \step{b}{$V$ is open}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:open_subset_mult}.
+        \end{proof}
+    \end{proof}
+    \step{6}{$V$ is symmetric}
+    \begin{proof}
+        \step{a}{For all $x \in V$ we have $\inv{x} \in V$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in V$}}
+            \step{ii}{\pick $y, z \in W$ such that $x = y \inv{z}$}
+            \step{iii}{$\inv{x} = z\inv{y}$}
+            \step{iv}{$\inv{x} \in V$}
+            \step{v}{$x \in \inv{V}$}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:symmetric_neighbourhood}
+        \end{proof}
+    \end{proof}
+    \step{7}{$V^2 \subseteq U$}
+    \begin{proof}
+        \pf\ We have $V^2 \subseteq (V')^2 \subseteq U$
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every topological group is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a topological group.}}
+    \step{2}{\pflet{$x, y \in G$ with $x \neq y$}}
+    \step{3}{\pflet{$U = G \setminus \{x\inv[y]\}$}}
+    \step{4}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VV \subseteq U$}
+    \begin{proof}
+        \step{a}{$U$ is open}
+        \begin{proof}
+            \pf\ Since $G$ is $T_1$.
+        \end{proof}
+        \step{b}{$e \in U$}
+        \begin{proof}
+            \pf\ Since $x \neq y$
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:symmetric_subneighbourhood}.
+        \end{proof}
+    \end{proof}
+    \step{5}{$Vx$ and $Vy$ are disjoint neighbourhoods of $x$ and $y$ respectively.}
+    \begin{proof}
+        \step{a}{$Vx$ is open}
+        \begin{proof}
+            \pf\ Since $Vx = r_x(V)$
+        \end{proof}
+        \step{b}{$Vy$ is open}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+        \step{c}{$Vx \cap Vy = \emptyset$}
+        \begin{proof}
+            \step{a}{\assume{for a contradiction $z \in Vx \cap Vy$}}
+            \step{b}{\pick\ $a, b \in V$ such that $z = ax = by$}
+            \step{c}{$x\inv{y} \in VV$}
+            \begin{proof}
+                \pf\ Since $x \inv{y} = \inv{a} b$
+            \end{proof}
+            \step{d}{$x \inv{y} \in U$}
+            \qedstep
+            \begin{proof}
+                \pf\ From \stepref{3}.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:regular_topological_group}
+    Every topological group is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a topological group.}}
+    \step{2}{\pflet{$A \subseteq G$ be a closed set and $a \notin A$.}}
+    \step{3}{\pflet{$U = G \setminus A \inv{a}$}}
+    \step{4}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VV \subseteq U$}
+    \begin{proof}
+        \step{a}{$U$ is open}
+        \begin{proof}
+            \pf\ Since $A \inv{a} = r_{\inv{a}}(A)$ is closed.
+        \end{proof}
+        \step{b}{$e \in U$}
+        \begin{proof}
+            \pf\ Since $a \notin A$.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:symmetric_subneighbourhood}.
+        \end{proof}
+    \end{proof}
+    \step{5}{$VA$ and $Va$ are disjoint open sets with $A \subseteq VA$ and $a \in Va$}
+    \begin{proof}
+        \step{a}{$VA$ is open}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:open_subset_mult}
+        \end{proof}
+        \step{b}{$Va$ is open}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:open_subset_mult}
+        \end{proof}
+        \step{c}{$VA \cap Va = \emptyset$}
+        \begin{proof}
+            \step{i}{\assume{for a contradiction $z \in VA \cap Va$}}
+            \step{ii}{\pick\ $b, c \in V$ and $d \in A$ with $z = bd = ca$}
+            \step{iii}{$d \inv{a} \in U$}
+            \begin{proof}
+                \pf\ Since $d \inv{a} = \inv{b} c \in VV \subseteq U$
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts \stepref{3}
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:regular_quotient}
+    Let $G$ be a topological group and $H$ a subgroup of $G$. Give $G / H$
+    the quotient topology. If $H$ is closed in $G$ then $G / H$ is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{0}{\pflet{$p : G \twoheadrightarrow G / H$ be the canonical surjection.}}
+    \step{1}{\pflet{$A$ be a closed set in $G / H$ and $aH \in (G / H) \setminus A$.}}
+    \step{2}{\pflet{$B = \inv{p}(A)$}}
+    \step{3}{$B$ is a closed saturated set in $G$.}
+    \step{4}{$B \cap aH = \emptyset$}
+    \step{5}{$B = BH$}
+    \step{6}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VB$ does not intersect $Va$}
+    \begin{proof}
+        \step{a}{\pflet{$U = G \setminus B \inv{a}$}}
+        \step{b}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VV \subseteq U$}
+        \begin{proof}
+            \step{i}{$U$ is open}
+            \begin{proof}
+                \pf\ Since $B \inv{a} = r_{\inv{a}}(B)$ is closed.
+            \end{proof}
+            \step{ii}{$e \in U$}
+            \begin{proof}
+                \pf\ If $e \in B \inv{a}$ then $a \in B$
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ Lemma \ref{lemma:symmetric_subneighbourhood}
+            \end{proof}
+        \end{proof}
+        \step{c}{$VB \cap Va = \emptyset$}
+        \begin{proof}
+            \pf\ If $vb = v'a$ for $v, v' \in V$ and $b \in B$ then we have $b\inv{a} = \inv{v}v' \in Ba \cap VV \subseteq Ba \cap U$.
+        \end{proof}
+    \end{proof}
+    \step{7}{$p(VB)$ and $p(Va)$ are disjoint open sets}
+    \begin{proof}
+        \step{a}{$p(VB)$ and $p(Va)$ are open.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:quotient_group_open_map}.
+        \end{proof}
+        \step{b}{$p(VB) \cap p(Va) = \emptyset$}
+        \begin{proof}
+            \pf\ If $vbH = v'aH$ for $v,v' \in V$, $b \in B$ then $v'a = vbh$ for some $h \in H$. Hence $v'a \in Va \cap VBH = Va \cap VB$.
+        \end{proof}
+    \end{proof}
+    \step{8}{$A \subseteq p(VB)$}
+    \step{9}{$aH \in p(Va)$}
+    \qed
 \end{proof}
