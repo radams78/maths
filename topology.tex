@@ -3340,6 +3340,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:connected_continuous_image}
     The image of a connected space under a continuous map is connected.
 \end{theorem}
 
@@ -3683,6 +3684,49 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \begin{proof}
         \pf\ This contradicts Corollary \ref{corollary:connected_interval}.
     \end{proof}
+    \qed
+\end{proof}
+
+An example that shows the converse does not hold:
+\begin{example}
+    The ordered square is not path connected.
+
+    \begin{proof}
+        \pf
+        \step{1}{\assume{for a contradiction $p : [0,1] \rightarrow I_o^2$ is a path from $(0,0)$ to $(1,1)$.}}
+        \step{2}{$p$ is surjective.}
+        \begin{proof}
+            \pf\ By the Intermediate Value Theorem.
+        \end{proof}
+        \step{3}{For $x \in [0,1]$, \pick\ a rational $q_x \in \inv{p}((x,0),(x,1))$}
+        \begin{proof}
+            \pf\ Since $\inv{p}((x,0),(x,1))$ is open and nonempty by \stepref{2}.
+        \end{proof}
+        \step{4}{For $x, y \in [0,1]$, if $x \neq y$ then $q_x \neq q_y$}
+        \begin{proof}
+            \pf\ We have $p(q_x) \neq p(q_y)$ because $((x,0),(x,1))$ and $((y,0),(y,1))$ are disjoint.
+        \end{proof}
+        \step{5}{$\{q_x \mid x \in [0,1] \}$ is an uncountable set of rationals.}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the fact that the rationals are countable.
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
+
+\begin{proposition}
+    \label{proposition:path_connected_continuous_image}
+    The continuous image of a path connected space is path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a path connected space, $Y$ a topological space, and $f : X \twoheadrightarrow Y$ be continuous and surjective.}}
+    \step{2}{\pflet{$a, b \in Y$}}
+    \step{3}{\pick\ $c, d \in X$ with $f(c) = a$ and $f(d) = b$}
+    \step{4}{\pick\ a path $p : [0,1] \rightarrow X$ from $c$ to $d$.}
+    \step{5}{$f \circ p$ is a path from $a$ to $b$ in $Y$.}
     \qed
 \end{proof}
 

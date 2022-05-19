@@ -843,6 +843,96 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{definition}[Punctured Euclidean Space]
+    For $n \geq 0$, defined \emph{punctured Euclidean space} to be $\RR^n \setminus \{ 0 \}$.
+\end{definition}
+
+\begin{proposition}
+    For $n > 1$, punctured Euclidean space $\RR^n \setminus \{ 0 \}$ is path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a, b \in \RR^n \setminus \{0\}$}}
+    \step{2}{\case{0 is on the line from $a$ to $b$}}
+    \begin{proof}
+        \step{a}{\pick\ a point $c$ not on the line from $a$ to $b$}
+        \step{b}{The path consisting of a straight line from $a$ to $c$ followed by a straight line from $c$ to $b$ is a path from $a$ to $b$.}
+    \end{proof}
+    \step{3}{\case{0 is not on the line from $a$ to $b$}}
+    \begin{proof}
+        \pf\ The straight line from $a$ to $b$ is a path from $a$ to $b$.
+    \end{proof}
+\end{proof}
+
+\begin{definition}[Unit Sphere]
+    For $n \geq 1$, the \emph{unit sphere} $S^{n-1}$ is the space
+    \[ S^{n-1} = \{ x \in \RR^n \mid \| x \| = 1 \} \enspace . \]
+\end{definition}
+
+\begin{proposition}
+    For $n > 1$, the unit sphere $S^{n-1}$ is path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The map $g : \RR^n \setminus \{ 0 \} \rightarrow S^{n-1}$ defined by $g(x) = x / \| x \|$ is continuous and surjective. The result follows by Proposition
+    \ref{proposition:path_connected_continuous_image}. \qed
+\end{proof}
+
+\begin{definition}[Topologist's Sine Curve]
+    Let $S = \{ (x, \sin 1/x) \mid 0 < x \leq 1 \}$. The \emph{topologist's sine curve} is the closure $\overline{S}$ of $S$.
+\end{definition}
+
+\begin{proposition}
+    \[ \overline{S} = S \cup (\{0\} \times [-1,1]) \]
+\end{proposition}
+\begin{proposition}
+    The topologist's sine curve is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$S = \{ (x, \sin 1/x) \mid 0 < x \leq 1 \}$}}
+    \step{2}{$S$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_continuous_image}.
+    \end{proof}
+    \step{3}{$\overline{S}$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_closure}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[CC]
+    The topologist's sine curve is not path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $p : [0,1] \rightarrow \overline{S}$ is a path from $(0,0)$ to $(1, \sin 1)$.}}
+    \step{2}{$\inv{p}(\{0\} \times [0,1])$ is closed.}
+    \step{3}{\pflet{$b$ be the greatest element of $\inv{p}(\{0\} \times [0,1])$.}}
+    \step{3a}{$b < 1$}
+    \begin{proof}
+        \pf\ Since $p(1) = (1, \sin 1)$.
+    \end{proof}
+    \step{4}{\pick\ a sequence $(t_n)_{n \geq 1}$ in $(b,1]$ such that $t_n \rightarrow b$ and $\pi_2(p(t_n)) = (-1)^n$}
+    \begin{proof}
+        \step{a}{\pflet{$n \geq 1$}}
+        \step{b}{\pick\ $u$ with $0 < u < \pi_1(p(1/n))$ such that $\sin (1/u) = (-1)^n$}
+        \step{c}{\pick\ $t_n$ such that $0 < t_n < 1/n$ and $\pi_1(p(t_n)) = u$}
+        \begin{proof}
+            \pf\ One exists by the Intermediate Value Theorem.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \ref{proposition:converge_continuous}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The Uniform Topology}
 
 \begin{definition}[Uniform Metric]
