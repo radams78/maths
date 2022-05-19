@@ -3759,6 +3759,22 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \pf\ Otherwise $\inv{f}((- \infty, r))$ and $\inv{f}((r, + \infty))$ would form a separation of $X$. \qed
 \end{proof}
 
+\begin{proposition}
+    Every function $f : [0,1] \rightarrow [0,1]$ has a fixed point.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$g : [0,1] \rightarrow [-1,1]$ be the function $g(x) = f(x) - x$} \prove{there exists $x \in [0,1]$ such that $g(x) = 0$}}
+    \step{2}{\assume{without loss of generality $g(0) \neq 0$ and $g(1) \neq 0$}}
+    \step{3}{$g(0) > 0$}
+    \step{4}{$g(1) < 0$}
+    \step{5}{There exists $x \in (0,1)$ such that $g(x) = 0$}
+    \begin{proof}
+        \pf\ By the Intermediate Value Theorem.
+    \end{proof}
+\end{proof}
+
 \section{Totally Disconnected Spaces}
 
 \begin{definition}[Totally Disconnected]

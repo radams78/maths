@@ -114,3 +114,40 @@
     \end{proof}
     \qed
 \end{proof}
+
+\begin{proposition}
+    If $X$ is a well-ordered set then $X \times [0,1)$ under the dictionary order is a linear continuum.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{Every nonempty set $A \subseteq X \times [0,1)$ bounded above has a supremum.}
+    \begin{proof}
+        \step{a}{\pflet{$A \subseteq X \times [0,1)$ be nonempty and bounded above}}
+        \step{b}{\pflet{$x_0$ be the supremum of $\pi_1(A)$}}
+        \step{c}{\case{$x_0 \in \pi_1(A)$}}
+        \begin{proof}
+            \step{i}{\pflet{$y_0$ be the supremum of $\{ y \in [0,1) \mid (x_0,y) \in A \}$}}
+            \step{ii}{$(x_0,y_0)$ is the supremum of $A$.}
+        \end{proof}
+        \step{d}{\case{$x_0 \notin \pi_1(A)$}}
+        \begin{proof}
+            \pf\ In this case $(x_0,0)$ is the supremum of $A$.
+        \end{proof}
+    \end{proof}
+    \step{2}{$X \times [0,1)$ is dense.}
+    \begin{proof}
+        \step{a}{\pflet{$(x_1,y_1), (x_2,y_2) \in X \times [0,1)$ with $(x_1,y_1) < (x_2,y_2)$}}
+        \step{b}{\case{$x_1 < x_2$}}
+        \begin{proof}
+            \step{i}{\pick\ $y_3$ such that $y_1 < y_3 < 1$}
+            \step{ii}{$(x_1,y_1) < (x_1,y_3) < (x_2,y_2)$}
+        \end{proof}
+        \step{c}{\case{$x_1 = x_2$ and $y_1 < y_2$}}
+        \begin{proof}
+            \step{i}{\pick\ $y_3$ such that $y_1 < y_3 < y_2$}
+            \step{ii}{$(x_1,y_1) < (x_1,y_3) < (x_2,y_2)$}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
