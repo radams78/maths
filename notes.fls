@@ -84,6 +84,7 @@ INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmti10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/cm/cmcsc10.tfm
 OUTPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/analysis.tex
 INPUT /home/robin/fun/maths/analysis.tex
@@ -94,7 +95,6 @@ OUTPUT /home/robin/fun/maths/topology.aux
 INPUT /home/robin/fun/maths/topology.tex
 INPUT /home/robin/fun/maths/topology.tex
 INPUT /usr/share/texmf/fonts/tfm/jknappen/ec/tcrm1000.tfm
-INPUT /usr/share/texmf/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmti7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmti7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmbx12.tfm
