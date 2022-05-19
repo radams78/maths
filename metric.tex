@@ -865,6 +865,14 @@ We prove this is a metric.
     \end{proof}
 \end{proof}
 
+\begin{corollary}
+    For $n > 1$, the spaces $\RR$ and $\RR^n$ are not homeomorphic.
+\end{corollary}
+
+\begin{proof}
+    \pf\ For any point $a$, the space $\RR \setminus \{a\}$ is disconnected.
+\end{proof}
+
 \begin{definition}[Unit Sphere]
     For $n \geq 1$, the \emph{unit sphere} $S^{n-1}$ is the space
     \[ S^{n-1} = \{ x \in \RR^n \mid \| x \| = 1 \} \enspace . \]
@@ -877,6 +885,22 @@ We prove this is a metric.
 \begin{proof}
     \pf\ The map $g : \RR^n \setminus \{ 0 \} \rightarrow S^{n-1}$ defined by $g(x) = x / \| x \|$ is continuous and surjective. The result follows by Proposition
     \ref{proposition:path_connected_continuous_image}. \qed
+\end{proof}
+
+\begin{proposition}
+    Let $f : S^1 \rightarrow \RR$ be continuous. Then there exists $x \in S^1$ such that $f(x) = f(-x)$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$g : S^1 \rightarrow \RR$ be the function $g(x) = f(x) - f(-x)$} \prove{There exists $x \in S^1$ such that $g(x) = 0$}}
+    \step{2}{\assume{without loss of generality $g((1,0)) > 0$}}
+    \step{3}{$g((-1,0)) < 0$}
+    \step{4}{There exists $x$ such that $g(x) = 0$}
+    \begin{proof}
+        \pf\ By the Intermediate Value Theorem.
+    \end{proof}
+    \qed
 \end{proof}
 
 \begin{definition}[Topologist's Sine Curve]

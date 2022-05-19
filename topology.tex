@@ -3556,67 +3556,182 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{theorem}
-    Every linear continuum is connected under the order topology.
+    Let $L$ be a linearly ordered set under the order topology. Then $L$ is connected if and only if $L$ is a linear continuum.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$L$ be a linear continuum under the order topology.}}
-    \step{2}{\assume{for a contradiction $C$ and $D$ form a separation of $L$.}}
-    \step{3}{\pick\ $a \in C$ and $b \in D$.}
-    \step{4}{\assume{without loss of generality $a < b$.}}
-    \step{5}{\pflet{$S = \{ x \in L \mid a < x \text{ and } [a,x) \subseteq C \}$}}
-    \step{6}{$S$ is nonempty.}
+    \step{One}{If $L$ is a linear continuum then $L$ is connected.}
     \begin{proof}
-        \pf\ Since $a \in C$ and $C$ is open.
+        \step{1}{\pflet{$L$ be a linear continuum under the order topology.}}
+        \step{2}{\assume{for a contradiction $C$ and $D$ form a separation of $L$.}}
+        \step{3}{\pick\ $a \in C$ and $b \in D$.}
+        \step{4}{\assume{without loss of generality $a < b$.}}
+        \step{5}{\pflet{$S = \{ x \in L \mid a < x \text{ and } [a,x) \subseteq C \}$}}
+        \step{6}{$S$ is nonempty.}
+        \begin{proof}
+            \pf\ Since $a \in C$ and $C$ is open.
+        \end{proof}
+        \step{7}{$S$ is bounded above by $b$.}
+        \begin{proof}
+            \pf\ Since $b \notin C$.
+        \end{proof}
+        \step{8}{\pflet{$s = \sup S$}}
+        \step{9a}{$s \in S$}
+        \begin{proof}
+            \step{i}{\pflet{$y \in [a,s)$} \prove{$y \in C$}}
+            \step{ii}{\pick\ $z$ with $y < z \in S$}
+            \begin{proof}
+                \pf\ By minimality of $s$.
+            \end{proof}
+            \step{iii}{$y \in [a,z) \subseteq C$}
+        \end{proof}
+        \step{9}{\case{$s \in C$}}
+        \begin{proof}
+            \step{a}{\pick\ $x$ such that $s < x$ and $[s,x) \subseteq C$}
+            \begin{proof}
+                \pf\ Since $C$ is open and $s$ is not greatest in $L$ because $s < b$.
+            \end{proof}
+            \step{b}{$x \in S$}
+            \begin{proof}
+                \pf\ Since $[a,x) = [a,s) \cup [s,x) \subseteq C$.
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts the fact that $s$ is an upper bound for $S$.
+            \end{proof}
+        \end{proof}
+        \step{10}{\case{$s \in D$}}
+        \begin{proof}
+            \step{a}{\pick\ $x < s$ such that $(x,s] \subseteq D$}
+            \step{b}{\pick\ $y$ with $x < y < s$}
+            \begin{proof}
+                \pf\ Since $L$ is dense.
+            \end{proof}
+            \step{c}{$y \in C$}
+            \begin{proof}
+                \pf\ From \stepref{9a}.
+            \end{proof}
+            \step{d}{$y \in D$}
+            \begin{proof}
+                \pf\ From \stepref{a}.
+            \end{proof}
+            \qedstep    \step{1}{\pflet{$L$ be a linear continuum under the order topology.}}
+            \step{2}{\assume{for a contradiction $C$ and $D$ form a separation of $L$.}}
+            \step{3}{\pick\ $a \in C$ and $b \in D$.}
+            \step{4}{\assume{without loss of generality $a < b$.}}
+            \step{5}{\pflet{$S = \{ x \in L \mid a < x \text{ and } [a,x) \subseteq C \}$}}
+            \step{6}{$S$ is nonempty.}
+            \begin{proof}
+                \pf\ Since $a \in C$ and $C$ is open.
+            \end{proof}
+            \step{7}{$S$ is bounded above by $b$.}
+            \begin{proof}
+                \pf\ Since $b \notin C$.
+            \end{proof}
+            \step{8}{\pflet{$s = \sup S$}}
+            \step{9a}{$s \in S$}
+            \begin{proof}
+                \step{i}{\pflet{$y \in [a,s)$} \prove{$y \in C$}}
+                \step{ii}{\pick\ $z$ with $y < z \in S$}
+                \begin{proof}
+                    \pf\ By minimality of $s$.
+                \end{proof}
+                \step{iii}{$y \in [a,z) \subseteq C$}
+            \end{proof}
+            \step{9}{\case{$s \in C$}}
+            \begin{proof}
+                \step{a}{\pick\ $x$ such that $s < x$ and $[s,x) \subseteq C$}
+                \begin{proof}
+                    \pf\ Since $C$ is open and $s$ is not greatest in $L$ because $s < b$.
+                \end{proof}
+                \step{b}{$x \in S$}
+                \begin{proof}
+                    \pf\ Since $[a,x) = [a,s) \cup [s,x) \subseteq C$.
+                \end{proof}
+                \qedstep
+                \begin{proof}
+                    \pf\ This contradicts the fact that $s$ is an upper bound for $S$.
+                \end{proof}
+            \end{proof}
+            \step{10}{\case{$s \in D$}}
+            \begin{proof}
+                \step{a}{\pick\ $x < s$ such that $(x,s] \subseteq D$}
+                \step{b}{\pick\ $y$ with $x < y < s$}
+                \begin{proof}
+                    \pf\ Since $L$ is dense.
+                \end{proof}
+                \step{c}{$y \in C$}
+                \begin{proof}
+                    \pf\ From \stepref{9a}.
+                \end{proof}
+                \step{d}{$y \in D$}
+                \begin{proof}
+                    \pf\ From \stepref{a}.
+                \end{proof}
+                \qedstep
+                \begin{proof}
+                    \pf\ This contradicts \stepref{2}.
+                \end{proof}
+            \end{proof}
+        \end{proof}        
     \end{proof}
-    \step{7}{$S$ is bounded above by $b$.}
+    \step{Two}{If $L$ is connected then $L$ is a linear continuum.}
     \begin{proof}
-        \pf\ Since $b \notin C$.
-    \end{proof}
-    \step{8}{\pflet{$s = \sup S$}}
-    \step{9a}{$s \in S$}
-    \begin{proof}
-        \step{i}{\pflet{$y \in [a,s)$} \prove{$y \in C$}}
-        \step{ii}{\pick\ $z$ with $y < z \in S$}
+        \step{1}{\assume{$L$ is connected.}}
+        \step{2}{Every nonempty subset of $L$ that is bounded above has a supremum.}
         \begin{proof}
-            \pf\ By minimality of $s$.
+            \step{a}{\pflet{$X$ be a nonempty subset of $L$ bounded above by $b$.}}
+            \step{b}{\assume{for a contradiction $X$ has no supremum.}}
+            \step{b}{\pflet{$U$ be the set of upper bounds of $X$,}}
+            \step{c}{$U$ is nonempty.}
+            \begin{proof}
+                \pf\ Since $b \in U$.
+            \end{proof}
+            \step{d}{$U$ is open.}
+            \begin{proof}
+                \step{i}{\pflet{$x \in U$}}
+                \step{ii}{\pick\ an upper bound $y$ for $X$ such that $y < x$}
+                \step{iii}{Either $x$ is greatest in $L$ and $(y,x] \subseteq U$, or there exists $z > x$ such that $(y,z) \subseteq U$}
+            \end{proof}
+            \step{e}{\pflet{$V$ be the set of lower bounds of $U$.}}
+            \step{f}{$V$ is nonempty.}
+            \begin{proof}
+                \pf\ Since $X \subseteq V$
+            \end{proof}
+            \step{g}{$V$ is open.}
+            \begin{proof}
+                \step{i}{\pflet{$x \in V$}}
+                \step{ii}{\pick\ $y \in X$ with $x < y$}
+                \begin{proof}
+                    \pf\ $x$ cannot be an upper bound for $X$, because it would be the supremum of $X$.
+                \end{proof}
+                \step{iii}{Either $x$ least in $L$ and $[x,y) \subseteq V$, or there exists $z < x$ such that $(z,y) \subseteq V$}
+            \end{proof}
+            \step{h}{$L = U \cup V$}
+            \begin{proof}
+                \step{i}{\pflet{$x \in L \setminus U$}}
+                \step{ii}{\pick\ $y \in X$ such that $x < y$}
+                \step{iii}{For all $u \in U$ we have $x < y \leq u$}
+                \step{iv}{$x \in V$}
+            \end{proof}
+            \step{i}{$U \cap V = \emptyset$}
+            \begin{proof}
+                \pf\ Any element of $U \cap V$ would be a supremum of $X$.
+            \end{proof}
+            \step{j}{$U$ and $V$ form a separation of $L$.}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts \stepref{1}.
+            \end{proof}
         \end{proof}
-        \step{iii}{$y \in [a,z) \subseteq C$}
-    \end{proof}
-    \step{9}{\case{$s \in C$}}
-    \begin{proof}
-        \step{a}{\pick\ $x$ such that $s < x$ and $[s,x) \subseteq C$}
+        \step{3}{$L$ is dense.}
         \begin{proof}
-            \pf\ Since $C$ is open and $s$ is not greatest in $L$ because $s < b$.
-        \end{proof}
-        \step{b}{$x \in S$}
-        \begin{proof}
-            \pf\ Since $[a,x) = [a,s) \cup [s,x) \subseteq C$.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ This contradicts the fact that $s$ is an upper bound for $S$.
-        \end{proof}
-    \end{proof}
-    \step{10}{\case{$s \in D$}}
-    \begin{proof}
-        \step{a}{\pick\ $x < s$ such that $(x,s] \subseteq D$}
-        \step{b}{\pick\ $y$ with $x < y < s$}
-        \begin{proof}
-            \pf\ Since $L$ is dense.
-        \end{proof}
-        \step{c}{$y \in C$}
-        \begin{proof}
-            \pf\ From \stepref{9a}.
-        \end{proof}
-        \step{d}{$y \in D$}
-        \begin{proof}
-            \pf\ From \stepref{a}.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ This contradicts \stepref{2}.
+            \step{a}{\pflet{$x, y \in L$ with $x < y$}}
+            \step{b}{There exists $z \in L$ such that $x < z < y$}
+            \begin{proof}
+                \pf\ Otherwise $(- \infty, y)$ and $(x, +\infty)$ would form a separation of $L$.
+            \end{proof}
         \end{proof}
     \end{proof}
     \qed
