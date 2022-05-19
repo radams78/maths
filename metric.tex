@@ -640,6 +640,50 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{proposition}
+    Let $n \geq 0$. For all $c \in \RR^n$ and $\epsilon > 0$, the open ball $B(c,\epsilon)$ is path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a, b \in B(c,\epsilon)$}}
+    \step{2}{\pflet{$p : [0,1] \rightarrow B(c,\epsilon)$ be the function $p(t) = (1-t)a + tb$}}
+    \begin{proof}
+        \pf\ We have $p(t) \in B(c,\epsilon)$ for all $t$ because
+        \begin{align*}
+            d(p(t),c) & = \| (1-t)a + tb - c \| \\
+        & = \| (1-t)(a-c) + t(b-c) \| \\
+        & \leq (1-t) \| a-c \| + t \| b-c \| \\
+        & < (1-t) \epsilon + t \epsilon \\
+        & = \epsilon
+        \end{align*}
+    \end{proof}
+    \step{3}{$p$ is a path from $a$ to $b$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $n \geq 0$. For all $c \in \RR^n$ and $\epsilon > 0$, the closed ball $\overline{B(c,\epsilon)}$ is path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a, b \in \overline{B(c,\epsilon)}$}}
+    \step{2}{\pflet{$p : [0,1] \rightarrow \overline{B(c,\epsilon)}$ be the function $p(t) = (1-t)a + tb$}}
+    \begin{proof}
+        \pf\ We have $p(t) \in \overline{B(c,\epsilon)}$ for all $t$ because
+        \begin{align*}
+            d(p(t),c) & = \| (1-t)a + tb - c \| \\
+        & = \| (1-t)(a-c) + t(b-c) \| \\
+        & \leq (1-t) \| a-c \| + t \| b-c \| \\
+        & \leq (1-t) \epsilon + t \epsilon \\
+        & = \epsilon
+        \end{align*}
+    \end{proof}
+    \step{3}{$p$ is a path from $a$ to $b$.}
+    \qed
+\end{proof}
+
 \begin{lemma}
     If $\sum_{i=0}^\infty x_i^2$ and $\sum_{i=0}^\infty y_i^2$ converge then $\sum_{i=0}^\infty |x_i y_i|$ converges.
 \end{lemma}
@@ -772,6 +816,30 @@ We prove this is a metric.
         \pf\ By Proposition \ref{proposition:continuous_subbasis} and Lemma
         \ref{lemma:open_rays_subbasis}.
     \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}
+    For $n \geq 0$, the \emph{unit ball} $B^n$ is the space $\{ x \in \RR^n \mid \| x \| \leq 1 \}$.
+\end{definition}
+
+\begin{proposition}
+    For all $n \geq 0$, the unit ball $B^n$ is path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a, b \in B^n$}}
+    \step{2}{\pflet{$p : [0,1] \rightarrow B^n$ be the function $p(t) = (1-t)a + tb$}}
+    \begin{proof}
+        \pf\ We have $p(t) \in B^n$ for all $t$ because
+        \begin{align*}
+            \| (1-t)a + tb \| & \leq (1-t) \| a \| + t \| b \| \\
+            & \leq (1-t) + t \\
+            & = 1
+        \end{align*}
+    \end{proof}
+    \step{3}{$p$ is a path from $a$ to $b$.}
     \qed
 \end{proof}
 
