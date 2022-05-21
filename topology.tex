@@ -3947,6 +3947,26 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}[AC]
+    The product of a family of path-connected spaces is path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{ X_\alpha \}_{\alpha \in J}$ be a family of path-connected spaces.}}
+    \step{2}{\pflet{$a, b \in \prod_{\alpha \in J} X_\alpha$}}
+    \step{3}{For $\alpha \in J$, \pick\ a path $p_\alpha : [0,1] \rightarrow X_\alpha$ from $a_\alpha$ to $b_\alpha$}
+    \begin{proof}
+        \pf\ Using the Axiom of Choice.
+    \end{proof}
+    \step{4}{Define $p : [0.1] \rightarrow \prod_{\alpha \in J} X_\alpha$ by $p(t)_\alpha = p_\alpha(t)$}
+    \step{5}{$p$ is a path from $a$ to $b$.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:product_continuous}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
