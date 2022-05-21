@@ -192,3 +192,75 @@
     \end{proof}
     \qed
 \end{proof}
+
+\begin{lemma}
+    \label{lemma:order_iso_real_intervals}
+    For all $a,b,c,d \in \RR$ with $a < b$ and $c < d$, we have 
+    $[a,b) \cong [c,d)$
+\end{lemma}
+
+\begin{proof}
+    \pf\ The map $\lambda t. c + (t-a)(d-c)/(b-a)$ is an order isomorphism.
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a linearly ordered set. Let $a < b < c$ in $X$. Then $[a,c) \cong [0,1)$
+    if and only if $[a,b) \cong [b,c) \cong [0,1)$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $[a,c) \cong [0,1)$ then $[a,b) \cong [b,c) \cong [0,1)$}
+    \begin{proof}
+        \step{a}{\assume{$f : [a,c) \cong [0,1)$ is an order isomorphism}}
+        \step{b}{$[a,b) \cong [0,1)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                [a,b) & \cong [0,f(b)) & (\text{by the restriction of } f) \\
+                & \cong [0,1) & (\text{Lemma \ref{lemma:order_iso_real_intervals}})
+            \end{align*}
+        \end{proof}
+        \step{c}{$[b,c) \cong [0,1)$}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \step{2}{If $[a,b) \cong [b,c) \cong [0,1)$ then $[a,c) \cong [0,1)$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            [a,c) & = [a,b) * [b,c) \\
+            & \cong [0,1) * [0,1) \\
+            & \cong [0,1/2) * [1/2,1) & (\text{Lemma \ref{lemma:order_iso_real_intervals}})\\
+            & = 1
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[CC]
+    Let $X$ be a linearly ordered set. Let $x_0 < x_1 < \cdots$ be a
+    strictly increasing sequence in $X$ with supremum $b$. Then $[x_0,b)
+    \cong [0,1)$ if and only if $[x_i,x_{i+1}) \cong [0,1)$ for all $i$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $[x_0,b) \cong [0,1)$ then $[x_i,x_{i+1}) \cong [0,1)$
+    for all $i$.}
+    \begin{proof}
+        \pf\ By Lemma \ref{lemma:order_iso_real_intervals}
+    \end{proof}
+    \step{2}{If $[x_i,x_{i+1}) \cong [0,1)$ for all $i$ then $[x_0,b) \cong [0,1)$}
+    \begin{proof}
+        \step{a}{\assume{$[x_i,x_{i+1}) \cong [0,1)$ for all $i$}}
+        \step{b}{\pick\ an order isomorphism $f_i : [x_i,x_{i+1}) \cong [1/2^i,2/2^{i+1})$
+        for each $i$.}
+        \begin{proof}
+            \pf\ By Lemma \ref{lemma:order_iso_real_intervals}
+        \end{proof}
+        \step{c}{The union of the $f_i$s is an order isomorphism $[x_0,b) \cong [0,1)$}
+    \end{proof}
+    \qed
+\end{proof}

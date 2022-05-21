@@ -3249,6 +3249,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{definition}
 
 \begin{proposition}
+    \label{proposition:open_closed_connective}
     A topological space $X$ is connected if and only if the only sets that are both open and closed are $X$ and $\emptyset$.
 \end{proposition}
 
@@ -3998,6 +3999,80 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    Let $A \subseteq \RR^2$ be countable. Then $\RR^2 \setminus A$ is path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$a, b \in \RR^2 \setminus A$}}
+    \step{2}{\pick\ a line $l$ in $\RR^2$ with $a$ on one side and $b$ on the other.}
+    \step{3}{For every point $x$ on $l$, \pflet{$p_x$ be the path in $\RR^2$ consisting of a line from $a$ to $x$ then a line from $x$ to $b$}}
+    \step{4}{For $x \neq y$ we have $p_x$ and $p_y$ have no points in common except $a$ and $b$}
+    \step{5}{There are only countably many $x$ such that a point of $A$ lies on $p_x$.}
+    \step{6}{There exists $x$ such that $p_x$ is a path from $a$ to $b$ in $\RR^2 \setminus A$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every open connected subspace of $\RR^2$ is path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$U$ be an open connected subspace of $\RR^2$.}}
+    \step{2}{For all $x_0 \in U$, \pflet{$PC(x_0) = \{ y \in U \mid \text{there exists a path from $x$ to $y$} \}$}}
+    \step{2a}{For all $x_0 \in U$, the set $PC(x_0)$ is open and closed in $U$.}
+    \begin{proof}
+        \step{a}{\pflet{$x_0 \in U$}}
+        \step{b}{$PC(x_0)$ is open in $U$}
+        \begin{proof}
+            \step{i}{\pflet{$y \in PC(x_0)$}}
+            \step{ii}{\pick\ $\epsilon > 0$ such that $B(y,\epsilon) \subseteq U$}
+            \begin{proof}
+                \pf\ Since $U$ is open.
+            \end{proof}
+            \step{iii}{$B(y, \epsilon) \subseteq PC(x_0)$}
+            \begin{proof}
+                \pf\ For all $z \in B(y, \epsilon)$, pick a path from $x_0$ to $y$ then concatenate the straight line from $y$ to $z$.
+            \end{proof}
+        \end{proof}
+        \step{c}{$PC(x_0)$ is closed in $U$}
+        \begin{proof}
+            \step{i}{\pflet{$y \in U$ be a limit point of $PC(x_0)$}}
+            \step{ii}{\pick\ $\epsilon > 0$ such that $B(y, \epsilon) \subseteq U$}
+            \step{iii}{\pick\ $z \in PC(x_0) \cap B(y, \epsilon)$}
+            \step{iv}{$y \in PC(x_0)$}
+            \begin{proof}
+                \pf\ Pick a path from $x_0$ to $z$ then concatenate the straight line from $z$ to $y$.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{3}{$PC(x_0) = U$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:open_closed_connective}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    If $A$ is a connected subspace of $X$, then $A^\circ$ is not necessarily connected.
+
+    Take two closed circles in $\RR^2$ that touch at one point. The interior of this space is
+    two open circles, and these two circles form a separation.
+\end{example}
+
+\begin{example}
+    If $A$ is a connected subspace of $X$ then $\partial A$ is not necessarily connected.
+
+    We have $[0,1]$ is connected but $\partial [0,1] = \{ 0, 1 \}$ is not.
+\end{example}
+
+\begin{example}
+    If $A$ is a subspace of $X$ and $A^\circ$ and $\partial A$ are connected, then $A$ is not necessarily connected.
+
+    We have $\QQ^\circ = \emptyset$ and $\partial \QQ = \RR$ are connected but $\QQ$ is not connected.
+\end{example}
 \section{The Topologist's Sine Curve}
 
 \begin{definition}[The Topologist's Sine Curve]
@@ -4080,6 +4155,19 @@ An example that shows the converse does not hold:
 \begin{corollary}
     The closure of a path-connected subspace of a space is not necessarily path-connected.
 \end{corollary}
+
+\section{The Long Line}
+
+\begin{definition}[The Long Line]
+    The \emph{long line} is the space $S_\Omega \times [0,1)$ in the dictionary order
+    under the order topology.
+\end{definition}
+
+\begin{proposition}
+    The long line is path-connected.
+\end{proposition}
+
+%TODO 
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
