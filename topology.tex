@@ -1697,6 +1697,7 @@ We prove this is a basis for a topology.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:homeomorphism_order_topology}
     Let $X$ and $Y$ be linearly ordered sets in the order topology. Let $f : X \rightarrow Y$ be strictly monotone and surjective. Then $f$ is a homeomorphism.
 \end{proposition}
 
@@ -1738,6 +1739,48 @@ We prove this is a basis for a topology.
     \end{proof}
     \qed
 \end{proof}
+
+\section{The $n$th Root Function}
+
+\begin{proposition}
+    For all $n \geq 1$, the function $f : \RR_{\geq 0} \rightarrow \RR_{\geq 0}$ defined by $f(x) = x^n$ is a homemorphism.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$f$ is strictly monotone.}
+    \begin{proof}
+        \step{a}{\pflet{$x,y \in \RR$ with $0 \leq x < y$}}
+        \step{b}{$x^n < y^n$}
+        \begin{proof}
+            \begin{align*}
+                y^n - x^n & = (y - x)(y^{n-1} + y^{n-2}x + y^{n-3}x^2 + \cdots + x^{n-1}) \\
+                & > 0
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{2}{$f$ is surjective.}
+    \begin{proof}
+        \step{a}{\pflet{$y \in \RR_{\geq 0}$}}
+        \step{b}{\pick\ $x \in \RR$ such that $y \leq x^n$}
+        \begin{proof}
+            \pf\ If $y \leq 1$ take $x = 1$, otherwise take $x = y$.
+        \end{proof}
+        \step{c}{There exists $x' \in [0,x]$ such that $(x')^n = y$}
+        \begin{proof}
+            \pf\ By the Intermediate Value Theorem.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:homeomorphism_order_topology}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}
+    For $n \geq 1$, the \emph{$n$th root function} is the function $\RR_{\geq 0} \rightarrow \RR_{\geq 0}$ that is the inverse of $\lambda x.x^n$.
+\end{definition}
 
 \section{The Product Topology}
 
