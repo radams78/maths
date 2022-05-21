@@ -12,6 +12,47 @@
     A \emph{preordered set} consists of a set $X$ and a preorder $\leq$ on $X$.
 \end{definition}
 
+\begin{proposition}
+    \label{proposition:iso_strictly_monotone_sujective}
+    Let $X$ and $Y$ be linearly ordered sets. Let $f : X \twoheadrightarrow Y$ be strictly monotone and surjective.
+    Then $f$ is a poset isomorphism.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{3}{$f$ is injective.}
+    \begin{proof}
+        \step{a}{\pflet{$x, y \in X$}}
+        \step{b}{\assume{$f(x) = f(y)$}}
+        \step{c}{$x \nless y$}
+        \begin{proof}
+            \pf\ By strong motonicity.
+        \end{proof}
+        \step{d}{$y \nless x$}
+        \begin{proof}
+            \pf\ By strong motonicity.
+        \end{proof}
+        \step{e}{$x = y$}
+        \begin{proof}
+            \pf\ By trichotomy.
+        \end{proof}
+    \end{proof}
+    \step{4}{$\inv{f}$ is monotone.}
+    \begin{proof}
+        \step{a}{\pflet{$x, y \in X$}}
+        \step{b}{\assume{$x \leq y$}}
+        \step{c}{$\inv{f}(x) \ngtr \inv{f}(y)$}
+        \begin{proof}
+            \pf\ By strong motonicity.
+        \end{proof}
+        \step{d}{$\inv{f}(x) < \inv{f}(y)$}
+        \begin{proof}
+            \pf\ By trichotomy.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
 \begin{definition}[Interval]
     Let $X$ be a preordered set and $Y \subseteq X$. Then $Y$ is an \emph{interval} if and only if, for
     all $a, b \in Y$ and $c \in X$, if $a \leq c \leq b$ then $c \in Y$.

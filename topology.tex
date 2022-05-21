@@ -1079,16 +1079,6 @@ The following example shows that we cannot remove the assumption of local finite
     $[-1,1] = \bigcup_{n=1}^\infty C_n \cup D$ and $f$ is continuous on each $C_n$ and each $D$, but $f$ is not continuous on $[-1,1]$.    
 \end{example}
 
-\begin{proposition}
-    Let $X$ be a topological space.
-    Let $Y$ be a linearly ordered set in the order topology. Let $f, g : X \rightarrow Y$ be continuous. Define $h : X \rightarrow Y$ by $h(x) = \min(f(x),g(x))$.
-    Then $h$ is continuous.
-\end{proposition}
-
-\begin{proof}
-    \pf\ By the Pasting Lemma applied to $\{ x \in X \mid f(x) \leq g(x) \}$ and $\{ x \in X \mid g(x) \leq f(x) \}$, which are closed by Lemma \ref{lemma:order_topology_closed}.
-\end{proof}
-
 \section{Open Maps}
 
 \begin{definition}[Open Map]
@@ -1415,27 +1405,6 @@ The following example shows that we cannot remove the assumption of local finite
 \end{proof}
 
 \begin{lemma}
-    \label{lemma:order_topology_closed}
-    Let $X$ be a topological space.
-    Let $Y$ be a linearly ordered set in the order topology. Let $f, g : X \rightarrow Y$ be continuous. Then $C = \{ x \in X \mid f(x) \leq g(x) \}$ is closed.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$x \in X \setminus C$}}
-    \step{2}{$f(x) > g(x)$ \prove{There exists a neighbourhood $U$ of $x$ such that $U \subseteq X \setminus C$}}
-    \step{3}{\case{There exists $y$ such that $g(x) < y < f(x)$}}
-    \begin{proof}
-        \pf\ Take $U = \inv{g}((-\infty, y)) \cup \inv{f}(y,+\infty)$.
-    \end{proof}
-    \step{4}{\case{There is no $y$ such that $g(x) < y < f(x)$}}
-    \begin{proof}
-        \pf\ Take $U = \inv{g}((-\infty, f(x))) \cup \inv{f}(g(x),+\infty)$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{lemma}
     \label{lemma:continuous_open_subspace}
     Let $f : X \rightarrow Y$. Let $Z$ be an open subspace of $X$ and $a \in Z$. If $f \restriction Z$ is continuous at $a$ then $f$ is continuous at $a$.
 \end{lemma}
@@ -1692,6 +1661,80 @@ We prove this is a basis for a topology.
     \begin{proof}
         \pf\ There is no open interval $(a,b)$ such that $0 \in (a,b) \subseteq (-1,1) \setminus K$, since
         there must be a positive integer $n$ with $1/n \in (a,b)$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:order_topology_closed}
+    Let $X$ be a topological space.
+    Let $Y$ be a linearly ordered set in the order topology. Let $f, g : X \rightarrow Y$ be continuous. Then $C = \{ x \in X \mid f(x) \leq g(x) \}$ is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in X \setminus C$}}
+    \step{2}{$f(x) > g(x)$ \prove{There exists a neighbourhood $U$ of $x$ such that $U \subseteq X \setminus C$}}
+    \step{3}{\case{There exists $y$ such that $g(x) < y < f(x)$}}
+    \begin{proof}
+        \pf\ Take $U = \inv{g}((-\infty, y)) \cup \inv{f}(y,+\infty)$.
+    \end{proof}
+    \step{4}{\case{There is no $y$ such that $g(x) < y < f(x)$}}
+    \begin{proof}
+        \pf\ Take $U = \inv{g}((-\infty, f(x))) \cup \inv{f}(g(x),+\infty)$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a topological space.
+    Let $Y$ be a linearly ordered set in the order topology. Let $f, g : X \rightarrow Y$ be continuous. Define $h : X \rightarrow Y$ by $h(x) = \min(f(x),g(x))$.
+    Then $h$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf\ By the Pasting Lemma applied to $\{ x \in X \mid f(x) \leq g(x) \}$ and $\{ x \in X \mid g(x) \leq f(x) \}$, which are closed by Lemma \ref{lemma:order_topology_closed}.
+\end{proof}
+
+\begin{proposition}
+    Let $X$ and $Y$ be linearly ordered sets in the order topology. Let $f : X \rightarrow Y$ be strictly monotone and surjective. Then $f$ is a homeomorphism.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$f$ is bijective.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:iso_strictly_monotone_sujective}.
+    \end{proof}
+    \step{2}{$f$ is continuous.}
+    \begin{proof}
+        \step{a}{For all $y \in Y$ we have $\inv{f}((y, +\infty))$ is open.}
+        \begin{proof}
+            \step{i}{\pflet{$y \in Y$}}
+            \step{ii}{\pick{$x \in X$ such that $f(x) = y$}}
+            \begin{proof}
+                \pf\ Since $f$ is surjective.
+            \end{proof}
+            \step{iii}{$\inv{f}((y, +\infty)) = (x, +\infty)$}
+            \begin{proof}
+                \pf\ By strict monotoncity.
+            \end{proof}
+        \end{proof}
+        \step{b}{For all $y \in Y$ we have $\inv{f}((-\infty, y))$ is open.}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \step{3}{$\inv{f}$ is continuous.}
+    \begin{proof}
+        \step{a}{For all $x \in X$ we have $f((x, +\infty))$ is open.}
+        \begin{proof}
+            \pf\ $f((x, +\infty)) = (f(x), +\infty)$.
+        \end{proof}
+        \step{b}{For all $x \in X$ we have $f((-\infty, x))$ is open.}
+        \begin{proof}
+            \pf\ $f((-\infty, x)) = (-\infty, f(x))$.
+        \end{proof}
     \end{proof}
     \qed
 \end{proof}
