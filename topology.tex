@@ -303,6 +303,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{lemma}
+    \label{lemma:closure_closed}
     A set $A$ is closed if and only if $A = \overline{A}$.
 \end{lemma}
 
@@ -3888,6 +3889,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{definition}
 
 \begin{proposition}
+    \label{proposition:connected_path_connected}
     Every path connected space is connected.
 \end{proposition}
 
@@ -4159,15 +4161,470 @@ An example that shows the converse does not hold:
 \section{The Long Line}
 
 \begin{definition}[The Long Line]
-    The \emph{long line} is the space $S_\Omega \times [0,1)$ in the dictionary order
-    under the order topology.
+    The \emph{long line} is the space $\omega_1 \times [0,1)$ in the dictionary order
+    under the order topology, where $\omega_1$ is the first uncountable ordinal.
 \end{definition}
 
-\begin{proposition}
+\begin{lemma}
+    \label{lemma:interval_in_long_line}
+    For any ordinal $\alpha$ with $0 < \alpha < \omega_1$ we have $[(0,0),(\alpha,0)) \cong
+    [0,1)$
+\end{lemma}
+
+\begin{proof}
+        \step{a}{$[(0,0),(1,0)) \cong [0,1)$}
+        \begin{proof}
+            \pf\ The map $\pi_2$ is a homeomorphism.
+        \end{proof}
+        \step{b}{If $[(0,0),(\alpha,0)) \cong [0,1)$ then $[(0,0),(\alpha + 1,0)) \cong [0,1)$}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:interval_concatenate_interval}.
+        \end{proof}
+        \step{c}{If $\lambda$ is a limit ordinal with $\lambda < \omega_1$ 
+        and $[(0,0),(\alpha,0)) \cong [0,1)$ for all $\alpha$ with $0 < \alpha < \lambda$
+        then $[(0,0),(\lambda,0)) \cong [0,1)$}
+        \begin{proof}
+            \step{i}{\pflet{$\lambda$ be a limit ordinal $< \omega_1$}}
+            \step{ii}{\assume{$[(0,0),(\alpha,0)) \cong [0,1)$ for all $\alpha$ with $0 < \alpha < \lambda$}}
+            \step{ii}{\pick\ a sequence of ordinals $\alpha_0 < \alpha_1 < \cdots$
+            with limit $\lambda$}
+            \begin{proof}
+                \pf\ Since $\lambda$ is countable.
+            \end{proof}
+            \step{iii}{$[(\alpha_i,0),(\alpha_{i+1},0)) \cong [0,1)$ for all $i$}
+            \begin{proof}
+                \pf\ Lemma \ref{lemma:order_iso_real_intervals}.
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ By Proposition \ref{proposition:interval_concatenate_intervals}.
+            \end{proof}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By transfinite induction.
+        \end{proof}
+\end{proof}
+
+\begin{proposition}[CC]
     The long line is path-connected.
 \end{proposition}
 
-%TODO 
+\begin{proof}
+    \pf
+    \step{2}{\pflet{$(\alpha,i),(\beta,j) \in \omega_1 \times [0,1)$}}
+    \step{3a}{\assume{without loss of generality $(\alpha, i) < (\beta, j)$}}
+    \step{3}{$[(0,0),(\beta + 1, 0)) \cong [0,1)$}
+    \begin{proof}
+        \pf\ By Lemma \ref{lemma:interval_in_long_line}
+    \end{proof}
+    \step{4}{$[(\alpha,i),(\beta,j)) \cong [0,1)$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:order_iso_real_intervals}.
+    \end{proof}
+    \step{5}{\pick\ a homeomorphism $q : [0,1) \rightarrow [(\alpha,i),(\beta,j))$}
+    \step{6}{$q \cup \{(1,(\beta,j))\}$ is a path from $(\alpha, i)$ to $(\beta, j)$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every point in the long line has a neighbourhood homeomorphic to an interval in $\RR$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ For any $(\alpha, i)$ in the long line, the neighbourhood $[(0,0),(\alpha + 1, 0))$
+    satisfies the condition by Lemma \ref{lemma:interval_in_long_line}.
+\end{proof}
+
+\begin{proposition}
+    The long line $L$ is not second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf\ 
+    \step{1}{\pflet{$\BB$ be a basis for $L$.}}
+    \step{2}{For $\alpha < \omega_1$, \pick\ $B_\alpha \in \BB$ such that
+    $(\alpha, 1/2) \in B_\alpha \subseteq ((\alpha, 0), (\alpha + 1,0))$}
+    \step{3}{$\BB$ is uncountable.}
+    \begin{proof}
+        \pf\ The mapping $\alpha \mapsto B_\alpha$ is an injection $\omega_1 \rightarrow \BB$.
+    \end{proof}
+\end{proof}
+
+\begin{corollary}
+    The long line cannot be imbedded into $\RR^n$ for any $n$.
+\end{corollary}
+
+\section{Components}
+
+\begin{proposition}
+    Let $X$ be a topological space. Define the relation $\sim$ on $X$ by
+    $a \sim b$ if and only if there exists a connected subspace $A \subseteq X$
+    with $a, b \in A$. Then $\sim$ is an equivalence relation on $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\sim$ is reflexive.}
+    \begin{proof}
+        \pf\ For any $a \in X$ we have $\{a\}$ is a connected subspace that
+        contains $a$.
+    \end{proof}
+    \step{2}{$\sim$ is symmetric.}
+    \begin{proof}
+        \pf\ Trivial.
+    \end{proof}
+    \step{3}{$\sim$ is transitive.}
+    \begin{proof}
+        \step{i}{\pflet{$a, b, c \in X$}}
+        \step{ii}{\assume{$a \sim b$ and $b \sim c$}}
+        \step{iii}{\pick\ connected subspaces $A$ and $B$ with $a,b \in A$
+        and $b,c \in B$}
+        \step{iv}{$A \cup B$ is a connected subspace that contains $a$ and $c$}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:connected_union}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}[(Connected) Component]
+    Let $X$ be a topological space. The \emph{(connected) components} of
+    $X$ are the equivalence classes under the above $\sim$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:component_includes_connected}
+    Let $X$ be a topological space. If $A \subseteq X$ is connected 
+    and nonempty then there
+    exists a unique component $C$ of $X$ such that $A \subseteq C$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ $a \in A$}
+    \step{2}{\pflet{$C$ be the $\sim$-equivalence class of $a$.}}
+    \step{3}{$A \subseteq C$}
+    \begin{proof}
+        \pf\ For all $x \in A$ we have $x \sim a$.
+    \end{proof}
+    \step{4}{If $C'$ is a component and $A \subseteq C'$ then $C = C'$}
+    \begin{proof}
+        \pf\ Since we have $a \in C'$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a topological space. The components of $X$ are connected
+    disjoint subspaces of $X$ whose union is $X$ such that each nonempty
+    connected subspace of $X$ intersects only one of them.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Every component of $X$ is connected.}
+    \begin{proof}
+        \pf\ For $a \in X$, the $\sim$-equivalence class of $a$ is
+        $\bigcup \{ A \subseteq X \mid A \text{ is connected}, a \in A \}$
+        which is connected by Theorem \ref{theorem:connected_union}.
+    \end{proof}
+    \step{2}{The components form a partition of $X$.}
+    \begin{proof}
+        \pf\ Immediate from the definition.
+    \end{proof}
+    \step{3}{Every nonempty connected subspace of $X$ intersects a unique
+    component of $X$.}
+    \begin{proof}
+        \step{a}{\pflet{$A \subseteq X$ be connected and nonempty.}}
+        \step{b}{\pflet{$C$ be the component such that $A \subseteq C$}}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:component_includes_connected}.
+        \end{proof}
+        \step{c}{$A$ intersects $C$}
+        \step{d}{If $A$ intersects the component $C'$ then $C' = C$}
+        \begin{proof}
+            \step{i}{\pflet{$C'$ be a component that intersects $A$}}
+            \step{ii}{\pick\ $b \in A \cap C'$}
+            \step{iii}{$A \subseteq C'$}
+            \begin{proof}
+                \pf\ For all $x \in A$ we have $x \sim b$.
+            \end{proof}
+            \step{iv}{$C = C'$}
+            \begin{proof}
+                \pf\ By uniqueness in \stepref{b}.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every component of a space is closed.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space and $C$ a component of $X$.}}
+    \step{2}{$\overline{C}$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_closure}.
+    \end{proof}
+    \step{3}{$C = \overline{C}$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subset_connected_subspace}.
+    \end{proof}
+    \step{4}{$C$ is closed.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closure_closed}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    If a topological space has finitely many components then every component is open.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Each component is the complement of a finite union of closed sets. \qed
+\end{proof}
+
+\section{Path Components}
+
+\begin{proposition}
+    Let $X$ be a topological space. Define the relation $\sim$ on $X$ by:
+    $a \sim b$ if and only if there exists a path in $X$ from $a$ to $b$.
+    Then $\sim$ is an equivalence relation on $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\sim$ is reflexive.}
+    \begin{proof}
+        \pf\ For $a \in X$, the constant function $[0,1] \rightarrow X$
+        with value $a$ is a path from $a$ to $a$.
+    \end{proof}
+    \step{2}{$\sim$ is symmetric.}
+    \begin{proof}
+        \pf\ If $p : [0,1] \rightarrow X$ is a path from $a$ to $b$,
+        then $\lambda t.p(1-t)$ is a path from $b$ to $a$.
+    \end{proof}
+    \step{3}{$\sim$ is transitive.}
+    \begin{proof}
+        \pf\ Concatenate paths.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}[Path Component]
+    Let $X$ be a topological space. The \emph{path components} of $X$ are
+    the equivalence relations under $\sim$.
+\end{definition}.
+
+\begin{theorem}
+    \label{theorem:path_components}
+    The path components of $X$ are path-connected disjoint subspaces of $X$
+    whose union is $X$ such that every nonempty path-connected subspace of $X$
+    intersects exactly one path component.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Every path component is path-connected.}
+    \begin{proof}
+        \pf\ If $a$ and $b$ are in the same path component then $a \sim b$,
+        i.e. there exists a path from $a$ to $b$.
+    \end{proof}
+    \step{2}{The path components are disjoint and their union is $X$.}
+    \begin{proof}
+        \pf\ Immediate from the definition.
+    \end{proof}
+    \step{3}{Every non-empty path-cönnected subspace of $X$ intersects exactly one path component.}
+    \begin{proof}
+        \step{a}{\pflet{$A$ be a nonempty path-connected subspace of $X$.}}
+        \step{b}{\pick\ $a \in A$}
+        \step{c}{$A$ intersects the $\sim$-equivalence class of $a$.}
+        \step{d}{\pflet{$C$ be any path component that intersects $A$.}}
+        \step{e}{\pick\ $b \in A \cap C$}
+        \step{f}{$a \sim b$}
+        \begin{proof}
+            \pf\ Since $A$ is path-connected.
+        \end{proof}
+        \step{g}{$C$ is the $\sim$-equivalence class of $a$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:path_component_sub_component}
+    Every path component is included in a component.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space and $C$ a path component of $X$.}}
+    \step{2}{$C$ is path-connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:path_components}.
+    \end{proof}
+    \step{3}{$C$ is connected.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:connected_path_connected}.
+    \end{proof}
+    \step{4}{$C$ is included in a component.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:component_includes_connected}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Local Connectedness}
+
+\begin{definition}[Locally Connected]
+    Let $X$ be a topological space and $a \in X$. Then $X$ is \emph{locally
+    connected} at $a$ if and only if every neighbourhood of $a$ includes a
+    connected neighbourhood of $a$.
+
+    The space $X$ is \emph{locally connected} if and only if it is locally
+    connected at every point.
+\end{definition}
+
+\begin{example}
+    The real line is both connected and locally connected.
+\end{example}
+
+\begin{example}
+    The space $\RR \setminus \{0\}$ is disconnected but locally connected.
+\end{example}
+
+\begin{example}
+    The topologist's sine curve is connected but not locally connected.
+\end{example}
+
+\begin{example}
+    The rationals $\QQ$ are neither connected nor locally connected.
+\end{example}
+
+\begin{theorem}
+    \label{theorem:open_component_locally_connected}
+    A topological space $X$ is locally connected if and only if, for every
+    open set $U$ in $X$, every component of $U$ is open in $X$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If $X$ is locally connected then, for every open set $U$ in $X$,
+    every component of $U$ is open in $X$.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is locally connected.}}
+        \step{b}{\pflet{$U$ be open in $X$.}}
+        \step{c}{\pflet{$C$ be a component of $U$.}}
+        \step{d}{\pflet{$a \in C$}}
+        \step{e}{\pflet{$V$ be a connected neighbourhood of $a$ such that $V \subseteq U$}}
+        \step{f}{$V \subseteq C$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:component_includes_connected}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:open}.
+        \end{proof}
+    \end{proof}
+    \step{2}{If, for every open set $U$ in $X$, every component of $U$ is
+    open in $X$, then $X$ is locally connected.}
+    \begin{proof}
+        \step{a}{\assume{for every open set $U$ in $X$, every component of $U$ is open in $X$.}}
+        \step{b}{\pflet{$a \in X$}}
+        \step{c}{\pflet{$U$ be a neighbourhood of $a$}}
+        \step{d}{The component of $U$ that contains $a$ is a connected neighbourhood of $a$ included in $U$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Local Path Connectedness}
+
+\begin{definition}[Locally Path-Connected]
+    Let $X$ be a topological space and $a \in X$. Then $X$ is \emph{locally
+    path-connected} at $a$ if and only if every neighbourhood of $a$ includes a
+    path-connected neighbourhood of $a$.
+
+    The space $X$ is \emph{locally path-connected} if and only if it is locally
+    path-connected at every point.
+\end{definition}
+
+\begin{theorem}
+    \label{theorem:open_path_component_locally_path_connected}
+    A topological space $X$ is locally path-connected if and only if, for every
+    open set $U$ in $X$, every path component of $U$ is open in $X$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If $X$ is locally path-connected then, for every open set $U$ in $X$,
+    every path component of $U$ is open in $X$.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is locally path-connected.}}
+        \step{b}{\pflet{$U$ be open in $X$.}}
+        \step{c}{\pflet{$C$ be a path component of $U$.}}
+        \step{d}{\pflet{$a \in C$}}
+        \step{e}{\pflet{$V$ be a path-connected neighbourhood of $a$ such that $V \subseteq U$}}
+        \step{f}{$V \subseteq C$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:component_includes_connected}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:open}.
+        \end{proof}
+    \end{proof}
+    \step{2}{If, for every open set $U$ in $X$, every component of $U$ is
+    open in $X$, then $X$ is locally connected.}
+    \begin{proof}
+        \step{a}{\assume{for every open set $U$ in $X$, every component of $U$ is open in $X$.}}
+        \step{b}{\pflet{$a \in X$}}
+        \step{c}{\pflet{$U$ be a neighbourhood of $a$}}
+        \step{d}{The component of $U$ that contains $a$ is a connected neighbourhood of $a$ included in $U$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    If a space is locally path connected then its components and its path components are the same.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a locally path connected space.}}
+    \step{2}{\pflet{$C$ be a component of $X$.}}
+    \step{3}{\pflet{$x \in C$}}
+    \step{4}{\pflet{$P$ be the path component of $x$} \prove{$P = C$}}
+    \step{5}{$P \subseteq C$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:path_component_sub_component}.
+    \end{proof}
+    \step{6}{\pflet{$Q$ be the union of the other path components included in $C$}}
+    \step{7}{$C = P \cup Q$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:path_component_sub_component}.
+    \end{proof}
+    \step{8}{$P$ and $Q$ are open in $C$}
+    \begin{proof}
+        \step{a}{$C$ is open.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:open_component_locally_connected}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:open_path_component_locally_path_connected}.
+        \end{proof}
+    \end{proof}
+    \step{9}{$Q = \emptyset$}
+    \begin{proof}
+        \pf\ Otherwise $P$ and $Q$ would form a separation of $C$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
