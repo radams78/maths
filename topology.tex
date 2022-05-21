@@ -3967,6 +3967,119 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    The continuous image of a path-connected space is path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f : X \twoheadrightarrow Y$ be continuous and surjective
+    where $X$ is path-connected.}}
+    \step{2}{\pflet{$a, b \in Y$}}
+    \step{3}{\pick\ $a', b' \in X$ with $f(a') = a$ and $f(b') = b$.}
+    \step{4}{\pick\ a path $p : [0,1] \rightarrow X$ from $a'$ to $b'$.}
+    \step{5}{$f \circ p$ is a path from $a$ to $b$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a topological space. The union of a set of path-connected subspaces of $X$
+    that have a point in common is path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\AA$ be a set of path-connected subspaces of $X$ with the point $a$ in common.}}
+    \step{2}{\pflet{$b, c \in \bigcup \AA$}}
+    \step{3}{\pick\ $B, C \in \AA$ with $b \in B$ and $c \in C$.}
+    \step{4}{\pick\ a path $p$ in $B$ from $b$ to $a$.}
+    \step{5}{\pick\ a path $q$ in $C$ from $a$ to $c$.}
+    \step{6}{The concatenation of $p$ and $q$ is a path from $b$ to $c$ in $\bigcup \AA$.}
+    \qed
+\end{proof}
+
+\section{The Topologist's Sine Curve}
+
+\begin{definition}[The Topologist's Sine Curve]
+    Let $S = \{ (x, \sin 1/x) \mid 0 < x \leq 1 \}$, The \emph{topologist's sine curve} is the closure $\overline{S}$ of $S$ in $\RR^2$.
+\end{definition}
+
+\begin{proposition}
+    The topologist's sine curve is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$S = \{ (x, \sin 1/x) \mid 0 < x \leq 1 \}$}}
+    \step{2}{$S$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_continuous_image}.
+    \end{proof}
+    \step{3}{$\overline{S}$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_closure}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The topologist's sine curve is $\{ (x, \sin 1/x) \mid 0 < x \leq 1 \}
+    \cup (\{0\} \times [-1.1])$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Sketch proof: Given a point $(0.y)$ with $-1 \leq y \leq 1$, pick $a$ such that $\sin a = y$. Then $((1/a,y), (1/(a+2\pi),y), (1/(a+4\pi),y), \ldots)$ is a sequence
+    in $S$ that converges to $(0,y)$.
+
+    Conversely, let $(x,y)$ be any point not in $S \cup (\{0\} \times [-1,1])$. If $x < 0$ or $y > 1$ or $y < -1$ then we can easily find a neighbourhood that does not intersect
+    $S \cup (\{0\} \times [-1,1])$. If $x > 0$ and $-1 \leq y \leq 1$, then we have $y \neq \sin 1/x$. Hence pick a neighbourhood that does not intersect $S$.
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:greatest_element_closed}
+    Every closed subset of $\RR$ that is bounded above has a greatest element.
+\end{proposition}
+
+\begin{proof}
+    \pf\ It has a supremum, which is a limit point of the set and hence an element. \qed
+\end{proof}
+
+\begin{proposition}[CC]
+    The topologist's sine curve is not path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{For a contradction $p : [0,1] \rightarrow \overline{S}$ is a path from $(0,0)$ to $(1, \sin 1)$.}}
+    \step{2}{$\{ t \in [0,1] \mid p(t) \in \{ 0 \} \times [-1,1] \}$ is closed.}
+    \begin{proof}
+        \pf\ Since $p$ is continuous and $\{0\} \times [-1,1]$ is closed.
+    \end{proof}
+    \step{3}{\pflet{$b$ be the largest number in $[0,1]$ such that $p(b) \in \{ 0 \} \times [-1,1]$.}}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:greatest_element_closed}.
+    \end{proof}
+    \step{4}{\pflet{$x : [b,1] \rightarrow \overline{S}$ be the function $\pi_1 \circ p$}}
+    \step{4}{\pflet{$y : [b,1] \rightarrow \overline{S}$ be the function $\pi_2 \circ p$}}
+    \step{5}{\pick\ a sequence $t_n$ in $(b,1]$ such that $t_n \rightarrow b$ and $y(t_n) = (-1)^n$ for all $n$}
+    \begin{proof}
+        \step{a}{\pflet{$n \geq 1$}}
+        \step{b}{\pick\ $u$ with $0 < u < x(1/n)$ and $\sin (1/u) = (-1)^n$}
+        \step{c}{\pick\ $t_n$ with $b < t_n < 1/n$ and $x(t_n) = u$}
+        \begin{proof}
+            \pf\ By the Intermediate Value Theorem
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts Proposition \ref{proposition:converge_continuous} since $y$ is continuous and $y(t_n)$ does not converge.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    The closure of a path-connected subspace of a space is not necessarily path-connected.
+\end{corollary}
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
