@@ -455,6 +455,28 @@ We prove this is a metric.
     If $J$ is uncountable then $\RR^J$ under the product topology is not metrizable.
 \end{example}
 
+\begin{proposition}
+    A compact subspace of a metric space is bounded.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space and $A \subseteq X$ be compact.}}
+    \step{2}{\pick\ $a \in A$}
+    \step{3}{$\{ B(a,n) \mid n \in \ZZ^+ \}$ covers $A$}
+    \step{4}{\pick\ a finite subcover $\{ B(a,n_1), \ldots, B(a,n_k) \}$}
+    \step{5}{\pflet{$N = \max(n_1, \ldots, n_k)$}}
+    \step{6}{For all $x, y \in A$ we have $d(x,y) < 2N$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(x,y) & \leq d(x,a) + d(a,y) \\
+            & < N + N
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Real Linear Algebra}
 
 \begin{definition}[Square Metric]
