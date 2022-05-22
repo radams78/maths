@@ -4999,6 +4999,27 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{lemma}[Tube Lemma]
+    Let $X$ and $Y$ be topological spaces with $Y$ compact. Let $a \in X$
+    and $N$ be an open set in $X \times Y$ that includes $\{a\} \times Y$.
+    Then there exists a neighbourhood $W$ of $a$ such that
+    $N$ includes the \emph{tube} $W \times Y$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{For every $y \in Y$, there exist open sets $U$ in $X$ and
+    $V$ in $Y$ such that $a \in U$, $y \in V$ and $U \times V \subseteq N$.}
+    \step{2}{$\{ V \text{ open in } Y \mid \text{there exists $U$ open In
+    $X$ such that $a \in U$ and $U \times V \subseteq N$} \}$ covers $Y$.}
+    \step{3}{\pick\ a finite subcovering $\{ V_1, \ldots, V_n \}$}
+    \step{4}{For $i = 1, \ldots, n$, \pick\ a neighbourhood $U_i$ of $a$
+    such that $U_1 \times V_i \subseteq N$}
+    \step{5}{\pflet{$W = U_1 \cap \cdots \cap U_n$}}
+    \step{6}{$W \times Y \subseteq N$}
+    \qed
+\end{proof}
+
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
