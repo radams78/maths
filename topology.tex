@@ -840,41 +840,6 @@ We have simultaneously proved:
     $n \geq N$, we have $a_n \in U$.
 \end{definition}
 
-\begin{theorem}
-    In a Hausdorff space, a sequence has at most one limit.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a Hausdorff space.}}
-    \step{2}{\assume{for a contradiction $a_n \rightarrow l$ as $n \rightarrow \infty$, $a_n \rightarrow
-    m$ as $n \rightarrow \infty$, and $l \neq m$}}
-    \step{3}{\pick\ disjoint neighbourhoods $U$ of $l$ and $V$ of $m$}
-    \begin{proof}
-        \pf\ By the Hausdorff axiom.
-    \end{proof}
-    \step{4}{\pick\ $M$ and $N$ such that $a_n \in U$ for $n \geq M$ and $a_n \in V$ for $n \geq N$}
-    \step{5}{$a_{\max(M,N)} \in U \cap V$}
-    \qedstep
-    \begin{proof}
-        \pf\ This contradicts the fact that $U$ and $V$ are disjoint (\stepref{3}).
-    \end{proof}
-    \qed
-\end{proof}
-
-To see this is not always true in spaces that are $T_1$ but not Hausdorff:
-
-\begin{proposition}
-    Let $X$ be an infinite set under the finite complement topology. Let $(a_n)_{n \in \NN}$ be a sequence
-    with all points distinct. Then for every $l \in X$ we have $a_n \rightarrow l$ as
-    $n \rightarrow \infty$.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Let $U$ be any neighbourhood of $l$. Since $X \setminus U$ is finite, there must exist $N$
-    such that, for all $n \geq N$, we have $a_n \in U$. \qed
-\end{proof}
-
 \begin{lemma}
     \label{lemma:sequence_lemma1}
     Let $X$ be a topological space. Let $A \subseteq X$ and $l \in X$. If there is a sequence of points in $A$ that converges to $l$ then $l \in \overline{A}$.
@@ -1430,28 +1395,6 @@ The following example shows that we cannot remove the assumption of local finite
 \begin{proof}
     \pf\ $\pi_1 \circ (f \times g) = f \circ \pi_1$ and $\pi_2 \circ (f \times g) = g \circ \pi_2$ are continuous
     by Theorem \ref{theorem:continuous_composite}. The result follows by Theorem \ref{theorem:product_continuous}.
-\end{proof}
-
-\begin{proposition}
-    Let $X$ be a topological space. Let $Y$ a Hausdorff space. Let $A \subseteq X$. Let $f, g : \overline{A} \rightarrow Y$ be continuous.
-    If $f$ and $g$ agree on $A$ then $f = g$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$x \in \overline{A}$}}
-    \step{2}{\assume{$f(x) \neq g(x)$}}
-    \step{3}{\pick\ disjoint neighbourhoods $V$ of $f(x)$ and $W$ of $g(x)$.}
-    \step{4}{\pick\ $y \in \inv{f}(V) \cap \inv{g}(W) \cap A$}
-    \begin{proof}
-        \pf\ Since $\inv{f}(V) \cap \inv{g}(W)$ is a neighbourhood of $x$ and hence intersects $A$.
-    \end{proof}
-    \step{5}{$f(y) = g(y) \in V \cap W$}
-    \qedstep
-    \begin{proof}
-        \pf\ This contradicts the fact that $V$ and $W$ are disjoint (\stepref{3}).
-    \end{proof}
-    \qed
 \end{proof}
 
 \begin{proposition}
@@ -2360,21 +2303,6 @@ This is a basis since it covers $\prod_{i \in I} A_i$ and is closed under inters
     and this is a basis for the subspace topology by Lemma \ref{lemma:subspace_basis}. \qed
 \end{proof}
 
-\begin{proposition}
-    Let $\{ X_i \}_{i \in I}$ be a family of Hausdorff spaces. Then $\prod_{i \in I} X_i$ under the box topology is Hausdorff.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$\{ X_i \}_{i \in I}$ be a family of Hausdorff spaces.}}
-    \step{2}{\pflet{$a, b \in \prod_{i \in I} X_i$ with $a \neq b$}}
-    \step{3}{\pick\ $i \in I$ such that $a_i \neq b_i$}
-    \step{4}{\pick\ $U$, $V$ disjoint open sets in $X_i$ with $a_i \in U$ and $b_i \in V$}
-    \step{5}{$\inv{\pi_i}(U)$ and $\inv{\pi_i}(V)$ are disjoint open sets in $\prod_{i \in I} X_i$ with $a \in \inv{\pi_i}(U)$
-    and $b \in \inv{\pi_i}(V)$}
-    \qed
-\end{proof}
-
 \begin{proposition}[AC]
     Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Give $\prod_{i \in I} X_i$ the box topology.
     Let $A_i \subseteq X_i$ for all $i \in I$.
@@ -2639,6 +2567,88 @@ The following example shows that Proposition \ref{proposition:converge_product} 
         \Leftrightarrow & \forall (x,y) \in X^2 \setminus \Delta. \exists V,W \text{ open}. (x,y) \subseteq V \times W \subseteq X^2 \setminus \Delta \\
         \Leftrightarrow & \Delta \text{ is closed} & \qed
     \end{align*}
+\end{proof}
+
+\begin{theorem}
+    In a Hausdorff space, a sequence has at most one limit.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a Hausdorff space.}}
+    \step{2}{\assume{for a contradiction $a_n \rightarrow l$ as $n \rightarrow \infty$, $a_n \rightarrow
+    m$ as $n \rightarrow \infty$, and $l \neq m$}}
+    \step{3}{\pick\ disjoint neighbourhoods $U$ of $l$ and $V$ of $m$}
+    \begin{proof}
+        \pf\ By the Hausdorff axiom.
+    \end{proof}
+    \step{4}{\pick\ $M$ and $N$ such that $a_n \in U$ for $n \geq M$ and $a_n \in V$ for $n \geq N$}
+    \step{5}{$a_{\max(M,N)} \in U \cap V$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts the fact that $U$ and $V$ are disjoint (\stepref{3}).
+    \end{proof}
+    \qed
+\end{proof}
+
+To see this is not always true in spaces that are $T_1$ but not Hausdorff:
+
+\begin{proposition}
+    Let $X$ be an infinite set under the finite complement topology. Let $(a_n)_{n \in \NN}$ be a sequence
+    with all points distinct. Then for every $l \in X$ we have $a_n \rightarrow l$ as
+    $n \rightarrow \infty$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Let $U$ be any neighbourhood of $l$. Since $X \setminus U$ is finite, there must exist $N$
+    such that, for all $n \geq N$, we have $a_n \in U$. \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a topological space. Let $Y$ a Hausdorff space. Let $A \subseteq X$. Let $f, g : \overline{A} \rightarrow Y$ be continuous.
+    If $f$ and $g$ agree on $A$ then $f = g$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in \overline{A}$}}
+    \step{2}{\assume{$f(x) \neq g(x)$}}
+    \step{3}{\pick\ disjoint neighbourhoods $V$ of $f(x)$ and $W$ of $g(x)$.}
+    \step{4}{\pick\ $y \in \inv{f}(V) \cap \inv{g}(W) \cap A$}
+    \begin{proof}
+        \pf\ Since $\inv{f}(V) \cap \inv{g}(W)$ is a neighbourhood of $x$ and hence intersects $A$.
+    \end{proof}
+    \step{5}{$f(y) = g(y) \in V \cap W$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts the fact that $V$ and $W$ are disjoint (\stepref{3}).
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $\{ X_i \}_{i \in I}$ be a family of Hausdorff spaces. Then $\prod_{i \in I} X_i$ under the box topology is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{ X_i \}_{i \in I}$ be a family of Hausdorff spaces.}}
+    \step{2}{\pflet{$a, b \in \prod_{i \in I} X_i$ with $a \neq b$}}
+    \step{3}{\pick\ $i \in I$ such that $a_i \neq b_i$}
+    \step{4}{\pick\ $U$, $V$ disjoint open sets in $X_i$ with $a_i \in U$ and $b_i \in V$}
+    \step{5}{$\inv{\pi_i}(U)$ and $\inv{\pi_i}(V)$ are disjoint open sets in $\prod_{i \in I} X_i$ with $a \in \inv{\pi_i}(U)$
+    and $b \in \inv{\pi_i}(V)$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:Hausdorff_finer}
+    Let $\TT$ and $\TT'$ be two topologies on the same set $X$ with $\TT \subseteq \TT'$
+    If $\TT$ is Haudorff then $\TT'$ is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Immediate from definitions.
 \end{proof}
 
 \section{The First Countability Axiom}
@@ -5049,8 +5059,46 @@ An example that shows the converse does not hold:
     \pf
     \step{1}{\pflet{$\UU \subseteq \TT$ cover $X$}}
     \step{2}{$\UU \subseteq \TT'$}
-    \step{3}{A finite subset f}
+    \step{3}{A finite subset of $\UU$ covers $X$.}
+    \qed
 \end{proof}
+
+\begin{corollary}
+    If $\TT$ and $\TT'$ are two compact Hausdorff topologies on the same set $X$, then either $\TT = \TT'$ or $\TT$ and $\TT'$ are incomparable.
+\end{corollary}
+
+\begin{proof}
+    \pf\ From the Proposition and Proposition \ref{proposition:Hausdorff_finer}. \qed
+\end{proof}
+
+\begin{example}
+    Any set under the finite complement topology is compact.
+\end{example}
+
+\begin{proposition}
+    Let $X$ be a topological space. A finite union of compact subspaces of $X$ is compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A$ and $B$ be compact subspaces of $X$.}}
+    \step{2}{\pflet{$\UU$ be a set of open sets in $X$ that covers $A \cup B$}}
+    \step{3}{\pick\ a finite subset $\UU_1$ that covers $A$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:finite_subcovering_subspace}.
+    \end{proof}
+    \step{4}{\pick\ a finite subset $\UU_2$ that covers $B$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:finite_subcovering_subspace}.
+    \end{proof}
+    \step{5}{$\UU_1 \cup \UU_2$ is a finite subset that covers $A \cup B$.}
+    \qedstep
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:finite_subcovering_subspace}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
