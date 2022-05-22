@@ -4600,6 +4600,14 @@ An example that shows the converse does not hold:
     by Theorem \ref{theorem:connected_continuum}.
 \end{proof}
 
+\begin{example}
+    Let $X$ be the set of all rational points on the line segment $[0,1] \times \{0\}$,
+    and $Y$ the set of all rational points on the line segment $[0,1] \times \{1\}$.
+    Let $A$ be the space consisting of all line segments joining the point $(0,1)$ to a point
+    of $X$, and all line segments joining the point $(1,0)$ to a point of $Y$. Then $A$ is
+    path-connected but is not locally connected at any point,
+\end{example}
+
 \section{Local Path Connectedness}
 
 \begin{definition}[Locally Path-Connected]
@@ -4684,6 +4692,72 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{example}
+    The ordered square is not locally path connected, since it is connected but not path connected.
+\end{example}
+
+\begin{proposition}
+    Let $X$ be a locally path-connected space. Then every connected open subspace
+    of $X$ is path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$U$ be a connected open subspace of $X$.}}
+    \step{2}{\pflet{$P$ be a path component of $U$.}}
+    \step{3}{\pflet{$Q$ be the union of the other path components of $U$.}}
+    \step{4}{$P$ and $Q$ are open in $U$.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:open_path_component_locally_path_connected}.
+    \end{proof}
+    \step{5}{$Q = \emptyset$}
+    \begin{proof}
+        \pf\ Otherwise $P$ and $Q$ form a separation of $U$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Weak Local Connectedness}
+
+\begin{definition}[Weakly Locally Connected]
+    Let $X$ be a topological space and $a \in X$. Then $X$ is \emph{weakly locally connected} at $a$ if and only if
+    every neighbourhood of $a$ includes a connected subspace that includes a neighbourhood of $a$.
+\end{definition}
+
+\begin{proposition}
+    Let $X$ be a topological space. If $X$ is weakly locally connected at every point then $X$ is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{$X$ is weakly locally connected at every point.}}
+    \step{2}{\pflet{$U$ be open in $X$.}}
+    \step{3}{\pflet{$C$ be a component of $U$.}}
+    \step{4}{$C$ is open in $X$.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in C$}}
+        \step{b}{\pick\ a connected subspace $D$ of $U$ that includes a neighbourhood $V$ of $x$.}
+        \step{c}{$D \subseteq C$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:component_includes_connected}.
+        \end{proof}
+        \step{d}{$x \in V \subseteq C$}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:open}.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:open_component_locally_connected}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    The 'infinite broom' (Munkres p.163) is an example of a space that is
+    weakly locally connected at a point $p$ but not locally connected at $p$.
+\end{example}
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
