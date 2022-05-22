@@ -4796,6 +4796,43 @@ An example that shows the converse does not hold:
     The 'infinite broom' (Munkres p.163) is an example of a space that is
     weakly locally connected at a point $p$ but not locally connected at $p$.
 \end{example}
+
+\section{Quasicomponents}
+
+\begin{proposition}
+    Let $X$ be a topological space. Define $\sim$ on $X$ by $x \sim y$ if and only if there exists no
+    separation $U$ and $V$ of $X$ such that $x \in U$ and $y \in V$. Then $\sim$ is an equivalence relation on $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\sim$ is reflexive.}
+    \begin{proof}
+        \pf\ Since the two sets that make up a separation are disjoint.
+    \end{proof}
+    \step{2}{$\sim$ is symmetric.}
+    \begin{proof}
+        \pf\ Immediate from the defintion.
+    \end{proof}
+    \step{3}{$\sim$ is transitive.}
+    \begin{proof}
+        \step{a}{\assume{$x \sim y$ and $y \sim z$}}
+        \step{b}{\assume{for a contradiction there is a separation $U$ and $V$ of $X$
+        with $x \in U$ and $z \in V$}}
+        \step{c}{$y \in U$ or $y \in V$}
+        \qedstep
+        \begin{proof}
+            \pf\ Either case contradicts \stepref{a}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}[Quasicomponents]
+    For $X$ a topological space, the \emph{quasicomponents} of $X$ are the
+    equivalence classes under $\sim$.
+\end{definition}
+
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
