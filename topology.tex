@@ -4608,6 +4608,44 @@ An example that shows the converse does not hold:
     path-connected but is not locally connected at any point,
 \end{example}
 
+\begin{proposition}
+    Let $X$ and $Y$ be topological spaces and $p : X \twoheadrightarrow Y$ be a quotient map. If $X$ is locally connected then so is $Y$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{a}{\pflet{$U$ be an open set in $Y$.}}
+    \step{b}{\pflet{$C$ be a component of $U$.}}
+    \step{c}{$\inv{p}(C)$ is a union of components of $\inv{p}(U)$}
+    \begin{proof}
+        \step{i}{\pflet{$x \in \inv{p}(C)$}}
+        \step{ii}{\pflet{$D$ be the component of $\inv{p}(U)$ that contains $x$.}}
+        \step{iii}{$p(D)$ is connected.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:connected_continuous_image}.
+        \end{proof}
+        \step{iv}{$p(D) \subseteq C$.}
+        \begin{proof}
+            \pf\ From \stepref{b} since $p(x) \in p(D) \cap C$ (\stepref{i}, \stepref{ii}).
+        \end{proof}
+        \step{v}{$D \subseteq \inv{p}(C)$}
+    \end{proof}
+    \step{d}{$\inv{p}(C)$ is open in $\inv{p}(U)$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:open_component_locally_connected}.
+    \end{proof}
+    \step{e}{$C$ is open in $U$}
+    \begin{proof}
+        \pf\ Since the restriction of $p$ to $p : \inv{p}(U) \twoheadrightarrow U$
+        is a quotient map by Proposition \ref{proposition:quotient_restriction}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:open_component_locally_connected}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Local Path Connectedness}
 
 \begin{definition}[Locally Path-Connected]
@@ -5206,5 +5244,44 @@ An example that shows the converse does not hold:
     \end{proof}
     \step{8}{$A \subseteq p(VB)$}
     \step{9}{$aH \in p(Va)$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $G$ be a topological group. The component of $G$ that contains $e$ is
+    a normal subgroup of $G$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$C$ be the component of $G$ that contains $e$.}}
+    \step{2}{For all $x \in G$, $xC$ is the component of $G$ that contains $x$.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in G$}}
+        \step{b}{\pflet{$D$ be the component of $G$ that contains $x$.}}
+        \step{b}{$xC \subseteq D$}
+        \begin{proof}
+            \pf\ Since $xC$ is connected by Theorem \ref{theorem:connected_continuous_image}.
+        \end{proof}
+        \step{c}{$D \subseteq xC$}
+        \begin{proof}
+            \pf\ Since $\inv{x}D \subseteq C$ similarly.
+        \end{proof}
+    \end{proof}
+    \step{3}{For all $x \in G$, $Cx$ is the component of $G$ that contains $x$.}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{2a}{For all $x \in C$ we have $xC = Cx = C$}
+    \step{2b}{For all $x \in C$ we have $\inv{x}C = C$}
+    \step{2c}{For all $x \in C$ we have $\inv{x} \in C$}
+    \step{3}{For all $x, y \in C$ we have $xy \in C$}
+    \begin{proof}
+        \pf\ Since $xyC = xC = x$.
+    \end{proof}
+    \step{4}{For all $x \in G$ we have $xC = Cx$.}
+    \begin{proof}
+        \pf\ From \stepref{2} and \stepref{3}.
+    \end{proof}
     \qed
 \end{proof}
