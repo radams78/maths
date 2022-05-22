@@ -4833,6 +4833,44 @@ An example that shows the converse does not hold:
     equivalence classes under $\sim$.
 \end{definition}
 
+\begin{proposition}
+    Let $X$ be a topological space. Then every component of $X$ is included in a quasicomponent of $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$C$ be a component of $X$.}}
+    \step{2}{\pflet{$x, y \in C$} \prove{$x \sim y$}}
+    \step{3}{\assume{for a contradiction there exists a separation $U$ and $V$ of $X$ with $x \in U$ and $y \in V$}}
+    \step{4}{$C \cap U$ and $C \cap V$ form a separation of $C$.}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{1}.
+    \end{proof}
+\end{proof}
+
+\begin{proposition}
+    In a locally connected space, the components and the quasicomponents are the same.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a locally connected space and $Q$ a quasicomponent of $X$.}}
+    \step{2}{\pick\ a component $C$ of $X$ such that $C \subseteq Q$}
+    \step{3}{\pflet{$D$ be the union of the components of $X$}}
+    \step{4}{$C$ and $D$ are open in $X$.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:open_component_locally_connected}.
+    \end{proof}
+    \step{5}{$D$ cannot contain any points of $Q$.}
+    \begin{proof}
+        \pf\ If it did, then $C$ and $D$ would form a separation of $X$
+        and there would be points $x, y \in Q$ with $x \in C$ and $y \in D$.
+    \end{proof}
+    \step{6}{$C = Q$}
+    \qed
+\end{proof}
+
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
