@@ -3644,6 +3644,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:connected_continuum}
     Let $L$ be a linearly ordered set under the order topology. Then $L$ is connected if and only if $L$ is a linear continuum.
 \end{theorem}
 
@@ -3861,6 +3862,55 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \begin{proof}
         \pf\ By the Intermediate Value Theorem.
     \end{proof}
+\end{proof}
+
+\begin{proposition}
+    Give $\RR^\omega$ the box topology. Let $x, y \in \RR^\omega$. Then $x$ and $y$ lie in the same comoponent if and only if $x-y$ is eventually zero, i.e.
+    there exists $N$ such that, for all $n \geq N$,
+    we have $x_n = y_n$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{The component containing 0 is the set of sequences that are eventually zero.}
+    \begin{proof}
+        \step{a}{\pflet{$B$ be the set of sequences that are eventually zero.}}
+        \step{b}{$B$ is path-connected.}
+        \begin{proof}
+            \step{i}{\pflet{$x, y \in B$}}
+            \step{o}{\pick\ $N$ such that, for all $n \geq N$, we have $x_n = y_n = 0$}
+            \step{ii}{\pflet{$p : [0,1] \rightarrow \RR^\omega$, $p(t) = (1-t)x + ty$} \prove{$p$ is continuous.}}
+            \step{iii}{\pflet{$t \in [0,1]$ and $\prod_j U_j$ be a basic open neighbourhood of $p(t)$, where each $U_j$ is open in $\RR$}}
+            \step{iv}{\pick\ $\delta$ such that, for all $n < N$ and all $s \in [0,1]$, if $|s-t| < \delta$ then $p(s)_n \in U_n$}
+            \step{v}{For all $s \in [0,1]$, if $|s-t| < \delta$ then $p(s) \in \prod_j U_j$}
+        \end{proof}
+        \step{bb}{$B$ is connected.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:connected_path_connected}.
+        \end{proof}
+        \step{c}{If $C$ is connected and $B \subseteq C$ then $B = C$.}
+        \begin{proof}
+            \step{i}{\assume{$C$ is connected and $B \subseteq C$}}
+            \step{ii}{\assume{for a contradiction $x \in C \setminus B$}}
+            \step{iii}{For $n \geq 1$, \pflet{$c_n = 1$ if $x_n = 0$, $c_n = n / x_n$ otherwise}}
+            \step{iv}{\pflet{$h : \RR^\omega \rightarrow \RR^\omega$ be the function $h(x) = (c_n x_n)_{n \geq 1}$}}
+            \step{v}{$h$ is a homeomorphism of $\RR^\omega$ with itself.}
+            \step{vi}{$h(x)$ is unbounded.}
+            \begin{proof}
+                \pf\ For any $b > 0$, pick $N > b$ such that $x_N \neq 0$. Then $h(x)_N > b$.
+            \end{proof}
+            \step{vii}{$\inv{h}(\{ \text{bounded sequences} \}) \cap C$ and $\inv{h}(\{ \text{unbounded sequences} \}) \cap C$ form a separation of $C$}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts \stepref{i}.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $\lambda x.x-y$ is a homeomorphism of $\RR^\omega$ with itself.
+    \end{proof}
+    \qed
 \end{proof}
 
 \section{Totally Disconnected Spaces}
@@ -4539,6 +4589,15 @@ An example that shows the converse does not hold:
         \step{d}{The component of $U$ that contains $a$ is a connected neighbourhood of $a$ included in $U$.}
     \end{proof}
     \qed
+\end{proof}
+
+\begin{example}
+    The ordered square is locally connected.
+\end{example}
+
+\begin{proof}
+    \pf\ Every neighbourhood of a point includes an interval around that point, which is connected 
+    by Theorem \ref{theorem:connected_continuum}.
 \end{proof}
 
 \section{Local Path Connectedness}
