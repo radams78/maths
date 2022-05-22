@@ -1067,6 +1067,55 @@ We prove this is a metric.
     for all $n \geq N$. \qed
 \end{proof}
 
+\begin{example}
+    The space $\RR^\omega$ is disconnected under the uniform topology. The set of bounded sequences and the set of unbounded sequences form a separation.
+\end{example}
+
+\begin{proposition}
+    Give $\RR^\omega$ the uniform topology. Let $x, y \in \RR^\omega$. Then $x$ and $y$ are in the same component if and only if $x-y$ is bounded.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{The component containing 0 is the set of bounded sequences.}
+    \begin{proof}
+        \step{a}{\pflet{$B$ be the set of bounded sequences.}}
+        \step{aa}{$B$ is path-connected.}
+        \begin{proof}
+            \step{i}{\pflet{$x. y \in B$}}
+            \step{o}{\pick\ $b > 0$ such that $|x_j|,|y_j| \leq b$ for all $j$}
+            \step{ii}{\pflet{$p : [0,1] \rightarrow B$ be the function $p(t) = (1-t)x + ty$} \prove{$p$ is continuous.}}
+            \step{iii}{\pflet{$t \in [0,1]$ and $\epsilon > 0$}}
+            \step{iv}{\pflet{$\delta = \epsilon / 2 b$}}
+            \step{v}{\pflet{$s \in [0,1]$ with $|s-t| < \delta$}}
+            \step{vi}{$\overline{\rho}(p(s),p(t)) < \epsilon$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    \overline{\rho}(p(s),p(t)) & = \sup_j \overline{d}((1-s)x_j + sy_j, (1-t)x_j + ty_j) \\
+                    & \leq |(s-t)x_j + (t-s)y_j| \\
+                    & \leq |s-t| |x_j - y_j| \\
+                    & < 2b \delta \\
+                    & = \epsilon
+                \end{align*}
+            \end{proof}
+        \end{proof}
+        \step{a}{$B$ is connected.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:connected_path_connected}.
+        \end{proof}
+        \step{b}{If $C$ is connected and $B \subseteq C$ then $B = C$.}
+        \begin{proof}
+            \pf\ Otherwise $B \cap C$ and $C \setminus B$ form a separation of $C$.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $\lambda x. x-y$ is a Homeomorphism of $\RR^\omega$ with itself.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Uniform Convergence}
 
 \begin{definition}[Uniform Convergence]
