@@ -5020,6 +5020,37 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{theorem}
+    Let $X$ be a topological space. Then $X$ is compact if and only if every set of closed sets that has the finite intersection property has nonempty intersection.
+\end{theorem}
+
+\begin{proof}
+    \pf\ The following are equivalent.
+    \begin{enumerate}
+        \item $X$ is compact.
+        \item Every open covering of $X$ has a finite subcovering.
+        \item For any set $\CC$ of closed sets, if $\{ X \setminus C \mid C \in \CC \}$ covers $X$ then there is a finite subset $\CC_0$ such that
+        $\{ X \setminus C \mid C \in \CC_0 \}$ covers $X$
+        \item For any set $\CC$ of closed sets, if $\bigcap \CC = \emptyset$ then there is a finite subset $\CC_0$ with empty intersection.
+        \item Any set of closed sets with the finite intersection property has nonempty intersection.
+    \end{enumerate}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a topological space and $C_1 \supseteq C_2 \supseteq \cdots$ a nested sequence of nonempty closed sets. Then $\bigcap_n C_n$ is nonempty.
+\end{corollary}
+
+\begin{proposition}
+    Let $\TT$ and $\TT'$ be two topologies on the same set $X$ with $\TT \subseteq \TT'$. If $\TT'$ is compact then $\TT$ is compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\UU \subseteq \TT$ cover $X$}}
+    \step{2}{$\UU \subseteq \TT'$}
+    \step{3}{A finite subset f}
+\end{proof}
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
