@@ -1477,11 +1477,13 @@ The following example shows that we cannot remove the assumption of local finite
 \end{definition}
 
 \begin{lemma}
+    \label{lemma:homeomorphism}
     Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ a bijection. Then the following are
     equivalent:
     \begin{enumerate}
         \item $f$ is a homeomorphism.
         \item $f$ is continuous and an open map.
+        \item $f$ is continuous and a closed map.
         \item For any $U \subseteq X$, we have $U$ is open if and only if $f(U)$ is open.
     \end{enumerate}
 \end{lemma}
@@ -4868,6 +4870,132 @@ An example that shows the converse does not hold:
         and there would be points $x, y \in Q$ with $x \in C$ and $y \in D$.
     \end{proof}
     \step{6}{$C = Q$}
+    \qed
+\end{proof}
+
+\section{Open Coverings}
+
+\begin{definition}[Open Covering]
+    Let $X$ be a topological space. An \emph{open covering} of $X$ is a covering
+    of $X$ whose elements are all open sets.
+\end{definition}
+
+\section{Compact Spaces}
+
+\begin{definition}[Compact]
+    A topological space is \emph{compact} if and only if every open covering has a finite subcovering.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:finite_subcovering_subspace}
+    Let $X$ be a topological space and $Y$ a subspace of $X$. Then $Y$ is compact if and only if
+    every covering of $Y$ by sets open in $X$ has a finite subcovering.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{If $Y$ is compact then every covering of $Y$ by sets open in $X$ has a finite subcovering.}
+    \begin{proof}
+        \step{a}{\assume{$Y$ is compact.}}
+        \step{b}{\pflet{$\UU$ be a covering of $Y$ by sets open in $X$.}}
+        \step{c}{$\{ U \cap Y \mid U \in \UU \}$ is an open covering of $Y$.}
+        \step{d}{\pick\ a finite subcovering $\{ U_1 \cap Y, \ldots, U_n \cap Y \}$}
+        \step{e}{$\{ U_1, \ldots, U_n \}$ is a finite subcovering of $\UU$.}
+    \end{proof}
+    \step{2}{If every covering of $Y$ by sets open in $X$ has a finite subcovering then $Y$ is compact.}
+    \begin{proof}
+        \step{a}{\pflet{$\UU$ be an open covering of $Y$.}}
+        \step{b}{\pflet{$\VV = \{ V \text{ open in } X \mid V \cap Y \in \UU \}$.}}
+        \step{c}{$\VV$ is a covering of $Y$ by sets open in $X$.}
+        \step{d}{\pick\ a finite subcovering $\{ V_1, \ldots, V_n \}$}
+        \step{e}{$\{ V_1 \cap Y, \ldots, V_n \cap Y \}$ is a finite subcovering of $\UU$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:compact_closed_subspace}
+    Every closed subspace of a compact space is compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact space and $Y \subseteq X$ be closed.}}
+    \step{2}{\pflet{$\UU$ be a covering of $Y$ by sets open in $X$.}}
+    \step{3}{$\UU \cup \{ X \setminus Y \}$ is an open covering of $X$.}
+    \step{4}{\pick\ a finite subcovering $\UU_0$}
+    \step{5}{$\UU_0 \cap \UU$ is a finite subset of $\UU$ that covers $Y$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    If $Y$ is a compact subspace of a Hausdorff space $X$ and $x_0 \in
+    X \setminus Y$ then there exist disjoint open sets $U$ and $V$ with
+    $x_0 \in U$ and $Y \subseteq V$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $y \in Y$ there exist disjoint open sets $U'$,
+    $V'$ with $x_0 \in U'$ and $y \in V'$}
+    \step{2}{$\{ V' \text{ open in } X \mid \text{there exists
+    $U'$ open in $X$ with $x_0 \in U'$ and $U' \cap V' = \emptyset$} \}$
+    covers $Y$}
+    \step{3}{\pick\ a finite subcover $\{ V_1, \ldots, V_n \}$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:finite_subcovering_subspace}.
+    \end{proof}
+    \step{4}{For $i = 1, \ldots, n$, \pick\ $U_i$ open in $X$ with
+    $x_0 \in U_i$ and $U_1 \cap V_i = \emptyset$}
+    \step{5}{Take $U = U_1 \cap \cdots \cap U_n$ and
+    $V = V_1 \cup \cdots \cup V_n$}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    \label{corollary:closed_compact}
+    Every compact subspace of a Hausdorff space is closed.
+\end{corollary}
+
+\begin{theorem}
+    \label{theorem:compact_continuous_image}
+    The continuous image of a compact space is compact.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f : X \twoheadrightarrow Y$ be continuous and surjective.}}
+    \step{2}{\pflet{$\VV$ be an open covering of $Y$}}
+    \step{3}{$\{ \inv{p}(V) \mid V \in \VV \}$ is an open covering of $X$.}
+    \step{4}{\pick\ a finite subcovering $\{ \inv{p}(V_1), \ldots, \inv{p}(V_n) \}$}
+    \step{5}{$\{ V_1, \ldots, V_n \}$ covers $Y$.}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $f : X \rightarrow Y$ be a bijective continuous function. If $X$ is
+    compact and $Y$ is Hausdorff then $f$ is a homeomorphism.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$C \subseteq X$ be closed.}}
+    \step{2}{$C$ is compact.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+    \end{proof}
+    \step{3}{$f(C)$ is compact.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+    \end{proof}
+    \step{4}{$f(C)$ is closed.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_compact}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:homeomorphism}.
+    \end{proof}
     \qed
 \end{proof}
 
