@@ -4939,6 +4939,7 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{lemma}
+    \label{lemma:Hausdorff_compact_separation}
     If $Y$ is a compact subspace of a Hausdorff space $X$ and $x_0 \in
     X \setminus Y$ then there exist disjoint open sets $U$ and $V$ with
     $x_0 \in U$ and $Y \subseteq V$.
@@ -5095,6 +5096,76 @@ An example that shows the converse does not hold:
     \qedstep
     \begin{proof}
         \pf\ Lemma \ref{lemma:finite_subcovering_subspace}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $A$ and $B$ be disjoint compact subspaces of the Hausdorff space $X$.
+    Then there exist disjoint open sets $U$ and $V$ that include $A$ and $B$
+    respectively.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $x \in A$, there exist disjoint open sets $U'$ and $V'$
+    with $x \in U'$ and $B \subseteq V'$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:Hausdorff_compact_separation}
+    \end{proof}
+    \step{2}{$\{ U' \text{ open in } X \mid \exists V' \text{ open in } Y.
+    U' \cap V' = \emptyset \text{ and } B \subseteq V' \}$ covers $A$.}
+    \step{3}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$}
+    \step{4}{For $i=1, \ldots, n$, \pick\ $V_i$ open in $Y$ such that
+    $U_i \cap V_i = \emptyset$ and $B \subseteq V_i$}
+    \step{5}{\pflet{$U = U_1 \cup \cdots \cup U_n$}}
+    \step{6}{\pflet{$V = V_1 \cup \cdots \cup V_n$}}
+    \step{7}{$U$ and $V$ are disjoint open sets that include $A$ and $B$
+    respectively.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a compact space, $Y$ a Hausdorff space, and $f : X \rightarrow Y$
+    a continuous map. Then $f$ is a closed map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$C \subseteq X$ be closed.}}
+    \step{2}{$C$ is compact.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+    \end{proof}
+    \step{3}{$f(C)$ is compact.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+    \end{proof}
+    \step{4}{$f(C)$ is closed.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_compact}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    If $Y$ is compact then the projection $\pi_1 : X \times Y \rightarrow X$
+    is a closed map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A \subseteq X \times Y$ be closed.}}
+    \step{2}{\pflet{$x \in X \setminus \pi_1(A)$}}
+    \step{3}{For all $y \in Y$, there exist neighbourhoods $U$ of $x$ and $V$ of $y$ such that $U \times V$ is disjoint from $A$}
+    \step{4}{$\{ V \text{ open in } Y \mid \exists { neighbourhood } U \text{ of } x. U \times V \cap A = \emptyset \}$ covers $Y$.}
+    \step{5}{\pick\ a finite subcover $\{ V_1, \ldots, V_n \}$}
+    \step{6}{For $i = 1, \ldots, n$, \pick\ a neighbourhood $U_i$ of $x$ such that $U_i \times V_i$ is disjoint from $A$.}
+    \step{7}{\pflet{$U = U_1 \cap \cdots \cap U_n$}}
+    \step{8}{$x \in U \subseteq X \setminus \pi_1(A)$}
+    \qedstep
+    \begin{proof}
+        \pf\ So $X \setminus \pi_1(A)$ is open by Lemma \ref{lemma:open}.
     \end{proof}
     \qed
 \end{proof}
