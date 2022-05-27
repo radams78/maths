@@ -89,10 +89,10 @@ OUTPUT /home/robin/fun/maths/set.aux
 INPUT /home/robin/fun/maths/set.tex
 INPUT /home/robin/fun/maths/set.tex
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmti10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/cm/cmcsc10.tfm
 OUTPUT /home/robin/fun/maths/order.aux
 INPUT /home/robin/fun/maths/order.tex
 INPUT /home/robin/fun/maths/order.tex
-INPUT /usr/share/texmf/fonts/tfm/public/cm/cmcsc10.tfm
 OUTPUT /home/robin/fun/maths/analysis.aux
 INPUT /home/robin/fun/maths/analysis.tex
 INPUT /home/robin/fun/maths/analysis.tex
