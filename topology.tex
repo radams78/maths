@@ -4938,36 +4938,6 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
-\begin{lemma}
-    \label{lemma:Hausdorff_compact_separation}
-    If $Y$ is a compact subspace of a Hausdorff space $X$ and $x_0 \in
-    X \setminus Y$ then there exist disjoint open sets $U$ and $V$ with
-    $x_0 \in U$ and $Y \subseteq V$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{For all $y \in Y$ there exist disjoint open sets $U'$,
-    $V'$ with $x_0 \in U'$ and $y \in V'$}
-    \step{2}{$\{ V' \text{ open in } X \mid \text{there exists
-    $U'$ open in $X$ with $x_0 \in U'$ and $U' \cap V' = \emptyset$} \}$
-    covers $Y$}
-    \step{3}{\pick\ a finite subcover $\{ V_1, \ldots, V_n \}$}
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:finite_subcovering_subspace}.
-    \end{proof}
-    \step{4}{For $i = 1, \ldots, n$, \pick\ $U_i$ open in $X$ with
-    $x_0 \in U_i$ and $U_1 \cap V_i = \emptyset$}
-    \step{5}{Take $U = U_1 \cap \cdots \cap U_n$ and
-    $V = V_1 \cup \cdots \cup V_n$}
-    \qed
-\end{proof}
-
-\begin{corollary}
-    \label{corollary:closed_compact}
-    Every compact subspace of a Hausdorff space is closed.
-\end{corollary}
-
 \begin{theorem}
     \label{theorem:compact_continuous_image}
     The continuous image of a compact space is compact.
@@ -4984,54 +4954,47 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{theorem}
-    Let $f : X \rightarrow Y$ be a bijective continuous function. If $X$ is
-    compact and $Y$ is Hausdorff then $f$ is a homeomorphism.
+    \label{theorem:generalized_tube_lemma}
+    Let $A$ and $B$ be compact subspaces of $X$ and $Y$ respectively. Let $N$ be an open set in $X \times Y$ that includes $A \times B$.
+    Then there exist open sets $U$ and $V$ in $X$ and $Y$ respectively such that $A \subseteq U$, $B \subseteq V$ and $U \times V \subseteq N$.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$C \subseteq X$ be closed.}}
-    \step{2}{$C$ is compact.}
+    \step{1}{For all $x \in A$, there exist neighbourhoods $U$ of $x$ and $V$ of $B$ such that $U \times V \subseteq N$.}
     \begin{proof}
-        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+        \step{a}{\pflet{$x \in A$}}
+        \step{b}{For all $y \in B$, there exist neighbourhoods $U$ of $x$ and $V$ of $y$ such that $U \times V \subseteq N$}
+        \step{c}{$\{ V \text{ open in } Y \mid \exists \text{ neighbourhood } U \text{ of } x, U \times V \subseteq N \}$ covers $B$.}
+        \step{d}{\pick\ a finite subcover $\{ V_1, \ldots, V_n \}$}
+        \step{e}{For $i = 1, \ldots, n$, \pick\ a neighbourhood $U_i$ of $x$ such that $U_i \times V_i \subseteq N$}
+        \step{f}{\pflet{$U = U_1 \cap \cdots \cap U_n$}}
+        \step{g}{\pflet{$V = V_1 \cup \cdots \cup V_n$}}
+        \step{h}{$U$ is a neighbourhood of $x$.}
+        \step{i}{$V$ is a neighbourhood of $B$.}
+        \step{j}{$U \times V \subseteq N$}
     \end{proof}
-    \step{3}{$f(C)$ is compact.}
-    \begin{proof}
-        \pf\ Theorem \ref{theorem:compact_continuous_image}.
-    \end{proof}
-    \step{4}{$f(C)$ is closed.}
-    \begin{proof}
-        \pf\ Corollary \ref{corollary:closed_compact}.
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:homeomorphism}.
-    \end{proof}
+    \step{2}{$\{ U \text{ open in } X \mid \exists \text{ neighbourhood } V \text{ of } B. U \times V \subseteq N \}$ covers $A$.}
+    \step{3}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$}
+    \step{4}{For $i = 1, \ldots, n$, \pick\ a neighbourhood $V_i$ of $B$ such that $U_i \times V_i \subseteq N$}
+    \step{5}{\pflet{$U = U_1 \cup \cdots \cup U_n$}}
+    \step{6}{\pflet{$V = V_1 \cap \cdots \cap V_n$}}
+    \step{7}{$U$ and $V$ are open.}
+    \step{8}{$A \subseteq U$}
+    \step{9}{$B \subseteq V$}
+    \step{10}{$U \times V \subseteq N$}
     \qed
 \end{proof}
 
-\begin{lemma}[Tube Lemma]
+\begin{corollary}[Tube Lemma]
     Let $X$ and $Y$ be topological spaces with $Y$ compact. Let $a \in X$
     and $N$ be an open set in $X \times Y$ that includes $\{a\} \times Y$.
     Then there exists a neighbourhood $W$ of $a$ such that
     $N$ includes the \emph{tube} $W \times Y$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{For every $y \in Y$, there exist open sets $U$ in $X$ and
-    $V$ in $Y$ such that $a \in U$, $y \in V$ and $U \times V \subseteq N$.}
-    \step{2}{$\{ V \text{ open in } Y \mid \text{there exists $U$ open In
-    $X$ such that $a \in U$ and $U \times V \subseteq N$} \}$ covers $Y$.}
-    \step{3}{\pick\ a finite subcovering $\{ V_1, \ldots, V_n \}$}
-    \step{4}{For $i = 1, \ldots, n$, \pick\ a neighbourhood $U_i$ of $a$
-    such that $U_1 \times V_i \subseteq N$}
-    \step{5}{\pflet{$W = U_1 \cap \cdots \cap U_n$}}
-    \step{6}{$W \times Y \subseteq N$}
-    \qed
-\end{proof}
+\end{corollary}
 
 \begin{theorem}
+    \label{theorem:compact_closed_sets}
     Let $X$ be a topological space. Then $X$ is compact if and only if every set of closed sets that has the finite intersection property has nonempty intersection.
 \end{theorem}
 
@@ -5101,27 +5064,45 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:disjoint_neighbourhoods_compact_Hausdorff}
     Let $A$ and $B$ be disjoint compact subspaces of the Hausdorff space $X$.
     Then there exist disjoint open sets $U$ and $V$ that include $A$ and $B$
     respectively.
 \end{proposition}
 
 \begin{proof}
+    \pf\ From Theorem \ref{theorem:generalized_tube_lemma} with $N = X^2 \setminus \{ (x,x) \mid x \in X \}$. \qed
+\end{proof}
+
+\begin{corollary}
+    \label{corollary:closed_compact}
+    Every compact subspace of a Hausdorff space is closed.
+\end{corollary}
+
+\begin{theorem}
+    Let $f : X \rightarrow Y$ be a bijective continuous function. If $X$ is
+    compact and $Y$ is Hausdorff then $f$ is a homeomorphism.
+\end{theorem}
+
+\begin{proof}
     \pf
-    \step{1}{For all $x \in A$, there exist disjoint open sets $U'$ and $V'$
-    with $x \in U'$ and $B \subseteq V'$}
+    \step{1}{\pflet{$C \subseteq X$ be closed.}}
+    \step{2}{$C$ is compact.}
     \begin{proof}
-        \pf\ Lemma \ref{lemma:Hausdorff_compact_separation}
+        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
     \end{proof}
-    \step{2}{$\{ U' \text{ open in } X \mid \exists V' \text{ open in } Y.
-    U' \cap V' = \emptyset \text{ and } B \subseteq V' \}$ covers $A$.}
-    \step{3}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$}
-    \step{4}{For $i=1, \ldots, n$, \pick\ $V_i$ open in $Y$ such that
-    $U_i \cap V_i = \emptyset$ and $B \subseteq V_i$}
-    \step{5}{\pflet{$U = U_1 \cup \cdots \cup U_n$}}
-    \step{6}{\pflet{$V = V_1 \cup \cdots \cup V_n$}}
-    \step{7}{$U$ and $V$ are disjoint open sets that include $A$ and $B$
-    respectively.}
+    \step{3}{$f(C)$ is compact.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+    \end{proof}
+    \step{4}{$f(C)$ is closed.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_compact}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:homeomorphism}.
+    \end{proof}
     \qed
 \end{proof}
 
@@ -5149,6 +5130,7 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:closed_map_compact_projection}
     If $Y$ is compact then the projection $\pi_1 : X \times Y \rightarrow X$
     is a closed map.
 \end{proposition}
@@ -5157,11 +5139,10 @@ An example that shows the converse does not hold:
     \pf
     \step{1}{\pflet{$A \subseteq X \times Y$ be closed.}}
     \step{2}{\pflet{$x \in X \setminus \pi_1(A)$}}
-    \step{3}{For all $y \in Y$, there exist neighbourhoods $U$ of $x$ and $V$ of $y$ such that $U \times V$ is disjoint from $A$}
-    \step{4}{$\{ V \text{ open in } Y \mid \exists { neighbourhood } U \text{ of } x. U \times V \cap A = \emptyset \}$ covers $Y$.}
-    \step{5}{\pick\ a finite subcover $\{ V_1, \ldots, V_n \}$}
-    \step{6}{For $i = 1, \ldots, n$, \pick\ a neighbourhood $U_i$ of $x$ such that $U_i \times V_i$ is disjoint from $A$.}
-    \step{7}{\pflet{$U = U_1 \cap \cdots \cap U_n$}}
+    \step{3}{\pick\ a neighbourhood $U$ of $x$ such that $U \times Y \subseteq (X \times Y) \setminus A$}
+    \begin{proof}
+        \pf\ By the Tube Lemma.
+    \end{proof}
     \step{8}{$x \in U \subseteq X \setminus \pi_1(A)$}
     \qedstep
     \begin{proof}
@@ -5170,6 +5151,172 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{theorem}
+    Let $X$ be a topological space and $Y$ a compact Hausdorff space. Let $f : X \rightarrow Y$ be a function. Then $f$ is continuous if and only if
+    the graph of $f$ is closed in $X \times Y$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G_f$ be the graph of $f$.}}
+    \step{2}{If $f$ is continuous then $G_f$ is closed.}
+    \begin{proof}
+        \step{a}{\assume{$f$ is continuous.}}
+        \step{b}{\pflet{$(x,y) \in (X \times Y) \setminus G_f$}}
+        \step{c}{\pick\ disjoint neighbourhoods $U$ and $V$ of $y$ and $f(x)$ respectively.}
+        \step{d}{$\inv{f}(V) \times U$ is a neighbourhood of $(x,y)$ disjoint from $G_f$.}
+    \end{proof}
+    \step{3}{If $G_f$ is closed then $f$ is continuous.}
+    \begin{proof}
+        \step{a}{\assume{$G_f$ is closed.}}
+        \step{b}{\pflet{$x \in X$ and $V$ be a neighbourhood of $f(x)$.}}
+        \step{c}{$G_f \cap (X \times (Y \setminus V))$ is closed.}
+        \step{d}{$\pi_1(G_f \cap (X \times (Y \setminus V)))$ is closed.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:closed_map_compact_projection}.
+        \end{proof}
+        \step{e}{\pflet{$U = X \setminus \pi_1(G_f \cap (X \times (Y \setminus V)))$}}
+        \step{f}{$U$ is a neighbourhood of $x$}
+        \step{g}{$f(U) \subseteq V$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a compact topological space. Let $(f_n : X \rightarrow \RR)$ be a monotone increasing sequence of continuous functions and $f : X \rightarrow \RR$
+    a continuous function. If $(f_n)$ converges pointwise to $f$, then $(f_n)$ converges uniformly to $f$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\epsilon > 0$}}
+    \step{2}{For all $x \in X$, there exists $N$ such that, for all $n \geq N$, we have $|f_n(x) - f(x)| < \epsilon$}
+    \step{3}{For $n \geq 1$, \pflet{$U_n = \{ x \in X \mid |f_n(x) - f(x)| < \epsilon\} $}}
+    \step{4}{For $n \geq 1$, we have $U_n$ is open in $X$.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pflet{$\delta = \epsilon - |f_n(x) - f(x)|$}}
+        \step{b}{\pick\ a neighbourhood $U$ of $x$ such that $f(U) \subseteq B(f(x), \delta / 2)$}
+        \step{c}{\pick\ a neighbourhood $V$ of $x$ such that $f_n(V) \subseteq B(f_n(x), \delta / 2)$}
+        \step{d}{$f(U \cap V) \subseteq U_n$}
+        \begin{proof}
+            \pf\ For $y \in U \cap V$ we have
+            \begin{align*}
+                |f_n(y) - f(y)| & \leq |f_n(y) - f_n(x)| + |f_n(x) - f(x)| + |f(x) - y(y)| \\
+                & < \delta / 2 + |f_n(x) - f(x)| + \delta / 2 \\
+                & = \epsilon
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{5}{$ \{ U_n \mid n \geq 1 \}$ covers $X$}
+    \begin{proof}
+        \pf\ From \stepref{2}
+    \end{proof}
+    \step{6}{\pick\ $N$ such that $X = U_N$}
+    \begin{proof}
+        \step{a}{\pick\ $n_1$, \ldots, $n_k$ such that $U_{n_1}$, \ldots, $U_{n_k}$ cover $X$.}
+        \step{b}{\pflet{$N = \max(n_1, \ldots, n_k)$}}
+        \step{c}{For all $i$ we have $U_{n_i} \subseteq U_N$}
+        \begin{proof}
+            \pf\ Since $(f_n)$ is monotone increasing.
+        \end{proof}
+        \step{d}{$X = U_N$}
+    \end{proof}
+    \step{7}{For all $x \in X$ and $n \geq N$ we have $|f_n(x) - f(x)| < \epsilon$}
+    \qed
+\end{proof}
+
+An example to show that we cannot remove the hypothesis that $X$ is compact:
+
+\begin{example}
+    Let $X = (0,1)$, $f_n(x) = -x^n$ and $f(x) = 0$ for $x \in X$ and $n \geq 1$. Then $f_n \rightarrow f$ pointwise and $(f_n)$ is monotone
+    increasing but the convergence is not uniform since, for all $N \geq 1$, there exists $x \in (0,1)$ such that $-x^N < -1/2$.
+\end{example}
+
+An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone increasing:
+
+\begin{example}
+    Let $X = [0,1]$, $f_n(x) = 1 / (n^3 (x - 1/n)^2 + 1)$ and $f(x) = 0$ for $x \in X$ and $n \geq 1$. Then $X$ is compact and $f_n \rightarrow f$
+    pointwise but the convergence is not uniform since, for all $N \geq 1$, there exists $x \in [0,1]$ such that $f_N(x) = 1$, namely
+    $x = 1/N$.
+\end{example}
+
+\begin{theorem}
+    Let $X$ be a compact Hausdorff space. Let $\AA$ be a chain of closed connected subsets of $X$. Then $\bigcap \AA$ is connected.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $C$ and $D$ form a separation of $\bigcap \AA$.}}
+    \step{2}{\pick\ disjoint open sets $U$ and $V$ that include $C$ and $D$ respectively.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:disjoint_neighbourhoods_compact_Hausdorff}.
+    \end{proof}
+    \step{3}{$\{ A \setminus (U \cup V) \mid A \in \AA \}$ is a set of closed sets with the finite intersection property.}
+    \begin{proof}
+        \step{a}{For all $A \in \AA$ we have $A \setminus (U \cup V)$ is closed.}
+        \step{b}{For all $A_1, \ldots, A_n \in \AA$ we have $(A_1 \cap \cdots \cap A_n) \setminus (U \cup V)$ is nonempty.}
+        \begin{proof}
+            \pf
+            \step{i}{\pflet{$A_1, \ldots, A_n \in \AA$}}
+            \step{ii}{\assume{without loss of generality $A_1 \subseteq A_2, \ldots, A_n$}}
+            \begin{proof}
+                \pf\ Since $\AA$ is a chain.
+            \end{proof}
+            \step{iii}{$A_1 \setminus (U \cup V)$ is nonempty}
+            \begin{proof}
+                \pf\ Otherwise $(A_1 \cap \cdots \cap A_n \cap U)$ and $(A_1 \cap \cdots \cap A_n \cap V)$
+                would form a separation of $A_n$.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{4}{$\bigcap \AA \setminus (U \cup V)$ is nonempty.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_closed_sets}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{1} since $\bigcap AA \setminus (U \cup V)
+        = \bigcap \AA \setminus (C \cup D)$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Perfect Maps}
+
+\begin{definition}[Perfect Map]
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Then $f$ is a \emph{perfect map} if and only if $f$ is a closed map, continuous,
+    surjective and $\inv{p}(y)$ is compact for all $y \in Y$.
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:compact_pre_image}
+    Let $X$ be a topological space, $Y$ a compact space, and $p : X \rightarrow Y$ a closed map such that, for all $y \in Y$, we have $\inv{p}(y)$ is compact. Then $X$ is compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\AA$ be a set of closed sets in $X$ with the finite intersection property.}}
+    \step{2}{$\BB = \{ p(A_1 \cap \cdots \cap A_n) \mid A_1, \ldots, A_n \in \AA \}$ is a set of closed sets in $Y$ with the finite intersection property.}
+    \begin{proof}
+        \pf\ Since $p$ is a closed map.
+    \end{proof}
+    \step{3}{\pick\ $y \in \bigcap \BB$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_closed_sets} since $Y$ is compact.
+    \end{proof}
+    \step{4}{$\{ A \cap \inv{p}(y) \mid A \in \AA\}$ is a set of closed sets in $\inv{p}(y)$ with the finite intersection property.}
+    \step{5}{\pick\ $x \in \bigcap_{A \in \AA} (A \cap \inv{p}(y))$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_closed_sets} since $\inv{p}(y)$ is compact.
+    \end{proof}
+    \step{6}{$x \in \bigcap \AA$}
+    \qedstep
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_closed_sets}.
+    \end{proof}
+    \qed
+\end{proof}
 \section{Topological Groups}
 
 \begin{definition}[Topological Group]
@@ -5658,4 +5805,67 @@ An example that shows the converse does not hold:
         \pf\ From \stepref{2} and \stepref{3}.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{lemma}
+    Let $G$ be a topological group. Let $A$ be a closed set in $G$ and $B$ a compact subspace of $G$
+    such that $A \cap B = \emptyset$. Then there exists a symmetric neighbourhood $U$ of $e$
+    such that $AU \cap BU = \emptyset$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $b \in B$ there exists a symmetric neighbourhood $V$ of $e$ such that $bV^2 \cap A = \emptyset$}
+    \begin{proof}
+        \step{a}{\pflet{$b \in B$}}
+        \step{c}{\pflet{$W = \inv{b} (G \setminus A)$}}
+        \step{d}{$W$ is a neighbourhood of $e$ and $bW \cap A = \emptyset$}
+        \step{e}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $V^2 \subseteq W$}
+    \end{proof}
+    \step{2}{$\{bV^2 \mid b \in B, V \text{ is a symmetric neighbourhood of } e, bV^2 \cap A = \emptyset \}$ is an open cover of $B$}
+    \step{3}{\pick\ a finite subcover $b_1 V_1^2$, \ldots, $b_n V_n^2$, say.}
+    \step{4}{\pflet{$U = V_1 \cap \cdots \cap V_n$}}
+    \step{5}{$BU^2 \cap A = \emptyset$}
+    \step{7}{$AU \cap BU = \emptyset$}
+    \begin{proof}
+        \pf\ If $av \in BU$ where $a \in A$ and $v \in V$ then $a = a v \inv{v} \in BU^2 \cap A$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Let $G$ be a topological group. Let $A$ be a closed set in $G$, and $B$ a compact subspace of $G$. Then $AB$ is closed.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in G \setminus AB$}}
+    \step{2}{$\inv{A} x \cap B = \emptyset$}
+    \step{3}{$\inv{A} x$ is closed.}
+    \step{4}{\pick\ a symmetric neighbourhood $U$ of $e$ such that $\inv{A} x U \cap BU = \emptyset$}
+    \step{5}{$x U^2$ is open}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:open_subset_mult}.
+    \end{proof}
+    \step{6}{$x \in x U^2 \subseteq G \setminus AB$}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a topological group and $H \leq G$. Let $p : G \twoheadrightarrow G / H$ be the quotient map.
+    If $H$ is compact then $p$ is a closed map.
+\end{corollary}
+
+\begin{proof}
+    \pf\ For $A$ closed in $G$, we have $\inv{p}(p(A)) = AH$ is closed, and so
+    $p(A)$ is closed. \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a topological group and $H \leq G$. If $H$ and $G / H$ are compact then $G$ is compact.
+\end{corollary}
+
+\begin{proof}
+    \pf\ From Proposition \ref{proposition:compact_pre_image} since, for all $aH \in G / H$,
+    we have $\inv{p}(aH) = aH$ is compact because it is homemorphic to $H$. \qed
 \end{proof}

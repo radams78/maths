@@ -44,9 +44,10 @@
 \contentsline {section}{\numberline {43}Quasicomponents}{75}%
 \contentsline {section}{\numberline {44}Open Coverings}{76}%
 \contentsline {section}{\numberline {45}Compact Spaces}{76}%
-\contentsline {section}{\numberline {46}Topological Groups}{80}%
-\contentsline {section}{\numberline {47}The Metric Topology}{87}%
-\contentsline {section}{\numberline {48}Real Linear Algebra}{93}%
-\contentsline {section}{\numberline {49}The Uniform Topology}{100}%
-\contentsline {section}{\numberline {50}Uniform Convergence}{103}%
-\contentsline {section}{\numberline {51}Isometric Imbeddings}{104}%
+\contentsline {section}{\numberline {46}Perfect Maps}{82}%
+\contentsline {section}{\numberline {47}Topological Groups}{82}%
+\contentsline {section}{\numberline {48}The Metric Topology}{90}%
+\contentsline {section}{\numberline {49}Real Linear Algebra}{96}%
+\contentsline {section}{\numberline {50}The Uniform Topology}{103}%
+\contentsline {section}{\numberline {51}Uniform Convergence}{106}%
+\contentsline {section}{\numberline {52}Isometric Imbeddings}{107}%
