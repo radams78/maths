@@ -5282,6 +5282,64 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{theorem}[Tychonoff Theorem (AC)]
+    The product of a family of compact spaces is compact.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{ X_\alpha \}_{\alpha \in J}$ be a family of compact spaces.}}
+    \step{2}{\pflet{$X = \prod_{\alpha \in J} X_\alpha$}}
+    \step{3}{For any $\AA \subseteq \pow X$, we have $\bigcap_{A \in \AA} \overline{A} \neq \emptyset$}
+    \begin{proof}
+        \step{a}{\pflet{$\AA \subseteq \pow X$}}
+        \step{b}{\pick\ $\DD \supseteq \AA$ that is maximal with respect to the finite intersection property.
+        \prove{$\bigcap_{D \in \DD} \overline{D} \neq \emptyset$}}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:maximal_finite_intersection_property}.
+        \end{proof}
+        \step{c}{For $\alpha \in J$, \pick\ $x_\alpha \in X_\alpha$ such that
+        $x_\alpha \in \bigcap_{D \in \DD} \overline{\pi_\alpha(D)}$}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:compact_closed_sets} since $\{ \overline{\pi_\alpha(D)} \mid D \in \DD \}$ is a set
+            of closed sets in $X_\alpha$ with the finite intersection property.
+        \end{proof}
+        \step{d}{\pflet{$x = (x_\alpha)_{\alpha \in J}$} \prove{$x \in \bigcap_{D \in \DD} \overline{D}$}}
+        \step{e}{For any $\beta \in J$ and neighbourhood $U$ of $x_\beta$ in $X_\beta$,
+        we have $\inv{\pi_\beta}(U)$ intersects every element of $\DD$}
+        \begin{proof}
+            \step{i}{\pflet{$\beta \in J$}}
+            \step{ii}{\pflet{$U$ be a neighbourhood of $x_\beta$ in $X_\beta$.}}
+            \step{iii}{\pflet{$D \in \DD$}}
+            \step{iv}{$x_\beta \in \overline{\pi_\beta(D)}$}
+            \begin{proof}
+                \pf\ From \stepref{c}
+            \end{proof}
+            \step{v}{$U$ intersects $\pi_\beta(D)$.}
+            \step{vi}{$\inv{\pi_\beta}(U)$ intersects $D$.}
+        \end{proof}
+        \step{f}{For any $\beta \in J$ and neighbourhood $U$ of $x_\beta$ in $X_\beta$,
+        we have $\inv{\pi_\beta}(U) \in \DD$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:member_maximal_finite_intersection}.
+        \end{proof}
+        \step{g}{Every basic neighbourhood of $x$ is an element of $\DD$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:finite_intersection_maximal}.
+        \end{proof}
+        \step{h}{Every basic neighbourhood of $x$ intersects every element of $\DD$}
+        \begin{proof}
+            \pf\ Since $\DD$ satisfies the finite intersection property.
+        \end{proof}
+        \step{i}{For all $D \in \DD$ we have $x \in \overline{D}$}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_closed_sets}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
