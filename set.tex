@@ -92,6 +92,30 @@
     \qed
 \end{proof}
 
+\begin{proposition}
+    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the
+    finite intersection property. Let $A, D \in \pow X$.
+    If $D \in \DD$ and $D \subseteq A$ then $A \in \DD$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\DD \cup \{A\}$ satisfies the finite intersection property.}
+    \begin{proof}
+        \step{a}{\pflet{$D_1, \ldots, D_n \in \DD$}}
+        \step{b}{$D_1 \cap \cdots \cap D_n \cap D \neq \emptyset$}
+        \begin{proof}
+            \pf\ Since $\DD$ satisfies the finite intersection property.
+        \end{proof}
+        \step{c}{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}
+    \end{proof}
+    \step{2}{$\DD = \DD \cup \{A\}$}
+    \begin{proof}
+        \pf\ By the maximality of $\DD$.
+    \end{proof}
+    \step{3}{$A \in \DD$}
+    \qed
+\end{proof}
 \begin{definition}[Graph]
     Let $f : A \rightarrow B$. The \emph{graph} of $f$ is the set $\{ (x, f(x)) \mid x \in A \} \subseteq A \times B$.
 \end{definition}

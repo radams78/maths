@@ -1,4 +1,3 @@
-
 \section{Topological Spaces}
 
 \begin{definition}[Topology]
@@ -369,6 +368,60 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
         \qedstep
         \begin{proof}
             \pf\ We have $x \in \overline{B}$ from Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:every_closure_maximal_fip}
+    Let $X$ be a topological space. Let $\DD$ be a set of subsets of $X$ that is maximal with respect to the finite intersection property. Let $x \in X$.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item For all $D \in \DD$ we have $x \in \overline{D}$
+        \item Every neighbourhood of $x$ is in $\DD$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$1 \Rightarrow 2$}
+    \begin{proof}
+        \step{a}{For all $D \in \DD$ we have $x \in \overline{D}$}
+        \step{b}{\pflet{$U$ be a neighbourhood of $x$}}
+        \step{c}{$\DD \cup \{U\}$ satisfies the finite intersection property.}
+        \begin{proof}
+            \step{i}{\pflet{$D_1, \ldots, D_n \in \DD$}}
+            \step{ii}{$D_1 \cap \cdots \cap D_n \in \DD$}
+            \begin{proof}
+                \pf\ Lemma \ref{lemma:finite_intersection_maximal}.
+            \end{proof}
+            \step{iii}{$x \in \overline{D_1 \cap \cdots \cap D_n}$}
+            \begin{proof}
+                \pf\ \stepref{a}, \stepref{ii}
+            \end{proof}
+            \step{iv}{$D_1 \cap \cdots \cap D_n \cap U \neq \emptyset$}
+            \begin{proof}
+                \pf\ Theorem \ref{theorem:closure_neighbourhood}, \stepref{b}, \stepref{iii}.
+            \end{proof}
+        \end{proof}
+        \step{d}{$\DD = \DD \cup \{U\}$}
+        \begin{proof}
+            \pf\ By the maximality of $\DD$.
+        \end{proof}
+        \step{e}{$U \in \DD$}
+    \end{proof}
+    \step{2}{$2 \Rightarrow 1$}
+    \begin{proof}
+        \step{a}{\assume{Every neighbourhood of $x$ is in $\DD$.}}
+        \step{b}{\pflet{$D \in \DD$}}
+        \step{c}{Every neighbourhood of $x$ intersects $D$.}
+        \begin{proof}
+            \pf\ From \stepref{a}, \stepref{b} and the fact that $\DD$ satisfies the finite intersection property.
+        \end{proof}
+        \step{d}{$x \in \overline{D}$}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:closure_neighbourhood}, \stepref{c}.
         \end{proof}
     \end{proof}
     \qed
@@ -2649,6 +2702,28 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 
 \begin{proof}
     \pf\ Immediate from definitions.
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a Hausdorff space. Let $\DD \subseteq \pow X$ be maximal
+    with respect to the finite intersection property. Then $\bigcap_{D \in \DD}
+    \overline{D}$ contains at most one point.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x,y \in \bigcap_{D \in \DD} \overline{D}$}}
+    \step{2}{\assume{for a contradiction $x \neq y$}}
+    \step{3}{\pick\ disjoint open subsets $U$ and $V$ of $x$ and $y$ respectively.}
+    \step{4}{$U, V \in \DD$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:every_closure_maximal_fip}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts the fact that $\DD$ satisfies the finite intersection property.
+    \end{proof}
+    \qed
 \end{proof}
 
 \section{The First Countability Axiom}
