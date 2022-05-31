@@ -5554,6 +5554,63 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{theorem}[AC]
+    Let $X$ be a compact Hausdorff space. Then the quasicomponents and the components of $X$ are the same.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x, y \in X$}}
+    \step{2}{\assume{$x$ and $y$ are in the same quasicomponent.} \prove{$x$ and $y$ are in the same component.}}
+    \step{3}{\pflet{$\AA$ be the set of all closed subsets $A$ of $X$ such that $x$ and $y$ are in the same quasicomponent of $A$.}}
+    \step{4}{For every chain $\BB \subseteq \AA$ we have $\bigcap \BB \in \AA$}
+    \begin{proof}
+        \step{a}{\pflet{$BB \subseteq \AA$ be a chain.}}
+        \step{b}{\assume{for a contradiction $U$ and $V$ form a separation of $\bigcap \BB$ with $x \in U$ and $y \in V$}}
+        \step{c}{\pick\ disjoint open sets $U'$, $V'$ in $X$ such that $U \subseteq U'$ and $V \subseteq V'$}
+        \step{d}{$\{ B \setminus (U' \cup V') \mid B \in \BB \}$ satisfies the finite intersection property.}
+        \begin{proof}
+            \step{i}{\pflet{$B_1, \ldots, B_n \in \BB$}}
+            \step{ii}{\assume{without loss of generality $B_1 \subseteq \cdots \subseteq B_n$}}
+            \begin{proof}
+                \pf\ Since $\BB$ is a chain.
+            \end{proof}
+            \step{iii}{$\bigcap \{ B_1 \setminus (U' \cup V'), \ldots, B_n \setminus (U' \cup V') \} = B_1 \setminus (U' \cup V')$}
+            \step{iv}{$B_1 \setminus (U' \cup V')$ is nonempty}
+            \begin{proof}
+                \pf\ Otherwise $B_1 \cap U'$ and $B_1 \cap V'$ would form a separation of $B_1$, contradicting the fact that $x$ and $y$ are in the same quasicomponent of $B_1$.
+            \end{proof}
+        \end{proof}
+        \step{e}{$\bigcap \BB \setminus (U \cup V)$ is nonempty}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:compact_closed_sets}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{b}.
+        \end{proof}
+    \end{proof}
+    \step{5}{\pick\ a minimal element $D$ in $\AA$. \prove{$D$ is connected.}}
+    \begin{proof}
+        \pf\ By Zorn's Lemma.
+    \end{proof}
+    \step{6}{\assume{for a contradiction $U$ and $V$ form a separation of $D$.}}
+    \step{7}{\assume{without loss of generality $x, y \in U$}}
+    \begin{proof}
+        \pf\ We cannot have that one of $x$, $y$ is in $U$ and the other in $V$ sicnce $D \in \AA$.
+    \end{proof}
+    \step{8}{$U \in \AA$}
+    \begin{proof}
+        \pf\ If $X$ and $Y$ form a separation of $U$ with $x \in X$ and $y \in Y$, then $X$ and $Y \cup V$ form a separation of $D$ with $x \in X$
+        and $y \in Y \cup V$.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ There is a connected set $D$ that contains both $x$ and $y$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]

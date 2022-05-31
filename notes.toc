@@ -48,9 +48,9 @@
 \contentsline {section}{\numberline {47}The Second Countability Axiom}{80}%
 \contentsline {section}{\numberline {48}Compact Spaces}{81}%
 \contentsline {section}{\numberline {49}Perfect Maps}{88}%
-\contentsline {section}{\numberline {50}Topological Groups}{88}%
-\contentsline {section}{\numberline {51}The Metric Topology}{96}%
-\contentsline {section}{\numberline {52}Real Linear Algebra}{102}%
-\contentsline {section}{\numberline {53}The Uniform Topology}{109}%
-\contentsline {section}{\numberline {54}Uniform Convergence}{112}%
-\contentsline {section}{\numberline {55}Isometric Imbeddings}{113}%
+\contentsline {section}{\numberline {50}Topological Groups}{89}%
+\contentsline {section}{\numberline {51}The Metric Topology}{97}%
+\contentsline {section}{\numberline {52}Real Linear Algebra}{103}%
+\contentsline {section}{\numberline {53}The Uniform Topology}{110}%
+\contentsline {section}{\numberline {54}Uniform Convergence}{113}%
+\contentsline {section}{\numberline {55}Isometric Imbeddings}{114}%
