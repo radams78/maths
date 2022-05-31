@@ -4965,6 +4965,32 @@ An example that shows the converse does not hold:
     of $X$ whose elements are all open sets.
 \end{definition}
 
+\section{Lindel\"{o}f Spaces}
+
+\begin{definition}[Lindel\"{o}f Space]
+    A topological space $X$ is \emph{Lindel\"{o}f} if and only if every open covering
+    has a countable subcovering.
+\end{definition}
+
+\begin{proposition}
+    Let $X$ be a topological space. Then $X$ is Lindel\"{o}f if and only if 
+    every set of closed sets that has the countable intersection property has
+    nonempty intersection.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The following are equivalent.
+    \begin{enumerate}
+        \item $X$ is compact.
+        \item Every open covering of $X$ has a countable subcovering.
+        \item For any set $\CC$ of closed sets, if $\{ X \setminus C \mid C \in \CC \}$ covers $X$ then there is a countable subset $\CC_0$ such that
+        $\{ X \setminus C \mid C \in \CC_0 \}$ covers $X$
+        \item For any set $\CC$ of closed sets, if $\bigcap \CC = \emptyset$ then there is a countable subset $\CC_0$ with empty intersection.
+        \item Any set of closed sets with the countable intersection property has nonempty intersection.
+    \end{enumerate}
+    \qed
+\end{proof}
+
 \section{Compact Spaces}
 
 \begin{definition}[Compact]

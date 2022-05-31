@@ -74,6 +74,8 @@ INPUT /usr/share/texmf/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /home/robin/fun/maths/notes.toc
 INPUT /home/robin/fun/maths/notes.toc
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT /home/robin/fun/maths/notes.pdf
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msam10.tfm
@@ -82,8 +84,6 @@ INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-OUTPUT /home/robin/fun/maths/notes.pdf
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 OUTPUT /home/robin/fun/maths/notes.toc
 OUTPUT /home/robin/fun/maths/set.aux
 INPUT /home/robin/fun/maths/set.tex
