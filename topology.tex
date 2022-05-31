@@ -2015,6 +2015,10 @@ We prove this is a basis for a topology.
     The result follows from Proposition \ref{proposition:open_map_basis}. \qed
 \end{proof}
 
+\begin{definition}[Sorgenfrey Plane]
+    The \emph{Sorgenfrey plane} is $\RR_l^2$.    
+\end{definition}
+
 \section{The Subspace Topology}
 
 \begin{definition}[Subspace Topology]
@@ -4990,6 +4994,115 @@ An example that shows the converse does not hold:
     \end{enumerate}
     \qed
 \end{proof}
+
+\begin{proposition}[CC]
+    \label{proposition:lindelof_basis}
+    Let $X$ be a topological space and $\BB$ a basis for the topology on $X$.
+    Then the following are equivalent.
+    \begin{enumerate}
+        \item $X$ is Lindel\"{o}f.
+        \item Every open covering of $X$ by elements of $\BB$ has a countable subcovering.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$1 \Rightarrow 2$}
+    \begin{proof}
+        \pf\ Immediate from definitions.
+    \end{proof}
+    \step{2}{$2 \Rightarrow 1$}
+    \begin{proof}
+        \step{a}{\assume{Every open covering of $X$ by elements of $\BB$ has a countable subcovering.}}
+        \step{b}{\pflet{$\UU$ be an open covering of $X$.}}
+        \step{c}{$\{ B \in \BB \mid \exists U \in \UU. B \subseteq U \}$ covers $X$.}
+        \step{d}{\pick\ a finite subcovering $\BB_0$.}
+        \step{e}{For $B \in BB$, \pick\ $U_B \in \UU$ such that $B \subseteq U_B$}
+        \step{f}{$\{ U_B \mid B \in \BB_0 \}$ covers $X$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{The Second Countability Axiom}
+
+\begin{definition}[Second Countability Axiom]
+    A topological space satisfies the \emph{second countability axiom},
+    or is \emph{second countable}, if and only if it has a countable basis.    
+\end{definition}
+
+\begin{example}
+    The space $\RR$ is second countable.
+
+    \begin{proof}
+    \pf\ The set $\{ (a,b) \mid a,b \in \QQ \}$ is a basis. \qed
+\end{proof}
+\end{example}
+
+\begin{proposition}
+    \label{proposition:second_countable_subspace}
+    A subspace of a second countable space is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf\ If $\BB$ is a countable basis for $X$ and $Y \subseteq X$
+    then $\{ B \cap Y \mid B \in \BB \}$ is a countable basis for $Y$. \qed
+\end{proof}
+
+\begin{proposition}[CC]
+    \label{proposition:lindelof_second_countable}
+    Every second countable space is Lindel\"{o}f.
+\end{proposition}
+
+\begin{proof}
+    \pf\ From Proposition \ref{proposition:lindelof_basis}.
+\end{proof}
+
+\begin{example}[CC]
+    The space $\RR_l$ is Lindel\"{o}f.
+    
+    \begin{proof}
+        \step{1}{\pflet{$\AA$ be a covering of $\RR_l$ by basic open sets of the form $[a,b)$}}
+        \step{2}{\pflet{$C = \bigcup \{ (a,b) \mid [a,b) \in \AA \}$}}
+        \step{3}{$\RR \setminus C$ is countable.}
+        \begin{proof}
+            \step{a}{For every $x \in \RR \setminus C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
+            \begin{proof}
+                \step{i}{\pflet{$x \in \RR \setminus C$}}
+                \step{ii}{\pick\ $b$ such that $[x,b) \in \AA$}
+                \step{iii}{\pick\ a rational $q$ such that $q \in (x,b)$}
+            \end{proof}
+            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR \setminus C \rightarrow \QQ$}
+        \end{proof}
+        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR \setminus C$}
+        \step{5}{Under the standard topology on $\RR$, $C$ is second countable.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:second_countable_subspace}.
+        \end{proof}
+        \step{6}{\pick\ a countable $\AA'' \subseteq \AA$ such that $\{ (a,b) \mid [a,b) \in \AA'' \}$ covers $C$.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:lindelof_basis}.
+        \end{proof}
+        \step{7}{$\AA' \cup \AA''$ covers $\RR_l$.}
+        \qed
+    \end{proof}
+\end{example}
+
+\begin{example}
+    The product of two Lindel\"{o}f spaces is not necessarily Lindel\"{o}f.
+
+    We prove that the Sorgenfrey plane is not Lindel\"{o}f.
+    
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$L = \{ (x, -x) \mid x \in \RR \}$}}
+        \step{2}{$L$ is closed in $\RR_l^2$}
+        \step{3}{\pflet{$\UU = \{ [a,b) \times [a,-d) \mid a,b,d \in \RR \}$}}
+        \step{4}{$\UU \cup \{ \RR \setminus L \}$ covers $\RR_l^2$}
+        \step{5}{Every element of $\UU$ intersects $L$ at exactly one point.}
+        \step{6}{No countable subset of $\UU$ covers $\RR_l^2$.}
+        \qed
+    \end{proof}
+\end{example}
 
 \section{Compact Spaces}
 

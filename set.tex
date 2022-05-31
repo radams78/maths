@@ -116,6 +116,7 @@
     \step{3}{$A \in \DD$}
     \qed
 \end{proof}
+
 \begin{definition}[Graph]
     Let $f : A \rightarrow B$. The \emph{graph} of $f$ is the set $\{ (x, f(x)) \mid x \in A \} \subseteq A \times B$.
 \end{definition}
@@ -126,3 +127,52 @@
     Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ satisfies the \emph{countable intersection property}
     if and only if every countable subset of $\AA$ has nonempty intersection.
 \end{definition}
+
+\begin{lemma}
+    \label{lemma:countable_intersection_maximal}
+    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the countable intersection property.
+    Then any countable intersection of elements of $\DD$ is an element of $\DD$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\DD_0 \subseteq \DD$ be countable.}}
+    \step{2}{$\DD \cup \{ \bigcap \DD_0 \}$ has the countable intersection property.}
+    \begin{proof}
+        \pf\ Any countable intersection of members of $\DD \cup \{ \bigcap \DD_0 \}$
+        is a finite intersection of members of $\DD$.
+    \end{proof}
+    \step{3}{$\DD = \DD \cup \{ \bigcap \DD_0 \}$}
+    \begin{proof}
+        \pf\ By maximality of $\DD$.
+    \end{proof}
+    \step{4}{$\bigcap \DD_0 \in \DD$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the countable intersection property.
+    Let $A \subseteq X$. If $A$ intersects every member of $\DD$ then $A \in \DD$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{$\DD \cup \{ A \}$ has the countable intersection property.}
+    \begin{proof}
+        \step{a}{\pflet{$\DD_0 \subseteq \DD$ be countable.}
+        \prove{$\bigcap \DD_0 \cap A \neq \emptyset$}}
+        \step{b}{$\bigcap \DD_0 \in \DD$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:countable_intersection_maximal}.
+        \end{proof}
+        \step{c}{$\bigcap \DD_0 \cap A \neq \emptyset$}
+        \begin{proof}
+            \pf\ Since $A$ intersects every member of $\DD$.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ By maximality of $\DD$.
+    \end{proof}
+    \qed
+\end{proof}
