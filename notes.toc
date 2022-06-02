@@ -47,10 +47,10 @@
 \contentsline {section}{\numberline {46}Lindel\"{o}f Spaces}{79}%
 \contentsline {section}{\numberline {47}The Second Countability Axiom}{80}%
 \contentsline {section}{\numberline {48}Compact Spaces}{81}%
-\contentsline {section}{\numberline {49}Perfect Maps}{88}%
-\contentsline {section}{\numberline {50}Topological Groups}{89}%
-\contentsline {section}{\numberline {51}The Metric Topology}{97}%
-\contentsline {section}{\numberline {52}Real Linear Algebra}{103}%
-\contentsline {section}{\numberline {53}The Uniform Topology}{110}%
-\contentsline {section}{\numberline {54}Uniform Convergence}{113}%
-\contentsline {section}{\numberline {55}Isometric Imbeddings}{114}%
+\contentsline {section}{\numberline {49}Perfect Maps}{91}%
+\contentsline {section}{\numberline {50}Topological Groups}{91}%
+\contentsline {section}{\numberline {51}The Metric Topology}{99}%
+\contentsline {section}{\numberline {52}Real Linear Algebra}{105}%
+\contentsline {section}{\numberline {53}The Uniform Topology}{112}%
+\contentsline {section}{\numberline {54}Uniform Convergence}{115}%
+\contentsline {section}{\numberline {55}Isometric Imbeddings}{116}%

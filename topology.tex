@@ -5554,6 +5554,24 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{lemma}
+    \label{lemma:preTychonoff}
+    Let $X$ and $Y$ be topological spaces.
+    Let $\AA$ be a set of basis elements for the product topology on $X \times Y$ such that no finite subset of $\AA$ covers $X \times Y$.
+    If $X$ is compact, then there exists $x \in X$ such that no finite subset of $\AA$ covers the slice $\{x\} \times Y$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for every $x \in X$, there exists a finite subset of $\AA$ that covers $\{x\} \times Y$}
+    \prove{A finite subset of $\AA$ covers $X \times Y$}}
+    \step{2}{$\{ U \mid \exists U_1 \times V_1, \ldots, U_n \times V_n \in \AA. U = U_1 \cap \cdots \cap U_n, V_1 \cup \cdots \cup V_n = Y \}$ covers $X$}
+    \step{3}{\pick\ a finite subcover $U_1$, \ldots, $U_m$}
+    \step{4}{\pick\ $U_{ij} \times V_{ij} \in \AA$ such that, for every $i$, we have $U_i = \bigcap_j U_{ij}$ and $Y = \bigcup_j V_{ij}$}
+    \step{5}{The collection of all $U_{ij} \times V_{ij}$ covers $X \times Y$}
+    \qed
+\end{proof}
+
 \begin{theorem}[AC]
     Let $X$ be a compact Hausdorff space. Then the quasicomponents and the components of $X$ are the same.
 \end{theorem}
@@ -5610,6 +5628,124 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \end{proof}
     \qed
 \end{proof}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{X_\alpha\}_{\alpha \in J}$ be a family of compact spaces.}}
+    \step{2}{\pflet{$X = \prod_{\alpha \in J} X_\alpha$}}
+    \step{3}{\pick\ a well-ordering $<$ on $J$ such that $J$ has a greatest element.}
+    \step{4}{For $\alpha \in J$ and $p = \{ p_i \in X_i \}_{i \leq \alpha}$ a family of points,
+    \pflet{$Y(p) = \{ x \in X \mid \forall i \leq \alpha. x_i = p_i \}$}}
+    \step{5}{If $\alpha < \alpha'$ and $p$ is an $\alpha'$-indexed family of points then $Y(p) \subseteq Y(p \restriction \alpha)$}
+    \begin{proof}
+        \pf\ From definition.
+    \end{proof}
+    \step{6}{Given $\beta \in J$ and $p = \{ p_i \in X_i \}_{i < \beta}$ a family of points,
+    \pflet{$Z(p) = \bigcap_{\alpha < \beta} Y(p \restriction \alpha)$}}
+    \step{7}{Given $\beta \in J$ and $p = \{ p_i \in X_i \}_{i < \beta}$ a family of points, if $\AA$ is a finite set of basic open spaces for $X$ that
+    covers $Z(p)$, then there exists $\alpha < \beta$ such that $\AA$ covers $Y(p \restriction \alpha)$}
+    \begin{proof}
+        \step{a}{\assume{without loss of generality $\beta$ has no immediate predecessor.}}
+        \step{b}{For $A \in \AA$, \pflet{$J_A = \{ i < \beta \mid \pi_i(A) \neq X_i \}$}}
+        \step{c}{\pflet{$\alpha = \max \bigcup_{A \in \AA} J_A$}}
+        \step{d}{\pflet{$x \in Y(p \restriction \alpha)$}}
+        \step{e}{\pflet{$y \in Z(p)$ be the point with $y_i = p_i$ for $i < \beta$ and $y_i = x_i$ for $i \geq \beta$}}
+        \step{f}{\pick\ $A \in \AA$ such that $y \in A$}
+        \begin{proof}
+            \pf\ Since $\AA$ covers $Z(p)$.
+        \end{proof}
+        \step{g}{For $i \in J_A$ we have $x_i \in \pi_i(A)$}
+        \begin{proof}
+            \pf\ Since $i \leq \alpha$ so $x_i = p_i$
+        \end{proof}
+        \step{g}{For $i \in J \setminus J_A$ we have $x_i \in \pi_i(A)$}
+        \begin{proof}
+            \pf\ Since $\pi_i(A) = X_i$
+        \end{proof}
+        \step{h}{$x \in A$}
+    \end{proof}
+    \step{8}{\assume{for a contraction $\AA$ is a set of basic open sets for $X$ that covers $X$ but such that no finite subset of $\AA$ covers $X$}}
+    \step{9}{\pick\ a set of points $\{ p_i \}_{i \in J}$ such that, for all $\alpha \in J$, we have $Y(p \restriction \alpha)$ is not finitely covered by $\AA$}
+    \begin{proof}
+        \step{a}{\assume{as transfinite induction hypothesis $\alpha \in J$ and $\{ p_i \}_{i < \alpha}$ is a family of points such that,
+        for all $\alpha' < \alpha$, we have $Y(p \restriction \alpha')$ is not finitely covered by $\AA$}}
+        \step{b}{$Z(p)$ is not finitely covered by $\AA$}
+        \begin{proof}
+            \pf\ By \stepref{7}.
+        \end{proof}
+        \step{c}{\pick\ $p_\alpha \in X_\alpha$ such that $Y(p)$ is not finitely covered by $\AA$}
+        \begin{proof}
+            \pf\ By Lemma \ref{lemma:preTychonoff} since there is a homeomorphism $\phi : Z(p) \cong X_\alpha \times \prod_{\alpha' > \alpha} X_{\alpha'}$
+            and, given $p_\alpha$, this homemorphism $\phi$ restricts to a homeomorphism $Y(p) \cong \{ p_\alpha \}  \times \prod_{\alpha' > \alpha} X_{\alpha'}$.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ If $\omega$ is the greatest element of $J$ then $Y(p \restriction \omega)$ is a singleton.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Every complete linearly ordered set in the order topology is compact.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a complete linearly ordered set with least element $a$ and greatest element $b$.}}
+    \step{2}{\pflet{$\AA$ be an open covering of $X$.}}
+    \step{3}{For all $x < b$, there exists $y > x$ such that $[x,y]$ can be covered by at most two elements of $\AA$.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ $A \in \AA$ with $x \in A$}
+        \step{c}{\pick\ $y > x$ such that $[x,y) \subseteq A$}
+        \step{d}{\pick\ $B \in \AA$ with $y \in B$}
+        \step{e}{$[x,y]$ is covered by $A$ and $B$}
+    \end{proof}
+    \step{4}{\pflet{$C = \{y \in X \mid [a,y] \text{ can be covered by finitely many elements of } \AA \}$}}
+    \step{5}{\pflet{$c = \sup C$}}
+    \step{6}{$c > a$}
+    \begin{proof}
+        \step{a}{\pick\ $x > a$ such that $[a,x]$ can be covered by at most two elements of $\AA$.}
+        \begin{proof}
+            \pf\ From \stepref{3}.
+        \end{proof}
+        \step{b}{$x \in C$}
+    \end{proof}
+    \step{7}{$c \in C$}
+    \begin{proof}
+        \step{a}{\pick\ $A \in \AA$}
+        \step{b}{\pick\ $x < c$ such that $(x,c] \subseteq A$}
+        \step{c}{\pick\ $y > x$ such that $y \in C$}
+        \step{d}{\pick\ $\AA_0 \subseteq^{\mathrm{fin}} \AA$ that covers $[a,y]$}
+        \step{e}{$\AA_0 \cup \{A\}$ covers $[a,c]$}
+    \end{proof}
+    \step{8}{$c = b$}
+    \begin{proof}
+        \step{a}{\assume{for a contradiction $c < b$}}
+        \step{b}{\pick\ $x > c$ such that $[c,x]$ can be covered by at most two elements of $\AA$}
+        \begin{proof}
+            \pf\ From \stepref{3}.
+        \end{proof}
+        \step{c}{$[a,x]$ can be finitely covered by $\AA$}
+        \begin{proof}
+            \pf\ From \stepref{7}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the maximality of $c$.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a linearly ordered set with the least upper bound property. Then every closed interval in $X$ is compact.
+\end{corollary}
+
+\begin{corollary}
+    Every closed interval in $\RR$ is compact.
+\end{corollary}
 
 \section{Perfect Maps}
 
