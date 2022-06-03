@@ -5747,6 +5747,30 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     Every closed interval in $\RR$ is compact.
 \end{corollary}
 
+\begin{theorem}[Extreme Value Theorem]
+    Any linearly ordered set under the order topology that is compact has
+    a greatest and a least element.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a linearly ordered set under the order topology that is compact.}}
+    \step{2}{$X$ has a greatest element.}
+    \begin{proof}
+        \step{a}{\assume{for a contradiction $X$ has no greatest element.}}
+        \step{b}{$\{ (- \infty, a) \mid a \in X \}$ covers $X$.}
+        \step{c}{\pick\ a finite subcover $\{ (- \infty, a_1), \ldots, (- \infty, a_n) \}$, say.}
+        \step{d}{\assume{without loss of generality $a_1 \leq \cdots \leq a_n$}}
+        \step{e}{$X \subseteq (- \infty, a_n)$}
+        \step{f}{$a_n < a_n$}
+    \end{proof}
+    \step{3}{$X$ has a least element.}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
