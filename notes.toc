@@ -54,3 +54,4 @@
 \contentsline {section}{\numberline {53}The Uniform Topology}{113}%
 \contentsline {section}{\numberline {54}Uniform Convergence}{115}%
 \contentsline {section}{\numberline {55}Isometric Imbeddings}{117}%
+\contentsline {section}{\numberline {56}Distance to a Set}{117}%
