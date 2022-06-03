@@ -456,6 +456,7 @@ We prove this is a metric.
 \end{example}
 
 \begin{proposition}
+    \label{proposition:bounded_compact}
     A compact subspace of a metric space is bounded.
 \end{proposition}
 
@@ -984,6 +985,45 @@ We prove this is a metric.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{theorem}
+    Let $A$ be a subspace of $\RR^n$. Then the following are equivalent:
+    \begin{enumerate}
+        \item $A$ is compact.
+        \item $A$ is closed and bounded under the Euclidean metric.
+        \item $A$ is closed and bounded under the square metric.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$1 \Rightarrow 2$}
+    \begin{proof}
+        \pf\ By Corollary \ref{corollary:closed_compact} and Proposition \ref{proposition:bounded_compact}.
+    \end{proof}
+    \step{2}{$2 \Rightarrow 3$}
+    \begin{proof}
+        \pf\ If $d(x,y) \leq M$ for all $x,y \in A$ then $\rho(x,y) \leq M / \sqrt{2}$.
+    \end{proof}
+    \step{3}{$3 \Rightarrow 1$}
+    \begin{proof}
+        \step{a}{\assume{$A$ is closed and $\rho(x,y) \leq M$ for all $x,y \in A$}}
+        \step{b}{\pick\ $a \in A$}
+        \begin{proof}
+            \pf\ We may assume w.l.o.g. $A$ is nonempty since the empty space is compact.
+        \end{proof}
+        \step{c}{$A$ is a closed subspace of $[a_1 - M, a_1 + M] \times \cdots \times [a_n - M, a_n + M]$}
+        \step{d}{$A$ is compact}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    The unit sphere $S^{n-1}$ and the closed unit ball $B^n$ are compact for any $n$.
+\end{corollary}
 
 \section{The Uniform Topology}
 

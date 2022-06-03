@@ -51,6 +51,6 @@
 \contentsline {section}{\numberline {50}Topological Groups}{91}%
 \contentsline {section}{\numberline {51}The Metric Topology}{99}%
 \contentsline {section}{\numberline {52}Real Linear Algebra}{105}%
-\contentsline {section}{\numberline {53}The Uniform Topology}{112}%
+\contentsline {section}{\numberline {53}The Uniform Topology}{113}%
 \contentsline {section}{\numberline {54}Uniform Convergence}{115}%
-\contentsline {section}{\numberline {55}Isometric Imbeddings}{116}%
+\contentsline {section}{\numberline {55}Isometric Imbeddings}{117}%
