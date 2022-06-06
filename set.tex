@@ -1,5 +1,92 @@
 \chapter{Set Theory}
 
+\section{Membership}
+
+We take as undefined the binary relation of \emph{membership}, $\in$. If $a \in A$ we say $a$ is a \emph{member} or \emph{element} of $A$.
+If this does not hold, we write $a \notin A$.
+
+\begin{axiom}[Axiom of Extensionality]
+    Two sets with exactly the same elements are equal.
+\end{axiom}
+
+\section{Subsets}
+
+\begin{definition}[Subset]
+    Let $A$ and $B$ be sets. We say $A$ is a \emph{subset} of $B$, $A \subseteq B$, if and only if every member of $A$ is a member of $B$.    
+\end{definition}
+
+\section{The Empty Set}
+
+\begin{axiom}[Empty Set Axiom]
+    There exists a set with no members.
+\end{axiom}
+
+\begin{proposition}[Extensionality, Empty Set Axiom]
+    There exists a unique set with no members.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Existence follows from the Empty Set Axiom, and uniqueness from the Axiom of Extensionality. \qed
+\end{proof}
+
+\begin{definition}[Empty Set (Extensionality, Empty Set Axiom)]
+    The \emph{empty set} $\emptyset$ is the set with no members.
+\end{definition}
+
+\section{Pair Sets}
+
+\begin{axiom}[Pairing Axiom]
+    For any sets $u$ and $v$, there exists a set having as members just $u$ and $v$.
+\end{axiom}
+
+\begin{proposition}[Extensionality, Pairing Axiom]
+    For any sets $u$ and $v$, there exists a unique set having as members just $u$ and $v$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Existence follows from the Pairing Axiom, and uniqueness from the Axiom of Extensionality. \qed
+\end{proof}
+
+\begin{definition}[Pair Set (Extensionality, Pairing Axiom)]
+    For any sets $u$ and $v$, the \emph{pair set} $\{ u, v \}$ is the set whose members are just $u$ and $v$.    
+\end{definition}
+
+\section{Unions}
+
+\begin{axiom}[Union Axiom, Preliminary Form]
+    For any sets $a$ and $b$, there exists a set whose members are those sets belonging to $a$ or to $b$ (or both).
+\end{axiom}
+
+\begin{proposition}[Extensionality, Union Axiom Preliminary Form]
+    For any sets $a$ and $b$, there exists a unique set whose members are those sets belonging to $a$ or to $b$ (or both).
+\end{proposition}
+
+\begin{proof}
+    \pf\ Existence follows from the Union Axiom Preliminary Form, and uniqueness from the Axiom of Extensionality. \qed
+\end{proof}
+
+\begin{definition}[Union (Extensionality, Union Axiom Preliminary Form)]
+    For any sets $a$ and $b$, the \emph{union} $a \cup b$ is the unique set whose members are those sets belonging to $a$ or to $b$ (or both).
+\end{definition}
+
+\section{Power Set}
+
+\begin{axiom}[Power Set Axiom]
+    For any set $a$, there is a set whose members are exactly the subsets of $a$.    
+\end{axiom}
+
+\begin{proposition}[Extensionality, Power Set]
+    For any set $a$, there exists a unique set whose members are the subsets of $a$
+\end{proposition}
+
+\begin{proof}
+    \pf\ Existence follows from the Power Set Axiom, and uniqueness from the Axiom of Extensionality. \qed
+\end{proof}
+
+\begin{definition}[Power Set (Extensionality, Power Set)]
+    For any set $a$, the \emph{power set} $\pow a$ is the unique set whose members are those sets belonging to $a$ or to $b$ (or both).
+\end{definition}
+
 \section{Covers}
 
 \begin{definition}[Cover]
