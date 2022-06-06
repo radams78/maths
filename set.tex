@@ -1,9 +1,13 @@
-\section{Set Theory}
+\chapter{Set Theory}
+
+\section{Covers}
 
 \begin{definition}[Cover]
     Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ \emph{covers} $X$,
     or is a \emph{covering} of $X$, if and only if $\bigcup \AA = X$.
 \end{definition}
+
+\section{The Finite Intersection Property}
 
 \begin{definition}[Finite Intersection Property]
     Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ satisfies the \emph{finite intersection property} if and only if every nonempty finite subset of $\AA$
@@ -174,5 +178,33 @@
     \begin{proof}
         \pf\ By maximality of $\DD$.
     \end{proof}
+    \qed
+\end{proof}
+
+\section{The Axiom of Choice}
+
+\begin{axiom}[Axiom of Choice]
+    Let $\AA$ be a set of disjoint nonempty sets. Then there exists a set $C$ consisting of exactly one element from each member of $\AA$.
+\end{axiom}
+
+\section{Choice Functions}
+
+\begin{definition}[Choice Function]
+    Let $\BB$ be a set of nonempty sets. A \emph{choice function} for $\BB$ is a function $c : \BB \rightarrow \bigcup \BB$ such that, for all $B \in \BB$,
+    we have $c(B) \in B$.
+\end{definition}
+
+\begin{lemma}[Existence of a Choice Function (AC)]
+    \label{lemma:choice_function}
+    Every set of nonempty sets has a choice function.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\BB$ be a set of nonempty sets.}}
+    \step{2}{For $B \in \BB$, \pflet{$B' = \{ B \} \times B$}}
+    \step{3}{$\{ B' \mid B \in \BB \}$ is a set of disjoint nonempty sets.}
+    \step{4}{\pick\ a set $c$ consisting of exactly one element from each $B'$ for $B \in \BB$.}
+    \step{5}{$c$ is a choice function for $\BB$.}
     \qed
 \end{proof}

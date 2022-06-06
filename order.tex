@@ -266,3 +266,188 @@
     \end{proof}
     \qed
 \end{proof}
+
+\section{Partially Ordered Sets}
+
+\begin{definition}[Partial Order]
+    A \emph{partial order} on a set $X$ is a preorder $\leq$ that is \emph{anti-symmetric}, i.e. whenever $x \leq y$ and $y \leq x$
+    then $x = y$.    
+\end{definition}
+
+\begin{definition}[Linear Order]
+    A \emph{linear order} on a set $X$ is a partial order such that, for any $x, y \in X$, either $x \leq y$ or $y \leq x$.
+\end{definition}
+
+\begin{definition}[Well-ordering]
+    A \emph{well-order} on a set $X$ is a linear order such that every nonempty set has a least element.
+\end{definition}
+
+\begin{definition}[Section]
+    Given a well-ordered set $X$ and $\alpha \in X$, the \emph{section} of $X$ by $\alpha$ is $S_\alpha = \{ x \in X \mid x < \alpha \}$.
+\end{definition}
+
+\begin{theorem}[Transfinite Induction]
+    Let $J$ be a well-ordered set and $J_0 \subseteq J$. Suppose that, for all $\alpha \in J$, if $S_\alpha \subseteq J_0$ then $\alpha \in J_0$.
+    Then $J_0 = J$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $J_0 \neq J$}}
+    \step{2}{\pflet{$\alpha$ be the least element of $J \setminus J_0$}}
+    \step{3}{$S_\alpha \subseteq J_0$}
+    \step{4}{$\alpha \in J_0$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{2}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Transfinite Recursion]
+    Let $J$ be a well-ordered set and $C$ a set. Let $\FF$ be the set of all functions from a section of $J$ to $C$.
+    Let $\rho : \FF \rightarrow C$. Then there exists a unique function $h : J \rightarrow C$ such that, for all $\alpha \in J$,
+    we have $h(\alpha) = \rho(h \restriction S_\alpha)$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{0}{For every $\beta \in J$, there exists a unique $h_\beta : S_\beta \rightarrow J$ such that, for all $\alpha < \beta$, we have $h_\beta(\alpha) = \rho(h_\beta \restriction \alpha)$}
+    \begin{proof}
+        \step{a}{\pflet{$\beta \in J$}}
+        \step{b}{\assume{for all $\gamma < \beta$ there exists a unique $h : S_\gamma \rightarrow J$ such that, for all $\alpha < \gamma$, we have $h(\alpha)
+        = \rho(h \restriction S_\alpha)$}}
+        \step{c}{For $\gamma < \beta$, \pflet{$h_\gamma : S_\gamma \rightarrow J$ be the function such that, for all $\alpha < \gamma$, we have
+        $h_\gamma(\alpha) = \rho(h_\gamma \restriction S_\alpha)$}}
+        \step{d}{\pflet{$h : S_\beta \rightarrow J$ be the function $h(\gamma) = \rho(h_\gamma)$ for $\gamma < \beta$}}
+        \step{dd}{For $\gamma < \beta$ we have $h \restriction S_\gamma = h_\gamma$}
+        \begin{proof}
+            \step{i}{\pflet{$\gamma < \beta$}}
+            \step{ii}{\assume{For all $\alpha < \gamma$ we have $h \restriction S_\alpha = h_\alpha$}}
+            \step{iii}{For all $\alpha < \gamma$ we have $(h \restriction S_\gamma)(\alpha) = \rho((h \restriction S_\gamma) \restriction S_\alpha)$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    (h \restriction S_\gamma)(\alpha) & = h(\alpha) \\
+                    & = \rho(h_\alpha) & (\text{\stepref{d}}) \\
+                    & = \rho(h \restriction S_\alpha) & (\text{\stepref{ii}}) \\
+                    & = \rho((h \restriction S_\gamma) \restriction S_\alpha)
+                \end{align*}
+            \end{proof}
+            \step{iv}{$h \restriction S_\gamma = h_\gamma$}
+            \begin{proof}
+                \pf\ From \stepref{d}
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ By transfinite induction.
+            \end{proof}
+        \end{proof}
+        \step{e}{For $\alpha < \beta$ we have $h(\alpha) = \rho(h \restriction S_\alpha)$}
+        \step{f}{If $h' : S_\beta \rightarrow J$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$ for all $\alpha < \beta$, then $h' = h$)}
+        \begin{proof}
+            \step{i}{\pflet{$h' : S_\beta \rightarrow J$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$ for all $\alpha < \beta$}}
+            \step{ii}{For all $\gamma < \beta$ we have $h' \restriction S_\gamma = h_\gamma$}
+            \begin{proof}
+                \step{three}{For all $\alpha < \gamma$ we have $(h' \restriction S_\gamma)(\alpha) = \rho((h' \restriction S_\gamma) \restriction S_\alpha)$}
+                \begin{proof}
+                    \pf
+                    \begin{align*}
+                        (h' \restriction S_\gamma)(\alpha) & = h'(\alpha) \\
+                        & = \rho(h' \restriction S_\alpha) & (\text{\stepref{i}}) \\
+                        & = \rho((h' \restriction S_\gamma) \restriction S_\alpha)
+                    \end{align*}
+                \end{proof}
+                \qedstep
+                \begin{proof}
+                    \pf\ From \stepref{d}
+                \end{proof}
+            \end{proof}
+            \step{iii}{For all $\alpha < \beta$ we have $h'(\alpha) = \rho(h_\alpha)$}
+        \end{proof}
+    \end{proof}
+    \step{1}{There exists $h : J \rightarrow C$ such that, for all $\alpha \in J$, we have $h(\alpha) = \rho(h \restriction S_\alpha)$}
+    \begin{proof}
+        \step{a}{For $\alpha \in J$, \pflet{$h(\alpha) = \rho(h_\alpha)$}}
+        \step{b}{For $\alpha \in J$ we have $h \restriction S_\alpha = h_\alpha$}
+        \begin{proof}
+            \step{i}{\pflet{$\alpha \in J$}}
+            \step{ii}{\assume{For all $\beta < \alpha$ we have $h \restriction S_\beta = h_\beta$}}
+            \step{iii}{For all $\beta < \alpha$ we have $(h \restriction S_\alpha)(\beta) = \rho((h \restriction S_\alpha) \restriction S_\beta)$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    (h \restriction S_\alpha)(\beta) & = h(\beta) \\
+                    & = \rho(h_\beta) & (\text{\stepref{a}}) \\
+                    & = \rho(h \restriction S_\beta) & (\text{\stepref{ii}}) \\
+                    & = \rho((h \restriction S_\alpha) \restriction S_\beta)
+                \end{align*}
+            \end{proof}
+            \step{iv}{$h \restriction S_\alpha = h_\alpha$}
+            \begin{proof}
+                \pf\ From \stepref{0}
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ By transfinite induction.
+            \end{proof}
+        \end{proof}
+        \step{c}{For $\alpha \in J$ we have $h(\alpha) = \rho(h \restriction S_\alpha)$}
+    \end{proof}
+    \step{2}{If $h, h' : J \rightarrow C$ and, for all $\alpha \in J$, we have $h(\alpha) = \rho(h \restriction S_\alpha)$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$,
+    then $h = h'$}
+    \begin{proof}
+        \step{a}{\assume{ $h, h' : J \rightarrow C$ and, for all $\alpha \in J$, we have $h(\alpha) = \rho(h \restriction S_\alpha)$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$}}
+        \step{b}{\pflet{$\alpha \in J$}}
+        \step{c}{\assume{for all $\beta < \alpha$ we have $h(\beta) = h'(\beta)$}}
+        \step{d}{$h(\alpha) = h'(\alpha)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                h(\alpha) & = \rho(h \restriction S_\alpha) \\
+                & = \rho(h' \restriction S_\alpha) & (\text{\stepref{c}}) \\
+                & = h'(\alpha)
+            \end{align*}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By transfinite induction.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Well-Ordering Theorem (AC)]
+    Every set has a well-ordering.    
+\end{theorem}
+
+\begin{proof} %TODO
+    \pf
+    \step{1}{\pflet{$X$ be a set.}}
+    \step{2}{\pick\ a choice function for $\pow X \setminus \{ \emptyset \}$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:choice_function}.
+    \end{proof}
+    \step{3}{\pflet{a \emph{tower} in $X$ be a pair $(T, <)$ where $T \subseteq X$, $<$ is a well-ordering of $T$, and $x = c(X \setminus \{ y \in T \mid y < x \})$.}}
+    \step{4}{For any two towers $(T_1, <_1)$ and $(T_2, <_2)$, either these two posets are equal or one is a section of the other.}
+    \begin{proof}
+        \step{a}{}
+    \end{proof}
+    \step{5}{For any tower $(T, <)$ in $X$ with $T \neq X$, there exists a tower in $X$ of which $(T, <)$ is a section.}
+    \step{6}{\pflet{$T = \bigcup \{ T' \subseteq X \mid \exists R. (T,R) \text{ is a tower in } X \}$}}
+    \step{7}{Define $<$ on $T$ by: $x < y$ iff there exists a tower $(T, R)$ in $X$ such that $x, y \in T$ and $xRy$.}
+    \step{8}{$(T, <)$ is a tower in $X$.}
+    \step{9}{$T = X$}
+    \step{10}{$<$ is a well-ordering of $X$.}
+    \qed
+\end{proof}
+
+\begin{theorem}[Maximum Principle (AC)]
+    Every poset has a maximal chain.
+\end{theorem}
+
+
+\begin{lemma}[Zorn's Lemma (AC)]
+    Let $A$ be a poset. If every chain in $A$ has an upper bound in $A$, then $A$ has a maximal element.
+\end{lemma}
+
