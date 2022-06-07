@@ -15,22 +15,22 @@ If this does not hold, we write $a \notin A$.
     Let $A$ and $B$ be sets. We say $A$ is a \emph{subset} of $B$, $A \subseteq B$, if and only if every member of $A$ is a member of $B$.    
 \end{definition}
 
+\section{Abstraction Notation}
+
+\begin{definitions}[Extensionality]
+    Let $P(x)$ be a property. If there is a set whose members are exactly the sets $x$ such that $P(x)$, then we denote this set by $\{ x \mid P(x) \}$.
+
+    It is unique by the Axiom of Extensionality.
+\end{definitions}
+
 \section{The Empty Set}
 
 \begin{axiom}[Empty Set Axiom]
     There exists a set with no members.
 \end{axiom}
 
-\begin{proposition}[Extensionality, Empty Set Axiom]
-    There exists a unique set with no members.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Existence follows from the Empty Set Axiom, and uniqueness from the Axiom of Extensionality. \qed
-\end{proof}
-
 \begin{definition}[Empty Set (Extensionality, Empty Set Axiom)]
-    The \emph{empty set} $\emptyset$ is the set with no members.
+    The \emph{empty set} $\emptyset$ is the set with no members $\{ x \mid \bot \}$.
 \end{definition}
 
 \section{Pair Sets}
@@ -39,34 +39,22 @@ If this does not hold, we write $a \notin A$.
     For any sets $u$ and $v$, there exists a set having as members just $u$ and $v$.
 \end{axiom}
 
-\begin{proposition}[Extensionality, Pairing Axiom]
-    For any sets $u$ and $v$, there exists a unique set having as members just $u$ and $v$.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Existence follows from the Pairing Axiom, and uniqueness from the Axiom of Extensionality. \qed
-\end{proof}
-
 \begin{definition}[Pair Set (Extensionality, Pairing Axiom)]
-    For any sets $u$ and $v$, the \emph{pair set} $\{ u, v \}$ is the set whose members are just $u$ and $v$.    
+    For any sets $u$ and $v$, the \emph{pair set} $\{ u, v \}$ is the set $\{ x \mid x = u \vee x = v \}$.   
 \end{definition}
 
 \section{Unions}
 
-\begin{axiom}[Union Axiom, Preliminary Form]
-    For any sets $a$ and $b$, there exists a set whose members are those sets belonging to $a$ or to $b$ (or both).
+\begin{axiom}[Union Axiom]
+    For any set $A$, there exists a set whose elements are exactly the members of the members of $A$.
 \end{axiom}
 
-\begin{proposition}[Extensionality, Union Axiom Preliminary Form]
-    For any sets $a$ and $b$, there exists a unique set whose members are those sets belonging to $a$ or to $b$ (or both).
-\end{proposition}
+\begin{definition}[Union (Extensionality, Union)]
+    For any set $A$, the \emph{union} $\bigcup A$ is the set $\{ x \mid \exists b \in A. x \in b \}$.
+\end{definition}
 
-\begin{proof}
-    \pf\ Existence follows from the Union Axiom Preliminary Form, and uniqueness from the Axiom of Extensionality. \qed
-\end{proof}
-
-\begin{definition}[Union (Extensionality, Union Axiom Preliminary Form)]
-    For any sets $a$ and $b$, the \emph{union} $a \cup b$ is the unique set whose members are those sets belonging to $a$ or to $b$ (or both).
+\begin{definition}[Union (Extensionality, Pair Set, Union)]
+    For any sets $a$ and $b$, the \emph{union} $a \cup b$ is the set $\bigcup \{ a, b \}$.
 \end{definition}
 
 \section{Power Set}
@@ -75,16 +63,76 @@ If this does not hold, we write $a \notin A$.
     For any set $a$, there is a set whose members are exactly the subsets of $a$.    
 \end{axiom}
 
-\begin{proposition}[Extensionality, Power Set]
-    For any set $a$, there exists a unique set whose members are the subsets of $a$
-\end{proposition}
+\begin{definition}[Power Set (Extensionality, Power Set)]
+    For any set $a$, the \emph{power set} $\pow a$ is the set $\{ x \mid x \subseteq a \}$.
+\end{definition}
+
+\section{Singletons}
+
+\begin{definition}[Singleton (Extensionality, Pair Set)]
+    Given any $x$, define the \emph{singleton} $\{ x \}$ to be $\{ x, x \}$.    
+\end{definition}
+
+\section{Finite Sets}
+
+\begin{definitions}[Extensionality, Pair Set, Union]
+    Given any objects $a_1$, \ldots, $a_n$, define the set $\{ a_1, \ldots, a_n \}$ as follows:
+    \[ \{ a_1, \ldots, a_n, a_{n+1} \} = \{ a_1, \ldots, a_n \} \cup \{ a_{n+1} \} \enspace . \]
+\end{definitions}
+
+\section{Subset Axioms}
+
+\begin{axioms}[Subset Axioms, Aussonderung Axioms]
+    For any property $P(x)$ and any set $B$, there exists a set whose members are exactly the sets $x \in B$ such that $P(x)$.
+\end{axioms}
+
+\begin{definitions}[Extensionality, Subset]
+    For any property $P(x)$ and any set $B$, we write $\{ x \in B \mid P(x) \}$ for $\{x \mid x \in B \wedge P(x) \}$.
+\end{definitions}
+
+\begin{theorem}[Subset]
+    There is no set to which every set belongs.
+\end{theorem}
 
 \begin{proof}
-    \pf\ Existence follows from the Power Set Axiom, and uniqueness from the Axiom of Extensionality. \qed
+    \pf
+    \step{1}{\pflet{$A$ be a set.} \prove{There exists a set that does not belong to $A$.}}
+    \step{2}{\pick\ a set $B$ whose members are exactly the sets $x \in A$ such that $x \notin x$.}
+    \begin{proof}
+        \pf\ By a Subset Axiom.
+    \end{proof}
+    \step{3}{If $B \in A$ then we have $B \in B \Leftrightarrow B \notin B$}
+    \step{4}{$B \notin A$}
+    \qed
 \end{proof}
 
-\begin{definition}[Power Set (Extensionality, Power Set)]
-    For any set $a$, the \emph{power set} $\pow a$ is the unique set whose members are those sets belonging to $a$ or to $b$ (or both).
+\section{Intersection}
+
+\begin{definition}[Intersection (Extensionality, Subset)]
+    For any sets $a$ and $b$, the \emph{intersection} $a \cap b$ is $\{ x \in a \mid x \in b \}$.
+\end{definition}
+
+\begin{theorem}[Extensionality, Subset]
+    For any nonempty set $A$, there exists a unique set $B$ such that, for any $x$, we have $x \in B$ if and only if $x$ belongs to every member of $A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A$ be a nonempty set.}}
+    \step{2}{\pick\ $a \in A$}
+    \step{3}{\pflet{$B = \{ x \in a \mid \forall y \in A. x \in y \}$}}
+    \step{4}{$B$ is the unique set such that, for any $x$, we have $x \in B$ if and only if $x$ belongs to every member of $A$.}
+    \qed
+\end{proof}
+
+\begin{definition}[Intersection (Extensionality, Subset)]
+    For any nonempty set $A$, the \emph{intersection} $\bigcap A$ is the set whose elements are those sets that belong to every member of $A$.
+\end{definition}
+
+\section{Relative Complement}
+
+\begin{definition}[Relative Complement (Extensionality, Subset)]
+    For any sets $A$ and $B$, the \emph{relative complement} $A - B$ is $\{ x \in A \mid x \notin B \}$.
 \end{definition}
 
 \section{Covers}
@@ -93,6 +141,53 @@ If this does not hold, we write $a \notin A$.
     Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ \emph{covers} $X$,
     or is a \emph{covering} of $X$, if and only if $\bigcup \AA = X$.
 \end{definition}
+
+\chapter{Relations}
+
+\section{Ordered Pairs}
+
+\begin{definition}[Ordered Pair (Extensionality, Pairing)]
+    For any sets $x$ and $y$, the \emph{ordered pair} $(x,y)$ is defined to be $\{ \{ x \}, \{ x , y \} \}$.    
+\end{definition}
+
+\begin{theorem}[Extensionality, Pairing]
+    For any sets $u$, $v$, $x$, $y$, we have $(u,v) = (x,y)$ if and only if $u = x$ and $v = y$
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{$\{ \{ u \}, \{ u, v \} \} = \{ \{ x \}, \{ x, y \} \}$}}
+    \step{2}{$\{ u \} \in \{ \{ x \}, \{ x, y \} \}$}
+    \step{3}{$\{ u, v \} \in \{ \{ x \}, \{ x, y \} \}$}
+    \step{4}{$\{ u \} = \{ x \}$ or $\{ u \} = \{ x, y \}$}
+    \step{5}{$\{ u, v \} = \{ x \}$ or $\{ u, v \} = \{ x, y \}$}
+    \step{6}{\case{$\{ u \} = \{ x, y \}$}}
+    \begin{proof}
+        \step{a}{$u = x = y$}
+        \step{b}{$u = v = x = y$}
+        \begin{proof}
+            \pf\ From \stepref{5}
+        \end{proof}
+    \end{proof}
+    \step{7}{\case{$\{ u, v \} = \{ x \}$}}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{8}{\case{$\{ u \} = \{ x \}$ and $\{ u, v \} = \{ x, y \}$}}
+    \begin{proof}
+        \step{a}{$u = x$}
+        \step{b}{$u = y$ or $v = y$}
+        \step{c}{\case{$u = y$}}
+        \begin{proof}
+            \pf\ This case is the case considered in \stepref{6}.
+        \end{proof}
+        \step{d}{\case{$v = y$}}
+        \begin{proof}
+            \pf\ We have $u = x$ and $v = y$ as required.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{The Finite Intersection Property}
 
