@@ -278,6 +278,23 @@
     A \emph{linear order} on a set $X$ is a partial order such that, for any $x, y \in X$, either $x \leq y$ or $y \leq x$.
 \end{definition}
 
+\section{Strict Linear Orders}
+
+\begin{definition}[Strict Linear Order (Extensionality, Pairing)]
+    Let $A$ be a set. A \emph{strict linear order} on $A$ is a binary relation
+    $R$ on $A$ that is transitive and satisfies \emph{trichotomy}: for any
+    $x, y \in A$, exactly one of $xRy$, $x=y$, $yRx$ holds.
+\end{definition}
+
+\begin{theorem}
+    Let $R$ be a strict linear order on $A$. Then there is no $x \in A$
+    such that $xRx$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Immediate from trichotomy.
+\end{proof}
+
 \begin{definition}[Well-ordering]
     A \emph{well-order} on a set $X$ is a linear order such that every nonempty set has a least element.
 \end{definition}
