@@ -264,6 +264,16 @@ If there exists $x$ such that $xFy$, then we write $F(x)$ for the unique such $y
 the \emph{value} of $F$ at $x$.
 \end{definition}
 
+\begin{definition}[Extensionality, Pairing, Union, Subset]
+    We write $F : A \rightarrow B$ iff $F$ is a function, $\dom F = A$
+    and $\ran F \subseteq B$.
+\end{definition}
+
+\begin{axiom}[Axiom of Choice, First Form]
+    For any relation $R$, there exists a function $H \subseteq R$ such that 
+    $\dom H = \dom R$.
+\end{axiom}
+
 \section{Single-Rooted}
 
 \begin{definition}[Extensionality, Pairing]
@@ -271,6 +281,13 @@ the \emph{value} of $F$ at $x$.
 
     We call a function \emph{one-to-one}, \emph{injective} or an \emph{injection}
      if and only if it is single-rooted.
+\end{definition}
+
+\section{Surjective}
+
+\begin{definition}[Surjective]
+    Let $F : A \rightarrow B$. Then $F$ is \emph{surjective} if and only if
+    $\ran F = B$.
 \end{definition}
 
 \section{Inverse}
@@ -297,6 +314,21 @@ the \emph{value} of $F$ at $x$.
 \end{proof}
 
 \begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    \label{theorem:ran_inv}
+    For any set $F$, we have $\ran \inv{F} = \dom F$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ For any $x$, we have
+    \begin{align*}
+        x \in \ran \inv{F} & \Leftrightarrow \exists y. (y,x) \in \inv{F} \\
+        & \Leftrightarrow \exists y. (x,y) \in F \\
+        & \Leftrightarrow x \in \dom F
+    \end{align*}
+    The result follows by the Axiom of Extensionality. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
     \label{theorem:inv_inv}
     For any relation $F$, we have $\inv{(\inv{F})} = F$.
 \end{theorem}
@@ -312,6 +344,7 @@ the \emph{value} of $F$ at $x$.
 \end{proof}
 
 \begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    \label{theorem:inv_function}
     For any set $F$, we have $\inv{F}$ is a function if and only if $F$ is single-rooted.
 \end{theorem}
 
@@ -353,6 +386,7 @@ the \emph{value} of $F$ at $x$.
 \end{definition}
 
 \begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    \label{theorem:comp_function}
     Let $F$ and $G$ be functions. Then $G \circ F$ is a function, its domain
     is $\{ x \in \dom F \mid F(x) \in \dom G \}$, and for $x$ in this domain,
     we have $(F \circ G)(x) = F(G(x))$.
@@ -388,6 +422,105 @@ the \emph{value} of $F$ at $x$.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any sets $F$ and $G$, we have $\inv{(G \circ F)} = \inv{F} \circ \inv{G}$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \begin{align*}
+        (x,z) \in \inv{(G \circ F)} & \Leftrightarrow (z,x) \in G \circ F \\
+        & \Leftrightarrow \exists y. zFy \wedge yGx \\
+        & \Leftrightarrow \exists y. (y,z) \in \inv{F} \wedge (x,y) \in \inv{G} \\
+        & \Leftrightarrow (x,z) \in \inv{F} \circ \inv{G} & \qed
+    \end{align*}
+\end{proof}
+
+\section{Identity Function}
+
+\begin{definition}[Identity Function (Extensionality, Pairing, Union, Power Set, Subset)]
+    Let $A$ be a set. The \emph{identity function} $\id{A}$ on $A$ is
+    $\{ (x,x) \mid x \in A \}$.
+
+    This is a set because it is a subset of $A \times A$.
+\end{definition}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    Let $F : A \rightarrow B$ and $A$ be nonempty. Then there exists a function
+    $G : B \rightarrow A$ such that $G \circ F = \id{A}$ if and only if $F$
+    is one-to-one.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$F : A \rightarrow B$}}
+    \step{2}{\assume{$A$ is nonempty}}
+    \step{3}{If there exists $G : B \rightarrow A$ such that $G \circ F = \id{A}$
+    then $F$ is one-to-one.}
+    \begin{proof}
+        \step{a}{\assume{$G : B \rightarrow A$ and $G \circ F = \id{A}$}}
+        \step{b}{\pflet{$x,y \in A$}}
+        \step{c}{\assume{$F(x) = F(y)$}}
+        \step{d}{$x = y$}
+        \begin{proof}
+            \pf\ $x = G(F(x)) = G(F(y)) = y$.
+        \end{proof}
+    \end{proof}
+    \step{4}{If $F$ is one-to-one then there exists $G : B \rightarrow A$
+    such that $G \circ F = \id{A}$.}
+    \begin{proof}
+        \step{a}{\assume{$F$ is one-to-one.}}
+        \step{b}{\pick\ $a \in A$}
+        \step{c}{Define $G : B \rightarrow A$ by: $G(y)$ is the $x$ such
+        that $F(x) = y$ if $y \in \ran F$, otherwise $G(y) = a$}
+        \step{f}{$G \circ F = \id{A}$}
+        \begin{proof}
+            \pf\ For $x \in A$ we have $(G \circ F)(x) = G(F(x)) = x$ by Theorem \ref{theorem:comp_function}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    Let $F : A \rightarrow B$ and $A$ be nonempty. If there exists a function
+    $H : B \rightarrow A$ such that $F \circ H = \id{B}$ then $F$
+    is surjective.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$F : A \rightarrow B$}}
+    \step{2}{\assume{$A$ is nonempty.}}
+    \step{a}{\pflet{$H : B \rightarrow A$ satisfy $F \circ H = \id{B}$}}
+    \step{b}{\pflet{$y \in B$}}
+    \step{c}{$F(H(y)) = y$.}
+    \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset, Choice]
+    Let $F : A \rightarrow B$ and $A$ be nonempty. If $F$ is surjective
+    then there exists a function $H : B \rightarrow A$ such that $F \circ H = \id{B}$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{a}{\assume{$F$ is surjective.}}
+    \step{b}{\pick\ a function $H \subseteq \inv{F}$ with $\dom H = B$}
+    \begin{proof}
+        \pf\ By the Axiom of Choice.
+    \end{proof}
+    \step{c}{$H : B \rightarrow A$}
+    \step{d}{$F \circ H = \id{B}$}
+    \begin{proof}
+        \step{i}{\pflet{$y \in B$}}
+        \step{ii}{$(y, H(y)) \in \inv{F}$}
+        \step{iii}{$(H(y), y) \in F$}
+        \step{iv}{$F(H(y)) = y$}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Restriction}
 
 \begin{definition}[Restriction (Extensionality, Pairing, Subset)]
