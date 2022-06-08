@@ -189,6 +189,223 @@ If this does not hold, we write $a \notin A$.
     \qed
 \end{proof}
 
+\begin{lemma}[Extensionality, Pairing, Power Set]
+    \label{lemma:ordered_pair_pow_pow}
+    Let $x$, $y$ and $C$ be sets. If $x \in C$ and $y \in C$ then $(x,y) \in \pow \pow C$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x$, $y$ and $C$ be sets.}}
+    \step{2}{\assume{$x \in C$}}
+    \step{3}{\assume{$y \in C$}}
+    \step{4}{$\{ x \} \subseteq C$}
+    \step{5}{$\{ x, y \} \subseteq C$}
+    \step{6}{$\{ x \} \in \pow C$}
+    \step{7}{$\{ x, y \} \in \pow C$}
+    \step{8}{$\{ \{ x \}, \{ x, y \} \} \subseteq \pow C$}
+    \step{9}{$\{ \{ x \}, \{ x, y \} \} \in \pow \pow C$}
+    \qed 
+\end{proof}
+
+\begin{lemma}[Extensionality, Pairing, Union]
+    \label{lemma:ordered_pair_union_union}
+    Let $x$, $y$ and $A$ be sets. If $(x,y) \in A$ then $x$ and $y$ belong to $\bigcup \bigcup A$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x$, $y$ and $A$ be sets.}}
+    \step{2}{\assume{$(x,y) \in A$}}
+    \step{3}{$\{x,y\} \in \bigcup A$}
+    \step{4}{$x \in \bigcup \bigcup A$}
+    \step{5}{$y \in \bigcup \bigcup A$}
+    \qed
+\end{proof}
+
+\section{Cartesian Product}
+
+\begin{definition}[Cartesian Product (Extensionality, Pairing, Union, Power Set, Subset)]
+    Let $A$ and $B$ be sets. The \emph{Cartesian product} $A \times B$ is the set $\{ (x,y) \mid x \in A, y \in B \}$.
+
+    This is a set since, if $x \in A$ and $y \in B$, then $(x,y) \in \pow \pow (A \cup B)$ by Lemma \ref{lemma:ordered_pair_pow_pow}.
+\end{definition}
+
+\section{Relations}
+
+\begin{definition}[Relation (Extensionality, Pairing)]
+    A \emph{relation} is a set of ordered pairs.
+
+    Given a relation $R$, we write $xRy$ for $(x,y) \in R$.
+\end{definition}
+
+\section{Domain}
+
+\begin{definition}[Domain (Extensionality, Pairing, Union, Subset)]
+    Let $R$ be a set. The \emph{domain} of $R$ is $\dom R = \{ x \mid \exists y. (x,y) \in R \}$.
+
+    This is a set by Lemma \ref{lemma:ordered_pair_union_union}.
+\end{definition}
+
+\section{Range}
+
+\begin{definition}[Range (Extensionality, Pairing, Union, Subset)]
+    Let $R$ be a set. The \emph{range} of $R$ is $\ran R = \{ y \mid \exists x. (x,y) \in R \}$.
+
+    This is a set by Lemma \ref{lemma:ordered_pair_union_union}.
+\end{definition}
+
+\section{Functions}
+
+\begin{definition}[Extensionality, Pairing]
+A \emph{function} is a relation $F$ such that, for all $x$, $y$, $y'$, if $xFy$ and $xFy'$ then $y = y'$.
+
+If there exists $x$ such that $xFy$, then we write $F(x)$ for the unique such $y$, and call $F(x)$
+the \emph{value} of $F$ at $x$.
+\end{definition}
+
+\section{Single-Rooted}
+
+\begin{definition}[Extensionality, Pairing]
+    A set $R$ is \emph{single-rooted} if and only if, for all $x$, $x'$, $y$, if $xRy$ and $x'Ry$ then $x = x'$.
+
+    We call a function \emph{one-to-one}, \emph{injective} or an \emph{injection}
+     if and only if it is single-rooted.
+\end{definition}
+
+\section{Inverse}
+
+\begin{definition}[Inverse (Extensionality, Pairing, Union, Power Set, Subset)]
+    Let $R$ be a set. The \emph{inverse} of $R$ is $\inv{R} = \{ (y,x) \mid (x,y) \in R \}$.
+
+    This is a set because if $(x,y) \in R$ then $(y,x) \in \ran R \times \dom R$.
+\end{definition}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    \label{theorem:dom_inv}
+    For any set $F$, we have $\dom \inv{F} = \ran F$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ For any $x$, we have
+    \begin{align*}
+        x \in \dom \inv{F} & \Leftrightarrow \exists y. (x,y) \in \inv{F} \\
+        & \Leftrightarrow \exists y. (y,x) \in F \\
+        & \Leftrightarrow x \in \ran F
+    \end{align*}
+    The result follows by the Axiom of Extensionality. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    \label{theorem:inv_inv}
+    For any relation $F$, we have $\inv{(\inv{F})} = F$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ For any $z$ we have
+    \begin{align*}
+        z \in \inv{(\inv{F})} & \Leftrightarrow \exists x, y. z = (x,y) \wedge (y,x) \in \inv{F} \\
+        & \Leftrightarrow \exists x,y. z = (x,y) \wedge (x,y) \in F \\
+        & \Leftrightarrow z \in F & (\text{$F$ is a relation})
+    \end{align*}
+    The result follows by the Axiom of Extensionality.
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any set $F$, we have $\inv{F}$ is a function if and only if $F$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    Let $F$ be a relation. Then $F$ is a function if and only if $\inv{F}$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    \label{theorem:inv_F_of_F}
+    Let $F$ be a one-to-one function and $x \in \dom F$. Then $\inv{F}(F(x)) = x$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ We have $(x, F(x)) \in F$ and so $(F(x), x) \in \inv{F}$. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    Let $F$ be a one-to-one function and $y \in \ran F$. Then $F(\inv{F}(y)) = y$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ From Theorems \ref{theorem:dom_inv}, \ref{theorem:inv_inv} and \ref{theorem:inv_F_of_F}. \qed
+\end{proof}
+
+\section{Composition}
+
+\begin{definition}[Composition (Extensionality, Pairing, Union, Power Set, Subset)]
+    Let $R$ and $S$ be relations. The \emph{composition} of $R$ and $S$ is $S \circ R = \{ (x,z) \mid \exists y. xRy \wedge ySz \}$.
+    
+    This is a set because if $xRy$ and $ySz$ then $(x,z) \in \dom R \times \ran S$.
+\end{definition}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    Let $F$ and $G$ be functions. Then $G \circ F$ is a function, its domain
+    is $\{ x \in \dom F \mid F(x) \in \dom G \}$, and for $x$ in this domain,
+    we have $(F \circ G)(x) = F(G(x))$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$G \circ F$ is a function.}
+    \begin{proof}
+        \step{a}{\pflet{$x (G \circ F) z$ and $x (G \circ F) z'$}}
+        \step{b}{\pick\ $y$, $y'$ such that $x F y$, $x F y'$, $y G z$ and $y' G z'$}
+        \step{c}{$y = y'$}
+        \begin{proof}
+            \pf\ Since $F$ is a function.
+        \end{proof}
+        \step{d}{$z = z'$}
+        \begin{proof}
+            \pf\ Since $G$ is a function.
+        \end{proof}
+    \end{proof}
+    \step{2}{$\dom (G \circ F) = \{ x \in \dom F \mid F(x) \in \dom G \}$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            x \in \dom (G \circ F) & \Leftrightarrow \exists z. x(G \circ F)z \\
+            & \Leftrightarrow \exists y, z. xFy \wedge yGz \\
+            & \Leftrightarrow x \in \dom F \wedge F(x) \in \dom G
+        \end{align*}
+    \end{proof}
+    \step{3}{For $x$ in this domain, we have $(F \circ G)(x) = F(G(x))$.}
+    \begin{proof}
+        \pf\ Since $(x,F(x)) \in F$ and $(F(x),G(F(x))) \in G$.
+    \end{proof}
+    \qed
+\end{proof}
+\section{Restriction}
+
+\begin{definition}[Restriction (Extensionality, Pairing, Subset)]
+    Let $R$ be a relation and $A$ a set. The \emph{restriction} of $R$ to $A$
+    is $R \restriction A = \{ (x,y) \mid x \in A \wedge xRy \}$.
+
+    This is a set because it is a subset of $R$.
+\end{definition}
+
+\section{Image}
+
+\begin{definition}[Image (Extensionality, Pairing, Union, Subset)]
+    Let $F$ be a function and $A \subseteq \dom F$. The \emph{image} of $A$
+    under $F$ is $\{ F(x) \mid x \in A \}$.
+
+    This is a set because it is a subset of $\ran F$.
+\end{definition}
+
 \section{The Finite Intersection Property}
 
 \begin{definition}[Finite Intersection Property]

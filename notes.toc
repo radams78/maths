@@ -1,77 +1,87 @@
-\contentsline {part}{I\hspace {1em}Set Theory}{3}%
-\contentsline {chapter}{\numberline {1}Set Theory}{4}%
-\contentsline {section}{\numberline {1.1}Membership}{4}%
-\contentsline {section}{\numberline {1.2}Subsets}{4}%
-\contentsline {section}{\numberline {1.3}Abstraction Notation}{4}%
-\contentsline {section}{\numberline {1.4}The Empty Set}{4}%
-\contentsline {section}{\numberline {1.5}Pair Sets}{5}%
-\contentsline {section}{\numberline {1.6}Unions}{5}%
-\contentsline {section}{\numberline {1.7}Power Set}{5}%
-\contentsline {section}{\numberline {1.8}Singletons}{5}%
-\contentsline {section}{\numberline {1.9}Finite Sets}{5}%
-\contentsline {section}{\numberline {1.10}Subset Axioms}{5}%
-\contentsline {section}{\numberline {1.11}Intersection}{6}%
-\contentsline {section}{\numberline {1.12}Relative Complement}{6}%
-\contentsline {section}{\numberline {1.13}Covers}{6}%
-\contentsline {chapter}{\numberline {2}Relations}{7}%
-\contentsline {section}{\numberline {2.1}Ordered Pairs}{7}%
-\contentsline {section}{\numberline {2.2}The Finite Intersection Property}{8}%
-\contentsline {section}{\numberline {2.3}Countable Intersection Property}{9}%
-\contentsline {section}{\numberline {2.4}The Axiom of Choice}{10}%
-\contentsline {section}{\numberline {2.5}Choice Functions}{10}%
-\contentsline {section}{\numberline {2.6}Order Theory}{11}%
-\contentsline {section}{\numberline {2.7}Partially Ordered Sets}{14}%
-\contentsline {section}{\numberline {2.8}Real Analysis}{17}%
-\contentsline {section}{\numberline {2.9}Group Theory}{18}%
-\contentsline {section}{\numberline {2.10}Topological Spaces}{19}%
-\contentsline {section}{\numberline {2.11}Closed Set}{20}%
-\contentsline {section}{\numberline {2.12}Interior}{21}%
-\contentsline {section}{\numberline {2.13}Closure}{22}%
-\contentsline {section}{\numberline {2.14}Boundary}{24}%
-\contentsline {section}{\numberline {2.15}Limit Points}{24}%
-\contentsline {section}{\numberline {2.16}Basis for a Topology}{25}%
-\contentsline {section}{\numberline {2.17}Local Basis at a Point}{29}%
-\contentsline {section}{\numberline {2.18}Convergence}{30}%
-\contentsline {section}{\numberline {2.19}Locally Finite Sets}{32}%
-\contentsline {section}{\numberline {2.20}Open Maps}{33}%
-\contentsline {section}{\numberline {2.21}Continuous Functions}{33}%
-\contentsline {section}{\numberline {2.22}Homeomorphisms}{38}%
-\contentsline {section}{\numberline {2.23}The Order Topology}{39}%
-\contentsline {section}{\numberline {2.24}The $n$th Root Function}{42}%
-\contentsline {section}{\numberline {2.25}The Product Topology}{42}%
-\contentsline {subsection}{\numberline {2.25.1}Continuous in Each Variable Separately}{45}%
-\contentsline {section}{\numberline {2.26}The Subspace Topology}{45}%
-\contentsline {section}{\numberline {2.27}The Box Topology}{49}%
-\contentsline {section}{\numberline {2.28}$T_1$ Spaces}{51}%
-\contentsline {section}{\numberline {2.29}Hausdorff Spaces}{52}%
-\contentsline {section}{\numberline {2.30}The First Countability Axiom}{55}%
-\contentsline {section}{\numberline {2.31}Strong Continuity}{57}%
-\contentsline {section}{\numberline {2.32}Saturated Sets}{57}%
-\contentsline {section}{\numberline {2.33}Quotient Maps}{58}%
-\contentsline {section}{\numberline {2.34}Quotient Topology}{61}%
-\contentsline {section}{\numberline {2.35}Retractions}{63}%
-\contentsline {section}{\numberline {2.36}Homogeneous Spaces}{63}%
-\contentsline {section}{\numberline {2.37}Regular Spaces}{63}%
-\contentsline {section}{\numberline {2.38}Connected Spaces}{63}%
-\contentsline {section}{\numberline {2.39}Totally Disconnected Spaces}{72}%
-\contentsline {section}{\numberline {2.40}Paths and Path Connectedness}{72}%
-\contentsline {section}{\numberline {2.41}The Topologist's Sine Curve}{75}%
-\contentsline {section}{\numberline {2.42}The Long Line}{76}%
-\contentsline {section}{\numberline {2.43}Components}{78}%
-\contentsline {section}{\numberline {2.44}Path Components}{79}%
-\contentsline {section}{\numberline {2.45}Local Connectedness}{80}%
-\contentsline {section}{\numberline {2.46}Local Path Connectedness}{82}%
-\contentsline {section}{\numberline {2.47}Weak Local Connectedness}{83}%
-\contentsline {section}{\numberline {2.48}Quasicomponents}{84}%
-\contentsline {section}{\numberline {2.49}Open Coverings}{85}%
-\contentsline {section}{\numberline {2.50}Lindel\"{o}f Spaces}{85}%
-\contentsline {section}{\numberline {2.51}The Second Countability Axiom}{86}%
-\contentsline {section}{\numberline {2.52}Compact Spaces}{87}%
-\contentsline {section}{\numberline {2.53}Perfect Maps}{97}%
-\contentsline {section}{\numberline {2.54}Topological Groups}{98}%
-\contentsline {section}{\numberline {2.55}The Metric Topology}{105}%
-\contentsline {section}{\numberline {2.56}Real Linear Algebra}{111}%
-\contentsline {section}{\numberline {2.57}The Uniform Topology}{119}%
-\contentsline {section}{\numberline {2.58}Uniform Convergence}{121}%
-\contentsline {section}{\numberline {2.59}Isometric Imbeddings}{123}%
-\contentsline {section}{\numberline {2.60}Distance to a Set}{123}%
+\contentsline {part}{I\hspace {1em}Set Theory}{4}%
+\contentsline {chapter}{\numberline {1}Set Theory}{5}%
+\contentsline {section}{\numberline {1.1}Membership}{5}%
+\contentsline {section}{\numberline {1.2}Subsets}{5}%
+\contentsline {section}{\numberline {1.3}Abstraction Notation}{5}%
+\contentsline {section}{\numberline {1.4}The Empty Set}{5}%
+\contentsline {section}{\numberline {1.5}Pair Sets}{6}%
+\contentsline {section}{\numberline {1.6}Unions}{6}%
+\contentsline {section}{\numberline {1.7}Power Set}{6}%
+\contentsline {section}{\numberline {1.8}Singletons}{6}%
+\contentsline {section}{\numberline {1.9}Finite Sets}{6}%
+\contentsline {section}{\numberline {1.10}Subset Axioms}{6}%
+\contentsline {section}{\numberline {1.11}Intersection}{7}%
+\contentsline {section}{\numberline {1.12}Relative Complement}{7}%
+\contentsline {section}{\numberline {1.13}Covers}{7}%
+\contentsline {chapter}{\numberline {2}Relations}{8}%
+\contentsline {section}{\numberline {2.1}Ordered Pairs}{8}%
+\contentsline {section}{\numberline {2.2}Cartesian Product}{9}%
+\contentsline {section}{\numberline {2.3}Relations}{9}%
+\contentsline {section}{\numberline {2.4}Domain}{9}%
+\contentsline {section}{\numberline {2.5}Range}{10}%
+\contentsline {section}{\numberline {2.6}Functions}{10}%
+\contentsline {section}{\numberline {2.7}Single-Rooted}{10}%
+\contentsline {section}{\numberline {2.8}Inverse}{10}%
+\contentsline {section}{\numberline {2.9}Composition}{11}%
+\contentsline {section}{\numberline {2.10}Restriction}{12}%
+\contentsline {section}{\numberline {2.11}Image}{12}%
+\contentsline {section}{\numberline {2.12}The Finite Intersection Property}{12}%
+\contentsline {section}{\numberline {2.13}Countable Intersection Property}{13}%
+\contentsline {section}{\numberline {2.14}The Axiom of Choice}{14}%
+\contentsline {section}{\numberline {2.15}Choice Functions}{14}%
+\contentsline {section}{\numberline {2.16}Order Theory}{16}%
+\contentsline {section}{\numberline {2.17}Partially Ordered Sets}{19}%
+\contentsline {section}{\numberline {2.18}Real Analysis}{22}%
+\contentsline {section}{\numberline {2.19}Group Theory}{23}%
+\contentsline {section}{\numberline {2.20}Topological Spaces}{24}%
+\contentsline {section}{\numberline {2.21}Closed Set}{25}%
+\contentsline {section}{\numberline {2.22}Interior}{26}%
+\contentsline {section}{\numberline {2.23}Closure}{27}%
+\contentsline {section}{\numberline {2.24}Boundary}{29}%
+\contentsline {section}{\numberline {2.25}Limit Points}{29}%
+\contentsline {section}{\numberline {2.26}Basis for a Topology}{30}%
+\contentsline {section}{\numberline {2.27}Local Basis at a Point}{34}%
+\contentsline {section}{\numberline {2.28}Convergence}{35}%
+\contentsline {section}{\numberline {2.29}Locally Finite Sets}{37}%
+\contentsline {section}{\numberline {2.30}Open Maps}{38}%
+\contentsline {section}{\numberline {2.31}Continuous Functions}{38}%
+\contentsline {section}{\numberline {2.32}Homeomorphisms}{43}%
+\contentsline {section}{\numberline {2.33}The Order Topology}{44}%
+\contentsline {section}{\numberline {2.34}The $n$th Root Function}{47}%
+\contentsline {section}{\numberline {2.35}The Product Topology}{47}%
+\contentsline {subsection}{\numberline {2.35.1}Continuous in Each Variable Separately}{50}%
+\contentsline {section}{\numberline {2.36}The Subspace Topology}{50}%
+\contentsline {section}{\numberline {2.37}The Box Topology}{54}%
+\contentsline {section}{\numberline {2.38}$T_1$ Spaces}{56}%
+\contentsline {section}{\numberline {2.39}Hausdorff Spaces}{57}%
+\contentsline {section}{\numberline {2.40}The First Countability Axiom}{60}%
+\contentsline {section}{\numberline {2.41}Strong Continuity}{62}%
+\contentsline {section}{\numberline {2.42}Saturated Sets}{62}%
+\contentsline {section}{\numberline {2.43}Quotient Maps}{63}%
+\contentsline {section}{\numberline {2.44}Quotient Topology}{66}%
+\contentsline {section}{\numberline {2.45}Retractions}{68}%
+\contentsline {section}{\numberline {2.46}Homogeneous Spaces}{68}%
+\contentsline {section}{\numberline {2.47}Regular Spaces}{68}%
+\contentsline {section}{\numberline {2.48}Connected Spaces}{68}%
+\contentsline {section}{\numberline {2.49}Totally Disconnected Spaces}{77}%
+\contentsline {section}{\numberline {2.50}Paths and Path Connectedness}{77}%
+\contentsline {section}{\numberline {2.51}The Topologist's Sine Curve}{80}%
+\contentsline {section}{\numberline {2.52}The Long Line}{81}%
+\contentsline {section}{\numberline {2.53}Components}{83}%
+\contentsline {section}{\numberline {2.54}Path Components}{84}%
+\contentsline {section}{\numberline {2.55}Local Connectedness}{85}%
+\contentsline {section}{\numberline {2.56}Local Path Connectedness}{87}%
+\contentsline {section}{\numberline {2.57}Weak Local Connectedness}{88}%
+\contentsline {section}{\numberline {2.58}Quasicomponents}{89}%
+\contentsline {section}{\numberline {2.59}Open Coverings}{90}%
+\contentsline {section}{\numberline {2.60}Lindel\"{o}f Spaces}{90}%
+\contentsline {section}{\numberline {2.61}The Second Countability Axiom}{91}%
+\contentsline {section}{\numberline {2.62}Compact Spaces}{92}%
+\contentsline {section}{\numberline {2.63}Perfect Maps}{102}%
+\contentsline {section}{\numberline {2.64}Topological Groups}{103}%
+\contentsline {section}{\numberline {2.65}The Metric Topology}{110}%
+\contentsline {section}{\numberline {2.66}Real Linear Algebra}{116}%
+\contentsline {section}{\numberline {2.67}The Uniform Topology}{124}%
+\contentsline {section}{\numberline {2.68}Uniform Convergence}{126}%
+\contentsline {section}{\numberline {2.69}Isometric Imbeddings}{128}%
+\contentsline {section}{\numberline {2.70}Distance to a Set}{128}%
