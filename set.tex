@@ -255,6 +255,13 @@ If this does not hold, we write $a \notin A$.
     This is a set by Lemma \ref{lemma:ordered_pair_union_union}.
 \end{definition}
 
+\section{Field}
+
+\begin{definition}[Field (Extensionality, Pairing, Union, Subset)]
+    Let $R$ be a set. The \emph{field} of $R$ is
+    $\fld R = \dom R \cup \ran R$.
+\end{definition}
+
 \section{Functions}
 
 \begin{definition}[Extensionality, Pairing]
@@ -538,6 +545,362 @@ the \emph{value} of $F$ at $x$.
 
     This is a set because it is a subset of $\ran F$.
 \end{definition}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any sets $F$ and $\AA$ we have
+    \[ F \left( \bigcup \AA \right) = \bigcup_{A \in \AA} F(A) \]
+\end{theorem}
+
+\begin{proof}
+    \pf\ Each is the set of all $y$ such that $\exists x. \exists A.
+    x \in A \in \AA \wedge y = F(x)$. \qed
+\end{proof}
+
+\begin{corollary}
+    For any sets $F$, $A_1$, \ldots, $A_n$, we have
+    \[ F(A_1 \cup \cdots \cup A_n) = F(A_1) \cup \cdots \cup F(A_n) \enspace . \]
+\end{corollary}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any sets $F$ and $\AA$ with $\AA$ nonempty, we have
+    \[ F \left( \bigcap \AA \right) \subseteq \bigcap_{A \in \AA} F(A) \enspace . \]
+    Equality holds if $F$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{a}{$F \left( \bigcap \AA \right) \subseteq \bigcap_{A \in \AA} F(A)$}
+    \begin{proof}
+        \step{i}{\pflet{$y \in F \left( \bigcap \AA \right)$}}
+        \step{ii}{\pick\ $x \in \bigcap \AA$ such that $y = F(x)$}
+        \step{iii}{\pflet{$A \in \AA$}}
+        \step{iv}{$x \in A$}
+        \step{v}{$y \in F(A)$}
+    \end{proof}
+    \step{b}{If $F$ is single-rooted then $F \left( \bigcap \AA \right) = \bigcap_{A \in \AA} F(A)$}
+    \begin{proof}
+        \step{i}{\assume{$F$ is single-rooted.}}
+        \step{ii}{\pflet{$y \in \bigcap_{A \in \AA} F(A)$}}
+        \step{iii}{\pick\ $A \in \AA$}
+        \step{iv}{\pick\ $x \in A$ such that $y = F(x)$}
+        \step{v}{$x \in \bigcap \AA$}
+        \begin{proof}
+            \step{one}{\pflet{$A' \in \AA$}}
+            \step{two}{\pick\ $x' \in A'$ such that $y = F(x')$}
+            \step{three}{$x = x'$}
+            \begin{proof}
+                \pf\ By \stepref{i}.
+            \end{proof}
+            \step{four}{$x \in A'$}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any function $F$ and set $\AA$ with $\AA$ nonempty, we have
+    \[ \inv{F} \left( \bigcap \AA \right) = \bigcap_{A \in \AA} \inv{F}(A) \enspace . \]
+\end{corollary}
+
+\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any sets $F$, $A_1$, \ldots, $A_n$, we have
+    \[ F(A_1 \cap \cdots \cap A_n) \subseteq F(A_1) \cap \cdots \cap F(A_n) \enspace . \]
+    Equality holds if $F$ is single-rooted.
+\end{corollary}
+
+\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any function $F$ and sets $A_1$, \ldots, $A_n$, we have
+    \[ \inv{F}(A_1 \cap \cdots \cap A_n) = \inv{F}(A_1) \cap \cdots \cap \inv{F}(A_n) \enspace . \]
+\end{corollary}
+
+\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any sets $F$, $A$ and $B$, we have
+    \[ F(A) - F(B) \subseteq F(A - B) \enspace . \]
+    Equality holds if $F$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$F$, $A$ and $B$ be sets.}}
+    \step{2}{$F(A) - F(B) \subseteq F(A - B)$}
+    \begin{proof}
+        \step{a}{\pflet{$y \in F(A) - F(B)$}}
+        \step{b}{\pick\ $x \in A$ such that $xFy$}
+        \step{c}{$x \in A - B$}
+    \end{proof}
+    \step{3}{If $F$ is single-rooted then $F(A-B) = F(A) - F(B)$.}
+    \begin{proof}
+        \step{a}{\assume{$F$ is single-rooted.}}
+        \step{b}{\pflet{$y \in F(A-B)$}}
+        \step{c}{\pick\ $x \in A - B$ such that $y = F(x)$}
+        \step{d}{$y \in F(A)$}
+        \step{e}{$y \notin F(B)$}
+        \begin{proof}
+            \step{i}{\assume{for a contradiction $x' \in B$ and $x'Fy$}}
+            \step{ii}{$x' = x$}
+            \begin{proof}
+                \pf\ From \stepref{a}
+            \end{proof}
+            \step{iii}{$x \in B$}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts \stepref{c}.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
+    For any function $F$ and sets $A$ and $B$, we have
+    \[ \inv{F}(A) - \inv{F}(B) = \inv{F}(A - B) \enspace . \]
+\end{corollary}
+
+\section{Infinite Cartesian Product}
+
+\begin{definition}[Infinite Cartesian Product (Extensionality, Pairing, Union, Power Set, Subset)]
+    Let $H$ be a function with domain $I$. The \emph{Cartesian product}
+    $\prod_{i \in I} H(i)$ is the set of all functions $f$ with domain $I$
+    such that, for all $i \in I$, we have $f(i) \in H(i)$.
+
+    This is a set because it is a subset of $\pow(I \times \bigcup \ran H)$.
+\end{definition}
+
+\begin{theorem}[Axiom of Choice, Second Version (Extensionality, Pairing, Union, Power Set, Subset)]
+    The Axiom of Choice is equivalent to the statement: for any function $H$ with domain $I$,
+    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If the Axiom of Choice is true then, for any function $H$ with domain $I$,
+    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty.}
+    \begin{proof}
+        \step{a}{\assume{The Axiom of Choice}}
+        \step{b}{\pflet{$H$ be a function with domain $I$ such that $H(i)$ is nonempty for all $i \in I$.}}
+        \step{c}{\pick\ a function $f \subseteq \{ (i, x) \mid x \in H(i) \}$}
+        \step{d}{$f \in \prod_{i \in I} H(i)$}
+    \end{proof}
+    \step{2}{If, for any function $H$ with domain $I$,
+    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty,
+    then the Axiom of Choice is true.}
+    \begin{proof}
+        \step{a}{\assume{for any function $H$ with domain $I$,
+        if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty}}
+        \step{b}{\pflet{$R$ be a relation.}}
+        \step{c}{\pflet{$I = \dom R$}}
+        \step{d}{\pflet{$H$ be the function with domain $I$ such that $H(i) = \{ y \mid iRy \}$ for all $i$.}}
+        \step{e}{\pick\ $f \in \prod_{i \in I} H(i)$}
+        \step{f}{$f \subseteq R$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Reflexive Relations}
+
+\begin{definition}[Reflexive (Extensionality, Pairing)]
+    Let $R$ be a relation on $A$. Then $R$ is \emph{reflexive} on $A$
+    if and only if, for all $x \in A$, we have $xRx$.
+\end{definition}
+
+\section{Symmetric}
+
+\begin{definition}[Symmetric (Extensionality, Pairing)]
+    Let $R$ be a relation. Then $R$ is \emph{symmetric} if and only if,
+    whenever $xRy$, then $yRx$.
+\end{definition}
+
+\section{Transitivity}
+
+\begin{definition}[Transitivity (Extensionality, Pairing)]
+    Let $R$ be a relation. Then $R$ is \emph{transitive} if and only if,
+    whenever $xRy$ and $yRz$, then $xRz$.
+\end{definition}
+
+\section{Equivalence Relations}
+
+\begin{definition}[Equivalence Relation (Extensionality, Pairing)]
+    Let $R$ be a relation on $A$. Then $R$ is an \emph{equivalence relation}
+    on $A$ if and only if $R$ is reflexive on $A$, symmetric and transitive.
+\end{definition}
+
+\begin{theorem}[Extensionality, Pairing, Union, Subset]
+    If $R$ is a symmetric and transitive relation then $R$ is an equivalence
+    relation on $\fld R$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$R$ be a symmetric and transitive relation.}}
+    \step{2}{\pflet{$x \in \fld R$}}
+    \step{3}{\pick\ $y$ such that $xRy$ or $yRx$}
+    \step{4}{$xRy$ and $yRx$}
+    \begin{proof}
+        \pf\ By symmetry.
+    \end{proof}
+    \step{5}{$xRx$}
+    \begin{proof}
+        \pf\ By transitivity.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Equivalence Class}
+
+\begin{definition}[Equivalence Class (Extensionality, Pairing, Subset)]
+    Let $R$ be an equivalence relation on $A$ and $a \in A$. Then the
+    \emph{equivalence class} of $a$ \emph{modulo} $R$ is
+    \[ [a]_R = \{ x \in A \mid aRx \} \enspace . \]
+\end{definition}
+
+\begin{lemma}[Extensionality, Pairing, Subset]
+    \label{lemma:equivalence_classes}
+    Let $R$ be an equivalence relation on $A$ and $x,y \in A$.
+    Then $[x]_R = [y]_R$ if and only if $xRy$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{If $[x]_R = [y]_R$ then $xRy$.}
+    \begin{proof}
+        \step{a}{\assume{$[x]_R = [y]_R$}}
+        \step{b}{$y \in [y]_R$}
+        \begin{proof}
+            \pf\ Since $yRy$ by reflexivity.
+        \end{proof}
+        \step{c}{$y \in [x]_R$}
+        \step{d}{$xRy$}
+    \end{proof}
+    \step{2}{If $xRy$ then $[x]_R = [y]_R$.}
+    \begin{proof}
+        \step{a}{\assume{$xRy$}}
+        \step{b}{$[y]_R \subseteq [x]_R$}
+        \begin{proof}
+            \pf\ If $yRz$ then $xRz$ by transitivity.
+        \end{proof}
+        \step{c}{$[x]_R \subseteq [y]_R$}
+        \begin{proof}
+            \pf\ Similar since $yRx$ by symmetry.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Disjoint}
+
+\begin{definition}[Disjoint]
+    Two sets $A$ and $B$ are \emph{disjoint} if and only if there is no $x$
+    such that $x \in A$ and $x \in B$.
+\end{definition}
+
+\section{Partitions}
+
+\begin{definition}[Partition]
+    A \emph{partition} $P$ of a set $A$ is a set of nonempty subsets of $A$ such that:
+    \begin{enumerate}
+        \item For all $x \in A$ there exists $S \in P$ such that $x \in S$.
+        \item Any two distinct elements of $P$ are disjoint.
+    \end{enumerate}
+\end{definition}
+
+\section{Quotient Sets}
+
+\begin{definition}[Quotient Set (Extensionality, Pairing, Power Set, Subset)]
+    Let $R$ be an equivalence relation on $A$. The \emph{quotient set} $A / R$
+    is the set of all equivalence classes modulo $R$.
+
+    This is a set because it is a subset of $\pow A$.
+\end{definition}
+
+\begin{theorem}[Extensionality, Pairing, Power Set, Subset]
+    Let $R$ be an equivalence relation on $A$. Then the quotient set $A / R$
+    is a partition of $A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $x \in A$ there exists $y \in A$ such that $x \in [y]_R$}
+    \begin{proof}
+        \pf\ Take $y = x$.
+    \end{proof}
+    \step{2}{Any two distinct equivalence classes are disjoint.}
+    \begin{proof}
+        \step{a}{\assume{$z \in [x]_R$ and $z \in [y]_R$}}
+        \step{b}{$xRz$ and $yRz$}
+        \step{c}{$[x]_R = [z]_R = [y]_R$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:equivalence_classes}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}[Canonical Map (Extensionality, Pairing, Power Set, Subset)]
+    Let $R$ be an equivalence relation on $A$. The \emph{canonical map} $\phi : A \rightarrow A / R$
+    is the function defined by $\phi(a) = [a]_R$.
+\end{definition}
+
+\begin{theorem}
+    Let $R$ be an equivalence relation on $A$ and $F : A \rightarrow B$.
+    Then the following are equivalent:
+    \begin{enumerate}
+        \item For all $x, y \in A$, if $xRy$ then $F(x) = F(y)$.
+        \item There exists $G : A / R \rightarrow B$ such that 
+        $F = G \circ \phi$, where $\phi : A \rightarrow A / R$ is the canonical map.
+    \end{enumerate}
+    In this case, $G$ is unique.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$1 \Rightarrow 2$}
+    \begin{proof}
+        \step{a}{\assume{1}}
+        \step{b}{Let $G = \{ ([a]_R, b) \mid F(a) = b \}$}
+        \step{c}{$G$ is a function.}
+        \begin{proof}
+            \step{i}{\pflet{$(c,b), (c,b') \in G$}}
+            \step{ii}{\pick\ $a, a' \in A$ such that $c = [a]_R = [a']_R$
+            with $F(a) = b$ and $F(a') = b'$}
+            \step{iii}{$aRa'$}
+            \begin{proof}
+                \pf\ Lemma \ref{lemma:equivalence_classes}.
+            \end{proof}
+            \step{iv}{$F(a) = F(a')$}
+            \begin{proof}
+                \pf\ From \stepref{a}.
+            \end{proof}
+            \step{v}{$b = b'$}
+            \begin{proof}
+                \pf\ From \stepref{ii}.
+            \end{proof}
+        \end{proof}
+        \step{d}{$F = G \circ \phi$}
+        \begin{proof}
+            \pf\ For $a \in A$ we have $G(\phi(a)) = G([a]) = F(a)$.
+        \end{proof}
+    \end{proof}
+    \step{2}{$2 \Rightarrow 1$}
+    \begin{proof}
+        \step{a}{\pflet{$G : A / R \rightarrow B$ be such that $F = G \circ \phi$}}
+        \step{b}{\pflet{$x, y \in A$}}
+        \step{c}{\assume{$xRy$}}
+        \step{d}{$G([x]) = G([y])$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:equivalence_classes}
+        \end{proof}
+        \step{d}{$F(x) = F(y)$}
+        \begin{proof}
+            \pf\ From \stepref{a}.
+        \end{proof}
+    \end{proof}
+    \step{3}{If $G, G' : A / R \rightarrow B$ and $G \circ \phi = G' \circ \phi$
+    then $G = G'$}
+    \begin{proof}
+        \pf\ For any $a \in A$ we have $G([a]) = G'([a])$.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{The Finite Intersection Property}
 
