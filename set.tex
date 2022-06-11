@@ -1,6 +1,93 @@
-\chapter{Set Theory}
+\chapter{Classes}
+
+\section{Classes}
+
+We speak informally of \emph{classes}. A class is specified by a unary predicate.
+We write $\{ x \mid P(x) \}$ for the class determined by the predicate $P(x)$.
+
+\begin{definition}[Membership]
+    Let $a$ be an object and $\mathbf{A}$ a class. We define the proposition $a \in \mathbf{A}$
+    ($a$ is a \emph{member} or \emph{element} of $A$)
+    as follows:
+
+    The proposition $a \in \{ x \mid P(x) \}$ is the proposition $P(a)$.
+\end{definition}
+
+\begin{definition}[Equality of Classes]
+    Let $\mathbf{A}$ and $\mathbf{B}$ be classes. We say $\mathbf{A}$
+    and $\mathbf{B}$ are \emph{equal}, $\mathbf{A} = \mathbf{B}$, if and only if
+    they have exactly the same elements.
+\end{definition}
+
+\section{Subclasses}
+
+\begin{definition}[Subclass]
+    Let $\mathbf{A}$ and $\mathbf{B}$ be classes. 
+    We say $\mathbf{A}$ is a \emph{subclass} of $\mathbf{B}$, 
+    $\mathbf{A} \subseteq \mathbf{B}$, if and only if every member of 
+    $\mathbf{A}$ is a member of $\mathbf{B}$.
+
+    We say $\mathbf{A}$ is a \emph{proper} subclass of $\mathbf{B}$, 
+    $\mathbf{A} \subset \mathbf{B}$, if and only if $\mathbf{A} \subseteq
+    \mathbf{B}$ and $\mathbf{A} \neq \mathbf{B}$.
+\end{definition}
+
+\section{The Empty Class}
+
+\begin{definition}[Empty Class]
+    The \emph{empty} class $\emptyset$ is $\{x \mid \bot \}$.
+\end{definition}
+
+\section{Finite Classes}
+
+\begin{definition}
+    For any objects $a_1$, \ldots, $a_n$, we write $\{ a_1, \ldots, a_n \}$
+    for the class $\{ x \mid x = a_1 \vee \cdots \vee x = a_n \}$.
+\end{definition}
+
+\section{Universal Class}
+
+\begin{definition}[Universal Class]
+    The \emph{universal class} $\mathbf{V}$ is the class $\{ x \mid \top \}$.
+\end{definition}
+
+\section{Union}
+
+\begin{definition}[Union]
+    For any classes $\mathbf{A}$ and $\mathbf{B}$, the \emph{union}
+    $\mathbf{A} \cup \mathbf{B}$ is the class $\{ x \mid x \in \mathbf{A} \vee
+    x \in \mathbf{B} \}$.
+\end{definition}
+
+\section{Intersection}
+
+\begin{definition}[Intersection]
+    For any classes $\mathbf{A}$ and $\mathbf{B}$, the \emph{intersection}
+    $\mathbf{A} \cap \mathbf{B}$ is the class $\{ x \mid x \in \mathbf{A} \wedge
+    x \in \mathbf{B} \}$.
+\end{definition}
+
+\section{Relative Complement}
+
+\begin{definition}[Relative Complement]
+    For any classes $\mathbf{A}$ and $\mathbf{B}$, the \emph{relative complement}
+    $\mathbf{A} - \mathbf{B}$ is $\{ x \in \mathbf{A} \mid x \notin \mathbf{B} \}$.
+\end{definition}
+
+\section{Covers}
+
+\begin{definition}[Cover]
+    Let $\mathbf{X}$ be a class and $\mathbf{\AA} \subseteq \pow \mathbf{X}$. 
+    Then $\mathbf{\AA}$ \emph{covers} $\mathbf{X}$,
+    or is a \emph{covering} of $\mathbf{X}$, if and only if
+    $\bigcup \mathbf{\AA} = \mathbf{X}$.
+\end{definition}
+
+\chapter{Sets}
 
 \section{Membership}
+
+We take as undefined the notion of \emph{set}.
 
 We take as undefined the binary relation of \emph{membership}, $\in$. If $a \in A$ we say $a$ is a \emph{member} or \emph{element} of $A$.
 If this does not hold, we write $a \notin A$.
@@ -9,148 +96,146 @@ If this does not hold, we write $a \notin A$.
     Two sets with exactly the same elements are equal.
 \end{axiom}
 
-\section{Subsets}
+We may therefore identify the set $A$ with the class $\{x \mid x \in A \}$.
 
-\begin{definition}[Subset]
-    Let $A$ and $B$ be sets. We say $A$ is a \emph{subset} of $B$, $A \subseteq B$, if and only if every member of $A$ is a member of $B$.    
-\end{definition}
-
-\section{Abstraction Notation}
-
-\begin{definitions}[Extensionality]
-    Let $P(x)$ be a property. If there is a set whose members are exactly the sets $x$ such that $P(x)$, then we denote this set by $\{ x \mid P(x) \}$.
-
-    It is unique by the Axiom of Extensionality.
-\end{definitions}
+We say a class $\mathbf{A}$ \emph{is a set} iff there exists a set $A$
+such that $A = \mathbf{A}$. That is, $\{ x \mid P(x) \}$ is a set if and only
+if there exists a set $A$ such that, for all $x$, we have $x \in A$ if and
+only if $P(x)$.
 
 \section{The Empty Set}
 
 \begin{axiom}[Empty Set Axiom]
-    There exists a set with no members.
+    The empty class $\emptyset$ is a set.
 \end{axiom}
-
-\begin{definition}[Empty Set (Extensionality, Empty Set Axiom)]
-    The \emph{empty set} $\emptyset$ is the set with no members $\{ x \mid \bot \}$.
-\end{definition}
 
 \section{Pair Sets}
 
 \begin{axiom}[Pairing Axiom]
-    For any sets $u$ and $v$, there exists a set having as members just $u$ and $v$.
+    For any objects $u$ and $v$, the class $\{ u, v \}$ is a set.
 \end{axiom}
 
-\begin{definition}[Pair Set (Extensionality, Pairing Axiom)]
-    For any sets $u$ and $v$, the \emph{pair set} $\{ u, v \}$ is the set $\{ x \mid x = u \vee x = v \}$.   
-\end{definition}
+\begin{theorem}[Pairing]
+    For any object $a$, the class $\{ a \}$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is $\{ a, a \}$. \qed
+\end{proof}
 
 \section{Unions}
 
+\begin{definition}[Union]
+    For any class of sets $\mathbf{A}$, the \emph{union} $\bigcup \mathbf{A}$
+    is the class $\{x \mid \exists A \in \mathbf{A}. x \in A \}$.
+\end{definition}
+
 \begin{axiom}[Union Axiom]
-    For any set $A$, there exists a set whose elements are exactly the members of the members of $A$.
+    For any set $A$, the union $\bigcup A$ is a set.
 \end{axiom}
 
-\begin{definition}[Union (Extensionality, Union)]
-    For any set $A$, the \emph{union} $\bigcup A$ is the set $\{ x \mid \exists b \in A. x \in b \}$.
-\end{definition}
+\begin{theorem}[Union, Pairing]
+    \label{theorem:union}
+    For any sets $A$ and $B$, the class $A \cup B$ is a set.
+\end{theorem}
 
-\begin{definition}[Union (Extensionality, Pair Set, Union)]
-    For any sets $a$ and $b$, the \emph{union} $a \cup b$ is the set $\bigcup \{ a, b \}$.
-\end{definition}
+\begin{proof}
+    \pf\ It is $\bigcup \{ A, B \}$. \qed
+\end{proof}
+
+\begin{theorems}[Union, Pairing]
+    For any objects $a_1$, \ldots, $a_n$, the class $\{ a_1, \ldots, a_n \}$
+    is a set.
+\end{theorems}
+
+\begin{proof}
+    \pf\ We prove each theorem using the last since
+    $\{ a_1, \ldots, a_n, a_{n+1} \} = \{ a_1, \ldots, a_n \} \cup \{ a_{n+1} \}$. \qed
+\end{proof}
 
 \section{Power Set}
 
+\begin{definition}[Power Class]
+    For any class $\mathbf{A}$, the \emph{power} class $\pow \mathbf{A}$
+    is the class of all subsets of $\mathbf{A}$.
+\end{definition}
+
 \begin{axiom}[Power Set Axiom]
-    For any set $a$, there is a set whose members are exactly the subsets of $a$.    
+    For any set $A$, the power class $\pow A$ is a set.
 \end{axiom}
-
-\begin{definition}[Power Set (Extensionality, Power Set)]
-    For any set $a$, the \emph{power set} $\pow a$ is the set $\{ x \mid x \subseteq a \}$.
-\end{definition}
-
-\section{Singletons}
-
-\begin{definition}[Singleton (Extensionality, Pair Set)]
-    Given any $x$, define the \emph{singleton} $\{ x \}$ to be $\{ x, x \}$.    
-\end{definition}
-
-\section{Finite Sets}
-
-\begin{definitions}[Extensionality, Pair Set, Union]
-    Given any objects $a_1$, \ldots, $a_n$, define the set $\{ a_1, \ldots, a_n \}$ as follows:
-    \[ \{ a_1, \ldots, a_n, a_{n+1} \} = \{ a_1, \ldots, a_n \} \cup \{ a_{n+1} \} \enspace . \]
-\end{definitions}
 
 \section{Subset Axioms}
 
 \begin{axioms}[Subset Axioms, Aussonderung Axioms]
-    For any property $P(x)$ and any set $B$, there exists a set whose members are exactly the sets $x \in B$ such that $P(x)$.
+    For any classes $\mathbf{A}$ and $\mathbf{B}$,
+    if $\mathbf{A} \subseteq \mathbf{B}$ and $\mathbf{B}$ is a set
+    then $\mathbf{A}$ is a set.
 \end{axioms}
 
-\begin{definitions}[Extensionality, Subset]
-    For any property $P(x)$ and any set $B$, we write $\{ x \in B \mid P(x) \}$ for $\{x \mid x \in B \wedge P(x) \}$.
-\end{definitions}
-
 \begin{theorem}[Subset]
-    There is no set to which every set belongs.
+    The universal class $\mathbf{V}$ is not a set.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$A$ be a set.} \prove{There exists a set that does not belong to $A$.}}
-    \step{2}{\pick\ a set $B$ whose members are exactly the sets $x \in A$ such that $x \notin x$.}
+    \step{1}{\assume{$\mathbf{V}$ is a set.}}
+    \step{2}{\pflet{$R = \{ x \in \mathbf{V} \mid x \notin x \}$}}
+    \step{3}{$R \in R$ if and only if $R \notin R$}
+    \qedstep
     \begin{proof}
-        \pf\ By a Subset Axiom.
+        \pf\ This is a contradiction.
     \end{proof}
-    \step{3}{If $B \in A$ then we have $B \in B \Leftrightarrow B \notin B$}
-    \step{4}{$B \notin A$}
     \qed
+\end{proof}
+
+\begin{theorem}[Subset]
+    If $A$ is a set and $\mathbf{B}$ is a class then $A - \mathbf{B}$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $A$. \qed
 \end{proof}
 
 \section{Intersection}
 
-\begin{definition}[Intersection (Extensionality, Subset)]
-    For any sets $a$ and $b$, the \emph{intersection} $a \cap b$ is $\{ x \in a \mid x \in b \}$.
+\begin{definition}[Intersection]
+    For any class $\mathbf{A}$ of sets, the \emph{intersection}
+    $\bigcap \mathbf{A}$ is the class $\{ x \mid \forall A \in \mathbf{A}. x \in A \}$.
 \end{definition}
 
-\begin{theorem}[Extensionality, Subset]
-    For any nonempty set $A$, there exists a unique set $B$ such that, for any $x$, we have $x \in B$ if and only if $x$ belongs to every member of $A$.
+\begin{theorem}[Subset]
+    For any nonempty class $\mathbf{A}$ of sets, we have $\bigcap \mathbf{A}$
+    is a set.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$A$ be a nonempty set.}}
-    \step{2}{\pick\ $a \in A$}
-    \step{3}{\pflet{$B = \{ x \in a \mid \forall y \in A. x \in y \}$}}
-    \step{4}{$B$ is the unique set such that, for any $x$, we have $x \in B$ if and only if $x$ belongs to every member of $A$.}
+    \step{1}{\pick{$A \in \mathbf{A}$}}
+    \step{2}{$\bigcap \mathbf{A} \subseteq A$}
+    \qedstep
+    \begin{proof}
+        \pf\ By a Subset Axiom.
+    \end{proof}
     \qed
 \end{proof}
 
-\begin{definition}[Intersection (Extensionality, Subset)]
-    For any nonempty set $A$, the \emph{intersection} $\bigcap A$ is the set whose elements are those sets that belong to every member of $A$.
-\end{definition}
+\begin{theorem}[Subset]
+    For any sets $A$ and $B$, the class $A \cap B$ is a set.
+\end{theorem}
 
-\section{Relative Complement}
-
-\begin{definition}[Relative Complement (Extensionality, Subset)]
-    For any sets $A$ and $B$, the \emph{relative complement} $A - B$ is $\{ x \in A \mid x \notin B \}$.
-\end{definition}
-
-\section{Covers}
-
-\begin{definition}[Cover]
-    Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ \emph{covers} $X$,
-    or is a \emph{covering} of $X$, if and only if $\bigcup \AA = X$.
-\end{definition}
+\begin{proof}
+    \pf\ From a Subset Axiom since $A \cap B \subseteq A$. \qed
+\end{proof}
 
 \chapter{Relations}
 
 \section{Ordered Pairs}
 
-\begin{definition}[Ordered Pair (Extensionality, Pairing)]
+\begin{definition}[Ordered Pair (Pairing)]
     For any sets $x$ and $y$, the \emph{ordered pair} $(x,y)$ is defined to be $\{ \{ x \}, \{ x , y \} \}$.    
 \end{definition}
 
-\begin{theorem}[Extensionality, Pairing]
+\begin{theorem}[Pairing]
     For any sets $u$, $v$, $x$, $y$, we have $(u,v) = (x,y)$ if and only if $u = x$ and $v = y$
 \end{theorem}
 
@@ -189,7 +274,7 @@ If this does not hold, we write $a \notin A$.
     \qed
 \end{proof}
 
-\begin{lemma}[Extensionality, Pairing, Power Set]
+\begin{lemma}[Pairing, Power Set]
     \label{lemma:ordered_pair_pow_pow}
     Let $x$, $y$ and $C$ be sets. If $x \in C$ and $y \in C$ then $(x,y) \in \pow \pow C$.
 \end{lemma}
@@ -208,7 +293,7 @@ If this does not hold, we write $a \notin A$.
     \qed 
 \end{proof}
 
-\begin{lemma}[Extensionality, Pairing, Union]
+\begin{lemma}[Pairing, Union]
     \label{lemma:ordered_pair_union_union}
     Let $x$, $y$ and $A$ be sets. If $(x,y) \in A$ then $x$ and $y$ belong to $\bigcup \bigcup A$.
 \end{lemma}
@@ -225,159 +310,201 @@ If this does not hold, we write $a \notin A$.
 
 \section{Cartesian Product}
 
-\begin{definition}[Cartesian Product (Extensionality, Pairing, Union, Power Set, Subset)]
-    Let $A$ and $B$ be sets. The \emph{Cartesian product} $A \times B$ is the set $\{ (x,y) \mid x \in A, y \in B \}$.
-
-    This is a set since, if $x \in A$ and $y \in B$, then $(x,y) \in \pow \pow (A \cup B)$ by Lemma \ref{lemma:ordered_pair_pow_pow}.
+\begin{definition}[Cartesian Product (Pairing)]
+    Let $\mathbf{A}$ and $\mathbf{B}$ be classes. The \emph{Cartesian product} 
+    $\mathbf{A} \times \mathbf{B}$ is the class
+    $\{ (x,y) \mid x \in \mathbf{A}, y \in \mathbf{B} \}$.
 \end{definition}
+
+\begin{theorem}[Pairing, Union, Power Set, Subset]
+    For any sets $A$ and $B$, the Cartesian product $A \times B$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\pow \pow (A \cup B)$ by Lemma \ref{lemma:ordered_pair_pow_pow}. \qed
+\end{proof}
 
 \section{Relations}
 
-\begin{definition}[Relation (Extensionality, Pairing)]
-    A \emph{relation} is a set of ordered pairs.
+\begin{definition}[Relation (Pairing)]
+    A \emph{relation} is a class of ordered pairs.
 
-    Given a relation $R$, we write $xRy$ for $(x,y) \in R$.
+    Given a relation $\mathbf{R}$, we write $x\mathbf{R}y$ for $(x,y) \in \mathbf{R}$.
+
+    A relation is \emph{small} iff it is a set.
 \end{definition}
 
 \section{Domain}
 
-\begin{definition}[Domain (Extensionality, Pairing, Union, Subset)]
-    Let $R$ be a set. The \emph{domain} of $R$ is $\dom R = \{ x \mid \exists y. (x,y) \in R \}$.
-
-    This is a set by Lemma \ref{lemma:ordered_pair_union_union}.
+\begin{definition}[Domain (Pairing)]
+    Let $\mathbf{R}$ be a class. The \emph{domain} of $\mathbf{R}$ is 
+    $\dom \mathbf{R} = \{ x \mid \exists y. x\mathbf{R}y \}$.
 \end{definition}
+
+\begin{theorem}[Pairing, Union, Subset]
+    \label{theorem:domain}
+    For any set $R$, the domain $\dom R$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\bigcup \bigcup R$ by Lemma \ref{lemma:ordered_pair_union_union}. \qed
+\end{proof}
 
 \section{Range}
 
-\begin{definition}[Range (Extensionality, Pairing, Union, Subset)]
-    Let $R$ be a set. The \emph{range} of $R$ is $\ran R = \{ y \mid \exists x. (x,y) \in R \}$.
-
-    This is a set by Lemma \ref{lemma:ordered_pair_union_union}.
+\begin{definition}[Domain (Pairing)]
+    Let $\mathbf{R}$ be a class. The \emph{range} of $\mathbf{R}$ is 
+    $\ran \mathbf{R} = \{ y \mid \exists x. x\mathbf{R}y \}$.
 \end{definition}
+
+\begin{theorem}[Pairing, Union, Subset]
+    \label{theorem:range}
+    For any set $R$, the range $\ran R$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\bigcup \bigcup R$ by Lemma \ref{lemma:ordered_pair_union_union}. \qed
+\end{proof}
 
 \section{Field}
 
-\begin{definition}[Field (Extensionality, Pairing, Union, Subset)]
-    Let $R$ be a set. The \emph{field} of $R$ is
-    $\fld R = \dom R \cup \ran R$.
+\begin{definition}[Field]
+    Let $\mathbf{R}$ be a class. The \emph{field} of $\mathbf{R}$ is
+    $\fld \mathbf{R} = \dom \mathbf{R} \cup \ran \mathbf{R}$.
 \end{definition}
+
+\begin{theorem}[Pairing, Union, Subset]
+    For any set $R$, the field $\fld R$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Theorems \ref{theorem:union}, \ref{theorem:domain} and \ref{theorem:range}. \qed
+\end{proof}
 
 \section{Functions}
 
-\begin{definition}[Extensionality, Pairing]
-A \emph{function} is a relation $F$ such that, for all $x$, $y$, $y'$, if $xFy$ and $xFy'$ then $y = y'$.
+\begin{definition}[Class Term (Pairing)]
+    A \emph{class term} is a relation $\mathbf{F}$ such that, for all $x$, $y$,
+    $y'$, if $x\mathbf{F}y$ and $x\mathbf{F}y'$ then $y = y'$.
 
-If there exists $x$ such that $xFy$, then we write $F(x)$ for the unique such $y$, and call $F(x)$
-the \emph{value} of $F$ at $x$.
+    If $\mathbf{F}$ is a class term and $x \in \dom \mathbf{F}$, then we write
+    $\mathbf{F}(x)$ for the unique $y$ such that $x \mathbf{F} y$.
+
+    We write $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$ iff $\mathbf{F}$ is a class term,
+    $\dom \mathbf{F} = \mathbf{A}$ and $\ran \mathbf{F} \subseteq \mathbf{B}$.
+
+    A \emph{function} is a class term that is a set.
 \end{definition}
 
-\begin{definition}[Extensionality, Pairing, Union, Subset]
-    We write $F : A \rightarrow B$ iff $F$ is a function, $\dom F = A$
-    and $\ran F \subseteq B$.
-\end{definition}
-
-\begin{axiom}[Axiom of Choice, First Form]
+\begin{axiom}[Axiom of Choice, First Form (Pairing)]
     For any relation $R$, there exists a function $H \subseteq R$ such that 
     $\dom H = \dom R$.
 \end{axiom}
 
 \section{Single-Rooted}
 
-\begin{definition}[Extensionality, Pairing]
-    A set $R$ is \emph{single-rooted} if and only if, for all $x$, $x'$, $y$, if $xRy$ and $x'Ry$ then $x = x'$.
+\begin{definition}[Single-Rooted (Pairing)]
+    A class $\mathbf{R}$ is \emph{single-rooted} if and only if, for all $x$, $x'$, $y$, if $x\mathbf{R}y$ and $x'\mathbf{R}y$ then $x = x'$.
 
-    We call a function \emph{one-to-one}, \emph{injective} or an \emph{injection}
+    We call a class term \emph{one-to-one}, \emph{injective} or an \emph{injection}
      if and only if it is single-rooted.
 \end{definition}
 
 \section{Surjective}
 
-\begin{definition}[Surjective]
-    Let $F : A \rightarrow B$. Then $F$ is \emph{surjective} if and only if
-    $\ran F = B$.
+\begin{definition}[Surjective (Pairing)]
+    Let $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$. Then $\mathbf{F}$ is \emph{surjective} if and only if
+    $\ran \mathbf{F} = \mathbf{B}$.
 \end{definition}
 
 \section{Inverse}
 
-\begin{definition}[Inverse (Extensionality, Pairing, Union, Power Set, Subset)]
-    Let $R$ be a set. The \emph{inverse} of $R$ is $\inv{R} = \{ (y,x) \mid (x,y) \in R \}$.
-
-    This is a set because if $(x,y) \in R$ then $(y,x) \in \ran R \times \dom R$.
+\begin{definition}[Inverse (Pairing)]
+    Let $\mathbf{R}$ be a class. The \emph{inverse} of $\mathbf{R}$ is 
+    $\inv{\mathbf{R}} = \{ (y,x) \mid x \mathbf{R} y \}$.
 \end{definition}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+\begin{theorem}[Pairing, Union, Power Set, Subset]
+    For any set $R$, the inverse $\inv{R}$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\ran R \times \dom R$. \qed
+\end{proof}
+
+\begin{theorem}[Pairing]
     \label{theorem:dom_inv}
-    For any set $F$, we have $\dom \inv{F} = \ran F$.
+    For any class $\mathbf{F}$, we have $\dom \inv{\mathbf{F}} = \ran \mathbf{F}$.
 \end{theorem}
 
 \begin{proof}
     \pf\ For any $x$, we have
     \begin{align*}
-        x \in \dom \inv{F} & \Leftrightarrow \exists y. (x,y) \in \inv{F} \\
-        & \Leftrightarrow \exists y. (y,x) \in F \\
-        & \Leftrightarrow x \in \ran F
+        x \in \dom \inv{\mathbf{F}} & \Leftrightarrow \exists y. (x,y) \in \inv{\mathbf{F}} \\
+        & \Leftrightarrow \exists y. (y,x) \in \mathbf{F} \\
+        & \Leftrightarrow x \in \ran \mathbf{F} & \qed
     \end{align*}
-    The result follows by the Axiom of Extensionality. \qed
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+\begin{theorem}[Pairing]
     \label{theorem:ran_inv}
-    For any set $F$, we have $\ran \inv{F} = \dom F$.
+    For any set $\mathbf{F}$, we have $\ran \inv{\mathbf{F}} = \dom \mathbf{F}$.
 \end{theorem}
 
 \begin{proof}
     \pf\ For any $x$, we have
     \begin{align*}
-        x \in \ran \inv{F} & \Leftrightarrow \exists y. (y,x) \in \inv{F} \\
-        & \Leftrightarrow \exists y. (x,y) \in F \\
-        & \Leftrightarrow x \in \dom F
+        x \in \ran \inv{\mathbf{F}} & \Leftrightarrow \exists y. (y,x) \in \inv{\mathbf{F}} \\
+        & \Leftrightarrow \exists y. (x,y) \in \mathbf{F} \\
+        & \Leftrightarrow x \in \dom \mathbf{F} & \qed
     \end{align*}
-    The result follows by the Axiom of Extensionality. \qed
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+\begin{theorem}[Pairing]
     \label{theorem:inv_inv}
-    For any relation $F$, we have $\inv{(\inv{F})} = F$.
+    For any relation $\mathbf{F}$, we have $\inv{(\inv{\mathbf{F}})} = \mathbf{F}$.
 \end{theorem}
 
 \begin{proof}
     \pf\ For any $z$ we have
     \begin{align*}
-        z \in \inv{(\inv{F})} & \Leftrightarrow \exists x, y. z = (x,y) \wedge (y,x) \in \inv{F} \\
-        & \Leftrightarrow \exists x,y. z = (x,y) \wedge (x,y) \in F \\
-        & \Leftrightarrow z \in F & (\text{$F$ is a relation})
+        z \in \inv{(\inv{\mathbf{F}})} & \Leftrightarrow \exists x, y. z = (x,y) \wedge (y,x) \in \inv{\mathbf{F}} \\
+        & \Leftrightarrow \exists x,y. z = (x,y) \wedge (x,y) \in \mathbf{F} \\
+        & \Leftrightarrow z \in \mathbf{F} & (\text{$\mathbf{F}$ is a relation}) \qed
     \end{align*}
-    The result follows by the Axiom of Extensionality.
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+\begin{theorem}[Pairing]
     \label{theorem:inv_function}
-    For any set $F$, we have $\inv{F}$ is a function if and only if $F$ is single-rooted.
+    For any class $\mathbf{F}$, we have $\inv{\mathbf{F}}$ is a class term if and only if $\mathbf{F}$ is single-rooted.
 \end{theorem}
 
 \begin{proof}
     \pf\ Immediate from definitions. \qed
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    Let $F$ be a relation. Then $F$ is a function if and only if $\inv{F}$ is single-rooted.
+\begin{theorem}[Pairing]
+    Let $\mathbf{F}$ be a relation. Then $\mathbf{F}$ is a class term if and only if $\inv{\mathbf{F}}$ is single-rooted.
 \end{theorem}
 
 \begin{proof}
     \pf\ Immediate from definitions. \qed
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+\begin{theorem}[Pairing]
     \label{theorem:inv_F_of_F}
-    Let $F$ be a one-to-one function and $x \in \dom F$. Then $\inv{F}(F(x)) = x$.
+    Let $\mathbf{F}$ be a one-to-one class term and $x \in \dom \mathbf{F}$.
+    Then $\inv{\mathbf{F}}(\mathbf{F}(x)) = x$.
 \end{theorem}
 
 \begin{proof}
-    \pf\ We have $(x, F(x)) \in F$ and so $(F(x), x) \in \inv{F}$. \qed
+    \pf\ We have $(x, \mathbf{F}(x)) \in \mathbf{F}$ and so 
+    $(\mathbf{F}(x), x) \in \inv{\mathbf{F}}$. \qed
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    Let $F$ be a one-to-one function and $y \in \ran F$. Then $F(\inv{F}(y)) = y$.
+\begin{theorem}[Pairing]
+    Let $\mathbf{F}$ be a one-to-one function and $y \in \ran \mathbf{F}$.
+    Then $\mathbf{F}(\inv{\mathbf{F}}(y)) = y$.
 \end{theorem}
 
 \begin{proof}
@@ -386,72 +513,87 @@ the \emph{value} of $F$ at $x$.
 
 \section{Composition}
 
-\begin{definition}[Composition (Extensionality, Pairing, Union, Power Set, Subset)]
-    Let $R$ and $S$ be relations. The \emph{composition} of $R$ and $S$ is $S \circ R = \{ (x,z) \mid \exists y. xRy \wedge ySz \}$.
-    
-    This is a set because if $xRy$ and $ySz$ then $(x,z) \in \dom R \times \ran S$.
+\begin{definition}[Composition (Pairing)]
+    Let $\mathbf{R}$ and $\mathbf{S}$ be relations. 
+    The \emph{composition} of $\mathbf{R}$ and $\mathbf{S}$ is
+    $\mathbf{S} \circ \mathbf{R} = \{ (x,z) \mid \exists y. x \mathbf{R} y \wedge y \mathbf{S} z \}$.
 \end{definition}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
+\begin{theorem}[Pairing, Union, Power Set, Subset]
+    If $R$ and $S$ are small relations then $S \circ R$ is small.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\dom R \times \ran S$. \qed
+\end{proof}
+
+\begin{theorem}[Pairing]
     \label{theorem:comp_function}
-    Let $F$ and $G$ be functions. Then $G \circ F$ is a function, its domain
-    is $\{ x \in \dom F \mid F(x) \in \dom G \}$, and for $x$ in this domain,
-    we have $(F \circ G)(x) = F(G(x))$.
+    Let $\mathbf{F}$ and $\mathbf{G}$ be class terms. Then $\mathbf{G} \circ \mathbf{F}$ is a function, its domain
+    is $\{ x \in \dom \mathbf{F} \mid \mathbf{F}(x) \in \dom \mathbf{G} \}$, and for $x$ in this domain,
+    we have $(\mathbf{F} \circ \mathbf{G})(x) = \mathbf{F}(\mathbf{G}(x))$.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{$G \circ F$ is a function.}
+    \step{1}{$\mathbf{G} \circ \mathbf{F}$ is a class term.}
     \begin{proof}
-        \step{a}{\pflet{$x (G \circ F) z$ and $x (G \circ F) z'$}}
-        \step{b}{\pick\ $y$, $y'$ such that $x F y$, $x F y'$, $y G z$ and $y' G z'$}
+        \step{a}{\pflet{$x (\mathbf{G} \circ \mathbf{F}) z$ and $x (\mathbf{G} \circ \mathbf{F}) z'$}}
+        \step{b}{\pick\ $y$, $y'$ such that $x \mathbf{F} y$, $x \mathbf{F} y'$, $y \mathbf{G} z$ and $y' \mathbf{G} z'$}
         \step{c}{$y = y'$}
         \begin{proof}
-            \pf\ Since $F$ is a function.
+            \pf\ Since $\mathbf{F}$ is a class term.
         \end{proof}
         \step{d}{$z = z'$}
         \begin{proof}
-            \pf\ Since $G$ is a function.
+            \pf\ Since $\mathbf{G}$ is a class term.
         \end{proof}
     \end{proof}
-    \step{2}{$\dom (G \circ F) = \{ x \in \dom F \mid F(x) \in \dom G \}$}
+    \step{2}{$\dom (\mathbf{G} \circ \mathbf{F}) = \{ x \in \dom \mathbf{F} \mid \mathbf{F}(x) \in \dom \mathbf{G} \}$}
     \begin{proof}
         \pf
         \begin{align*}
-            x \in \dom (G \circ F) & \Leftrightarrow \exists z. x(G \circ F)z \\
-            & \Leftrightarrow \exists y, z. xFy \wedge yGz \\
-            & \Leftrightarrow x \in \dom F \wedge F(x) \in \dom G
+            x \in \dom (\mathbf{G} \circ \mathbf{F}) & \Leftrightarrow \exists z. x(\mathbf{G} \circ \mathbf{F})z \\
+            & \Leftrightarrow \exists y, z. x\mathbf{F}y \wedge y\mathbf{G}z \\
+            & \Leftrightarrow x \in \dom \mathbf{F} \wedge \mathbf{F}(x) \in \dom \mathbf{G}
         \end{align*}
     \end{proof}
-    \step{3}{For $x$ in this domain, we have $(F \circ G)(x) = F(G(x))$.}
+    \step{3}{For $x$ in this domain, we have $(\mathbf{F} \circ \mathbf{G})(x) = \mathbf{F}(\mathbf{G}(x))$.}
     \begin{proof}
-        \pf\ Since $(x,F(x)) \in F$ and $(F(x),G(F(x))) \in G$.
+        \pf\ Since $(x,\mathbf{F}(x)) \in \mathbf{F}$ and $(\mathbf{F}(x),\mathbf{G}(\mathbf{F}(x))) \in \mathbf{G}$.
     \end{proof}
     \qed
 \end{proof}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any sets $F$ and $G$, we have $\inv{(G \circ F)} = \inv{F} \circ \inv{G}$.
+\begin{theorem}[Pairing]
+    For any classes $\mathbf{F}$ and $\mathbf{G}$, we have
+    $\inv{(\mathbf{G} \circ \mathbf{F})} = \inv{\mathbf{F}} \circ \inv{\mathbf{G}}$.
 \end{theorem}
 
 \begin{proof}
     \pf
     \begin{align*}
-        (x,z) \in \inv{(G \circ F)} & \Leftrightarrow (z,x) \in G \circ F \\
-        & \Leftrightarrow \exists y. zFy \wedge yGx \\
-        & \Leftrightarrow \exists y. (y,z) \in \inv{F} \wedge (x,y) \in \inv{G} \\
-        & \Leftrightarrow (x,z) \in \inv{F} \circ \inv{G} & \qed
+        (x,z) \in \inv{(\mathbf{G} \circ \mathbf{F})} & \Leftrightarrow (z,x) \in \mathbf{G} \circ \mathbf{F} \\
+        & \Leftrightarrow \exists y. z\mathbf{F}y \wedge y\mathbf{G}x \\
+        & \Leftrightarrow \exists y. (y,z) \in \inv{\mathbf{F}} \wedge (x,y) \in \inv{\mathbf{G}} \\
+        & \Leftrightarrow (x,z) \in \inv{\mathbf{F}} \circ \inv{\mathbf{G}} & \qed
     \end{align*}
 \end{proof}
 
 \section{Identity Function}
 
-\begin{definition}[Identity Function (Extensionality, Pairing, Union, Power Set, Subset)]
-    Let $A$ be a set. The \emph{identity function} $\id{A}$ on $A$ is
-    $\{ (x,x) \mid x \in A \}$.
-
-    This is a set because it is a subset of $A \times A$.
+\begin{definition}[Identity Class Term (Pairing)]
+    Let $\mathbf{A}$ be a set. The \emph{identity class term} $\id{\mathbf{A}}$ on $\mathbf{A}$ is
+    $\{ (x,x) \mid x \in \mathbf{A} \}$.
 \end{definition}
+
+\begin{theorem}[Pairing, Power Set, Subset]
+    For any set $A$, we have $\id{A}$ is a function.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\pow \pow A$. \qed
+\end{proof}
 
 \begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
     Let $F : A \rightarrow B$ and $A$ be nonempty. Then there exists a function
@@ -530,63 +672,81 @@ the \emph{value} of $F$ at $x$.
 
 \section{Restriction}
 
-\begin{definition}[Restriction (Extensionality, Pairing, Subset)]
-    Let $R$ be a relation and $A$ a set. The \emph{restriction} of $R$ to $A$
-    is $R \restriction A = \{ (x,y) \mid x \in A \wedge xRy \}$.
-
-    This is a set because it is a subset of $R$.
+\begin{definition}[Restriction (Pairing)]
+    Let $\mathbf{R}$ be a relation and $\mathbf{A}$ a class. 
+    The \emph{restriction} of $\mathbf{R}$ to $\mathbf{A}$
+    is $\mathbf{R} \restriction \mathbf{A} = 
+    \{ (x,y) \mid x \in \mathbf{A} \wedge x\mathbf{R}y \}$.
 \end{definition}
 
-\section{Image}
-
-\begin{definition}[Image (Extensionality, Pairing, Union, Subset)]
-    Let $F$ be a function and $A \subseteq \dom F$. The \emph{image} of $A$
-    under $F$ is $\{ F(x) \mid x \in A \}$.
-
-    This is a set because it is a subset of $\ran F$.
-\end{definition}
-
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any sets $F$ and $\AA$ we have
-    \[ F \left( \bigcup \AA \right) = \bigcup_{A \in \AA} F(A) \]
+\begin{theorem}[Pairing, Subset]
+    If $R$ is a small relation then $R \restriction \mathbf{A}$ is small.    
 \end{theorem}
 
 \begin{proof}
-    \pf\ Each is the set of all $y$ such that $\exists x. \exists A.
-    x \in A \in \AA \wedge y = F(x)$. \qed
+    \pf\ Since it is a subset of $R$. \qed
 \end{proof}
 
-\begin{corollary}
-    For any sets $F$, $A_1$, \ldots, $A_n$, we have
-    \[ F(A_1 \cup \cdots \cup A_n) = F(A_1) \cup \cdots \cup F(A_n) \enspace . \]
-\end{corollary}
+\section{Image}
 
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any sets $F$ and $\AA$ with $\AA$ nonempty, we have
-    \[ F \left( \bigcap \AA \right) \subseteq \bigcap_{A \in \AA} F(A) \enspace . \]
-    Equality holds if $F$ is single-rooted.
+\begin{definition}[Image (Pairing)]
+    Let $\mathbf{F}$ and $\mathbf{A}$ be classes. The \emph{image} of $\mathbf{A}$
+    under $\mathbf{F}$ is $\mathbf{F}(\mathbf{A}) = \{ \mathbf{F}(x) \mid x \in \mathbf{A} \}$.
+\end{definition}
+
+\begin{theorem}[Pairing, Union, Subset]
+    If $F$ is a set then $F(\mathbf{A})$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Since it is a subset of $\ran F$. \qed
+\end{proof}
+
+\begin{theorem}[Pairing]
+    For any classes $\mathbf{F}$ and $\mathbf{\AA}$ we have
+    \[ \mathbf{F} \left( \bigcup \mathbf{\AA} \right) = \bigcup_{A \in \mathbf{\AA}} \mathbf{F}(A) \]
+\end{theorem}
+
+\begin{proof}
+    \pf\ Each is the class of all $y$ such that $\exists x. \exists A.
+    x \in A \in \mathbf{\AA} \wedge y = \mathbf{F}(x)$. \qed
+\end{proof}
+
+\begin{theorem}[Pairing]
+    For any classes $\mb{F}$, $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
+    \[ \mb{F}(\mb{A_1} \cup \cdots \cup \mb{A_n}) = \mb{F}(\mb{A_1}) \cup \cdots \cup \mb{F}(\mb{A_n}) \enspace . \]
+\end{theorem}
+
+\begin{proof}
+    \pf\ Similar. \qed
+\end{proof}
+
+\begin{theorem}[Pairing]
+    For any classes $\mb{F}$ and $\mb{\AA}$, we have
+    \[ \mb{F} \left( \bigcap \mb{\AA} \right) \subseteq \bigcap_{A \in \mb{\AA}} \mb{F}(A) \enspace . \]
+    Equality holds if $\mb{F}$ is single-rooted and $\mb{\AA}$ is nonempty.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{a}{$F \left( \bigcap \AA \right) \subseteq \bigcap_{A \in \AA} F(A)$}
+    \step{a}{$\mathbf{F} \left( \bigcap \mathbf{\AA} \right) \subseteq \bigcap_{A \in \mathbf{\AA}} \mathbf{F}(A)$}
     \begin{proof}
-        \step{i}{\pflet{$y \in F \left( \bigcap \AA \right)$}}
-        \step{ii}{\pick\ $x \in \bigcap \AA$ such that $y = F(x)$}
-        \step{iii}{\pflet{$A \in \AA$}}
+        \step{i}{\pflet{$y \in \mathbf{F} \left( \bigcap \mathbf{\AA} \right)$}}
+        \step{ii}{\pick\ $x \in \bigcap \mathbf{\AA}$ such that $y = \mathbf{F}(x)$}
+        \step{iii}{\pflet{$A \in \mathbf{\AA}$}}
         \step{iv}{$x \in A$}
-        \step{v}{$y \in F(A)$}
+        \step{v}{$y \in \mathbf{F}(A)$}
     \end{proof}
-    \step{b}{If $F$ is single-rooted then $F \left( \bigcap \AA \right) = \bigcap_{A \in \AA} F(A)$}
+    \step{b}{If $\mathbf{F}$ is single-rooted then $\mathbf{F} \left( \bigcap \mathbf{\AA} \right) = \bigcap_{A \in \mathbf{\AA}} \mathbf{F}(A)$}
     \begin{proof}
-        \step{i}{\assume{$F$ is single-rooted.}}
-        \step{ii}{\pflet{$y \in \bigcap_{A \in \AA} F(A)$}}
-        \step{iii}{\pick\ $A \in \AA$}
-        \step{iv}{\pick\ $x \in A$ such that $y = F(x)$}
-        \step{v}{$x \in \bigcap \AA$}
+        \step{i}{\assume{$\mathbf{F}$ is single-rooted and $\mb{\AA}$ is nonempty.}}
+        \step{ii}{\pflet{$y \in \bigcap_{A \in \mathbf{\AA}} \mathbf{F}(A)$}}
+        \step{iii}{\pick\ $A \in \mathbf{\AA}$}
+        \step{iv}{\pick\ $x \in A$ such that $y = \mathbf{F}(x)$}
+        \step{v}{$x \in \bigcap \mathbf{\AA}$}
         \begin{proof}
-            \step{one}{\pflet{$A' \in \AA$}}
-            \step{two}{\pick\ $x' \in A'$ such that $y = F(x')$}
+            \step{one}{\pflet{$A' \in \mathbf{\AA}$}}
+            \step{two}{\pick\ $x' \in A'$ such that $y = \mathbf{F}(x')$}
             \step{three}{$x = x'$}
             \begin{proof}
                 \pf\ By \stepref{i}.
@@ -597,51 +757,55 @@ the \emph{value} of $F$ at $x$.
     \qed
 \end{proof}
 
-\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any function $F$ and set $\AA$ with $\AA$ nonempty, we have
-    \[ \inv{F} \left( \bigcap \AA \right) = \bigcap_{A \in \AA} \inv{F}(A) \enspace . \]
+\begin{corollary}[Pairing]
+    For any class $\mathbf{F}$ and nonempty class $\mathbf{\AA}$, we have
+    \[ \inv{\mathbf{F}} \left( \bigcap \mathbf{\AA} \right) = \bigcap_{A \in \mathbf{\AA}} \inv{\mathbf{F}}(A) \enspace . \]
 \end{corollary}
 
-\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any sets $F$, $A_1$, \ldots, $A_n$, we have
-    \[ F(A_1 \cap \cdots \cap A_n) \subseteq F(A_1) \cap \cdots \cap F(A_n) \enspace . \]
-    Equality holds if $F$ is single-rooted.
+\begin{theorem}[Pairing]
+    For any classes $\mathbf{F}$, $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
+    \[ \mathbf{F}(\mb{A_1} \cap \cdots \cap \mb{A_n}) \subseteq \mathbf{F}(\mb{A_1}) \cap \cdots \cap \mathbf{F}(\mb{A_n}) \enspace . \]
+    Equality holds if $\mathbf{F}$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Similar.
+\end{proof}
+
+\begin{corollary}[Pairing]
+    For any classes $\mathbf{F}$, $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
+    \[ \inv{\mathbf{F}}(\mb{A_1} \cap \cdots \cap \mb{A_n}) = \inv{\mathbf{F}}(\mb{A_1}) \cap \cdots \cap \inv{\mathbf{F}}(\mb{A_n}) \enspace . \]
 \end{corollary}
 
-\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any function $F$ and sets $A_1$, \ldots, $A_n$, we have
-    \[ \inv{F}(A_1 \cap \cdots \cap A_n) = \inv{F}(A_1) \cap \cdots \cap \inv{F}(A_n) \enspace . \]
-\end{corollary}
-
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any sets $F$, $A$ and $B$, we have
-    \[ F(A) - F(B) \subseteq F(A - B) \enspace . \]
-    Equality holds if $F$ is single-rooted.
+\begin{theorem}[Pairing]
+    For any classes $\mb{F}$, $\mb{A}$ and $\mb{B}$, we have
+    \[ \mb{F}(\mb{A}) - \mb{F}(\mb{B}) \subseteq \mb{F}(\mb{A} - \mb{B}) \enspace . \]
+    Equality holds if $\mb{F}$ is single-rooted.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$F$, $A$ and $B$ be sets.}}
-    \step{2}{$F(A) - F(B) \subseteq F(A - B)$}
+    \step{1}{\pflet{$\mathbf{F}$, $\mathbf{A}$ and $\mathbf{B}$ be sets.}}
+    \step{2}{$\mathbf{F}(\mathbf{A}) - \mathbf{F}(\mathbf{B}) \subseteq \mathbf{F}(\mathbf{A} - \mathbf{B})$}
     \begin{proof}
-        \step{a}{\pflet{$y \in F(A) - F(B)$}}
-        \step{b}{\pick\ $x \in A$ such that $xFy$}
-        \step{c}{$x \in A - B$}
+        \step{a}{\pflet{$y \in \mathbf{F}(\mathbf{A}) - \mathbf{F}(\mathbf{B})$}}
+        \step{b}{\pick\ $x \in \mathbf{A}$ such that $x\mathbf{F}y$}
+        \step{c}{$x \in \mathbf{A} - \mathbf{B}$}
     \end{proof}
-    \step{3}{If $F$ is single-rooted then $F(A-B) = F(A) - F(B)$.}
+    \step{3}{If $\mathbf{F}$ is single-rooted then $\mathbf{F}(\mathbf{A}-\mathbf{B}) = \mathbf{F}(\mathbf{A}) - \mathbf{F}(\mathbf{B})$.}
     \begin{proof}
-        \step{a}{\assume{$F$ is single-rooted.}}
-        \step{b}{\pflet{$y \in F(A-B)$}}
-        \step{c}{\pick\ $x \in A - B$ such that $y = F(x)$}
-        \step{d}{$y \in F(A)$}
-        \step{e}{$y \notin F(B)$}
+        \step{a}{\assume{$\mathbf{F}$ is single-rooted.}}
+        \step{b}{\pflet{$y \in \mathbf{F}(\mathbf{A}-\mathbf{B})$}}
+        \step{c}{\pick\ $x \in \mathbf{A} - \mathbf{B}$ such that $y = \mathbf{F}(x)$}
+        \step{d}{$y \in \mathbf{F}(\mathbf{A})$}
+        \step{e}{$y \notin \mathbf{F}(\mathbf{B})$}
         \begin{proof}
-            \step{i}{\assume{for a contradiction $x' \in B$ and $x'Fy$}}
+            \step{i}{\assume{for a contradiction $x' \in \mathbf{B}$ and $x'\mathbf{F}y$}}
             \step{ii}{$x' = x$}
             \begin{proof}
                 \pf\ From \stepref{a}
             \end{proof}
-            \step{iii}{$x \in B$}
+            \step{iii}{$x \in \mathbf{B}$}
             \qedstep
             \begin{proof}
                 \pf\ This contradicts \stepref{c}.
@@ -651,22 +815,28 @@ the \emph{value} of $F$ at $x$.
     \qed
 \end{proof}
 
-\begin{corollary}[Extensionality, Pairing, Union, Power Set, Subset]
-    For any function $F$ and sets $A$ and $B$, we have
-    \[ \inv{F}(A) - \inv{F}(B) = \inv{F}(A - B) \enspace . \]
+\begin{corollary}[Pairing]
+    For any classes $\mb{F}$ and sets $\mb{A}$ and $\mb{B}$, we have
+    \[ \inv{\mb{F}}(\mb{A}) - \inv{\mb{F}}(\mb{B}) = \inv{\mb{F}}(\mb{A} - \mb{B}) \enspace . \]
 \end{corollary}
 
 \section{Infinite Cartesian Product}
 
-\begin{definition}[Infinite Cartesian Product (Extensionality, Pairing, Union, Power Set, Subset)]
+\begin{definition}[Infinite Cartesian Product (Pairing)]
     Let $H$ be a function with domain $I$. The \emph{Cartesian product}
-    $\prod_{i \in I} H(i)$ is the set of all functions $f$ with domain $I$
+    $\prod_{i \in I} H(i)$ is the class of all functions $f$ with domain $I$
     such that, for all $i \in I$, we have $f(i) \in H(i)$.
-
-    This is a set because it is a subset of $\pow(I \times \bigcup \ran H)$.
 \end{definition}
 
-\begin{theorem}[Axiom of Choice, Second Version (Extensionality, Pairing, Union, Power Set, Subset)]
+\begin{theorem}[Pairing, Union, Power Set, Subset]
+    If $H$ is a function with domain $I$ then $\prod_{i \in I} H(i)$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\pow(I \times \bigcup \ran H)$. \qed
+\end{proof}
+
+\begin{theorem}[Axiom of Choice, Second Version (Pairing, Union, Power Set, Subset)]
     The Axiom of Choice is equivalent to the statement: for any function $H$ with domain $I$,
     if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty.
 \end{theorem}
@@ -698,47 +868,47 @@ the \emph{value} of $F$ at $x$.
 
 \section{Reflexive Relations}
 
-\begin{definition}[Reflexive (Extensionality, Pairing)]
-    Let $R$ be a relation on $A$. Then $R$ is \emph{reflexive} on $A$
-    if and only if, for all $x \in A$, we have $xRx$.
+\begin{definition}[Reflexive (Pairing)]
+    Let $\mathbf{R}$ be a relation on $\mathbf{A}$. Then $\mathbf{R}$ is \emph{reflexive} on $A$
+    if and only if, for all $x \in \mathbf{A}$, we have $x\mathbf{R}x$.
 \end{definition}
 
 \section{Symmetric}
 
-\begin{definition}[Symmetric (Extensionality, Pairing)]
-    Let $R$ be a relation. Then $R$ is \emph{symmetric} if and only if,
-    whenever $xRy$, then $yRx$.
+\begin{definition}[Symmetric (Pairing)]
+    Let $\mathbf{R}$ be a relation. Then $\mathbf{R}$ is \emph{symmetric} if and only if,
+    whenever $x\mathbf{R}y$, then $y\mathbf{R}x$.
 \end{definition}
 
 \section{Transitivity}
 
-\begin{definition}[Transitivity (Extensionality, Pairing)]
-    Let $R$ be a relation. Then $R$ is \emph{transitive} if and only if,
-    whenever $xRy$ and $yRz$, then $xRz$.
+\begin{definition}[Transitivity (Pairing)]
+    Let $\mathbf{R}$ be a relation. Then $\mathbf{R}$ is \emph{transitive} if and only if,
+    whenever $x\mathbf{R}y$ and $y\mathbf{R}z$, then $x\mathbf{R}z$.
 \end{definition}
 
 \section{Equivalence Relations}
 
-\begin{definition}[Equivalence Relation (Extensionality, Pairing)]
-    Let $R$ be a relation on $A$. Then $R$ is an \emph{equivalence relation}
-    on $A$ if and only if $R$ is reflexive on $A$, symmetric and transitive.
+\begin{definition}[Equivalence Relation (Pairing)]
+    Let $\mathbf{R}$ be a relation on $\mathbf{A}$. Then $\mathbf{R}$ is an \emph{equivalence relation}
+    on $\mathbf{A}$ if and only if $\mathbf{R}$ is reflexive on $\mathbf{A}$, symmetric and transitive.
 \end{definition}
 
-\begin{theorem}[Extensionality, Pairing, Union, Subset]
-    If $R$ is a symmetric and transitive relation then $R$ is an equivalence
-    relation on $\fld R$.
+\begin{theorem}[Pairing]
+    If $\mathbf{R}$ is a symmetric and transitive relation then $\mathbf{R}$ is an equivalence
+    relation on $\fld \mathbf{R}$.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$R$ be a symmetric and transitive relation.}}
-    \step{2}{\pflet{$x \in \fld R$}}
-    \step{3}{\pick\ $y$ such that $xRy$ or $yRx$}
-    \step{4}{$xRy$ and $yRx$}
+    \step{1}{\pflet{$\mathbf{R}$ be a symmetric and transitive relation.}}
+    \step{2}{\pflet{$x \in \fld \mathbf{R}$}}
+    \step{3}{\pick\ $y$ such that $x\mathbf{R}y$ or $y\mathbf{R}x$}
+    \step{4}{$x\mathbf{R}y$ and $y\mathbf{R}x$}
     \begin{proof}
         \pf\ By symmetry.
     \end{proof}
-    \step{5}{$xRx$}
+    \step{5}{$x\mathbf{R}x$}
     \begin{proof}
         \pf\ By transitivity.
     \end{proof}
@@ -747,40 +917,41 @@ the \emph{value} of $F$ at $x$.
 
 \section{Equivalence Class}
 
-\begin{definition}[Equivalence Class (Extensionality, Pairing, Subset)]
-    Let $R$ be an equivalence relation on $A$ and $a \in A$. Then the
-    \emph{equivalence class} of $a$ \emph{modulo} $R$ is
-    \[ [a]_R = \{ x \in A \mid aRx \} \enspace . \]
+\begin{definition}[Equivalence Class (Pairing)]
+    Let $\mathbf{R}$ be an equivalence relation on $\mathbf{A}$ and $a \in \mathbf{A}$.
+    Then the
+    \emph{equivalence class} of $a$ \emph{modulo} $\mathbf{R}$ is
+    \[ [a]_\mathbf{R} = \{ x \in \mathbf{A} \mid a\mathbf{R}x \} \enspace . \]
 \end{definition}
 
 \begin{lemma}[Extensionality, Pairing, Subset]
     \label{lemma:equivalence_classes}
-    Let $R$ be an equivalence relation on $A$ and $x,y \in A$.
-    Then $[x]_R = [y]_R$ if and only if $xRy$.
+    Let $\mathbf{R}$ be an equivalence relation on $\mathbf{A}$ and $x,y \in \mathbf{A}$.
+    Then $[x]_\mathbf{R} = [y]_\mathbf{R}$ if and only if $x\mathbf{R}y$.
 \end{lemma}
 
 \begin{proof}
     \pf
-    \step{1}{If $[x]_R = [y]_R$ then $xRy$.}
+    \step{1}{If $[x]_\mathbf{R} = [y]_\mathbf{R}$ then $x\mathbf{R}y$.}
     \begin{proof}
-        \step{a}{\assume{$[x]_R = [y]_R$}}
-        \step{b}{$y \in [y]_R$}
+        \step{a}{\assume{$[x]_\mathbf{R} = [y]_\mathbf{R}$}}
+        \step{b}{$y \in [y]_\mathbf{R}$}
         \begin{proof}
-            \pf\ Since $yRy$ by reflexivity.
+            \pf\ Since $y\mathbf{R}y$ by reflexivity.
         \end{proof}
-        \step{c}{$y \in [x]_R$}
-        \step{d}{$xRy$}
+        \step{c}{$y \in [x]_\mathbf{R}$}
+        \step{d}{$x\mathbf{R}y$}
     \end{proof}
-    \step{2}{If $xRy$ then $[x]_R = [y]_R$.}
+    \step{2}{If $x\mathbf{R}y$ then $[x]_\mathbf{R} = [y]_\mathbf{R}$.}
     \begin{proof}
-        \step{a}{\assume{$xRy$}}
-        \step{b}{$[y]_R \subseteq [x]_R$}
+        \step{a}{\assume{$x\mathbf{R}y$}}
+        \step{b}{$[y]_\mathbf{R} \subseteq [x]_\mathbf{R}$}
         \begin{proof}
-            \pf\ If $yRz$ then $xRz$ by transitivity.
+            \pf\ If $y\mathbf{R}z$ then $x\mathbf{R}z$ by transitivity.
         \end{proof}
-        \step{c}{$[x]_R \subseteq [y]_R$}
+        \step{c}{$[x]_\mathbf{R} \subseteq [y]_\mathbf{R}$}
         \begin{proof}
-            \pf\ Similar since $yRx$ by symmetry.
+            \pf\ Similar since $y\mathbf{R}x$ by symmetry.
         \end{proof}
     \end{proof}
     \qed
@@ -789,8 +960,8 @@ the \emph{value} of $F$ at $x$.
 \section{Disjoint}
 
 \begin{definition}[Disjoint]
-    Two sets $A$ and $B$ are \emph{disjoint} if and only if there is no $x$
-    such that $x \in A$ and $x \in B$.
+    Two classes $\mathbf{A}$ and $\mathbf{B}$ are \emph{disjoint} if and only if there is no $x$
+    such that $x \in \mathbf{A}$ and $x \in \mathbf{B}$.
 \end{definition}
 
 \section{Partitions}
@@ -805,7 +976,7 @@ the \emph{value} of $F$ at $x$.
 
 \section{Quotient Sets}
 
-\begin{definition}[Quotient Set (Extensionality, Pairing, Power Set, Subset)]
+\begin{definition}[Quotient Set (Pairing, Power Set, Subset)]
     Let $R$ be an equivalence relation on $A$. The \emph{quotient set} $A / R$
     is the set of all equivalence classes modulo $R$.
 
@@ -835,7 +1006,7 @@ the \emph{value} of $F$ at $x$.
     \qed
 \end{proof}
 
-\begin{definition}[Canonical Map (Extensionality, Pairing, Power Set, Subset)]
+\begin{definition}[Canonical Map (Pairing, Power Set, Subset)]
     Let $R$ be an equivalence relation on $A$. The \emph{canonical map} $\phi : A \rightarrow A / R$
     is the function defined by $\phi(a) = [a]_R$.
 \end{definition}
@@ -1102,4 +1273,25 @@ the \emph{value} of $F$ at $x$.
     \step{4}{\pick\ a set $c$ consisting of exactly one element from each $B'$ for $B \in \BB$.}
     \step{5}{$c$ is a choice function for $\BB$.}
     \qed
+\end{proof}
+
+\section{Transitive}
+
+\begin{definition}[Transitive Set]
+    A set $A$ is \emph{transitive} if and only if, whenever $x \in y \in A$
+    then $x \in A$.
+\end{definition}
+
+\begin{theorem}[Union, Power Set]
+    Let $A$ be a set. Then the following are equivalent.
+    \begin{enumerate}
+        \item $A$ is transitive.
+        \item $\bigcup A \subseteq A$
+        \item For all $a \in A$ we have $a \subseteq A$
+        \item $A \subseteq \pow A$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \pf\ From definitions. \qed
 \end{proof}

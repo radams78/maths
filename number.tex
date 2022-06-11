@@ -1,0 +1,613 @@
+\chapter{Natural Numbers}
+
+\section{Successors}
+
+\begin{definition}[Successor (Pairing, Union)]
+For any set $a$, its \emph{Successor} $a^+$ is the set $a \cup \{ a \}$    
+\end{definition}
+
+\begin{theorem}[Pairing, Union]
+    If $a$ is a transitive set then $\bigcup (a^+) = a$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \begin{align*}
+        \bigcup (a^+) & = \bigcup (a \cup \{a\}) \\
+        & = \bigcup a \cup \bigcup \{a\} \\
+        & = \bigcup a \cup a \\
+        & = a & (\bigcup a \subseteq a) \qed
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:transitive_successor}
+    If $A$ is a transitive set then $A^+$ is transitive.
+\end{theorem}
+
+\begin{proof}
+    \pf\ If $A$ is transitive then $\bigcup (A^+) = A \subseteq A^+$. \qed
+\end{proof}
+
+\section{Inductive Sets}
+
+\begin{definition}[Inductive (Extensionality, Empty Set, Pairing, Union)]
+    A set $A$ is \emph{inductive} iff $\emptyset \in A$ and, for every $a \in A$,
+    we have $a^+ \in A$.
+\end{definition}
+
+\begin{axiom}[Axiom of Infinity (Extensionality, Empty Set, Pairing, Union)]
+    There exists an inductive set.
+\end{axiom}
+
+\section{Natural Numbers}
+
+\begin{definition}[Natural Number (Extensionality, Empty Set, Pairing, Union)]
+    A \emph{natural number} is a set that belongs to every inductive set.
+
+    We write $\NN$ for the class of all natural numbers.
+\end{definition}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    The class of natural numbers is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ an inductive set $I$.}
+    \begin{proof}
+        \pf\ By the Axiom of Infinity.
+    \end{proof}
+    \step{2}{$\NN \subseteq I$}
+    \qedstep
+    \begin{proof}
+        \pf\ By a Subset Axiom.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    The set $\NN$ is inductive.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$\emptyset \in \NN$}
+    \begin{proof}
+        \pf\ Since $\emptyset$ is a member of every inductive set.
+    \end{proof}
+    \step{2}{For all $n \in \NN$ we have $n^+ \in \NN$}
+    \begin{proof}
+        \pf\ If $n$ is a member of every inductive set then so is $n^+$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    The set $\NN$ is a subset of every inductive set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Immediate from definition. \qed
+\end{proof}
+
+\begin{corollary}[Proof by Induction (Extensionality, Empty Set, Pairing, Union, Infinity, Subset)]
+    If $A \subseteq \NN$ and $A$ is inductive then $A = \NN$.
+\end{corollary}
+
+\begin{definition}[Zero (Empty Set)]
+    The natural number \emph{zero}, $0$, is defined to be $\emptyset$.
+\end{definition}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    Every natural number except 0 is a successor of a natural number.
+\end{theorem}
+
+\begin{proof}
+    \pf\ The set $\{ x \in \NN \mid x = 0 \vee \exists y \in \NN. x = y^+ \}$ is inductive. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    Every natural number is transitive.
+\end{theorem}
+
+\begin{proof}
+    \pf\ By induction using Theorem \ref{theorem:transitive_successor}. \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    The set $\NN$ is transitive.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{For every natural number $n$ and every $m \in n$ then $m$
+    is a natural number.}
+    \begin{proof}
+        \step{a}{Every member of $\emptyset$ is a natural number.}
+        \begin{proof}
+            \pf\ Vacuous.
+        \end{proof}
+        \step{b}{If $n$ is a natural number and a set of natural numbers then $n^+$ is a
+        set of natural numbers.}
+        \begin{proof}
+            \pf\ From the definition of $n^+$.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By induction.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Extensionality, Empty Set, Pairing, Union, Infinity, Subset]
+    Let $A$ be a set, $a \in A$, and $F : A \rightarrow A$. Then there exists
+    a unique function $h : \NN \rightarrow A$ such that $h(0) = a$
+    and, for all $n \in \NN$, we have $h(n^+) = F(h(n))$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Call a function $v$ \emph{acceptable} iff $\dom v \subseteq \NN$,
+    $\ran v \subseteq A$, and:
+    \begin{enumerate}
+        \item If $0 \in \dom v$ then $v(0) = a$.
+        \item For all $n \in \NN$, if $n^+ \in \dom v$ then $n \in \dom v$
+        and $v(n^+) = F(v(n))$.
+    \end{enumerate}
+    }
+    \step{2}{\pflet{$\mathcal{K}$ be the set of all acceptable functions.}}
+    \step{3}{\pflet{$h = \bigcup \mathcal{K}$}}
+    \step{4}{$h$ is a function.}
+    \begin{proof}
+        \step{1}{If $(0,y) \in h$ and $(0,y') \in h$ then $y = y'$}
+        \begin{proof}
+            \pf\ We have $y = y' = a$.
+        \end{proof}
+        \step{2}{For any natural number $n$, if there is at most one $y$ such that
+        $(n,y) \in h$, then there is at most one $y$ such that $(n^+,y) \in h$}
+        \begin{proof}
+            \step{a}{\pflet{$n$ be a natural number.}}
+            \step{b}{\assume{there is at most one $y$ such that $(n,y) \in h$}}
+            \step{c}{\assume{$(n^+,y)$ and $(n^+,y')$ are in $h$)}}
+            \step{d}{\pick\ acceptable functions $u$ and $v$ such that $u(n^+) = y$
+            and $v(n^+) = y'$}
+            \step{e}{$n \in \dom u$, $n \in \dom v$ and $y = F(u(n))$, $y'=F(v(n))$}
+            \step{f}{$u(n) = v(n)$}
+            \begin{proof}
+                \pf\ By the induction hypothesis \stepref{b}
+            \end{proof}
+            \step{g}{$y = y'$}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By induction.
+        \end{proof}
+    \end{proof}
+    \step{5}{$h$ is acceptable.}
+    \begin{proof}
+        \step{a}{If $0 \in \dom h$ then $h(0) = a$}
+        \step{b}{If $n^+ \in \dom h$ then $n \in \dom h$ and $h(n^+) = F(h(n))$}
+        \begin{proof}
+            \step{i}{\assume{$n^+ \in \dom h$}}
+            \step{ii}{\pick\ an acceptable $v$ such that $n^+ \in \dom v$}
+            \step{iii}{$v(n^+) = F(v(n))$}
+            \step{iv}{$h(n^+) = F(h(n))$}
+        \end{proof}
+    \end{proof}
+    \step{6}{$\dom h = \NN$}
+    \begin{proof}
+        \step{a}{$0 \in \dom h$}
+        \begin{proof}
+            \pf\ Since $\{(0,a)\}$ is an acceptable function.
+        \end{proof}
+        \step{b}{For all $n \in \dom h$ we have $n^+ \in \dom h$}
+        \begin{proof}
+            \step{i}{\assume{$n \in \dom h$}}
+            \step{ii}{\pflet{$v$ be an acceptable function with $n \in \dom v$}}
+            \step{iii}{\assume{without loss of generality $n^+ \notin \dom v$}}
+            \step{iv}{$v \cup \{ (n^+, F(v(n))) \}$ is acceptable}
+            \step{v}{$n^+ \in \dom v$}
+        \end{proof}
+    \end{proof}
+    \step{7}{If $h' : \NN \rightarrow A$, $h'(0) = a$ and, for all $n \in \NN$,
+    we have $h'(n^+) = F(h'(n))$, then $h' = h$}
+    \begin{proof}
+        \pf\ Prove $h(n) = h'(n)$ by induction on $n$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Peano Systems}
+
+\begin{definition}[Peano System]
+    A \emph{Peano system} consists of a set $N$, an element $z \in N$,
+    and a function $S : N \rightarrow N$ such that:
+    \begin{itemize}
+        \item $S$ is one-to-one
+        \item $z \notin \ran S$
+        \item For any set $A \subseteq N$, if $z \in A$ and $S(A) \subseteq A$
+        then $A = N$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    $\NN$ is a Peano system with zero $0$ and successor $n \mapsto n^+$.
+\end{theorem}
+
+\begin{theorem}
+    For any Peano system $(N, z, S)$, there exists a unique bijection
+    $h : \NN \cong N$ such that $h(0) = z$ and $S(h(n)) = h(n^+)$
+    for all $n$.
+\end{theorem}
+
+\section{Arithmetic}
+
+\begin{definition}[Addition]
+    Define \emph{addition} $+ : \NN^2 \rightarrow \NN$ recursively by
+    \begin{align*}
+        m + 0 & = m \\
+        m + n^+ & = (m + n)^+
+    \end{align*}
+    for any $m, n \in \NN$.
+\end{definition}
+
+\begin{theorem}
+    Addition is associative.
+\end{theorem}
+
+\begin{theorem}
+    Addition is commutative
+\end{theorem}
+
+\begin{definition}[Multiplication]
+    Define \emph{multiplication} $\cdot : \NN^2 \rightarrow \NN$ recursively by
+    \begin{align*}
+        m 0 & = 0 \\
+        m n^+ & = mn + m
+    \end{align*}
+    for any $m, n \in \NN$
+\end{definition}
+
+\begin{theorem}
+    Multiplication is associative.
+\end{theorem}
+
+\begin{theorem}
+    Multiplication is commutative.
+\end{theorem}
+
+\begin{theorem}
+    Multiplication distributes over addition.
+\end{theorem}
+
+\begin{definition}
+    For natural numbers $m$ and $n$, we write $m < n$ iff $m \in n$.
+    We write $m \leq n$ iff $m < n$ or $m = n$.
+\end{definition}
+
+\begin{theorem}
+    We have $m < n$ iff $m^+ < n^+$.
+\end{theorem}
+
+\begin{theorem}
+    We never have $n < n$.
+\end{theorem}
+
+\begin{theorem}
+    The ordering on $\NN$ satisfies trichotomy; that is, for any $m$, $n$,
+    exactly one of $m < n$, $m = n$, $n < m$ holds.
+\end{theorem}
+
+\begin{theorem}
+    For any natural numbers $m$ and $n$, we have $m \leq n$ iff $m \subseteq n$.
+\end{theorem}
+
+\begin{theorem}
+    We have $m < n$ iff $m + p < n + p$.
+\end{theorem}
+
+\begin{corollary}
+    If $m + p = n + p$ then $m = n$.
+\end{corollary}
+
+\begin{theorem}
+    If $p \neq 0$ then $m < n$ iff $mp < np$.
+\end{theorem}
+
+\begin{corollary}
+    If $mp = np$ and $p \neq 0$ then $m = n$.
+\end{corollary}
+
+\begin{theorem}[Well-Ordering of $\NN$]
+    Any nonempty set $A \subseteq \NN$ has a least element.
+\end{theorem}
+
+\begin{corollary}
+    There is no function $f : \NN \rightarrow \NN$ such that $f(n^+) < f(n)$
+    for all $n$.
+\end{corollary}
+
+\begin{theorem}[Strong Induction]
+    Let $A \subseteq \NN$. Suppose that, for every natural number $n$,
+    if $\forall m < n. m \in A$ then $n \in A$. Then $A = \NN$.
+\end{theorem}
+
+\chapter{Integers}
+
+\begin{lemma}
+    Define $\sim$ on $\NN^2$ by: $(m,n) \sim (p,q)$ iff $m + q = n + p$.
+    Then $\sim$ is an equivalence relation on $\NN^2$.
+\end{lemma}
+
+\begin{definition}[Integers]
+    The set $\ZZ$ of \emph{integers} is $\NN^2 / \sim$.
+\end{definition}
+
+\begin{definition}
+    Define \emph{addition} $+ : \ZZ^2 \rightarrow \ZZ$ by: $(m,n) + (p,q) = (m+p,n+q)$.
+    
+    Prove this is well-defined.
+\end{definition}
+
+\begin{theorem}
+    Addition is associative and commutative.
+\end{theorem}
+
+\begin{definition}[Zero]
+    The integer \emph{zero} is $0 = (0,0)$.
+\end{definition}
+
+\begin{theorem}
+    For any integer $a$, we have $a + 0 = a$.
+\end{theorem}
+
+\begin{theorem}
+    For any integer $a$, there exists a unique integer $b$ such that $a + b = 0$.
+\end{theorem}
+
+\begin{definition}[Multiplication]
+    Define multiplication on $\ZZ$ by $(m,n)(p,q) = (mp+nq,mq+np)$.
+\end{definition}
+
+\begin{theorem}
+    Multiplication is associative, commutative and distributive over addition.
+\end{theorem}
+
+\begin{definition}
+    The integer \emph{one} is $1 = (1,0)$.
+\end{definition}
+
+\begin{theorem}
+    For any integer $a$ we have $a1 = a$.
+\end{theorem}
+
+\begin{theorem}
+    $1 \neq 0$
+\end{theorem}
+
+\begin{theorem}
+    Whenever $ab = 0$ then either $a = 0$ or $b = 0$.
+\end{theorem}
+
+\begin{definition}
+    Define $<$ on $\ZZ$ by: $(m,n) < (p,q)$ iff $m + q < n + p$.
+\end{definition}
+
+\begin{theorem}
+    The relation $<$ is a strict linear ordering on $\ZZ$.
+\end{theorem}
+
+\begin{theorem}
+    We have $a < b$ iff $< + c < b + c$.
+\end{theorem}
+
+\begin{corollary}
+    If $a + c = b + c$ then $a = b$.
+\end{corollary}
+
+\begin{theorem}
+    If $0 < c$ then $a < b$ iff $ac < bc$.
+\end{theorem}
+
+\begin{corollary}
+    If $ac = bc$ and $c \neq 0$ then $a = b$.
+\end{corollary}
+
+\begin{definition}
+    We identify any natural number $n$ with the integer $(n,0)$.
+\end{definition}
+
+\begin{theorem}
+    This embedding preserves 0, 1, addition, multiplication and the ordering.
+\end{theorem}
+
+\chapter{Rational Numbers}
+
+\begin{definition}[Rational Numbers]
+    The set of \emph{rationals} $\QQ$ is $\ZZ \times (\ZZ \setminus \{0\}) / \sim$, where
+    $(a,b) \sim (c,d)$ iff $ad = bc$.
+\end{definition}
+
+\begin{definition}[Addition]
+    Define addition on $\QQ$ by: $(a,b) + (c,d) = (ad+bc,bd)$.
+\end{definition}
+
+\begin{theorem}
+    Addition is commutative and associative
+\end{theorem}
+
+\begin{definition}
+    The rational number 0 is $(0,1)$.
+\end{definition}
+
+\begin{theorem}
+    For any rational $q$ we have $q + 0 = q$.
+\end{theorem}
+
+\begin{theorem}
+    For any rational $q$, there exists a unique rational $r$ such that $q + r = 0$.
+\end{theorem}
+
+\begin{definition}
+    Define multiplication on $\QQ$ by: $(a,b)(c,d) = (ac,bd)$.
+\end{definition}
+
+\begin{theorem}
+    Multiplication is commutative, associative and distributive over addition.
+\end{theorem}
+
+\begin{definition}
+    The rational number 1 is $(1,1)$.
+\end{definition}
+
+\begin{theorem}
+    For every nonzero rational $r$, there exists a nonzero rational $q$ such that $rq = 1$.
+\end{theorem}
+
+\begin{corollary}
+    If $qr = 0$ then either $q = 0$ or $r = 0$.
+\end{corollary}
+
+\begin{definition}
+    Define $<$ on $\QQ$ by: for $b$ and $d$ positive, $(a,b) < (c,d)$ iff $ad < bc$.
+\end{definition}
+
+\begin{theorem}
+    The relation $<$ is a strict linear ordering on $\QQ$.
+\end{theorem}
+
+\begin{theorem}
+    We have $q < r$ iff $q + s < r + s$
+\end{theorem}
+
+\begin{corollary}
+    If $q + s = r + s$ then $q = r$.
+\end{corollary}
+
+\begin{theorem}
+    If $s > 0$ then we have $q < r$ iff $qs < rs$.
+\end{theorem}
+
+\begin{corollary}
+    If $qs = rs$ and $s \neq 0$ then $q = r$.
+\end{corollary}
+
+\begin{definition}
+    We identify an integer $n$ with the rational $(n,1)$.
+\end{definition}
+
+\begin{theorem}
+    This embedding preserves zero, one, addition, multiplication and the ordering.
+\end{theorem}
+
+\chapter{Real Numbers}
+
+\begin{definition}[Dedekind Cut]
+    A \emph{Dedekind cut} is a subset $X \subseteq \QQ$ such that:
+    \begin{itemize}
+        \item $X$ is nonempty
+        \item $X \neq \QQ$
+        \item $X$ is closed downward
+        \item $X$ has no largest element.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Real Numbers]
+    The set of \emph{real numbers} $\RR$ is the set of all Dedekind cuts.
+\end{definition}
+
+\begin{definition}
+    Define $<$ on $\RR$ by: $x < y$ iff $x$ is a proper subset of $y$.
+\end{definition}
+
+\begin{theorem}
+    The relation $<$ is a strict linear ordering on $\RR$.
+\end{theorem}
+
+\begin{theorem}
+    Any bounded nonempty subset of $\RR$ has a least upper bound.
+\end{theorem}
+
+\begin{definition}
+    Define addition on $\RR$ by: $x + y = \{ q + r \mid q \in x, r \in y \}$.
+\end{definition}
+
+\begin{theorem}
+    Addition is associative and commutative.
+\end{theorem}
+
+\begin{definition}
+    The zero real $0$ is $\{ q \in \QQ \mid q < 0 \}$.
+\end{definition}
+
+\begin{theorem}
+    For any $x \in \RR$ we have $x + 0 = x$.
+\end{theorem}
+
+\begin{definition}
+    Given a real $x$, define $-x = \{ q \in \QQ \mid \exists r > q. -r \notin x \}$.
+\end{definition}
+
+\begin{theorem}
+    For any real $x$ we have $x + (-x) = 0$.
+\end{theorem}
+
+\begin{corollary}
+    If $x + z = y + z$ then $x = y$.
+\end{corollary}
+
+\begin{theorem}
+    We have $x < y$ iff $x + z < y + z$.
+\end{theorem}
+
+\begin{definition}
+    Define the \emph{absolute value} of a real $x$ by $|x| = x \cup -x$.
+\end{definition}
+
+\begin{theorem}
+    For any real $x$ we have $0 \leq |x|$.
+\end{theorem}
+
+\begin{definition}
+    Define multiplication on $\RR$ by:
+    \begin{itemize}
+        \item If $x$ and $y$ are nonnegative then
+        \[ xy = 0 \cup \{ qr \mid 0 \leq q, 0 \leq r, q \in x, r \in y \} \]
+        \item If $x$ and $y$ are both negative then $xy = |x| |y|$
+        \item If one of $x$ and $y$ is negaive and the other not then $xy = -|x| |y|$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Multiplication is associative, commutative and distributive over addition.
+\end{theorem}
+
+\begin{definition}
+    The real number 1 is $\{ q \in \QQ \mid q < 1 \}$.
+\end{definition}
+
+\begin{theorem}
+    $0 \neq 1$
+\end{theorem}
+
+\begin{theorem}
+    For any real $x$ we have $x1 = x$
+\end{theorem}
+
+\begin{theorem}
+    For any nonzero $x$, there exists a real $y$ with $xy = 1$.
+\end{theorem}
+
+\begin{theorem}
+    If $0 < x$ then $y < z$ iff $xy < xz$.
+\end{theorem}
+
+\begin{definition}
+    Identify a rational $q$ with $\{ r \in \QQ \mid r < q \}$.
+\end{definition}
+
+\begin{theorem}
+    This embedding preserves zero, one, addition, multiplication and the ordering.
+\end{theorem}
