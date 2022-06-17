@@ -291,6 +291,11 @@
     $x \leq y$ iff $x < y$ or $x = y$, is a partial order.
 \end{proposition}
 
+\begin{theorem}
+    If $R$ is a well-founded relation then its transitive
+    closure is a partial order.
+\end{theorem}
+
 \begin{definition}[Linear Order]
     A \emph{linear order} on a set $X$ is a partial order such that, for any $x, y \in X$, either $x \leq y$ or $y \leq x$.
 \end{definition}
@@ -658,6 +663,13 @@
     \pf\ Let $\beta$ be the supremum of $\alpha$, $\mathbf{F}(\alpha)$, $\mathbf{F}^2(\alpha)$, \ldots. \qed
 \end{proof}
 
+\begin{lemma}
+    Let $\alpha$ be an ordinal. Let $(f(\gamma))_{\gamma < \alpha}$
+    be an $\alpha$-sequence of ordinals. Then there exists $\beta \leq \alpha$
+    and an increasing sequence of ordinals $(g(\gamma))_{\gamma < \beta}$
+    such that $\sup_{\gamma < \alpha} f(\gamma) = \sup_{\gamma < \beta} g(\gamma)$.
+\end{lemma}
+
 \section{Cardinal Numbers}
 
 \begin{definition}[Cardinal Number (AC)]
@@ -819,6 +831,27 @@
 
     The \emph{von Neumann universe} is the class $\mathbf{V} = \bigcup_{\alpha \in \On} V_\alpha$.
 \end{definition}
+
+\begin{theorem}
+    If $\lambda$ is a limit ordinal and $\lambda > \omega$
+    then $V_\lambda$ is a model of Zermelo set theory.
+\end{theorem}
+
+\begin{lemma}[AC]
+    There exists a well-ordered set in $V_{\omega 2}$ whose
+    ordinal is not in $V_{\omega 2}$.
+\end{lemma}
+
+\begin{proof}
+    \pf\ Pick a well-ordering $<$ of $\pow \NN$. Then $(\pow \NN, <) \in
+    V_{\omega 2}$ but its ordinal is not because its ordinal is uncountable. \qed
+\end{proof}
+
+\begin{theorem}
+    The set $V_{\omega 2}$ is not a model of Zermelo-Fraenkel set theory.
+\end{theorem}
+
+Thus, the Replacement Axioms cannot be proven from the other axioms.
 
 \begin{definition}[Well-Founded Set]
     A set $A$ is \emph{well-founded} iff $A \in V_\alpha$ for some $\alpha \in \On$.
@@ -1004,4 +1037,95 @@ $\gamma < \delta$ and $\alpha = \delta \beta + \gamma$.
 
 \begin{theorem}
     \[ (\alpha^\beta)^\gamma = \alpha^{\beta \gamma} \]
+\end{theorem}
+
+\section{Beth Cardinals}
+
+\begin{definition}
+    Define the cardinal $\beth_\alpha$ for every ordinal $\alpha$ by:
+    \begin{align*}
+        \beth_0 & = \aleph_0 \\
+        \beth_{\alpha + 1} & = 2^{\beth_\alpha} \\
+        \beth_\lambda & = \sup_{\alpha < \lambda} \beth_\alpha
+    \end{align*}
+    for $\lambda$ a limit ordinal.
+\end{definition}
+
+\begin{lemma}
+    For any ordinal $\alpha$ we have $\card V_{\omega + \alpha} = \beth_\alpha$.
+\end{lemma}
+
+\section{Cofinality}
+
+\begin{definition}[Cofinality]
+    For $\lambda$ a limit ordinal, the \emph{cofinality} of $\lambda$,
+    $\cf \lambda$, is the least cardinal $\kappa$ such that $\lambda$ is the supremum
+    of a set of $\kappa$ smaller ordinals.
+
+    We extend $\cf$ to all the ordinals by setting $\cf 0 = 0$ and
+    $\cf (\alpha + 1) = 1$.
+\end{definition}
+
+\begin{theorem}
+    For any limit ordinal $\lambda$ we have $\cf \aleph_\lambda = \cf \lambda$.
+\end{theorem}
+
+\begin{lemma}
+    Let $\lambda$ be a limit ordinal. Then $\cf \lambda$
+    is the least ordinal $\alpha$ such that there exists an
+    increasing $\alpha$-sequence of ordinals with limit $\lambda$.
+\end{lemma}
+
+\begin{theorem}
+    Let $\lambda$ be an infinite cardinal. Then $\cf \lambda$
+    is the least cardinal number $\kappa$ such that $\lambda$
+    can be partitioned into $\kappa$ sets each of cardinality $< \lambda$.
+\end{theorem}
+
+\begin{theorem}[K\"{o}nig's Theorem]
+    Let $\kappa$ be an infinite cardinal. Then $\kappa < 2^{\cf \kappa}$.
+\end{theorem}
+
+\begin{corollary}
+    $2^{\aleph_0} \neq \aleph_\omega$.
+\end{corollary}
+    
+\begin{definition}[Regular]
+    A cardinal $\kappa$ is \emph{regular} iff $\cf \kappa = \kappa$.
+\end{definition}
+
+\begin{theorem}
+    For any ordinal $\lambda$, we have $\cf \lambda$ is a regular cardinal.
+\end{theorem}
+
+\begin{definition}[Singular]
+    A cardinal $\kappa$ is \emph{singular} iff $\cf \kappa < \kappa$.
+\end{definition}
+
+\begin{theorem}
+    For any ordinal $\alpha$ we have $\aleph_{\alpha + 1}$ is a regular cardinal.
+\end{theorem}
+
+\section{Inaccessible Cardinals}
+
+\begin{definition}[Inaccessible]
+    A cardinal number $\kappa$ is \emph{inaccessible}
+    iff:
+    \begin{itemize}
+        \item $\kappa > \aleph_0$
+        \item For every cardinal $\lambda < \kappa$ we have $2^\lambda < \kappa$
+        \item $\kappa$ is regular.   
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    If $\kappa$ is inaccessible and $\alpha < \kappa$ then $\beth_\alpha < \kappa$.
+\end{lemma}
+
+\begin{lemma}
+    If $\kappa$ is inaccessible and $A \in V_\kappa$ then $\card A < \kappa$.
+\end{lemma}
+
+\begin{theorem}
+    If $\kappa$ is inaccessible then $V_\kappa$ is a model of ZF.
 \end{theorem}

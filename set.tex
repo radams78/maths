@@ -1322,6 +1322,55 @@ only if $P(x)$.
     \pf\ From definitions. \qed
 \end{proof}
 
+\section{Minimal Elements}
+
+\begin{definition}[Minimal]
+    Let $R$ be a binary relation and $A$ a set. An element $a \in A$
+    is \emph{minimal} w.r.t. $R$ iff there is no $x \in A$
+    such that $xRa$.
+\end{definition}
+
+\section{Well-Founded Relations}
+
+\begin{definition}[Well-Founded]
+    Let $R$ be a relation on $A$. Then $R$ is \emph{well-founded}
+    iff every nonempty subset of $A$ has an $R$-minimal element.
+\end{definition}
+
+\begin{theorem}[Transfinite Induction]
+    Let $R$ be a well-founded relation on $A$ and $B \subseteq A$.
+    Assume that, for every $t \in A$, if $\{ x \in A \mid x Rt \} \subseteq B$
+    then $t \in B$. Then we have $B = A$.
+\end{theorem}
+
+\begin{theorem}[Transfinite Recursion]
+    Let $R$ be a well-founded relation on a set $C$.
+
+    Let $\mathbf{A}$ be a class. Let $\mathbf{B}$ be the class of all functions
+    from a subset of $C$ to $\mathbf{A}$.
+    Let $\mathbf{F} : \mathbf{B} \times C \rightarrow \mathbf{A}$ be a class term.
+
+    Then there
+    exists a unique function $f : C \rightarrow \mathbf{A}$ such that, for all $t \in C$,
+    we have $f(t) = \mathbf{F}(f \restriction \{ x \in C \mid x R t \}, t)$.
+\end{theorem}
+\section{Transitive Closure}
+
+\begin{theorem}
+    Let $R$ be a relation. Then there exists a unique relation
+    $R^t$ such that $R^t$ is transitive, $R \subseteq R^t$,
+    and for every transitive relation $S$ with $R \subseteq S$
+    we have $R^t \subseteq S$.
+\end{theorem}
+
+\begin{definition}[Transitive Closure]
+    The \emph{transitive closure} of a relation $R$ is this relation $R^t$.
+\end{definition}
+
+\begin{theorem}
+    If $R$ is well-founded then $R^t$ is well-founded.
+\end{theorem}
+
 \chapter{Cardinal Numbers}
 
 \begin{definition}[Equinumerous]
