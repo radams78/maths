@@ -334,6 +334,15 @@ For any set $a$, its \emph{Successor} $a^+$ is the set $a \cup \{ a \}$
     if $\forall m < n. m \in A$ then $n \in A$. Then $A = \NN$.
 \end{theorem}
 
+\begin{theorem}[Pigeonhole Principle]
+    No natural number is equinumerous with a proper subset of itself.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Prove by induction on $n$ that if $f : n \rightarrow n$ is injective
+    then it is surjective. \qed
+\end{proof}
+
 \chapter{Integers}
 
 \begin{lemma}
@@ -611,3 +620,56 @@ For any set $a$, its \emph{Successor} $a^+$ is the set $a \cup \{ a \}$
 \begin{theorem}
     This embedding preserves zero, one, addition, multiplication and the ordering.
 \end{theorem}
+
+\chapter{Finite Sets}
+
+\begin{definition}[Finite]
+    A set is \emph{finite} iff it is equinumerous with a natural number;
+    otherwise it is \emph{infinite}.
+\end{definition}
+
+\begin{theorem}
+    No finite set is equinumerous with a proper subset of itself.
+\end{theorem}
+
+\begin{proof}
+    \pf\ From the Pigeonhole Principle.
+\end{proof}
+
+\begin{corollary}
+    The set $\NN$ is infinite.
+\end{corollary}
+
+\begin{corollary}
+    A finite set is equinumerous with a unique natural number.
+\end{corollary}
+
+\begin{lemma}
+    If $A$ is a proper subset of a natural number $n$ then there exists
+    $m < n$ such that $C \equiv m$.
+\end{lemma}
+
+\begin{corollary}
+    A subset of a finite set is finite.
+\end{corollary}
+
+\begin{theorem}[Regularity]
+    There is no function $f$ with domain $\NN$ such that $f(n+1) \in f(n)$ for all $n$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $f$ is a function with domain $\NN$
+    such that $f(n+1) \in f(n)$ for all $n$.}}
+    \step{2}{\pick\ $m \in \ran f$ such that $m \cap \ran f = \emptyset$}
+    \begin{proof}
+        \pf\ By the Axiom of Regularity.
+    \end{proof}
+    \step{3}{\pick\ $n \in \NN$ such that $f(n) = m$}
+    \step{4}{$f(n+1) \in m \cap \ran f$}
+    \qedstep
+    \begin{proof}
+        \pf\ This is a contradiction.
+    \end{proof}
+    \qed
+\end{proof}

@@ -401,6 +401,20 @@ only if $P(x)$.
     $\dom H = \dom R$.
 \end{axiom}
 
+\begin{theorem}
+    The following are equivalent.
+    \begin{enumerate}
+        \item The Axiom of Choice
+        \item (\textbf{Multiplicative Axiom}) For any function $H$ with domain $I$ such that $H(i)$ is nonempty for all $i \in I$,
+        there exists a function $f$ with domain $I$ such that, for all $i \in I$,
+        we have $f(i) \in H(i)$.
+        \item Every set has a choice function.
+        \item Let $\mathcal{A}$ be a set of pairwise disjoint nonempty sets.
+        Then there exists a set $C$ containing exactly one element from each
+        member of $\mathcal{A}$.
+    \end{enumerate}
+\end{theorem}
+
 \section{Single-Rooted}
 
 \begin{definition}[Single-Rooted (Pairing)]
@@ -964,6 +978,18 @@ only if $P(x)$.
     such that $x \in \mathbf{A}$ and $x \in \mathbf{B}$.
 \end{definition}
 
+\begin{axiom}[Regularity]
+    For any nonempty set $A$, there exists $m \in A$ such that $m$ and $A$ are disjoint.
+\end{axiom}
+
+\begin{theorem}[Regularity]
+    No set is a member of itself.
+\end{theorem}
+
+\begin{theorem}[Regularity]
+    There are no sets $A$ and $B$ such that $A \in B$ and $B \in A$.
+\end{theorem}
+
 \section{Partitions}
 
 \begin{definition}[Partition]
@@ -1295,3 +1321,76 @@ only if $P(x)$.
 \begin{proof}
     \pf\ From definitions. \qed
 \end{proof}
+
+\chapter{Cardinal Numbers}
+
+\begin{definition}[Equinumerous]
+    Two sets $A$ and $B$ are \emph{equinumerous} if and only if there exists
+    a bijection between them.
+\end{definition}
+
+\begin{theorem}
+    Equinumerosity is an equivalence relation on the class of all sets.
+\end{theorem}
+
+\begin{theorem}[Cantor]
+    No set is equinumerous with its power set.
+\end{theorem}
+
+\begin{definition}
+    We say a set $A$ is \emph{dominated} by $B$, $A \preccurlyeq B$, iff
+    $A$ is equinumerous with a subset of $B$.
+\end{definition}
+
+\begin{theorem}
+    $A \preccurlyeq A$
+\end{theorem}
+
+\begin{theorem}
+    If $A \preccurlyeq B \preccurlyeq C$ then $A \preccurlyeq C$.
+\end{theorem}
+
+\begin{theorem}[Schr\"{o}der-Bernstein Theorem]
+    If $A \preccurlyeq B$ and $B \preccurlyeq A$ then $A \equiv B$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f : A \rightarrow B$ and $g : B \rightarrow A$ be injections.}}
+    \step{2}{Define a sequence of sets $C_n \subseteq A$ by
+    \begin{align*}
+        C_0 & = A - \ran g \\
+        C_{n+1} & = g(f(C_n))
+    \end{align*}    
+    }
+    \step{3}{Define $h : A \rightarrow B$ by
+    \[ h(x) = \begin{cases}
+        f(x) & \text{if } x \in \bigcup_n C_n \\
+        \inv{g}(x) & \text{if not}
+    \end{cases} \] }
+    \step{4}{$h$ is a bijection.}
+    \qed
+\end{proof}
+
+\begin{theorem}[AC]
+    For any infinite set $A$ we have $\NN \preccurlyeq A$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Given a choice funtion $f$ for $A$, choose a sequence $(a_n)$ in $A$
+    by $a_n = f(A - \{ a_0, \ldots, a_{n-1} \})$. \qed
+\end{proof}
+
+\begin{corollary}[AC]
+    A set is infinite if and only if it is equinumerous with a proper subset.
+\end{corollary}
+
+\section{Countability}
+
+\begin{definition}[Countable]
+    A set $A$ is \emph{countable} iff $A \preccurlyeq \NN$.
+\end{definition}
+
+\begin{theorem}[AC]
+    A countable union of countable sets is countable.
+\end{theorem}

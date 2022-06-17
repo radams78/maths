@@ -274,6 +274,23 @@
     then $x = y$.    
 \end{definition}
 
+\section{Strict Partial Order}
+
+\begin{definition}[Strict Partial Order]
+    A \emph{strict partial order} on a set $X$ is a relation on $X$ that is
+    transitive and irreflexive.
+\end{definition}
+
+\begin{proposition}
+    If $<$ is a strict partial order on $X$ and $x,y \in X$, then at most
+    one of $x < y$, $y < x$, $x = y$ holds.
+\end{proposition}
+
+\begin{proposition}
+    If $<$ is a strict partial order then the relation $\leq$ defined by:
+    $x \leq y$ iff $x < y$ or $x = y$, is a partial order.
+\end{proposition}
+
 \begin{definition}[Linear Order]
     A \emph{linear order} on a set $X$ is a partial order such that, for any $x, y \in X$, either $x \leq y$ or $y \leq x$.
 \end{definition}
@@ -295,176 +312,696 @@
     \pf\ Immediate from trichotomy.
 \end{proof}
 
+\section{Well Orderings}
+
 \begin{definition}[Well-ordering]
     A \emph{well-order} on a set $X$ is a linear order such that every nonempty set has a least element.
 \end{definition}
 
-\begin{definition}[Section]
-    Given a well-ordered set $X$ and $\alpha \in X$, the \emph{section} of $X$ by $\alpha$ is $S_\alpha = \{ x \in X \mid x < \alpha \}$.
+\begin{proposition}
+    Let $\leq$ be a linear order on $X$. Then $\leq$ is a well-order iff there is no
+    function $f : \NN \rightarrow X$ such that $f(n+1) < f(n)$ for all $n$.    
+\end{proposition}
+
+\begin{definition}[Initial Segment]
+    Given a well-ordered set $X$ and $\alpha \in X$, the \emph{initial segment}
+    of $X$ up to $\alpha$ is $\seg \alpha = \{ x \in X \mid x < \alpha \}$.
 \end{definition}
 
 \begin{theorem}[Transfinite Induction]
-    Let $J$ be a well-ordered set and $J_0 \subseteq J$. Suppose that, for all $\alpha \in J$, if $S_\alpha \subseteq J_0$ then $\alpha \in J_0$.
-    Then $J_0 = J$.
+    Let $\leq$ be a linear order on $J$. Then the following are equivalent:
+    \begin{enumerate}
+        \item $\leq$ is a well-order on $J$.
+        \item For every subset $J_0 \subseteq J$, if the following condition holds:
+        \begin{itemize}
+            \item For every $\alpha \in J$, if $\seg \alpha \subseteq J_0$ then $\alpha \in J$.
+        \end{itemize}
+        then $J_0 = J$.
+    \end{enumerate}
 \end{theorem}
 
-\begin{proof}
-    \pf
-    \step{1}{\assume{for a contradiction $J_0 \neq J$}}
-    \step{2}{\pflet{$\alpha$ be the least element of $J \setminus J_0$}}
-    \step{3}{$S_\alpha \subseteq J_0$}
-    \step{4}{$\alpha \in J_0$}
-    \qedstep
-    \begin{proof}
-        \pf\ This contradicts \stepref{2}.
-    \end{proof}
-    \qed
-\end{proof}
+\begin{axioms}[Replacement]
+    Let $\mathbf{H}$ be a class term. If $\dom \mathbf{H}$ is a set
+    then $\mathbf{H}$ is a set.
+\end{axioms}
 
 \begin{theorem}[Transfinite Recursion]
     Let $J$ be a well-ordered set and $C$ a set. Let $\FF$ be the set of all functions from a section of $J$ to $C$.
-    Let $\rho : \FF \rightarrow C$. Then there exists a unique function $h : J \rightarrow C$ such that, for all $\alpha \in J$,
-    we have $h(\alpha) = \rho(h \restriction S_\alpha)$.
+    Let $G$ be a function with domain $\FF$. Then there exists a unique function $h$ with domain $J$
+    such that, for all $\alpha \in J$,
+    we have $h(\alpha) = \rho(h \restriction \seg \alpha)$.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{0}{For every $\beta \in J$, there exists a unique $h_\beta : S_\beta \rightarrow J$ such that, for all $\alpha < \beta$, we have $h_\beta(\alpha) = \rho(h_\beta \restriction \alpha)$}
+    \step{1}{If $v$ is a function and $t \in J$, we say $v$ is \emph{$\rho$-constructed up to $t$}
+    iff $\dom v = \{ x \in J \mid x \leq t \}$ and, for all $x \in \dom v$,
+    we have $v(x) = \rho(v \restriction \seg x)$}
+    \step{2}{If $t_1 \leq t_2$, $v_1$ is $\rho$-constructed up to $t_1$,
+    and $v_2$ is $\rho$-constructed up to $t_2$, then $v_1 = v_2 \restriction \{ x \in J \mid x \leq t_1 \}$}
+    \step{3}{\pflet{$\mathcal{K}$ be the set of all functions that are
+    $\rho$-constructed up to some $t \in J$}}
     \begin{proof}
-        \step{a}{\pflet{$\beta \in J$}}
-        \step{b}{\assume{for all $\gamma < \beta$ there exists a unique $h : S_\gamma \rightarrow J$ such that, for all $\alpha < \gamma$, we have $h(\alpha)
-        = \rho(h \restriction S_\alpha)$}}
-        \step{c}{For $\gamma < \beta$, \pflet{$h_\gamma : S_\gamma \rightarrow J$ be the function such that, for all $\alpha < \gamma$, we have
-        $h_\gamma(\alpha) = \rho(h_\gamma \restriction S_\alpha)$}}
-        \step{d}{\pflet{$h : S_\beta \rightarrow J$ be the function $h(\gamma) = \rho(h_\gamma)$ for $\gamma < \beta$}}
-        \step{dd}{For $\gamma < \beta$ we have $h \restriction S_\gamma = h_\gamma$}
-        \begin{proof}
-            \step{i}{\pflet{$\gamma < \beta$}}
-            \step{ii}{\assume{For all $\alpha < \gamma$ we have $h \restriction S_\alpha = h_\alpha$}}
-            \step{iii}{For all $\alpha < \gamma$ we have $(h \restriction S_\gamma)(\alpha) = \rho((h \restriction S_\gamma) \restriction S_\alpha)$}
-            \begin{proof}
-                \pf
-                \begin{align*}
-                    (h \restriction S_\gamma)(\alpha) & = h(\alpha) \\
-                    & = \rho(h_\alpha) & (\text{\stepref{d}}) \\
-                    & = \rho(h \restriction S_\alpha) & (\text{\stepref{ii}}) \\
-                    & = \rho((h \restriction S_\gamma) \restriction S_\alpha)
-                \end{align*}
-            \end{proof}
-            \step{iv}{$h \restriction S_\gamma = h_\gamma$}
-            \begin{proof}
-                \pf\ From \stepref{d}
-            \end{proof}
-            \qedstep
-            \begin{proof}
-                \pf\ By transfinite induction.
-            \end{proof}
-        \end{proof}
-        \step{e}{For $\alpha < \beta$ we have $h(\alpha) = \rho(h \restriction S_\alpha)$}
-        \step{f}{If $h' : S_\beta \rightarrow J$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$ for all $\alpha < \beta$, then $h' = h$)}
-        \begin{proof}
-            \step{i}{\pflet{$h' : S_\beta \rightarrow J$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$ for all $\alpha < \beta$}}
-            \step{ii}{For all $\gamma < \beta$ we have $h' \restriction S_\gamma = h_\gamma$}
-            \begin{proof}
-                \step{three}{For all $\alpha < \gamma$ we have $(h' \restriction S_\gamma)(\alpha) = \rho((h' \restriction S_\gamma) \restriction S_\alpha)$}
-                \begin{proof}
-                    \pf
-                    \begin{align*}
-                        (h' \restriction S_\gamma)(\alpha) & = h'(\alpha) \\
-                        & = \rho(h' \restriction S_\alpha) & (\text{\stepref{i}}) \\
-                        & = \rho((h' \restriction S_\gamma) \restriction S_\alpha)
-                    \end{align*}
-                \end{proof}
-                \qedstep
-                \begin{proof}
-                    \pf\ From \stepref{d}
-                \end{proof}
-            \end{proof}
-            \step{iii}{For all $\alpha < \beta$ we have $h'(\alpha) = \rho(h_\alpha)$}
-        \end{proof}
+        \pf\ $\mathcal{K}$ is a set by a Replacement Axiom.
     \end{proof}
-    \step{1}{There exists $h : J \rightarrow C$ such that, for all $\alpha \in J$, we have $h(\alpha) = \rho(h \restriction S_\alpha)$}
-    \begin{proof}
-        \step{a}{For $\alpha \in J$, \pflet{$h(\alpha) = \rho(h_\alpha)$}}
-        \step{b}{For $\alpha \in J$ we have $h \restriction S_\alpha = h_\alpha$}
-        \begin{proof}
-            \step{i}{\pflet{$\alpha \in J$}}
-            \step{ii}{\assume{For all $\beta < \alpha$ we have $h \restriction S_\beta = h_\beta$}}
-            \step{iii}{For all $\beta < \alpha$ we have $(h \restriction S_\alpha)(\beta) = \rho((h \restriction S_\alpha) \restriction S_\beta)$}
-            \begin{proof}
-                \pf
-                \begin{align*}
-                    (h \restriction S_\alpha)(\beta) & = h(\beta) \\
-                    & = \rho(h_\beta) & (\text{\stepref{a}}) \\
-                    & = \rho(h \restriction S_\beta) & (\text{\stepref{ii}}) \\
-                    & = \rho((h \restriction S_\alpha) \restriction S_\beta)
-                \end{align*}
-            \end{proof}
-            \step{iv}{$h \restriction S_\alpha = h_\alpha$}
-            \begin{proof}
-                \pf\ From \stepref{0}
-            \end{proof}
-            \qedstep
-            \begin{proof}
-                \pf\ By transfinite induction.
-            \end{proof}
-        \end{proof}
-        \step{c}{For $\alpha \in J$ we have $h(\alpha) = \rho(h \restriction S_\alpha)$}
-    \end{proof}
-    \step{2}{If $h, h' : J \rightarrow C$ and, for all $\alpha \in J$, we have $h(\alpha) = \rho(h \restriction S_\alpha)$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$,
-    then $h = h'$}
-    \begin{proof}
-        \step{a}{\assume{ $h, h' : J \rightarrow C$ and, for all $\alpha \in J$, we have $h(\alpha) = \rho(h \restriction S_\alpha)$ and $h'(\alpha) = \rho(h' \restriction S_\alpha)$}}
-        \step{b}{\pflet{$\alpha \in J$}}
-        \step{c}{\assume{for all $\beta < \alpha$ we have $h(\beta) = h'(\beta)$}}
-        \step{d}{$h(\alpha) = h'(\alpha)$}
-        \begin{proof}
-            \pf
-            \begin{align*}
-                h(\alpha) & = \rho(h \restriction S_\alpha) \\
-                & = \rho(h' \restriction S_\alpha) & (\text{\stepref{c}}) \\
-                & = h'(\alpha)
-            \end{align*}
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ By transfinite induction.
-        \end{proof}
-    \end{proof}
+    \step{4}{\pflet{$F = \bigcup \mathcal{K}$}}
+    \step{5}{$F$ is a function}
+    \step{6}{For all $x \in \dom F$ we have $F(x) = \rho(F \restriction \seg x)$}
+    \step{7}{$\dom F = J$}
+    \step{8}{$F$ is unique}
     \qed
 \end{proof}
 
-\begin{theorem}[Well-Ordering Theorem (AC)]
-    Every set has a well-ordering.    
+\begin{theorem}
+    The following are equivalent.
+    \begin{enumerate}
+        \item The Axiom of Choice
+        \item (\emph{Well-Ordering Theorem}) Every set has a well-ordering.
+        \item (\emph{Zorn's Lemma}) Let $X$ be a poset. If every chain in $X$ has 
+        an upper bound in $X$, then $X$ has a maximal element.
+    \end{enumerate}
 \end{theorem}
 
-\begin{proof} %TODO
+\begin{proof}
     \pf
-    \step{1}{\pflet{$X$ be a set.}}
-    \step{2}{\pick\ a choice function for $\pow X \setminus \{ \emptyset \}$}
+    \step{1}{$1 \Rightarrow 2$}
     \begin{proof}
-        \pf\ Lemma \ref{lemma:choice_function}.
+        \pf
+        \step{0}{\assume{The Axiom of Choice}}
+        \step{1}{\pflet{$X$ be a set.}}
+        \step{2}{\pick\ a choice function for $\pow X \setminus \{ \emptyset \}$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:choice_function}.
+        \end{proof}
+        \step{3}{\pflet{a \emph{tower} in $X$ be a pair $(T, <)$ where $T \subseteq X$, $<$ is a well-ordering of $T$, and $x = c(X \setminus \{ y \in T \mid y < x \})$.}}
+        \step{4}{For any two towers $(T_1, <_1)$ and $(T_2, <_2)$, either these two posets are equal or one is a section of the other.}
+        \begin{proof}
+            \step{a}{}
+        \end{proof}
+        \step{5}{For any tower $(T, <)$ in $X$ with $T \neq X$, there exists a tower in $X$ of which $(T, <)$ is a section.}
+        \step{6}{\pflet{$T = \bigcup \{ T' \subseteq X \mid \exists R. (T,R) \text{ is a tower in } X \}$}}
+        \step{7}{Define $<$ on $T$ by: $x < y$ iff there exists a tower $(T, R)$ in $X$ such that $x, y \in T$ and $xRy$.}
+        \step{8}{$(T, <)$ is a tower in $X$.}
+        \step{9}{$T = X$}
+        \step{10}{$<$ is a well-ordering of $X$.}
     \end{proof}
-    \step{3}{\pflet{a \emph{tower} in $X$ be a pair $(T, <)$ where $T \subseteq X$, $<$ is a well-ordering of $T$, and $x = c(X \setminus \{ y \in T \mid y < x \})$.}}
-    \step{4}{For any two towers $(T_1, <_1)$ and $(T_2, <_2)$, either these two posets are equal or one is a section of the other.}
+    \step{2}{$2 \Rightarrow 3$}
     \begin{proof}
-        \step{a}{}
+        \step{a}{\assume{The Well-Ordering Theorem}}
+        \step{b}{\pflet{$X$ be a poset in which every chain has an upper bound.}}
+        \step{c}{\pick\ a well-ordering $R$ of $X$}
+        \step{d}{Define $F : X \rightarrow \{ 0,1 \}$ by transfinite $R$-recursion by:
+        \[ F(a) = \begin{cases}
+            1 & \text{if } b < a \text{ for all } b \text{ such that } b R a \text{ and } f(b) = 1 \\
+            0 & \text{otherwise}
+        \end{cases} \]}
+        \step{e}{\pflet{$C = \{ a \in X \mid f(a) = 1 \}$}}
+        \step{f}{$C$ is a chain in $X$}
+        \begin{proof}
+            \step{i}{\pflet{$x, y \in C$}}
+            \step{ii}{\assume{without loss of generality $x R y$}}
+            \step{iii}{$f(y) = 1$}
+            \step{iv}{for all $z$ such that $zRy$ and $f(z) = 1$ we have $z < y$}
+            \step{v}{$x < y$}
+        \end{proof}
+        \step{g}{\pick\ an upper bound $u$ for $C$}
+        \step{h}{$u$ is maximal in $X$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$ with $u \leq x$}}
+            \step{ii}{for all $b$ such that $bRx$ and $f(b) = 1$ we have $b < x$}
+            \begin{proof}
+                \pf\ Since $b \in C$ so $b \leq u \leq x$
+            \end{proof}
+            \step{iii}{$f(u) = 1$}
+            \step{iv}{$u \leq x$}
+            \step{v}{$u = x$}
+        \end{proof}
+        \step{3}{$3 \Rightarrow 1$}
+        \begin{proof}
+            \step{a}{\assume{Zorn's Lemma}}
+            \step{b}{\pflet{$R$ be a relation}}
+            \step{c}{\pflet{$\mathcal{A}$ be the poset of functions that are subsets of $R$ under $\subseteq$}}
+            \step{d}{Every chain in $\mathcal{A}$ has an upper bound}
+            \begin{proof}
+                \step{i}{\pflet{$\mathcal{C} \subseteq \mathcal{A}$ be a chain.} \prove{$\bigcup \mathcal{C} \in \mathcal{A}$}}
+                \step{ii}{\assume{$(x,y), (x,z) \in \bigcup \mathcal{C}$}}
+                \step{iii}{\pick\ $f, g \in \mathcal{C}$ such that $f(x) = y$ and $g(x) = z$}
+                \step{iv}{\assume{without loss of generality $f \subseteq g$}}
+                \step{v}{$g(x) = y$}
+                \step{vi}{$y = z$}
+            \end{proof}
+            \step{e}{\pick\ $F$ maximal in $\mathcal{A}$}
+            \step{f}{$\dom F = \dom R$}
+            \begin{proof}
+                \step{i}{\assume{for a contradiction $x \in \dom R - \dom F$}}
+                \step{ii}{\pick\ $y$ such that $xRy$}
+                \step{iii}{\pflet{$G = F \cup \{ (x,y) \}$}}
+                \step{iv}{$G \in \mathcal{A}$}
+                \step{v}{$F \subset G$}
+                \qedstep
+                \begin{proof}
+                    \pf\ This contradicts the maximality of $F$.
+                \end{proof}
+            \end{proof}
+        \end{proof}
     \end{proof}
-    \step{5}{For any tower $(T, <)$ in $X$ with $T \neq X$, there exists a tower in $X$ of which $(T, <)$ is a section.}
-    \step{6}{\pflet{$T = \bigcup \{ T' \subseteq X \mid \exists R. (T,R) \text{ is a tower in } X \}$}}
-    \step{7}{Define $<$ on $T$ by: $x < y$ iff there exists a tower $(T, R)$ in $X$ such that $x, y \in T$ and $xRy$.}
-    \step{8}{$(T, <)$ is a tower in $X$.}
-    \step{9}{$T = X$}
-    \step{10}{$<$ is a well-ordering of $X$.}
     \qed
 \end{proof}
+
+\begin{theorem}[Cardinal Comparability]
+    The Axiom of Choice is equivalent to the \emph{Cardinal Comparability Theorem}: for any two sets $A$ and $B$,
+    either $A \preccurlyeq B$ or $B \preccurlyeq A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Zorn's Lemma implies Cardinal Comparability}
+    \begin{proof}
+        \step{a}{\assume{Zorn's Lemma}}
+        \step{b}{\pflet{$A$ and $B$ be sets.}}
+        \step{c}{\pflet{$\mathcal{A}$ be the poset of all injective functions $f$
+        such that $\dom f \subseteq C$ and $\ran f \subseteq D$ under $\subseteq$}}
+        \step{d}{Every chain in $\mathcal{A}$ has an upper bound.}
+        \begin{proof}
+            \step{i}{\pflet{$\mathcal{C} \subseteq \mathcal{A}$ be a chain.}
+            \prove{$\bigcup \mathcal{C} \in \mathcal{A}$}}
+            \step{ii}{$\bigcup \mathcal{C}$ is a function.}
+            \begin{proof} % TODO Extract lemma
+                \step{one}{\pflet{$(x,y),(x,z) \in \bigcup \mathcal{C}$}}
+                \step{two}{\pick\ $f, g \in \mathcal{C}$ such that $f(x) = y$ and $g(x) = z$}
+                \step{three}{\assume{without loss of generality $f \subseteq g$}}
+                \step{four}{$g(x) = y$}
+                \step{five}{$y = z$}
+            \end{proof}
+            \step{iii}{$\bigcup \mathcal{C}$ is injective.}
+            \begin{proof}
+                \pf\ Similar.
+            \end{proof}
+        \end{proof}
+        \step{e}{\pick\ $\hat{f}$ maximal in $\mathcal{A}$}
+        \begin{proof}
+            \pf\ By Zorn's Lemma.
+        \end{proof}
+        \step{f}{Either $\dom \hat{f} = C$ or $\ran \hat{f} = D$}
+        \begin{proof}
+            \step{i}{\assume{for a contradiction $\dom \hat{f} \subset C$ and $\ran \hat{f} \subset D$}}
+            \step{ii}{\pick\ $x \in C - \dom \hat{f}$ and $y \in D - \ran \hat{f}$}
+            \step{iii}{\pflet{$g = \hat{f} \cup \{(x,y)\}$}}
+            \step{iv}{$g \in \mathcal{A}$}
+            \step{v}{$\hat{f} \subset g$}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts the maximality of $\hat{f}$.
+            \end{proof}
+        \end{proof}
+        \step{g}{If $\dom \hat{f} = C$ then $C \preccurlyeq D$}
+        \step{h}{If $\ran \hat{f} = D$ then $D \preccurlyeq C$}
+    \end{proof}
+    \step{2}{Cardinal Comparability implies the Well-Ordering Theorem}
+    \begin{proof}
+        \step{a}{\assume{Cardinal Comparability}}
+        \step{b}{\pflet{$A$ be a set}}
+        \step{c}{\pick\ an ordinal $\alpha$ such that $\alpha \not\preccurlyeq A$}
+        \step{d}{$A \preccurlyeq \alpha$}
+        \begin{proof}
+            \pf\ By Cardinal Comparability.
+        \end{proof}
+        \step{e}{\pick\ an injection $f : A \rightarrow \alpha$}
+        \step{f}{Define $<$ on $A$ by $x < y$ iff $f(x) \in f(y)$}
+        \step{g}{$<$ is a well-ordering on $A$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Given two well-ordered sets $A$ and $B$, either $A \cong B$ or one of $A$, $B$
+    is isomorphic to an initial segment of the other.
+\end{theorem}
+
+\section{Ordinal Numbers}
+
+\begin{definition}
+    Let $(A, \leq)$ be a well-ordered set. The \emph{ordinal number} of $(A, \leq)$
+    is the range of $E$, where $E$ is the unique function with domain $A$
+    such that $E(t) = \ran (E \restriction \seg t)$ for all $t \in A$.
+\end{definition}
+
+\begin{theorem}
+    Let $(A, \leq)$ be a well-ordered set and $E : A \rightarrow \alpha$ be the
+    canonical function onto the ordinal of $A$. Then:
+    \begin{enumerate}
+        \item For all $t \in A$ we have $E(t) \notin E(t)$.
+        \item $E$ is a bijection.
+        \item For any $s, t \in A$, we have $s < t$ if and only if $E(s) \in E(t)$.
+        \item $\alpha$ is a transitive set.
+        \item $\alpha$ is well-ordered by $\in$
+        \item $E$ is an order isomorphism between $(A, \leq)$ and $(\alpha, \underline{\in})$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    Two well-ordered sets are isomorphic if and only if they have the same ordinal number.
+\end{theorem}
+
+\begin{theorem}
+    A set is an ordinal number if and only if it is a transitive set well-ordered
+    by $\in$.
+\end{theorem}
+
+\begin{theorem}
+    Every member of an ordinal number is an ordinal number.
+\end{theorem}
+
+\begin{theorem}
+    Any transitive set of ordinal numbers is an ordinal number.
+\end{theorem}
+
+\begin{theorem}
+    The empty set is an ordinal number.
+\end{theorem}
+
+\begin{theorem}
+    The successor of an ordinal number is an ordinal number.
+\end{theorem}
+
+\begin{theorem}
+    If $A$ is a set of ordinal numbers then $\bigcup A$ is an ordinal number.
+\end{theorem}
+
+\begin{theorem}
+    Any nonempty set of ordinal numbers has a least element.
+\end{theorem}
+
+\begin{theorem}[Burali-Forti Paradox]
+    The class of ordinal numbers is a proper class.
+\end{theorem}
+
+\begin{theorem}[Hartogs' Theorem]
+    For any set $A$, there exists an ordinal that is not dominated by $A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\alpha$ be the class of all ordinals $\beta$ such that
+    $\beta \preccurlyeq A$}}
+    \step{2}{$\alpha$ is a set.}
+    \begin{proof}
+        \step{a}{\pflet{$W$ be the set of all pairs $(B, \leq)$ such that
+        $B \subseteq A$ and $\leq$ is a well-ordering on $B$.}}
+        \step{b}{Every member of $\alpha$ is the ordinal number of a member
+        of $W$}
+        \qedstep
+        \begin{proof}
+            \pf\ By a Replacement Axiom.
+        \end{proof}
+    \end{proof}
+    \step{3}{$\alpha$ is an ordinal.}
+    \step{4}{$\alpha$ is not dominated by $A$.}
+    \qed
+\end{proof}
+
+\begin{definition}
+    A class term $\mathbf{F} : \On \rightarrow \On$ is
+    \emph{continuous} iff, for every limit ordinal $\lambda$,
+    we have $\mathbf{F}(\lambda) = \sup_{\alpha < \lambda} F(\alpha)$.
+\end{definition}
+
+\begin{theorem}
+    Let $\mathbf{F} : \On \rightarrow \On$. If $\mathbf{F}$ is continuous
+    and $\mathbf{F}(\alpha) < \mathbf{F}(\alpha + 1)$ for every ordinal $\alpha$,
+    then $\mathbf{F}$ is strictly monotone.
+\end{theorem}
+
+\begin{definition}
+    A class term $\mathbf{F} : \On \rightarrow \On$ is \emph{normal}
+    iff it is strictly monotone and continuous.
+\end{definition}
+
+\begin{theorem}
+    Let $\mathbf{F} : \On \rightarrow \On$ be normal. For every
+    ordinal $\beta \geq \mathbf{F}(0)$, there exists a greatest
+    ordinal $\alpha$ such that $\mathbf{F}(\alpha) \leq \beta$.
+\end{theorem}
+
+\begin{theorem}
+    Let $\mathbf{F} : \On \rightarrow \On$ be normal.
+    Let $S$ be a set of ordinals. Then $\mathbf{F}(\sup S) = \sup_{\alpha \in S} \mathbf{F}(\alpha)$.
+\end{theorem}
+
+\begin{theorem}[Veblen Fixed-Point Theorem]
+    Let $\mathbf{F} : \On \rightarrow \On$ be normal.
+    For every ordinal $\alpha$, there exists $\beta \geq \alpha$
+    such that $\mathbf{F}(\beta) = \beta$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Let $\beta$ be the supremum of $\alpha$, $\mathbf{F}(\alpha)$, $\mathbf{F}^2(\alpha)$, \ldots. \qed
+\end{proof}
+
+\section{Cardinal Numbers}
+
+\begin{definition}[Cardinal Number (AC)]
+    For any set $A$, the \emph{cardinal number} of $A$, $\card A$, is the least ordinal
+    equinumerous with $A$.
+
+    There exists some ordinal equinumerous with $A$ by the Well-Ordering Theorem.
+\end{definition}
+
+\begin{theorem}
+    For any sets $A$ and $B$, we have $A \equiv B$ if and only if $\card A = \card B$.
+\end{theorem}
+
+\begin{theorem}
+    A set $A$ is finite if and only if $\card A$ is a natural number.
+\end{theorem}
+
+\begin{theorem}
+    The supremum of a set of cardinal numbers is a cardinal number.
+\end{theorem}
+
+\section{Cardinal Arithmetic}
+
+\begin{definition}
+    For cardinal numbers $\kappa$ and $\lambda$, the \emph{sum} $\kappa + \lambda$
+    is the cardinal number of $A \cup B$, where $A$ and $B$ are disjoint sets
+    of cardinality $\kappa$ and $\lambda$ respectively.
+\end{definition}
+
+\begin{theorem}
+    $\kappa + \lambda = \lambda + \kappa$
+\end{theorem}
+
+\begin{theorem}
+    $\kappa + (\lambda + \mu) = (\kappa + \lambda) + \mu$
+\end{theorem}
+
+\begin{theorem}
+    The definition of addition agrees with the definition on natural numbers.
+\end{theorem}
+
+\begin{definition}
+    For cardinal numbers $\kappa$ and $\lambda$, the \emph{product}
+    $\kappa \lambda$ is the cardinality of $\kappa \times \lambda$.
+\end{definition}
+
+\begin{theorem}
+    $\kappa \lambda = \lambda \kappa$
+\end{theorem}
+
+\begin{theorem}
+    $\kappa (\lambda \mu) = (\kappa \lambda) \mu$
+\end{theorem}
+
+\begin{theorem}
+    $\kappa (\lambda + \mu) = \kappa \lambda + \kappa \mu$
+\end{theorem}
+
+\begin{theorem}
+    The definition of multiplication agrees with the definition on natural numbers.
+\end{theorem}
+
+\begin{theorem}[AC]
+    For any infinite cardinal $\kappa$ we have $\kappa \kappa = \kappa$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$B$ be a set with cardinality $\kappa$}}
+    \step{2}{\pflet{$\mathcal{H} = \{ \emptyset \} \cup \{ f \mid
+    \exists A \subseteq B. A \text{ is infinite and $f$ is a bijection
+    between $A \times A$ and $A$} \}$}}
+    \step{3}{For every chain $\mathcal{C} \subseteq \mathcal{H}$
+    we have $\bigcup \mathcal{C} \in \mathcal{H}$}
+    \step{4}{\pick\ a maximal $f_0$ in $\mathcal{H}$}
+    \step{5}{$f_0 \neq \emptyset$}
+    \begin{proof}
+        \pf\ $B$ has a subset of cardinality $\aleph_0$ and $\aleph_0 \aleph_0 = \aleph_0$.
+    \end{proof}
+    \step{6}{\pflet{$A_0$ be the set such that $f_0$ is a bijection between
+    $A_0 \times A_0$ and $A_0$}}
+    \step{7}{\pflet{$\lambda = \card A_0$}}
+    \step{8}{$\card (B - A_0) < \lambda$}
+    \step{9}{$\kappa = \lambda$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            \kappa & = \card A_0 + \card (B - A_0) \\
+            & \leq \lambda + \lambda \\
+            & = 2 \lambda \\
+            & \leq \lambda \lambda \\
+            & = \lambda & (\text{\stepref{6}}) \\
+            & \leq \kappa & \qed
+        \end{align*}
+    \end{proof}
+\end{proof}
+
+\begin{theorem}[Absorption Law]
+    Let $\kappa$ and $\lambda$ be cardinal numbers such that
+    $0 < \kappa \leq \lambda$ and $\lambda$ is infinite. Then
+    \[ \kappa + \lambda = \lambda \enspace . \]
+\end{theorem}
+
+\begin{theorem}[Absorption Law]
+    Let $\kappa$ and $\lambda$ be cardinal numbers such that
+    $0 < \kappa \leq \lambda$ and $\lambda$ is infinite. Then
+    \[ \kappa \lambda = \lambda \enspace . \]
+\end{theorem}
+
+\begin{definition}
+    For cardinal numbers $\kappa$ and $\lambda$, we write $\kappa^\lambda$
+    for the cardinality of the set of functions from $\lambda$ to $\kappa$.
+\end{definition}
+
+\begin{theorem}
+    $\kappa^{\lambda + \mu} = \kappa^\lambda + \kappa^\mu$
+\end{theorem}
+
+\begin{theorem}
+    $(\kappa \lambda)^\mu = \kappa^\mu \lambda^\mu$
+\end{theorem}
+
+\begin{theorem}
+    $(\kappa^\lambda)^\mu = \kappa^{\lambda \mu}$
+\end{theorem}
+
+\begin{theorem}
+    The definition of exponentiation agrees with the definition on natural numbers.
+\end{theorem}
+
+\begin{theorem}
+    Given sets $A$ and $B$, we have $\card A \leq \card B$ if and only if
+    $A \preccurlyeq B$.
+\end{theorem}
+
+\begin{definition}
+    Let $\aleph_0 = \card \NN$.
+\end{definition}
+
+\begin{theorem}[AC]
+    For any infinite cardinal $\kappa$ we have $\aleph_0 \leq \kappa$.
+\end{theorem}
 
 \begin{theorem}[Maximum Principle (AC)]
     Every poset has a maximal chain.
 \end{theorem}
 
+\section{Rank of a Set}
 
-\begin{lemma}[Zorn's Lemma (AC)]
-    Let $A$ be a poset. If every chain in $A$ has an upper bound in $A$, then $A$ has a maximal element.
-\end{lemma}
+\begin{definition}[Cumulative Hierarchy of Sets]
+    For every ordinal $\alpha$, define the \emph{rank} $V_\alpha$
+    by transfinite recursion thus:
+    \begin{align*}
+        V_0 & = \emptyset \\
+        V_{\alpha + 1} & = \pow V_\alpha \\
+        V_\lambda & = \bigcup_{\alpha < \lambda} V_\alpha
+    \end{align*}
+    for $\lambda$ a limit ordinal.
 
+    The \emph{von Neumann universe} is the class $\mathbf{V} = \bigcup_{\alpha \in \On} V_\alpha$.
+\end{definition}
+
+\begin{definition}[Well-Founded Set]
+    A set $A$ is \emph{well-founded} iff $A \in V_\alpha$ for some $\alpha \in \On$.
+\end{definition}
+
+\begin{definition}[Rank]
+    The \emph{rank} of a well-founded set $A$, $\rank A$, is the least
+    ordinal $\alpha$ such that $A \in V_\alpha$.    
+\end{definition}
+
+\begin{theorem}
+    If $A \in B$ and $B$ is well-founded then $A$ is well-founded
+    and $\rank A < \rank B$.
+\end{theorem}
+
+\begin{theorem}
+    If $A$ is a set and every member of $A$ is well-founded then $A$ is well-founded
+    and $\rank A = \sup_{B \in A} (\rank B + 1)$.
+\end{theorem}
+
+\begin{theorem}
+    The Axiom of Regularity is equivalent to the statement that every set is well-founded.
+\end{theorem}
+
+\section{Transfinite Recursion Again}
+
+\begin{theorem}
+    Let $\mathbf{A}$ be a class. Let $\mathbf{B}$
+    be the class of all functions $f : \alpha \rightarrow \mathbf{A}$
+    for some ordinal $\alpha$. Let $\mathbf{F}
+    : \mathbf{B} \rightarrow \mathbf{A}$ be a class term.
+    Then there exists a unique class term $\mathbf{G} : \On
+    \rightarrow \mathbf{A}$ such that, for all $\alpha \in \On$,
+    we have $\mathbf{G}(\alpha) = \mathbf{F}(\mathbf{G} \restriction \alpha)$.
+\end{theorem}
+
+\section{Alephs}
+
+\begin{definition}
+    Define the cardinal number $\aleph_\alpha$ for every ordinal
+    $\alpha$ by transfinite recursion on $\alpha$ thus:
+    $\aleph_\alpha$ is the least infinite cardinal different from
+    $\aleph_\beta$ for all $\beta < \alpha$.
+\end{definition}
+
+\begin{theorem}
+    If $\alpha < \beta$ then $\aleph_\alpha < \aleph_\beta$.
+\end{theorem}
+
+\begin{theorem}
+    Every infinite cardinal has the form $\aleph_\alpha$
+    for some ordinal $\alpha$.
+\end{theorem}
+
+\section{Ordinal Arithmetic}
+
+\begin{definition}[Sum]
+    Let $\alpha$ and $\beta$ be ordinals. The \emph{sum}
+$\alpha + \beta$ is the ordinal of the concatenation of $A$
+followed by $B$, where $A$ is a well-ordered set of ordinal $\alpha$
+and $B$ a well-ordered set of ordinal $\beta$.
+\end{definition}
+
+\begin{theorem}
+    Addition is associative.
+\end{theorem}
+
+\begin{theorem}
+    $\alpha + 0 = \alpha$
+\end{theorem}
+
+\begin{theorem}
+    $0 + \alpha = \alpha$
+\end{theorem}
+
+\begin{theorem}
+    For $\lambda$ a limit ordinal we have $\alpha + \lambda = \sup_{\beta < \lambda} (\alpha + \beta)$
+\end{theorem}
+
+\begin{theorem}
+    For any $\alpha$, the class term that maps $\beta$ to $\alpha + \beta$ is normal.
+\end{theorem}
+
+\begin{theorem}
+    $\beta < \gamma$ iff $\alpha + \beta < \alpha + \gamma$.
+\end{theorem}
+
+\begin{theorem}
+    If $\beta \leq \gamma$ then $\beta + \alpha \leq \gamma + \alpha$.
+\end{theorem}
+
+\begin{theorem}[Subtraction Theorem]
+    If $\alpha < \beta$ then there exists a unique $\delta$ such that $\alpha + \delta < \beta$.
+\end{theorem}
+
+\begin{definition}[Product]
+    Let $\alpha$ and $\beta$ be ordinals. The \emph{sum}
+$\alpha + \beta$ is the ordinal of $A \times B$ ordered under
+the Hebrew
+lexicographic order, where $A$ is a well-ordered set of ordinal $\alpha$
+and $B$ a well-ordered set of ordinal $\beta$.
+\end{definition}
+
+\begin{theorem}
+    Multiplication is associative.
+\end{theorem}
+
+\begin{theorem}
+    Multiplication distributes over addition on the left.
+\end{theorem}
+
+\begin{theorem}
+    $\alpha 1 = \alpha$
+\end{theorem}
+
+\begin{theorem}
+    $1 \alpha = \alpha$
+\end{theorem}
+
+\begin{theorem}
+    $\alpha 0 = 0$
+\end{theorem}
+
+\begin{theorem}
+    $0 \alpha = 0$
+\end{theorem}
+
+\begin{theorem}
+    For $\lambda$ a limit ordinal, we have $\alpha \lambda = \sup_{\beta < \lambda} (\alpha \beta)$.
+\end{theorem}
+
+\begin{theorem}
+    For $\alpha > 0$, the class term that maps $\beta$ to $\alpha \beta$ is normal.
+\end{theorem}
+
+\begin{theorem}
+    If $\alpha > 0$, then $\beta < \gamma$ iff $\alpha \beta < \alpha \gamma$.
+\end{theorem}
+
+\begin{theorem}
+    If $\beta \leq \gamma$ then $\beta \alpha \leq \gamma \alpha$.
+\end{theorem}
+
+\begin{theorem}[Division Theorem]
+For any ordinals $\alpha$ and $\delta$ with $\delta \neq 0$,
+there exist unique ordinals $\beta$ and $\gamma$ with
+$\gamma < \delta$ and $\alpha = \delta \beta + \gamma$.
+\end{theorem}
+
+\begin{definition}[Exponentiation]
+    For ordinals $\alpha$ and $\beta$, define the ordinal $\alpha^\beta$
+    by transfinite recursion on $\beta$ by:
+    \begin{align*}
+        \alpha^0 & = 1 \\
+        \alpha^{\beta + 1} & = \alpha^\beta + \alpha \\
+        \alpha^\lambda & = \sup_{\beta < \lambda} \alpha^\beta
+    \end{align*}
+    for $\lambda$ a limit ordinal.
+\end{definition}
+
+\begin{theorem}
+    For $\alpha > 1$, the class term that maps $\beta$ to $\alpha^\beta$ is normal.
+\end{theorem}
+
+\begin{theorem}
+    If $\alpha > 1$, then $\beta < \gamma$ iff $\alpha^\beta < \alpha^\gamma$.
+\end{theorem}
+
+\begin{theorem}
+    If $\beta \leq \gamma$ then $\beta^\alpha \leq \gamma^\alpha$.
+\end{theorem}
+
+\begin{theorem}[Logarithm Theorem]
+    Let $\alpha$ and $\beta$ be ordinals with $\alpha \neq 0$
+    and $\beta > 1$. Then there exist unique ordinals $\gamma$,
+    $\delta$ and $\rho$ such that $\delta \neq 0$, $\delta < \beta$,
+    $\rho < \beta^\gamma$, and $\alpha = \beta^\gamma \delta + \rho$.
+\end{theorem}
+
+\begin{theorem}
+    \[ \alpha^{\beta + \gamma} = \alpha^\beta \alpha^\gamma \]
+\end{theorem}
+
+\begin{theorem}
+    \[ (\alpha^\beta)^\gamma = \alpha^{\beta \gamma} \]
+\end{theorem}
