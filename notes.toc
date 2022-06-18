@@ -8,15 +8,15 @@
 \contentsline {section}{\numberline {1.6}Union}{7}%
 \contentsline {section}{\numberline {1.7}Intersection}{7}%
 \contentsline {section}{\numberline {1.8}Relative Complement}{7}%
-\contentsline {section}{\numberline {1.9}Covers}{7}%
 \contentsline {chapter}{\numberline {2}Sets}{8}%
 \contentsline {section}{\numberline {2.1}Membership}{8}%
 \contentsline {section}{\numberline {2.2}The Empty Set}{8}%
 \contentsline {section}{\numberline {2.3}Pair Sets}{8}%
 \contentsline {section}{\numberline {2.4}Unions}{8}%
 \contentsline {section}{\numberline {2.5}Power Set}{9}%
-\contentsline {section}{\numberline {2.6}Subset Axioms}{9}%
-\contentsline {section}{\numberline {2.7}Intersection}{9}%
+\contentsline {section}{\numberline {2.6}Covers}{9}%
+\contentsline {section}{\numberline {2.7}Subset Axioms}{9}%
+\contentsline {section}{\numberline {2.8}Intersection}{10}%
 \contentsline {chapter}{\numberline {3}Relations}{11}%
 \contentsline {section}{\numberline {3.1}Ordered Pairs}{11}%
 \contentsline {section}{\numberline {3.2}Cartesian Product}{12}%
@@ -130,3 +130,5 @@
 \contentsline {section}{\numberline {9.51}Uniform Convergence}{161}%
 \contentsline {section}{\numberline {9.52}Isometric Imbeddings}{163}%
 \contentsline {section}{\numberline {9.53}Distance to a Set}{163}%
+\contentsline {section}{\numberline {9.54}Lebesgue Numbers}{164}%
+\contentsline {section}{\numberline {9.55}Uniform Continuity}{165}%

@@ -1316,3 +1316,149 @@ We prove this is a metric.
     Let $X$ be a metric space, $x \in X$ and $A \subseteq X$ be nonempty. The \emph{distance} from $x$ to $A$ is defined as
     \[ d(x,A) = \inf_{a \in A} d(x,a) \enspace . \]
 \end{definition}
+
+\begin{proposition}
+    \label{proposition:distance_continuous}
+    Let $X$ be a metric space and $A \subseteq X$ be nonempty. Then the function
+    $d(-,A) : X \rightarrow \RR$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pflet{$A \subseteq X$ be nonempty.}}
+    \step{3}{\pflet{$x \in X$ and $\epsilon > 0$}}
+    \step{4}{\pflet{$\delta = \epsilon$}}
+    \step{5}{\pflet{$y \in B(x, \delta)$}}
+    \step{6}{$|d(x,A) - d(y,A)| < \epsilon$}
+    \begin{proof}
+        \step{a}{$d(x,A) - d(y,A) < \epsilon$}
+        \begin{proof}
+            \pf
+            \step{i}{For all $a \in A$ we have $d(x,A) \leq d(x,y) + d(y,a)$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    d(x,A) & \leq d(x,a) & (\text{definition of $d(x,A)$})\\
+                    & \leq d(x,y) + d(y,a) & (\text{Triangle Inequality})
+                \end{align*}
+            \end{proof}
+            \step{ii}{$d(x,A) - d(x,y) \leq d(y,A)$}
+        \end{proof}
+        \step{b}{$d(y,A) - d(x,A) < \epsilon$}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:continuous_metric}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Lebesgue Numbers}
+
+\begin{definition}[Lebesgue Number]
+    Let $X$ be a metric space. Let $\UU$ be an open covering of $X$. A \emph{Lebesgue number}
+    for $\UU$ is a real number $\delta > 0$ such that, for every subset $A \subseteq X$ with diameter
+    diameter $< \delta$, there exists $U \in \UU$ such that $A \subseteq U$.
+\end{definition}
+
+\begin{theorem}[Lebesgue Number Lemma]
+    Every open covering of a compact metric space has a Lebesgue number.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact metric space.}}
+    \step{2}{\pflet{$\UU$ be an open covering of $X$.}}
+    \step{4}{\pick\ a finite subset $\{ U_1, \ldots, U_n \}$ of $\UU$ that covers $X$.}
+    \step{5}{For $i = 1, \ldots, n$, \pflet{$C_i = X - U_i$}}
+    \step{6}{\pflet{$f : X \rightarrow \RR$, $$ f(x) = 1/n \sum_{i=1}^n d(x, C_i)$$}}
+    \step{7}{For all $x \in X$ we have $f(x) > 0$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ $i$ such that $x \in U_i$}
+        \begin{proof}
+            \pf\ From \stepref{4}.
+        \end{proof}
+        \step{c}{\pick\ $\epsilon > 0$ such that $B(x, \epsilon) \subseteq U_i$}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:open_in_metric_space}.
+        \end{proof}
+        \step{d}{$d(x, C_i) \geq \epsilon$}
+        \step{e}{$f(x) \geq \epsilon / n$}
+    \end{proof}
+    \step{8}{$f$ is continuous.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:distance_continuous}.
+    \end{proof}
+    \step{9}{\pflet{$\delta$ be the minimum value of $f(X)$}}
+    \begin{proof}
+        \pf\ By the Extreme Value Theorem
+    \end{proof}
+    \step{10}{$\delta > 0$}
+    \begin{proof}
+        \pf\ From \stepref{7}
+    \end{proof}
+    \step{11}{For every subset $A \subseteq X$ with diameter $< \delta$, there exists
+    $U \in \UU$ such that $A \subseteq U$}
+    \begin{proof}
+        \step{a}{\pflet{$A \subseteq X$ with $\diam A < \delta$}}
+        \step{b}{\pick\ $x_0 \in A$}
+        \step{c}{$A \subseteq B(x_0, \delta)$}
+        \step{d}{$f(x_0) \geq \delta$}
+        \step{e}{\pick\ $m$ such that $d(x_0,C_m)$ is the largest out of
+        $d(x_0, C_1)$, \ldots, $d(x_0, C_n)$}
+        \step{f}{$d(x_0, C_m) \geq f(x_0)$}
+        \step{g}{$B(x_0, \delta) \subseteq U_m$}
+        \step{h}{$A \subseteq U_m$}
+    \end{proof}
+    \step{12}{$\delta$ is a Lebesgue number for $\UU$}
+    \qed
+\end{proof}
+
+\section{Uniform Continuity}
+
+\begin{definition}[Uniformly Continuous]
+    Let $X$ and $Y$ be metric spaces. Let $f : X \rightarrow Y$.
+    Then $f$ is \emph{uniformly continuous} if and only if,
+    for every $\epsilon > 0$, there exists $\delta > 0$ such that,
+    for all $x, y \in X$, if $d(x,y) < \delta$ then
+    $d(f(x),f(y)) < \epsilon$.
+\end{definition}
+
+\begin{theorem}[Uniform Continuity Theorem]
+    Every continuous function from a compact metric space to a
+    metric space is uniformly continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact metric space.}}
+    \step{2}{\pflet{$Y$ be a metric space.}}
+    \step{3}{\pflet{$f : X \rightarrow Y$ be a continuous function.}}
+    \step{4}{\pflet{$\epsilon > 0$}}
+    \step{5}{\pflet{$\UU = \{ \inv{f}(B(y, \epsilon / 2)) \mid y \in Y \}$}}
+    \step{6}{\pick\ a Lebesgue number $\delta > 0$ for $\UU$.}
+    \begin{proof}
+        \pf\ By the Lebesgue Number Lemma.
+    \end{proof}
+    \step{7}{\pflet{$x, x' \in X$}}
+    \step{8}{\assume{$d(x,x') < \delta$}}
+    \step{9}{\pick\ $y \in Y$ such that $\{ x, x' \} \subseteq \inv{f}(B(y, \epsilon / 2))$}
+    \begin{proof}
+        \pf\ Since $\diam \{x, x'\} < \delta$.
+    \end{proof}
+    \step{10}{$d(f(x),f(x')) < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(f(x),f(x')) & \leq d(f(x),y) + d(y,f(x')) & (\text{Triangle Inequality}) \\
+            & < \epsilon / 2 + \epsilon / 2 & (\text{\stepref{9}}) \\
+            & = \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
