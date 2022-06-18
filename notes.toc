@@ -122,13 +122,14 @@
 \contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{125}%
 \contentsline {section}{\numberline {9.44}The Second Countability Axiom}{126}%
 \contentsline {section}{\numberline {9.45}Compact Spaces}{127}%
-\contentsline {section}{\numberline {9.46}Perfect Maps}{137}%
-\contentsline {section}{\numberline {9.47}Topological Groups}{138}%
-\contentsline {section}{\numberline {9.48}The Metric Topology}{145}%
-\contentsline {section}{\numberline {9.49}Real Linear Algebra}{151}%
-\contentsline {section}{\numberline {9.50}The Uniform Topology}{159}%
-\contentsline {section}{\numberline {9.51}Uniform Convergence}{161}%
-\contentsline {section}{\numberline {9.52}Isometric Imbeddings}{163}%
-\contentsline {section}{\numberline {9.53}Distance to a Set}{163}%
-\contentsline {section}{\numberline {9.54}Lebesgue Numbers}{164}%
-\contentsline {section}{\numberline {9.55}Uniform Continuity}{165}%
+\contentsline {section}{\numberline {9.46}Perfect Maps}{138}%
+\contentsline {section}{\numberline {9.47}Isolated Points}{138}%
+\contentsline {chapter}{\numberline {10}Topological Groups}{140}%
+\contentsline {section}{\numberline {10.1}The Metric Topology}{148}%
+\contentsline {section}{\numberline {10.2}Real Linear Algebra}{154}%
+\contentsline {section}{\numberline {10.3}The Uniform Topology}{162}%
+\contentsline {section}{\numberline {10.4}Uniform Convergence}{164}%
+\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{166}%
+\contentsline {section}{\numberline {10.6}Distance to a Set}{166}%
+\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{167}%
+\contentsline {section}{\numberline {10.8}Uniform Continuity}{168}%

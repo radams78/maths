@@ -5226,6 +5226,7 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:nested_intersection}
     Let $X$ be a topological space and $C_1 \supseteq C_2 \supseteq \cdots$ a nested sequence of nonempty closed sets. Then $\bigcap_n C_n$ is nonempty.
 \end{corollary}
 
@@ -5771,6 +5772,64 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{proposition}
+    Every linearly ordered set in which every closed interval is compact
+    satisfies the least upper bound property.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a linearly ordered set in which every closed interval is compact.}}
+    \step{2}{\pflet{$A \subseteq X$ be nonempty with upper bound $u$}}
+    \step{3}{\pick\ $a \in A$}
+    \step{4}{The closed interval $[a,u]$ is compact.}
+    \step{5}{\assume{for a contradiction $A$ has no supremum.}}
+    \step{5}{$\{ (-\infty, x) \mid x \in A \} \cup \{ (x,+\infty) \mid x
+    \text{ is an upper bound of } A \}$ covers $[a,u]$.}
+    \begin{proof}
+        \step{i}{\pflet{$x \in [a,u]$}}
+        \step{ii}{\assume{for all $y \in A$ we have $x \notin (-\infty, y)$}}
+        \step{iii}{$x$ is an upper bound for $A$}
+        \step{iv}{\pick\ an upper bound $y$ for $A$ with $y < x$}
+        \step{v}{$x \in (y, +\infty)$}
+    \end{proof}
+    \step{6}{\pick\ a finite subcover $\{(- \infty, x_1), \ldots,
+    (-\infty, x_m), (y_1, +\infty), \ldots, (y_n, +\infty) \}$}
+    \step{7}{\assume{$x_m = \max(x_1, \ldots, x_m)$ and $y_1 = \min(y_1, \ldots, y_n)$}}
+    \step{8}{$x_m \notin (- \infty, x_i)$ for any $i$}
+    \begin{proof}
+        \pf\ Since $x_i \leq x_m$
+    \end{proof}
+    \step{9}{$x_m \notin (y_i, +\infty)$ for any $i$}
+    \begin{proof}
+        \pf\ Since $x_m \in A$ so $x_m \leq y_i$
+    \end{proof}
+    \step{10}{$x_m \in [a,u]$}
+    \begin{proof}
+        \step{a}{$a \notin (y_i, +\infty)$ for any $i$}
+        \begin{proof}
+            \pf\ Since $y_i$ is an upper bound for $A$ and $a \in A$.
+        \end{proof}
+        \step{b}{$a \in (-\infty, x_i)$ for some $i$}
+        \begin{proof}
+            \pf\ From \stepref{6}.
+        \end{proof}
+        \step{c}{$a < x_m$}
+        \begin{proof}
+            \pf\ Since $x_i \leq x_m$
+        \end{proof}
+        \step{d}{$x_m \leq u$}
+        \begin{proof}
+            \pf\ Since $u$ is an upper bound for $A$ and $x_m \in A$.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{6}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
@@ -5806,7 +5865,75 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \end{proof}
     \qed
 \end{proof}
-\section{Topological Groups}
+
+\section{Isolated Points}
+
+\begin{definition}[Isolated Point]
+    Let $X$ be a topolgical space and $x \in X$. Then $x$ is an
+    \emph{isolated point} if and only if $\{x\}$ is open.
+\end{definition}
+
+\begin{theorem}[AC]
+    A nonempty compact Hausdorff space with no isolated points is
+    uncountable.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a nonempty compact Hausdorff space with no isolated points.}}
+    \step{2}{For every nonempty open set $U$ and every point $x \in X$,
+    there exists a nonempty open set $V \subseteq U$ such that $x \notin \overline{V}$.}
+    \begin{proof}
+        \step{a}{\pflet{$U$ be a nonempty open set.}}
+        \step{b}{\pflet{$x \in X$}}
+        \step{c}{\pick\ $y \in U - \{x\}$}
+        \begin{proof}
+            \pf\ This is possible because $U$ cannot be $\{x\}$.
+        \end{proof}
+        \step{d}{\pick\ disjoint open neighbourhoods $W_1$ of $x$
+        and $W_2$ of $y$}
+        \step{e}{\pflet{$V = W_2 \cap U$}}
+        \step{f}{$V$ is nonempty}
+        \begin{proof}
+            \pf\ Since $y \in V$
+        \end{proof}
+        \step{g}{$V$ is open}
+        \begin{proof}
+            \pf\ From \stepref{a}, \stepref{d}, \stepref{e}.
+        \end{proof}
+        \step{h}{$V \subseteq U$}
+        \begin{proof}
+            \pf\ From \stepref{e}
+        \end{proof}
+        \step{i}{$x \notin V$}
+        \begin{proof}
+            \pf\ From \stepref{d} and \stepref{e}
+        \end{proof}
+    \end{proof}
+    \step{3}{\pflet{$(a_n)$ be any sequence of points in $X$.} \prove{The set $X - \{ a_1, a_2, \ldots \}$ is nonempty.}}
+    \step{4}{\pick\ a sequence of nonempty open sets $V_1$, $V_2$, \ldots,
+    such that $V_1 \supseteq V_2 \supseteq \cdots$ and $a_n \notin \overline{V_n}$
+    for all $n$.}
+    \begin{proof}
+        \pf\ From \stepref{2}.
+    \end{proof}
+    \step{5}{\pick\ $a \in \bigcap_{n=1}^\infty \overline{V_n}$}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:nested_intersection}.
+    \end{proof}
+    \step{6}{$a \in X - \{ a_1, a_2, \ldots \}$}
+    \begin{proof}
+        \pf\ We cannot have $a = a_n$ because $a \in \overline{V_n}$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    For all $a, b \in \RR$ with $a < b$, the closed interval $[a,b]$
+    is uncountable.
+\end{corollary}
+
+\chapter{Topological Groups}
 
 \begin{definition}[Topological Group]
     A \emph{topological group} $G$ consists of a $T_1$ space $G$ and continuous maps
@@ -6358,3 +6485,4 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \pf\ From Proposition \ref{proposition:compact_pre_image} since, for all $aH \in G / H$,
     we have $\inv{p}(aH) = aH$ is compact because it is homemorphic to $H$. \qed
 \end{proof}
+

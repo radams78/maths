@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  18 JUN 2022 20:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  18 JUN 2022 21:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -318,42 +318,49 @@ Overfull \hbox (6.25055pt too wide) in paragraph at lines 4993--4994
 WARNING: proof step "b" (<2>3) already defined
 [131] [132] [133] [134]
 WARNING: proof step "g" (<2>8) already defined
-[135] [136] [137] [138] [139] [140] [141]
+[135] [136]
+WARNING: proof step "5" (<1>6) already defined
+[137] [138] [139]
+Chapter 10.
+[140
+
+] [141] [142] [143]
 WARNING: proof step "a" (<3>1) already defined
 WARNING: proof step "b" (<3>2) already defined
 WARNING: proof step "c" (<3>3) already defined
-[142]
+[144]
 WARNING: proof step "b" (<2>3) already defined
+[145]
 WARNING: proof step "3" (<1>7) already defined
-[143]) [144]
+[146]) [147]
 \openout2 = `metric.aux'.
 
- (/home/robin/fun/maths/metric.tex [145
+ (/home/robin/fun/maths/metric.tex [148
 
 
-] [146] [147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158] [159] [160]
+] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158] [159] [160] [161] [162] [163]
 WARNING: proof step "a" (<2>3) already defined
-[161]
+[164]
 Overfull \hbox (53.2884pt too wide) detected at line 1218
 []
  []
 
-[162]
+[165]
 WARNING: proof step "f" (<2>7) already defined
-[163] [164]) [165] (/home/robin/fun/maths/notes.aux (/home/robin/fun/maths/set.aux) (/home/robin/fun/maths/order.aux) (/home/robin/fun/maths/number.aux) (/home/robin/fun/maths/analysis.aux) (/home/robin/fun/maths/group.aux) (/home/robin/fun/maths/topology.aux) (/home/robin/fun/maths/metric.aux)) ) 
+[166] [167]) [168] (/home/robin/fun/maths/notes.aux (/home/robin/fun/maths/set.aux) (/home/robin/fun/maths/order.aux) (/home/robin/fun/maths/number.aux) (/home/robin/fun/maths/analysis.aux) (/home/robin/fun/maths/group.aux) (/home/robin/fun/maths/topology.aux) (/home/robin/fun/maths/metric.aux)) ) 
 Here is how much of TeX's memory you used:
- 2214 strings out of 481239
- 29579 string characters out of 5920377
- 273457 words of memory out of 5000000
- 17449 multiletter control sequences out of 15000+600000
+ 2215 strings out of 481239
+ 29610 string characters out of 5920377
+ 273469 words of memory out of 5000000
+ 17450 multiletter control sequences out of 15000+600000
  545318 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,14n,31p,265b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/robin/fun/maths/notes.pdf (166 pages, 677475 bytes).
+Output written on /home/robin/fun/maths/notes.pdf (169 pages, 682546 bytes).
 PDF statistics:
- 637 PDF objects out of 1000 (max. 8388607)
- 440 compressed objects within 5 object streams
+ 647 PDF objects out of 1000 (max. 8388607)
+ 447 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
