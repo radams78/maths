@@ -1739,7 +1739,7 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
-\section{The $n$th Root Function}
+\section{The nth Root Function}
 
 \begin{proposition}
     For all $n \geq 1$, the function $f : \RR_{\geq 0} \rightarrow \RR_{\geq 0}$ defined by $f(x) = x^n$ is a homemorphism.
@@ -5366,23 +5366,28 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    \label{proposition:graph_closed}
+    Let $X$ be a topological space and $Y$ a Hausdorff space.
+    Let $f : X \rightarrow Y$ be continuous. Then the graph of $f$
+    is closed in $X \times Y$.
+\end{proposition}
+
+\begin{proof}
+    \step{a}{\assume{$f$ is continuous.}}
+    \step{b}{\pflet{$(x,y) \in (X \times Y) \setminus G_f$}}
+    \step{c}{\pick\ disjoint neighbourhoods $U$ and $V$ of $y$ and $f(x)$ respectively.}
+    \step{d}{$\inv{f}(V) \times U$ is a neighbourhood of $(x,y)$ disjoint from $G_f$.}
+    \qed
+\end{proof}
+
 \begin{theorem}
-    Let $X$ be a topological space and $Y$ a compact Hausdorff space. Let $f : X \rightarrow Y$ be a function. Then $f$ is continuous if and only if
-    the graph of $f$ is closed in $X \times Y$.
+    Let $X$ be a topological space and $Y$ a compact space. Let $f : X \rightarrow Y$ be a function. 
+    If the granh of $f$ is closed in $X \times Y$ then $f$ is continuous.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$G_f$ be the graph of $f$.}}
-    \step{2}{If $f$ is continuous then $G_f$ is closed.}
-    \begin{proof}
-        \step{a}{\assume{$f$ is continuous.}}
-        \step{b}{\pflet{$(x,y) \in (X \times Y) \setminus G_f$}}
-        \step{c}{\pick\ disjoint neighbourhoods $U$ and $V$ of $y$ and $f(x)$ respectively.}
-        \step{d}{$\inv{f}(V) \times U$ is a neighbourhood of $(x,y)$ disjoint from $G_f$.}
-    \end{proof}
-    \step{3}{If $G_f$ is closed then $f$ is continuous.}
-    \begin{proof}
         \step{a}{\assume{$G_f$ is closed.}}
         \step{b}{\pflet{$x \in X$ and $V$ be a neighbourhood of $f(x)$.}}
         \step{c}{$G_f \cap (X \times (Y \setminus V))$ is closed.}
@@ -5393,7 +5398,6 @@ An example that shows the converse does not hold:
         \step{e}{\pflet{$U = X \setminus \pi_1(G_f \cap (X \times (Y \setminus V)))$}}
         \step{f}{$U$ is a neighbourhood of $x$}
         \step{g}{$f(U) \subseteq V$}
-    \end{proof}
     \qed
 \end{proof}
 

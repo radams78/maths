@@ -1357,6 +1357,51 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{theorem}
+    Let $X$ be a metric space, $A \subseteq X$ be nonempty, and $x \in X$.
+    Then $d(x, A) = 0$ if and only if $x \in \overline{A}$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pflet{$A \subseteq X$ be nonempty.}}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{If $d(x,A) = 0$ then $x \in \overline{A}$}
+    \begin{proof}
+        \step{a}{\assume{$d(x,A) = 0$}}
+        \step{b}{\pflet{$U$ be any neighbourhood of $x$.}}
+        \step{c}{\pick\ $\epsilon > 0$ such that $B(x,\epsilon) \subseteq U$}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:open_in_metric_space}, \stepref{1},
+            \stepref{b}.
+        \end{proof}
+        \step{d}{\pick\ $a \in A$ such that $d(x,a) < \epsilon$}
+        \begin{proof}
+            \pf\ From \stepref{a}, \stepref{c}.
+        \end{proof}
+        \step{e}{$a \in A \cap U$}
+        \begin{proof}
+            \pf\ From \stepref{c}, \stepref{d}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
+    \end{proof}
+    \step{5}{If $x \in \overline{A}$ then $d(x,A) = 0$}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a metric space. Let $A \subseteq X$ be nonempty and compact.
+    Let $x \in X$. Then there exists $a \in A$ such that $d(x,A) = d(x,a)$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ By the Extreme Value Theorem, the function $d(x,-) : A \rightarrow \RR$ attains its minimum. \qed
+\end{proof}
+
 \section{Lebesgue Numbers}
 
 \begin{definition}[Lebesgue Number]
@@ -1462,3 +1507,100 @@ We prove this is a metric.
     \end{proof}
     \qed
 \end{proof}
+
+\section{Epsilon-neighbourhoods}
+
+\begin{definition}[$\epsilon$-neighbourhood]
+    Let $X$ be a metric space. Let $A \subseteq X$ be nonempty. Let $\epsilon > 0$.
+    Then the \emph{$\epsilon$-neighbourhood} of $A$, $U(A,\epsilon)$, is the set
+    \[ U(A, \epsilon) = \{ x \in X \mid d(x,A) < \epsilon \} \enspace . \]
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:epsilon_neighbourhood}
+    Let $X$ be a metric space. Let $A \subseteq X$ be nonempty. Let $\epsilon > 0$.
+    Then $U(A, \epsilon) = \bigcup_{a \in A} B(a, \epsilon)$.    
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pflet{$A \subseteq X$ be nonempty.}}
+    \step{3}{\pflet{$\epsilon > 0$}}
+    \step{4}{$U(A, \epsilon) \subseteq \bigcup_{a \in A} B(a, \epsilon)$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in U(A, \epsilon)$}}
+        \step{b}{$d(x,A) < \epsilon$}
+        \step{c}{$\epsilon$ is not a lower bound for $\{ d(x,a) \mid a \in A \}$}
+        \step{d}{\pick\ $a \in A$ such that $d(x,a) < \epsilon$}
+        \step{e}{$x \in B(a,\epsilon)$}
+    \end{proof}
+    \step{5}{$\bigcup_{a \in A} B(a, \epsilon) \subseteq U(A, \epsilon)$}
+    \begin{proof}
+        \step{a}{\pflet{$a \in A$ and $x \in B(a, \epsilon)$}}
+        \step{b}{$d(x,A) \leq d(x,a)$}
+        \step{c}{$d(x,A) < \epsilon$}
+        \step{d}{$x \in U(A, \epsilon)$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a metric space. Let $A \subseteq X$ be nonempty and compact.
+    Let $U$ be an open set such that $A \subseteq U$. Then there exists $\epsilon > 0$
+    such that $U(A,\epsilon) \subseteq U$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pflet{$A \subseteq X$ be nonempty and compact.}}
+    \step{3}{\pflet{$U$ be an open set such that $A \subseteq U$}}
+    \step{4}{$\{ B(a, \epsilon) \mid a \in A, \epsilon > 0, B(a, 2\epsilon) \subseteq U \}$ covers $A$.}
+    \begin{proof}
+        \pf\ By Proposition \ref{proposition:open_in_metric_space}.
+    \end{proof}
+    \step{5}{\pick\ a finite subcover $\{ B(a_1, \epsilon_1), \ldots, B(a_n, \epsilon_n) \}$}
+    \begin{proof}
+        \pf\ Since $A$ is compact (\stepref{2}).
+    \end{proof}
+    \step{6}{\pflet{$\epsilon = \min(\epsilon_1, \ldots, \epsilon_n)$} \prove{$U(A, \epsilon) \subseteq U$}}
+    \step{7}{\pflet{$x \in U(A, \epsilon)$}}
+    \step{8}{\pick\ $a \in A$ such that $d(x,a) < \epsilon$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:epsilon_neighbourhood}.
+    \end{proof}
+    \step{9}{\pick\ $i$ such that $a \in B(a_i, \epsilon_i)$}
+    \begin{proof}
+        \pf\ By \stepref{5}.
+    \end{proof}
+    \step{10}{$d(x,a_i) < 2 \epsilon$}
+    \begin{proof}
+        \pf\ By the Triangle Inequality.
+    \end{proof}
+    \step{11}{$x \in U$}
+    \begin{proof}
+        \pf\ From \stepref{4}.
+    \end{proof}
+    \qed
+\end{proof}
+
+This example shows that we cannot weaken the hypothesis that $A$ is compact
+to $A$ being closed:
+
+\begin{example}
+    Let $X = \RR^2$. Let $A = \{ (x, 1/x) \mid x > 0 \}$.
+    Let $U = \{ (x,y) \mid x > 0, y > 0 \}$. Then $A$ is nonempty
+    and closed (Proposition \ref{proposition:graph_closed}).
+    The set $U$ is open and $A \subseteq U$. But there is no $\epsilon > 0$
+    such that $U(A, \epsilon) \subseteq U$.
+
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$\epsilon > 0$}}
+        \step{2}{$(2/\epsilon, \epsilon / 2) \in A$}
+        \step{3}{$(2/\epsilon, 0) \in U(A, \epsilon)$}
+        \step{4}{$(2/\epsilon, 0) \notin U$}
+        \qed
+    \end{proof}
+\end{example}
