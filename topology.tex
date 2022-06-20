@@ -4041,6 +4041,24 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     The rationals $\QQ$ are totally disconnected.
 \end{example}
 
+\begin{example}
+    The Cantor set is totally disconnected.
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(A_n)$ be the sequence of sets in Definition \ref{definition:Cantor_set}.}}
+    \step{2}{\pflet{$C$ be the Cantor set $\bigcap_n A_n$}}
+    \step{3}{\assume\ for a contradiction $D \subseteq C$ is connected and has more than one point.}
+    \step{3}{\pflet{$x, y \in D$ with $x < y$}}
+    \step{4}{\pick\ $n$ such that $|x - y| > 1 / 3^n$}
+    \step{5}{$A_n$ is a sequence of disjoint intervals of length $1/3^n$}
+    \step{6}{$x$ and $y$ are in two different intervals out of the intervals that make up $A_n$}
+    \step{7}{There exists $z$ with $x < z < y$ such that $z \notin A_n$}
+    \step{8}{$(-\infty, z) \cap D$ and $(z, +\infty) \cap D$ form a separation of $D$.}
+    \qed
+\end{proof}
+
 \section{Paths and Path Connectedness}
 
 \begin{definition}[Path]
@@ -5974,6 +5992,13 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{example}
+    The Cantor set is compact.
+\end{example}
+
+\begin{proof}
+    \pf\ It is a closed subset of the compact set $[0,1]$. \qed
+\end{proof}
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
@@ -6077,6 +6102,26 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     For all $a, b \in \RR$ with $a < b$, the closed interval $[a,b]$
     is uncountable.
 \end{corollary}
+
+\begin{example}
+    The Cantor set has no isolated points, and is therefore uncountable.
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{0}{\pflet{$(A_n)$ be the sets in Definition \ref{definition:Cantor_set}.}}
+    \step{1}{\pflet{$x \in C$}}
+    \step{2}{\pflet{$A_n$ be the first set such that $x$ is an endpoint of one of the intervals that make up $A_n$}}
+    \step{3}{\pflet{$(a_m)_{m \geq n}$ be the sequence of points defined by:
+    $a_m$ is the point such that either $[a_m, x]$ or $[x, a_m]$ is one of
+    the intervals that make up $A_m$.}}
+    \step{4}{$(a_m)$ is a sequence of points of $C$ distinct from $x$ that converges to $x$.}
+    \begin{proof}
+        \pf\ Since $|a_m - x| = 1 / 3^m$ for all $m$.
+    \end{proof}
+    \step{5}{$x$ is a limit point of $C$.}
+    \qed
+\end{proof}
 
 \chapter{Topological Groups}
 
