@@ -108,29 +108,29 @@
 \contentsline {section}{\numberline {9.29}Homogeneous Spaces}{103}{section.9.29}%
 \contentsline {section}{\numberline {9.30}Regular Spaces}{103}{section.9.30}%
 \contentsline {section}{\numberline {9.31}Connected Spaces}{103}{section.9.31}%
-\contentsline {section}{\numberline {9.32}Totally Disconnected Spaces}{112}{section.9.32}%
-\contentsline {section}{\numberline {9.33}Paths and Path Connectedness}{112}{section.9.33}%
-\contentsline {section}{\numberline {9.34}The Topologist's Sine Curve}{115}{section.9.34}%
-\contentsline {section}{\numberline {9.35}The Long Line}{116}{section.9.35}%
+\contentsline {section}{\numberline {9.32}Totally Disconnected Spaces}{113}{section.9.32}%
+\contentsline {section}{\numberline {9.33}Paths and Path Connectedness}{113}{section.9.33}%
+\contentsline {section}{\numberline {9.34}The Topologist's Sine Curve}{116}{section.9.34}%
+\contentsline {section}{\numberline {9.35}The Long Line}{117}{section.9.35}%
 \contentsline {section}{\numberline {9.36}Components}{118}{section.9.36}%
-\contentsline {section}{\numberline {9.37}Path Components}{119}{section.9.37}%
-\contentsline {section}{\numberline {9.38}Local Connectedness}{120}{section.9.38}%
-\contentsline {section}{\numberline {9.39}Local Path Connectedness}{122}{section.9.39}%
-\contentsline {section}{\numberline {9.40}Weak Local Connectedness}{123}{section.9.40}%
-\contentsline {section}{\numberline {9.41}Quasicomponents}{124}{section.9.41}%
-\contentsline {section}{\numberline {9.42}Open Coverings}{125}{section.9.42}%
-\contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{125}{section.9.43}%
-\contentsline {section}{\numberline {9.44}The Second Countability Axiom}{126}{section.9.44}%
-\contentsline {section}{\numberline {9.45}Compact Spaces}{127}{section.9.45}%
-\contentsline {section}{\numberline {9.46}Perfect Maps}{138}{section.9.46}%
-\contentsline {section}{\numberline {9.47}Isolated Points}{138}{section.9.47}%
-\contentsline {chapter}{\numberline {10}Topological Groups}{140}{chapter.10}%
-\contentsline {section}{\numberline {10.1}The Metric Topology}{148}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Real Linear Algebra}{154}{section.10.2}%
-\contentsline {section}{\numberline {10.3}The Uniform Topology}{162}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Uniform Convergence}{164}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{166}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Distance to a Set}{166}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{167}{section.10.7}%
-\contentsline {section}{\numberline {10.8}Uniform Continuity}{168}{section.10.8}%
-\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{169}{section.10.9}%
+\contentsline {section}{\numberline {9.37}Path Components}{120}{section.9.37}%
+\contentsline {section}{\numberline {9.38}Local Connectedness}{121}{section.9.38}%
+\contentsline {section}{\numberline {9.39}Local Path Connectedness}{123}{section.9.39}%
+\contentsline {section}{\numberline {9.40}Weak Local Connectedness}{124}{section.9.40}%
+\contentsline {section}{\numberline {9.41}Quasicomponents}{125}{section.9.41}%
+\contentsline {section}{\numberline {9.42}Open Coverings}{126}{section.9.42}%
+\contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{126}{section.9.43}%
+\contentsline {section}{\numberline {9.44}The Second Countability Axiom}{127}{section.9.44}%
+\contentsline {section}{\numberline {9.45}Compact Spaces}{128}{section.9.45}%
+\contentsline {section}{\numberline {9.46}Perfect Maps}{139}{section.9.46}%
+\contentsline {section}{\numberline {9.47}Isolated Points}{139}{section.9.47}%
+\contentsline {chapter}{\numberline {10}Topological Groups}{141}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The Metric Topology}{149}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Real Linear Algebra}{155}{section.10.2}%
+\contentsline {section}{\numberline {10.3}The Uniform Topology}{163}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Uniform Convergence}{165}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{167}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Distance to a Set}{167}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{168}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Uniform Continuity}{169}{section.10.8}%
+\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{170}{section.10.9}%

@@ -4004,6 +4004,29 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \qed
 \end{proof}
 
+\begin{example}
+    The space $\RR_K$ is connected.
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $U$ and $V$ form a separation of $\RR_K$}}
+    \step{2}{\assume{without loss of generality $0 \in U$}}
+    \step{3}{There exists an open interval $(a,b)$ such that $(a,b) -K\subseteq U$
+    and $(a,b) \nsubseteq U$}
+    \begin{proof}
+        \pf\ Otherwise $U$ and $V$ would form a separation of $\RR$.
+    \end{proof}
+    \step{4}{\pick\ $1/n \in (a,b) - U$}
+    \step{5}{$1/n \in V$}
+    \step{6}{There exists an open interval $(c,d)$ around $1/n$ that is included in $V$}
+    \qedstep
+    \begin{proof}
+        \pf\ This is a contradiction since $(a,b) - K$ and $(c,d)$ must intersect.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Totally Disconnected Spaces}
 
 \begin{definition}[Totally Disconnected]
@@ -4216,6 +4239,51 @@ An example that shows the converse does not hold:
 
     We have $\QQ^\circ = \emptyset$ and $\partial \QQ = \RR$ are connected but $\QQ$ is not connected.
 \end{example}
+
+\begin{example}
+    The space $\RR_K$ is not path connected.
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $p : [0,1] \rightarrow \RR_K$ was a path from $0$ to $1$.}}
+    \step{2}{$p([0,1])$ as a subspace of $\RR_K$ is compact.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+    \end{proof}
+    \step{3}{$p([0,1])$ as a subspace of $\RR_K$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_continuous_image}.
+    \end{proof}
+    \step{4}{$p([0,1])$ is connected as a subspace of $\RR$.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_continuous_image} as
+        the identity map is continuous as a map $\RR_K \rightarrow \RR$.
+    \end{proof}
+    \step{5}{$p([0,1])$ is convex.} %TODO Extract lemma
+    \begin{proof}
+        \step{a}{\pflet{$a, b \in p([0,1])$ and $a < c < b$}}
+        \step{b}{\assume{for a contradiction $c \notin p([0,1])$}}
+        \step{c}{$(-\infty, c) \cap p([0,1])$ and $(c, +\infty) \cap p([0,1])$
+        form a separation of $p([0,1])$ as a subspace of $\RR$.}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{4}.
+        \end{proof}
+    \end{proof}
+    \step{6}{$[0,1] \subseteq p([0,1])$}
+    \step{7}{$[0,1]$ as a subspace of $\RR_K$ is compact.}
+    \begin{proof}
+        \pf\ By Proposition \ref{proposition:compact_closed_subspace}
+        and \stepref{2}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts Example \ref{example:zero_one_not_compact}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The Topologist's Sine Curve}
 
 \begin{definition}[The Topologist's Sine Curve]
@@ -5832,6 +5900,16 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
         \pf\ This contradicts \stepref{6}.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{example}
+    \label{example:zero_one_not_compact}
+    The set $[0,1]$ is not compact under the $K$-topology.
+\end{example}
+
+\begin{proof}
+    \pf\ For every $n \geq 1$, pick an open interval $U_n$ such that $U_n \cap K = \{ 1/n \}$.
+    Then the open cover $\{ [0,1]-K \} \cup \{ U_n \mid n \in \ZZ^+ \}$ has no finite subcover. \qed
 \end{proof}
 
 \section{Perfect Maps}
