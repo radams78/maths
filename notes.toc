@@ -122,15 +122,15 @@
 \contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{126}{section.9.43}%
 \contentsline {section}{\numberline {9.44}The Second Countability Axiom}{127}{section.9.44}%
 \contentsline {section}{\numberline {9.45}Compact Spaces}{128}{section.9.45}%
-\contentsline {section}{\numberline {9.46}Perfect Maps}{139}{section.9.46}%
-\contentsline {section}{\numberline {9.47}Isolated Points}{139}{section.9.47}%
-\contentsline {chapter}{\numberline {10}Topological Groups}{141}{chapter.10}%
-\contentsline {section}{\numberline {10.1}The Metric Topology}{149}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Real Linear Algebra}{155}{section.10.2}%
-\contentsline {section}{\numberline {10.3}The Uniform Topology}{163}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Uniform Convergence}{165}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{167}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Distance to a Set}{167}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{168}{section.10.7}%
-\contentsline {section}{\numberline {10.8}Uniform Continuity}{169}{section.10.8}%
-\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{170}{section.10.9}%
+\contentsline {section}{\numberline {9.46}Perfect Maps}{140}{section.9.46}%
+\contentsline {section}{\numberline {9.47}Isolated Points}{140}{section.9.47}%
+\contentsline {chapter}{\numberline {10}Topological Groups}{142}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The Metric Topology}{150}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Real Linear Algebra}{157}{section.10.2}%
+\contentsline {section}{\numberline {10.3}The Uniform Topology}{164}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Uniform Convergence}{167}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{168}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Distance to a Set}{169}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{170}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Uniform Continuity}{171}{section.10.8}%
+\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{172}{section.10.9}%

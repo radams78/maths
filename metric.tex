@@ -261,6 +261,7 @@ We prove this is a metric.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:continuous_distance}
     Let $d : X^2 \rightarrow \RR$ be a metric on $X$. Then the metric topology on $X$ is the coarsest topology such that $d$ is continuous.
 \end{proposition}
 
@@ -483,6 +484,33 @@ This example shows the converse does not hold:
 \begin{example}
     The space $\RR$ under the standard bounded metric is bounded but not compact.
 \end{example}
+
+\begin{proposition}
+    A connected metric space with more than one point is uncountable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a connected metric space with more than one point.}}
+    \step{2}{\pick\ $a \in X$}
+    \step{3}{$d(a,-) : X \rightarrow \RR$ is continuous.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:continuous_distance}.
+    \end{proof}
+    \step{4}{$\{ d(a,x) \mid x \in X \}$ is a connected subspace of $\RR$ that includes 0.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_continuous_image}.
+    \end{proof}
+    \step{5}{$\{ d(a,x) \mid x \in X \} \neq \{0\}$}
+    \begin{proof}
+        \pf\ Since $X$ has more than one point.
+    \end{proof}
+    \step{6}{$\{ d(a,x) \mid x \in X \}$ is uncountable.}
+    \begin{proof}
+        \pf\ Since it includes a closed interval (Corollary \ref{corollary:closed_interval_uncountable}).
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Real Linear Algebra}
 

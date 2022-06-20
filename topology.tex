@@ -5912,6 +5912,68 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     Then the open cover $\{ [0,1]-K \} \cup \{ U_n \mid n \in \ZZ^+ \}$ has no finite subcover. \qed
 \end{proof}
 
+\begin{proposition}[AC]
+    Let $X$ be a compact Hausdorff space. Let $\AA$ be a countable set of closed sets in $X$.
+    If every element of $\AA$ has empty interior, then $\bigcup \AA$ has empty interior.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact Hausdorff space.}}
+    \step{2}{For every closed set $A$ in $X$ and open $U$ in $X$ with
+    $U \nsubseteq A$, there exists a nonempty open set $V$ such that
+    $\overline{V} \subseteq U - A$.}
+    \begin{proof}
+        \step{a}{\pflet{$A$ be a closed set in $X$}}
+        \step{b}{\pflet{$U$ be an open set in $X$ with $U \nsubseteq A$}}
+        \step{c}{\pick\ $x \in U - A$}
+        \step{d}{\pick\ disjoint neighbourhoods $W$ and $V$ of $A \cup (X - U)$
+        and $x$ respectively.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:disjoint_neighbourhoods_compact_Hausdorff}.
+        \end{proof}
+        \step{e}{$\overline{V} \subseteq U - A$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                \overline{V} & \subseteq X - W & (\text{since } V \subseteq X - W) \\
+                & \subseteq X - (A \cup (X - U)) \\
+                & = (x - A) \cap U \\
+                & = U - A
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{3}{\pick\ an enumeration $\{ A_1, A_2, \ldots \}$ of $\AA$}
+    \step{4}{\pflet{$U_0$ be any nonempty open set} \prove{$U_0 \nsubseteq \bigcup \AA$}}
+    \step{5}{\pick\ a sequence of nonempty open sets $U_1$, $U_2$, \ldots such that,
+    for $n \geq 1$, we have $\overline{U_n} \subseteq U_{n-1} - A_n$}
+    \begin{proof}
+        \step{a}{\assume{we have picked $U_0$, $U_1$, \ldots, $U_n$}}
+        \step{b}{$U_n \nsubseteq A_{n+1}$}
+        \begin{proof}
+            \pf\ Since $A_{n+1}$ has empty interior.
+        \end{proof}
+        \step{c}{\pick\ a nonempty open set $U_{n+1}$ such that $\overline{U_{n+1}}
+        \subseteq U_n - A_{n+1}$}
+        \begin{proof}
+            \pf\ By \stepref{2}
+        \end{proof}
+    \end{proof}
+    \step{6}{\pick\ $a \in \bigcap_{n=0}^\infty \overline{U_n}$}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:nested_intersection}.
+    \end{proof}
+    \step{7}{$a \in U_0$}
+    \begin{proof}
+        \pf\ Since $a \in \overline{U_1} \subseteq U_0$.
+    \end{proof}
+    \step{8}{$a \notin \bigcup \AA$}
+    \begin{proof}
+        \pf\ For all $n$, we have $a \in \overline{U_n} \subseteq U_{n-1} - A_n$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
@@ -6011,6 +6073,7 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:closed_interval_uncountable}
     For all $a, b \in \RR$ with $a < b$, the closed interval $[a,b]$
     is uncountable.
 \end{corollary}
