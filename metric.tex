@@ -1492,6 +1492,63 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{theorem}[AC]
+    Every sequentially compact metric space is compact.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a sequentially comapct metric space.}}
+    \step{2}{Every open covering of $X$ has a Lebesgue number.}
+    \begin{proof}
+        \step{a}{\pflet{$\AA$ be an open covering of $X$.}}
+        \step{b}{\assume{for a contradiction $\AA$ has no Lebesgue number.}}
+        \step{c}{For $n \geq 1$, \pick\ a set $C_n$ with diameter $< 1 / n$
+        that is not included in any member of $\AA$.}
+        \step{d}{For $n \geq 1$, \pick\ $x_n \in C_n$.}
+        \step{e}{\pick\ a convergent subsequence $(C_{n_r})$ of $(C_n)$
+        with limit $a$.}
+        \step{f}{\pick\ $A \in \AA$ such that $a \in A$}
+        \step{g}{\pick\ $\epsilon > 0$ such that $B(a, \epsilon) \subseteq A$.}
+        \step{h}{\pick\ $r$ such that $1/n_r < \epsilon / 2$ and $d(x_{n_r},a) < \epsilon / 2$}
+        \step{i}{$C_{n_r} \subseteq B(a, \epsilon)$}
+        \step{j}{$C_{n_r} \subseteq A$}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{c}.
+        \end{proof}
+    \end{proof}
+    \step{3}{For every $\epsilon > 0$, there exists a finite covering of $X$
+    by $\epsilon$-balls.}
+    \begin{proof}
+        \step{a}{\assume{for a contradiction that there exists $\epsilon > 0$ such that
+        $X$ cannot be finitely covered by $\epsilon$-balls.}}
+        \step{b}{\pick\ a sequence of points $(x_n)$ such that $x_n \in X - (B(x_1, \epsilon) \cup \cdots \cup B(x_{n-1},\epsilon))$}
+        \step{c}{$d(x_m,x_n) \geq \epsilon$ for all $m,n$ distinct}
+        \step{d}{$(x_n)$ has no convergent subsequence}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{1}.
+        \end{proof}
+    \end{proof}
+    \step{4}{\pflet{$\AA$ be an open covering of $X$.}}
+    \step{5}{\pick\ a Lebesgue number $\delta$ for $\AA$.}
+    \begin{proof}
+        \pf\ By \stepref{2}.
+    \end{proof}
+    \step{6}{\pflet{$\epsilon = \delta / 3$}}
+    \step{7}{\pick\ a finite covering $\{ B_1, \ldots, B_n \}$ of $X$ be $\epsilon$-balls.}
+    \begin{proof}
+        \pf\ By \stepref{3}.
+    \end{proof}
+    \step{8}{For $i = 1, \ldots, n$, \pick\ $U_i \in \AA$ such that $B_i \subseteq A_i$}
+    \begin{proof}
+        \pf\ By \stepref{5} since $\diam B_i = 2 \epsilon < \delta$.
+    \end{proof}
+    \step{9}{$\{ U_1, \ldots, U_n \}$ covers $X$.}
+    \qed
+\end{proof}
+
 \section{Uniform Continuity}
 
 \begin{definition}[Uniformly Continuous]

@@ -2438,6 +2438,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:limit_point_T1}
     In a $T_1$ space, a point $a$ is a limit point of a set $A$ if and only if every neighbourhood of $a$
     contains infinitely many points of $A$.
 \end{theorem}
@@ -5190,6 +5191,45 @@ An example that shows the converse does not hold:
     \end{proof}
 \end{example}
 
+\section{Sequential Compactness}
+
+\begin{definition}[Sequentially Compact]
+    A topological space is \emph{sequentially compact} if and only if
+    every sequence has a convergent subsequence.
+\end{definition}
+
+\section{Limit Point Compactness}
+
+\begin{definition}[Limit Point Compact Space]
+    A topological space is \emph{limit point compact} if and only if every
+    infinite set has a limit point.
+\end{definition}
+
+\begin{proposition}
+    Every limit point compact $T_1$ space is sequentially compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a limit point compact $T_1$ space.}}
+    \step{2}{\pflet{$(x_n)$ be a sequence in $X$.}}
+    \step{3}{\case{$\{ x_n \mid n \geq 1 \}$ is finite.}}
+    \begin{proof}
+        \step{a}{\pick\ $n$ such that $x_n$ occurs infintely often in the sequence $(x_n)$}
+        \step{b}{The subsequence consisting of all the terms equal to $x_n$ is convergent.}
+    \end{proof}
+    \step{3}{\case{$\{ x_n \mid n \geq 1 \}$ is infinite.}}
+    \begin{proof}
+        \step{a}{\pick\ a limit point $l$ for $\{ x_n \mid n \geq 1 \}$}
+        \step{b}{\pick\ an increasing sequence $n_r$ with $x_{n_r} \in B(x, 1/r)$ for all $r$}
+        \begin{proof}
+            \pf\ This is always possible by Theorem \ref{theorem:limit_point_T1}.
+        \end{proof}
+        \step{c}{$(x_{n_r})$ converges to $l$.}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Compact Spaces}
 
 \begin{definition}[Compact]
@@ -5831,6 +5871,7 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:compact_closed_interval}
     Let $X$ be a linearly ordered set with the least upper bound property. Then every closed interval in $X$ is compact.
 \end{corollary}
 
@@ -5999,6 +6040,75 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
 \begin{proof}
     \pf\ It is a closed subset of the compact set $[0,1]$. \qed
 \end{proof}
+
+\begin{proposition}
+    \label{proposition:limit_point_compact_compact}
+    Every compact space is limit point compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact space.}}
+    \step{2}{\pflet{$A \subseteq X$ have no limit points.} \prove{$A$ is finite.}}
+    \step{3}{$A$ is closed.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_limit_point}.
+    \end{proof}
+    \step{4}{$A$ is compact.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+    \end{proof}
+    \step{5}{$\{ U \mid U \text{ open }, |U \cap A| = 1 \}$ covers $A$.}
+    \begin{proof}
+        \pf\ From \stepref{2}, for all $a \in A$, there is a neighbourhood
+        $U$ of $a$ that intersects $A$ in $a$ only.
+    \end{proof}
+    \step{6}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$}
+    \step{7}{For $i = 1, \ldots, n$, \pflet{$U_i \cap A = \{ x_i \}$.}}
+    \step{8}{$A = \{ x_1, \ldots, x_n \}$}
+    \qed
+\end{proof}
+
+The following examples show that not every limit point compact space is compact.
+\begin{example}
+    Let $Y$ be a set with two elements under the indiscrete topology.
+    Then $\ZZ^+ \times Y$ is limit point compact, since every nonempty set has
+    a limit point. It is not compact, since $\{ \{ n \} \times Y \mid n \in \ZZ^+ \}$
+    has no finite subcover.
+\end{example}
+
+\begin{example}
+    The space $S_\Omega$ is limit point compact but not compact.
+
+    \begin{proof}
+        \pf
+        \step{0}{$S_\Omega$ is not compact.}
+        \begin{proof}
+            \pf\ From the Extreme Value Theorem, since $S_\Omega$ has no greatest element.
+        \end{proof}
+        \step{1}{\pflet{$A$ be an infinite subset of $S_\Omega$.}}
+        \step{2}{\pick\ $B \subseteq A$ that is countably infinite.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:countable_subset}.
+        \end{proof}
+        \step{3}{\pflet{$b = \sup B$}}
+        \step{4}{$B \subseteq [0,b]$}
+        \step{5}{$[0,b]$ is compact.}
+        \begin{proof}
+            \pf\ Corollary \ref{corollary:compact_closed_interval}.
+        \end{proof}
+        \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b]$.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:limit_point_compact_compact}.
+        \end{proof}
+        \step{7}{$x$ is a limit point of $A$.}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:limit_point_subset}.
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]

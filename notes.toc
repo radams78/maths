@@ -122,16 +122,18 @@
 \contentsline {section}{\numberline {9.42}Open Coverings}{126}{section.9.42}%
 \contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{126}{section.9.43}%
 \contentsline {section}{\numberline {9.44}The Second Countability Axiom}{127}{section.9.44}%
-\contentsline {section}{\numberline {9.45}Compact Spaces}{128}{section.9.45}%
-\contentsline {section}{\numberline {9.46}Perfect Maps}{140}{section.9.46}%
-\contentsline {section}{\numberline {9.47}Isolated Points}{140}{section.9.47}%
-\contentsline {chapter}{\numberline {10}Topological Groups}{143}{chapter.10}%
-\contentsline {section}{\numberline {10.1}The Metric Topology}{151}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Real Linear Algebra}{158}{section.10.2}%
-\contentsline {section}{\numberline {10.3}The Uniform Topology}{165}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Uniform Convergence}{168}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{169}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Distance to a Set}{170}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{171}{section.10.7}%
-\contentsline {section}{\numberline {10.8}Uniform Continuity}{172}{section.10.8}%
-\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{173}{section.10.9}%
+\contentsline {section}{\numberline {9.45}Sequential Compactness}{128}{section.9.45}%
+\contentsline {section}{\numberline {9.46}Limit Point Compactness}{128}{section.9.46}%
+\contentsline {section}{\numberline {9.47}Compact Spaces}{129}{section.9.47}%
+\contentsline {section}{\numberline {9.48}Perfect Maps}{141}{section.9.48}%
+\contentsline {section}{\numberline {9.49}Isolated Points}{142}{section.9.49}%
+\contentsline {chapter}{\numberline {10}Topological Groups}{144}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The Metric Topology}{152}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Real Linear Algebra}{159}{section.10.2}%
+\contentsline {section}{\numberline {10.3}The Uniform Topology}{166}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Uniform Convergence}{169}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{170}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Distance to a Set}{171}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{172}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Uniform Continuity}{174}{section.10.8}%
+\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{174}{section.10.9}%
