@@ -2737,6 +2737,12 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     A topological space $X$ satisfies the \emph{first countability axiom}, or is \emph{first countable}, if and only if every point has a countable local basis.
 \end{definition}
 
+\begin{example}
+    The space $S_\Omega$ is first countable. For any $\alpha \in S_\Omega$,
+    the set $\{ (\beta, \alpha + 1) \mid \beta < \alpha \} \cup \{ [0, \alpha + 1) \}$
+    is a local basis at $\alpha$.
+\end{example}
+
 \begin{lemma}[Sequence Lemma (CC)]
     Let $X$ be a first countable space. Let $A \subseteq X$ and $l \in \overline{A}$.
     Then there exists a sequence in $A$ that converges to $l$.
@@ -2758,6 +2764,13 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \end{proof}
     \qed
 \end{proof}
+
+\begin{example}
+    \label{example:S_Omega_bar_not_first_countable}
+    The space $\overline{S_\Omega}$ is not first countable, since $\Omega$
+    is a limit point for $S_\Omega$ but there is no sequence of points in
+    $S_\Omega$ that converges to $\Omega$.
+\end{example}
 
 \begin{theorem}[CC]
     Let $X$ be a first countable space and $Y$ a topological space. Let $f : X \rightarrow Y$. Suppose that, for every sequence $(x_n)$ in $X$ and $l \in X$, if $x_n \rightarrow l$

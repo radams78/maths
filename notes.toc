@@ -102,30 +102,30 @@
 \contentsline {section}{\numberline {9.22}Hausdorff Spaces}{92}{section.9.22}%
 \contentsline {section}{\numberline {9.23}The First Countability Axiom}{95}{section.9.23}%
 \contentsline {section}{\numberline {9.24}Strong Continuity}{97}{section.9.24}%
-\contentsline {section}{\numberline {9.25}Saturated Sets}{97}{section.9.25}%
+\contentsline {section}{\numberline {9.25}Saturated Sets}{98}{section.9.25}%
 \contentsline {section}{\numberline {9.26}Quotient Maps}{98}{section.9.26}%
-\contentsline {section}{\numberline {9.27}Quotient Topology}{101}{section.9.27}%
+\contentsline {section}{\numberline {9.27}Quotient Topology}{102}{section.9.27}%
 \contentsline {section}{\numberline {9.28}Retractions}{103}{section.9.28}%
 \contentsline {section}{\numberline {9.29}Homogeneous Spaces}{103}{section.9.29}%
 \contentsline {section}{\numberline {9.30}Regular Spaces}{103}{section.9.30}%
-\contentsline {section}{\numberline {9.31}Connected Spaces}{103}{section.9.31}%
+\contentsline {section}{\numberline {9.31}Connected Spaces}{104}{section.9.31}%
 \contentsline {section}{\numberline {9.32}Totally Disconnected Spaces}{113}{section.9.32}%
 \contentsline {section}{\numberline {9.33}Paths and Path Connectedness}{113}{section.9.33}%
-\contentsline {section}{\numberline {9.34}The Topologist's Sine Curve}{116}{section.9.34}%
+\contentsline {section}{\numberline {9.34}The Topologist's Sine Curve}{117}{section.9.34}%
 \contentsline {section}{\numberline {9.35}The Long Line}{118}{section.9.35}%
 \contentsline {section}{\numberline {9.36}Components}{119}{section.9.36}%
-\contentsline {section}{\numberline {9.37}Path Components}{120}{section.9.37}%
-\contentsline {section}{\numberline {9.38}Local Connectedness}{121}{section.9.38}%
+\contentsline {section}{\numberline {9.37}Path Components}{121}{section.9.37}%
+\contentsline {section}{\numberline {9.38}Local Connectedness}{122}{section.9.38}%
 \contentsline {section}{\numberline {9.39}Local Path Connectedness}{123}{section.9.39}%
 \contentsline {section}{\numberline {9.40}Weak Local Connectedness}{125}{section.9.40}%
 \contentsline {section}{\numberline {9.41}Quasicomponents}{125}{section.9.41}%
-\contentsline {section}{\numberline {9.42}Open Coverings}{126}{section.9.42}%
-\contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{126}{section.9.43}%
-\contentsline {section}{\numberline {9.44}The Second Countability Axiom}{127}{section.9.44}%
-\contentsline {section}{\numberline {9.45}Sequential Compactness}{128}{section.9.45}%
-\contentsline {section}{\numberline {9.46}Limit Point Compactness}{128}{section.9.46}%
+\contentsline {section}{\numberline {9.42}Open Coverings}{127}{section.9.42}%
+\contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{127}{section.9.43}%
+\contentsline {section}{\numberline {9.44}The Second Countability Axiom}{128}{section.9.44}%
+\contentsline {section}{\numberline {9.45}Sequential Compactness}{129}{section.9.45}%
+\contentsline {section}{\numberline {9.46}Limit Point Compactness}{129}{section.9.46}%
 \contentsline {section}{\numberline {9.47}Compact Spaces}{129}{section.9.47}%
-\contentsline {section}{\numberline {9.48}Perfect Maps}{141}{section.9.48}%
+\contentsline {section}{\numberline {9.48}Perfect Maps}{142}{section.9.48}%
 \contentsline {section}{\numberline {9.49}Isolated Points}{142}{section.9.49}%
 \contentsline {chapter}{\numberline {10}Topological Groups}{144}{chapter.10}%
 \contentsline {section}{\numberline {10.1}The Metric Topology}{152}{section.10.1}%
