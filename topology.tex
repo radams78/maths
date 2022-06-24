@@ -5243,6 +5243,179 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{example}
+    The space $[0,1]^\omega$ under the uniform topology is not limit point compact.
+
+    The infinite set $\{0,1\}^\omega$ has no limit point.
+\end{example}
+
+\begin{example}
+    The space $[0,1]$ under the lower limit topology is not limit point compact.
+
+    The infinite set $A = \{ 1 - 1/n \mid n \geq 1 \}$ has no limit point. 1 is not a limit point
+    because the neighbourhood $\{1\}$ does not intersect $A$.
+\end{example}
+
+\begin{proposition}
+    A closed subspace of a limit point compact space is limit point compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a limit point compact space.}}
+    \step{2}{\pflet{$A \subseteq X$ be closed.}}
+    \step{3}{\pflet{$B \subseteq A$ be infinite.}}
+    \step{4}{\pick\ a limit point $l$ of $B$ in $X$.}
+    \step{5}{$l \in A$}
+    \step{6}{$l$ is a limit point of $B$ in $A$.}
+    \qed
+\end{proof}
+
+\begin{example}
+    An open subspace of a limit point compact space is not necessarily limit point compact.
+
+    The space $[0,1]$ is limit point compact but $(0,1)$ is not.
+\end{example}
+
+\begin{example}
+    The continuous image of a limit point compact space is not necessarily limit point compact.
+
+    Let $Y$ be the indiscrete space with two points. Then $\ZZ^+ \times Y$ is limit point compact but $\ZZ^+$
+    is not.
+\end{example}
+
+\begin{example}
+    A limit point compact subspace of a Hausdorff space is not necessarily closed.
+
+    The space $S_\Omega$ is limit point compact but is not closed in $\overline{S_\Omega}$.
+\end{example}
+
+For an example that shows that the product of two limit point compact spaces is not necessarily
+limit point compact, see L. A. Steen and J. A. Seerbach Jr. \emph{Counterexamples in
+Topology} Example 112.
+
+\section{Countable Compactness}
+
+\begin{definition}[Countably Compact]
+    A topological space is \emph{countably compact} if and only if every
+    countable open covering has a finite subcovering.
+\end{definition}
+
+\begin{proposition}[AC]
+    Every closed subspace of a countably compact space is countably compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a countably compact space.}}
+    \step{2}{\pflet{$A \subseteq X$ be closed.}}
+    \step{3}{\pflet{$\UU$ be a countable open cover of $A$.}}
+    \step{4}{For $U \in \UU$, \pick\ an open set $V_U$ is $X$ such that
+    $U = V_U \cap A$}
+    \step{5}{$\{ V_U \mid U \in \UU \} \cup \{ X - A \}$ is a countable open cover of $X$}
+    \step{6}{\pick\ a finite subcover $\{ V_{U_1}, \ldots, V_{U_n}, X - A \}$}
+    \step{7}{$\{ U_1, \ldots, U_n \}$ covers $A$.}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Every countably compact space is limit point compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{a}{\assume{$X$ is countably compact.}}
+    \step{b}{\pflet{$A \subseteq X$ be infinite.}}
+    \step{d}{\assume{for a contradiction $A$ has no limit point.}}
+    \step{c}{\pick\ a countably infinite $B \subseteq A$}
+    \step{e}{$B$ is discrete.}
+    \begin{proof}
+        \pf\ For all $b \in B$, there exists $U_b$ open in $X$ such that $U_b \cap B = \{ b \}$.
+    \end{proof}
+    \step{f}{$\{ \{ b \} \mid b \in B \}$ is a countable cover of $B$ that has no finite subcover.}
+    \step{g}{$B$ is not countably compact.}
+    \step{h}{$B$ is not closed in $X$}
+    \step{i}{$B$ has a limit point.}
+    \step{j}{$A$ has a limit point.}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{d}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Every limit point compact $T_1$ space is countably compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a limit point compact $T_1$ space.}}
+    \step{2}{\pflet{$\{ U_n \mid n \in \ZZ^+ \}$ be a countable open cover of $X$.}}
+    \step{3}{For $n \in \ZZ^+$, \pflet{$V_n = U_1 \cup \cdots \cup V_n$}}
+    \step{4}{\assume{for a contradiction none of the $V_n$ covers $X$}}
+    \step{5}{For $n \in \ZZ^+$, \pick\ $a_n \in X - V_n$}
+    \step{6}{\pick\ a limit point $l$ for $\{ a_n \mid n \in \ZZ^+ \}$}
+    \step{7}{\pick\ $n$ such that $l \in U_n$}
+    \step{8}{\case{$l = a_m$ for some $m \leq n$}}
+    \begin{proof}
+        \pf\ $U_n - \{ a_1, \ldots, a_{m-1}, a_{m+1}, \ldots, a_n \}$
+        is a neighbourhood of $l$ that intersects $\{ a_n \mid n \in \ZZ^+ \}$
+        only at $l$, contradicting \stepref{6}.
+    \end{proof}
+    \step{9}{\case{$l \neq a_m$ for any $m \leq n$}}
+    \begin{proof}
+        \pf\ $U_n - \{ a_1, \ldots, a_n \}$ is a neighbourhood of $l$ that does not intersect $\{ a_n \mid n \in \ZZ^+ \}$,
+        which contradicts \stepref{6}.
+    \end{proof}
+    \qed
+\end{proof}
+
+The following example shows we cannot remove the hypothesis that the space is $T_1$.
+
+\begin{example}
+    Let $Y$ be the indiscrete space with two points. Then $\ZZ^+ \times Y$
+    is a limit point compact space that is not countably compact,
+    since $\{ \{n\} \times Y \mid n \in \ZZ^+ \}$ is a countable open
+    cover that has no finite subcover.
+\end{example}
+
+\begin{proposition}
+    A topological space is countably compact if and only if every nested sequence
+    $C_1 \supseteq C_2 \supseteq \cdots$ of nonempty closed sets has nonempty intersection.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space.}}
+    \step{2}{If $X$ is countably compact then every nested sequence of nonempty closed sets
+    has nonempty intersection.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is countably compact.}}
+        \step{b}{\pflet{$C_1 \supseteq C_2 \supseteq \cdots$ be a nested sequence of nonempty closed sets.}}
+        \step{c}{\assume{for a contradiction $\bigcap_n C_n = \emptyset$}}
+        \step{d}{$\{ X - C_n \mid n \in \ZZ^+ \}$ covers $X$}
+        \step{e}{\pick\ a finite subcover $\{ X - C_{n_1}, \ldots, X - C_{n_k} \}$
+        where $n_1 < \cdots < n_k$}
+        \step{f}{$C_{n_k} = \emptyset$}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{b}.
+        \end{proof}
+        \qed
+    \end{proof}
+    \step{3}{If every nested sequence of nonempty closed sets has nonempty intersection
+    then $X$ is countably compact.}
+    \begin{proof}
+        \step{a}{\assume{Every nested sequence of nonempty closed sets has nonempty intersection.}}
+        \step{b}{\pflet{$\{ U_n \mid n \geq 1 \}$ is a countable open cover of $X$.}}
+        \step{c}{$X - U_1 \supseteq X - (U_1 \cup U_2) \supseteq \cdots$ is a nested sequence of closed sets with empty intersection.}
+        \step{d}{\pick\ $k$ such that $X - (U_1 \cup \cdots \cup U_k) = \emptyset$}
+        \step{e}{$\{ U_1, \ldots, U_k \}$ covers $X$.}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Compact Spaces}
 
 \begin{definition}[Compact]
