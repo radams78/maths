@@ -4306,7 +4306,7 @@ An example that shows the converse does not hold:
     \step{6}{$[0,1] \subseteq p([0,1])$}
     \step{7}{$[0,1]$ as a subspace of $\RR_K$ is compact.}
     \begin{proof}
-        \pf\ By Proposition \ref{proposition:compact_closed_subspace}
+        \pf\ By Proposition \ref{proposition:closed_subspace_compact}
         and \stepref{2}.
     \end{proof}
     \qedstep
@@ -5457,7 +5457,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \end{proof}
 
 \begin{proposition}
-    \label{proposition:compact_closed_subspace}
+    \label{proposition:closed_subspace_compact}
     Every closed subspace of a compact space is compact.
 \end{proposition}
 
@@ -5623,7 +5623,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \step{1}{\pflet{$C \subseteq X$ be closed.}}
     \step{2}{$C$ is compact.}
     \begin{proof}
-        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+        \pf\ Proposition \ref{proposition:closed_subspace_compact}.
     \end{proof}
     \step{3}{$f(C)$ is compact.}
     \begin{proof}
@@ -5651,7 +5651,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \step{1}{\pflet{$C \subseteq X$ be closed.}}
     \step{2}{$C$ is compact.}
     \begin{proof}
-        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+        \pf\ Proposition \ref{proposition:closed_subspace_compact}.
     \end{proof}
     \step{3}{$f(C)$ is compact.}
     \begin{proof}
@@ -6250,7 +6250,7 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \end{proof}
     \step{4}{$A$ is compact.}
     \begin{proof}
-        \pf\ Proposition \ref{proposition:compact_closed_subspace}.
+        \pf\ Proposition \ref{proposition:closed_subspace_compact}.
     \end{proof}
     \step{5}{$\{ U \mid U \text{ open }, |U \cap A| = 1 \}$ covers $A$.}
     \begin{proof}
@@ -6427,6 +6427,52 @@ The following examples show that not every limit point compact space is compact.
     \qed
 \end{proof}
 
+\section{Local Compactness}
+
+\begin{definition}[Locally Compact]
+    Let $X$ be a topological space and $x \in X$. Then $X$ is \emph{locally
+    compact} at $x$ if and only if there exists a compact subspace of $X$
+    that includes a neighbourhood of $x$.
+
+    A space is \emph{locally compact} if and only if it is locally compact at
+    every point.
+\end{definition}
+
+\begin{example}
+    The real line is locally compact, because for every real number $x$
+    we have $x \in (x-1,x+1) \subseteq [x-1,x+1]$.
+\end{example}
+
+\begin{example}
+    For all $n \geq 1$, we have $\RR^n$ is locally compact. For any point 
+    $x = (x_1, \ldots, x_n)$, we have $x \in (x_1 - 1, x_1 + 1) \times \cdots
+    \times (x_n - 1, x_n + 1) \subseteq [x_1 - 1, x_1 + 1] \times \cdots
+    \times [x_n - 1, x_n + 1]$.
+\end{example}
+
+The following example shows that a countable product of locally compact spaces
+is not necessarily locally compact.
+\begin{example}
+    The space $\RR^\omega$ is not locally compact.
+
+    \begin{proof}
+        \pf
+        \step{1}{\assume{for a contradiction $0 \in U \subseteq C$ where $U$
+        is open and $C$ is compact.}}
+        \step{2}{\pick\ a basic open set $B = (a_1, b_1) \times \cdots \times (a_n, b_n)
+        \times \RR \times \RR \times \cdots$ such that $0 \in B \subseteq U$}
+        \step{3}{$\overline{B} = [a_1, b_1] \times \cdots \times [a_n, b_n]
+        \times \RR \times \RR \times \cdots$ is compact.}
+        \begin{proof}
+            \pf Proposition \ref{proposition:closed_subspace_compact}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This is a contradiction.
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
 \chapter{Topological Groups}
 
 \begin{definition}[Topological Group]
