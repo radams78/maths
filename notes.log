@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  25 JUN 2022 07:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  25 JUN 2022 07:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,8 +302,8 @@ Overfull \hbox (25.58417pt too wide) in paragraph at lines 143--145
  []
 
 
-Overfull \hbox (0.11606pt too wide) in paragraph at lines 170--173
-[]\OT1/cmr/bx/n/10 Axiom Schema 2.12 \OT1/cmr/m/n/10 (Sub-set Ax-ioms, Aus-son-derung Ax-ioms)\OT1/cmr/bx/n/10 . \OT1/cmr/m/it/10 For any classes
+Overfull \hbox (3.31049pt too wide) in paragraph at lines 170--173
+[]\OT1/cmr/bx/n/10 Axiom Schema 2.7.1 \OT1/cmr/m/n/10 (Sub-set Ax-ioms, Aus-son-derung Ax-ioms)\OT1/cmr/bx/n/10 . \OT1/cmr/m/it/10 For any classes
  []
 
 [9] [10]
@@ -343,6 +343,11 @@ Overfull \hbox (50.61745pt too wide) in paragraph at lines 744--744
 
  (/home/robin/fun/maths/number.tex
 Chapter 5.
+
+Overfull \hbox (6.92381pt too wide) in paragraph at lines 46--47
+[]\OT1/cmr/bx/n/10 Definition 5.3.1 \OT1/cmr/m/n/10 (Nat-u-ral Num-ber (Ex-ten-sion-al-ity, Empty Set, Pair-ing, Union))\OT1/cmr/bx/n/10 .
+ []
+
 [45
 
 
@@ -401,12 +406,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 2426.
 
-[91] [92] [93] [94]
-Overfull \hbox (1.14005pt too wide) in paragraph at lines 2688--2689
-[]\OT1/cmr/bx/n/10 Proposition 9.168. \OT1/cmr/m/it/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$ \OT1/cmr/m/it/10 be a fam-ily of Haus-dorff spaces. Then $[][] \OML/cmm/m/it/10 X[]$
- []
-
-[95] [96] [97] [98] [99]
+[91] [92] [93] [94] [95] [96] [97] [98] [99]
 WARNING: proof step "b" (<2>2) already defined
 [100]
 WARNING: proof step "3" (<1>8) already defined
@@ -470,7 +470,12 @@ LaTeX Warning: Reference `proposition:countable_subset' on page 144 undefined on
 Chapter 10.
 [148
 
-] [149] [150] [151]
+] [149]
+Overfull \hbox (0.39728pt too wide) in paragraph at lines 6701--6703
+[]\OT1/cmr/bx/n/10 Definition 10.0.12 \OT1/cmr/m/n/10 (Sym-met-ric Neigh-bour-hood)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 G$ \OT1/cmr/m/n/10 be a topo-log-i-cal group.
+ []
+
+[150] [151]
 WARNING: proof step "a" (<3>1) already defined
 WARNING: proof step "b" (<3>2) already defined
 WARNING: proof step "c" (<3>3) already defined
@@ -513,18 +518,18 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
  ) 
 Here is how much of TeX's memory you used:
- 7647 strings out of 481239
- 108014 string characters out of 5920377
- 366637 words of memory out of 5000000
+ 7648 strings out of 481239
+ 109331 string characters out of 5920377
+ 367088 words of memory out of 5000000
  21504 multiletter control sequences out of 15000+600000
  545318 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,14n,35p,265b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/robin/fun/maths/notes.pdf (183 pages, 776271 bytes).
+Output written on /home/robin/fun/maths/notes.pdf (183 pages, 777956 bytes).
 PDF statistics:
- 3179 PDF objects out of 3580 (max. 8388607)
- 2891 compressed objects within 29 object streams
- 1269 named destinations out of 1440 (max. 500000)
+ 3181 PDF objects out of 3580 (max. 8388607)
+ 2893 compressed objects within 29 object streams
+ 1270 named destinations out of 1440 (max. 500000)
  1161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

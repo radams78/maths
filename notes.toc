@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {3.5}Range}{13}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Field}{13}{section.3.6}%
 \contentsline {section}{\numberline {3.7}Functions}{13}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Single-Rooted}{13}{section.3.8}%
+\contentsline {section}{\numberline {3.8}Single-Rooted}{14}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Surjective}{14}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Inverse}{14}{section.3.10}%
 \contentsline {section}{\numberline {3.11}Composition}{15}{section.3.11}%
@@ -85,7 +85,7 @@
 \contentsline {section}{\numberline {9.5}Interior}{61}{section.9.5}%
 \contentsline {section}{\numberline {9.6}Closure}{62}{section.9.6}%
 \contentsline {section}{\numberline {9.7}Boundary}{64}{section.9.7}%
-\contentsline {section}{\numberline {9.8}Limit Points}{64}{section.9.8}%
+\contentsline {section}{\numberline {9.8}Limit Points}{65}{section.9.8}%
 \contentsline {section}{\numberline {9.9}Basis for a Topology}{65}{section.9.9}%
 \contentsline {section}{\numberline {9.10}Local Basis at a Point}{69}{section.9.10}%
 \contentsline {section}{\numberline {9.11}Convergence}{70}{section.9.11}%
@@ -119,7 +119,7 @@
 \contentsline {section}{\numberline {9.38}Local Connectedness}{122}{section.9.38}%
 \contentsline {section}{\numberline {9.39}Local Path Connectedness}{123}{section.9.39}%
 \contentsline {section}{\numberline {9.40}Weak Local Connectedness}{125}{section.9.40}%
-\contentsline {section}{\numberline {9.41}Quasicomponents}{125}{section.9.41}%
+\contentsline {section}{\numberline {9.41}Quasicomponents}{126}{section.9.41}%
 \contentsline {section}{\numberline {9.42}Open Coverings}{127}{section.9.42}%
 \contentsline {section}{\numberline {9.43}Lindel\"{o}f Spaces}{127}{section.9.43}%
 \contentsline {section}{\numberline {9.44}The Second Countability Axiom}{128}{section.9.44}%
@@ -139,7 +139,7 @@
 \contentsline {section}{\numberline {10.6}Distance to a Set}{175}{section.10.6}%
 \contentsline {section}{\numberline {10.7}Lebesgue Numbers}{176}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Uniform Continuity}{178}{section.10.8}%
-\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{178}{section.10.9}%
+\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{179}{section.10.9}%
 \contentsline {section}{\numberline {10.10}Isometry}{180}{section.10.10}%
-\contentsline {section}{\numberline {10.11}Shrinking Maps}{180}{section.10.11}%
+\contentsline {section}{\numberline {10.11}Shrinking Maps}{181}{section.10.11}%
 \contentsline {section}{\numberline {10.12}Contractions}{182}{section.10.12}%

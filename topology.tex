@@ -6065,7 +6065,7 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
 \end{proof}
 
 \begin{corollary}
-    \label{corollary:compact_closed_interval}
+    \label{corollary:closed_interval_compact}
     Let $X$ be a linearly ordered set with the least upper bound property. Then every closed interval in $X$ is compact.
 \end{corollary}
 
@@ -6289,7 +6289,7 @@ The following examples show that not every limit point compact space is compact.
         \step{4}{$B \subseteq [0,b]$}
         \step{5}{$[0,b]$ is compact.}
         \begin{proof}
-            \pf\ Corollary \ref{corollary:compact_closed_interval}.
+            \pf\ Corollary \ref{corollary:closed_interval_compact}.
         \end{proof}
         \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b]$.}
         \begin{proof}
@@ -6452,6 +6452,7 @@ The following examples show that not every limit point compact space is compact.
 
 The following example shows that a countable product of locally compact spaces
 is not necessarily locally compact.
+
 \begin{example}
     The space $\RR^\omega$ is not locally compact.
 
@@ -6473,6 +6474,16 @@ is not necessarily locally compact.
         \qed
     \end{proof}
 \end{example}
+
+\begin{example}
+    Every linearly ordered set $X$ with the least upper bound property is locally
+    compact under the order topology.
+
+    For any point $x$, pick a basic open set $B$ such that $x \in B$. Then
+    $x \in B \subseteq \overline{B}$ and $\overline{B}$ is a closed interval,
+    hence compact (Corollary \ref{corollary:closed_interval_compact}).
+\end{example}
+
 \chapter{Topological Groups}
 
 \begin{definition}[Topological Group]
