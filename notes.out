@@ -49,92 +49,96 @@
 \BOOKMARK [1][-]{section.3.29}{Minimal Elements}{chapter.3}% 49
 \BOOKMARK [1][-]{section.3.30}{Well-Founded Relations}{chapter.3}% 50
 \BOOKMARK [1][-]{section.3.31}{Transitive Closure}{chapter.3}% 51
-\BOOKMARK [0][-]{chapter.4}{Cardinal Numbers}{part.1}% 52
-\BOOKMARK [1][-]{section.4.1}{Countability}{chapter.4}% 53
-\BOOKMARK [1][-]{section.4.2}{Order Theory}{chapter.4}% 54
-\BOOKMARK [1][-]{section.4.3}{Partially Ordered Sets}{chapter.4}% 55
-\BOOKMARK [1][-]{section.4.4}{Strict Partial Order}{chapter.4}% 56
-\BOOKMARK [1][-]{section.4.5}{Strict Linear Orders}{chapter.4}% 57
-\BOOKMARK [1][-]{section.4.6}{Well Orderings}{chapter.4}% 58
-\BOOKMARK [1][-]{section.4.7}{Ordinal Numbers}{chapter.4}% 59
-\BOOKMARK [1][-]{section.4.8}{Cardinal Numbers}{chapter.4}% 60
-\BOOKMARK [1][-]{section.4.9}{Cardinal Arithmetic}{chapter.4}% 61
-\BOOKMARK [1][-]{section.4.10}{Rank of a Set}{chapter.4}% 62
-\BOOKMARK [1][-]{section.4.11}{Transfinite Recursion Again}{chapter.4}% 63
-\BOOKMARK [1][-]{section.4.12}{Alephs}{chapter.4}% 64
-\BOOKMARK [1][-]{section.4.13}{Ordinal Arithmetic}{chapter.4}% 65
-\BOOKMARK [1][-]{section.4.14}{Beth Cardinals}{chapter.4}% 66
-\BOOKMARK [1][-]{section.4.15}{Cofinality}{chapter.4}% 67
-\BOOKMARK [1][-]{section.4.16}{Inaccessible Cardinals}{chapter.4}% 68
-\BOOKMARK [0][-]{chapter.5}{Natural Numbers}{part.1}% 69
-\BOOKMARK [1][-]{section.5.1}{Successors}{chapter.5}% 70
-\BOOKMARK [1][-]{section.5.2}{Inductive Sets}{chapter.5}% 71
-\BOOKMARK [1][-]{section.5.3}{Natural Numbers}{chapter.5}% 72
-\BOOKMARK [1][-]{section.5.4}{Peano Systems}{chapter.5}% 73
-\BOOKMARK [1][-]{section.5.5}{Arithmetic}{chapter.5}% 74
-\BOOKMARK [0][-]{chapter.6}{Integers}{part.1}% 75
-\BOOKMARK [0][-]{chapter.7}{Rational Numbers}{part.1}% 76
-\BOOKMARK [0][-]{chapter.8}{Real Numbers}{part.1}% 77
-\BOOKMARK [1][-]{section.8.1}{The Cantor Set}{chapter.8}% 78
-\BOOKMARK [0][-]{chapter.9}{Finite Sets}{part.1}% 79
-\BOOKMARK [1][-]{section.9.1}{Real Analysis}{chapter.9}% 80
-\BOOKMARK [1][-]{section.9.2}{Group Theory}{chapter.9}% 81
-\BOOKMARK [1][-]{section.9.3}{Topological Spaces}{chapter.9}% 82
-\BOOKMARK [1][-]{section.9.4}{Closed Set}{chapter.9}% 83
-\BOOKMARK [1][-]{section.9.5}{Interior}{chapter.9}% 84
-\BOOKMARK [1][-]{section.9.6}{Closure}{chapter.9}% 85
-\BOOKMARK [1][-]{section.9.7}{Boundary}{chapter.9}% 86
-\BOOKMARK [1][-]{section.9.8}{Limit Points}{chapter.9}% 87
-\BOOKMARK [1][-]{section.9.9}{Basis for a Topology}{chapter.9}% 88
-\BOOKMARK [1][-]{section.9.10}{Local Basis at a Point}{chapter.9}% 89
-\BOOKMARK [1][-]{section.9.11}{Convergence}{chapter.9}% 90
-\BOOKMARK [1][-]{section.9.12}{Locally Finite Sets}{chapter.9}% 91
-\BOOKMARK [1][-]{section.9.13}{Open Maps}{chapter.9}% 92
-\BOOKMARK [1][-]{section.9.14}{Continuous Functions}{chapter.9}% 93
-\BOOKMARK [1][-]{section.9.15}{Homeomorphisms}{chapter.9}% 94
-\BOOKMARK [1][-]{section.9.16}{The Order Topology}{chapter.9}% 95
-\BOOKMARK [1][-]{section.9.17}{The nth Root Function}{chapter.9}% 96
-\BOOKMARK [1][-]{section.9.18}{The Product Topology}{chapter.9}% 97
-\BOOKMARK [2][-]{subsection.9.18.1}{Continuous in Each Variable Separately}{section.9.18}% 98
-\BOOKMARK [1][-]{section.9.19}{The Subspace Topology}{chapter.9}% 99
-\BOOKMARK [1][-]{section.9.20}{The Box Topology}{chapter.9}% 100
-\BOOKMARK [1][-]{section.9.21}{T1 Spaces}{chapter.9}% 101
-\BOOKMARK [1][-]{section.9.22}{Hausdorff Spaces}{chapter.9}% 102
-\BOOKMARK [1][-]{section.9.23}{The First Countability Axiom}{chapter.9}% 103
-\BOOKMARK [1][-]{section.9.24}{Strong Continuity}{chapter.9}% 104
-\BOOKMARK [1][-]{section.9.25}{Saturated Sets}{chapter.9}% 105
-\BOOKMARK [1][-]{section.9.26}{Quotient Maps}{chapter.9}% 106
-\BOOKMARK [1][-]{section.9.27}{Quotient Topology}{chapter.9}% 107
-\BOOKMARK [1][-]{section.9.28}{Retractions}{chapter.9}% 108
-\BOOKMARK [1][-]{section.9.29}{Homogeneous Spaces}{chapter.9}% 109
-\BOOKMARK [1][-]{section.9.30}{Regular Spaces}{chapter.9}% 110
-\BOOKMARK [1][-]{section.9.31}{Connected Spaces}{chapter.9}% 111
-\BOOKMARK [1][-]{section.9.32}{Totally Disconnected Spaces}{chapter.9}% 112
-\BOOKMARK [1][-]{section.9.33}{Paths and Path Connectedness}{chapter.9}% 113
-\BOOKMARK [1][-]{section.9.34}{The Topologist's Sine Curve}{chapter.9}% 114
-\BOOKMARK [1][-]{section.9.35}{The Long Line}{chapter.9}% 115
-\BOOKMARK [1][-]{section.9.36}{Components}{chapter.9}% 116
-\BOOKMARK [1][-]{section.9.37}{Path Components}{chapter.9}% 117
-\BOOKMARK [1][-]{section.9.38}{Local Connectedness}{chapter.9}% 118
-\BOOKMARK [1][-]{section.9.39}{Local Path Connectedness}{chapter.9}% 119
-\BOOKMARK [1][-]{section.9.40}{Weak Local Connectedness}{chapter.9}% 120
-\BOOKMARK [1][-]{section.9.41}{Quasicomponents}{chapter.9}% 121
-\BOOKMARK [1][-]{section.9.42}{Open Coverings}{chapter.9}% 122
-\BOOKMARK [1][-]{section.9.43}{Lindel\366f Spaces}{chapter.9}% 123
-\BOOKMARK [1][-]{section.9.44}{The Second Countability Axiom}{chapter.9}% 124
-\BOOKMARK [1][-]{section.9.45}{Sequential Compactness}{chapter.9}% 125
-\BOOKMARK [1][-]{section.9.46}{Limit Point Compactness}{chapter.9}% 126
-\BOOKMARK [1][-]{section.9.47}{Countable Compactness}{chapter.9}% 127
-\BOOKMARK [1][-]{section.9.48}{Compact Spaces}{chapter.9}% 128
-\BOOKMARK [1][-]{section.9.49}{Perfect Maps}{chapter.9}% 129
-\BOOKMARK [1][-]{section.9.50}{Isolated Points}{chapter.9}% 130
-\BOOKMARK [0][-]{chapter.10}{Topological Groups}{part.1}% 131
-\BOOKMARK [1][-]{section.10.1}{The Metric Topology}{chapter.10}% 132
-\BOOKMARK [1][-]{section.10.2}{Real Linear Algebra}{chapter.10}% 133
-\BOOKMARK [1][-]{section.10.3}{The Uniform Topology}{chapter.10}% 134
-\BOOKMARK [1][-]{section.10.4}{Uniform Convergence}{chapter.10}% 135
-\BOOKMARK [1][-]{section.10.5}{Isometric Imbeddings}{chapter.10}% 136
-\BOOKMARK [1][-]{section.10.6}{Distance to a Set}{chapter.10}% 137
-\BOOKMARK [1][-]{section.10.7}{Lebesgue Numbers}{chapter.10}% 138
-\BOOKMARK [1][-]{section.10.8}{Uniform Continuity}{chapter.10}% 139
-\BOOKMARK [1][-]{section.10.9}{Epsilon-neighbourhoods}{chapter.10}% 140
+\BOOKMARK [1][-]{section.3.32}{Fixed Points}{chapter.3}% 52
+\BOOKMARK [0][-]{chapter.4}{Cardinal Numbers}{part.1}% 53
+\BOOKMARK [1][-]{section.4.1}{Countability}{chapter.4}% 54
+\BOOKMARK [1][-]{section.4.2}{Order Theory}{chapter.4}% 55
+\BOOKMARK [1][-]{section.4.3}{Partially Ordered Sets}{chapter.4}% 56
+\BOOKMARK [1][-]{section.4.4}{Strict Partial Order}{chapter.4}% 57
+\BOOKMARK [1][-]{section.4.5}{Strict Linear Orders}{chapter.4}% 58
+\BOOKMARK [1][-]{section.4.6}{Well Orderings}{chapter.4}% 59
+\BOOKMARK [1][-]{section.4.7}{Ordinal Numbers}{chapter.4}% 60
+\BOOKMARK [1][-]{section.4.8}{Cardinal Numbers}{chapter.4}% 61
+\BOOKMARK [1][-]{section.4.9}{Cardinal Arithmetic}{chapter.4}% 62
+\BOOKMARK [1][-]{section.4.10}{Rank of a Set}{chapter.4}% 63
+\BOOKMARK [1][-]{section.4.11}{Transfinite Recursion Again}{chapter.4}% 64
+\BOOKMARK [1][-]{section.4.12}{Alephs}{chapter.4}% 65
+\BOOKMARK [1][-]{section.4.13}{Ordinal Arithmetic}{chapter.4}% 66
+\BOOKMARK [1][-]{section.4.14}{Beth Cardinals}{chapter.4}% 67
+\BOOKMARK [1][-]{section.4.15}{Cofinality}{chapter.4}% 68
+\BOOKMARK [1][-]{section.4.16}{Inaccessible Cardinals}{chapter.4}% 69
+\BOOKMARK [0][-]{chapter.5}{Natural Numbers}{part.1}% 70
+\BOOKMARK [1][-]{section.5.1}{Successors}{chapter.5}% 71
+\BOOKMARK [1][-]{section.5.2}{Inductive Sets}{chapter.5}% 72
+\BOOKMARK [1][-]{section.5.3}{Natural Numbers}{chapter.5}% 73
+\BOOKMARK [1][-]{section.5.4}{Peano Systems}{chapter.5}% 74
+\BOOKMARK [1][-]{section.5.5}{Arithmetic}{chapter.5}% 75
+\BOOKMARK [0][-]{chapter.6}{Integers}{part.1}% 76
+\BOOKMARK [0][-]{chapter.7}{Rational Numbers}{part.1}% 77
+\BOOKMARK [0][-]{chapter.8}{Real Numbers}{part.1}% 78
+\BOOKMARK [1][-]{section.8.1}{The Cantor Set}{chapter.8}% 79
+\BOOKMARK [0][-]{chapter.9}{Finite Sets}{part.1}% 80
+\BOOKMARK [1][-]{section.9.1}{Real Analysis}{chapter.9}% 81
+\BOOKMARK [1][-]{section.9.2}{Group Theory}{chapter.9}% 82
+\BOOKMARK [1][-]{section.9.3}{Topological Spaces}{chapter.9}% 83
+\BOOKMARK [1][-]{section.9.4}{Closed Set}{chapter.9}% 84
+\BOOKMARK [1][-]{section.9.5}{Interior}{chapter.9}% 85
+\BOOKMARK [1][-]{section.9.6}{Closure}{chapter.9}% 86
+\BOOKMARK [1][-]{section.9.7}{Boundary}{chapter.9}% 87
+\BOOKMARK [1][-]{section.9.8}{Limit Points}{chapter.9}% 88
+\BOOKMARK [1][-]{section.9.9}{Basis for a Topology}{chapter.9}% 89
+\BOOKMARK [1][-]{section.9.10}{Local Basis at a Point}{chapter.9}% 90
+\BOOKMARK [1][-]{section.9.11}{Convergence}{chapter.9}% 91
+\BOOKMARK [1][-]{section.9.12}{Locally Finite Sets}{chapter.9}% 92
+\BOOKMARK [1][-]{section.9.13}{Open Maps}{chapter.9}% 93
+\BOOKMARK [1][-]{section.9.14}{Continuous Functions}{chapter.9}% 94
+\BOOKMARK [1][-]{section.9.15}{Homeomorphisms}{chapter.9}% 95
+\BOOKMARK [1][-]{section.9.16}{The Order Topology}{chapter.9}% 96
+\BOOKMARK [1][-]{section.9.17}{The nth Root Function}{chapter.9}% 97
+\BOOKMARK [1][-]{section.9.18}{The Product Topology}{chapter.9}% 98
+\BOOKMARK [2][-]{subsection.9.18.1}{Continuous in Each Variable Separately}{section.9.18}% 99
+\BOOKMARK [1][-]{section.9.19}{The Subspace Topology}{chapter.9}% 100
+\BOOKMARK [1][-]{section.9.20}{The Box Topology}{chapter.9}% 101
+\BOOKMARK [1][-]{section.9.21}{T1 Spaces}{chapter.9}% 102
+\BOOKMARK [1][-]{section.9.22}{Hausdorff Spaces}{chapter.9}% 103
+\BOOKMARK [1][-]{section.9.23}{The First Countability Axiom}{chapter.9}% 104
+\BOOKMARK [1][-]{section.9.24}{Strong Continuity}{chapter.9}% 105
+\BOOKMARK [1][-]{section.9.25}{Saturated Sets}{chapter.9}% 106
+\BOOKMARK [1][-]{section.9.26}{Quotient Maps}{chapter.9}% 107
+\BOOKMARK [1][-]{section.9.27}{Quotient Topology}{chapter.9}% 108
+\BOOKMARK [1][-]{section.9.28}{Retractions}{chapter.9}% 109
+\BOOKMARK [1][-]{section.9.29}{Homogeneous Spaces}{chapter.9}% 110
+\BOOKMARK [1][-]{section.9.30}{Regular Spaces}{chapter.9}% 111
+\BOOKMARK [1][-]{section.9.31}{Connected Spaces}{chapter.9}% 112
+\BOOKMARK [1][-]{section.9.32}{Totally Disconnected Spaces}{chapter.9}% 113
+\BOOKMARK [1][-]{section.9.33}{Paths and Path Connectedness}{chapter.9}% 114
+\BOOKMARK [1][-]{section.9.34}{The Topologist's Sine Curve}{chapter.9}% 115
+\BOOKMARK [1][-]{section.9.35}{The Long Line}{chapter.9}% 116
+\BOOKMARK [1][-]{section.9.36}{Components}{chapter.9}% 117
+\BOOKMARK [1][-]{section.9.37}{Path Components}{chapter.9}% 118
+\BOOKMARK [1][-]{section.9.38}{Local Connectedness}{chapter.9}% 119
+\BOOKMARK [1][-]{section.9.39}{Local Path Connectedness}{chapter.9}% 120
+\BOOKMARK [1][-]{section.9.40}{Weak Local Connectedness}{chapter.9}% 121
+\BOOKMARK [1][-]{section.9.41}{Quasicomponents}{chapter.9}% 122
+\BOOKMARK [1][-]{section.9.42}{Open Coverings}{chapter.9}% 123
+\BOOKMARK [1][-]{section.9.43}{Lindel\366f Spaces}{chapter.9}% 124
+\BOOKMARK [1][-]{section.9.44}{The Second Countability Axiom}{chapter.9}% 125
+\BOOKMARK [1][-]{section.9.45}{Sequential Compactness}{chapter.9}% 126
+\BOOKMARK [1][-]{section.9.46}{Limit Point Compactness}{chapter.9}% 127
+\BOOKMARK [1][-]{section.9.47}{Countable Compactness}{chapter.9}% 128
+\BOOKMARK [1][-]{section.9.48}{Compact Spaces}{chapter.9}% 129
+\BOOKMARK [1][-]{section.9.49}{Perfect Maps}{chapter.9}% 130
+\BOOKMARK [1][-]{section.9.50}{Isolated Points}{chapter.9}% 131
+\BOOKMARK [0][-]{chapter.10}{Topological Groups}{part.1}% 132
+\BOOKMARK [1][-]{section.10.1}{The Metric Topology}{chapter.10}% 133
+\BOOKMARK [1][-]{section.10.2}{Real Linear Algebra}{chapter.10}% 134
+\BOOKMARK [1][-]{section.10.3}{The Uniform Topology}{chapter.10}% 135
+\BOOKMARK [1][-]{section.10.4}{Uniform Convergence}{chapter.10}% 136
+\BOOKMARK [1][-]{section.10.5}{Isometric Imbeddings}{chapter.10}% 137
+\BOOKMARK [1][-]{section.10.6}{Distance to a Set}{chapter.10}% 138
+\BOOKMARK [1][-]{section.10.7}{Lebesgue Numbers}{chapter.10}% 139
+\BOOKMARK [1][-]{section.10.8}{Uniform Continuity}{chapter.10}% 140
+\BOOKMARK [1][-]{section.10.9}{Epsilon-neighbourhoods}{chapter.10}% 141
+\BOOKMARK [1][-]{section.10.10}{Isometry}{chapter.10}% 142
+\BOOKMARK [1][-]{section.10.11}{Shrinking Maps}{chapter.10}% 143
+\BOOKMARK [1][-]{section.10.12}{Contractions}{chapter.10}% 144

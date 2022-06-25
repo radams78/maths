@@ -49,6 +49,7 @@
 \contentsline {section}{\numberline {3.29}Minimal Elements}{26}{section.3.29}%
 \contentsline {section}{\numberline {3.30}Well-Founded Relations}{26}{section.3.30}%
 \contentsline {section}{\numberline {3.31}Transitive Closure}{27}{section.3.31}%
+\contentsline {section}{\numberline {3.32}Fixed Points}{27}{section.3.32}%
 \contentsline {chapter}{\numberline {4}Cardinal Numbers}{28}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Countability}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Order Theory}{30}{section.4.2}%
@@ -138,3 +139,6 @@
 \contentsline {section}{\numberline {10.7}Lebesgue Numbers}{175}{section.10.7}%
 \contentsline {section}{\numberline {10.8}Uniform Continuity}{177}{section.10.8}%
 \contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{177}{section.10.9}%
+\contentsline {section}{\numberline {10.10}Isometry}{179}{section.10.10}%
+\contentsline {section}{\numberline {10.11}Shrinking Maps}{179}{section.10.11}%
+\contentsline {section}{\numberline {10.12}Contractions}{181}{section.10.12}%

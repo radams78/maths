@@ -338,6 +338,11 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{corollary}
+    \label{corollary:metrizable_T1}
+    Every metrizable space is $T_1$.
+\end{corollary}
+
 \begin{proposition}[CC]
     The product of a countable family of metrizable spaces is metrizable.
 \end{proposition}
@@ -1313,7 +1318,6 @@ We prove this is a metric.
     \qed
 \end{proof}
 
-
 \section{Isometric Imbeddings}
 
 \begin{definition}
@@ -1321,6 +1325,7 @@ We prove this is a metric.
 \end{definition}
 
 \begin{proposition}
+    \label{proposition:isometric_imbedding}
     Every isometric imbedding is an imbedding.
 \end{proposition}
 
@@ -1698,3 +1703,159 @@ to $A$ being closed:
         \qed
     \end{proof}
 \end{example}
+
+\section{Isometry}
+
+\begin{definition}[Isometry]
+    Let $X$ be a metric space. An \emph{isometry} of $X$ is a function
+    $f : X \rightarrow X$ such that, for all $x, y \in X$, we have
+    $d(x,y) = d(f(x),f(y))$.    
+\end{definition}
+
+\begin{proposition}
+    An isometry on a compact metric space is a homeomorphism.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact metric space.}}
+    \step{2}{\pflet{$f : X \rightarrow X$ be an isometry.}}
+    \step{3}{$f$ is an imbedding}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:isometric_imbedding}.
+    \end{proof}
+    \step{4}{$f$ is surjective.}
+    \begin{proof}
+        \step{a}{\assume{for a contradiction $a \notin f(X)$}}
+        \step{b}{$f(X)$ is closed}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:closed_map_compact_Hausdorff}.
+        \end{proof}
+        \step{c}{\pick\ $\epsilon > 0$ such that $B(a,\epsilon) \cap f(X) = \emptyset$}
+        \step{d}{For $m, n \in \NN$ with $m \neq n$, we have $d(f^m(a),f^n(a)) \geq \epsilon$}
+        \begin{proof}
+            \step{i}{\assume{without loss of generality $m < n$}}
+            \step{ii}{$d(a, f^{n-m}(a)) \geq \epsilon$}
+            \begin{proof}
+                \pf\ \stepref{c}
+            \end{proof}
+            \step{iii}{$d(f^{m}(a), f^n(a)) \geq \epsilon$}
+            \begin{proof}
+                \pf\ \stepref{2}
+            \end{proof}
+        \end{proof}
+        \step{e}{The sequence $(f^n(a))$ has a convergent subsequence.}
+        \begin{proof}
+            \pf\ Corollary \ref{corollary:compact_sequentially_compact},
+            \stepref{1}, Corollary \ref{corollary:metrizable_T1}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ \stepref{d} and \stepref{e} form a contradiction.
+        \end{proof}
+        \qed
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Shrinking Maps}
+
+\begin{definition}[Shrinking Map]
+    Let $X$ be a metric space. Let $f : X \rightarrow X$. Then $f$ is a
+    \emph{shrinking map} if and only if, for all $x, y \in X$ with $x \neq y$,
+    we have $d(f(x),f(y)) < d(x,y)$.
+\end{definition}
+
+\begin{proposition}
+    Let $X$ be a compact metric space. Let $f : X \rightarrow X$ be a contraction.
+    Then $f$ has a unique fixed point.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A_n = f^n(X)$ for $n \geq 1$}}
+    \step{2}{For all $n \geq 1$ we have $A_n$ is closed.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closed_map_compact_Hausdorff}.
+    \end{proof}
+    \step{3}{\pflet{$A = \bigcap_{n=1}^\infty A_n$}}
+    \step{4}{\pick\ $a \in A$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:nested_sequence_nonempty_intersection}.
+    \end{proof}
+    \step{5}{$f(A) = A$}
+    \begin{proof}
+        \step{a}{$f(A) \subseteq A$}
+        \step{b}{$A \subseteq f(A)$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in A$}}
+            \step{ii}{For $n \geq 1$, \pick\ $x_n$ such that $x = f^n(x_n)$}
+            \step{iii}{\pick\ a convergent subsequence $(f^{n_r-1}(x_{n_r}))$ of
+            $(f^{n-1}(x_n))$ with limit $l$}
+            \begin{proof}
+                \pf\ Corollary \ref{corollary:compact_sequentially_compact}.
+            \end{proof}
+            \step{iv}{$f(l) = x$}
+            \begin{proof}
+                \pf\ Both are the limit of $f(f^{n_r-1}(a_{n_r})) = f^{n_r}(a_{n_r})$.
+            \end{proof}
+            \step{v}{$l \in A$}
+            \begin{proof}
+                \step{i}{\assume{for a contradiction $l \notin A$}}
+                \step{ii}{\pick\ $N$ such that $l \notin A_N$}
+                \step{iii}{\pick\ $R$ such that $n_R > N$}
+                \step{iv}{For $r \geq R$ we have $f^{n_r-1}(a_{n_r}) \in A_N$}
+                \qedstep
+                \begin{proof}
+                    \pf\ This is a contradiction.
+                \end{proof}
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{6}{$\diam A = A$}
+    \begin{proof}
+        \step{a}{\pick\ $x, y \in A$ such that $d(x,y) = \diam A$}
+        \begin{proof}
+            \pf\ By the Extreme Value Theorem.
+        \end{proof}
+        \step{b}{\pick\ $x', y' \in A$ such that $x = f(x')$ and $y = f(y')$}
+        \begin{proof}
+            \pf\ By \stepref{5}.
+        \end{proof}
+        \step{d}{$x' = y'$}
+        \begin{proof}
+            \pf\ If $x' \neq y'$ then $\diam A = d(x,y) < d(x',y')$ which is
+            a contradiction.
+        \end{proof}
+        \step{e}{$x = y$}
+    \end{proof}
+    \step{h}{$f(a) = a$}
+    \begin{proof}
+        \pf\ Since $a, f(a) \in A$
+    \end{proof}
+    \step{i}{If $f(b) = b$ then $b = a$}
+    \begin{proof}
+        \pf\ If $f(b) = b$ then $b \in A$.
+    \end{proof}
+    \qed
+\end{proof}
+
+The following example shows that we cannot weaken the hypothesis from '$X$ is
+a compact metric space' to '$X$ is a complete metric space'.
+
+\begin{example}
+    The function $f : \RR \rightarrow \RR$ defined by
+    $f(x) = [x + (x^2 + 1)^{1/2}] / 2$ is a shrinking map with no fixed point.
+\end{example}
+
+\section{Contractions}
+
+\begin{definition}[Contraction]
+    Let $X$ be a metric space. Let $f : X \rightarrow X$. Then $f$ is a
+    \emph{contraction} if and only if there exists $\alpha < 1$ such that,
+    for all $x, y \in X$, we have $d(f(x),f(y)) \leq \alpha d(x,y)$.
+\end{definition}
+
+%TODO:     Let $X$ be a complete metric space. 
+% Let $f : X \rightarrow X$ be a contraction.
+%    Then $f$ has a unique fixed point.
