@@ -2601,6 +2601,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:subspace_Haudorff}
     A subspace of a Hausdorff space is Hausdorff.
 \end{theorem}
 
@@ -4281,7 +4282,7 @@ An example that shows the converse does not hold:
     \step{1}{\assume{for a contradiction $p : [0,1] \rightarrow \RR_K$ was a path from $0$ to $1$.}}
     \step{2}{$p([0,1])$ as a subspace of $\RR_K$ is compact.}
     \begin{proof}
-        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+        \pf\ Theorem \ref{theorem:continuous_image_compact}.
     \end{proof}
     \step{3}{$p([0,1])$ as a subspace of $\RR_K$ is connected.}
     \begin{proof}
@@ -5472,7 +5473,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \end{proof}
 
 \begin{theorem}
-    \label{theorem:compact_continuous_image}
+    \label{theorem:continuous_image_compact}
     The continuous image of a compact space is compact.
 \end{theorem}
 
@@ -5627,7 +5628,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \end{proof}
     \step{3}{$f(C)$ is compact.}
     \begin{proof}
-        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+        \pf\ Theorem \ref{theorem:continuous_image_compact}.
     \end{proof}
     \step{4}{$f(C)$ is closed.}
     \begin{proof}
@@ -5655,7 +5656,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \end{proof}
     \step{3}{$f(C)$ is compact.}
     \begin{proof}
-        \pf\ Theorem \ref{theorem:compact_continuous_image}.
+        \pf\ Theorem \ref{theorem:continuous_image_compact}.
     \end{proof}
     \step{4}{$f(C)$ is closed.}
     \begin{proof}
@@ -6483,6 +6484,238 @@ is not necessarily locally compact.
     $x \in B \subseteq \overline{B}$ and $\overline{B}$ is a closed interval,
     hence compact (Corollary \ref{corollary:closed_interval_compact}).
 \end{example}
+
+\begin{proposition}
+    \label{proposition:closed_subspace_locally_compact}
+    Any closed subspace of a locally compact space is locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a locally compact space and $Y \subseteq X$ be closed.}}
+    \step{2}{\pflet{$y \in Y$.}}
+    \step{3}{\pick\ a compact subspace $C$ of $X$ and neighbourhood $U$ of $y$ in $X$ such that 
+    $U \subseteq C$}
+    \step{4}{$y \in U \cap Y \subseteq C \cap Y$}
+    \step{5}{$C \cap Y$ is compact.}
+    \begin{proof}
+        \pf Proposition \ref{proposition:closed_subspace_compact}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a Hausdorff space. Let $x \in X$. Then $X$ is locally compact at $x$ if and only if,
+    for every neighbourhood $U$ of $x$, there exists a neighbourhood $V$ of $x$ such that
+    $\overline{V}$ is compact and $\overline{V} \subseteq U$.
+\end{proposition}
+
+\begin{corollary}
+    Every open subspace of a locally compact Hausdorff space is locally compact Hausdorff.
+\end{corollary}
+
+This example shows that a subspace of a locally compact Hausdorff space is not necessarily locally
+compact Hausdorff.
+
+\begin{example}
+    The rationals $\QQ$ are not locally compact.
+
+    Assume for a contradiction $C \subseteq \QQ$ is compact and includes $(-\epsilon, \epsilon)
+    \cap \QQ$. Pick an irrational $\xi \in (- \epsilon, \epsilon)$. Then $\{ (-\infty, q) \cap
+    \QQ \mid q \in \QQ, q < \xi \} \cup \{ (q, +\infty) \cap
+    \QQ \mid q \in \QQ, q > \xi \}$ covers $C$ but no finite subcover does.
+\end{example}
+
+\begin{proposition}[AC]
+    Let $\{ X_\alpha \}_{\alpha \in J}$ be a family of nonempty spaces. If
+    $\prod_{\alpha \in J} X_\alpha$ is locally compact then each $X_\alpha$ is locally compact,
+    and $X_\alpha$ is compact for all but finitely many $\alpha \in J$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{ X_\alpha \}_{\alpha \in J}$ be a family of nonempty spaces.}}
+    \step{2}{\assume{$\prod_{\alpha \in J} X_\alpha$ is locally compact.}}
+    \step{3}{For all $\alpha \in J$ we have $X_\alpha$ is locally compact.}
+    \begin{proof}
+        \step{a}{\pflet{$\alpha \in J$}}
+        \step{b}{\pflet{$x_\alpha \in X_\alpha$}}
+        \step{c}{Extend $x_\alpha$ to a family $(x_\beta)_{\beta \in J} \in \prod_{\beta \in J} X_\beta$}
+        \step{d}{\pick\ a compact $C \subseteq \prod_{\beta \in J} X_\beta$ that includes a basic open neighbourhood
+        $\prod_{\beta \in J} U_\beta$ of $(x_\beta)$ such that each $U_\beta$ is open in $X_\beta$.}
+        \step{e}{$x_\alpha \in U_\alpha \subseteq \pi_\alpha(C)$}
+        \step{f}{$\pi_\alpha(C)$ is compact.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:continuous_image_compact}.
+        \end{proof}
+    \end{proof}
+    \step{4}{$X_\alpha$ is compact for all but finitely many $\alpha \in J$.}
+    \begin{proof}
+        \step{a}{\pick\ $x_\alpha \in X_\alpha$ for all $\alpha$.}
+        \step{b}{\pick\ a compact $C \subseteq \prod_{\alpha \in J} X_\alpha$ that includes a basic open neighbourhood
+        $\prod_{\alpha \in J} U_\alpha$ of $(x_\alpha)$ such that each $U_\alpha$ is open in $X_\alpha$,
+        and $U_\alpha = X_\alpha$ for all but finitely many $\alpha$.}
+        \step{c}{For all but finitely many $\alpha \in J$, we have $X_\alpha = \pi_\alpha(C)$}
+        \step{d}{For all but finitely many $\alpha \in J$, we have $X_\alpha$ is compact.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:continuous_image_compact}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Compactifications}
+
+\begin{definition}[Compactification]
+    Let $X$ be a topological space. A \emph{compactification} of $X$ consists of a compact Hausdorff
+    space $Y$ and an imbedding $X \rightarrow Y$.
+\end{definition}
+
+\begin{definition}[One-Point Compactification]
+    Let $X$ be a topological space. A \emph{one-point compactification} of $X$ is a compactification
+    $i : X \rightarrow Y$ such that $Y - i(x)$ consists of a single point.
+\end{definition}
+
+\begin{theorem}
+    Let $X$ be a topological space. Then $X$ is locally compact Hausdorff if and only if there exists
+    a one-point compactification $i : X \rightarrow Y$. In this case,
+    $Y$ is unique up to unique homeomorphism that commutes with $i$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{For any compact Hausdorff space $Y$ and point $a \in Y$, the space $Y - \{a\}$ is locally compact Hausdorff.}
+    \begin{proof}
+        \step{a}{\pflet{$Y$ be a compact Hausdorff space.}}
+        \step{b}{\pflet{$a \in Y$}}
+        \step{c}{$Y - \{a\}$ is closed.}
+        \step{d}{$Y - \{a\}$ is locally compact.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:closed_subspace_locally_compact}.
+        \end{proof}
+        \step{e}{$Y - \{a\}$ is Hausdorff.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:subspace_Haudorff}.
+        \end{proof}
+    \end{proof}
+    \step{2}{For any locally compact Hausdorff space $X$, there exists a compact Hausdorff space $Y$ and imbedding
+    $i : X \rightarrow Y$ such that $Y - i(X)$ is a single point.}
+    \begin{proof}
+        \step{a}{\pflet{$X$ be a locally compact Hausdorff space.}}
+        \step{b}{\pflet{$Y = X \cup \{ \infty \}$}}
+        \step{c}{Define a topology on $Y$ by: $U \subseteq Y$ is open if and only if $U$ is an open
+        set in $X$ or $U = Y - C$ where $C$ is a compact subspace of $X$.}
+        \begin{proof}
+            \step{i}{$Y$ is open.}
+            \begin{proof}
+                \pf\ Since $Y = Y - \emptyset$ and $\emptyset$ is a compact subspace of $X$.
+            \end{proof}
+            \step{ii}{For any set of open sets $\UU$ we have $\bigcup \UU$ is open.}
+            \begin{proof}
+                \pf\ We have $\bigcup \UU = Y - (\bigcap \{ C \subseteq X \mid C \text{ is compact},
+                    Y - C \in \UU \} - \bigcup \{ U \subseteq X \mid U \text{ is open in } X, U \in \UU \})$,
+                    where we take the empty intersection to be $Y$.
+            \end{proof}
+            \step{iii}{For any open sets $U$ and $V$ we have $U \cap V$ is open.}
+            \begin{proof}
+                \step{one}{\pflet{$U$ and $V$ be open sets.}}
+                \step{two}{\case{$U$ and $V$ are open sets in $X$.}}
+                \begin{proof}
+                    \pf\ In this case $U \cap V$ is open in $X$.
+                \end{proof}
+                \step{three}{\case{$C_1$ and $C_2$ are compact subspaces of $X$ and $U = X - C_1$,
+                $V = X - C_2$}}
+                \begin{proof}
+                    \pf\ In this case $C_1 \cup C_2$ is compact and $U \cap V = X - (C_1 \cup C_2)$.
+                \end{proof}
+                \step{four}{\case{$U$ is open in $X$, $C$ is a compact subspace of $X$ and
+                $V = X - C$}}
+                \begin{proof}
+                    \pf\ In this case $U \cap V = U - C$ which is open since $C$ is closed.
+                \end{proof}
+            \end{proof}
+        \end{proof}
+        \step{d}{$Y$ is compact.}
+        \begin{proof}
+            \step{i}{\pflet{$\AA$ be an open cover of $Y$.}}
+            \step{ii}{\pick\ $C$ compact in $X$ such that $Y - C \in \AA$}
+            \begin{proof}
+                \pf\ There must be at least one such member of $\AA$ since $\infty \in \bigcup \AA$.
+            \end{proof}
+            \step{iii}{$\{ U \cap X \mid U \in \AA - \{ Y - C \} \}$ is a set of open sets in $X$
+            that covers $C$.}
+            \step{iv}{\pick\ a finite subcover $\{ U_1 \cap X, \ldots, U_n \cap X \}$}
+            \step{v}{$\{ U_1 \cap X, \ldots, U_n \cap X, Y - C \}$ covers $Y$.}
+        \end{proof}
+        \step{e}{$Y$ is Hausdorff.}
+        \begin{proof}
+            \step{i}{\pflet{$x,y \in Y$ with $x \neq y$}}
+            \step{ii}{\case{$x,y \in X$}}
+            \begin{proof}
+                \pf\ There are disjoint open sets $U$, $V$ in $X$ such that $x \in U$, $y \in V$.
+            \end{proof}
+            \step{iii}{\case{$x \in X$, $y = \infty$}}
+            \begin{proof}
+                \step{one}{\pick\ a compact $C$ that includes a neighbourhood $U$ of $x$}
+                \begin{proof}
+                    \pf\ Since $X$ is locally compact.
+                \end{proof}
+                \step{two}{$U$ and $Y - C$ are disjoint open sets in $Y$ with $x \in U$
+                and $\infty \in Y - C$}
+            \end{proof}
+        \end{proof}
+        \step{f}{Let $i : X \rightarrow Y$ be the inclusion.}
+        \step{g}{$i$ is an imbedding.}
+        \begin{proof}
+            \step{i}{$i$ is continuous}
+            \step{ii}{$i$ is an open map.}
+        \end{proof}
+        \step{h}{$Y - i(X) = \{ \infty \}$}
+    \end{proof}
+    \step{3}{If $X$ is locally compact Hausdorff, $Y$ and $Y'$ are compact Hausdorff, and $i : X \rightarrow Y$,
+    $i' :  \rightarrow Y'$ are imbeddings such that $Y - i(X)$ and $Y' - i'(X)$ each have just one point,
+    then there exists a unique homeomorphism $\theta : Y \cong Y'$ such that $\theta \circ i = i'$.}
+    \begin{proof}
+        \step{a}{\pflet{$Y - i(X) = \{a\}$ and $Y' - i'(X) = \{b\}$}}
+        \step{b}{\pflet{$\theta : Y \rightarrow Y'$ be the function with $\theta(a) = b$
+        and $\theta(i(x)) = i'(x)$}}
+        \step{c}{$\theta$ is a bijection}
+        \step{d}{$\theta$ is continuous.}
+        \begin{proof}
+            \step{one}{\pflet{$U \subseteq Y'$ be open.} \prove{$\inv{\theta}(U)$ is open.}}
+            \step{two}{\case{$b \in U$}}
+            \begin{proof}
+                \step{x}{$Y' - U$ is compact}
+                \step{xx}{$i(\inv{i'}(Y'-U))$ is compact.}
+                \step{xxx}{$i(\inv{i'}(Y'-U))$ is closed.}
+                \step{xxxx}{$\inv{\theta}(U) = X - i(\inv{i'}(Y'-U))$}
+            \end{proof}
+            \step{three}{\case{$b \notin U$}}
+            \begin{proof}
+                \pf\ $U = i'(V)$ for some $V$ open in $X$ and $\inv{\theta}(U) = i(V)$.
+            \end{proof}
+        \end{proof}
+        \step{e}{$\theta$ is an open map.}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+        \step{f}{$\theta$ is unique.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    $S^1$ is the one-point compactification of $\RR$.
+\end{example}
+
+\begin{example}
+    $S^2$ is the one-point compactification of $\RR^2$.
+\end{example}
+
+\begin{definition}[Riemann Sphere]
+    The \emph{Riemann sphere} or \emph{extended complex plane} is $\CC \cup \{ \infty \}$
+    topologized as the one-point compactification of $\CC$. It is homeomorphic to $S^2$.
+\end{definition}
 
 \chapter{Topological Groups}
 
