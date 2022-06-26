@@ -6505,6 +6505,7 @@ is not necessarily locally compact.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:locally_compact_neighbourhood}
     Let $X$ be a Hausdorff space. Let $x \in X$. Then $X$ is locally compact at $x$ if and only if,
     for every neighbourhood $U$ of $x$, there exists a neighbourhood $V$ of $x$ such that
     $\overline{V}$ is compact and $\overline{V} \subseteq U$.
@@ -6628,6 +6629,74 @@ locally compact.
     \step{4}{\pick\ a compact $C \subseteq X$ that includes a neighbourhood $U$ of $x$}
     \step{5}{$y \in f(U) \subseteq f(C)$ and $f(U)$ is open, $f(C)$ is compact.}
     \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:product_map_quotient}
+    Let $X$, $Y$ and $Z$ be topological spaces and $p : X \rightarrow Y$.
+    If $p$ is a quotient map and $Z$ is locally compact Hausdorff,
+    then $p \times \id{Z} : X \times Z \rightarrow Y \times Z$ is a quotient
+    map.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$, $Y$ and $Z$ be topological spaces and $p : X \rightarrow Y$.}}
+    \step{2}{\assume{$p$ is a quotient map and $Z$ is locally compact Hausdorff.}}
+    \step{2a}{\pflet{$\pi = p \times \id{Z}$}}
+    \step{3}{$\pi$ is sujective.}
+    \step{4}{$\pi$ is continuous.}
+    \step{5}{$\pi$ is strongly continuous.}
+    \begin{proof}
+        \step{a}{\pflet{$A \subseteq Y \times Z$}}
+        \step{b}{\assume{$\inv{\pi}(A)$ is open.}}
+        \step{c}{\pflet{$(y,z) \in A$}}
+        \step{d}{\pick\ $x \in X$ such that $p(x) = y$}
+        \step{e}{\pick\ open sets $U_1$ in $X$ and $V$ in $Z$ such that
+        $x \in U_1$, $z \in V$, $\overline{V}$ is compact, and $U_1 \times
+        \overline{V} \subseteq \inv{\pi}(A)$}
+        \begin{proof}
+            \step{i}{\pick\ open sets $U_1$ in $X$ and $V'$ in $Z$ such that
+            $x \in U_1$, $z \in V'$ and $U' \times V' \subseteq \inv{\pi}(A)$}
+            \step{ii}{\pick\ $V$ open in $Z$ such that $z \in V$, $\overline{V}$
+            is compact and $\overline{V} \subseteq V'$}
+            \begin{proof}
+                \pf\ Proposition \ref{proposition:locally_compact_neighbourhood}.
+            \end{proof}
+        \end{proof}
+        \step{f}{\pflet{$U = \bigcup \{ U' \text{ open in } X \mid 
+        U' \times \overline{V} \subseteq \inv{\pi}(A) \}$}}
+        \step{h}{$U$ is saturated}
+        \begin{proof}
+            \step{i}{\pflet{$a \in U$, $b \in X$ with $p(a) = p(b)$}}
+            \step{ii}{$\{b\} \times \overline{V} \subseteq \inv{\pi}(A)$}
+            \step{iii}{\pick\ $U'$ open in $X$ such that $b \in U'$
+            and $U' \times \overline{V} \subseteq \inv{\pi}(A)$}
+            \begin{proof}
+                \pf\ By the Tube Lemma.
+            \end{proof}
+            \step{iv}{$b \in U' \subseteq U$}
+        \end{proof}
+        \step{i}{$\pi(U \times V)$ is open}
+        \begin{proof}
+            \pf\ Since $\pi(U \times V) = p(U) \times V$.
+        \end{proof}
+        \step{j}{$(y,z) \in \pi(U \times V)$}
+        \step{k}{$\pi(U \times V) \subseteq A$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $A$, $B$, $C$ and $D$ be topological spaces with $B$ and $C$ locally
+    compact Hausdorff. Let $p : A \twoheadrightarrow B$ and $q : C
+    \twoheadrightarrow D$ be quotient maps. Then $p \times q : A \times C
+    \twoheadrightarrow B \times D$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ By Lemma \ref{lemma:product_map_quotient} since $p \times q =
+    (\id{B} \times q) \circ (p \times \id{C})$. \qed
 \end{proof}
 
 \section{Compactifications}
