@@ -884,13 +884,18 @@ We have simultaneously proved:
     \pf\ Given a countable local basis $\{ C_n \mid n \geq 1 \}$, take $B_n = C_1 \cap \cdots \cap C_n$. \qed
 \end{proof}
 
-\section{Convergence}
+\section{Nets}
+
+\begin{definition}[Net]
+    Let $X$ be a topological space. A \emph{net} in $X$ consists of a directed poset $J$
+    and a family $(x_\alpha)_{\alpha \in J}$ of points of $X$ indexed by $J$.
+\end{definition}
 
 \begin{definition}[Convergence]
-    Let $X$ be a topological space. Let $(a_n)_{n \in \NN}$ be a sequence of points in $X$ and $l \in X$.
-    Then the sequence $(a_n)_{n \in \NN}$ \emph{converges} to the \emph{limit} $l$, $a_n \rightarrow l$ as $n \rightarrow
-    \infty$, if and only if, for every neighbourhood $U$ of $l$, there exists $N$ such that, for all
-    $n \geq N$, we have $a_n \in U$.
+    Let $X$ be a topological space. Let $(x_\alpha)_{\alpha \in J}$ be a net in $X$
+    and $l \in X$. Then $(x_\alpha)$ \emph{converges} to the \emph{limit} $l$
+    iff, for every limit $U$ of $l$, there exists $\alpha \in J$ such that,
+    for all $\beta \geq \alpha$, we have $x_\beta \in U$.
 \end{definition}
 
 \begin{lemma}
@@ -1452,16 +1457,18 @@ The following example shows that we cannot remove the assumption of local finite
 
 \begin{proposition}
     \label{proposition:converge_continuous}
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be continuous. If $a_n \rightarrow l$ as $n \rightarrow \infty$ in $X$ then
-    $f(a_n) \rightarrow f(l)$ as $n \rightarrow \infty$.
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be continuous. 
+    Let $(a_\alpha)_{\alpha \in J}$ be a net in $X$ and $l \in X$.
+    If $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$ in $X$ then
+    $f(a_\alpha) \rightarrow f(l)$ as $\alpha \rightarrow \infty$.
 \end{proposition}
 
 \begin{proof}
     \pf
     \step{1}{\pflet{$V$ be a neighbourhood of $f(l)$}}
     \step{2}{\pick\ a neighbourhood $U$ of $l$ such that $f(U) \subseteq V$}
-    \step{3}{\pick\ $N$ such that, for all $n \geq N$, we have $a_n \in U$}
-    \step{4}{For all $n \geq N$ we have $f(n) \in V$}
+    \step{3}{\pick\ $\alpha \in J$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in U$}
+    \step{4}{For all $\beta \geq \alpha$ we have $f(a_\beta) \in V$}
     \qed
 \end{proof}
 
@@ -1934,24 +1941,24 @@ We prove this is a basis for a topology.
 
 \begin{proposition}
     \label{proposition:converge_product}
-    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $(a_n)$ be a sequence in $\prod_{i \in I} X_i$ and $l \in \prod_{i \in I} X_i$.
-    Then $a_n \rightarrow l$ as $n \rightarrow \infty$ if and only if, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$.
+    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $(a_\alpha)_{\alpha \in J}$ be a net in $\prod_{i \in I} X_i$ and $l \in \prod_{i \in I} X_i$.
+    Then $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$ if and only if, for all $i \in I$, we have $\pi_i(a_\alpha) \rightarrow \pi_i(l)$ as $\alpha \rightarrow \infty$.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{If $a_n \rightarrow l$ as $n \rightarrow \infty$ then, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}
+    \step{1}{If $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$ then, for all $i \in I$, we have $\pi_i(a_\alpha) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}
     \begin{proof}
-        \pf\ Proposition \ref{proposition:converge_continuous}.
+        \pf\ Proposition \ref{proposition:converge_continuous}. %TODO
     \end{proof}
-    \step{2}{If, for all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$, then $a_n \rightarrow l$ as $n \rightarrow \infty$}
+    \step{2}{If, for all $i \in I$, we have $\pi_i(a_\alpha) \rightarrow \pi_i(l)$ as $\alpha \rightarrow \infty$, then $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$}
     \begin{proof}
-        \step{a}{\assume{For all $i \in I$, we have $\pi_i(a_n) \rightarrow \pi_i(l)$ as $n \rightarrow \infty$}}
+        \step{a}{\assume{For all $i \in I$, we have $\pi_i(a_\alpha) \rightarrow \pi_i(l)$ as $\alpha \rightarrow \infty$}}
         \step{b}{\pflet{$V$ be a neighbourhood of $l$}}
         \step{c}{\pick\ open sets $U_i$ in $X_i$ such that $l \in \prod_{i \in I} U_i \subseteq V$ and $U_i = X_i$ for all $i$ except $i = i_1, \ldots, i_k$}
-        \step{d}{For $j = 1, \ldots, k$, \pick\ $N_j$ such that, for all $n \geq N_j$, we have $\pi_{i_j}(a_n) \in U_{i_j}$}
-        \step{e}{\pflet{$N = \max(N_1, \ldots, N_k)$}}
-        \step{f}{For all $n \geq N$ we have $a_n \in V$}
+        \step{d}{For $j = 1, \ldots, k$, \pick\ $\alpha_j$ such that, for all $\beta \geq \alpha_j$, we have $\pi_{i_j}(a_\beta) \in U_{i_j}$}
+        \step{e}{\pick\ $\alpha \in J$ such that $\alpha_1, \ldots, \alpha_k \leq \alpha$}
+        \step{f}{For all $\beta \geq \alpha$ we have $a_\beta \in V$}
     \end{proof}
     \qed
 \end{proof}
@@ -2629,20 +2636,24 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 \end{proof}
 
 \begin{theorem}
-    In a Hausdorff space, a sequence has at most one limit.
+    In a Hausdorff space, a net has at most one limit.
 \end{theorem}
 
 \begin{proof}
     \pf
     \step{1}{\pflet{$X$ be a Hausdorff space.}}
-    \step{2}{\assume{for a contradiction $a_n \rightarrow l$ as $n \rightarrow \infty$, $a_n \rightarrow
-    m$ as $n \rightarrow \infty$, and $l \neq m$}}
+    \step{2}{\assume{for a contradiction $(a_\alpha)_{\alpha \in J}$ is a net 
+    with limits $l$ and $m$.}}
     \step{3}{\pick\ disjoint neighbourhoods $U$ of $l$ and $V$ of $m$}
     \begin{proof}
         \pf\ By the Hausdorff axiom.
     \end{proof}
-    \step{4}{\pick\ $M$ and $N$ such that $a_n \in U$ for $n \geq M$ and $a_n \in V$ for $n \geq N$}
-    \step{5}{$a_{\max(M,N)} \in U \cap V$}
+    \step{4}{\pick\ $\alpha$ and $\beta$ such that 
+    $a_\gamma \in U$ for $\gamma \geq \alpha$ and $a_\gamma \in V$ for 
+    $\gamma \geq \beta$}
+    \step{5}{\pick\ $\gamma \in J$ with $\gamma \geq \alpha$
+    and $\gamma \geq \beta$}
+    \step{5}{$a_\gamma \in U \cap V$}
     \qedstep
     \begin{proof}
         \pf\ This contradicts the fact that $U$ and $V$ are disjoint (\stepref{3}).
@@ -6855,6 +6866,7 @@ locally compact.
 \begin{example}
     The one-point compactification of $\ZZ^+$ is $\{0\} \cup \{ 1/n \mid n \in \ZZ^+ \}$.
 \end{example}
+
 
 \chapter{Topological Groups}
 

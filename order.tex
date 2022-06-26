@@ -1129,3 +1129,40 @@ $\gamma < \delta$ and $\alpha = \delta \beta + \gamma$.
 \begin{theorem}
     If $\kappa$ is inaccessible then $V_\kappa$ is a model of ZF.
 \end{theorem}
+
+\section{Directed Set}
+
+\begin{definition}[Directed Set]
+    A preodered set $P$ is \emph{directed} iff, for all $a, b \in P$,
+    there exists $c \in P$ such that $a \leq c$ and $b \leq c$.
+\end{definition}
+
+\begin{proposition}
+    Every linearly ordered set is directed.
+\end{proposition}
+
+\begin{proposition}
+    For any set $A$, the $\pow A$ under $\subseteq$ is directed.
+\end{proposition}
+
+\section{Cofinal Set}
+
+\begin{definition}[Cofinal]
+    Let $A$ be a preordered set and $B \subseteq A$. Then $B$ is \emph{cofinal}
+    if and only if, for every $x \in A$, there exists $y \in B$ such that
+    $x \leq y$.
+\end{definition}
+
+\begin{proposition}
+    If $A$ is a directed preordered set and $B \subseteq A$ is cofinal then $B$ is
+    directed.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x, y \in B$}}
+    \step{2}{\pick\ $z \in A$ such that $x \leq z$ and $y \leq z$}
+    \step{3}{\pick\ $z' \in B$ such that $z \leq z'$}
+    \step{4}{$x \leq z'$ and $y \leq z'$}
+    \qed
+\end{proof}

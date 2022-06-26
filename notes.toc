@@ -67,6 +67,8 @@
 \contentsline {section}{\numberline {4.14}Beth Cardinals}{43}{section.4.14}%
 \contentsline {section}{\numberline {4.15}Cofinality}{43}{section.4.15}%
 \contentsline {section}{\numberline {4.16}Inaccessible Cardinals}{44}{section.4.16}%
+\contentsline {section}{\numberline {4.17}Directed Set}{44}{section.4.17}%
+\contentsline {section}{\numberline {4.18}Cofinal Set}{44}{section.4.18}%
 \contentsline {chapter}{\numberline {5}Natural Numbers}{45}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Successors}{45}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Inductive Sets}{45}{section.5.2}%
@@ -88,7 +90,7 @@
 \contentsline {section}{\numberline {9.8}Limit Points}{65}{section.9.8}%
 \contentsline {section}{\numberline {9.9}Basis for a Topology}{65}{section.9.9}%
 \contentsline {section}{\numberline {9.10}Local Basis at a Point}{69}{section.9.10}%
-\contentsline {section}{\numberline {9.11}Convergence}{70}{section.9.11}%
+\contentsline {section}{\numberline {9.11}Nets}{70}{section.9.11}%
 \contentsline {section}{\numberline {9.12}Locally Finite Sets}{72}{section.9.12}%
 \contentsline {section}{\numberline {9.13}Open Maps}{73}{section.9.13}%
 \contentsline {section}{\numberline {9.14}Continuous Functions}{73}{section.9.14}%
