@@ -1221,6 +1221,18 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{example}
+    The space $[0,1]^\omega$ under the uniform topology is not locally compact.
+
+    It is not compact because the set $\{ 0,1 \}^\omega$ has no limit point.
+
+    Now, assume for a contradiction $[0,1]^\omega$ is locally compact. Pick $\epsilon > 0$
+    such that $B(0,\epsilon)$ is included in a compact subspace. Then $\overline{B(0,\epsilon)}$ is compact.
+    But $\overline{B(0,\epsilon)} = [0,1]^\omega$ if $\epsilon \geq 1$, or $[0,\epsilon]^\omega$
+    if $\epsilon < 1$. In either case $\overline{B(0,\epsilon)} \cong [0,1]^\epsilon$ which is not
+    compact.
+\end{example}
+
 \section{Uniform Convergence}
 
 \begin{definition}[Uniform Convergence]

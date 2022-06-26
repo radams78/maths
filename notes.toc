@@ -130,17 +130,17 @@
 \contentsline {section}{\numberline {9.49}Perfect Maps}{144}{section.9.49}%
 \contentsline {section}{\numberline {9.50}Isolated Points}{145}{section.9.50}%
 \contentsline {section}{\numberline {9.51}Local Compactness}{146}{section.9.51}%
-\contentsline {section}{\numberline {9.52}Compactifications}{148}{section.9.52}%
-\contentsline {chapter}{\numberline {10}Topological Groups}{151}{chapter.10}%
-\contentsline {section}{\numberline {10.1}The Metric Topology}{159}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Real Linear Algebra}{166}{section.10.2}%
-\contentsline {section}{\numberline {10.3}The Uniform Topology}{173}{section.10.3}%
-\contentsline {section}{\numberline {10.4}Uniform Convergence}{176}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{177}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Distance to a Set}{178}{section.10.6}%
-\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{179}{section.10.7}%
-\contentsline {section}{\numberline {10.8}Uniform Continuity}{181}{section.10.8}%
-\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{182}{section.10.9}%
-\contentsline {section}{\numberline {10.10}Isometry}{183}{section.10.10}%
-\contentsline {section}{\numberline {10.11}Shrinking Maps}{184}{section.10.11}%
-\contentsline {section}{\numberline {10.12}Contractions}{185}{section.10.12}%
+\contentsline {section}{\numberline {9.52}Compactifications}{149}{section.9.52}%
+\contentsline {chapter}{\numberline {10}Topological Groups}{152}{chapter.10}%
+\contentsline {section}{\numberline {10.1}The Metric Topology}{160}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Real Linear Algebra}{167}{section.10.2}%
+\contentsline {section}{\numberline {10.3}The Uniform Topology}{174}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Uniform Convergence}{177}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Isometric Imbeddings}{179}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Distance to a Set}{179}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Lebesgue Numbers}{180}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Uniform Continuity}{182}{section.10.8}%
+\contentsline {section}{\numberline {10.9}Epsilon-neighbourhoods}{183}{section.10.9}%
+\contentsline {section}{\numberline {10.10}Isometry}{184}{section.10.10}%
+\contentsline {section}{\numberline {10.11}Shrinking Maps}{185}{section.10.11}%
+\contentsline {section}{\numberline {10.12}Contractions}{186}{section.10.12}%

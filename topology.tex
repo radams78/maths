@@ -6526,31 +6526,58 @@ compact Hausdorff.
     \QQ \mid q \in \QQ, q > \xi \}$ covers $C$ but no finite subcover does.
 \end{example}
 
-\begin{proposition}[AC]
+\begin{proposition}
     Let $\{ X_\alpha \}_{\alpha \in J}$ be a family of nonempty spaces. If
-    $\prod_{\alpha \in J} X_\alpha$ is locally compact then each $X_\alpha$ is locally compact,
+    $\prod_{\alpha \in J} X_\alpha$ is locally compact under the box topology then each $X_\alpha$ is
+    locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{a}{\pflet{$\alpha \in J$}}
+    \step{b}{\pflet{$x_\alpha \in X_\alpha$}}
+    \step{c}{Extend $x_\alpha$ to a family $(x_\beta)_{\beta \in J} \in \prod_{\beta \in J} X_\beta$}
+    \step{d}{\pick\ a compact $C \subseteq \prod_{\beta \in J} X_\beta$ that includes a basic open neighbourhood
+    $\prod_{\beta \in J} U_\beta$ of $(x_\beta)$ such that each $U_\beta$ is open in $X_\beta$.}
+    \step{e}{$x_\alpha \in U_\alpha \subseteq \pi_\alpha(C)$}
+    \step{f}{$\pi_\alpha(C)$ is compact.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:continuous_image_compact}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Let $\{ X_\alpha \}_{\alpha \in J}$ be a family of nonempty spaces. Then
+    $\prod_{\alpha \in J} X_\alpha$ is locally compact if and only if each $X_\alpha$ is locally compact,
     and $X_\alpha$ is compact for all but finitely many $\alpha \in J$.
 \end{proposition}
 
 \begin{proof}
     \pf
     \step{1}{\pflet{$\{ X_\alpha \}_{\alpha \in J}$ be a family of nonempty spaces.}}
-    \step{2}{\assume{$\prod_{\alpha \in J} X_\alpha$ is locally compact.}}
-    \step{3}{For all $\alpha \in J$ we have $X_\alpha$ is locally compact.}
+    \step{I}{If $\prod_{\alpha \in J} X_\alpha$ is locally compact then each $X_\alpha$ is locally
+    compact.}
     \begin{proof}
-        \step{a}{\pflet{$\alpha \in J$}}
-        \step{b}{\pflet{$x_\alpha \in X_\alpha$}}
-        \step{c}{Extend $x_\alpha$ to a family $(x_\beta)_{\beta \in J} \in \prod_{\beta \in J} X_\beta$}
-        \step{d}{\pick\ a compact $C \subseteq \prod_{\beta \in J} X_\beta$ that includes a basic open neighbourhood
-        $\prod_{\beta \in J} U_\beta$ of $(x_\beta)$ such that each $U_\beta$ is open in $X_\beta$.}
-        \step{e}{$x_\alpha \in U_\alpha \subseteq \pi_\alpha(C)$}
-        \step{f}{$\pi_\alpha(C)$ is compact.}
+        \step{2}{\assume{$\prod_{\alpha \in J} X_\alpha$ is locally compact.}}
+        \step{3}{For all $\alpha \in J$ we have $X_\alpha$ is locally compact.}
         \begin{proof}
-            \pf\ Theorem \ref{theorem:continuous_image_compact}.
+            \step{a}{\pflet{$\alpha \in J$}}
+            \step{b}{\pflet{$x_\alpha \in X_\alpha$}}
+            \step{c}{Extend $x_\alpha$ to a family $(x_\beta)_{\beta \in J} \in \prod_{\beta \in J} X_\beta$}
+            \step{d}{\pick\ a compact $C \subseteq \prod_{\beta \in J} X_\beta$ that includes a basic open neighbourhood
+            $\prod_{\beta \in J} U_\beta$ of $(x_\beta)$ such that each $U_\beta$ is open in $X_\beta$.}
+            \step{e}{$x_\alpha \in U_\alpha \subseteq \pi_\alpha(C)$}
+            \step{f}{$\pi_\alpha(C)$ is compact.}
+            \begin{proof}
+                \pf\ Theorem \ref{theorem:continuous_image_compact}.
+            \end{proof}
         \end{proof}
     \end{proof}
-    \step{4}{$X_\alpha$ is compact for all but finitely many $\alpha \in J$.}
+    \step{II}{If $\prod_{\alpha \in J} X_\alpha$ is locally compact then $X_\alpha$ is compact
+    for all but finitely many $\alpha \in J$.}
     \begin{proof}
+        \step{2}{\assume{$\prod_{\alpha \in J} X_\alpha$ is locally compact.}}
         \step{a}{\pick\ $x_\alpha \in X_\alpha$ for all $\alpha$.}
         \step{b}{\pick\ a compact $C \subseteq \prod_{\alpha \in J} X_\alpha$ that includes a basic open neighbourhood
         $\prod_{\alpha \in J} U_\alpha$ of $(x_\alpha)$ such that each $U_\alpha$ is open in $X_\alpha$,
@@ -6561,6 +6588,45 @@ compact Hausdorff.
             \pf\ Theorem \ref{theorem:continuous_image_compact}.
         \end{proof}
     \end{proof}
+    \step{III}{If each $X_\alpha$ is locally compact and $X_\alpha$ is compact for all but
+    finitely many $\alpha \in J$ then $\prod_{\alpha \in J} X_\alpha$ is locally compact.}
+    \begin{proof}
+        \step{1}{\assume{$X_\alpha$ is compact for all $\alpha$ except $\alpha_1$, \ldots, $\alpha_n$}}
+        \step{2}{\assume{$X_{\alpha_1}$, \ldots, $X_{\alpha_n}$ are locally compact.}}
+        \step{3}{\pflet{$(x_\alpha) \in \prod X_\alpha$}}
+        \step{4}{For $i = 1, \ldots, n$, \pick\ a compact $C_{\alpha_i} \subseteq X_{\alpha_i}$
+        that includes the neighbourhood $U_{\alpha_i}$ of $x_{\alpha_i}$.}
+        \step{5}{For $\alpha \neq \alpha_1, \ldots, \alpha_n$, \pflet{$C_\alpha = U_\alpha = X_\alpha$}}
+        \step{6}{$\prod_{\alpha \in J} C_\alpha$ is compact.}
+        \begin{proof}
+            \pf\ Tychonoff's Theorem.
+        \end{proof}
+        \step{7}{$(x_\alpha) \in \prod U_\alpha \subseteq \prod C_\alpha$}
+    \end{proof}
+    \qed
+\end{proof}
+
+The following example shows that the continuous image of a locally compact space is not necessarily
+locally compact.
+\begin{example}
+    Pick an enumeration $\{ q_1, q_2, \ldots \}$ of $\QQ$. Let $X = \bigcup_{n \in \ZZ^+} (n, n+1)$.
+    Define $f : X \rightarrow \QQ$ by $f(x) = q_n$ if $x \in (n, n+1)$. Then $f$ is continuous,
+    $X$ is locally compact, but $f(X) = \QQ$ is not locally compact.
+\end{example}
+
+\begin{proposition}
+    \label{proposition:continuous_open_image_locally_compact}
+    The image of a locally compact space under a continuous open map is locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be locally compact and $f : X \twoheadrightarrow Y$ be a surjective
+    continuous open map.}}
+    \step{2}{\pflet{$y \in Y$}}
+    \step{3}{\pick\ $x \in X$ such that $f(x) = y$}
+    \step{4}{\pick\ a compact $C \subseteq X$ that includes a neighbourhood $U$ of $x$}
+    \step{5}{$y \in f(U) \subseteq f(C)$ and $f(U)$ is open, $f(C)$ is compact.}
     \qed
 \end{proof}
 
@@ -6716,6 +6782,10 @@ compact Hausdorff.
     The \emph{Riemann sphere} or \emph{extended complex plane} is $\CC \cup \{ \infty \}$
     topologized as the one-point compactification of $\CC$. It is homeomorphic to $S^2$.
 \end{definition}
+
+\begin{example}
+    The one-point compactification of $\ZZ^+$ is $\{0\} \cup \{ 1/n \mid n \in \ZZ^+ \}$.
+\end{example}
 
 \chapter{Topological Groups}
 
@@ -7270,3 +7340,11 @@ compact Hausdorff.
     we have $\inv{p}(aH) = aH$ is compact because it is homemorphic to $H$. \qed
 \end{proof}
 
+\begin{proposition}
+    Let $G$ be a locally compact topological group. Let $H \leq G$. Then $G/H$ is locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ From Propositions \ref{proposition:continuous_open_image_locally_compact}
+    and \ref{proposition:quotient_group_open_map}. \qed
+\end{proof}
