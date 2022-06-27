@@ -148,7 +148,7 @@
 \contentsline {section}{\numberline {11.6}Distance to a Set}{188}{section.11.6}%
 \contentsline {section}{\numberline {11.7}Lebesgue Numbers}{189}{section.11.7}%
 \contentsline {section}{\numberline {11.8}Uniform Continuity}{191}{section.11.8}%
-\contentsline {section}{\numberline {11.9}Epsilon-neighbourhoods}{191}{section.11.9}%
+\contentsline {section}{\numberline {11.9}Epsilon-neighbourhoods}{192}{section.11.9}%
 \contentsline {section}{\numberline {11.10}Isometry}{193}{section.11.10}%
-\contentsline {section}{\numberline {11.11}Shrinking Maps}{193}{section.11.11}%
+\contentsline {section}{\numberline {11.11}Shrinking Maps}{194}{section.11.11}%
 \contentsline {section}{\numberline {11.12}Contractions}{195}{section.11.12}%
