@@ -2863,7 +2863,7 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \step{4}{$f(x_n) \rightarrow f(a)$}
     \step{5}{$f(a) \in \overline{f(A)}$}
     \begin{proof}
-        \pf\ By Lemma \ref{lemma:sequence_lemma1}.
+        \pf\ By Lemma \ref{lemma:closure_net}.
     \end{proof}
     \qedstep
     \begin{proof}
@@ -4552,25 +4552,6 @@ An example that shows the converse does not hold:
     satisfies the condition by Lemma \ref{lemma:interval_in_long_line}.
 \end{proof}
 
-\begin{proposition}
-    The long line $L$ is not second countable.
-\end{proposition}
-
-\begin{proof}
-    \pf\ 
-    \step{1}{\pflet{$\BB$ be a basis for $L$.}}
-    \step{2}{For $\alpha < \omega_1$, \pick\ $B_\alpha \in \BB$ such that
-    $(\alpha, 1/2) \in B_\alpha \subseteq ((\alpha, 0), (\alpha + 1,0))$}
-    \step{3}{$\BB$ is uncountable.}
-    \begin{proof}
-        \pf\ The mapping $\alpha \mapsto B_\alpha$ is an injection $\omega_1 \rightarrow \BB$.
-    \end{proof}
-\end{proof}
-
-\begin{corollary}
-    The long line cannot be imbedded into $\RR^n$ for any $n$.
-\end{corollary}
-
 \section{Components}
 
 \begin{proposition}
@@ -5208,9 +5189,7 @@ An example that shows the converse does not hold:
 \begin{example}
     The space $\RR$ is second countable.
 
-    \begin{proof}
-    \pf\ The set $\{ (a,b) \mid a,b \in \QQ \}$ is a basis. \qed
-\end{proof}
+    The set $\{ (a,b) \mid a,b \in \QQ \}$ is a basis.
 \end{example}
 
 \begin{proposition}
@@ -5279,6 +5258,71 @@ An example that shows the converse does not hold:
     \end{proof}
 \end{example}
 
+\begin{proposition}
+    The long line $L$ is not second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf\ 
+    \step{1}{\pflet{$\BB$ be a basis for $L$.}}
+    \step{2}{For $\alpha < \omega_1$, \pick\ $B_\alpha \in \BB$ such that
+    $(\alpha, 1/2) \in B_\alpha \subseteq ((\alpha, 0), (\alpha + 1,0))$}
+    \step{3}{$\BB$ is uncountable.}
+    \begin{proof}
+        \pf\ The mapping $\alpha \mapsto B_\alpha$ is an injection $\omega_1 \rightarrow \BB$.
+    \end{proof}
+\end{proof}
+
+\begin{corollary}
+    The long line cannot be imbedded into $\RR^n$ for any $n$.
+\end{corollary}
+
+\begin{proposition}
+    Every second countable space is first countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable space.}}
+    \step{2}{\pick\ a countable bases $\BB$ for $X$.}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{$\{ B \in \BB \mid x \in B \}$ is a countable local basis at $x$.}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    A countable product of second countable spaces is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(X_n)$ be a sequence of second countable spaces.}}
+    \step{2}{For each $n$, \pick\ a countable basis $\BB_n$ of $X_n$}
+    \step{3}{\pflet{$\BB = \{ \prod_i U_i \mid U_i \in \BB_i \text{ for finitely
+    many } i, U_i = X_i \text{ for all other } i \}$}}
+    \step{4}{$\BB$ is a countable basis for $\prod_n X_n$}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Any discrete subspace of a second countable space is countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable space.}}
+    \step{2}{\pflet{$A \subseteq X$ be discrete.}}
+    \step{3}{\pick\ a countable basis $\BB$ for $X$.}
+    \step{4}{For all $a \in A$, \pick\ $B_a \in \BB$ such that $B_a \cap A = \{ a \}$}
+    \begin{proof}
+        \step{a}{\pflet{$a \in A$}}
+        \step{b}{\pick\ $U$ open in $X$ such that $U \cap A = \{a\}$}
+        \step{c}{\pick\ $B \in \BB$ such that $a \in B \subseteq U$}
+    \end{proof}
+    \step{5}{The mapping $A \rightarrow \BB$ that maps $a$ to $B_a$ is injective.}
+    \step{6}{$A$ is countable.}
+    \qed
+\end{proof}
 \section{Sequential Compactness}
 
 \begin{definition}[Sequentially Compact]
