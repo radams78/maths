@@ -2919,6 +2919,36 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \pf\ For any $(a,b) \in I_o^2$ with $b \neq 0,1$, the set $\{ (\{a\} \times (b - 1/n,b + 1/n)) \cap I_o^2 \mid n \geq 1 \}$ is a countable local basis.
 \end{proof}
 
+\begin{proposition}
+    A subspace of a first countable space is first countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a first countable space.}}
+    \step{2}{\pflet{$Y \subseteq X$}}
+    \step{3}{\pflet{$y \in Y$}}
+    \step{4}{\pick\ a countable local basis $\BB$ for $y$ in $X$}
+    \step{5}{$\{ B \cap Y \mid B \in \BB \}$ is a countable local basis for $y$ in $Y$}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    A countable product of first countable spaces is first countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(X_n)$ be a sequence of first countable spaces.}}
+    \step{2}{\pflet{$(x_n) \in \prod_n X_n$}}
+    \step{3}{For all $n$, \pick\ a countable local basis $\BB_n$ for $x_n$ in $X_n$}
+    \step{4}{\pflet{$\BB$ be the set of all sets of the form $\prod_n U_n$
+    where $(U_n)$ is a family such that $U_n \in \BB_n$ for finitely many $n$
+    and $U_n = X_n$ for all other $n$}}
+    \step{5}{$\BB$ is a countable local basis for $(x_n)$}
+    \qed
+\end{proof}
+
 \section{Strong Continuity}
 
 \begin{definition}[Strongly Continuous]

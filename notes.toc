@@ -107,34 +107,34 @@
 \contentsline {section}{\numberline {10.21}The First Countability Axiom}{96}{section.10.21}%
 \contentsline {section}{\numberline {10.22}Strong Continuity}{98}{section.10.22}%
 \contentsline {section}{\numberline {10.23}Saturated Sets}{99}{section.10.23}%
-\contentsline {section}{\numberline {10.24}Quotient Maps}{99}{section.10.24}%
+\contentsline {section}{\numberline {10.24}Quotient Maps}{100}{section.10.24}%
 \contentsline {section}{\numberline {10.25}Quotient Topology}{103}{section.10.25}%
-\contentsline {section}{\numberline {10.26}Retractions}{104}{section.10.26}%
-\contentsline {section}{\numberline {10.27}Homogeneous Spaces}{104}{section.10.27}%
+\contentsline {section}{\numberline {10.26}Retractions}{105}{section.10.26}%
+\contentsline {section}{\numberline {10.27}Homogeneous Spaces}{105}{section.10.27}%
 \contentsline {section}{\numberline {10.28}Regular Spaces}{105}{section.10.28}%
 \contentsline {section}{\numberline {10.29}Connected Spaces}{105}{section.10.29}%
 \contentsline {section}{\numberline {10.30}Totally Disconnected Spaces}{114}{section.10.30}%
-\contentsline {section}{\numberline {10.31}Paths and Path Connectedness}{114}{section.10.31}%
+\contentsline {section}{\numberline {10.31}Paths and Path Connectedness}{115}{section.10.31}%
 \contentsline {section}{\numberline {10.32}The Topologist's Sine Curve}{118}{section.10.32}%
 \contentsline {section}{\numberline {10.33}The Long Line}{119}{section.10.33}%
 \contentsline {section}{\numberline {10.34}Components}{120}{section.10.34}%
-\contentsline {section}{\numberline {10.35}Path Components}{121}{section.10.35}%
+\contentsline {section}{\numberline {10.35}Path Components}{122}{section.10.35}%
 \contentsline {section}{\numberline {10.36}Local Connectedness}{123}{section.10.36}%
-\contentsline {section}{\numberline {10.37}Local Path Connectedness}{124}{section.10.37}%
+\contentsline {section}{\numberline {10.37}Local Path Connectedness}{125}{section.10.37}%
 \contentsline {section}{\numberline {10.38}Weak Local Connectedness}{126}{section.10.38}%
-\contentsline {section}{\numberline {10.39}Quasicomponents}{126}{section.10.39}%
-\contentsline {section}{\numberline {10.40}Open Coverings}{127}{section.10.40}%
+\contentsline {section}{\numberline {10.39}Quasicomponents}{127}{section.10.39}%
+\contentsline {section}{\numberline {10.40}Open Coverings}{128}{section.10.40}%
 \contentsline {section}{\numberline {10.41}Lindel\"{o}f Spaces}{128}{section.10.41}%
-\contentsline {section}{\numberline {10.42}The Second Countability Axiom}{128}{section.10.42}%
-\contentsline {section}{\numberline {10.43}Sequential Compactness}{130}{section.10.43}%
-\contentsline {section}{\numberline {10.44}Limit Point Compactness}{130}{section.10.44}%
+\contentsline {section}{\numberline {10.42}The Second Countability Axiom}{129}{section.10.42}%
+\contentsline {section}{\numberline {10.43}Sequential Compactness}{131}{section.10.43}%
+\contentsline {section}{\numberline {10.44}Limit Point Compactness}{131}{section.10.44}%
 \contentsline {section}{\numberline {10.45}Countable Compactness}{132}{section.10.45}%
 \contentsline {section}{\numberline {10.46}Subnets}{134}{section.10.46}%
-\contentsline {section}{\numberline {10.47}Accumulation Points}{134}{section.10.47}%
-\contentsline {section}{\numberline {10.48}Compact Spaces}{135}{section.10.48}%
-\contentsline {section}{\numberline {10.49}Perfect Maps}{148}{section.10.49}%
-\contentsline {section}{\numberline {10.50}Isolated Points}{149}{section.10.50}%
-\contentsline {section}{\numberline {10.51}Local Compactness}{150}{section.10.51}%
+\contentsline {section}{\numberline {10.47}Accumulation Points}{135}{section.10.47}%
+\contentsline {section}{\numberline {10.48}Compact Spaces}{136}{section.10.48}%
+\contentsline {section}{\numberline {10.49}Perfect Maps}{149}{section.10.49}%
+\contentsline {section}{\numberline {10.50}Isolated Points}{150}{section.10.50}%
+\contentsline {section}{\numberline {10.51}Local Compactness}{151}{section.10.51}%
 \contentsline {section}{\numberline {10.52}Compactifications}{154}{section.10.52}%
 \contentsline {chapter}{\numberline {11}Topological Groups}{157}{chapter.11}%
 \contentsline {section}{\numberline {11.1}The Metric Topology}{165}{section.11.1}%
