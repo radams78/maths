@@ -1,5 +1,6 @@
-\section{Topological Spaces}
+\chapter{Topological Spaces}
 
+\section{Topologies}
 \begin{definition}[Topology]
     A \emph{topology} on a set $X$ is a set $\TT \subseteq \pow X$ such that:
     \begin{itemize}
@@ -899,19 +900,40 @@ We have simultaneously proved:
 \end{definition}
 
 \begin{lemma}
-    \label{lemma:sequence_lemma1}
-    Let $X$ be a topological space. Let $A \subseteq X$ and $l \in X$. If there is a sequence of points in $A$ that converges to $l$ then $l \in \overline{A}$.
+    \label{lemma:closure_net}
+    Let $X$ be a topological space. Let $A \subseteq X$ and $l \in X$. 
+    Then $l \in \overline{A}$ if and only if there exists a net of points in $A$
+    that converges to $l$.
 \end{lemma}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$(a_n)$ be a sequence of points in $A$ that converges to $l$.}}
-    \step{2}{\pflet{$U$ be a neighbourhood of $l$.}}
-    \step{3}{\pick\ $N$ such that, for all $n \geq N$, we have $a_n \in U$.}
-    \step{4}{$a_N \in U \cap A$}
-    \qedstep
+    \step{1}{If $l \in \overline{A}$ then there exists a net of points in $A$
+    that converges to $l$.}
     \begin{proof}
-        \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+        \step{a}{\assume{$l \in \overline{A}$}}
+        \step{b}{\pflet{$J$ be the set of neighbourhoods of $l$ under $\supseteq$}}
+        \step{c}{For $U \in J$, \pick\ $a_U \in U \cap A$ \prove{$a_U \rightarrow l$
+        as $U \rightarrow \infty$}}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
+        \step{d}{\pflet{$U$ be a neighbourhood of $l$.}}
+        \step{e}{For any $V \subseteq U$ we have $a_V \in V$.}
+    \end{proof}
+    \step{2}{If there exists a net of points in $A$ that coverges to $l$,
+    then $l \in \overline{A}$.}
+    \begin{proof}
+        \step{1}{\pflet{$(a_\alpha)_{\alpha \in J}$ be a sequence of points in 
+        $A$ that converges to $l$.}}
+        \step{2}{\pflet{$U$ be a neighbourhood of $l$.}}
+        \step{3}{\pick\ $\alpha \in J$ such that,
+        for all $\beta \geq \alpha$, we have $a_\beta \in U$.}
+        \step{4}{$a_\alpha \in U \cap A$}
+        \qedstep
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+        \end{proof}
     \end{proof}
     \qed
 \end{proof}
@@ -1048,53 +1070,6 @@ We have simultaneously proved:
     Let $X$ be a topological space and $\{ A_\alpha \}$ a family of subsets of $X$. Then $\AA$ is \emph{locally finite} if and only if every point in $X$ has a neighbourhood that
     intersects $A_\alpha$ for only finitely many $\alpha$.
 \end{definition}
-
-\begin{theorem}[Pasting Lemma]
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
-    is continuous for all $\alpha$. Then $f$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{0}{Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $A$ and $B$ be closed subsets of $X$ such that $X = A \cup B$. 
-    Suppose $f \restriction A$ and $f \restriction B$ are continuous. Then $f$ is continuous.}
-    \begin{proof}
-        \step{1}{\pflet{$C \subseteq Y$ be closed.}}
-        \step{2}{$\inv{h}(C) = \inv{f}(C) \cup \inv{g}(C)$}
-        \step{3}{$\inv{f}(C)$ and $\inv{g}(C)$ are closed in $X$.}
-        \begin{proof}
-            \pf\ Theorems \ref{theorem:continuous} and \ref{theorem:closed_subspace}.
-        \end{proof}
-        \step{4}{$\inv{h}(C)$ is closed in $X$.}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:closed_union}.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ Theorem \ref{theorem:continuous}.
-        \end{proof}    
-    \end{proof}
-    \step{1}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
-    is continuous for all $\alpha$. Then $f$ is continuous.}
-    \begin{proof}
-        \pf\ From \stepref{0} by induction.
-    \end{proof}
-    \step{2}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
-    is continuous for all $\alpha$. Then $f$ is continuous.}
-    \begin{proof}
-        \step{1a}{\pflet{$x \in X$} \prove{$f$ is continuous at $x$}}
-        \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha$.}
-        \step{3}{$f \restriction U$ is continuous}
-        \begin{proof}
-            \pf\ By \stepref{1}.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:continuous_open_subspace}.
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
 
 The following example shows that we cannot remove the assumption of local finiteness.
 
@@ -1457,18 +1432,106 @@ The following example shows that we cannot remove the assumption of local finite
 
 \begin{proposition}
     \label{proposition:converge_continuous}
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be continuous. 
-    Let $(a_\alpha)_{\alpha \in J}$ be a net in $X$ and $l \in X$.
-    If $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$ in $X$ then
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$.
+    Then $f$ is continuous if and only if, for any net
+    $(a_\alpha)_{\alpha \in J}$ in $X$ and $l \in X$,
+    if $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$ in $X$ then
     $f(a_\alpha) \rightarrow f(l)$ as $\alpha \rightarrow \infty$.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$V$ be a neighbourhood of $f(l)$}}
-    \step{2}{\pick\ a neighbourhood $U$ of $l$ such that $f(U) \subseteq V$}
-    \step{3}{\pick\ $\alpha \in J$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in U$}
-    \step{4}{For all $\beta \geq \alpha$ we have $f(a_\beta) \in V$}
+    \step{1}{If $f$ is continuous then, for every net $(a_\alpha)_{\alpha \in J}$
+    in $X$ and $l \in X$, if $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$
+    then $f(a_\alpha) \rightarrow f(l)$ as $\alpha \rightarrow \infty$}
+    \begin{proof}
+        \step{a}{\assume{$f$ is continuous.}}
+        \step{b}{\pflet{$(a_\alpha)_{\alpha \in J}$ be a net in $X$}}
+        \step{c}{\pflet{$l \in X$}}
+        \step{d}{\assume{$a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$}}
+        \step{1}{\pflet{$V$ be a neighbourhood of $f(l)$}}
+        \step{2}{\pick\ a neighbourhood $U$ of $l$ such that $f(U) \subseteq V$}
+        \step{3}{\pick\ $\alpha \in J$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in U$}
+        \step{4}{For all $\beta \geq \alpha$ we have $f(a_\beta) \in V$}    
+    \end{proof}
+    \step{2}{If, for every net $(a_\alpha)_{\alpha \in J}$
+    in $X$ and $l \in X$, if $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$
+    then $f(a_\alpha) \rightarrow f(l)$ as $\alpha \rightarrow \infty$,
+    then $f$ is continuous.}
+    \begin{proof}
+        \step{a}{\assume{for every net $(a_\alpha)_{\alpha \in J}$
+        in $X$ and $l \in X$, if $a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$
+        then $f(a_\alpha) \rightarrow f(l)$ as $\alpha \rightarrow \infty$}
+        \prove{For every $A \subseteq X$, we have $f(\overline{A}) \subseteq
+        \overline{f(A)}$}}
+        \step{b}{\pflet{$A \subseteq X$}}
+        \step{c}{\pflet{$x \in \overline{A}$} \prove{$f(x) \in \overline{f(A)}$}}
+        \step{d}{\pick\ a net $(a_\alpha)_{\alpha \in J}$ of points in $A$
+        that converges to $x$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:closure_net}.
+        \end{proof}
+        \step{e}{$(f(a_\alpha))_{\alpha \in J}$ is a net of points in $f(A)$
+        that converges to $f(x)$}
+        \begin{proof}
+            \pf\ From \stepref{a}.
+        \end{proof}
+        \step{f}{$f(x) \in \overline{f(A)}$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:closure_net}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:continuous}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Pasting Lemma]
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
+    is continuous for all $\alpha$. Then $f$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{0}{Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $A$ and $B$ be closed subsets of $X$ such that $X = A \cup B$. 
+    Suppose $f \restriction A$ and $f \restriction B$ are continuous. Then $f$ is continuous.}
+    \begin{proof}
+        \step{1}{\pflet{$C \subseteq Y$ be closed.}}
+        \step{2}{$\inv{h}(C) = \inv{f}(C) \cup \inv{g}(C)$}
+        \step{3}{$\inv{f}(C)$ and $\inv{g}(C)$ are closed in $X$.}
+        \begin{proof}
+            \pf\ Theorems \ref{theorem:continuous} and \ref{theorem:closed_subspace}.
+        \end{proof}
+        \step{4}{$\inv{h}(C)$ is closed in $X$.}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:closed_union}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:continuous}.
+        \end{proof}    
+    \end{proof}
+    \step{1}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
+    is continuous for all $\alpha$. Then $f$ is continuous.}
+    \begin{proof}
+        \pf\ From \stepref{0} by induction.
+    \end{proof}
+    \step{2}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
+    is continuous for all $\alpha$. Then $f$ is continuous.}
+    \begin{proof}
+        \step{1a}{\pflet{$x \in X$} \prove{$f$ is continuous at $x$}}
+        \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha$.}
+        \step{3}{$f \restriction U$ is continuous}
+        \begin{proof}
+            \pf\ By \stepref{1}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:continuous_open_subspace}.
+        \end{proof}
+    \end{proof}
     \qed
 \end{proof}
 
@@ -5435,6 +5498,118 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \qed
 \end{proof}
 
+\section{Subnets}
+
+\begin{definition}[Subnet]
+    Let $X$ be a topological space. Let $(a_\alpha)_{\alpha \in J}$ be a net
+    in $X$. A \emph{subnet} of $(a_\alpha)_{\alpha \in J}$ is a net of the form
+    $(a_{g(\beta)})_{\beta \in K}$ where $K$ is a directed set, $g : K \rightarrow J$
+    is monotone, and $g(K)$ is cofinal in $J$.
+\end{definition}
+
+\begin{proposition}
+    Let $X$ be a topological space. Let $(a_\alpha)_{\alpha \in J}$ be a net
+    in $X$. Let $l \in X$. If $(a_\alpha)$ converges to $l$ then any subnet
+    of $(a_\alpha)$ converges to $l$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space.}}
+    \step{2}{\pflet{$(a_\alpha)_{\alpha \in J}$ be a net in $X$.}}
+    \step{3}{\pflet{$l \in X$}}
+    \step{4}{\assume{$a_\alpha \rightarrow l$ as $\alpha \rightarrow \infty$}}
+    \step{5}{\pflet{$(a_{g(\beta)})_{\beta \in K}$ be a subnet of $(a_\alpha)_{\alpha \in J}$}}
+    \step{6}{\pflet{$U$ be a neighbourhood of $l$.}}
+    \step{7}{\pick\ $\alpha \in J$ be such that, for all $\alpha' \geq \alpha$,
+    we have $a_{\alpha'} \in U$}
+    \step{8}{\pick\ $\beta \in K$ such that $g(\beta) \geq \alpha$.}
+    \step{9}{For all $\beta' \geq \beta$ we have $a_{g(\beta')} \in U$.}
+    \qed
+\end{proof}
+
+\section{Accumulation Points}
+
+\begin{definition}[Accumulation Point]
+    Let $X$ be a topological space. Let $(a_\alpha)_{\alpha \in J}$ be a net
+    in $X$. Let $l \in X$. Then $l$ is an \emph{accumulation point} of
+    $(a_\alpha)_{\alpha \in J}$ if and only if, for every neighbourhood $U$
+    of $l$, the set $\{ \alpha \in J \mid a_\alpha \in U \}$ is cofinal in $J$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:accumulation_point_subnet}
+    Let $X$ be a topological space. Let $(a_\alpha)_{\alpha \in J}$ be a net
+    in $X$. Let $l \in X$. Then $l$ is an accumulation point of
+    $(a_\alpha)_{\alpha \in J}$ if and only if there exists a subnet of
+    $(a_\alpha)_{\alpha \in J}$ that converges to $l$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space.}}
+    \step{2}{\pflet{$(a_\alpha)_{\alpha \in J}$ be a net in $X$.}}
+    \step{3}{\pflet{$l \in X$}}
+    \step{4}{If $l$ is an accumulation point of $(a_\alpha)_{\alpha \in J}$
+    then there exists a subnet of $(a_\alpha)_{\alpha \in J}$ that converges
+    to $l$.}
+    \begin{proof}
+        \step{a}{\assume{$l$ is an accumulation point of $(a_\alpha)_{\alpha \in J}$.}}
+        \step{b}{\pflet{$K = \{ (\alpha, U) \mid \alpha \in J,
+        U \text{ is a neighbourhood of } l, a_\alpha \in U \}$
+        with $(\alpha, U) \leq (\beta, V)$ if and only if $\alpha \leq \beta$
+        and $V \subseteq U$}}
+        \step{c}{$K$ is a directed set}
+        \begin{proof}
+            \step{i}{$\leq$ is reflexive on $K$.}
+            \step{ii}{$\leq$ is transitive on $K$.}
+            \step{iii}{$\leq$ is antisymmetric on $K$.}
+            \step{iv}{For all $(\alpha, U), (\beta, V) \in K$, there exists
+            $(\gamma, W)$ such that $(\alpha, U) \leq (\gamma, W)$
+            and $(\beta, V) \leq (\gamma, W)$}
+            \begin{proof}
+                \step{one}{\pflet{$(\alpha, U), (\beta, V) \in K$}}
+                \step{two}{\pick\ $\gamma \in J$ with $\alpha \leq \gamma$
+                and $\beta \leq \gamma$}
+                \step{three}{\pick\ $\delta \in J$ with $\gamma \leq \delta$
+                and $a_\delta \in U \cap V$}
+                \step{four}{$(\alpha, U) \leq (\delta, U \cap V)$
+                and $(\beta, V) \leq (\delta, U \cap V)$}
+            \end{proof}
+        \end{proof}
+        \step{d}{\pflet{$g : K \rightarrow J$, $g(\alpha, U) = \alpha$}}
+        \step{e}{$g$ is monotone}
+        \step{f}{$g(K)$ is cofinal in $J$}
+        \begin{proof}
+            \pf\ For all $\alpha \in J$ we have $\alpha = g(\alpha, X)$.
+        \end{proof}
+        \step{g}{$(a_{g(\alpha, U)})_{(\alpha, U) \in K}$ converges to $l$.}
+        \begin{proof}
+            \step{i}{\pflet{$U$ be a neighbourhood of $l$}}
+            \step{ii}{\pick\ $\alpha \in J$ such that $a_\alpha \in U$}
+            \step{iii}{For all $(\beta, V) \geq (\alpha, U)$ we have $a_\beta \in U$}
+            \begin{proof}
+                \pf\ Since $a_\beta \in V \subseteq U$
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{5}{If there exists a subnet of $(a_\alpha)_{\alpha \in J}$ that
+    converges to $l$ then $l$ is an accumulation point of $(a_\alpha)_{\alpha \in J}$.}
+    \begin{proof}
+        \step{a}{\assume{$(a_{g(\beta)})_{\beta \in K}$ converges to $l$}}
+        \step{b}{\pflet{$U$ be a neighbourhood of $l$}}
+        \step{c}{\pflet{$\alpha \in J$}}
+        \step{d}{\pick\ $\beta \in K$ such that, for all $\beta' \geq \beta$,
+        we have $a_{g(\beta')} \in U$}
+        \step{e}{\pick\ $\gamma \in K$ such that $g(\gamma) \geq \alpha$}
+        \step{f}{\pick\ $\delta \in K$ with $\beta \leq \delta$ and $\gamma \leq \delta$}
+        \step{g}{$\alpha \leq g(\delta)$}
+        \step{h}{$a_{g(\delta)} \in U$}
+    \end{proof}
+    \qed
+\end{proof}
+
+
 \section{Compact Spaces}
 
 \begin{definition}[Compact]
@@ -6315,6 +6490,59 @@ The following examples show that not every limit point compact space is compact.
     \end{proof}
 \end{example}
 
+\begin{proposition}[AC]
+    A topological space is compact if and only if every net has a convergent subnet.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space.}}
+    \step{2}{If $X$ is compact then every net has a convergent subnet.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is compact.}}
+        \step{b}{\pflet{$(a_\alpha)_{\alpha \in J}$ be a net in $X$.}}
+        \step{c}{For $\alpha \in J$, \pflet{$B_\alpha = \{ a_\beta \mid \alpha \leq \beta \}$}}
+        \step{d}{$\{ B_\alpha \mid \alpha \in J \}$ has the finite intersection property.}
+        \step{e}{\pick\ $x \in \bigcap_{\alpha \in J} \overline{B_\alpha}$}
+        \step{f}{$x$ is an accumulation point of $(a_\alpha)_{\alpha \in J}$}
+        \begin{proof}
+            \step{i}{\pflet{$U$ be a neighbourhood of $x$.}}
+            \step{ii}{\pflet{$\alpha \in J$}}
+            \step{iii}{$x \in \overline{B_\alpha}$}
+            \step{iv}{There exists $\beta \geq \alpha$ such that $a_\beta \in U$}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:accumulation_point_subnet}.
+        \end{proof}
+    \end{proof}
+    \step{3}{If every net in $X$ has a convergent subnet then $X$ is compact.}
+    \begin{proof}
+        \step{a}{\assume{Every net in $X$ has a convergent subnet.}}
+        \step{b}{\pflet{$\AA$ be a set of closed sets with the finite intersection property.}}
+        \step{c}{\pflet{$\BB$ be the set of all finite intersections of elements of $\AA$ under $\supseteq$.}}
+        \step{d}{For $B \in \BB$, \pick\ $a_B \in B$}
+        \step{e}{\pick\ a convergent subnet $(a_{g(\alpha)})_{\alpha \in K}$
+        with limit $l$. \prove{$l \in \bigcap \AA$}}
+        \begin{proof}
+            \pf\ From \stepref{a}.
+        \end{proof}
+        \step{f}{\pflet{$A \in \AA$}}
+        \step{g}{\assume{for a contradiction $l \notin A$}}
+        \step{h}{\pick\ $\alpha \in K$ such that, for all $\beta \geq \alpha$,
+        we have $a_{g(\beta)} \in X - A$}
+        \step{i}{\pick\ $\beta \in K$ such that $g(\beta) \geq A$}
+        \step{j}{\pick\ $\gamma \in K$ with $\alpha \leq \gamma$ and
+        $\beta \leq \gamma$}
+        \step{k}{$a_{g(\gamma)} \in A$ and $a_{g(\gamma)} \in X - A$}
+        \qedstep
+        \begin{proof}
+            \pf\ This is a contradiction.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
@@ -6867,7 +7095,6 @@ locally compact.
     The one-point compactification of $\ZZ^+$ is $\{0\} \cup \{ 1/n \mid n \in \ZZ^+ \}$.
 \end{example}
 
-
 \chapter{Topological Groups}
 
 \begin{definition}[Topological Group]
@@ -7402,6 +7629,29 @@ locally compact.
     \qed
 \end{proof}
 
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in \overline{AB}$} \prove{$x \in AB$}}
+    \step{2}{\pick\ a net $(a_\alpha b_\alpha)_{\alpha \in J}$ in $AB$ that converges
+    to $x$.}
+    \step{3}{\pick\ a convergent subnet $(b_{g(\beta)})_{\beta \in K}$ of $(b_\alpha)_{\alpha \in J}$
+    with limit $l$.}
+    \step{4}{$a_{g(\beta)} \rightarrow x \inv{l}$ as $\beta \rightarrow \infty$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            a_{g(\beta)} & = a_{g(\beta)} b_{g(\beta)} \inv{b_{g(\beta)}} \\
+            & \rightarrow x \inv{l}
+        \end{align*}
+    \end{proof}
+    \step{5}{$x \inv{l} \in A$}
+    \step{6}{$l \in B$}
+    \begin{proof}
+        \pf\ $B$ is closed because it is compact.
+    \end{proof}
+    \step{7}{$x \in AB$}
+    \qed
+\end{proof}
 \begin{corollary}
     Let $G$ be a topological group and $H \leq G$. Let $p : G \twoheadrightarrow G / H$ be the quotient map.
     If $H$ is compact then $p$ is a closed map.
@@ -7428,4 +7678,5 @@ locally compact.
 \begin{proof}
     \pf\ From Propositions \ref{proposition:continuous_open_image_locally_compact}
     and \ref{proposition:quotient_group_open_map}. \qed
+
 \end{proof}
