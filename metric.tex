@@ -1240,6 +1240,45 @@ We prove this is a metric.
         \pf\ The set $\{0,1\}^\omega$ is an uncountable discrete subspace. \qed
     \end{proof}
 \end{example}
+
+\begin{proposition}
+    Every separable metrizable space is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a separable metrizable space.}}
+    \step{2}{\pick\ a countable dense subset $D$. \prove{$\{ B(x,1/n) \mid x \in D,
+    n \in \ZZ^+ \}$ is a basis for $X$}}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pflet{$U$ be a neighbourhood of $x$.}}
+    \step{5}{\pick\ $n$ such that $B(x,1/n) \subseteq U$.}
+    \step{6}{\pick\ $d \in D \cap B(x,1/2n)$}
+    \step{7}{$x \in B(d,1/2n) \subseteq U$.}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Every Lindel\"{o}f metrizable space is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a Lindel\"{o}f metrizable space.}}
+    \step{2}{For $n \in \ZZ^+$, \pick\ a countable set $\AA_n$ of open balls of
+    radius $1/n$ that covers $X$.}
+    \step{3}{\pflet{$\BB = \bigcup_{n=1}^\infty \AA_n$} \prove{$\BB$ is a basis for $X$.}}
+    \step{4}{\pflet{$x \in X$}}
+    \step{5}{\pflet{$U$ be a neighbourhood of $x$.}}
+    \step{6}{\pick\ $n$ such that $B(x,1/n) \subseteq U$}
+    \step{7}{\pick\ $B \in \AA_{2n}$ such that $x \in B$}
+    \step{8}{$B \subseteq U$}
+    \begin{proof}
+        \pf\ Since $\diam B \leq n$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Uniform Convergence}
 
 \begin{definition}[Uniform Convergence]

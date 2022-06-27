@@ -5221,36 +5221,6 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
-\begin{example}[CC]
-    The space $\RR_l$ is Lindel\"{o}f.
-    
-    \begin{proof}
-        \step{1}{\pflet{$\AA$ be a covering of $\RR_l$ by basic open sets of the form $[a,b)$}}
-        \step{2}{\pflet{$C = \bigcup \{ (a,b) \mid [a,b) \in \AA \}$}}
-        \step{3}{$\RR \setminus C$ is countable.}
-        \begin{proof}
-            \step{a}{For every $x \in \RR \setminus C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
-            \begin{proof}
-                \step{i}{\pflet{$x \in \RR \setminus C$}}
-                \step{ii}{\pick\ $b$ such that $[x,b) \in \AA$}
-                \step{iii}{\pick\ a rational $q$ such that $q \in (x,b)$}
-            \end{proof}
-            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR \setminus C \rightarrow \QQ$}
-        \end{proof}
-        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR \setminus C$}
-        \step{5}{Under the standard topology on $\RR$, $C$ is second countable.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:second_countable_subspace}.
-        \end{proof}
-        \step{6}{\pick\ a countable $\AA'' \subseteq \AA$ such that $\{ (a,b) \mid [a,b) \in \AA'' \}$ covers $C$.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:lindelof_basis}.
-        \end{proof}
-        \step{7}{$\AA' \cup \AA''$ covers $\RR_l$.}
-        \qed
-    \end{proof}
-\end{example}
-
 A subspace of a Lindel\"{o}f space is not necessarily Lindel\"{o}f.
 \begin{example}
     The set $[0,1] \times (0,1)$ as a subspace of the ordered square is not Lindel\"{o}f.
@@ -5416,6 +5386,87 @@ necessarily Lindel\"{o}f.
         \qed
     \end{proof}
 \end{example}
+
+\begin{example}[CC]
+    The space $\RR_l$ is Lindel\"{o}f.
+    
+    \begin{proof}
+        \step{1}{\pflet{$\AA$ be a covering of $\RR_l$ by basic open sets of the form $[a,b)$}}
+        \step{2}{\pflet{$C = \bigcup \{ (a,b) \mid [a,b) \in \AA \}$}}
+        \step{3}{$\RR \setminus C$ is countable.}
+        \begin{proof}
+            \step{a}{For every $x \in \RR \setminus C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
+            \begin{proof}
+                \step{i}{\pflet{$x \in \RR \setminus C$}}
+                \step{ii}{\pick\ $b$ such that $[x,b) \in \AA$}
+                \step{iii}{\pick\ a rational $q$ such that $q \in (x,b)$}
+            \end{proof}
+            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR \setminus C \rightarrow \QQ$}
+        \end{proof}
+        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR \setminus C$}
+        \step{5}{Under the standard topology on $\RR$, $C$ is second countable.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:second_countable_subspace}.
+        \end{proof}
+        \step{6}{\pick\ a countable $\AA'' \subseteq \AA$ such that $\{ (a,b) \mid [a,b) \in \AA'' \}$ covers $C$.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:lindelof_basis}.
+        \end{proof}
+        \step{7}{$\AA' \cup \AA''$ covers $\RR_l$.}
+        \qed
+    \end{proof}
+\end{example}
+
+\begin{proposition}[AC]
+    A topological space is second countable if and only if every basis includes a
+    countable basis.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space.}}
+    \step{2}{If $X$ is second countable then every basis includes a countable basis.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is second countable.}}
+        \step{b}{\pflet{$\BB$ be a basis.}}
+        \step{c}{\pick\ a countable basis $\CC$.}
+        \step{d}{For every pair of basis elements $C, C' \in \CC$ such that there
+        exists $B \in \BB$ with $C \subseteq B \subseteq C'$, \pick\ $B_{CC'} \in \BB$
+        such that $C \subseteq B_{CC'} \subseteq C'$ \prove{The set of all $B_{CC'}$
+        form a basis for $X$.}}
+        \step{e}{\pflet{$x \in X$}}
+        \step{f}{\pflet{$U$ be a neighbourhood of $x$.}}
+        \step{g}{\pick\ $C' \in \CC$ such that $x \in C' \subseteq U$}
+        \step{h}{\pick\ $B \in \BB$ such that $x \in B \subseteq C'$}
+        \step{i}{\pick\ $C \in \CC$ such that $x \in C \subseteq B$}
+        \step{j}{$x \in B_{CC'} \subseteq U$}
+    \end{proof}
+    \step{3}{If every basis includes a countable basis then $X$ is second countable.}
+    \begin{proof}
+        \pf\ The set of all open sets is a basis and so includes a countable basis.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[AC]
+    Let $X$ be a second countable space. Let $A \subseteq X$ be uncountable.
+    Then $A$ contains uncountably many of its own limit points.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable space.}}
+    \step{1a}{\pick\ a countable basis $\BB$ for $X$.}
+    \step{2}{\pflet{$A \subseteq X$}}
+    \step{3}{\assume{only countably many points of $A$
+    are limit points of $A$.}}
+    \step{4}{For every point $x$ of $A$ that is not a limit point of $A$,
+    \pick\ $B_x \in \BB$ such that $B_x \cap A = \{x\}$.}
+    \step{5}{The mapping $A - A' \rightarrow \BB$ that maps $x$ to $B_x$ is injective.}
+    \step{6}{$A$ is countable.}
+    \qed
+\end{proof}
+
 \section{Sequential Compactness}
 
 \begin{definition}[Sequentially Compact]
@@ -7230,6 +7281,36 @@ locally compact.
 
 \begin{example}
     The one-point compactification of $\ZZ^+$ is $\{0\} \cup \{ 1/n \mid n \in \ZZ^+ \}$.
+\end{example}
+
+\section{$G_\delta$ Sets}
+
+\begin{definition}[$G_\delta$ Set]
+    Let $X$ be a topological space and $A \subseteq X$. Then $A$ is \emph{$G_\delta$}
+    if and only if it is the intersection of a countable set of open sets.
+\end{definition}
+
+\begin{proposition}
+    In a first countable $T_1$ space, every singleton is $G_\delta$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a first countable $T_1$ space.}}
+    \step{2}{\pflet{$a \in X$}}
+    \step{3}{\pick\ a countable local basis $\BB$ at $a$.}
+    \step{4}{$\bigcap \BB = \{ a \}$}
+    \begin{proof}
+        \step{a}{\pflet{$b \in X - \{a\}$} \prove{$b \notin \bigcap \BB$}}
+        \step{b}{\pick\ $B \in \BB$ with $a \in B \subseteq X - \{b\}$}
+        \step{c}{$b \notin B$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    In the space $\RR^\omega$ under the box topology, every singleton is $G_\delta$.
+    However, $\RR^\omega$ is not first countable.
 \end{example}
 
 \chapter{Topological Groups}
