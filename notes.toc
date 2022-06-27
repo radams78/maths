@@ -112,40 +112,42 @@
 \contentsline {section}{\numberline {10.26}Retractions}{105}{section.10.26}%
 \contentsline {section}{\numberline {10.27}Homogeneous Spaces}{105}{section.10.27}%
 \contentsline {section}{\numberline {10.28}Regular Spaces}{105}{section.10.28}%
-\contentsline {section}{\numberline {10.29}Connected Spaces}{105}{section.10.29}%
-\contentsline {section}{\numberline {10.30}Totally Disconnected Spaces}{114}{section.10.30}%
-\contentsline {section}{\numberline {10.31}Paths and Path Connectedness}{115}{section.10.31}%
-\contentsline {section}{\numberline {10.32}The Topologist's Sine Curve}{118}{section.10.32}%
-\contentsline {section}{\numberline {10.33}The Long Line}{119}{section.10.33}%
-\contentsline {section}{\numberline {10.34}Components}{120}{section.10.34}%
-\contentsline {section}{\numberline {10.35}Path Components}{122}{section.10.35}%
-\contentsline {section}{\numberline {10.36}Local Connectedness}{123}{section.10.36}%
-\contentsline {section}{\numberline {10.37}Local Path Connectedness}{125}{section.10.37}%
-\contentsline {section}{\numberline {10.38}Weak Local Connectedness}{126}{section.10.38}%
-\contentsline {section}{\numberline {10.39}Quasicomponents}{127}{section.10.39}%
-\contentsline {section}{\numberline {10.40}Open Coverings}{128}{section.10.40}%
-\contentsline {section}{\numberline {10.41}Lindel\"{o}f Spaces}{128}{section.10.41}%
-\contentsline {section}{\numberline {10.42}The Second Countability Axiom}{129}{section.10.42}%
-\contentsline {section}{\numberline {10.43}Sequential Compactness}{131}{section.10.43}%
-\contentsline {section}{\numberline {10.44}Limit Point Compactness}{131}{section.10.44}%
-\contentsline {section}{\numberline {10.45}Countable Compactness}{132}{section.10.45}%
-\contentsline {section}{\numberline {10.46}Subnets}{134}{section.10.46}%
-\contentsline {section}{\numberline {10.47}Accumulation Points}{135}{section.10.47}%
-\contentsline {section}{\numberline {10.48}Compact Spaces}{136}{section.10.48}%
-\contentsline {section}{\numberline {10.49}Perfect Maps}{149}{section.10.49}%
-\contentsline {section}{\numberline {10.50}Isolated Points}{150}{section.10.50}%
-\contentsline {section}{\numberline {10.51}Local Compactness}{151}{section.10.51}%
-\contentsline {section}{\numberline {10.52}Compactifications}{154}{section.10.52}%
-\contentsline {chapter}{\numberline {11}Topological Groups}{157}{chapter.11}%
-\contentsline {section}{\numberline {11.1}The Metric Topology}{165}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Real Linear Algebra}{172}{section.11.2}%
-\contentsline {section}{\numberline {11.3}The Uniform Topology}{179}{section.11.3}%
-\contentsline {section}{\numberline {11.4}Uniform Convergence}{182}{section.11.4}%
-\contentsline {section}{\numberline {11.5}Isometric Imbeddings}{184}{section.11.5}%
-\contentsline {section}{\numberline {11.6}Distance to a Set}{184}{section.11.6}%
-\contentsline {section}{\numberline {11.7}Lebesgue Numbers}{185}{section.11.7}%
-\contentsline {section}{\numberline {11.8}Uniform Continuity}{187}{section.11.8}%
-\contentsline {section}{\numberline {11.9}Epsilon-neighbourhoods}{188}{section.11.9}%
-\contentsline {section}{\numberline {11.10}Isometry}{189}{section.11.10}%
-\contentsline {section}{\numberline {11.11}Shrinking Maps}{190}{section.11.11}%
-\contentsline {section}{\numberline {11.12}Contractions}{191}{section.11.12}%
+\contentsline {section}{\numberline {10.29}Dense Sets}{105}{section.10.29}%
+\contentsline {section}{\numberline {10.30}Connected Spaces}{105}{section.10.30}%
+\contentsline {section}{\numberline {10.31}Totally Disconnected Spaces}{115}{section.10.31}%
+\contentsline {section}{\numberline {10.32}Paths and Path Connectedness}{115}{section.10.32}%
+\contentsline {section}{\numberline {10.33}The Topologist's Sine Curve}{118}{section.10.33}%
+\contentsline {section}{\numberline {10.34}The Long Line}{120}{section.10.34}%
+\contentsline {section}{\numberline {10.35}Components}{120}{section.10.35}%
+\contentsline {section}{\numberline {10.36}Path Components}{122}{section.10.36}%
+\contentsline {section}{\numberline {10.37}Local Connectedness}{123}{section.10.37}%
+\contentsline {section}{\numberline {10.38}Local Path Connectedness}{125}{section.10.38}%
+\contentsline {section}{\numberline {10.39}Weak Local Connectedness}{126}{section.10.39}%
+\contentsline {section}{\numberline {10.40}Quasicomponents}{127}{section.10.40}%
+\contentsline {section}{\numberline {10.41}Open Coverings}{128}{section.10.41}%
+\contentsline {section}{\numberline {10.42}Lindel\"{o}f Spaces}{128}{section.10.42}%
+\contentsline {section}{\numberline {10.43}Separable Spaces}{130}{section.10.43}%
+\contentsline {section}{\numberline {10.44}The Second Countability Axiom}{130}{section.10.44}%
+\contentsline {section}{\numberline {10.45}Sequential Compactness}{132}{section.10.45}%
+\contentsline {section}{\numberline {10.46}Limit Point Compactness}{132}{section.10.46}%
+\contentsline {section}{\numberline {10.47}Countable Compactness}{133}{section.10.47}%
+\contentsline {section}{\numberline {10.48}Subnets}{135}{section.10.48}%
+\contentsline {section}{\numberline {10.49}Accumulation Points}{136}{section.10.49}%
+\contentsline {section}{\numberline {10.50}Compact Spaces}{137}{section.10.50}%
+\contentsline {section}{\numberline {10.51}Perfect Maps}{150}{section.10.51}%
+\contentsline {section}{\numberline {10.52}Isolated Points}{150}{section.10.52}%
+\contentsline {section}{\numberline {10.53}Local Compactness}{152}{section.10.53}%
+\contentsline {section}{\numberline {10.54}Compactifications}{155}{section.10.54}%
+\contentsline {chapter}{\numberline {11}Topological Groups}{158}{chapter.11}%
+\contentsline {section}{\numberline {11.1}The Metric Topology}{166}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Real Linear Algebra}{173}{section.11.2}%
+\contentsline {section}{\numberline {11.3}The Uniform Topology}{180}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Uniform Convergence}{183}{section.11.4}%
+\contentsline {section}{\numberline {11.5}Isometric Imbeddings}{185}{section.11.5}%
+\contentsline {section}{\numberline {11.6}Distance to a Set}{185}{section.11.6}%
+\contentsline {section}{\numberline {11.7}Lebesgue Numbers}{186}{section.11.7}%
+\contentsline {section}{\numberline {11.8}Uniform Continuity}{188}{section.11.8}%
+\contentsline {section}{\numberline {11.9}Epsilon-neighbourhoods}{189}{section.11.9}%
+\contentsline {section}{\numberline {11.10}Isometry}{190}{section.11.10}%
+\contentsline {section}{\numberline {11.11}Shrinking Maps}{191}{section.11.11}%
+\contentsline {section}{\numberline {11.12}Contractions}{192}{section.11.12}%

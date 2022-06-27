@@ -112,40 +112,42 @@
 \BOOKMARK [1][-]{section.10.26}{Retractions}{chapter.10}% 112
 \BOOKMARK [1][-]{section.10.27}{Homogeneous Spaces}{chapter.10}% 113
 \BOOKMARK [1][-]{section.10.28}{Regular Spaces}{chapter.10}% 114
-\BOOKMARK [1][-]{section.10.29}{Connected Spaces}{chapter.10}% 115
-\BOOKMARK [1][-]{section.10.30}{Totally Disconnected Spaces}{chapter.10}% 116
-\BOOKMARK [1][-]{section.10.31}{Paths and Path Connectedness}{chapter.10}% 117
-\BOOKMARK [1][-]{section.10.32}{The Topologist's Sine Curve}{chapter.10}% 118
-\BOOKMARK [1][-]{section.10.33}{The Long Line}{chapter.10}% 119
-\BOOKMARK [1][-]{section.10.34}{Components}{chapter.10}% 120
-\BOOKMARK [1][-]{section.10.35}{Path Components}{chapter.10}% 121
-\BOOKMARK [1][-]{section.10.36}{Local Connectedness}{chapter.10}% 122
-\BOOKMARK [1][-]{section.10.37}{Local Path Connectedness}{chapter.10}% 123
-\BOOKMARK [1][-]{section.10.38}{Weak Local Connectedness}{chapter.10}% 124
-\BOOKMARK [1][-]{section.10.39}{Quasicomponents}{chapter.10}% 125
-\BOOKMARK [1][-]{section.10.40}{Open Coverings}{chapter.10}% 126
-\BOOKMARK [1][-]{section.10.41}{Lindel\366f Spaces}{chapter.10}% 127
-\BOOKMARK [1][-]{section.10.42}{The Second Countability Axiom}{chapter.10}% 128
-\BOOKMARK [1][-]{section.10.43}{Sequential Compactness}{chapter.10}% 129
-\BOOKMARK [1][-]{section.10.44}{Limit Point Compactness}{chapter.10}% 130
-\BOOKMARK [1][-]{section.10.45}{Countable Compactness}{chapter.10}% 131
-\BOOKMARK [1][-]{section.10.46}{Subnets}{chapter.10}% 132
-\BOOKMARK [1][-]{section.10.47}{Accumulation Points}{chapter.10}% 133
-\BOOKMARK [1][-]{section.10.48}{Compact Spaces}{chapter.10}% 134
-\BOOKMARK [1][-]{section.10.49}{Perfect Maps}{chapter.10}% 135
-\BOOKMARK [1][-]{section.10.50}{Isolated Points}{chapter.10}% 136
-\BOOKMARK [1][-]{section.10.51}{Local Compactness}{chapter.10}% 137
-\BOOKMARK [1][-]{section.10.52}{Compactifications}{chapter.10}% 138
-\BOOKMARK [0][-]{chapter.11}{Topological Groups}{part.1}% 139
-\BOOKMARK [1][-]{section.11.1}{The Metric Topology}{chapter.11}% 140
-\BOOKMARK [1][-]{section.11.2}{Real Linear Algebra}{chapter.11}% 141
-\BOOKMARK [1][-]{section.11.3}{The Uniform Topology}{chapter.11}% 142
-\BOOKMARK [1][-]{section.11.4}{Uniform Convergence}{chapter.11}% 143
-\BOOKMARK [1][-]{section.11.5}{Isometric Imbeddings}{chapter.11}% 144
-\BOOKMARK [1][-]{section.11.6}{Distance to a Set}{chapter.11}% 145
-\BOOKMARK [1][-]{section.11.7}{Lebesgue Numbers}{chapter.11}% 146
-\BOOKMARK [1][-]{section.11.8}{Uniform Continuity}{chapter.11}% 147
-\BOOKMARK [1][-]{section.11.9}{Epsilon-neighbourhoods}{chapter.11}% 148
-\BOOKMARK [1][-]{section.11.10}{Isometry}{chapter.11}% 149
-\BOOKMARK [1][-]{section.11.11}{Shrinking Maps}{chapter.11}% 150
-\BOOKMARK [1][-]{section.11.12}{Contractions}{chapter.11}% 151
+\BOOKMARK [1][-]{section.10.29}{Dense Sets}{chapter.10}% 115
+\BOOKMARK [1][-]{section.10.30}{Connected Spaces}{chapter.10}% 116
+\BOOKMARK [1][-]{section.10.31}{Totally Disconnected Spaces}{chapter.10}% 117
+\BOOKMARK [1][-]{section.10.32}{Paths and Path Connectedness}{chapter.10}% 118
+\BOOKMARK [1][-]{section.10.33}{The Topologist's Sine Curve}{chapter.10}% 119
+\BOOKMARK [1][-]{section.10.34}{The Long Line}{chapter.10}% 120
+\BOOKMARK [1][-]{section.10.35}{Components}{chapter.10}% 121
+\BOOKMARK [1][-]{section.10.36}{Path Components}{chapter.10}% 122
+\BOOKMARK [1][-]{section.10.37}{Local Connectedness}{chapter.10}% 123
+\BOOKMARK [1][-]{section.10.38}{Local Path Connectedness}{chapter.10}% 124
+\BOOKMARK [1][-]{section.10.39}{Weak Local Connectedness}{chapter.10}% 125
+\BOOKMARK [1][-]{section.10.40}{Quasicomponents}{chapter.10}% 126
+\BOOKMARK [1][-]{section.10.41}{Open Coverings}{chapter.10}% 127
+\BOOKMARK [1][-]{section.10.42}{Lindel\366f Spaces}{chapter.10}% 128
+\BOOKMARK [1][-]{section.10.43}{Separable Spaces}{chapter.10}% 129
+\BOOKMARK [1][-]{section.10.44}{The Second Countability Axiom}{chapter.10}% 130
+\BOOKMARK [1][-]{section.10.45}{Sequential Compactness}{chapter.10}% 131
+\BOOKMARK [1][-]{section.10.46}{Limit Point Compactness}{chapter.10}% 132
+\BOOKMARK [1][-]{section.10.47}{Countable Compactness}{chapter.10}% 133
+\BOOKMARK [1][-]{section.10.48}{Subnets}{chapter.10}% 134
+\BOOKMARK [1][-]{section.10.49}{Accumulation Points}{chapter.10}% 135
+\BOOKMARK [1][-]{section.10.50}{Compact Spaces}{chapter.10}% 136
+\BOOKMARK [1][-]{section.10.51}{Perfect Maps}{chapter.10}% 137
+\BOOKMARK [1][-]{section.10.52}{Isolated Points}{chapter.10}% 138
+\BOOKMARK [1][-]{section.10.53}{Local Compactness}{chapter.10}% 139
+\BOOKMARK [1][-]{section.10.54}{Compactifications}{chapter.10}% 140
+\BOOKMARK [0][-]{chapter.11}{Topological Groups}{part.1}% 141
+\BOOKMARK [1][-]{section.11.1}{The Metric Topology}{chapter.11}% 142
+\BOOKMARK [1][-]{section.11.2}{Real Linear Algebra}{chapter.11}% 143
+\BOOKMARK [1][-]{section.11.3}{The Uniform Topology}{chapter.11}% 144
+\BOOKMARK [1][-]{section.11.4}{Uniform Convergence}{chapter.11}% 145
+\BOOKMARK [1][-]{section.11.5}{Isometric Imbeddings}{chapter.11}% 146
+\BOOKMARK [1][-]{section.11.6}{Distance to a Set}{chapter.11}% 147
+\BOOKMARK [1][-]{section.11.7}{Lebesgue Numbers}{chapter.11}% 148
+\BOOKMARK [1][-]{section.11.8}{Uniform Continuity}{chapter.11}% 149
+\BOOKMARK [1][-]{section.11.9}{Epsilon-neighbourhoods}{chapter.11}% 150
+\BOOKMARK [1][-]{section.11.10}{Isometry}{chapter.11}% 151
+\BOOKMARK [1][-]{section.11.11}{Shrinking Maps}{chapter.11}% 152
+\BOOKMARK [1][-]{section.11.12}{Contractions}{chapter.11}% 153

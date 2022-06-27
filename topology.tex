@@ -2905,6 +2905,11 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 
 \begin{example}
     The space $\RR_l$ is first countable.
+
+    \begin{proof}
+        \pf\ For any real number $x$, the set $\{ [x,q) \mid q \in \QQ, q > x \}$
+        is a countable local basis at $x$. \qed
+    \end{proof}
 \end{example}
 
 \begin{proof}
@@ -3449,11 +3454,18 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     $A \subseteq U$ and $a \in V$.    
 \end{definition}
 
+\section{Dense Sets}
+
+\begin{definition}[Dense]
+    Let $X$ be a topological space and $A \subseteq X$. Then $A$ is \emph{dense}
+    if and only if $\overline{A} = X$.
+\end{definition}
+
 \section{Connected Spaces}
 
 \begin{definition}[Separation]
     A \emph{separation} of a topological space $X$ is a pair of disjoint open sets $U$, $V$ such that $U \cup V = \emptyset$.
-\end{definition}
+\end{definition}<<
 
 \begin{definition}[Connected]
     A topological space is \emph{connected} if and only if it has no separation; otherwise it is \emph{disconnected}.
@@ -5209,6 +5221,54 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{example}[CC]
+    The space $\RR_l$ is Lindel\"{o}f.
+    
+    \begin{proof}
+        \step{1}{\pflet{$\AA$ be a covering of $\RR_l$ by basic open sets of the form $[a,b)$}}
+        \step{2}{\pflet{$C = \bigcup \{ (a,b) \mid [a,b) \in \AA \}$}}
+        \step{3}{$\RR \setminus C$ is countable.}
+        \begin{proof}
+            \step{a}{For every $x \in \RR \setminus C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
+            \begin{proof}
+                \step{i}{\pflet{$x \in \RR \setminus C$}}
+                \step{ii}{\pick\ $b$ such that $[x,b) \in \AA$}
+                \step{iii}{\pick\ a rational $q$ such that $q \in (x,b)$}
+            \end{proof}
+            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR \setminus C \rightarrow \QQ$}
+        \end{proof}
+        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR \setminus C$}
+        \step{5}{Under the standard topology on $\RR$, $C$ is second countable.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:second_countable_subspace}.
+        \end{proof}
+        \step{6}{\pick\ a countable $\AA'' \subseteq \AA$ such that $\{ (a,b) \mid [a,b) \in \AA'' \}$ covers $C$.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:lindelof_basis}.
+        \end{proof}
+        \step{7}{$\AA' \cup \AA''$ covers $\RR_l$.}
+        \qed
+    \end{proof}
+\end{example}
+
+A subspace of a Lindel\"{o}f space is not necessarily Lindel\"{o}f.
+\begin{example}
+    The set $[0,1] \times (0,1)$ as a subspace of the ordered square is not Lindel\"{o}f.
+
+    The open cover $\{ \{x\} \times (0,1) \mid x \in [0,1] \}$ has no countable subcover.
+\end{example}
+
+\section{Separable Spaces}
+
+\begin{definition}[Separable]
+    A topological space is \emph{separable} if and only if it has a countable dense
+    subset.
+\end{definition}
+
+\begin{example}
+    The space $\RR_l$ is separable. The set $\QQ$ is dense.
+\end{example}
+
 \section{The Second Countability Axiom}
 
 \begin{definition}[Second Countability Axiom]
@@ -5241,40 +5301,10 @@ An example that shows the converse does not hold:
     \pf\ From Proposition \ref{proposition:lindelof_basis}.
 \end{proof}
 
-\begin{example}[CC]
-    The space $\RR_l$ is Lindel\"{o}f.
-    
-    \begin{proof}
-        \step{1}{\pflet{$\AA$ be a covering of $\RR_l$ by basic open sets of the form $[a,b)$}}
-        \step{2}{\pflet{$C = \bigcup \{ (a,b) \mid [a,b) \in \AA \}$}}
-        \step{3}{$\RR \setminus C$ is countable.}
-        \begin{proof}
-            \step{a}{For every $x \in \RR \setminus C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
-            \begin{proof}
-                \step{i}{\pflet{$x \in \RR \setminus C$}}
-                \step{ii}{\pick\ $b$ such that $[x,b) \in \AA$}
-                \step{iii}{\pick\ a rational $q$ such that $q \in (x,b)$}
-            \end{proof}
-            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR \setminus C \rightarrow \QQ$}
-        \end{proof}
-        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR \setminus C$}
-        \step{5}{Under the standard topology on $\RR$, $C$ is second countable.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:second_countable_subspace}.
-        \end{proof}
-        \step{6}{\pick\ a countable $\AA'' \subseteq \AA$ such that $\{ (a,b) \mid [a,b) \in \AA'' \}$ covers $C$.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:lindelof_basis}.
-        \end{proof}
-        \step{7}{$\AA' \cup \AA''$ covers $\RR_l$.}
-        \qed
-    \end{proof}
-\end{example}
-
+The following example shows that the product of two Lindel\"{o}f spaces is not
+necessarily Lindel\"{o}f.
 \begin{example}
-    The product of two Lindel\"{o}f spaces is not necessarily Lindel\"{o}f.
-
-    We prove that the Sorgenfrey plane is not Lindel\"{o}f.
+    The Sorgenfrey plane is not Lindel\"{o}f.
     
     \begin{proof}
         \pf
@@ -5353,6 +5383,39 @@ An example that shows the converse does not hold:
     \step{6}{$A$ is countable.}
     \qed
 \end{proof}
+
+\begin{proposition}[AC]
+    Every second countable space is separable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable space.}}
+    \step{2}{\pick\ a countable basis $\BB$ for $X$.}
+    \step{3}{For all $B \in \BB$ nonempty \pick\ $a_B \in B$.}
+    \step{4}{\pflet{$A = \{ a_B \mid B \in \BB, B \neq \emptyset \}$} \prove{$A$ is dense}}
+    \step{5}{\pflet{$x \in X$} \prove{$x \in \overline{A}$}}
+    \step{6}{\pflet{$U$ be a neighbourhood of $x$} \prove{$U$ intersects $A$}}
+    \step{7}{\pick\ $B \in \BB$ such that $x \in B \subseteq U$}
+    \step{8}{$a_B \in U \cap A$}
+    \qed
+\end{proof}
+
+\begin{example}[AC]
+    The space $\RR_l$ is not second countable.
+
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$\BB$ be any basis for $\RR_l$}}
+        \step{2}{For $x \in \RR$, \pick\ $B_x \in \BB$ such that $x \in B_x \subseteq [x,x+1)$}
+        \step{3}{The mapping $\RR \rightarrow \BB$ that maps $x$ to $B_x$ is injective.}
+        \begin{proof}
+            \pf\ If $x < y$ then $x \in B_x$ and $x \notin B_y$.
+        \end{proof}
+        \step{4}{$\BB$ is uncountable.}
+        \qed
+    \end{proof}
+\end{example}
 \section{Sequential Compactness}
 
 \begin{definition}[Sequentially Compact]

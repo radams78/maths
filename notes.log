@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  27 JUN 2022 17:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  27 JUN 2022 17:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -432,10 +432,10 @@ WARNING: proof step "5" (<3>10) already defined
 WARNING: proof step "6" (<3>11) already defined
 WARNING: proof step "7" (<3>12) already defined
 WARNING: proof step "8" (<3>13) already defined
+[111]
 WARNING: proof step "9a" (<3>14) already defined
 WARNING: proof step "9" (<3>15) already defined
 WARNING: proof step "a" (<4>1) already defined
-[111]
 WARNING: proof step "b" (<4>2) already defined
 WARNING: proof step "10" (<3>16) already defined
 WARNING: proof step "a" (<4>1) already defined
@@ -450,89 +450,89 @@ WARNING: proof step "4" (<1>5) already defined
 [119]
 WARNING: proof step "ii" (<2>3) already defined
 [120]
-Overfull \hbox (12.83513pt too wide) in paragraph at lines 4655--4658
+Overfull \hbox (12.83513pt too wide) in paragraph at lines 4667--4670
 []\OT1/cmr/m/sc/10 Proof\OT1/cmr/m/n/10 : For $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$\OT1/cmr/m/n/10 , the $\OMS/cmsy/m/n/10 ^^X$\OT1/cmr/m/n/10 -equivalence class of $\OML/cmm/m/it/10 a$ \OT1/cmr/m/n/10 is $[]\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 A[]; a \OMS/cmsy/m/n/10 2
  []
 
 [121] [122] [123] [124]
-Overfull \hbox (1.64685pt too wide) in paragraph at lines 4933--4935
+Overfull \hbox (1.64685pt too wide) in paragraph at lines 4945--4947
 []\OT1/cmr/m/n/10 The space $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 is \OT1/cmr/m/it/10 lo-cally path-connected \OT1/cmr/m/n/10 if and only if it is lo-cally path-connected
  []
 
 [125] [126] [127]
-Overfull \hbox (6.25055pt too wide) in paragraph at lines 5179--5180
+Overfull \hbox (6.25055pt too wide) in paragraph at lines 5191--5192
 []\OT1/cmr/m/n/10 Any set of closed sets with the count-able in-ter-sec-tion prop-erty has nonempty
  []
 
-[128] [129] [130]
+[128] [129] [130] [131]
 WARNING: proof step "3" (<1>4) already defined
-[131] [132] [133] [134] [135] [136] [137] [138] [139]
+[132] [133] [134] [135] [136] [137] [138] [139] [140]
 WARNING: proof step "b" (<2>3) already defined
-[140] [141] [142] [143]
+[141] [142] [143] [144]
 WARNING: proof step "g" (<2>8) already defined
-[144] [145]
+[145] [146]
 WARNING: proof step "5" (<1>6) already defined
-[146] [147]
+[147] [148]
 
-LaTeX Warning: Reference `proposition:countable_subset' on page 148 undefined on input line 6547.
+LaTeX Warning: Reference `proposition:countable_subset' on page 149 undefined on input line 6610.
 
-[148] [149] [150] [151]
-Overfull \hbox (5.83879pt too wide) in paragraph at lines 6844--6847
-[]\OT1/cmr/bx/n/10 Proposition 10.51.9. \OT1/cmr/m/it/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$ \OT1/cmr/m/it/10 be a fam-ily of nonempty spaces. If $[][] \OML/cmm/m/it/10 X[]$
+[149] [150] [151] [152]
+Overfull \hbox (5.83879pt too wide) in paragraph at lines 6907--6910
+[]\OT1/cmr/bx/n/10 Proposition 10.53.9. \OT1/cmr/m/it/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$ \OT1/cmr/m/it/10 be a fam-ily of nonempty spaces. If $[][] \OML/cmm/m/it/10 X[]$
  []
 
-[152]
+[153]
 WARNING: proof step "1" (<2>1) already defined
 
-Overfull \hbox (12.11667pt too wide) in paragraph at lines 6926--6929
-[]\OT1/cmr/bx/n/10 Example 10.51.11. \OT1/cmr/m/n/10 Pick an enu-mer-a-tion $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 q[]; q[]; []\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 of $\U/msb/m/n/10 Q$\OT1/cmr/m/n/10 . Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = [][](\OML/cmm/m/it/10 n; n \OT1/cmr/m/n/10 +
+Overfull \hbox (12.11667pt too wide) in paragraph at lines 6989--6992
+[]\OT1/cmr/bx/n/10 Example 10.53.11. \OT1/cmr/m/n/10 Pick an enu-mer-a-tion $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 q[]; q[]; []\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 of $\U/msb/m/n/10 Q$\OT1/cmr/m/n/10 . Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = [][](\OML/cmm/m/it/10 n; n \OT1/cmr/m/n/10 +
  []
 
-[153] [154] [155] [156]
+[154] [155] [156] [157]
 Chapter 11.
-[157
+[158
 
-] [158]
-Overfull \hbox (0.39728pt too wide) in paragraph at lines 7386--7388
+] [159]
+Overfull \hbox (0.39728pt too wide) in paragraph at lines 7449--7451
 []\OT1/cmr/bx/n/10 Definition 11.0.12 \OT1/cmr/m/n/10 (Sym-met-ric Neigh-bour-hood)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 G$ \OT1/cmr/m/n/10 be a topo-log-i-cal group.
  []
 
-[159] [160]
+[160] [161]
 WARNING: proof step "a" (<3>1) already defined
 WARNING: proof step "b" (<3>2) already defined
 WARNING: proof step "c" (<3>3) already defined
-[161]
-WARNING: proof step "b" (<2>3) already defined
 [162]
+WARNING: proof step "b" (<2>3) already defined
+[163]
 WARNING: proof step "3" (<1>7) already defined
-[163]) [164]
+[164]) [165]
 \openout2 = `metric.aux'.
 
- (/home/robin/fun/maths/metric.tex [165
+ (/home/robin/fun/maths/metric.tex [166
 
 
-] [166] [167] [168] [169] [170] [171] [172] [173] [174] [175] [176] [177] [178] [179] [180]
+] [167] [168] [169] [170] [171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181]
 WARNING: proof step "a" (<2>3) already defined
-[181]
+[182]
 Overfull \hbox (53.2884pt too wide) detected at line 1274
 []
  []
 
-[182]
+[183]
 WARNING: proof step "f" (<2>7) already defined
-[183] [184] [185] [186] [187] [188] [189]
+[184] [185] [186] [187] [188] [189] [190]
 WARNING: proof step "i" (<4>1) already defined
 WARNING: proof step "ii" (<4>2) already defined
 WARNING: proof step "iii" (<4>3) already defined
 WARNING: proof step "iv" (<4>4) already defined
-[190]) [191]
+[191]) [192]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
  (/home/robin/fun/maths/notes.aux (/home/robin/fun/maths/set.aux) (/home/robin/fun/maths/order.aux) (/home/robin/fun/maths/number.aux) (/home/robin/fun/maths/analysis.aux) (/home/robin/fun/maths/group.aux) (/home/robin/fun/maths/topology.aux) (/home/robin/fun/maths/metric.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 3666E7AD625D02EF5E52DFD57B3ACAB4;9549.
+(rerunfilecheck)             Checksum: EA746073929E49FF1BCCFD4B6A3A01DB;9677.
 
 
 LaTeX Warning: There were undefined references.
@@ -540,18 +540,18 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
  ) 
 Here is how much of TeX's memory you used:
- 7719 strings out of 481239
- 110754 string characters out of 5920377
+ 7730 strings out of 481239
+ 110897 string characters out of 5920377
  366512 words of memory out of 5000000
- 21524 multiletter control sequences out of 15000+600000
+ 21526 multiletter control sequences out of 15000+600000
  545318 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,14n,35p,265b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/robin/fun/maths/notes.pdf (192 pages, 812446 bytes).
+Output written on /home/robin/fun/maths/notes.pdf (193 pages, 815187 bytes).
 PDF statistics:
- 3314 PDF objects out of 3580 (max. 8388607)
- 3015 compressed objects within 31 object streams
- 1321 named destinations out of 1440 (max. 500000)
- 1209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3336 PDF objects out of 3580 (max. 8388607)
+ 3036 compressed objects within 31 object streams
+ 1330 named destinations out of 1440 (max. 500000)
+ 1225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
