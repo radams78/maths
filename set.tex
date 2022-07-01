@@ -67,6 +67,13 @@ We write $\{ x \mid P(x) \}$ for the class determined by the predicate $P(x)$.
     x \in \mathbf{B} \}$.
 \end{definition}
 
+\section{Disjoint Classes}
+
+\begin{definition}[Disjoint]
+    Classes $\mathbf{A}$ and $\mathbf{B}$ are \emph{disjoint} if and only if
+    $\mathbf{A} \cap \mathbf{B} = \emptyset$.
+\end{definition}
+
 \section{Relative Complement}
 
 \begin{definition}[Relative Complement]
@@ -106,7 +113,7 @@ only if $P(x)$.
     For any objects $u$ and $v$, the class $\{ u, v \}$ is a set.
 \end{axiom}
 
-\begin{theorem}[Pairing]
+\begin{theorem}
     For any object $a$, the class $\{ a \}$ is a set.
 \end{theorem}
 
@@ -125,7 +132,7 @@ only if $P(x)$.
     For any set $A$, the union $\bigcup A$ is a set.
 \end{axiom}
 
-\begin{theorem}[Union, Pairing]
+\begin{theorem}
     \label{theorem:union}
     For any sets $A$ and $B$, the class $A \cup B$ is a set.
 \end{theorem}
@@ -134,14 +141,13 @@ only if $P(x)$.
     \pf\ It is $\bigcup \{ A, B \}$. \qed
 \end{proof}
 
-\begin{theorems}[Union, Pairing]
+\begin{theorems}
     For any objects $a_1$, \ldots, $a_n$, the class $\{ a_1, \ldots, a_n \}$
     is a set.
 \end{theorems}
 
 \begin{proof}
-    \pf\ We prove each theorem using the last since
-    $\{ a_1, \ldots, a_n, a_{n+1} \} = \{ a_1, \ldots, a_n \} \cup \{ a_{n+1} \}$. \qed
+    \pf\ It is $\{a_1\} \cup \cdots \cup \{a_n\}$. \qed
 \end{proof}
 
 \section{Power Set}
@@ -167,12 +173,12 @@ only if $P(x)$.
 \section{Subset Axioms}
 
 \begin{axioms}[Subset Axioms, Aussonderung Axioms]
-    For any classes $\mathbf{A}$ and $\mathbf{B}$,
-    if $\mathbf{A} \subseteq \mathbf{B}$ and $\mathbf{B}$ is a set
+    For any classes $\mathbf{A}$ and set $B$,
+    if $\mathbf{A} \subseteq B$
     then $\mathbf{A}$ is a set.
 \end{axioms}
 
-\begin{theorem}[Subset]
+\begin{theorem}
     The universal class $\mathbf{V}$ is not a set.
 \end{theorem}
 
@@ -188,12 +194,20 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\begin{theorem}[Subset]
+\begin{theorem}
     If $A$ is a set and $\mathbf{B}$ is a class then $A - \mathbf{B}$ is a set.
 \end{theorem}
 
 \begin{proof}
     \pf\ It is a subset of $A$. \qed
+\end{proof}
+
+\begin{theorem}
+    For any set $A$ and class $\mathbf{B}$, the class $A \cap \mathbf{B}$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $A$.
 \end{proof}
 
 \section{Intersection}
@@ -203,7 +217,7 @@ only if $P(x)$.
     $\bigcap \mathbf{A}$ is the class $\{ x \mid \forall A \in \mathbf{A}. x \in A \}$.
 \end{definition}
 
-\begin{theorem}[Subset]
+\begin{theorem}
     For any nonempty class $\mathbf{A}$ of sets, we have $\bigcap \mathbf{A}$
     is a set.
 \end{theorem}
@@ -219,23 +233,94 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\begin{theorem}[Subset]
-    For any sets $A$ and $B$, the class $A \cap B$ is a set.
+\section{Pairwise Disjoint Classes}
+
+\begin{definition}[Pairwise Disjoint]
+    Let $\mathbf{A}$ be a class of sets. Then $\mathbf{A}$ is \emph{pairwise disjoint}
+    iff any two distinct elements of $\mathbf{A}$ are disjoint.
+\end{definition}
+
+\section{Axiom of Choice}
+
+\begin{axiom}[Axiom of Choice]
+    Let $\AA$ be a set of pairwise disjoint nonempty sets. Then there exists a set
+    $C$ containing exactly one element from each member of $\AA$.
+\end{axiom}
+
+\section{Axiom of Regularity}
+
+\begin{axiom}[Regularity]
+    For any nonempty set $A$, there exists $m \in A$ such that $m$ and $A$ are disjoint.
+\end{axiom}
+
+\begin{theorem}
+    No set is a member of itself.
 \end{theorem}
 
 \begin{proof}
-    \pf\ From a Subset Axiom since $A \cap B \subseteq A$. \qed
+    \pf\ From the Axiom of Regularity, for any set $A$, we have $A$ and $\{A\}$
+    are disjoint, i.e. $A \notin A$. \qed
 \end{proof}
+
+\begin{theorem}
+    There are no sets $A$ and $B$ such that $A \in B$ and $B \in A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A$ and $B$ be sets.}}
+    \step{2}{\pick\ $m \in \{A,B\}$ such that $m \cap \{A,B\} = \emptyset$}
+    \step{3}{\case{$m = A$}}
+    \begin{proof}
+        \pf\ In this case $B \notin A$.
+    \end{proof}
+    \step{4}{\case{$m = B$}}
+    \begin{proof}
+        \pf\ In this case $A \notin B$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Transitive Sets}
+
+\begin{definition}[Transitive Set]
+    A set $A$ is \emph{transitive} if and only if, whenever $x \in y \in A$
+    then $x \in A$.
+\end{definition}
+
+\begin{theorem}
+    Let $A$ be a set. Then the following are equivalent.
+    \begin{enumerate}
+        \item $A$ is transitive.
+        \item $\bigcup A \subseteq A$
+        \item For all $a \in A$ we have $a \subseteq A$
+        \item $A \subseteq \pow A$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \pf\ From definitions. \qed
+\end{proof}
+
+\section{Partitions}
+
+\begin{definition}[Partition]
+    A \emph{partition} $P$ of a set $A$ is a set of nonempty subsets of $A$ such that:
+    \begin{enumerate}
+        \item For all $x \in A$ there exists $S \in P$ such that $x \in S$.
+        \item Any two distinct elements of $P$ are disjoint.
+    \end{enumerate}
+\end{definition}
 
 \chapter{Relations}
 
 \section{Ordered Pairs}
 
-\begin{definition}[Ordered Pair (Pairing)]
+\begin{definition}[Ordered Pair]
     For any sets $x$ and $y$, the \emph{ordered pair} $(x,y)$ is defined to be $\{ \{ x \}, \{ x , y \} \}$.    
 \end{definition}
 
-\begin{theorem}[Pairing]
+\begin{theorem}
     For any sets $u$, $v$, $x$, $y$, we have $(u,v) = (x,y)$ if and only if $u = x$ and $v = y$
 \end{theorem}
 
@@ -274,7 +359,7 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\begin{lemma}[Pairing, Power Set]
+\begin{lemma}
     \label{lemma:ordered_pair_pow_pow}
     Let $x$, $y$ and $C$ be sets. If $x \in C$ and $y \in C$ then $(x,y) \in \pow \pow C$.
 \end{lemma}
@@ -284,16 +369,13 @@ only if $P(x)$.
     \step{1}{\pflet{$x$, $y$ and $C$ be sets.}}
     \step{2}{\assume{$x \in C$}}
     \step{3}{\assume{$y \in C$}}
-    \step{4}{$\{ x \} \subseteq C$}
-    \step{5}{$\{ x, y \} \subseteq C$}
     \step{6}{$\{ x \} \in \pow C$}
     \step{7}{$\{ x, y \} \in \pow C$}
-    \step{8}{$\{ \{ x \}, \{ x, y \} \} \subseteq \pow C$}
     \step{9}{$\{ \{ x \}, \{ x, y \} \} \in \pow \pow C$}
     \qed 
 \end{proof}
 
-\begin{lemma}[Pairing, Union]
+\begin{lemma}
     \label{lemma:ordered_pair_union_union}
     Let $x$, $y$ and $A$ be sets. If $(x,y) \in A$ then $x$ and $y$ belong to $\bigcup \bigcup A$.
 \end{lemma}
@@ -310,13 +392,13 @@ only if $P(x)$.
 
 \section{Cartesian Product}
 
-\begin{definition}[Cartesian Product (Pairing)]
+\begin{definition}[Cartesian Product]
     Let $\mathbf{A}$ and $\mathbf{B}$ be classes. The \emph{Cartesian product} 
     $\mathbf{A} \times \mathbf{B}$ is the class
     $\{ (x,y) \mid x \in \mathbf{A}, y \in \mathbf{B} \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Union, Power Set, Subset]
+\begin{theorem}
     For any sets $A$ and $B$, the Cartesian product $A \times B$ is a set.
 \end{theorem}
 
@@ -326,7 +408,7 @@ only if $P(x)$.
 
 \section{Relations}
 
-\begin{definition}[Relation (Pairing)]
+\begin{definition}[Relation]
     A \emph{relation} is a class of ordered pairs.
 
     Given a relation $\mathbf{R}$, we write $x\mathbf{R}y$ for $(x,y) \in \mathbf{R}$.
@@ -336,12 +418,12 @@ only if $P(x)$.
 
 \section{Domain}
 
-\begin{definition}[Domain (Pairing)]
-    Let $\mathbf{R}$ be a class. The \emph{domain} of $\mathbf{R}$ is 
+\begin{definition}[Domain]
+    Let $\mathbf{R}$ be a relation. The \emph{domain} of $\mathbf{R}$ is 
     $\dom \mathbf{R} = \{ x \mid \exists y. x\mathbf{R}y \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Union, Subset]
+\begin{theorem}
     \label{theorem:domain}
     For any set $R$, the domain $\dom R$ is a set.
 \end{theorem}
@@ -352,12 +434,12 @@ only if $P(x)$.
 
 \section{Range}
 
-\begin{definition}[Domain (Pairing)]
-    Let $\mathbf{R}$ be a class. The \emph{range} of $\mathbf{R}$ is 
+\begin{definition}[Range]
+    Let $\mathbf{R}$ be a relation. The \emph{range} of $\mathbf{R}$ is 
     $\ran \mathbf{R} = \{ y \mid \exists x. x\mathbf{R}y \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Union, Subset]
+\begin{theorem}
     \label{theorem:range}
     For any set $R$, the range $\ran R$ is a set.
 \end{theorem}
@@ -366,89 +448,30 @@ only if $P(x)$.
     \pf\ It is a subset of $\bigcup \bigcup R$ by Lemma \ref{lemma:ordered_pair_union_union}. \qed
 \end{proof}
 
-\section{Field}
-
-\begin{definition}[Field]
-    Let $\mathbf{R}$ be a class. The \emph{field} of $\mathbf{R}$ is
-    $\fld \mathbf{R} = \dom \mathbf{R} \cup \ran \mathbf{R}$.
-\end{definition}
-
-\begin{theorem}[Pairing, Union, Subset]
-    For any set $R$, the field $\fld R$ is a set.
-\end{theorem}
-
-\begin{proof}
-    \pf\ Theorems \ref{theorem:union}, \ref{theorem:domain} and \ref{theorem:range}. \qed
-\end{proof}
-
-\section{Functions}
-
-\begin{definition}[Class Term (Pairing)]
-    A \emph{class term} is a relation $\mathbf{F}$ such that, for all $x$, $y$,
-    $y'$, if $x\mathbf{F}y$ and $x\mathbf{F}y'$ then $y = y'$.
-
-    If $\mathbf{F}$ is a class term and $x \in \dom \mathbf{F}$, then we write
-    $\mathbf{F}(x)$ for the unique $y$ such that $x \mathbf{F} y$.
-
-    We write $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$ iff $\mathbf{F}$ is a class term,
-    $\dom \mathbf{F} = \mathbf{A}$ and $\ran \mathbf{F} \subseteq \mathbf{B}$.
-
-    A \emph{function} is a class term that is a set.
-\end{definition}
-
-\begin{axiom}[Axiom of Choice, First Form (Pairing)]
-    For any relation $R$, there exists a function $H \subseteq R$ such that 
-    $\dom H = \dom R$.
-\end{axiom}
-
-\begin{theorem}
-    The following are equivalent.
-    \begin{enumerate}
-        \item The Axiom of Choice
-        \item (\textbf{Multiplicative Axiom}) For any function $H$ with domain $I$ such that $H(i)$ is nonempty for all $i \in I$,
-        there exists a function $f$ with domain $I$ such that, for all $i \in I$,
-        we have $f(i) \in H(i)$.
-        \item Every set has a choice function.
-        \item Let $\mathcal{A}$ be a set of pairwise disjoint nonempty sets.
-        Then there exists a set $C$ containing exactly one element from each
-        member of $\mathcal{A}$.
-    \end{enumerate}
-\end{theorem}
-
 \section{Single-Rooted}
 
-\begin{definition}[Single-Rooted (Pairing)]
-    A class $\mathbf{R}$ is \emph{single-rooted} if and only if, for all $x$, $x'$, $y$, if $x\mathbf{R}y$ and $x'\mathbf{R}y$ then $x = x'$.
-
-    We call a class term \emph{one-to-one}, \emph{injective} or an \emph{injection}
-     if and only if it is single-rooted.
-\end{definition}
-
-\section{Surjective}
-
-\begin{definition}[Surjective (Pairing)]
-    Let $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$. Then $\mathbf{F}$ is \emph{surjective} if and only if
-    $\ran \mathbf{F} = \mathbf{B}$.
+\begin{definition}[Single-Rooted]
+    A relation $\mathbf{R}$ is \emph{single-rooted} if and only if, for all $x$, $x'$, $y$, if $x\mathbf{R}y$ and $x'\mathbf{R}y$ then $x = x'$.
 \end{definition}
 
 \section{Inverse}
 
-\begin{definition}[Inverse (Pairing)]
+\begin{definition}[Inverse]
     Let $\mathbf{R}$ be a class. The \emph{inverse} of $\mathbf{R}$ is 
     $\inv{\mathbf{R}} = \{ (y,x) \mid x \mathbf{R} y \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Union, Power Set, Subset]
-    For any set $R$, the inverse $\inv{R}$ is a set.
+\begin{theorem}
+    For any small relation $R$, the inverse $\inv{R}$ is small.
 \end{theorem}
 
 \begin{proof}
     \pf\ It is a subset of $\ran R \times \dom R$. \qed
 \end{proof}
 
-\begin{theorem}[Pairing]
+\begin{theorem}
     \label{theorem:dom_inv}
-    For any class $\mathbf{F}$, we have $\dom \inv{\mathbf{F}} = \ran \mathbf{F}$.
+    For any relation $\mathbf{F}$, we have $\dom \inv{\mathbf{F}} = \ran \mathbf{F}$.
 \end{theorem}
 
 \begin{proof}
@@ -460,9 +483,9 @@ only if $P(x)$.
     \end{align*}
 \end{proof}
 
-\begin{theorem}[Pairing]
+\begin{theorem}
     \label{theorem:ran_inv}
-    For any set $\mathbf{F}$, we have $\ran \inv{\mathbf{F}} = \dom \mathbf{F}$.
+    For any relation $\mathbf{F}$, we have $\ran \inv{\mathbf{F}} = \dom \mathbf{F}$.
 \end{theorem}
 
 \begin{proof}
@@ -474,7 +497,7 @@ only if $P(x)$.
     \end{align*}
 \end{proof}
 
-\begin{theorem}[Pairing]
+\begin{theorem}
     \label{theorem:inv_inv}
     For any relation $\mathbf{F}$, we have $\inv{(\inv{\mathbf{F}})} = \mathbf{F}$.
 \end{theorem}
@@ -488,52 +511,15 @@ only if $P(x)$.
     \end{align*}
 \end{proof}
 
-\begin{theorem}[Pairing]
-    \label{theorem:inv_function}
-    For any class $\mathbf{F}$, we have $\inv{\mathbf{F}}$ is a class term if and only if $\mathbf{F}$ is single-rooted.
-\end{theorem}
-
-\begin{proof}
-    \pf\ Immediate from definitions. \qed
-\end{proof}
-
-\begin{theorem}[Pairing]
-    Let $\mathbf{F}$ be a relation. Then $\mathbf{F}$ is a class term if and only if $\inv{\mathbf{F}}$ is single-rooted.
-\end{theorem}
-
-\begin{proof}
-    \pf\ Immediate from definitions. \qed
-\end{proof}
-
-\begin{theorem}[Pairing]
-    \label{theorem:inv_F_of_F}
-    Let $\mathbf{F}$ be a one-to-one class term and $x \in \dom \mathbf{F}$.
-    Then $\inv{\mathbf{F}}(\mathbf{F}(x)) = x$.
-\end{theorem}
-
-\begin{proof}
-    \pf\ We have $(x, \mathbf{F}(x)) \in \mathbf{F}$ and so 
-    $(\mathbf{F}(x), x) \in \inv{\mathbf{F}}$. \qed
-\end{proof}
-
-\begin{theorem}[Pairing]
-    Let $\mathbf{F}$ be a one-to-one function and $y \in \ran \mathbf{F}$.
-    Then $\mathbf{F}(\inv{\mathbf{F}}(y)) = y$.
-\end{theorem}
-
-\begin{proof}
-    \pf\ From Theorems \ref{theorem:dom_inv}, \ref{theorem:inv_inv} and \ref{theorem:inv_F_of_F}. \qed
-\end{proof}
-
 \section{Composition}
 
-\begin{definition}[Composition (Pairing)]
+\begin{definition}[Composition]
     Let $\mathbf{R}$ and $\mathbf{S}$ be relations. 
     The \emph{composition} of $\mathbf{R}$ and $\mathbf{S}$ is
     $\mathbf{S} \circ \mathbf{R} = \{ (x,z) \mid \exists y. x \mathbf{R} y \wedge y \mathbf{S} z \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Union, Power Set, Subset]
+\begin{theorem}
     If $R$ and $S$ are small relations then $S \circ R$ is small.
 \end{theorem}
 
@@ -541,46 +527,8 @@ only if $P(x)$.
     \pf\ It is a subset of $\dom R \times \ran S$. \qed
 \end{proof}
 
-\begin{theorem}[Pairing]
-    \label{theorem:comp_function}
-    Let $\mathbf{F}$ and $\mathbf{G}$ be class terms. Then $\mathbf{G} \circ \mathbf{F}$ is a function, its domain
-    is $\{ x \in \dom \mathbf{F} \mid \mathbf{F}(x) \in \dom \mathbf{G} \}$, and for $x$ in this domain,
-    we have $(\mathbf{F} \circ \mathbf{G})(x) = \mathbf{F}(\mathbf{G}(x))$.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{$\mathbf{G} \circ \mathbf{F}$ is a class term.}
-    \begin{proof}
-        \step{a}{\pflet{$x (\mathbf{G} \circ \mathbf{F}) z$ and $x (\mathbf{G} \circ \mathbf{F}) z'$}}
-        \step{b}{\pick\ $y$, $y'$ such that $x \mathbf{F} y$, $x \mathbf{F} y'$, $y \mathbf{G} z$ and $y' \mathbf{G} z'$}
-        \step{c}{$y = y'$}
-        \begin{proof}
-            \pf\ Since $\mathbf{F}$ is a class term.
-        \end{proof}
-        \step{d}{$z = z'$}
-        \begin{proof}
-            \pf\ Since $\mathbf{G}$ is a class term.
-        \end{proof}
-    \end{proof}
-    \step{2}{$\dom (\mathbf{G} \circ \mathbf{F}) = \{ x \in \dom \mathbf{F} \mid \mathbf{F}(x) \in \dom \mathbf{G} \}$}
-    \begin{proof}
-        \pf
-        \begin{align*}
-            x \in \dom (\mathbf{G} \circ \mathbf{F}) & \Leftrightarrow \exists z. x(\mathbf{G} \circ \mathbf{F})z \\
-            & \Leftrightarrow \exists y, z. x\mathbf{F}y \wedge y\mathbf{G}z \\
-            & \Leftrightarrow x \in \dom \mathbf{F} \wedge \mathbf{F}(x) \in \dom \mathbf{G}
-        \end{align*}
-    \end{proof}
-    \step{3}{For $x$ in this domain, we have $(\mathbf{F} \circ \mathbf{G})(x) = \mathbf{F}(\mathbf{G}(x))$.}
-    \begin{proof}
-        \pf\ Since $(x,\mathbf{F}(x)) \in \mathbf{F}$ and $(\mathbf{F}(x),\mathbf{G}(\mathbf{F}(x))) \in \mathbf{G}$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{theorem}[Pairing]
-    For any classes $\mathbf{F}$ and $\mathbf{G}$, we have
+\begin{theorem}
+    For any relations $\mathbf{F}$ and $\mathbf{G}$, we have
     $\inv{(\mathbf{G} \circ \mathbf{F})} = \inv{\mathbf{F}} \circ \inv{\mathbf{G}}$.
 \end{theorem}
 
@@ -594,106 +542,16 @@ only if $P(x)$.
     \end{align*}
 \end{proof}
 
-\section{Identity Function}
-
-\begin{definition}[Identity Class Term (Pairing)]
-    Let $\mathbf{A}$ be a set. The \emph{identity class term} $\id{\mathbf{A}}$ on $\mathbf{A}$ is
-    $\{ (x,x) \mid x \in \mathbf{A} \}$.
-\end{definition}
-
-\begin{theorem}[Pairing, Power Set, Subset]
-    For any set $A$, we have $\id{A}$ is a function.
-\end{theorem}
-
-\begin{proof}
-    \pf\ It is a subset of $\pow \pow A$. \qed
-\end{proof}
-
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    Let $F : A \rightarrow B$ and $A$ be nonempty. Then there exists a function
-    $G : B \rightarrow A$ such that $G \circ F = \id{A}$ if and only if $F$
-    is one-to-one.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$F : A \rightarrow B$}}
-    \step{2}{\assume{$A$ is nonempty}}
-    \step{3}{If there exists $G : B \rightarrow A$ such that $G \circ F = \id{A}$
-    then $F$ is one-to-one.}
-    \begin{proof}
-        \step{a}{\assume{$G : B \rightarrow A$ and $G \circ F = \id{A}$}}
-        \step{b}{\pflet{$x,y \in A$}}
-        \step{c}{\assume{$F(x) = F(y)$}}
-        \step{d}{$x = y$}
-        \begin{proof}
-            \pf\ $x = G(F(x)) = G(F(y)) = y$.
-        \end{proof}
-    \end{proof}
-    \step{4}{If $F$ is one-to-one then there exists $G : B \rightarrow A$
-    such that $G \circ F = \id{A}$.}
-    \begin{proof}
-        \step{a}{\assume{$F$ is one-to-one.}}
-        \step{b}{\pick\ $a \in A$}
-        \step{c}{Define $G : B \rightarrow A$ by: $G(y)$ is the $x$ such
-        that $F(x) = y$ if $y \in \ran F$, otherwise $G(y) = a$}
-        \step{f}{$G \circ F = \id{A}$}
-        \begin{proof}
-            \pf\ For $x \in A$ we have $(G \circ F)(x) = G(F(x)) = x$ by Theorem \ref{theorem:comp_function}.
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset]
-    Let $F : A \rightarrow B$ and $A$ be nonempty. If there exists a function
-    $H : B \rightarrow A$ such that $F \circ H = \id{B}$ then $F$
-    is surjective.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$F : A \rightarrow B$}}
-    \step{2}{\assume{$A$ is nonempty.}}
-    \step{a}{\pflet{$H : B \rightarrow A$ satisfy $F \circ H = \id{B}$}}
-    \step{b}{\pflet{$y \in B$}}
-    \step{c}{$F(H(y)) = y$.}
-    \qed
-\end{proof}
-
-\begin{theorem}[Extensionality, Pairing, Union, Power Set, Subset, Choice]
-    Let $F : A \rightarrow B$ and $A$ be nonempty. If $F$ is surjective
-    then there exists a function $H : B \rightarrow A$ such that $F \circ H = \id{B}$.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{a}{\assume{$F$ is surjective.}}
-    \step{b}{\pick\ a function $H \subseteq \inv{F}$ with $\dom H = B$}
-    \begin{proof}
-        \pf\ By the Axiom of Choice.
-    \end{proof}
-    \step{c}{$H : B \rightarrow A$}
-    \step{d}{$F \circ H = \id{B}$}
-    \begin{proof}
-        \step{i}{\pflet{$y \in B$}}
-        \step{ii}{$(y, H(y)) \in \inv{F}$}
-        \step{iii}{$(H(y), y) \in F$}
-        \step{iv}{$F(H(y)) = y$}
-    \end{proof}
-    \qed
-\end{proof}
-
 \section{Restriction}
 
-\begin{definition}[Restriction (Pairing)]
+\begin{definition}[Restriction]
     Let $\mathbf{R}$ be a relation and $\mathbf{A}$ a class. 
     The \emph{restriction} of $\mathbf{R}$ to $\mathbf{A}$
     is $\mathbf{R} \restriction \mathbf{A} = 
     \{ (x,y) \mid x \in \mathbf{A} \wedge x\mathbf{R}y \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Subset]
+\begin{theorem}
     If $R$ is a small relation then $R \restriction \mathbf{A}$ is small.    
 \end{theorem}
 
@@ -703,21 +561,21 @@ only if $P(x)$.
 
 \section{Image}
 
-\begin{definition}[Image (Pairing)]
-    Let $\mathbf{F}$ and $\mathbf{A}$ be classes. The \emph{image} of $\mathbf{A}$
+\begin{definition}[Image]
+    Let $\mathbf{F}$ be a relation and $\mathbf{A}$ a class. The \emph{image} of $\mathbf{A}$
     under $\mathbf{F}$ is $\mathbf{F}(\mathbf{A}) = \{ \mathbf{F}(x) \mid x \in \mathbf{A} \}$.
 \end{definition}
 
-\begin{theorem}[Pairing, Union, Subset]
-    If $F$ is a set then $F(\mathbf{A})$ is a set.
+\begin{theorem}
+    If $F$ is small then $F(\mathbf{A})$ is a set.
 \end{theorem}
 
 \begin{proof}
     \pf\ Since it is a subset of $\ran F$. \qed
 \end{proof}
 
-\begin{theorem}[Pairing]
-    For any classes $\mathbf{F}$ and $\mathbf{\AA}$ we have
+\begin{theorem}
+    For any relation $\mathbf{F}$ and class of sets $\mathbf{\AA}$ we have
     \[ \mathbf{F} \left( \bigcup \mathbf{\AA} \right) = \bigcup_{A \in \mathbf{\AA}} \mathbf{F}(A) \]
 \end{theorem}
 
@@ -726,8 +584,8 @@ only if $P(x)$.
     x \in A \in \mathbf{\AA} \wedge y = \mathbf{F}(x)$. \qed
 \end{proof}
 
-\begin{theorem}[Pairing]
-    For any classes $\mb{F}$, $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
+\begin{theorem}
+    For any relation $\mb{F}$ and classes $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
     \[ \mb{F}(\mb{A_1} \cup \cdots \cup \mb{A_n}) = \mb{F}(\mb{A_1}) \cup \cdots \cup \mb{F}(\mb{A_n}) \enspace . \]
 \end{theorem}
 
@@ -735,8 +593,8 @@ only if $P(x)$.
     \pf\ Similar. \qed
 \end{proof}
 
-\begin{theorem}[Pairing]
-    For any classes $\mb{F}$ and $\mb{\AA}$, we have
+\begin{theorem}
+    For any relation $\mb{F}$ and class of sets $\mb{\AA}$, we have
     \[ \mb{F} \left( \bigcap \mb{\AA} \right) \subseteq \bigcap_{A \in \mb{\AA}} \mb{F}(A) \enspace . \]
     Equality holds if $\mb{F}$ is single-rooted and $\mb{\AA}$ is nonempty.
 \end{theorem}
@@ -771,13 +629,8 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\begin{corollary}[Pairing]
-    For any class $\mathbf{F}$ and nonempty class $\mathbf{\AA}$, we have
-    \[ \inv{\mathbf{F}} \left( \bigcap \mathbf{\AA} \right) = \bigcap_{A \in \mathbf{\AA}} \inv{\mathbf{F}}(A) \enspace . \]
-\end{corollary}
-
-\begin{theorem}[Pairing]
-    For any classes $\mathbf{F}$, $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
+\begin{theorem}
+    For any relation $\mathbf{F}$ and classes $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
     \[ \mathbf{F}(\mb{A_1} \cap \cdots \cap \mb{A_n}) \subseteq \mathbf{F}(\mb{A_1}) \cap \cdots \cap \mathbf{F}(\mb{A_n}) \enspace . \]
     Equality holds if $\mathbf{F}$ is single-rooted.
 \end{theorem}
@@ -786,13 +639,8 @@ only if $P(x)$.
     \pf\ Similar.
 \end{proof}
 
-\begin{corollary}[Pairing]
-    For any classes $\mathbf{F}$, $\mb{A_1}$, \ldots, $\mb{A_n}$, we have
-    \[ \inv{\mathbf{F}}(\mb{A_1} \cap \cdots \cap \mb{A_n}) = \inv{\mathbf{F}}(\mb{A_1}) \cap \cdots \cap \inv{\mathbf{F}}(\mb{A_n}) \enspace . \]
-\end{corollary}
-
-\begin{theorem}[Pairing]
-    For any classes $\mb{F}$, $\mb{A}$ and $\mb{B}$, we have
+\begin{theorem}
+    For any relation $\mb{F}$ and classes $\mb{A}$ and $\mb{B}$, we have
     \[ \mb{F}(\mb{A}) - \mb{F}(\mb{B}) \subseteq \mb{F}(\mb{A} - \mb{B}) \enspace . \]
     Equality holds if $\mb{F}$ is single-rooted.
 \end{theorem}
@@ -829,60 +677,10 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\begin{corollary}[Pairing]
-    For any classes $\mb{F}$ and sets $\mb{A}$ and $\mb{B}$, we have
-    \[ \inv{\mb{F}}(\mb{A}) - \inv{\mb{F}}(\mb{B}) = \inv{\mb{F}}(\mb{A} - \mb{B}) \enspace . \]
-\end{corollary}
-
-\section{Infinite Cartesian Product}
-
-\begin{definition}[Infinite Cartesian Product (Pairing)]
-    Let $H$ be a function with domain $I$. The \emph{Cartesian product}
-    $\prod_{i \in I} H(i)$ is the class of all functions $f$ with domain $I$
-    such that, for all $i \in I$, we have $f(i) \in H(i)$.
-\end{definition}
-
-\begin{theorem}[Pairing, Union, Power Set, Subset]
-    If $H$ is a function with domain $I$ then $\prod_{i \in I} H(i)$ is a set.
-\end{theorem}
-
-\begin{proof}
-    \pf\ It is a subset of $\pow(I \times \bigcup \ran H)$. \qed
-\end{proof}
-
-\begin{theorem}[Axiom of Choice, Second Version (Pairing, Union, Power Set, Subset)]
-    The Axiom of Choice is equivalent to the statement: for any function $H$ with domain $I$,
-    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{If the Axiom of Choice is true then, for any function $H$ with domain $I$,
-    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty.}
-    \begin{proof}
-        \step{a}{\assume{The Axiom of Choice}}
-        \step{b}{\pflet{$H$ be a function with domain $I$ such that $H(i)$ is nonempty for all $i \in I$.}}
-        \step{c}{\pick\ a function $f \subseteq \{ (i, x) \mid x \in H(i) \}$}
-        \step{d}{$f \in \prod_{i \in I} H(i)$}
-    \end{proof}
-    \step{2}{If, for any function $H$ with domain $I$,
-    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty,
-    then the Axiom of Choice is true.}
-    \begin{proof}
-        \step{a}{\assume{for any function $H$ with domain $I$,
-        if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty}}
-        \step{b}{\pflet{$R$ be a relation.}}
-        \step{c}{\pflet{$I = \dom R$}}
-        \step{d}{\pflet{$H$ be the function with domain $I$ such that $H(i) = \{ y \mid iRy \}$ for all $i$.}}
-        \step{e}{\pick\ $f \in \prod_{i \in I} H(i)$}
-        \step{f}{$f \subseteq R$}
-    \end{proof}
-    \qed
-\end{proof}
 
 \section{Reflexive Relations}
 
-\begin{definition}[Reflexive (Pairing)]
+\begin{definition}[Reflexive]
     Let $\mathbf{R}$ be a relation on $\mathbf{A}$. Then $\mathbf{R}$ is \emph{reflexive} on $A$
     if and only if, for all $x \in \mathbf{A}$, we have $x\mathbf{R}x$.
 \end{definition}
@@ -908,7 +706,7 @@ only if $P(x)$.
     on $\mathbf{A}$ if and only if $\mathbf{R}$ is reflexive on $\mathbf{A}$, symmetric and transitive.
 \end{definition}
 
-\begin{theorem}[Pairing]
+\begin{theorem}
     If $\mathbf{R}$ is a symmetric and transitive relation then $\mathbf{R}$ is an equivalence
     relation on $\fld \mathbf{R}$.
 \end{theorem}
@@ -931,14 +729,14 @@ only if $P(x)$.
 
 \section{Equivalence Class}
 
-\begin{definition}[Equivalence Class (Pairing)]
+\begin{definition}[Equivalence Class]
     Let $\mathbf{R}$ be an equivalence relation on $\mathbf{A}$ and $a \in \mathbf{A}$.
     Then the
     \emph{equivalence class} of $a$ \emph{modulo} $\mathbf{R}$ is
     \[ [a]_\mathbf{R} = \{ x \in \mathbf{A} \mid a\mathbf{R}x \} \enspace . \]
 \end{definition}
 
-\begin{lemma}[Extensionality, Pairing, Subset]
+\begin{lemma}
     \label{lemma:equivalence_classes}
     Let $\mathbf{R}$ be an equivalence relation on $\mathbf{A}$ and $x,y \in \mathbf{A}$.
     Then $[x]_\mathbf{R} = [y]_\mathbf{R}$ if and only if $x\mathbf{R}y$.
@@ -971,45 +769,16 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\section{Disjoint}
-
-\begin{definition}[Disjoint]
-    Two classes $\mathbf{A}$ and $\mathbf{B}$ are \emph{disjoint} if and only if there is no $x$
-    such that $x \in \mathbf{A}$ and $x \in \mathbf{B}$.
-\end{definition}
-
-\begin{axiom}[Regularity]
-    For any nonempty set $A$, there exists $m \in A$ such that $m$ and $A$ are disjoint.
-\end{axiom}
-
-\begin{theorem}[Regularity]
-    No set is a member of itself.
-\end{theorem}
-
-\begin{theorem}[Regularity]
-    There are no sets $A$ and $B$ such that $A \in B$ and $B \in A$.
-\end{theorem}
-
-\section{Partitions}
-
-\begin{definition}[Partition]
-    A \emph{partition} $P$ of a set $A$ is a set of nonempty subsets of $A$ such that:
-    \begin{enumerate}
-        \item For all $x \in A$ there exists $S \in P$ such that $x \in S$.
-        \item Any two distinct elements of $P$ are disjoint.
-    \end{enumerate}
-\end{definition}
-
 \section{Quotient Sets}
 
-\begin{definition}[Quotient Set (Pairing, Power Set, Subset)]
+\begin{definition}[Quotient Set]
     Let $R$ be an equivalence relation on $A$. The \emph{quotient set} $A / R$
     is the set of all equivalence classes modulo $R$.
 
     This is a set because it is a subset of $\pow A$.
 \end{definition}
 
-\begin{theorem}[Extensionality, Pairing, Power Set, Subset]
+\begin{theorem}
     Let $R$ be an equivalence relation on $A$. Then the quotient set $A / R$
     is a partition of $A$.
 \end{theorem}
@@ -1032,7 +801,460 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\begin{definition}[Canonical Map (Pairing, Power Set, Subset)]
+\section{Minimal Elements}
+
+\begin{definition}[Minimal]
+    Let $R$ be a binary relation and $A$ a set. An element $a \in A$
+    is \emph{minimal} w.r.t. $R$ iff there is no $x \in A$
+    such that $xRa$.
+\end{definition}
+
+\section{Well-Founded Relations}
+
+\begin{definition}[Well-Founded]
+    Let $R$ be a relation on $A$. Then $R$ is \emph{well-founded}
+    iff every nonempty subset of $A$ has an $R$-minimal element.
+\end{definition}
+
+\begin{theorem}[Transfinite Induction]
+    Let $R$ be a well-founded relation on $A$ and $B \subseteq A$.
+    Assume that, for every $t \in A$, if $\{ x \in A \mid x Rt \} \subseteq B$
+    then $t \in B$. Then we have $B = A$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $B \neq A$}}
+    \step{2}{\pick\ an $R$-minimal element $t$ of $A - B$}
+    \step{3}{For all $x \in A$, if $xRt$ then $x \in B$}
+    \step{4}{$t \in B$}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts \stepref{2}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Transitive Closure}
+
+\begin{theorem}
+    Let $R$ be a relation. Then there exists a unique relation
+    $R^t$ such that $R^t$ is transitive, $R \subseteq R^t$,
+    and for every transitive relation $S$ with $R \subseteq S$
+    we have $R^t \subseteq S$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$R^t = \bigcap \{ S \mid R \subseteq S, S \text{ is a transitive relation} \}$}}
+    \step{2}{$R^t$ is transitive}
+    \begin{proof}
+        \step{a}{\pflet{$(x,y),(y,z) \in R^t$} \prove{$(x,z) \in R^t$}}
+        \step{b}{\pflet{$S$ be a transitive relation with $R \subseteq S$}}
+        \step{c}{$xSy$ and $ySz$}
+        \step{d}{$xSz$}
+    \end{proof}
+    \step{3}{$R \subseteq R^t$}
+    \step{4}{For any transitive relation $S$ with $R \subseteq S$ we have $R^t
+    \subseteq S$}
+    \step{5}{$R^t$ is unique.}
+    \begin{proof}
+        \pf\ If $S$ satisfies the same properties then $R^t \subseteq S$
+        and $S \subseteq R^t$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}[Transitive Closure]
+    The \emph{transitive closure} of a relation $R$ is this relation $R^t$.
+\end{definition}
+
+\begin{theorem}
+    If $R$ is well-founded then $R^t$ is well-founded.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$R$ be a well-founded relation on $A$}}
+    \step{2}{For all $x, y \in A$, if $x R^t y$ then there exists $z$ such that $z R^t y$}
+    \begin{proof}
+        \step{a}{\pflet{$S = \{ (x,y) \mid \exists z. zRy \}$} \prove{$R^t \subseteq S$}}
+        \step{b}{$S$ is transitive}
+        \begin{proof}
+            \step{i}{\assume{$xSy$ and $ySz$}}
+            \step{ii}{There exists $t$ such that $tRz$}
+            \step{iii}{$xSz$}
+        \end{proof}
+        \step{c}{$R \subseteq S$}
+    \end{proof}
+    \step{2}{\pflet{$B \subseteq A$ be nonempty.}}
+    \step{3}{\pick\ an $R$-minimal element $b$ of $B$}
+    \step{4}{$b$ is $R^t$-minimal.}
+    \begin{proof}
+        \pf\ From \stepref{2}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\chapter{Functions}
+
+\section{Functions}
+
+\begin{definition}[Class Function]
+    A \emph{class function} is a relation $\mathbf{F}$ such that, for all $x$, $y$,
+    $y'$, if $x\mathbf{F}y$ and $x\mathbf{F}y'$ then $y = y'$.
+
+    If $\mathbf{F}$ is a class function and $x \in \dom \mathbf{F}$, then we write
+    $\mathbf{F}(x)$ for the unique $y$ such that $x \mathbf{F} y$.
+
+    We write $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$ iff $\mathbf{F}$ is a class function,
+    $\dom \mathbf{F} = \mathbf{A}$ and $\ran \mathbf{F} \subseteq \mathbf{B}$.
+
+    A \emph{function} is a class function that is a set.
+\end{definition}
+
+\begin{theorem}
+    \label{theorem:Axiom_of_Choice2}
+    The Axiom of Choice is equivalent to the following statement:
+
+    For any small relation $R$, there exists a function $H \subseteq R$ such that 
+    $\dom H = \dom R$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If, for any small relation $R$, there exists a function $H \subseteq R$
+    such that $\dom H = \dom R$, then the Axiom of Choice is true.}
+    \begin{proof}
+        \step{a}{\assume{for any small relation $R$, there exists a function $H \subseteq R$
+        such that $\dom H = \dom R$}}
+        \step{b}{\pflet{$\AA$ be a set of pairwise disjoint nonempty sets.}}
+        \step{c}{\pflet{$R = \{ (A, a) \mid A \in \AA, a \in A \}$}}
+        \step{d}{\pick\ a function $H \subseteq R$ such that $\dom H = \dom R$}
+        \begin{proof}
+            \pf\ By \stepref{a}.
+        \end{proof}
+        \step{e}{\pflet{$C = \ran H$}}
+        \step{f}{$C$ contains exactly one element from each $A \in \AA$, namely $H(A)$.}
+    \end{proof}
+    \step{2}{If the Axiom of Choice is true then, for any small relation $R$, there exists a function $H \subseteq R$
+    such that $\dom H = \dom R$.}
+    \begin{proof}
+        \step{a}{\assume{the Axiom of Choice}}
+        \step{b}{\pflet{$R$ be a small relation.}}
+        \step{c}{For $a \in \dom R$, \pflet{$R_a = \{ (a,b) \mid aRb \}$}}
+        \step{d}{\pflet{$\AA = \{ R_a \mid a \in \dom R \}$}}
+        \step{e}{\pick\ a set $H$ that contains exactly one element from each $R_a$.}
+        \begin{proof}
+            \pf\ By the Axiom of Choice (\stepref{a}).
+        \end{proof}
+        \step{f}{$H$ is a function, $H \subseteq R$ and $\dom H = \dom R$.}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:inv_function}
+    For any relation $\mathbf{F}$, we have $\inv{\mathbf{F}}$ is a class function if and only if $\mathbf{F}$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $\mathbf{F}$ be a relation. Then $\mathbf{F}$ is a class function if and only if $\inv{\mathbf{F}}$ is single-rooted.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:comp_function}
+    Let $\mathbf{F}$ and $\mathbf{G}$ be class functions. Then $\mathbf{G} \circ \mathbf{F}$ is a function, its domain
+    is $\{ x \in \dom \mathbf{F} \mid \mathbf{F}(x) \in \dom \mathbf{G} \}$, and for $x$ in this domain,
+    we have $(\mathbf{F} \circ \mathbf{G})(x) = \mathbf{F}(\mathbf{G}(x))$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$\mathbf{G} \circ \mathbf{F}$ is a class function.}
+    \begin{proof}
+        \step{a}{\pflet{$x (\mathbf{G} \circ \mathbf{F}) z$ and $x (\mathbf{G} \circ \mathbf{F}) z'$}}
+        \step{b}{\pick\ $y$, $y'$ such that $x \mathbf{F} y$, $x \mathbf{F} y'$, $y \mathbf{G} z$ and $y' \mathbf{G} z'$}
+        \step{c}{$y = y'$}
+        \begin{proof}
+            \pf\ Since $\mathbf{F}$ is a class function.
+        \end{proof}
+        \step{d}{$z = z'$}
+        \begin{proof}
+            \pf\ Since $\mathbf{G}$ is a class function.
+        \end{proof}
+    \end{proof}
+    \step{2}{$\dom (\mathbf{G} \circ \mathbf{F}) = \{ x \in \dom \mathbf{F} \mid \mathbf{F}(x) \in \dom \mathbf{G} \}$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            x \in \dom (\mathbf{G} \circ \mathbf{F}) & \Leftrightarrow \exists z. x(\mathbf{G} \circ \mathbf{F})z \\
+            & \Leftrightarrow \exists y, z. x\mathbf{F}y \wedge y\mathbf{G}z \\
+            & \Leftrightarrow x \in \dom \mathbf{F} \wedge \mathbf{F}(x) \in \dom \mathbf{G}
+        \end{align*}
+    \end{proof}
+    \step{3}{For $x$ in this domain, we have $(\mathbf{F} \circ \mathbf{G})(x) = \mathbf{F}(\mathbf{G}(x))$.}
+    \begin{proof}
+        \pf\ Since $(x,\mathbf{F}(x)) \in \mathbf{F}$ and $(\mathbf{F}(x),\mathbf{G}(\mathbf{F}(x))) \in \mathbf{G}$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{axioms}[Replacement]
+    Let $\mathbf{H}$ be a class function. If $\dom \mathbf{H}$ is a set
+    then $\mathbf{H}$ is a set.
+\end{axioms}
+
+\section{Choice Functions}
+
+\begin{definition}[Choice Function]
+    Let $\BB$ be a set of nonempty sets. A \emph{choice function} for $\BB$ is a function $c : \BB \rightarrow \bigcup \BB$ such that, for all $B \in \BB$,
+    we have $c(B) \in B$.
+\end{definition}
+
+\begin{theorem}
+    The Axiom of Choice is equivalent to the statement: every set of nonempty sets
+    has a choice function.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If the Axiom of Choice is true then every set of nonempty sets has
+    a choice function.}
+    \begin{proof}
+        \step{a}{\assume{The Axiom of Choice}}
+        \step{b}{\pflet{$\BB$ be a set of nonempty sets.}}
+        \step{c}{\pflet{$R = \{ (A, a) \mid A \in \BB, a \in A \}$}}
+        \step{ca}{$R$ is a set.}
+        \begin{proof}
+            \pf\ It is a subset of $\BB \times \bigcup \BB$.
+        \end{proof}
+        \step{d}{\pick\ a function $c \subseteq R$ with $\dom c = \dom R$}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:Axiom_of_Choice2}.
+        \end{proof}
+        \step{e}{$\dom c = \BB$}
+        \begin{proof}
+            \step{i}{\pflet{$A \in \BB$}}
+            \step{ii}{\pick\ $a \in A$}
+            \begin{proof}
+                \pf\ $A$ is nonempty (\stepref{b})
+            \end{proof}
+            \step{iii}{$ARa$}
+            \begin{proof}
+                \pf\ By \stepref{c}.
+            \end{proof}
+            \step{iv}{$A \in \dom R$}
+            \step{v}{$A \in \dom c$}
+            \begin{proof}
+                \pf\ By \stepref{d}.
+            \end{proof}
+        \end{proof}
+        \step{f}{For all $A \in \BB$ we have $c(A) \in A$}
+        \begin{proof}
+            \pf\ From \stepref{d}.
+        \end{proof}
+    \end{proof}
+    \step{2}{If every set of nonempty sets has a choice function then the Axiom of
+    Choice is true.}
+    \begin{proof}
+        \step{a}{\assume{Every set of nonempty sets has a choice function.}}
+        \step{b}{\pflet{$\AA$ be a set of pairwise disjoint nonempty sets.}}
+        \step{c}{\pick\ a choice function $c$ for $\AA$}
+        \step{d}{\pflet{$C = \ran c$}}
+        \step{e}{$C$ contains exactly one element from each $A \in \AA$, namely $c(A)$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Injective Functions}
+
+\begin{definition}[Injective]
+    We call a class function \emph{one-to-one}, \emph{injective} or an \emph{injection}
+     if and only if it is single-rooted.
+\end{definition}
+
+\begin{theorem}
+    \label{theorem:inv_F_of_F}
+    Let $\mathbf{F}$ be a one-to-one class function and $x \in \dom \mathbf{F}$.
+    Then $\inv{\mathbf{F}}(\mathbf{F}(x)) = x$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ We have $(x, \mathbf{F}(x)) \in \mathbf{F}$ and so 
+    $(\mathbf{F}(x), x) \in \inv{\mathbf{F}}$. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $\mathbf{F}$ be a one-to-one function and $y \in \ran \mathbf{F}$.
+    Then $\mathbf{F}(\inv{\mathbf{F}}(y)) = y$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ From Theorems \ref{theorem:dom_inv}, \ref{theorem:inv_inv} and \ref{theorem:inv_F_of_F}. \qed
+\end{proof}
+
+\section{Surjective Functions}
+
+\begin{definition}[Surjective]
+    Let $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$. Then $\mathbf{F}$ is \emph{surjective} if and only if
+    $\ran \mathbf{F} = \mathbf{B}$.
+\end{definition}
+
+\section{Bijective Functions}
+
+\begin{definition}[Bijective]
+    A class function $\mathbf{F} : \mathbf{A} \rightarrow \mathbf{B}$ is
+    \emph{bijective} or a \emph{bijection} if and only if it is injective and
+    surjective.
+\end{definition}
+
+\section{Identity Function}
+
+\begin{definition}[Identity class function]
+    Let $\mathbf{A}$ be a class. The \emph{identity class function} $\id{\mathbf{A}}$ on $\mathbf{A}$ is
+    $\{ (x,x) \mid x \in \mathbf{A} \}$.
+\end{definition}
+
+\begin{theorem}
+    For any set $A$, we have $\id{A}$ is a function.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $A \times A$. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $F : A \rightarrow B$ and $A$ be nonempty. Then there exists a function
+    $G : B \rightarrow A$ such that $G \circ F = \id{A}$ if and only if $F$
+    is one-to-one.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$F : A \rightarrow B$}}
+    \step{2}{\assume{$A$ is nonempty}}
+    \step{3}{If there exists $G : B \rightarrow A$ such that $G \circ F = \id{A}$
+    then $F$ is one-to-one.}
+    \begin{proof}
+        \step{a}{\assume{$G : B \rightarrow A$ and $G \circ F = \id{A}$}}
+        \step{b}{\pflet{$x,y \in A$}}
+        \step{c}{\assume{$F(x) = F(y)$}}
+        \step{d}{$x = y$}
+        \begin{proof}
+            \pf\ $x = G(F(x)) = G(F(y)) = y$.
+        \end{proof}
+    \end{proof}
+    \step{4}{If $F$ is one-to-one then there exists $G : B \rightarrow A$
+    such that $G \circ F = \id{A}$.}
+    \begin{proof}
+        \step{a}{\assume{$F$ is one-to-one.}}
+        \step{b}{\pick\ $a \in A$}
+        \step{c}{Define $G : B \rightarrow A$ by: $G(y)$ is the $x$ such
+        that $F(x) = y$ if $y \in \ran F$, otherwise $G(y) = a$}
+        \step{f}{$G \circ F = \id{A}$}
+        \begin{proof}
+            \pf\ For $x \in A$ we have $(G \circ F)(x) = G(F(x)) = x$ by Theorem \ref{theorem:comp_function}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $F : A \rightarrow B$ and $A$ be nonempty. If there exists a function
+    $H : B \rightarrow A$ such that $F \circ H = \id{B}$ then $F$
+    is surjective.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$F : A \rightarrow B$}}
+    \step{2}{\assume{$A$ is nonempty.}}
+    \step{a}{\pflet{$H : B \rightarrow A$ satisfy $F \circ H = \id{B}$}}
+    \step{b}{\pflet{$y \in B$}}
+    \step{c}{$F(H(y)) = y$.}
+    \qed
+\end{proof}
+
+\begin{theorem}[Choice]
+    Let $F : A \rightarrow B$ and $A$ be nonempty. If $F$ is surjective
+    then there exists a function $H : B \rightarrow A$ such that $F \circ H = \id{B}$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{a}{\assume{$F$ is surjective.}}
+    \step{b}{\pick\ a function $H \subseteq \inv{F}$ with $\dom H = B$}
+    \begin{proof}
+        \pf\ By the Axiom of Choice.
+    \end{proof}
+    \step{c}{$H : B \rightarrow A$}
+    \step{d}{$F \circ H = \id{B}$}
+    \begin{proof}
+        \step{i}{\pflet{$y \in B$}}
+        \step{ii}{$(y, H(y)) \in \inv{F}$}
+        \step{iii}{$(H(y), y) \in F$}
+        \step{iv}{$F(H(y)) = y$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Infinite Cartesian Product}
+
+\begin{definition}[Infinite Cartesian Product]
+    Let $H$ be a function with domain $I$ such that, for all $i \in I$,
+    $H(i)$ is a set. The \emph{Cartesian product}
+    $\prod_{i \in I} H(i)$ is the class of all functions $f$ with domain $I$
+    such that, for all $i \in I$, we have $f(i) \in H(i)$.
+\end{definition}
+
+\begin{theorem}
+    If $H$ is a function with domain $I$ and $H(i)$ is a set for all $i \in I$, then $\prod_{i \in I} H(i)$ is a set.
+\end{theorem}
+
+\begin{proof}
+    \pf\ It is a subset of $\pow(I \times \bigcup \ran H)$. \qed
+\end{proof}
+
+\begin{theorem}[Multiplicative Axiom]
+    The Axiom of Choice is equivalent to the \emph{Multiplicative Axiom}: for any function $H$ with domain $I$,
+    if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{If the Axiom of Choice is true then the Multiplicative Axiom is true.}
+    \begin{proof}
+        \step{a}{\assume{The Axiom of Choice}}
+        \step{b}{\pflet{$H$ be a function with domain $I$ such that $H(i)$ is nonempty for all $i \in I$.}}
+        \step{c}{\pick\ a function $f \subseteq \{ (i, x) \mid x \in H(i) \}$}
+        \step{d}{$f \in \prod_{i \in I} H(i)$}
+    \end{proof}
+    \step{2}{If the Multiplicative Axiom is true
+    then the Axiom of Choice is true.}
+    \begin{proof}
+        \step{a}{\assume{for any function $H$ with domain $I$,
+        if $H(i)$ is nonempty for all $i \in I$, then $\prod_{i \in I} H(i)$ is nonempty}}
+        \step{b}{\pflet{$R$ be a relation.}}
+        \step{c}{\pflet{$I = \dom R$}}
+        \step{d}{\pflet{$H$ be the function with domain $I$ such that $H(i) = \{ y \mid iRy \}$ for all $i$.}}
+        \step{e}{\pick\ $f \in \prod_{i \in I} H(i)$}
+        \step{f}{$f \subseteq R$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Quotient Sets}
+
+\begin{definition}[Canonical Map]
     Let $R$ be an equivalence relation on $A$. The \emph{canonical map} $\phi : A \rightarrow A / R$
     is the function defined by $\phi(a) = [a]_R$.
 \end{definition}
@@ -1099,277 +1321,103 @@ only if $P(x)$.
     \qed
 \end{proof}
 
-\section{The Finite Intersection Property}
-
-\begin{definition}[Finite Intersection Property]
-    Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ satisfies the \emph{finite intersection property} if and only if every nonempty finite subset of $\AA$
-    has nonempty intersection.
-\end{definition}
-
-\begin{lemma}
-    \label{lemma:maximal_finite_intersection_property}
-    Let $X$ be a set. Let $\AA \subseteq \pow X$ have the finite intersection property.
-    Then there exists a maximal set $\DD$ such that $\AA \subseteq \DD \subseteq \pow X$
-    and $\DD$ has the finite intersection property.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$\mathbb{F} = \{ \DD \mid \AA \subseteq \DD \subseteq \pow X, \DD \text{ has the finite intersection property} \}$}}
-    \step{2}{Every chain in $\mathbb{F}$ has an upper bound.}
-    \begin{proof}
-        \step{a}{\pflet{$\mathbb{C}$ be a chain in $\mathbb{F}$.}}
-        \step{b}{\assume{without loss of generality $\mathbb{C} \neq \emptyset$}
-        \prove{$\bigcup \mathbb{C} \in \mathbb{F}$}}
-        \begin{proof}
-            \pf\ If $\mathbb{C} = \emptyset$ then $\AA$ is an upper bound.
-        \end{proof}
-        \step{b}{$\AA \subseteq \bigcup \mathbb{C} \subseteq \pow X$}
-        \step{c}{\pflet{$C_1, \ldots, C_n \in \mathbb{C}$} \prove{$C_1 \cap \cdots \cap C_n \neq \emptyset$}}
-        \step{d}{\pick\ $\mathcal{C}_1, \ldots, \mathcal{C}_n \in \mathbb{C}$ such that $C_i \in \mathcal{C}_i$ for all $i$.}
-        \step{e}{\assume{without loss of generality $\mathcal{C}_1 \subseteq \cdots \subseteq \mathcal{C}_n$}}
-        \step{f}{$C_1, \ldots, C_n \in \mathcal{C}_n$}
-        \step{g}{$\mathcal{C}_n$ satisfies the finite intersection property.}
-        \step{h}{$C_1 \cap \cdots \cap C_n \neq \emptyset$}
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ By Zorn's Lemma.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:finite_intersection_maximal}
-    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the finite intersection property.
-    Then any finite intersection of elements of $\DD$ is an element of $\DD$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$D_1, D_2 \in \DD$}}
-    \step{2}{$\DD \cup \{ D_1 \cap D_2 \}$ has the finite intersection property.}
-    \begin{proof}
-        \pf\ Any finite intersection of members of $\DD \cup \{ D_1 \cap D_2 \}$
-        is a finite intersection of members of $\DD$.
-    \end{proof}
-    \step{3}{$\DD = \DD \cup \{ D_1 \cap D_2 \}$}
-    \begin{proof}
-        \pf\ By maximality of $\DD$.
-    \end{proof}
-    \step{4}{$D_1 \cap D_2 \in \DD$.}
-    \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:member_maximal_finite_intersection}
-    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the finite intersection property.
-    Let $A \subseteq X$. If $A$ intersects every member of $\DD$ then $A \in \DD$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{$\DD \cup \{ A \}$ has the finite intersection property.}
-    \begin{proof}
-        \step{a}{\pflet{$D_1, \ldots, D_n \in \DD$} \prove{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}}
-        \step{b}{$D_1 \cap \cdots \cap D_n \in \DD$}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:finite_intersection_maximal}.
-        \end{proof}
-        \step{c}{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}
-        \begin{proof}
-            \pf\ Since $A$ intersects every member of $\DD$.
-        \end{proof}
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ By maximality of $\DD$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}
-    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the
-    finite intersection property. Let $A, D \in \pow X$.
-    If $D \in \DD$ and $D \subseteq A$ then $A \in \DD$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{$\DD \cup \{A\}$ satisfies the finite intersection property.}
-    \begin{proof}
-        \step{a}{\pflet{$D_1, \ldots, D_n \in \DD$}}
-        \step{b}{$D_1 \cap \cdots \cap D_n \cap D \neq \emptyset$}
-        \begin{proof}
-            \pf\ Since $\DD$ satisfies the finite intersection property.
-        \end{proof}
-        \step{c}{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}
-    \end{proof}
-    \step{2}{$\DD = \DD \cup \{A\}$}
-    \begin{proof}
-        \pf\ By the maximality of $\DD$.
-    \end{proof}
-    \step{3}{$A \in \DD$}
-    \qed
-\end{proof}
-
-\begin{definition}[Graph]
-    Let $f : A \rightarrow B$. The \emph{graph} of $f$ is the set $\{ (x, f(x)) \mid x \in A \} \subseteq A \times B$.
-\end{definition}
-
-\section{Countable Intersection Property}
-
-\begin{definition}[Countable Intersection Property]
-    Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ satisfies the \emph{countable intersection property}
-    if and only if every countable subset of $\AA$ has nonempty intersection.
-\end{definition}
-
-\begin{lemma}
-    \label{lemma:countable_intersection_maximal}
-    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the countable intersection property.
-    Then any countable intersection of elements of $\DD$ is an element of $\DD$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$\DD_0 \subseteq \DD$ be countable.}}
-    \step{2}{$\DD \cup \{ \bigcap \DD_0 \}$ has the countable intersection property.}
-    \begin{proof}
-        \pf\ Any countable intersection of members of $\DD \cup \{ \bigcap \DD_0 \}$
-        is a finite intersection of members of $\DD$.
-    \end{proof}
-    \step{3}{$\DD = \DD \cup \{ \bigcap \DD_0 \}$}
-    \begin{proof}
-        \pf\ By maximality of $\DD$.
-    \end{proof}
-    \step{4}{$\bigcap \DD_0 \in \DD$.}
-    \qed
-\end{proof}
-
-\begin{lemma}
-    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the countable intersection property.
-    Let $A \subseteq X$. If $A$ intersects every member of $\DD$ then $A \in \DD$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{$\DD \cup \{ A \}$ has the countable intersection property.}
-    \begin{proof}
-        \step{a}{\pflet{$\DD_0 \subseteq \DD$ be countable.}
-        \prove{$\bigcap \DD_0 \cap A \neq \emptyset$}}
-        \step{b}{$\bigcap \DD_0 \in \DD$}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:countable_intersection_maximal}.
-        \end{proof}
-        \step{c}{$\bigcap \DD_0 \cap A \neq \emptyset$}
-        \begin{proof}
-            \pf\ Since $A$ intersects every member of $\DD$.
-        \end{proof}
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ By maximality of $\DD$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\section{The Axiom of Choice}
-
-\begin{axiom}[Axiom of Choice]
-    Let $\AA$ be a set of disjoint nonempty sets. Then there exists a set $C$ consisting of exactly one element from each member of $\AA$.
-\end{axiom}
-
-\section{Choice Functions}
-
-\begin{definition}[Choice Function]
-    Let $\BB$ be a set of nonempty sets. A \emph{choice function} for $\BB$ is a function $c : \BB \rightarrow \bigcup \BB$ such that, for all $B \in \BB$,
-    we have $c(B) \in B$.
-\end{definition}
-
-\begin{lemma}[Existence of a Choice Function (AC)]
-    \label{lemma:choice_function}
-    Every set of nonempty sets has a choice function.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$\BB$ be a set of nonempty sets.}}
-    \step{2}{For $B \in \BB$, \pflet{$B' = \{ B \} \times B$}}
-    \step{3}{$\{ B' \mid B \in \BB \}$ is a set of disjoint nonempty sets.}
-    \step{4}{\pick\ a set $c$ consisting of exactly one element from each $B'$ for $B \in \BB$.}
-    \step{5}{$c$ is a choice function for $\BB$.}
-    \qed
-\end{proof}
-
-\section{Transitive}
-
-\begin{definition}[Transitive Set]
-    A set $A$ is \emph{transitive} if and only if, whenever $x \in y \in A$
-    then $x \in A$.
-\end{definition}
-
-\begin{theorem}[Union, Power Set]
-    Let $A$ be a set. Then the following are equivalent.
-    \begin{enumerate}
-        \item $A$ is transitive.
-        \item $\bigcup A \subseteq A$
-        \item For all $a \in A$ we have $a \subseteq A$
-        \item $A \subseteq \pow A$
-    \end{enumerate}
-\end{theorem}
-
-\begin{proof}
-    \pf\ From definitions. \qed
-\end{proof}
-
-\section{Minimal Elements}
-
-\begin{definition}[Minimal]
-    Let $R$ be a binary relation and $A$ a set. An element $a \in A$
-    is \emph{minimal} w.r.t. $R$ iff there is no $x \in A$
-    such that $xRa$.
-\end{definition}
-
-\section{Well-Founded Relations}
-
-\begin{definition}[Well-Founded]
-    Let $R$ be a relation on $A$. Then $R$ is \emph{well-founded}
-    iff every nonempty subset of $A$ has an $R$-minimal element.
-\end{definition}
-
-\begin{theorem}[Transfinite Induction]
-    Let $R$ be a well-founded relation on $A$ and $B \subseteq A$.
-    Assume that, for every $t \in A$, if $\{ x \in A \mid x Rt \} \subseteq B$
-    then $t \in B$. Then we have $B = A$.
-\end{theorem}
+\section{Transfinite Recursion}
 
 \begin{theorem}[Transfinite Recursion]
     Let $R$ be a well-founded relation on a set $C$.
 
     Let $\mathbf{A}$ be a class. Let $\mathbf{B}$ be the class of all functions
     from a subset of $C$ to $\mathbf{A}$.
-    Let $\mathbf{F} : \mathbf{B} \times C \rightarrow \mathbf{A}$ be a class term.
+    Let $\mathbf{F} : \mathbf{B} \times C \rightarrow \mathbf{A}$ be a class function.
 
     Then there
     exists a unique function $f : C \rightarrow \mathbf{A}$ such that, for all $t \in C$,
     we have $f(t) = \mathbf{F}(f \restriction \{ x \in C \mid x R t \}, t)$.
 \end{theorem}
-\section{Transitive Closure}
 
-\begin{theorem}
-    Let $R$ be a relation. Then there exists a unique relation
-    $R^t$ such that $R^t$ is transitive, $R \subseteq R^t$,
-    and for every transitive relation $S$ with $R \subseteq S$
-    we have $R^t \subseteq S$.
-\end{theorem}
-
-\begin{definition}[Transitive Closure]
-    The \emph{transitive closure} of a relation $R$ is this relation $R^t$.
-\end{definition}
-
-\begin{theorem}
-    If $R$ is well-founded then $R^t$ is well-founded.
-\end{theorem}
+\begin{proof}
+    \pf
+    \step{1}{Let us say a function $v$ is \emph{acceptable} if and only if
+    $\dom v \subseteq C$, $\ran v \subseteq \mathbf{A}$ and, for all 
+    $t \in \dom v$, we have $\{ x \in C \mid x R t \} \subseteq \dom v$
+    and $v(t) = \mathbf{F}(v \restriction \{ x \in C \mid x R t \})$}
+    \step{2}{\pflet{$\mathcal{K}$ be the set of all acceptable functions.}}
+    \begin{proof}
+        \pf\ This is a set by an Axiom of Replacement.
+    \end{proof}
+    \step{3}{\pflet{$h = \bigcup \mathcal{K}$}}
+    \step{4}{$h$ is a function.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in C$}}
+        \step{b}{\assume{as induction hypothesis, for all $yRx$ we have that, whenever $(y,a)$ and $(y,b)$ in
+        $h$ then $a = b$}}
+        \step{c}{\assume{$(x,a)$ and $(x,b)$ are in $h$}}
+        \step{d}{\pick\ acceptable $u$ and $v$ such that $u(x) = a$ and $v(x) = b$}
+        \step{e}{For all $yRx$ we have $u(y) = v(y)$}
+        \begin{proof}
+            \pf\ From \stepref{b} since $(y,u(y))$ and $(y,v(y))$ are in $h$.
+        \end{proof}
+        \step{f}{$a = b$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                a & = u(x) & (\text{\stepref{d}}) \\
+                & = \mathbf{F}(u \restriction \{ y \in C \mid y R x \}) \\
+                & = \mathbf{F}(v \restriction \{ y \in C \mid y R x \}) & (\text{\stepref{e}}) \\
+                & = v(x) \\
+                & = b & (\text{\stepref{d}})
+            \end{align*}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By transfinite induction, for all $x \in C$, if $(x,a)$ and $(x,b)$ are in $h$ then $a = b$.
+        \end{proof}
+    \end{proof}
+    \step{5}{$h$ is acceptable.}
+    \begin{proof}
+        \step{a}{\pflet{$t \in \dom h$}}
+        \step{b}{\pick\ $v$ acceptable such that $(t,h(t)) \in v$}
+        \step{c}{$\{ x \in C \mid x R t \} \subseteq \dom v$ and $v(t) = \mathbf{F}(v \restriction \{ x \in C \mid x R t \})$}
+        \step{d}{$v \restriction \{ x \in C \mid x R t \} = h \restriction \{ x \in C \mid x R t \}$}
+        \begin{proof}
+            \pf\ By \stepref{4}.
+        \end{proof}
+        \step{e}{$h(t) = \mathbf{F}(h \restriction \{ x \in C \mid x R t \})$}
+    \end{proof}
+    \step{6}{$\dom h = C$}
+    \begin{proof}
+        \step{a}{\pflet{$t \in C$}}
+        \step{b}{\assume{as induction hypothesis, for all $x R t$, we have $x \in \dom h$ }}
+        \step{c}{\assume{for a contradiction $t \notin \dom h$}}
+        \step{d}{$h \cup (t, \mathbf{F}(h \restriction \{ x \in C \mid x R t \})$ is acceptable)}
+        \step{e}{$h \cup (t, \mathbf{F}(h \restriction \{ x \in C \mid x R t \}) \subseteq h$ is acceptable)}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{c}. Thus, by transfinite induction,
+            for all $t \in C$ we have $t \in \dom h$.
+        \end{proof}
+    \end{proof}
+    \step{7}{If $h' : C \rightarrow \mathbf{A}$ is acceptable then $h' = h$.}
+    \begin{proof}
+        \step{a}{\pflet{$t \in C$}}
+        \step{b}{\assume{as induction hypothesis, for all $xRt$, we have 
+        $h'(x) = h(x)$}}
+        \step{c}{$h'(t) = h(t)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                h'(t) & = \mathbf{F}(h' \restriction \{ x \in C \mid x R t \}) \\
+                & = \mathbf{F}(h \restriction \{ x \in C \mid x R t \}) & (\text{\stepref{b}}) \\
+                & = h(t)
+            \end{align*}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By transfinite induction, for all $t \in C$, we have $h'(t) = h(t)$.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Fixed Points}
 
@@ -1379,6 +1427,8 @@ only if $P(x)$.
 \end{definition}
 
 \chapter{Cardinal Numbers}
+
+\section{Equinumerosity}
 
 \begin{definition}[Equinumerous]
     Two sets $A$ and $B$ are \emph{equinumerous} if and only if there exists

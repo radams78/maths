@@ -699,3 +699,84 @@ For any set $a$, its \emph{Successor} $a^+$ is the set $a \cup \{ a \}$
     A relation $R$ is well-founded if and only if there is no function $f$ with domain $\NN$
     such that, for all $n \in \NN$, we have $f(n+1) R f(n)$.
 \end{theorem}
+
+\section{The Finite Intersection Property}
+
+\begin{definition}[Finite Intersection Property]
+    Let $X$ be a set and $\AA \subseteq \pow X$. Then $\AA$ satisfies the \emph{finite intersection property} if and only if every nonempty finite subset of $\AA$
+    has nonempty intersection.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:finite_intersection_maximal}
+    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the finite intersection property.
+    Then any finite intersection of elements of $\DD$ is an element of $\DD$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$D_1, D_2 \in \DD$}}
+    \step{2}{$\DD \cup \{ D_1 \cap D_2 \}$ has the finite intersection property.}
+    \begin{proof}
+        \pf\ Any finite intersection of members of $\DD \cup \{ D_1 \cap D_2 \}$
+        is a finite intersection of members of $\DD$.
+    \end{proof}
+    \step{3}{$\DD = \DD \cup \{ D_1 \cap D_2 \}$}
+    \begin{proof}
+        \pf\ By maximality of $\DD$.
+    \end{proof}
+    \step{4}{$D_1 \cap D_2 \in \DD$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:member_maximal_finite_intersection}
+    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the finite intersection property.
+    Let $A \subseteq X$. If $A$ intersects every member of $\DD$ then $A \in \DD$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{$\DD \cup \{ A \}$ has the finite intersection property.}
+    \begin{proof}
+        \step{a}{\pflet{$D_1, \ldots, D_n \in \DD$} \prove{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}}
+        \step{b}{$D_1 \cap \cdots \cap D_n \in \DD$}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:finite_intersection_maximal}.
+        \end{proof}
+        \step{c}{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}
+        \begin{proof}
+            \pf\ Since $A$ intersects every member of $\DD$.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ By maximality of $\DD$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a set. Let $\DD \subseteq \pow X$ be maximal with respect to the
+    finite intersection property. Let $A, D \in \pow X$.
+    If $D \in \DD$ and $D \subseteq A$ then $A \in \DD$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\DD \cup \{A\}$ satisfies the finite intersection property.}
+    \begin{proof}
+        \step{a}{\pflet{$D_1, \ldots, D_n \in \DD$}}
+        \step{b}{$D_1 \cap \cdots \cap D_n \cap D \neq \emptyset$}
+        \begin{proof}
+            \pf\ Since $\DD$ satisfies the finite intersection property.
+        \end{proof}
+        \step{c}{$D_1 \cap \cdots \cap D_n \cap A \neq \emptyset$}
+    \end{proof}
+    \step{2}{$\DD = \DD \cup \{A\}$}
+    \begin{proof}
+        \pf\ By the maximality of $\DD$.
+    \end{proof}
+    \step{3}{$A \in \DD$}
+    \qed
+\end{proof}

@@ -345,11 +345,6 @@
     \end{enumerate}
 \end{theorem}
 
-\begin{axioms}[Replacement]
-    Let $\mathbf{H}$ be a class term. If $\dom \mathbf{H}$ is a set
-    then $\mathbf{H}$ is a set.
-\end{axioms}
-
 \begin{theorem}[Transfinite Recursion]
     Let $J$ be a well-ordered set and $C$ a set. Let $\FF$ be the set of all functions from a section of $J$ to $C$.
     Let $G$ be a function with domain $\FF$. Then there exists a unique function $h$ with domain $J$
@@ -469,6 +464,39 @@
                 \end{proof}
             \end{proof}
         \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}[Choice]
+    \label{lemma:maximal_finite_intersection_property}
+    Let $X$ be a set. Let $\AA \subseteq \pow X$ have the finite intersection property.
+    Then there exists a maximal set $\DD$ such that $\AA \subseteq \DD \subseteq \pow X$
+    and $\DD$ has the finite intersection property.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\mathbb{F} = \{ \DD \mid \AA \subseteq \DD \subseteq \pow X, \DD \text{ has the finite intersection property} \}$}}
+    \step{2}{Every chain in $\mathbb{F}$ has an upper bound.}
+    \begin{proof}
+        \step{a}{\pflet{$\mathbb{C}$ be a chain in $\mathbb{F}$.}}
+        \step{b}{\assume{without loss of generality $\mathbb{C} \neq \emptyset$}
+        \prove{$\bigcup \mathbb{C} \in \mathbb{F}$}}
+        \begin{proof}
+            \pf\ If $\mathbb{C} = \emptyset$ then $\AA$ is an upper bound.
+        \end{proof}
+        \step{b}{$\AA \subseteq \bigcup \mathbb{C} \subseteq \pow X$}
+        \step{c}{\pflet{$C_1, \ldots, C_n \in \mathbb{C}$} \prove{$C_1 \cap \cdots \cap C_n \neq \emptyset$}}
+        \step{d}{\pick\ $\mathcal{C}_1, \ldots, \mathcal{C}_n \in \mathbb{C}$ such that $C_i \in \mathcal{C}_i$ for all $i$.}
+        \step{e}{\assume{without loss of generality $\mathcal{C}_1 \subseteq \cdots \subseteq \mathcal{C}_n$}}
+        \step{f}{$C_1, \ldots, C_n \in \mathcal{C}_n$}
+        \step{g}{$\mathcal{C}_n$ satisfies the finite intersection property.}
+        \step{h}{$C_1 \cap \cdots \cap C_n \neq \emptyset$}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ By Zorn's Lemma.
     \end{proof}
     \qed
 \end{proof}

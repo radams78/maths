@@ -2954,6 +2954,26 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{example}
+    The space $S_\Omega$ is first countable. For any $x \in S_\Omega$,
+    the set $\{ [0, x+1) \} \cup \{ (y, x+1) \mid y < x \}$ is a countable local
+    basis at $x$.
+\end{example}
+
+\begin{example}
+    The space $\overline{S_\Omega}$ is not first countable.
+
+    \begin{proof}
+        \pf
+        \step{1}{\assume{for a contradiction $\BB$ is a countable local basis at $\Omega$.}}
+        \step{2}{For $B \in \BB$, \pflet{$a_B$ be least such that $(a_B, \Omega] \subseteq B$.}}
+        \step{3}{\pflet{$b = \sup_{B \in \BB} a_B$}}
+        \step{4}{$b < \Omega$}
+        \step{5}{There is no $B \in \BB$ such that $\Omega \in B \subseteq (b + 1, \Omega]$}
+        \qed
+    \end{proof}
+\end{example}
+
 \section{Strong Continuity}
 
 \begin{definition}[Strongly Continuous]
@@ -5221,7 +5241,47 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
-A subspace of a Lindel\"{o}f space is not necessarily Lindel\"{o}f.
+\begin{example}[AC]
+    The space $\overline{S_\Omega}$ is Lindel\"{o}f.
+
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$\AA$ be any open cover of $\overline{S_\Omega}$}}
+        \step{2}{\pick\ $U \in \AA$ such that $\Omega \in U$}
+        \step{3}{\pick\ $\alpha < \Omega$ such that $(\alpha, \Omega] \subseteq U$}
+        \step{4}{For $\beta < \alpha$, \pick\ $U_\beta \in \AA$ such that 
+        $\beta \in U_\beta$}
+        \step{5}{$\{ U_\beta \mid \beta < \alpha \} \cup \{ U \}$ covers
+        $\overline{S_\Omega}$}
+        \qed
+    \end{proof}
+\end{example}
+
+\begin{proposition}
+    Every closed subspace of a Lindel\"{o}f space is Lindel\"{o}f.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a Lindel\"{o}f space.}}
+    \step{2}{\pflet{$Y \subseteq X$ be closed.}}
+    \step{3}{\pflet{$\AA$ be an open covering of $Y$.}}
+    \step{4}{\pflet{$\BB = \{ U \text{ open in } X \mid U \cap Y \in \AA \} \cup
+    \{ X - Y \}$}}
+    \step{5}{$\BB$ is an open covering of $X$.}
+    \step{6}{\pick\ a countable subcovering $\BB_0$}
+    \step{7}{$\{ U \cap Y \mid U \in \BB_0 \} - \{ \emptyset \}$ is a countable
+    subset of $\AA$ that covers $Y$.}
+    \qed
+\end{proof}
+
+The following examples show that an open subspace of a Lindel\"{o}f space is not
+necessarily Lindel\"{o}f.
+\begin{example}
+    The space $S_\Omega$ is not Lindel\"{o}f, because the open cover $\{ [0,x) \mid
+    x \in S_\Omega \}$ has no countable subcover.
+\end{example}
+
 \begin{example}
     The set $[0,1] \times (0,1)$ as a subspace of the ordered square is not Lindel\"{o}f.
 
@@ -5235,8 +5295,42 @@ A subspace of a Lindel\"{o}f space is not necessarily Lindel\"{o}f.
     subset.
 \end{definition}
 
+\begin{proposition}[AC]
+    A countable product of separable spaces is separable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(X_n)$ be a sequence of separable spaces.}}
+    \step{2}{For each $n$, \pick\ a countable dense set $D_n$ in $X_n$
+    \prove{$\prod_n D_n$ is dense in $\prod_n X_n$}}
+    \step{3}{\pflet{$\prod_n U_n$ be a nonempty basic open set where each $U_n$ is
+    open in $X_n$.}}
+    \step{4}{For each $n$, \pick\ $a_n \in D_n \cap U_n$}
+    \step{5}{$(a_n) \in \prod_n D_n \cap \prod_n U_n$}
+    \qed
+\end{proof}
+
 \begin{example}
     The space $\RR_l$ is separable. The set $\QQ$ is dense.
+\end{example}
+
+The following example shows that a closed subspace of a separable space is not
+necessarily separable.
+\begin{example}[AC]
+    The space $\RR_l^2$ is separable, but $\{ (x, -x) \mid x \in \RR \}$ as a
+    subspace is uncountable and discrete, and hence not separable.
+\end{example}
+
+\begin{example}
+    The space $S_\Omega$ is not separable. For any countable $D \subseteq S_\Omega$,
+    we have $\sup D + 1 \notin \overline{D}$.
+\end{example}
+
+\begin{example}    
+    The space $\overline{S_\Omega}$ is not separable. For any countable $D
+    \subseteq \overline{S_\Omega}$, we have $\sup (D - \{ \Omega \}) + 1 \notin
+    \overline{D}$.
 \end{example}
 
 \section{The Second Countability Axiom}
@@ -5270,6 +5364,10 @@ A subspace of a Lindel\"{o}f space is not necessarily Lindel\"{o}f.
 \begin{proof}
     \pf\ From Proposition \ref{proposition:lindelof_basis}.
 \end{proof}
+
+\begin{example}
+    The space $S_\Omega$ is not second countable, because it is not Lindel\"{o}f.
+\end{example}
 
 The following example shows that the product of two Lindel\"{o}f spaces is not
 necessarily Lindel\"{o}f.
@@ -5466,6 +5564,11 @@ necessarily Lindel\"{o}f.
     \step{6}{$A$ is countable.}
     \qed
 \end{proof}
+
+\begin{example}
+    Thes space $\overline{S_\Omega}$ is not second countable because it is neither
+    first countable nor separable.
+\end{example}
 
 \section{Sequential Compactness}
 
