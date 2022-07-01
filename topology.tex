@@ -5288,6 +5288,23 @@ necessarily Lindel\"{o}f.
     The open cover $\{ \{x\} \times (0,1) \mid x \in [0,1] \}$ has no countable subcover.
 \end{example}
 
+\begin{proposition}[Choice]
+    The continuous image of a Lindel\"{o}f space is Lindel\"{o}f.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a Lindel\"{o}f space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$f : X \twoheadrightarrow Y$ be continuous and surjective.}}
+    \step{4}{\pflet{$\AA$ be an open cover of $Y$.}}
+    \step{5}{$\{ \inv{f}(V) \mid V \in \AA \}$ is an open cover of $X$.}
+    \step{6}{\pick\ a countable subcover $\BB$}
+    \step{7}{For $U \in \BB$, \pick\ $V_U \in \AA$ such that $U = \inv{f}(V_U)$}
+    \step{8}{$\{ V_U \mid U \in \BB \}$ covers $Y$.}
+    \qed
+\end{proof}
+
 \section{Separable Spaces}
 
 \begin{definition}[Separable]
@@ -5332,6 +5349,22 @@ necessarily separable.
     \subseteq \overline{S_\Omega}$, we have $\sup (D - \{ \Omega \}) + 1 \notin
     \overline{D}$.
 \end{example}
+
+\begin{proposition}
+    The continuous image of a separable space is separable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a separable space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$f : X \twoheadrightarrow Y$ be continuous and separable.}}
+    \step{4}{\pick\ a countable dense $D$ in $X$ \prove{$f(D)$ is dense in $Y$.}}
+    \step{5}{\pflet{$V$ be open in $Y$ and nonempty.}}
+    \step{6}{\pick\ $a \in \inv{f}(V) \cap D$}
+    \step{7}{$f(a) \in V \cap f(D)$}
+    \qed
+\end{proof}
 
 \section{The Second Countability Axiom}
 

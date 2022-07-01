@@ -134,27 +134,27 @@
 \contentsline {section}{\numberline {11.42}Lindel\"{o}f Spaces}{133}{section.11.42}%
 \contentsline {section}{\numberline {11.43}Separable Spaces}{134}{section.11.43}%
 \contentsline {section}{\numberline {11.44}The Second Countability Axiom}{135}{section.11.44}%
-\contentsline {section}{\numberline {11.45}Sequential Compactness}{138}{section.11.45}%
-\contentsline {section}{\numberline {11.46}Limit Point Compactness}{138}{section.11.46}%
-\contentsline {section}{\numberline {11.47}Countable Compactness}{139}{section.11.47}%
-\contentsline {section}{\numberline {11.48}Subnets}{141}{section.11.48}%
+\contentsline {section}{\numberline {11.45}Sequential Compactness}{139}{section.11.45}%
+\contentsline {section}{\numberline {11.46}Limit Point Compactness}{139}{section.11.46}%
+\contentsline {section}{\numberline {11.47}Countable Compactness}{140}{section.11.47}%
+\contentsline {section}{\numberline {11.48}Subnets}{142}{section.11.48}%
 \contentsline {section}{\numberline {11.49}Accumulation Points}{142}{section.11.49}%
 \contentsline {section}{\numberline {11.50}Compact Spaces}{143}{section.11.50}%
-\contentsline {section}{\numberline {11.51}Perfect Maps}{156}{section.11.51}%
+\contentsline {section}{\numberline {11.51}Perfect Maps}{157}{section.11.51}%
 \contentsline {section}{\numberline {11.52}Isolated Points}{157}{section.11.52}%
-\contentsline {section}{\numberline {11.53}Local Compactness}{158}{section.11.53}%
+\contentsline {section}{\numberline {11.53}Local Compactness}{159}{section.11.53}%
 \contentsline {section}{\numberline {11.54}Compactifications}{162}{section.11.54}%
 \contentsline {section}{\numberline {11.55}$G_\delta $ Sets}{164}{section.11.55}%
-\contentsline {chapter}{\numberline {12}Topological Groups}{165}{chapter.12}%
-\contentsline {section}{\numberline {12.1}The Metric Topology}{173}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Real Linear Algebra}{180}{section.12.2}%
-\contentsline {section}{\numberline {12.3}The Uniform Topology}{187}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Uniform Convergence}{191}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Isometric Imbeddings}{192}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Distance to a Set}{193}{section.12.6}%
-\contentsline {section}{\numberline {12.7}Lebesgue Numbers}{194}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Uniform Continuity}{196}{section.12.8}%
-\contentsline {section}{\numberline {12.9}Epsilon-neighbourhoods}{197}{section.12.9}%
-\contentsline {section}{\numberline {12.10}Isometry}{198}{section.12.10}%
-\contentsline {section}{\numberline {12.11}Shrinking Maps}{199}{section.12.11}%
-\contentsline {section}{\numberline {12.12}Contractions}{200}{section.12.12}%
+\contentsline {chapter}{\numberline {12}Topological Groups}{166}{chapter.12}%
+\contentsline {section}{\numberline {12.1}The Metric Topology}{174}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Real Linear Algebra}{181}{section.12.2}%
+\contentsline {section}{\numberline {12.3}The Uniform Topology}{188}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Uniform Convergence}{192}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Isometric Imbeddings}{193}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Distance to a Set}{194}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Lebesgue Numbers}{195}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Uniform Continuity}{197}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Epsilon-neighbourhoods}{198}{section.12.9}%
+\contentsline {section}{\numberline {12.10}Isometry}{199}{section.12.10}%
+\contentsline {section}{\numberline {12.11}Shrinking Maps}{200}{section.12.11}%
+\contentsline {section}{\numberline {12.12}Contractions}{201}{section.12.12}%
