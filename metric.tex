@@ -1674,6 +1674,54 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\begin{example}
+    The space $\mathcal{C}(I, \RR)$ of continuous functions $I \rightarrow \RR$,
+    as a subspace of $\RR^I$ under the uniform topology, is second countable.
+
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$D$ be the set of continuous functions whose graphs consist
+        of finitely many line segments with rational end points.} \prove{$D$ is dense.}}
+        \step{2}{\pflet{$f \in \mathcal{C}(I, \RR)$ and $\epsilon > 0$}
+        \prove{$B(f, \epsilon)$ intersects $D$.}}
+        \step{3}{$f$ is uniformly continuous.}
+        \begin{proof}
+            \pf\ Uniform Continuity Theorem.
+        \end{proof}
+        \step{4}{\pick\ $\delta > 0$ such that, for all $x, y \in I$, 
+        if $|x-y| < \delta$ then $|f(x)-f(y)| < \epsilon / 4$}
+        \step{4a}{\pick\ $N \in \ZZ^+$ such that $1/N < \delta$}
+        \step{5}{For $0 \leq k \leq N$, \pick\ a rational number $q_k$
+        such that $|q_k - f(k/N)| < \epsilon / 6$}
+        \step{6}{\pflet{$q \in D$ be the function whose graph consists of the line
+        segments with endpoints $(0,q_0)$, $(1/N,q_1)$, \ldots, $(1,q_N)$}
+        \prove{$q \in B(f, \epsilon)$}}
+        \step{7}{For $0 \leq k < N$, we have $|q_{k+1} - q_k| < 7 \epsilon / 12$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                |q_{k+1} - q_k| & \leq |q_{k+1} - f((k+1)/N)| + |f((k+1)/N) - f(k/N)|
+                + |f(k/N)-q_k| \\
+                & < \epsilon / 6 + \epsilon / 4 + \epsilon / 6 \\
+                & = 7 \epsilon / 12
+            \end{align*}
+        \end{proof}
+        \step{8}{\pflet{$x \in I$}}
+        \step{9}{\pick\ $k$ such that $k/N \leq x \leq (k+1)/N$}
+        \step{10}{$|f(x) - q(x)| < \epsilon$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                |f(x) - q(x)| & \leq |f(x) - f(k/N)| + |f(k/N) - q_k| + |q_k - q(x)| \\
+                & \leq |f(x) - f(k/N)| + |f(k/N) - q_k| + |q_k - q_{k+1}| \\
+                & < \epsilon / 4 + \epsilon / 6 + 7 \epsilon / 12 \\
+                & = \epsilon
+            \end{align*}
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
+
 \section{Epsilon-neighbourhoods}
 
 \begin{definition}[$\epsilon$-neighbourhood]
