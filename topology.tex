@@ -2974,6 +2974,25 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \end{proof}
 \end{example}
 
+\begin{proposition}
+    The image of a first countable space under a continuous open map is first countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a first countable space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$f : X \twoheadrightarrow Y$ be a surjective, continuous open map.}}
+    \step{4}{\pflet{$y \in Y$}}
+    \step{5}{\pick\ $x \in X$ such that $f(x) = y$}
+    \step{6}{\pick\ a countable local basis $\BB$ at $x$. \prove{$\{ f(B) \mid B \in \BB \}$
+    is a local basis at $y$.}}
+    \step{7}{\pflet{$V$ be a neighbourhood of $y$}}
+    \step{8}{\pick\ $B \in \BB$ such that $x \in B \subseteq \inv{f}(V)$}
+    \step{9}{$y \in f(B) \subseteq V$}
+    \qed
+\end{proof}
+
 \section{Strong Continuity}
 
 \begin{definition}[Strongly Continuous]
@@ -5602,6 +5621,43 @@ necessarily Lindel\"{o}f.
     Thes space $\overline{S_\Omega}$ is not second countable because it is neither
     first countable nor separable.
 \end{example}
+
+\begin{proposition}
+    The image of a first countable space under a continuous open map is first countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a first countable space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$f : X \twoheadrightarrow Y$ be a surjective, continuous open map.}}
+    \step{4}{\pflet{$y \in Y$}}
+    \step{5}{\pick\ $x \in X$ such that $f(x) = y$}
+    \step{6}{\pick\ a countable local basis $\BB$ at $x$. \prove{$\{ f(B) \mid B \in \BB \}$
+    is a local basis at $y$.}}
+    \step{7}{\pflet{$V$ be a neighbourhood of $y$}}
+    \step{8}{\pick\ $B \in \BB$ such that $x \in B \subseteq \inv{f}(V)$}
+    \step{9}{$y \in f(B) \subseteq V$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The image of a second countable space under a continuous open map is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$f : X \twoheadrightarrow Y$ be a surjective, continuous open map.}}
+    \step{6}{\pick\ a countable basis $\BB$. \prove{$\{ f(B) \mid B \in \BB \}$
+    is a basis.}}
+    \step{7}{\pflet{$V$ be a neighbourhood of $y$}}
+    \step{7a}{\pick\ $x \in X$ such that $f(x) = y$}
+    \step{8}{\pick\ $B \in \BB$ such that $x \in B \subseteq \inv{f}(V)$}
+    \step{9}{$y \in f(B) \subseteq V$}
+    \qed
+\end{proof}
 
 \section{Sequential Compactness}
 
