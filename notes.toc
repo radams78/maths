@@ -138,13 +138,13 @@
 \contentsline {section}{\numberline {11.46}Limit Point Compactness}{140}{section.11.46}%
 \contentsline {section}{\numberline {11.47}Countable Compactness}{141}{section.11.47}%
 \contentsline {section}{\numberline {11.48}Subnets}{143}{section.11.48}%
-\contentsline {section}{\numberline {11.49}Accumulation Points}{143}{section.11.49}%
-\contentsline {section}{\numberline {11.50}Compact Spaces}{144}{section.11.50}%
+\contentsline {section}{\numberline {11.49}Accumulation Points}{144}{section.11.49}%
+\contentsline {section}{\numberline {11.50}Compact Spaces}{145}{section.11.50}%
 \contentsline {section}{\numberline {11.51}Perfect Maps}{158}{section.11.51}%
-\contentsline {section}{\numberline {11.52}Isolated Points}{158}{section.11.52}%
+\contentsline {section}{\numberline {11.52}Isolated Points}{159}{section.11.52}%
 \contentsline {section}{\numberline {11.53}Local Compactness}{160}{section.11.53}%
 \contentsline {section}{\numberline {11.54}Compactifications}{163}{section.11.54}%
-\contentsline {section}{\numberline {11.55}$G_\delta $ Sets}{165}{section.11.55}%
+\contentsline {section}{\numberline {11.55}$G_\delta $ Sets}{166}{section.11.55}%
 \contentsline {chapter}{\numberline {12}Topological Groups}{167}{chapter.12}%
 \contentsline {section}{\numberline {12.1}The Metric Topology}{175}{section.12.1}%
 \contentsline {section}{\numberline {12.2}Real Linear Algebra}{182}{section.12.2}%
