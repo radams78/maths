@@ -125,25 +125,25 @@
 \contentsline {section}{\numberline {11.33}The Topologist's Sine Curve}{123}{section.11.33}%
 \contentsline {section}{\numberline {11.34}The Long Line}{124}{section.11.34}%
 \contentsline {section}{\numberline {11.35}Components}{125}{section.11.35}%
-\contentsline {section}{\numberline {11.36}Path Components}{127}{section.11.36}%
-\contentsline {section}{\numberline {11.37}Local Connectedness}{128}{section.11.37}%
+\contentsline {section}{\numberline {11.36}Path Components}{126}{section.11.36}%
+\contentsline {section}{\numberline {11.37}Local Connectedness}{127}{section.11.37}%
 \contentsline {section}{\numberline {11.38}Local Path Connectedness}{129}{section.11.38}%
 \contentsline {section}{\numberline {11.39}Weak Local Connectedness}{131}{section.11.39}%
-\contentsline {section}{\numberline {11.40}Quasicomponents}{132}{section.11.40}%
-\contentsline {section}{\numberline {11.41}Open Coverings}{133}{section.11.41}%
-\contentsline {section}{\numberline {11.42}Lindel\"{o}f Spaces}{133}{section.11.42}%
-\contentsline {section}{\numberline {11.43}Separable Spaces}{135}{section.11.43}%
-\contentsline {section}{\numberline {11.44}The Second Countability Axiom}{136}{section.11.44}%
-\contentsline {section}{\numberline {11.45}Sequential Compactness}{140}{section.11.45}%
-\contentsline {section}{\numberline {11.46}Limit Point Compactness}{140}{section.11.46}%
+\contentsline {section}{\numberline {11.40}Quasicomponents}{131}{section.11.40}%
+\contentsline {section}{\numberline {11.41}Open Coverings}{132}{section.11.41}%
+\contentsline {section}{\numberline {11.42}Lindel\"{o}f Spaces}{132}{section.11.42}%
+\contentsline {section}{\numberline {11.43}Separable Spaces}{134}{section.11.43}%
+\contentsline {section}{\numberline {11.44}The Second Countability Axiom}{135}{section.11.44}%
+\contentsline {section}{\numberline {11.45}Sequential Compactness}{139}{section.11.45}%
+\contentsline {section}{\numberline {11.46}Limit Point Compactness}{139}{section.11.46}%
 \contentsline {section}{\numberline {11.47}Countable Compactness}{141}{section.11.47}%
-\contentsline {section}{\numberline {11.48}Subnets}{143}{section.11.48}%
-\contentsline {section}{\numberline {11.49}Accumulation Points}{144}{section.11.49}%
-\contentsline {section}{\numberline {11.50}Compact Spaces}{145}{section.11.50}%
+\contentsline {section}{\numberline {11.48}Subnets}{142}{section.11.48}%
+\contentsline {section}{\numberline {11.49}Accumulation Points}{143}{section.11.49}%
+\contentsline {section}{\numberline {11.50}Compact Spaces}{144}{section.11.50}%
 \contentsline {section}{\numberline {11.51}Perfect Maps}{158}{section.11.51}%
 \contentsline {section}{\numberline {11.52}Isolated Points}{159}{section.11.52}%
 \contentsline {section}{\numberline {11.53}Local Compactness}{160}{section.11.53}%
-\contentsline {section}{\numberline {11.54}Compactifications}{163}{section.11.54}%
+\contentsline {section}{\numberline {11.54}Compactifications}{164}{section.11.54}%
 \contentsline {section}{\numberline {11.55}$G_\delta $ Sets}{166}{section.11.55}%
 \contentsline {chapter}{\numberline {12}Topological Groups}{167}{chapter.12}%
 \contentsline {section}{\numberline {12.1}The Metric Topology}{175}{section.12.1}%
