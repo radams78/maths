@@ -5356,6 +5356,33 @@ necessarily separable.
     \qed
 \end{proof}
 
+\begin{proposition}
+    The product space $\RR^I$ is separable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$D$ be the set of all step functions with rational values
+    and rational endpoints of the intervals.}}
+    \step{2}{\pflet{$U = \prod_{x \in I} U_x$ be a basic open set in $\RR^I$,
+    where $U_x = \RR$ except for $x = x_1, \ldots, x_n$ with $0 \leq x_1 < \cdots
+    < x_n \leq 1$}}
+    \step{3}{\assume{w.l.o.g. $x_1 = 0$ and $x_n = 1$}}
+    \step{4}{\pick\ rationals $q_1$, \ldots, $q_{n-1}$ such that
+    $x_1 < q_1 < x_2 < q_2 < \cdots < x_{n-1} < q_{n-1} < x_n$}
+    \step{5}{For $1 \leq i \leq n$, \pick\ a rational $r_i \in U_{x_i}$}
+    \step{6}{\pflet{$g$ be the step function with
+    \[
+        g(x) = \begin{cases}
+            r_1 & \text{if } 0 \leq x < q_1 \\
+            r_{i+1} & \text{if } q_i \leq x < q_{i+1}, 1 \leq i \leq n-2 \\
+            r_n & \text{if } q_{n-1} \leq x \leq 1
+                \end{cases}
+    \]}}
+    \step{7}{$g \in D \cap U$}
+    \qed
+\end{proof}
+
 \section{The Second Countability Axiom}
 
 \begin{definition}[Second Countability Axiom]
