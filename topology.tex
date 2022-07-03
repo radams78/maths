@@ -7696,6 +7696,44 @@ locally compact.
     \pf\ Immediate from definitions. \qed
 \end{proof}
 
+\begin{proposition}
+    Let $X$ be a $T_1$ space. Then $X$ is regular if and only if, for any closed
+    set $A$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
+    $V$ of $A$ with $\overline{V} \subseteq U$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a $T_1$ space.}}
+    \step{2}{If $X$ is regular then,  for any closed set
+    $A$ and open neighbourhood $U$ of $A$, there exists a neighbourhood
+    $V$ of $A$ with $\overline{V} \subseteq U$.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is regular.}}
+        \step{b}{\pflet{$A$ be closed in $X$}}
+        \step{c}{\pflet{$U$ be an open neighbourhood of $A$.}}
+        \step{d}{\pick\ disjoint open sets $V$ and $W$ such that $X \setminus U \subseteq W$
+        and $A \subseteq V$}
+        \step{e}{$\overline{V} \subseteq U$}
+        \begin{proof}
+            \pf\ Since $V \subseteq X - W \subseteq U$.
+        \end{proof}
+    \end{proof}
+    \step{3}{If, for any closed set
+    $A$ and open neighbourhood $U$ of $A$, there exists a neighbourhood
+    $V$ of $A$ with $\overline{V} \subseteq U$, then $X$ is regular.}
+    \begin{proof}
+        \step{a}{\assume{for any closed set
+        $A$ and open neighbourhood $U$ of $A$, there exists a neighbourhood
+        $V$ of $A$ with $\overline{V} \subseteq U$.}}
+        \step{b}{\pflet{$A$ and $B$ be disjoint closed sets.}}
+        \step{c}{\pick\ a neighbourhood $V$ of $B$ with $\overline{V} \subseteq X - A$}
+        \step{d}{\pflet{$U = X - \overline{V}$}}
+        \step{e}{$U$ and $V$ are disjoint open sets with $A \subseteq U$ and $B \subseteq V$}
+    \end{proof}
+    \qed
+\end{proof}
+
 \chapter{Topological Groups}
 
 \begin{definition}[Topological Group]

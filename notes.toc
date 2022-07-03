@@ -146,16 +146,16 @@
 \contentsline {section}{\numberline {11.54}Compactifications}{165}{section.11.54}%
 \contentsline {section}{\numberline {11.55}$G_\delta $ Sets}{168}{section.11.55}%
 \contentsline {section}{\numberline {11.56}Normal Spaces}{168}{section.11.56}%
-\contentsline {chapter}{\numberline {12}Topological Groups}{169}{chapter.12}%
-\contentsline {section}{\numberline {12.1}The Metric Topology}{178}{section.12.1}%
-\contentsline {section}{\numberline {12.2}Real Linear Algebra}{185}{section.12.2}%
-\contentsline {section}{\numberline {12.3}The Uniform Topology}{192}{section.12.3}%
-\contentsline {section}{\numberline {12.4}Uniform Convergence}{196}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Isometric Imbeddings}{197}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Distance to a Set}{198}{section.12.6}%
-\contentsline {section}{\numberline {12.7}Lebesgue Numbers}{199}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Uniform Continuity}{201}{section.12.8}%
-\contentsline {section}{\numberline {12.9}Epsilon-neighbourhoods}{202}{section.12.9}%
-\contentsline {section}{\numberline {12.10}Isometry}{204}{section.12.10}%
-\contentsline {section}{\numberline {12.11}Shrinking Maps}{204}{section.12.11}%
-\contentsline {section}{\numberline {12.12}Contractions}{205}{section.12.12}%
+\contentsline {chapter}{\numberline {12}Topological Groups}{170}{chapter.12}%
+\contentsline {section}{\numberline {12.1}The Metric Topology}{179}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Real Linear Algebra}{186}{section.12.2}%
+\contentsline {section}{\numberline {12.3}The Uniform Topology}{193}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Uniform Convergence}{197}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Isometric Imbeddings}{198}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Distance to a Set}{199}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Lebesgue Numbers}{200}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Uniform Continuity}{202}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Epsilon-neighbourhoods}{203}{section.12.9}%
+\contentsline {section}{\numberline {12.10}Isometry}{205}{section.12.10}%
+\contentsline {section}{\numberline {12.11}Shrinking Maps}{205}{section.12.11}%
+\contentsline {section}{\numberline {12.12}Contractions}{206}{section.12.12}%
