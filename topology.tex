@@ -2818,6 +2818,21 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{proposition}
+    Let $X$ be a topological space. Let $Y$ be a Hausdorff space. Let $f : X
+    \rightarrow Y$ be continuous. Then $\{ x \in X \mid f(x) = g(x) \}$
+    is closed in $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A = \{ x \in X \mid f(x) = g(x) \}$}}
+    \step{2}{\pflet{$x \in X - A$}}
+    \step{3}{\pick\ disjoint open neighourhoods $U$ and $V$ of $f(x)$ and $g(x)$ in $Y$}
+    \step{4}{$x \in \inv{f}(U) \cap \inv{g}(V) \subseteq X - A$}
+    \qed
+\end{proof}
+
 \section{The First Countability Axiom}
 
 \begin{definition}[First Countability Axiom]
@@ -3691,6 +3706,60 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \end{proof}
     \step{5}{$U$ and $V$ are disjoint neighbourhoods of $a$ and $b$ respectively
     with disjoit closures.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every linearly ordered set under the order topology is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a linearly ordered set in the order topology.}}
+    \step{2}{$X$ is $T_1$.}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pflet{$U$ be an open neightbourhood of $x$.}}
+    \step{5}{\pick\ a basic open set $B$ such that $x \in B \subseteq U$
+    \prove{There exists an open neighbourhood $V$ of $x$ such that 
+    $\overline{V} \subseteq B$}}
+    \step{6}{\case{$B = (a,b)$}}
+    \begin{proof}
+        \step{a}{\case{There exists $c$, $d$ with $a < c < x < d < b$}}
+        \begin{proof}
+            \step{i}{\pflet{$V = (c,d)$}}
+            \step{ii}{$\overline{V} \subseteq [c,d] \subseteq (a,b)$}
+        \end{proof}
+        \step{b}{\case{There exists $c$ such that $a < c < x$ but there is no $d$
+        such that $x < d < b$}}
+        \begin{proof}
+            \step{i}{\pflet{$V = (a,d)$}}
+            \step{ii}{$\overline{V} \subseteq [x,d] \subseteq (a,b)$}
+        \end{proof}
+        \step{c}{\case{There is no $c$ such that $a < c < x$ but there exists $d$
+        such that $x < d < b$}}
+        \begin{proof}
+            \step{i}{\pflet{$V = (c,b)$}}
+            \step{ii}{$\overline{V} \subseteq [c,x] \subseteq (a,b)$}
+        \end{proof}
+        \step{d}{\case{There is no $c$ such that $a < c < x$ and no $d$ such that
+        $x < d < b$}}
+        \begin{proof}
+            \step{i}{\pflet{$V = (a,b) = \{x\}$}}
+            \step{ii}{$\overline{V} = \{x\} = (a,b)$}
+        \end{proof}
+    \end{proof}
+    \step{7}{\case{$B = [\bot, b)$}}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{8}{\case{$B = (a,\top]$}}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ By Proposition \ref{proposition:regular_neighbourhoods}.
+    \end{proof}
     \qed
 \end{proof}
 
