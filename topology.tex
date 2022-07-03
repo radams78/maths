@@ -3797,6 +3797,28 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \qed
 \end{proof}
 
+\begin{proposition}
+    \label{proposition:regular_space_compact_closed}
+    Let $X$ be a regular space. Let $A$ be compact in $X$ and $B$ be
+    closed in $X$ with $A \cap B = \emptyset$. Then there exist
+    disjoint open neighbourhoods of $A$ and $B$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{For all $a \in A$, there exist disjoint open neighbourhoods
+    of $a$ and $B$.}
+    \step{2}{$\{ U \text{ open in } X \mid \exists V \text{ open in } X.
+    B \subseteq V, U \cap V = \emptyset \}$ covers $A$.}
+    \step{3}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$.}
+    \step{4}{For $1 \leq i \leq n$, \pick\ $V_i$ such that
+    $B \subseteq V_i$ and $U_i \cap V_i = \emptyset$}
+    \step{5}{\pflet{$U = U_1 \cup \cdots \cup U_n$}}
+    \step{6}{\pflet{$V = V_1 \cap \cdots \cap V_n$}}
+    \step{7}{$U$ and $V$ are disjoint open neighbourhoods of $A$ and $B$
+    respectively.}
+    \qed
+\end{proof}
 \section{Dense Sets}
 
 \begin{definition}[Dense]
@@ -6480,6 +6502,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \end{example}
 
 \begin{proposition}
+    \label{proposition:finite_union_compact}
     Let $X$ be a topological space. A finite union of compact subspaces of $X$ is compact.
 \end{proposition}
 
@@ -7374,6 +7397,7 @@ The following examples show that not every limit point compact space is compact.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:perfect_image_Hausdorff}
     The image of a Hausdorff space under a perfect map is Hausdorff.
 \end{proposition}
 
@@ -7408,6 +7432,81 @@ The following examples show that not every limit point compact space is compact.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{proposition}
+    The image of a regular space under a perfect map is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a regular space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$p : X \twoheadrightarrow Y$ be a perfect map.}}
+    \step{4}{$Y$ is $T_1$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:perfect_image_Hausdorff}.
+    \end{proof}
+    \step{5}{\pflet{$A$ be a closed set in $Y$ and $a \in Y - A$.}}
+    \step{6}{$\inv{p}(A)$ is closed in $X$ and $\inv{p}(a)$ is disjoint from $\inv{p}(A)$}
+    \step{7}{\pick\ disjoint open neighbourhoods $U_1$ and $U_2$ of $\inv{p}(A)$
+     and $\inv{p}(a)$ respectively.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:regular_space_compact_closed}.
+    \end{proof}
+    \step{8}{\pick\ open neighbourhoods $V_1$ and $V_2$ of $A$ and $a$ respectively
+    such that $\inv{p}(V_1) \subseteq U_1$ and $\inv{p}(V_2) \subseteq U_2$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closed_map_neighbourhoods}.
+    \end{proof}
+    \step{9}{$V_1 \cap V_2 = \emptyset$}
+    \begin{proof}
+        \step{a}{\assume{for a contradiction $y \in V_1 \cap V_2$}}
+        \step{b}{\pick\ $x \in X$ such that $p(x) = y$}
+        \step{c}{$x \in U_1 \cap U_2$}
+        \begin{proof}
+            \pf\ From \stepref{8}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the fact that $U_1$ and $U_2$ are disjoint
+            (\stepref{7}).
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The image of a second countable space under a perfect map is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable space.}}
+    \step{2}{\pflet{$Y$ be a topological space.}}
+    \step{3}{\pflet{$p : X \twoheadrightarrow Y$ be a perfect map.}}
+    \step{4}{\pick\ a countable basis $\BB$ for $X$.}
+    \step{5}{For $J \subseteq^{\mathrm{fin}} \BB$, \pflet{$U_J = \bigcup
+    \{ W \mid W \text{ open in } Y, \inv{p}(W) \subseteq \bigcup J \}$}
+    \prove{$\{ U_J \mid J \subseteq^{\mathrm{fin}} \BB \}$ is a basis for $Y$.}}
+    \step{6}{\pflet{$y \in Y$}}
+    \step{7}{\pflet{$V$ be a neighbourhood of $y$.}}
+    \step{8}{For all $x \in \inv{p}(y)$, there exists $B \in \BB$ such that
+    $x \in B \subseteq \inv{p}(V)$}
+    \step{9}{\pick\ finitely many sets $B_1, \ldots, B_n \in \BB$ that cover
+    $\inv{p}(y)$ such that $B_i \subseteq \inv{p}(V)$ for all $i$.}
+    \step{10}{\pflet{$J = \{ B_1, \ldots, B_n \}$} \prove{$y \in U_J \subseteq V$}}
+    \step{11}{$y \in U_J$}
+    \begin{proof}
+        \pf\ There exists an open neighbourhood $W$ of $y$ such that $\inv{p}(W) \subseteq
+        B_1 \cup \cdots \cup B_n$ by Lemma \ref{lemma:closed_map_neighbourhoods}.
+    \end{proof}
+    \step{12}{$U_J \subseteq V$}
+    \begin{proof}
+        \pf\ Since $\bigcup J \subseteq V$ by \stepref{9}.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Isolated Points}
 
 \begin{definition}[Isolated Point]
@@ -7765,6 +7864,46 @@ locally compact.
 \begin{proof}
     \pf\ By Lemma \ref{lemma:product_map_quotient} since $p \times q =
     (\id{B} \times q) \circ (p \times \id{C})$. \qed
+\end{proof}
+
+\begin{proposition}
+    The image of a locally compact space under a perfect map is locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{Let $X$ be a locally compact space and $p : X \twoheadrightarrow Y$
+    be a perfect map.}
+    \step{2}{\pflet{$y \in Y$}}
+    \step{3}{For all $x \in \inv{p}(y)$, there exists a neighbourhood of $x$ that is included
+    in a compact subspace of $X$.}
+    \step{4}{$\{ U \text{ open in } X \mid \exists C \subseteq X. C \text{ is compact and }
+    U \subseteq C \}$ covers $\inv{p}(y)$}
+    \step{5}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$}
+    \step{6}{For $1 \leq i \leq n$, \pick\ $C_i \subseteq X$ such that
+    $C_i$ is compact}
+    \step{6a}{\pflet{$C = C_1 \cup \cdots \cup C_n$}}
+    \step{6b}{$C$ is compact}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:finite_union_compact}.
+    \end{proof}
+    \step{7}{\pick\ an open neighbourhood $V$ of $y$ such
+    that $\inv{p}(V) \subseteq U_1 \cup \cdots \cup U_n$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closed_map_neighbourhoods}.
+    \end{proof}
+    \step{8}{$V \subseteq p(C)$}
+    \begin{proof}
+        \step{a}{\pflet{$y \in V$}}
+        \step{b}{\pick\ $x \in X$ such that $p(x) = y$}
+        \step{c}{$x \in C$}
+        \step{d}{$y \in p(C)$}
+    \end{proof}
+    \step{9}{$p(C)$ is compact.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:continuous_image_compact}.
+    \end{proof}
+    \qed
 \end{proof}
 
 \section{Compactifications}
