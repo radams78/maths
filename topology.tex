@@ -2993,6 +2993,25 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{example}[Choice]
+    Let $\QQ^\infty$ be the set of all sequences of rationals that end in an
+    infinite sequence of 0s. Then $\QQ^\infty$ as a subspace of $\RR^\omega$
+    under the box topology is not first countable.
+
+    \begin{proof}
+        \pf
+        \step{1}{\assume{for a contradiction $\{ B_n \mid n \in \ZZ^+ \}$ is a
+        countable local basis at 0.}}
+        \step{2}{For $n \in \ZZ^+$, \pick\ a sequence of open neighbourhoods $(U_{nm})$
+        of 0 in $\RR$ such that $\prod_m U_{nm} \cap \QQ^\infty \subseteq U_n$}
+        \step{3}{For $n \in \ZZ^+$, \pick\ a nonempty open proper subset
+        $V_n$ of $U_{nn}$ that contains 0.}
+        \step{4}{$\prod_n V_n$ is a nonempty open neighbourhood of 0 but
+        there is no $n$ such that $B_n \subseteq \prod_n V_n$}
+        \qed
+    \end{proof}
+\end{example}
+
 \section{Strong Continuity}
 
 \begin{definition}[Strongly Continuous]
@@ -3489,9 +3508,55 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \section{Regular Spaces}
 
 \begin{definition}[Regular Space]
-    A topological space $X$ is \emph{regular} if and only if, for any closed set $A$ and point $a \notin A$, there exist disjoint open sets $U$, $V$ such that
+    A topological space $X$ is \emph{regular} if and only if it is $T_1$ and, for any closed set $A$ and point $a \notin A$, there exist disjoint open sets $U$, $V$ such that
     $A \subseteq U$ and $a \in V$.    
 \end{definition}
+
+\begin{proposition}
+    Every regular space is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a $T_1$ space. Then $X$ is regular if and only if, for any point
+    $x \in X$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
+    $V$ of $x$ with $\overline{V} \subseteq U$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a $T_1$ space.}}
+    \step{2}{If $X$ is regular then,  for any point
+    $x \in X$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
+    $V$ of $x$ with $\overline{V} \subseteq U$.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is regular.}}
+        \step{b}{\pflet{$x \in X$}}
+        \step{c}{\pflet{$U$ be an open neighbourhood of $x$.}}
+        \step{d}{\pick\ disjoint open sets $V$ and $W$ such that $X \setminus U \subseteq W$
+        and $x \in V$}
+        \step{e}{$\overline{V} \subseteq U$}
+        \begin{proof}
+            \pf\ Since $V \subseteq X - W \subseteq U$.
+        \end{proof}
+    \end{proof}
+    \step{3}{If, for any point
+    $x \in X$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
+    $V$ of $x$ with $\overline{V} \subseteq U$, then $X$ is regular.}
+    \begin{proof}
+        \step{a}{\assume{for  any point
+        $x \in X$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
+        $V$ of $x$ with $\overline{V} \subseteq U$.}}
+        \step{b}{\pflet{$A$ be a closed set with $a \notin A$}}
+        \step{c}{\pick\ a neighbourhood $V$ of $a$ with $\overline{V} \subseteq X - A$}
+        \step{d}{\pflet{$U = X - \overline{V}$}}
+        \step{e}{$U$ and $V$ are disjoint open sets with $A \subseteq U$ and $a \in V$}
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Dense Sets}
 
@@ -5280,6 +5345,13 @@ necessarily Lindel\"{o}f.
     \qed
 \end{proof}
 
+The following is an example of a Lindel\"{o}f space that is not first countable.
+\begin{example}[Choice]
+    Let $\QQ^\infty$ be the set of all sequences of rationals that end in an
+    infinite sequence of 0s. Then $\QQ^\infty$ as a subspace of $\RR^\omega$
+    under the box topology is Lindel\"{o}f, because it is countable.
+\end{example}
+
 \section{Separable Spaces}
 
 \begin{definition}[Separable]
@@ -5382,6 +5454,36 @@ necessarily separable.
     \step{7}{$g \in D \cap U$}
     \qed
 \end{proof}
+
+\begin{proposition}
+    If $J$ is a set and $|J| > 2^{\aleph_0}$ then $\RR^J$ is not separable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$J$ be a set.}}
+    \step{2}{\pflet{$D$ be dense in $\RR^J$.}}
+    \step{3}{Define $f : J \rightarrow \pow D$ by: $f(\alpha) = D \cap
+    \inv{\pi_\alpha}(I)$ where $I = (0,1)$.}
+    \step{4}{$f$ is injective.}
+    \begin{proof}
+        \step{a}{\pflet{$\alpha, \beta \in J$}}
+        \step{b}{\assume{$\alpha \neq \beta$}}
+        \step{c}{\pick\ $x \in D \cap \inv{\pi_\alpha}(I) \cap \inv{\pi_\beta}((1,2))$}
+        \step{d}{$x \in f(\alpha)$ and $x \notin f(\beta)$}
+    \end{proof}
+    \step{5}{$|J| \leq 2^|D|$}
+    \step{6}{If $|J| > 2^{\aleph_0}$ then $D$ is uncountable.}
+    \qed
+\end{proof}
+
+
+The following is an example of a separable space that is not first countable.
+\begin{example}[Choice]
+    Let $\QQ^\infty$ be the set of all sequences of rationals that end in an
+    infinite sequence of 0s. Then $\QQ^\infty$ as a subspace of $\RR^\omega$
+    under the box topology is separable, because it is countable.
+\end{example}
 
 \section{The Second Countability Axiom}
 
@@ -7578,6 +7680,22 @@ locally compact.
     However, $\RR^\omega$ is not first countable.
 \end{example}
 
+\section{Normal Spaces}
+
+\begin{definition}[Normal]
+    A topological space $X$ is normal if and only if it is $T_1$ and, for any
+    disjoint closed sets $A$ and $B$, there exist disjoint open sets $U$ and $V$
+    with $A \subseteq U$ and $B \subseteq V$.
+\end{definition}
+
+\begin{proposition}
+    Every normal space is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
 \chapter{Topological Groups}
 
 \begin{definition}[Topological Group]
@@ -8161,5 +8279,59 @@ locally compact.
 \begin{proof}
     \pf\ From Propositions \ref{proposition:continuous_open_image_locally_compact}
     and \ref{proposition:quotient_group_open_map}. \qed
+\end{proof}
 
+\begin{proposition}
+    Every Lindel\"{o}f first countable topological group is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a topological group that is Lindel\"{o}f and first countable.}}
+    \step{2}{\pick\ a countable local basis $\{ B_n \mid n \in \ZZ^+ \}$ at $e$.}
+    \step{3}{For $n \in \ZZ^+$, \pick\ a countable set $C_n$ such that $\{ c B_n \mid c \in C \}$
+    covers $G$. \prove{$\{ c B_n \mid n \in \ZZ^+, c \in C_n \}$ is a basis for $G$.}}
+    \step{4}{\pflet{$x \in G$ and $U$ be an open neighbourhood of $x$}}
+    \step{5}{\pick\ a symmetric open neighbourhood $V$ of $e$ such that $V V \subseteq \inv{x} U$}
+    \step{6}{\pick\ $n$ such that $B_n \subseteq V$}
+    \step{7}{\pick\ $c \in C_n$ such that $x \in c B_n$}
+    \step{8}{$cB_n \subseteq U$}
+    \begin{proof}
+        \step{a}{\pflet{$b \in B_n$} \prove{$cb \in U$}}
+        \step{b}{\pick\ $b' \in B_n$ such that $x = c b'$}
+        \step{c}{$cb = x \inv{b'} b$}
+        \step{d}{$cb \in U$}
+        \begin{proof}
+            \pf\ Since $\inv{b'} b \in VV \subseteq \inv{x} U$.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every separable first countable topological group is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a topological group that is separable and first countable.}}
+    \step{2}{\pick\ a countable local basis $\{ B_n \mid n \in \ZZ^+ \}$ at $e$.}
+    \step{3}{\pick\ a countable dense set $D$ in $G$. 
+    \prove{$\{ d B_n \mid n \in \ZZ^+, d \in D \}$ is a basis for $G$.}}
+    \step{4}{\pflet{$x \in G$ and $U$ be an open neighbourhood of $x$}}
+    \step{5}{\pick\ a symmetric open neighbourhood $V$ of $e$ such that $V V \subseteq \inv{x} U$}
+    \step{6}{\pick\ $n$ such that $B_n \subseteq V$}
+    \step{7}{\pick\ $d \in D \cap x \inv{B_n}$}
+    \step{8}{$x \in d B_n$}
+    \step{8}{$dB_n \subseteq U$}
+    \begin{proof}
+        \step{a}{\pflet{$b \in B_n$} \prove{$db \in U$}}
+        \step{b}{\pick\ $b' \in B_n$ such that $d = x \inv{b'}$}
+        \step{c}{$db = x \inv{b'} b$}
+        \step{d}{$db \in U$}
+        \begin{proof}
+            \pf\ Since $\inv{b'} b \in VV \subseteq \inv{x} U$.
+        \end{proof}
+    \end{proof}
+    \qed
 \end{proof}
