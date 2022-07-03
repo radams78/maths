@@ -1488,53 +1488,6 @@ The following example shows that we cannot remove the assumption of local finite
     \qed
 \end{proof}
 
-\begin{theorem}[Pasting Lemma]
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
-    is continuous for all $\alpha$. Then $f$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{0}{Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $A$ and $B$ be closed subsets of $X$ such that $X = A \cup B$. 
-    Suppose $f \restriction A$ and $f \restriction B$ are continuous. Then $f$ is continuous.}
-    \begin{proof}
-        \step{1}{\pflet{$C \subseteq Y$ be closed.}}
-        \step{2}{$\inv{h}(C) = \inv{f}(C) \cup \inv{g}(C)$}
-        \step{3}{$\inv{f}(C)$ and $\inv{g}(C)$ are closed in $X$.}
-        \begin{proof}
-            \pf\ Theorems \ref{theorem:continuous} and \ref{theorem:closed_subspace}.
-        \end{proof}
-        \step{4}{$\inv{h}(C)$ is closed in $X$.}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:closed_union}.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ Theorem \ref{theorem:continuous}.
-        \end{proof}    
-    \end{proof}
-    \step{1}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
-    is continuous for all $\alpha$. Then $f$ is continuous.}
-    \begin{proof}
-        \pf\ From \stepref{0} by induction.
-    \end{proof}
-    \step{2}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
-    is continuous for all $\alpha$. Then $f$ is continuous.}
-    \begin{proof}
-        \step{1a}{\pflet{$x \in X$} \prove{$f$ is continuous at $x$}}
-        \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha$.}
-        \step{3}{$f \restriction U$ is continuous}
-        \begin{proof}
-            \pf\ By \stepref{1}.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:continuous_open_subspace}.
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
-
 \section{Homeomorphisms}
 
 \begin{definition}[Homeomorphism]
@@ -1946,7 +1899,27 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
-\begin{proposition}[AC]
+\begin{proposition}[Choice]
+    \label{proposition:closure_in_product_topology_without_choice}
+    Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $A_i \subseteq X_i$ for all $i \in I$.
+    Then
+    \[ \overline{\prod_{i \in I} A_i} \subseteq \prod_{i \in I} \overline{A_i} \enspace . \]
+\end{proposition}
+
+\begin{proof}
+    \step{a}{For all $i \in I$ we have $A_i \subseteq \overline{A_i}$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closure_subset}.
+    \end{proof}
+    \step{c}{$\prod_{i \in I} A_i \subseteq \prod_{i \in I} \overline{A_i}$}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $\prod_{i \in I} A_i$ is closed by Proposition \ref{proposition:closed_product}.
+    \end{proof}
+\end{proof}
+
+\begin{proposition}[Choice]
+    \label{proposition:closure_in_product_topology}
     Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $A_i \subseteq X_i$ for all $i \in I$.
     Then
     \[ \prod_{i \in I} \overline{A_i} = \overline{\prod_{i \in I} A_i} \enspace . \]
@@ -1956,15 +1929,7 @@ We prove this is a basis for a topology.
     \pf
     \step{1}{$\overline{\prod_{i \in I} A_i} \subseteq \prod_{i \in I} \overline{A_i}$}
     \begin{proof}
-        \step{a}{For all $i \in I$ we have $A_i \subseteq \overline{A_i}$}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:closure_subset}.
-        \end{proof}
-        \step{c}{$\prod_{i \in I} A_i \subseteq \prod_{i \in I} \overline{A_i}$}
-        \qedstep
-        \begin{proof}
-            \pf\ Since $\prod_{i \in I} A_i$ is closed by Proposition \ref{proposition:closed_product}.
-        \end{proof}
+        \pf\ Proposition \ref{proposition:closure_in_product_topology_without_choice}.
     \end{proof}
     \step{2}{$\prod_{i \in I} \overline{A_i} \subseteq \overline{\prod_{i \in I} A_i}$}
     \begin{proof}
@@ -2215,6 +2180,53 @@ We prove this is a topology.
 \begin{proof}
     \pf\ Pick a closed set $C$ in $X$ such that $A = C \cap Y$ (Theorem \ref{theorem:closed}). Then
     $A$ is the intersection of two sets closed in $X$, hence $A$ is closed in $X$ (Lemma \ref{lemma:closed_intersection}). \qed
+\end{proof}
+
+\begin{theorem}[Pasting Lemma]
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
+    is continuous for all $\alpha$. Then $f$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{0}{Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $A$ and $B$ be closed subsets of $X$ such that $X = A \cup B$. 
+    Suppose $f \restriction A$ and $f \restriction B$ are continuous. Then $f$ is continuous.}
+    \begin{proof}
+        \step{1}{\pflet{$C \subseteq Y$ be closed.}}
+        \step{2}{$\inv{h}(C) = \inv{f}(C) \cup \inv{g}(C)$}
+        \step{3}{$\inv{f}(C)$ and $\inv{g}(C)$ are closed in $X$.}
+        \begin{proof}
+            \pf\ Theorems \ref{theorem:continuous} and \ref{theorem:closed_subspace}.
+        \end{proof}
+        \step{4}{$\inv{h}(C)$ is closed in $X$.}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:closed_union}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:continuous}.
+        \end{proof}    
+    \end{proof}
+    \step{1}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
+    is continuous for all $\alpha$. Then $f$ is continuous.}
+    \begin{proof}
+        \pf\ From \stepref{0} by induction.
+    \end{proof}
+    \step{2}{ Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\{ A_\alpha \}$ be a locally finite family of closed subsets of $X$ that cover $X$. Suppose $f \restriction A_\alpha$
+    is continuous for all $\alpha$. Then $f$ is continuous.}
+    \begin{proof}
+        \step{1a}{\pflet{$x \in X$} \prove{$f$ is continuous at $x$}}
+        \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha$.}
+        \step{3}{$f \restriction U$ is continuous}
+        \begin{proof}
+            \pf\ By \stepref{1}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:continuous_open_subspace}.
+        \end{proof}
+    \end{proof}
+    \qed
 \end{proof}
 
 \begin{theorem}
@@ -3521,6 +3533,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:regular_neighbourhoods}
     Let $X$ be a $T_1$ space. Then $X$ is regular if and only if, for any point
     $x \in X$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
     $V$ of $x$ with $\overline{V} \subseteq U$.
@@ -3555,6 +3568,129 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
         \step{d}{\pflet{$U = X - \overline{V}$}}
         \step{e}{$U$ and $V$ are disjoint open sets with $A \subseteq U$ and $a \in V$}
     \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    A subspace of a regular space is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a regular space.}}
+    \step{2}{\pflet{$Y \subseteq X$}}
+    \step{3}{$Y$ is $T_1$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:T1_subspace}.
+    \end{proof}
+    \step{4}{\pflet{$A$ be a closed set in $Y$ and $a \in Y - A$}}
+    \step{5}{\pick\ a closed set $B$ in $X$ such that $A = Y \cap B$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:closed_subspace}.
+    \end{proof}
+    \step{6}{\pick\ disjoint open sets $U$ and $V$ in $X$ such that $B \subseteq U$
+    and $a \in V$}
+    \step{7}{$U \cap Y$ and $V \cap Y$ are disjoint open sets in $Y$ such that
+    $A \subseteq U \cap Y$ and $a \in V \cap Y$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    A product of regular spaces is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{ X_\alpha \}_{\alpha \in J}$ be a family of regular spaces.}}
+    \step{2}{\pflet{$X = \prod_{\alpha \in J} X_\alpha$}}
+    \step{3}{\pflet{$x \in X$ and $U$ be an open neighbourhood of $x$.}}
+    \step{4}{\pick\ $U_\alpha$ open in $X_\alpha$ for all $\alpha$ such that
+    $x \in \prod_{\alpha \in J} U_\alpha \subseteq U$ and $U_\alpha = X_\alpha$
+    for all $\alpha$ except $\alpha_1$, \ldots, $\alpha_n$.}
+    \step{5}{For $1 \leq i \leq n$ \pick\ an open neighbourhood $V_{\alpha_i}$ of
+    $\pi_i(x)$ in $X_{\alpha_i}$ such that $\overline{V_{\alpha_i}} \subseteq U_{\alpha_i}$}
+    \step{6}{For $\alpha \neq \alpha_1, \ldots, \alpha_n$, \pflet{$V_\alpha = X_\alpha$}}
+    \step{7}{\pflet{$V = \prod_\alpha V_\alpha$}}
+    \step{8}{$V$ is an open neighbourhood of $x$.}
+    \step{9}{$\overline{V} \subseteq U$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closure_in_product_topology_without_choice}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    The space $\RR_K$ is not regular.
+
+    \begin{proof}
+        \pf
+        \step{1}{$K$ is closed in $\RR_K$}
+        \step{2}{\assume{for a contradiction there exist disjoint open sets $U$ and $V$ with $0 \in U$ and $K \subseteq V$}}
+        \step{3}{\pick\ an open interval $(a,b)$ such that $0 \in (a,b)$ and $(a,b) - K \subseteq U$}
+        \step{4}{\pick\ $n \in \ZZ^+$ such that $1/n \in (a,b)$}
+        \step{5}{\pick\ an open interval $(c,d)$ such that $1/n \in (c,d) \subseteq V$}
+        \step{6}{\pick\ $z \in (\max(c,1/(n+1)), 1/n)$}
+        \step{7}{$z \in U$}
+        \begin{proof}
+            \pf
+            \step{a}{$a < z$}
+            \begin{proof}
+                \pf\ $a < 0 < 1/(n+1) < z$ (\stepref{3}, \stepref{6})
+            \end{proof}
+            \step{b}{$z < b$}
+            \begin{proof}
+                \pf\ $z < 1/n < b$ (\stepref{4}, \stepref{6})
+            \end{proof}
+            \step{c}{$z \in (a,b) - K \subseteq U$}
+            \begin{proof}
+                \pf\ \stepref{3}
+            \end{proof}
+        \end{proof}
+        \step{8}{$z \in V$}
+        \begin{proof}
+            \pf
+            \step{a}{$c < z$}
+            \begin{proof}
+                \pf\ From \stepref{6}.
+            \end{proof}
+            \step{b}{$z < d$}
+            \begin{proof}
+                \pf\ $z < 1/n < d$ (\stepref{5}, \stepref{6})
+            \end{proof}
+            \step{c}{$z \in (c,d) \subseteq V$}
+            \begin{proof}
+                \pf\ \stepref{5}
+            \end{proof}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the fact that $U$ and $V$ are disjoint (\stepref{2}).
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
+
+\begin{proposition}
+    In a regular space, every pair of distinct points have neighbourhoods whose
+    closures are disjoint.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a regular space.}}
+    \step{2}{\pflet{$a, b \in X$ with $a \neq b$.}}
+    \step{3}{\pick\ a neighbourhood $U$ of $a$ such that $\overline{U} \subseteq
+    X - \{b\}$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:regular_neighbourhoods}.
+    \end{proof}
+    \step{4}{\pick\ a neighbourhood $V$ of $b$ such that $\overline{V} \subseteq
+    X - \overline{U}$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:regular_neighbourhoods}.
+    \end{proof}
+    \step{5}{$U$ and $V$ are disjoint neighbourhoods of $a$ and $b$ respectively
+    with disjoit closures.}
     \qed
 \end{proof}
 
@@ -7697,6 +7833,7 @@ locally compact.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:normal_neighbourhoods}
     Let $X$ be a $T_1$ space. Then $X$ is regular if and only if, for any closed
     set $A$ and open neighbourhood $U$ of $x$, there exists a neighbourhood
     $V$ of $A$ with $\overline{V} \subseteq U$.
@@ -7731,6 +7868,124 @@ locally compact.
         \step{d}{\pflet{$U = X - \overline{V}$}}
         \step{e}{$U$ and $V$ are disjoint open sets with $A \subseteq U$ and $B \subseteq V$}
     \end{proof}
+    \qed
+\end{proof}
+
+\begin{example}
+    The space $\RR_l$ is normal.
+
+    \begin{proof}
+        \pf
+        \step{1}{$\RR_l$ is $T_1$}
+        \begin{proof}
+            \pf\ Since the topology of $\RR_l$ is finer than $\RR$.
+        \end{proof}
+        \step{2}{\pflet{$A$ and $B$ be disjoint closed sets in $\RR_l$}}
+        \step{3}{\pflet{$U$ be the union of all the basic open sets $[a,x)$
+        with $a \in A$ such that $[a,x)$ does not intersect $B$.}}
+        \step{4}{\pflet{$V$ be the union of all the basic open sets $[b,x)$
+        with $b \in B$ such that $[b,x)$ does not intersect $A$.}}
+        \step{5}{$U$ and $V$ are disjoint.}
+        \begin{proof}
+            \step{a}{\assume{for a contradiction $x \in U \cap V$}}
+            \step{b}{\pick\ $[a,y)$ such that $x \in [a,y)$, $a \in A$ and $[a,y)$
+            does not intersect $B$.}
+            \step{c}{\pick\ $[b,z)$ such that $x \in [b,z)$, $b \in B$ and $[b,z)$
+            does not intersect $A$.}
+            \step{d}{\assume{w.l.o.g. $a < b$}}
+            \step{e}{$b \in [a,y)$}
+            \begin{proof}
+                \pf\ Since $a < b \leq x < y$
+            \end{proof}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts the fact that $[a,y)$ does not intersect $B$
+                (\stepref{b}).
+            \end{proof}
+        \end{proof}
+        \step{6}{$A \subseteq U$}
+        \begin{proof}
+            \step{a}{\pflet{$a \in A$}}
+            \step{b}{$a \in X - B$}
+            \step{c}{\pick\ $x$ such that $[a,x) \subseteq X - B$}
+            \step{d}{$a \in [a,x) \subseteq U$}
+        \end{proof}
+        \step{7}{$B \subseteq V$}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+        \qed
+    \end{proof}
+\end{example}
+
+The following example shows that:
+\begin{itemize}
+    \item a regular space is not necessarily normal;
+    \item the product of two normal spaces is not necessarily normal.
+\end{itemize}
+
+\begin{example}[Choice]
+    The Sorgenfrey plane is not normal.
+
+    \begin{proof}
+        \pf
+        \step{a}{\assume{for a contradiction $\RR_l^2$ is normal.}}
+        \step{b}{\pflet{$L = \{ (x, -x) \mid x \in \RR \}$}}
+        \step{c}{$L$ is closed in $\RR_l^2$.}
+        \step{d}{$L$ is discrete as a subspace of $\RR_l^2$.}
+        \step{e}{For every $A \subseteq L$, \pick\ disjoint open sets $U$ and $V$
+        in $\RR_l^2$ such that $A \subseteq U$ and $L - A \subseteq V$.}
+        \begin{proof}
+            \pf\ $A$ and $L - A$ are closed in $\RR_l^2$ by \ref{theorem:closed_subspace}.
+        \end{proof}
+        \step{f}{\pflet{$D = \QQ^2$}}
+        \step{g}{$D$ is dense in $\RR_l^2$}
+        \step{h}{Define $\theta : \pow L \rightarrow \pow D$ by
+        \begin{align*}
+            \theta(A) & = D \cap U_A & (\emptyset \subset A \subset L) \\
+            \theta(\emptyset) & = \emptyset \\
+            \theta(L) & = D
+        \end{align*}
+        }
+        \step{i}{$\theta$ is injective.}
+        \begin{proof}
+            \step{a}{\pflet{$A, B$ be nonempty proper subsets of $L$ with $A \neq B$}}
+            \step{b}{\assume{w.l.o.g. there exists $x \in A$ such that $x \notin B$}}
+            \step{c}{$U_A \cap V_B$ is nonempty}
+            \step{d}{\pick\ $d \in D \cap U_A \cap V_B$}
+            \step{e}{$d \in \theta(A)$ and $d \notin \theta(B)$}
+            \step{f}{$\theta(A) \neq \theta(B)$}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts Cantor's Theorem, since $L$ is uncountable
+            and $D$ is countable.
+        \end{proof}
+        \qed
+    \end{proof}    
+\end{example}
+
+\begin{proposition}
+    In a regular space, every pair of disjoint closed sets have open neighbourhoods whose
+    closures are disjoint.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a regular space.}}
+    \step{2}{\pflet{$A$ and $B$ be disjoint closed sets in $X$.}}
+    \step{3}{\pick\ a neighbourhood $U$ of $A$ such that $\overline{U} \subseteq
+    X - B$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:normal_neighbourhoods}.
+    \end{proof}
+    \step{4}{\pick\ a neighbourhood $V$ of $B$ such that $\overline{V} \subseteq
+    X - \overline{U}$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:normal_neighbourhoods}.
+    \end{proof}
+    \step{5}{$U$ and $V$ are disjoint open neighbourhoods of $A$ and $B$ respectively
+    with disjoit closures.}
     \qed
 \end{proof}
 
