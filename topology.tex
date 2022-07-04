@@ -7095,6 +7095,7 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
 \end{proof}
 
 \begin{proposition}[AC]
+    \label{proposition:pre_Baire_category}
     Let $X$ be a compact Hausdorff space. Let $\AA$ be a countable set of closed sets in $X$.
     If every element of $\AA$ has empty interior, then $\bigcup \AA$ has empty interior.
 \end{proposition}
@@ -7434,6 +7435,7 @@ The following examples show that not every limit point compact space is compact.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:perfect_image_regular}
     The image of a regular space under a perfect map is regular.
 \end{proposition}
 
@@ -7476,6 +7478,7 @@ The following examples show that not every limit point compact space is compact.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:perfect_image_second_countable}
     The image of a second countable space under a perfect map is second countable.
 \end{proposition}
 
@@ -7867,6 +7870,7 @@ locally compact.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:perfect_image_locally_compact}
     The image of a locally compact space under a perfect map is locally compact.
 \end{proposition}
 
@@ -8239,7 +8243,46 @@ The following example shows that:
             and $D$ is countable.
         \end{proof}
         \qed
-    \end{proof}    
+    \end{proof}
+
+    \begin{proof}
+        \pf
+        \step{a}{\pflet{$A = \{ (x, -x) \mid x \in \QQ \}$}}
+        \step{b}{\pflet{$B = \{ (x, -x) \mid x \in \RR - \QQ \}$}}
+        \step{c}{$A$ and $B$ are closed in $\RR_l^2$}
+        \step{d}{\pflet{$V$ be any open set in $\RR_l^2$ that includes $B$}
+        \prove{There is no open set $U$ that includes $A$ and is disjoint from $B$.}}
+        \step{e}{For $n \in \ZZ^+$, \pflet{$K_n = \{ x \in [0,1] - \QQ \mid
+        [x,x+1/n) \times [-x,-x+1/n) \subseteq V \}$}}
+        \step{f}{$[0.1] - \QQ = \bigcup_n K_n$ is countable.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in [0,1] - \QQ$} \prove{There exists $n$ such that
+            $x \in K_n$}}
+            \step{ii}{\pick\ $\epsilon$, $\delta$ such that $[x,x+\epsilon) \times
+            [-x,-x+\delta) \subseteq V$}
+            \step{iii}{\pick\ $n$ such that $1/n \leq \epsilon$ and $1/n \leq \delta$}
+            \step{iv}{$x \in K_n$}
+        \end{proof}
+        \step{g}{\pick\ $n$, $a$, $b$ such that $(a,b) \subseteq \overline{K_n}$}
+        \begin{proof}
+            \pf\ By Proposition \ref{proposition:pre_Baire_category} it cannot be that
+            every $\overline{K_n}$ has empty interior.
+        \end{proof}
+        \step{h}{For all $x \in (a,b)$ and $\epsilon \in (0,1/n)$ we have
+        $(x, -x+\epsilon) \in V$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in (a,b)$}}
+            \step{ii}{\pflet{$\epsilon \in (0,1/n)$}}
+            \step{iii}{\pick\ $y \in K_n \cap (x - \epsilon, x)$}
+            \begin{proof}
+                \pf\ Pick $z \in (a,b) \cap (x-\epsilon,x)$. Then $z \in \overline{K_n}$.
+            \end{proof}
+            \step{iv}{$(x, -x+\epsilon) \in [y.y+1/n) \times [-y,-y+1/n) \subseteq V$}
+        \end{proof}
+        \step{i}{For every rational $q \in (a,b)$, we have $(q, -q)$ is a limit point of $V$.}
+        \step{j}{There is no open set $U$ that includes $A$ and is disjoint from $B$.}
+        \qed
+    \end{proof}
 \end{example}
 
 \begin{proposition}
@@ -8267,6 +8310,7 @@ The following example shows that:
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:closed_continuous_image_normal}
     The image of a normal space under a closed continuous map is normal.
 \end{proposition}
 
@@ -8329,6 +8373,46 @@ The following example shows that:
         \step{c}{$p(\overline{V}) \subseteq U$}
     \end{proof}
     \qed
+\end{proof}
+
+\begin{theorem}[Choice]
+    Every second countable regular space is normal.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable regular space.}}
+    \step{2}{\pick\ a countable basis $\BB$ for $X$.}
+    \step{3}{\pflet{$A$ and $B$ be disjoint closed sets in $X$.}}
+    \step{4}{\pick\ a sequence $(U_n)$ of open sets disjoint from $B$ that cover $A$}
+    \begin{proof}
+        \step{a}{$\{ U \in \BB \mid \overline{U} \cap V = \emptyset \}$ is a countable
+        set of open sets that covers $A$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in A$}}
+            \step{ii}{\pick\ a neighbourhood $V$ of $x$ such that $\overline{V} \subseteq X - B$}
+            \begin{proof}
+                \pf\ By regularity.
+            \end{proof}
+            \step{iii}{\pick\ $U \in \BB$ such that $x \in U \subseteq V$}
+            \begin{proof}
+                \pf\ Since $\BB$ is a basis.
+            \end{proof}
+            \step{iv}{$\overline{U} \cap V = \emptyset$}
+            \begin{proof}
+                \pf\ Since $\overline{U} \subseteq \overline{V} \subseteq X - B$.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{5}{\pick\ a sequence $(V_n)$ of open sets disjoint from $A$ that cover $B$}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{6}{For $n \in \ZZ^+$, \pflet{$U_n' = U_n - \bigcup_{i=1}^n \overline{V_i}$
+    and $V_n' = V_n - \bigcup_{i=1}^n \overline{U_i}$}}
+    \step{7}{\pflet{$U' = \bigcup_n U_n'$ and $V' = \bigcup_n V_n'$}}
+    \step{8}{$U'$ and $V'$ are disjoint open neighbourhoods of $A$ and $B$
+    respectively.}
 \end{proof}
 
 \chapter{Topological Groups}
@@ -8969,4 +9053,103 @@ The following example shows that:
         \end{proof}
     \end{proof}
     \qed
+\end{proof}
+
+\section{Actions}
+
+\begin{definition}[Action]
+    Let $X$ be a topological space. Let $G$ be a topological group.
+    An \emph{action} of $G$ on $X$ is a continuous map $\cdot : G \times X \rightarrow X$
+    such that:
+    \begin{itemize}
+        \item For all $x \in X$, $ex = x$
+        \item For all $g, h \in G$ and $x \in X$, $g(hx) = (gh)x$
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Orbit Space]
+    Let $X$ be a topological space. Let $G$ be a topological group.
+    Let $\cdot$ be an action of $G$ on $X$. The \emph{orbit space}
+    of the action, $X / G$, is the quotient space of $X$ by $\sim$,
+    where $x \sim y$ iff there exists $g \in G$ such that $y = gx$.
+\end{definition}
+
+\begin{proposition}
+    Let $G$ be a compact topological group. Let $X$ be a topological space.
+    Let $\cdot$ be an action of $G$ on $X$. The canonical map $\pi : X \twoheadrightarrow X / G$
+    is a perfect map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\pi$ is a closed map.}
+    \begin{proof}
+        \step{a}{\pflet{$A \subseteq X$ be closed.} \prove{$\inv{\pi}(\pi(A)) = GA$ is closed.}}
+        \step{b}{\pflet{$x \in X - GA$}}
+        \step{c}{For all $g \in G$ we have $gx \notin A$}
+        \step{d}{For all $g \in G$, we have $(g,x) \in \inv{\alpha}(X-A)$, where $\alpha = \cdot : G \times X \rightarrow X$}
+        \step{e}{For all $g \in G$, there exist open neighbourhoods $U$ of $g$ and $V$ of $x$ such that $U \times V \subseteq \inv{\alpha}(X - A)$}
+        \step{f}{$\{ U \text{ open in } G \mid \exists V \text{ open in } X. 
+        x \in V \text{ and } U \times V \subseteq \inv{\alpha}(X - A) \}$ covers $G$}
+        \step{g}{\pick\ a finite subcover $\{ U_1, \ldots, U_n \}$}
+        \step{h}{For $1 \leq i \leq n$, \pick\ $V_i$ open in $X$ such that $x \in V_i$ and
+        $U_i \times V_i \subseteq \inv{\alpha}(X - A)$}
+        \step{i}{\pflet{$V = V_1 \cap \cdots \cap V_n$}}
+        \step{j}{$x \in V \subseteq X - GA$}
+    \end{proof}
+    \step{2}{$\pi$ is continuous.}
+    \begin{proof}
+        \pf\ By construction it is a quotient map.
+    \end{proof}
+    \step{3}{For all $y \in X / G$, we have $\inv{\pi}(y)$ is compact.}
+    \begin{proof}
+        \pf\ By Theorem \ref{theorem:continuous_image_compact}
+        since it is the image of the map $G \rightarrow X$ that maps $g$ to $gy$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a compact topological group. Let $X$ be a Hausdorff space.
+    Let $\cdot$ be an action of $G$ on $X$. Then $X / G$ is Hausdorff.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:perfect_image_Hausdorff}. \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a compact topological group. Let $X$ be a regular space.
+    Let $\cdot$ be an action of $G$ on $X$. Then $X / G$ is regular.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:perfect_image_regular}. \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a compact topological group. Let $X$ be a normal space.
+    Let $\cdot$ be an action of $G$ on $X$. Then $X / G$ is normal.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:closed_continuous_image_normal}. \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a compact topological group. Let $X$ be a locally compact space.
+    Let $\cdot$ be an action of $G$ on $X$. Then $X / G$ is locally compact.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:perfect_image_locally_compact}. \qed
+\end{proof}
+
+\begin{corollary}
+    Let $G$ be a compact topological group. Let $X$ be a second countable space.
+    Let $\cdot$ be an action of $G$ on $X$. Then $X / G$ is second countable.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:perfect_image_second_countable}. \qed
 \end{proof}
