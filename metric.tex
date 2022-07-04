@@ -325,6 +325,7 @@ We prove this is a metric.
 \end{corollary}
 
 \begin{proposition}
+    \label{proposition:metrizable_Hausdorff}
     Every metrizable space is Hausdorff.
 \end{proposition}
 
@@ -342,6 +343,27 @@ We prove this is a metric.
     \label{corollary:metrizable_T1}
     Every metrizable space is $T_1$.
 \end{corollary}
+
+\begin{proposition}
+    Every metrizable space is normal.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{$X$ is $T_1$.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:metrizable_T1}.
+    \end{proof}
+    \step{3}{\pflet{$A$ and $B$ be disjoint closed sets in $X$.}}
+    \step{4}{\pflet{$U = \bigcup \{ B(a, \epsilon / 2) \mid
+    a \in A, B(a, \epsilon) \cap B = \emptyset \}$}}
+    \step{5}{\pflet{$V = \bigcup \{ B(b, \epsilon / 2) \mid
+    b \in B, B(b, \epsilon) \cap A = \emptyset \}$}}
+    \step{6}{$U$ and $V$ are disjoint open neighbourhoods of $A$ and
+    $B$ respectively.}
+    \qed
+\end{proof}
 
 \begin{proposition}[CC]
     The product of a countable family of metrizable spaces is metrizable.
@@ -1818,6 +1840,7 @@ to $A$ being closed:
         \qed
     \end{proof}
 \end{example}
+
 
 \section{Isometry}
 
