@@ -8415,6 +8415,175 @@ The following example shows that:
     respectively.}
 \end{proof}
 
+\begin{theorem}
+    Every compact Hausdorff space is normal.
+\end{theorem}
+
+\begin{proof}
+    \pf\ From Propositions \ref{proposition:disjoint_neighbourhoods_compact_Hausdorff}
+    and \ref{proposition:closed_subspace_compact}. \qed
+\end{proof}
+
+\begin{theorem}
+    Every linearly ordered set under the order topology is normal.
+\end{theorem}
+
+\begin{proof}
+    \pf\ See L. A. Steen and J. A. Seerbach Jr. \emph{Counterexamples in
+    Topology} Example 39. \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:closed_subspace_normal}
+    Every closed subspace of a normal space is normal.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a normal space.}}
+    \step{2}{\pflet{$Y$ be a closed subspace of $X$.}}
+    \step{3}{\pflet{$A$ and $B$ be closed in $Y$.}}
+    \step{4}{$A$ and $B$ are closed in $X$.}
+    \step{5}{\pick\ $U'$ and $V'$ open in $X$ and disjoint such that
+    $A \subseteq U'$ and $B \subseteq V'$}
+    \step{6}{$U' \cap Y$ and $V' \cap Y$ are disjoint open neighbourhoods of $A$
+    and $B$ respectively in $Y$.}
+    \qed
+\end{proof}
+
+The following example shows:
+\begin{itemize}
+    \item A regular space is not necessarily normal.
+    \item A subspace of a normal space is not necessarily normal.
+    (Since $\RR^J \cong (0,1)^J \subseteq [0,1]^J$ and $[0,1]^J$
+    is comapct Hausdorff hence normal.)
+    \item A product of a family of normal spaces is not necessarily normal.
+\end{itemize}
+
+\begin{example}[Choice]
+    If $J$ is an uncountable set then $\RR^J$ is not normal.
+\end{example}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$J$ be an uncountable set.}}
+    \step{2}{\pflet{$X = (\ZZ^+)^J$}}
+    \step{3}{$X$ is not normal.}
+    \begin{proof}
+        \step{a}{For $x \in X$ and $B \subseteq^{\mathrm{fin}} J$,
+        \pflet{$U(x,B) = \{ y \in X \mid \forall \alpha \in B. y(\alpha) = x(\alpha) \}$}}
+        \step{b}{$\{ U(x,B) \mid x \in X, B \subseteq^{\mathrm{fin}} J \}$ is a basis for $X$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$ and $U = \prod_{\alpha \in J} U_\alpha$ be a basic open
+            neighbourhood of $x$, where $U_\alpha = \ZZ^+$ for all $\alpha$ except
+            $\alpha \in B$, where $B$ is some finite subset of $J$}}
+            \step{ii}{$x \in U(x,B) \subseteq U$}
+        \end{proof}
+        \step{c}{For $n \in \ZZ^+$, \pflet{$P_n = \{ x \in X \mid x \text{ is injective on }
+        J - \inv{x}(n) \}$}}
+        \step{cc}{For every $n$, $P_n$ is closed.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X - P_n$}}
+            \step{ii}{\pick\ $\alpha, \beta \in J$ such that $x(\alpha) = x(\beta) \neq n$}
+            \step{iii}{$x \in B(x,\{\alpha, \beta\}) \subseteq X - P_n$}
+        \end{proof}
+        \step{d}{$P_1$ and $R_2$ are disjoint.}
+        \begin{proof}
+            \pf\ If $x \in X$ was in $P_1$ and $P_2$ then it would be an injective
+            function $J \rightarrow \ZZ^+$, contradicting \stepref{1}.
+        \end{proof}
+        \step{e}{\assume{for a contradiction $U$ and $V$ are disjoint open neighbourhoods
+        of $P_1$ and $P_2$ respectively.}}
+        \step{f}{For every sequence $(\alpha_n)$ in $J$, sequence $0 < n_1 < n_2 < \cdots$
+        of integers, and $i \geq 1$, \pflet{
+            $B_i((\alpha_n),(n_k)) = \{ \alpha_1, \alpha_2, \ldots, \alpha_{n_i} \}$
+            and $x_i((\alpha_n),(n_k)) \in X$ be the point
+            \begin{align*}
+                x_i((\alpha_n),(n_k))(\alpha_j) & = j & (1 \leq j \leq n_{i-1}) \\
+                x_i((\alpha_n),(n_k))(\alpha) & = 1 & (\text{for all other } \alpha)
+            \end{align*}
+        }}
+        \step{g}{\pick\ sequences $(\alpha_n)$ and $(n_k)$ such that, for all $i$,
+        we have $U(x_i((\alpha_n),(n_k)),B_i((\alpha_n),(n_k))) \subseteq U$}
+        \begin{proof}
+            \step{i}{$x_1((),())(\alpha) = 1$ for all $\alpha$}
+            \step{ii}{\pick\ $B_1$ such that $U(x_1,B_1) \subseteq U$}
+            \step{iii}{\pflet{$p_1 = |B_1|$ and $B_1 = \{ \alpha_1, \alpha_2, \ldots,
+            \alpha_{n_1} \}$}}
+            \step{iv}{\assume\ we have picked $n_1$, \ldots, $n_k$ and $\alpha_1$,
+            \ldots, $\alpha_{n_k}$ satisfying the conditions.}
+            \step{v}{$x_{k+1}((\alpha_n),(n_k)) \in P_1$}
+            \step{vi}{\pick\ $B_{k+1} \supset B_k$ such that $U(x_{k+1},B_{k+1}) \subseteq U$}
+            \step{vii}{\pflet{$n_{k+1} = |B_{k+1}|$ and $B_{k+1}-B_k
+            = \{ \alpha_{n_k + 1}, \alpha_{n_k + 2}, \ldots, \alpha_{n_{k+1}} \}$}}
+        \end{proof}
+        \step{h}{\pflet{$A = \{ \alpha_1, \alpha_2, \ldots, \}$}}
+        \step{i}{Define $y : J \rightarrow \ZZ^+$ by
+        \begin{align*}
+            y(\alpha_j) & = j & (j \in \ZZ^+) \\
+            y(\alpha) & = 2 & (\text{for all other } j)
+        \end{align*}}
+        \step{j}{\pick\ $B$ such that $U(y,B) \subseteq V$}
+        \step{k}{\pflet{$i$ be least such that $B \cap A \subseteq B_i$}}
+        \step{l}{$U(x_{i+1}((\alpha_n),(n_k)),B_{i+1}((\alpha_n),(n_k)))
+        \cap U(y,B) \neq \emptyset$}
+        \begin{proof}
+            \pf\ $x_{i+1}$ is in both.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This is a contradiction since
+            $U(x_{i+1}((\alpha_n),(n_k)),B_{i+1}((\alpha_n),(n_k))) \subseteq U$ and
+            $U(y,B) \subseteq V$.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ By Propositionm \ref{proposition:closed_subspace_normal}
+        since $(\ZZ^+)^J$ is a closed subspace of $\RR^J$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{itemize}
+    \item A regular space is not necessarily normal.
+    \item A subspace of a normal space is not necessarily normal.
+    \item A product of two normal spaces is not necessarily normal.
+\end{itemize}
+
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not normal.
+
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$A = \{ (x,x) \mid x \in S_\Omega \}$}}
+        \step{2}{\pflet{$B = \{ (x, \Omega) \mid x \in S_\Omega \}$}}
+        \step{3}{$A$ and $B$ are disjoint closed subsets in $S_\Omega \times
+        \overline{S_\Omega}$}
+        \step{4}{\assume{for a contradiction $U$ and $V$ are disjoint open
+        neighbourhoods of $A$ and $B$ respectively.}}
+        \step{5}{For all $x \in S_\Omega$, there exists $\beta$ with $x < \beta
+        < \Omega$ such that $(x, \beta) \notin U$}
+        \begin{proof}
+            \step{a}{\pflet{$x \in S_\Omega$}}
+            \step{b}{\pick\ $U_1$ open in $S_\Omega$ and $U_2$ open in
+            $\overline{S_\Omega}$ such that $(x, \Omega) \in U_1 \times U_2 \subseteq
+            V$}
+            \step{c}{\pick\ $\gamma$ such that $(\gamma, \Omega] \subseteq U_2$}
+            \step{d}{\pflet{$\beta = \gamma + 1$}}
+            \step{e}{$(x, \beta) \in V$}
+            \step{f}{$(x, \beta) \notin U$}
+        \end{proof}
+        \step{6}{For $x \in S_\Omega$, \pflet{$\beta(x)$ be the least element
+        such that $x < \beta(x)$ and $(x, \beta(x)) \notin U$}}
+        \step{7}{\pflet{$b = \lim_{n \rightarrow \infty} \beta^n(0)$}}
+        \step{8}{$(beta^n(0), \beta^{n+1}(0)) \rightarrow (b,b)$ as $n \rightarrow \infty$}
+        \step{9}{$(b,b) \in A \subseteq U$}
+        \step{10}{For all $n$ we have $(beta^n(0), \beta^{n+1}(0)) \notin U$}
+        \qedstep
+        \qed
+    \end{proof}
+\end{example}
 \chapter{Topological Groups}
 
 \begin{definition}[Topological Group]
