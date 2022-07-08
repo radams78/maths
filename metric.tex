@@ -345,6 +345,7 @@ We prove this is a metric.
 \end{corollary}
 
 \begin{proposition}
+    \label{proposition:metrizable_normal}
     Every metrizable space is normal.
 \end{proposition}
 
@@ -363,6 +364,14 @@ We prove this is a metric.
     \step{6}{$U$ and $V$ are disjoint open neighbourhoods of $A$ and
     $B$ respectively.}
     \qed
+\end{proof}
+
+\begin{corollary}
+    Every metrizable space is completely normal.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Since a subspace of a metrizable space is metrizable. \qed
 \end{proof}
 
 \begin{proposition}[CC]
@@ -1841,6 +1850,24 @@ to $A$ being closed:
     \end{proof}
 \end{example}
 
+\begin{proposition}
+    Every metrizable space is perfectly normal.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{$X$ is normal.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:metrizable_normal}.
+    \end{proof}
+    \step{3}{Every closed set is $G_\delta$.}
+    \begin{proof}
+        \pf\ For any closed set $A$ we have $A = \bigcap_{n \in \ZZ^+}
+        B(A,1/n)$.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Isometry}
 
