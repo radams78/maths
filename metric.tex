@@ -1319,6 +1319,33 @@ We prove this is a metric.
     The ordered square is not metrizable, because it is compact but not separable.
 \end{example}
 
+\begin{proposition}
+    For any set $J$, the space $\RR^J$ under the box topology is completely regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$J$ be any set.}}
+    \step{2}{For any closed set $A \subseteq \RR^J$ disjoint from $(-1,1)^J$,
+    $A$ and $\{0\}$ can be separated by a continuous function.}
+    \begin{proof}
+        \step{a}{\pflet{$A$ be a closed set disjoint from $(-1,1)^J$}}
+        \step{b}{\pick\ a function $f : \RR^J \rightarrow [0,1]$
+        continuous with respect to the uniform topology that
+        separates $\{0\}$ from $A$.}
+        \step{c}{$f$ is continuous with respect to the box topology.}
+    \end{proof}
+    \step{3}{\pflet{$A$ be any closed set.}}
+    \step{4}{\pflet{$a$ be any point not in $A$.}}
+    \step{5}{\pick\ a basic open neighbourhood $U$ of $a$ disjoint from $A$.}
+    \step{6}{\pick\ a homemorphism $\phi : \RR^J \cong \RR^J$ that maps $a$ to $0$ and
+    $U$ to $(-1,1)^J$}
+    \step{7}{\pick\ a continuous function $f : \RR^J \rightarrow [0,1]$
+    such that $f(0) = 0$ and $f(\phi(A)) = \{1\}$}
+    \step{8}{\pflet{$g = f \circ \phi$}}
+    \step{9}{$g(a) = 0$ and $g(A) = \{1\}$}
+\end{proof}
+
 \section{Uniform Convergence}
 
 \begin{definition}[Uniform Convergence]

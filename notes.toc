@@ -161,9 +161,9 @@
 \contentsline {section}{\numberline {12.5}Uniform Convergence}{220}{section.12.5}%
 \contentsline {section}{\numberline {12.6}Isometric Imbeddings}{222}{section.12.6}%
 \contentsline {section}{\numberline {12.7}Distance to a Set}{222}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{223}{section.12.8}%
+\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{224}{section.12.8}%
 \contentsline {section}{\numberline {12.9}Uniform Continuity}{225}{section.12.9}%
-\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{226}{section.12.10}%
+\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{227}{section.12.10}%
 \contentsline {section}{\numberline {12.11}Isometry}{228}{section.12.11}%
 \contentsline {section}{\numberline {12.12}Shrinking Maps}{229}{section.12.12}%
 \contentsline {section}{\numberline {12.13}Contractions}{230}{section.12.13}%
