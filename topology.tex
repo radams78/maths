@@ -10051,3 +10051,151 @@ Let $X$ be a set and $f : X \rightarrow [0,1]$. Let $A \subseteq X$. Then $f$
 \begin{proof}
     \pf\ Proposition \ref{proposition:perfect_image_second_countable}. \qed
 \end{proof}
+
+\begin{proposition}
+    Every topological group is completely regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a topological group.}}
+    \step{1a}{\pflet{$A$ be a closed set that does not contain $e$.}}
+    \step{1b}{\pflet{$V_0 = G - A$}}
+    \step{2}{\pick\ a sequence $(V_n)_{n \geq 1}$ of symmetric neighbourhoods of $e$ such that, for all $n \geq 1$,
+    $V_n V_n \subseteq V_{n-1}$.}
+    \step{3}{Define an open set $U(p)$ for every dyadic rational $p$ by:
+    \begin{align*}
+        U(1/2^n) & = V_n & (n \geq 0) \\
+        U((2k+1)/2^n) & = V_n U(k/2^{n-1}) & (n \geq 0, 0 < k < 2^n) \\
+        U(p) & = \emptyset & (p \leq 0) \\
+        U(p) & = G & (p > 1)
+    \end{align*}
+    }
+    \step{4}{For all $n \geq 0$ and $0 < k < 2^n$, we have
+    \[ V_n U(k / 2^n) \subseteq U((k+1)/2^n) \]}
+    \begin{proof}
+        \pf\ The proof is by induction on $n$.
+        \step{a}{\assume{For all $0 < k < 2^n$, we have $V_n U(k/2^n) \subseteq
+        U((k+1)/2^n)$}}
+        \step{b}{$V_{n+1} U(1/2^{n+1}) \subseteq U(1/2^n)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                V_{n+1} U(1/2^{n+1}) & = V_{n+1} V_{n+1} & (\text{\stepref{3}}) \\
+                & \subseteq V_n & (\text{\stepref{2}}) \\
+                & = U(1/2^n) & (\text{\stepref{3}})
+            \end{align*}
+        \end{proof}
+        \step{c}{For $0 < k < 2^{n+1}$ even we have $V_{n+1} U(k/2^{n+1}) \subseteq
+        U((k+1)/2^{n+1})$}
+        \begin{proof}
+            \step{i}{\pflet{$0 < k < 2^{n+1}$ be even}}
+            \step{ii}{\pflet{$k = 2l$}}
+            \step{iii}{$V_{n+1} U(k/2^{n+1}) \subseteq
+            U((k+1)/2^{n+1})$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    V_{n+1} U(k/2^{n+1}) & = V_{n+1} U(l/2^n) \\
+                    & = U((2l+1)/2^{n+1}) & (\text{\stepref{3}}) \\
+                    & = U((k+1)/2^{n+1})
+                \end{align*}
+            \end{proof}
+        \end{proof}
+        \step{d}{For $0 < k < 2^{n+1}$ odd we have $V_{n+1} U(k/2^{n+1}) \subseteq
+        U((k+1)/2^{n+1})$}
+        \begin{proof}
+            \pf
+            \step{i}{\pflet{$0 < k < 2^{n+1}$ be odd}}
+            \step{ii}{\pflet{$k = 2l+1$}}
+            \step{iii}{$V_{n+1} U(k/2^{n+1}) \subseteq
+            U((k+1)/2^{n+1})$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    V_{n+1} U(k/2^{n+1}) & = V_{n+1} U(2l+1/2^{n+1}) \\
+                    & = V_{n+1} V_{n+1} U(l/2^n) & (\text{\stepref{3}}) \\
+                    & \subseteq V_n U(l/2^n) & (\text{\stepref{2}}) \\
+                    & \subseteq U(l+1/2^n) & (\text{\stepref{a}}) \\
+                    & = U((k+1)/2^{n+1})
+                \end{align*}
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{4a}{For any dyadic rationals $p$, $q$, if $p < q$ then $\overline{U(p)}
+    \subseteq U(q)$}
+    \begin{proof}
+        \step{a}{\pflet{$p$ and $q$ be dyadic rationals such that $p < q$}}
+        \step{b}{\pick\ $n>0$, $k$, $l$ such that $p = k / 2^n$ and $q = l / 2^n$ and $k < l$}
+        \step{c}{$V_n U(p) \subseteq U(q)$}
+        \step{d}{$\overline{U(p)} \subseteq V_n U(p)$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in \overline{U(p)}$}}
+            \step{ii}{$V_n x$ is an open neighbourhood of $x$}
+            \step{iii}{\pick\ $y \in U(p) \cap V_n x$}
+            \step{iv}{\pick\ $v \in V_n$ such that $y = v x$}
+            \step{v}{$x = \inv{v} y \in V_n U(p)$}
+            \begin{proof}
+                \pf\ Since $V_n$ is symmetric.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \step{5}{For $x \in G$, \pflet{$\QQ(x) = \{ p \mid x \in U(p) \}$}}
+    \step{6}{Define $f : G \rightarrow [0,1]$ by $f(x) = \inf \QQ(x)$}
+    \step{7}{$f$ is continuous.}
+    \step{6}{$f$ is continuous.}
+    \begin{proof}
+        \step{a}{For all $r \in P$ and $x \in \overline{U_r}$ we have $f(x) \leq r$}
+        \begin{proof}
+            \step{i}{\pflet{$r \in P$}}
+            \step{ii}{\pflet{$x \in \overline{U_r}$}}
+            \step{iii}{For all $s > r$ we have $x \in U_s$}
+            \step{iv}{For all $s > r$ we have $s \in \QQ(x)$}
+            \step{v}{For all $s > r$ we have $f(x) \leq s$}
+            \step{vi}{$f(x) \leq r$}
+        \end{proof}
+        \step{b}{For all $r \in P$ and $x \in U_r$ we have $f(x) \geq r$}
+        \begin{proof}
+            \step{i}{\pflet{$r \in P$}}
+            \step{ii}{\pflet{$x \in X - U_r$}}
+            \step{iii}{For all $s < r$ we have $x \notin U_s$}
+            \step{iv}{$r$ is a lower bound for $\QQ(x)$}
+            \step{v}{$r \leq f(x)$}
+        \end{proof}
+        \step{c}{\pflet{$x_0 \in X$}}
+        \step{d}{\pflet{$(c,d)$ be an open interval that contains $f(x_0)$}
+        \prove{There exists an open neighbourhood $U$ of $x_0$ such that
+        $f(U) \subseteq (c,d)$}}
+        \step{e}{\pick\ rationals $q$, $r$ with $c < q < f(x_0) < r < d$}
+        \step{f}{\pflet{$U = U_r - \overline{U_q}$}}
+        \step{g}{$U$ is open}
+        \step{h}{$x_0 \in U$}
+        \begin{proof}
+            \step{i}{$x_0 \in U_r$}
+            \begin{proof}
+                \pf\ From \stepref{b}.
+            \end{proof}
+            \step{ii}{$x_0 \notin \overline{U_q}$}
+            \begin{proof}
+                \pf\ From \stepref{a}.
+            \end{proof}
+        \end{proof}
+        \step{i}{$f(U) \subseteq (c,d)$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in U$}}
+            \step{ii}{$r \leq f(x) \leq s$}
+            \begin{proof}
+                \pf\ From \stepref{a} and \stepref{b}.
+            \end{proof}
+            \step{iii}{$c < f(x) < d$}
+        \end{proof}
+    \end{proof}
+    \step{8}{$f(e) = 0$}
+    \step{9}{$f(A) = \{1\}$}
+    \qedstep
+    \begin{proof}
+        \pf\ The result follows for any $a \in G$ by taking the homeomorphism
+        that maps $a$ to $e$.
+    \end{proof}
+    \qed
+\end{proof}

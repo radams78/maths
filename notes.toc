@@ -155,15 +155,15 @@
 \contentsline {section}{\numberline {11.63}Perfectly Normal Spaces}{191}{section.11.63}%
 \contentsline {chapter}{\numberline {12}Topological Groups}{192}{chapter.12}%
 \contentsline {section}{\numberline {12.1}Actions}{200}{section.12.1}%
-\contentsline {section}{\numberline {12.2}The Metric Topology}{202}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Real Linear Algebra}{209}{section.12.3}%
-\contentsline {section}{\numberline {12.4}The Uniform Topology}{217}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Uniform Convergence}{220}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Isometric Imbeddings}{222}{section.12.6}%
-\contentsline {section}{\numberline {12.7}Distance to a Set}{222}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{224}{section.12.8}%
-\contentsline {section}{\numberline {12.9}Uniform Continuity}{225}{section.12.9}%
-\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{227}{section.12.10}%
-\contentsline {section}{\numberline {12.11}Isometry}{228}{section.12.11}%
-\contentsline {section}{\numberline {12.12}Shrinking Maps}{229}{section.12.12}%
-\contentsline {section}{\numberline {12.13}Contractions}{230}{section.12.13}%
+\contentsline {section}{\numberline {12.2}The Metric Topology}{205}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Real Linear Algebra}{212}{section.12.3}%
+\contentsline {section}{\numberline {12.4}The Uniform Topology}{220}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Uniform Convergence}{223}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Isometric Imbeddings}{225}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Distance to a Set}{225}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{227}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Uniform Continuity}{228}{section.12.9}%
+\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{230}{section.12.10}%
+\contentsline {section}{\numberline {12.11}Isometry}{231}{section.12.11}%
+\contentsline {section}{\numberline {12.12}Shrinking Maps}{232}{section.12.12}%
+\contentsline {section}{\numberline {12.13}Contractions}{233}{section.12.13}%
