@@ -3554,7 +3554,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 
 \begin{definition}[Retraction]
     Let $X$ be a topological space and $A \subseteq X$. A \emph{retraction} of $X$ onto $A$ is a continuous map $r : X \rightarrow A$ such that, for all $a \in A$,
-    we have $r(a) = a$.    
+    we have $r(a) = a$. In this case we call $A$ a \emph{retract} of $X$.
 \end{definition}
 
 \begin{proposition}
@@ -3563,6 +3563,19 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 
 \begin{proof}
     \pf\ Proposition \ref{proposition:quotient_retraction} with $f$ the inclusion $A \hookrightarrow X$. \qed
+\end{proof}
+
+\begin{proposition}
+    If $Z$ is Hausdorff and $Y$ is a retract of $Z$ then $Y$ is closed.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in Z - Y$}}
+    \step{2}{$r(x) \neq x$}
+    \step{3}{\pick\ disjoint open neighbourhoods $U$ and $V$ of $x$ and $r(x)$ respectively.}
+    \step{4}{$x \in U \cap \inv{r}(V) \subseteq Z - Y$}
+    \qed
 \end{proof}
 
 \section{Homogeneous Spaces}
