@@ -375,6 +375,7 @@ We prove this is a metric.
 \end{proof}
 
 \begin{proposition}[CC]
+    \label{proposition:countable_product_metrizable}
     The product of a countable family of metrizable spaces is metrizable.
 \end{proposition}
 
@@ -548,6 +549,170 @@ This example shows the converse does not hold:
     \step{6}{$\{ d(a,x) \mid x \in X \}$ is uncountable.}
     \begin{proof}
         \pf\ Since it includes a closed interval (Corollary \ref{corollary:closed_interval_uncountable}).
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Urysohn Metrization Theorem (Choice)]
+    Every second countable regular space is metrizable.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable regular space.}}
+    \step{2}{There exists a countable set $\mathcal{F}$ of continuous functions $X \rightarrow
+    [0,1]$ such that, for every $x_0 \in X$ and every neightbourhood $U$ of $x_0$,
+    there exists $f \in \mathcal{F}$ such that $f(x_0) > 0$ and $f$ vanishes outside $U$.}
+    \begin{proof}
+        \step{a}{\pick\ a countable basis $\BB$ for $X$.}
+        \step{b}{For all $B, C \in \BB$ with $\overline{B} \subseteq C$,
+        \pick\ a continuous $g_{BC} : X \rightarrow [0,1]$ such that
+        $g_{BC}(\overline{B}) = \{1\}$ and $g_{BC}(X - C) = \{0\}$}
+        \begin{proof}
+            \pf\ By the Urysohn Lemma.
+        \end{proof}
+        \step{c}{\pflet{$\mathcal{F} = \{ g_{BC} \mid B, C \in \BB, \overline{B}
+        \subseteq C \}$}}
+        \step{d}{\pflet{$x_0 \in X$}}
+        \step{e}{\pflet{$U$ be a neighbourhood of $x_0$}}
+        \step{f}{\pick\ $C \in \BB$ such that $x_0 \in C \subseteq U$}
+        \step{g}{\pick\ $V$ an open neighbourhood of $x_0$ such that $\overline{V}
+        \subseteq C$}
+        \step{h}{\pick\ $B \in \BB$ such that $x_0 \in B \subseteq V$}
+        \step{i}{$\overline{B} \subseteq C$}
+        \step{j}{$g_{BC}(x_0) > 0$ and $g_{BC}$ vanishes outside $U$}
+    \end{proof}
+    \step{3}{Define $F : X \rightarrow [0,1]^{\mathcal{F}}$ by $F(x) = (f(x))_{f \in \mathcal{F}}$}
+    \step{4}{$F$ is an imedding.}
+    \begin{proof}
+        \step{a}{$F$ is continuous.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:product_continuous}.
+        \end{proof}
+        \step{b}{$F$ is injective.}
+        \begin{proof}
+            \step{i}{\pflet{$x, y \in X$ with $x \neq y$}}
+            \step{ii}{\pick\ $f \in \mathcal{F}$ such that $f(x) > 0$ and
+            $f$ vanishes outside $X - \{y\}$}
+            \begin{proof}
+                \pf\ By \stepref{2}.
+            \end{proof}
+            \step{iii}{$F(x)_f > 0$ and $F(y)_f = 0$}
+        \end{proof}
+        \step{c}{$F : X \rightarrow F(X)$ is an open map.}
+        \begin{proof}
+            \step{i}{\pflet{$U$ be open in $X$.}}
+            \step{ii}{\pflet{$z_0 \in U$} \prove{There exists $W$ open in $F(X)$
+            such that $z_0 \in W \subseteq F(U)$}}
+            \step{iii}{\pflet{$x_0 = \inv{F}(z_0)$}}
+            \step{iv}{\pick\ $f \in \mathcal{F}$ such that $f(x_0) > 0$ and $f$
+            vanishes outside $U$.}
+            \step{v}{\pflet{$V = \inv{\pi_f}((0, + \infty))$}}
+            \step{vi}{\pflet{$W = V \cap F(X)$}}
+            \step{vii}{$z_0 \in W$}
+            \step{viii}{$W \subseteq F(U)$}
+            \begin{proof}
+                \step{one}{\pflet{$z \in W$}}
+                \step{two}{\pflet{$x = \inv{F}(z)$}}
+                \step{three}{$f(x) > 0$}
+                \step{four}{$x \in U$}
+                \step{five}{$z \in F(U)$}
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $[0,1]^{\mathcal{F}}$ is metrizable by Proposition
+        \ref{proposition:countable_product_metrizable}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a second countable regular space.}}
+    \step{2}{There exists a countable sequence $(f_n)$ of continuous functions $X \rightarrow
+    [0,1/n]$ such that, for every $x_0 \in X$ and every neightbourhood $U$ of $x_0$,
+    there exists $n$ such that $f_n(x_0) > 0$ and $f_n$ vanishes outside $U$.}
+    \begin{proof}
+        \step{a}{\pick\ a countable basis $\BB$ for $X$.}
+        \step{b}{For all $B, C \in \BB$ with $\overline{B} \subseteq C$,
+        \pick\ a continuous $g_{BC} : X \rightarrow [0,1]$ such that
+        $g_{BC}(\overline{B}) = \{1\}$ and $g_{BC}(X - C) = \{0\}$}
+        \begin{proof}
+            \pf\ By the Urysohn Lemma.
+        \end{proof}
+        \step{c}{\pflet{$(g_n)$ be an enumeration of $\{ g_{BC} \mid B, C \in \BB, \overline{B}
+        \subseteq C \}$}}
+        \step{cc}{\pflet{$f_n(x) = g_n(x) / n$ for all $n \in \ZZ^+$ and $x \in X$}}
+        \step{d}{\pflet{$x_0 \in X$}}
+        \step{e}{\pflet{$U$ be a neighbourhood of $x_0$}}
+        \step{f}{\pick\ $C \in \BB$ such that $x_0 \in C \subseteq U$}
+        \step{g}{\pick\ $V$ an open neighbourhood of $x_0$ such that $\overline{V}
+        \subseteq C$}
+        \step{h}{\pick\ $B \in \BB$ such that $x_0 \in B \subseteq V$}
+        \step{i}{$\overline{B} \subseteq C$}
+        \step{j}{$g_{BC}(x_0) > 0$ and $g_{BC}$ vanishes outside $U$}
+    \end{proof}
+    \step{3}{Define $F : X \rightarrow [0,1]^\omega$ by $F(x) = (f_n(x))_n$}
+    \step{4}{$F$ is an imbedding with respect to the uniform topology on $[0,1]^\omega$}
+    \begin{proof}
+        \step{a}{$F$ is injective.}
+        \begin{proof}
+            \step{i}{\pflet{$x, y \in X$ with $x \neq y$}}
+            \step{ii}{\pick\ $n$ such that $f_n(x) > 0$ and
+            $f_n$ vanishes outside $X - \{y\}$}
+            \begin{proof}
+                \pf\ By \stepref{2}.
+            \end{proof}
+            \step{iii}{$F(x)_n > 0$ and $F(y)_n = 0$}
+        \end{proof}
+        \step{b}{$F : X \rightarrow F(X)$ is an open map with respect to the
+        uniform topology on $F(X)$.}
+        \begin{proof}
+            \step{i}{\pflet{$U$ be open in $X$.}}
+            \step{ii}{\pflet{$z_0 \in U$} \prove{There exists $W$ open in $F(X)$
+            such that $z_0 \in W \subseteq F(U)$}}
+            \step{iii}{\pflet{$x_0 = \inv{F}(z_0)$}}
+            \step{iv}{\pick\ $n$ such that $f_n(x_0) > 0$ and $f_n$
+            vanishes outside $U$.}
+            \step{v}{\pflet{$V = \inv{\pi_n}((0, + \infty))$}}
+            \step{vi}{\pflet{$W = V \cap F(X)$}}
+            \step{vii}{$z_0 \in W$}
+            \step{viii}{$W \subseteq F(U)$}
+            \begin{proof}
+                \step{one}{\pflet{$z \in W$}}
+                \step{two}{\pflet{$x = \inv{F}(z)$}}
+                \step{three}{$f_n(x) > 0$}
+                \step{four}{$x \in U$}
+                \step{five}{$z \in F(U)$}
+            \end{proof}
+        \end{proof}
+        \step{d}{$F$ is continuous with respect to the uniform topology.}
+        \begin{proof}
+            \step{o}{\pflet{$\rho : ([0,1]^\omega)^2$ be the metric
+            $\rho(x,y) = \sup_n |x_n - y_n|$}}
+            \step{oo}{$\rho$ induces the uniform topology on $[0,1]^\omega$}
+            \step{i}{\pflet{$x_0 \in X$}}
+            \step{ii}{\pflet{$\epsilon > 0$}
+            \prove{There exists a neighbourhood $U$ of $x_0$ such that, for all
+            $x \in U$, $\rho(F(x),F(x_0)) < \epsilon$}}
+            \step{iii}{\pflet{$N$ be least such that $1 / N \leq \epsilon / 2$}}
+            \step{iv}{For $1 \leq n \leq N$, \pick\ a neighbourhood $U_n$ of $x_0$
+            such that, for all $x \in U_n$,
+            \[ |f_n(x) - f_n(x_0)| < \epsilon / 2 \enspace . \]}
+            \step{v}{\pflet{$U = U_1 \cap \cdots \cap U_N$}}
+            \step{vi}{\pflet{$x \in U$}}
+            \step{vii}{For all $n \leq N$ we have $|f_n(x) - f_n(x_0)| < \epsilon / 2$}
+            \step{viii}{For all $n > N$ we have $|f_n(x) - f_n(x_0)| \leq \epsilon / 2$}
+            \begin{proof}
+                \pf\ Since $|f_n(x)-f_n(x_0)| \leq 1/N \leq \epsilon / 2$.
+            \end{proof}
+            \step{ix}{$\rho(F(x),F(x_0)) < \epsilon$}
+            \begin{proof}
+                \pf\ Since $\rho(F(x),F(x_0)) \leq \epsilon / 2$.
+            \end{proof}
+        \end{proof}
     \end{proof}
     \qed
 \end{proof}

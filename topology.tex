@@ -1071,13 +1071,6 @@ We have simultaneously proved:
     intersects $A_\alpha$ for only finitely many $\alpha$.
 \end{definition}
 
-The following example shows that we cannot remove the assumption of local finiteness.
-
-\begin{example}
-    Define $f : [-1,1] \rightarrow \RR$ by: $f(x) = 1$ if $x < -1$, $f(x) = 0$ if $x > 1$. Let $C_n = [-1,-1/n]$ for $n \geq 1$, and $D = [0,1]$. Then
-    $[-1,1] = \bigcup_{n=1}^\infty C_n \cup D$ and $f$ is continuous on each $C_n$ and each $D$, but $f$ is not continuous on $[-1,1]$.    
-\end{example}
-
 \section{Open Maps}
 
 \begin{definition}[Open Map]
@@ -1409,17 +1402,6 @@ The following example shows that we cannot remove the assumption of local finite
         \pf\ Lemma \ref{lemma:subspace_open}.
     \end{proof}
     \qed
-\end{proof}
-
-\begin{proposition}
-    Let $f : A \rightarrow B$ and $g : C \rightarrow D$ be continuous. Define $f \times g : A \times C \rightarrow B \times D$ by
-    \[ (f \times g)(a,c) = (f(a), g(c)) \enspace . \]
-    Then $f \times g$ is continuous.
-\end{proposition}
-
-\begin{proof}
-    \pf\ $\pi_1 \circ (f \times g) = f \circ \pi_1$ and $\pi_2 \circ (f \times g) = g \circ \pi_2$ are continuous
-    by Theorem \ref{theorem:continuous_composite}. The result follows by Theorem \ref{theorem:product_continuous}.
 \end{proof}
 
 \begin{proposition}
@@ -2034,6 +2016,17 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
+\begin{proposition}
+    Let $f : A \rightarrow B$ and $g : C \rightarrow D$ be continuous. Define $f \times g : A \times C \rightarrow B \times D$ by
+    \[ (f \times g)(a,c) = (f(a), g(c)) \enspace . \]
+    Then $f \times g$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf\ $\pi_1 \circ (f \times g) = f \circ \pi_1$ and $\pi_2 \circ (f \times g) = g \circ \pi_2$ are continuous
+    by Theorem \ref{theorem:continuous_composite}. The result follows by Theorem \ref{theorem:product_continuous}.
+\end{proof}
+
 \subsection{Continuous in Each Variable Separately}
 
 \begin{definition}[Continuous in Each Variable Separately]
@@ -2254,6 +2247,13 @@ We prove this is a topology.
     \end{proof}
     \qed
 \end{proof}
+
+The following example shows that we cannot remove the assumption of local finiteness.
+
+\begin{example}
+    Define $f : [-1,1] \rightarrow \RR$ by: $f(x) = 1$ if $x < -1$, $f(x) = 0$ if $x > 1$. Let $C_n = [-1,-1/n]$ for $n \geq 1$, and $D = [0,1]$. Then
+    $[-1,1] = \bigcup_{n=1}^\infty C_n \cup D$ and $f$ is continuous on each $C_n$ and each $D$, but $f$ is not continuous on $[-1,1]$.    
+\end{example}
 
 \begin{theorem}
     Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $A_i$ be a subspace of $X_i$ for all $i \in I$.
