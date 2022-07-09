@@ -561,8 +561,7 @@ This example shows the converse does not hold:
     \pf
     \step{1}{\pflet{$X$ be a second countable regular space.}}
     \step{2}{There exists a countable set $\mathcal{F}$ of continuous functions $X \rightarrow
-    [0,1]$ such that, for every $x_0 \in X$ and every neightbourhood $U$ of $x_0$,
-    there exists $f \in \mathcal{F}$ such that $f(x_0) > 0$ and $f$ vanishes outside $U$.}
+    [0,1]$ that separates points from closed sets.}
     \begin{proof}
         \step{a}{\pick\ a countable basis $\BB$ for $X$.}
         \step{b}{For all $B, C \in \BB$ with $\overline{B} \subseteq C$,
@@ -599,8 +598,7 @@ This example shows the converse does not hold:
     \pf
     \step{1}{\pflet{$X$ be a second countable regular space.}}
     \step{2}{There exists a countable sequence $(f_n)$ of continuous functions $X \rightarrow
-    [0,1/n]$ such that, for every $x_0 \in X$ and every neightbourhood $U$ of $x_0$,
-    there exists $n$ such that $f_n(x_0) > 0$ and $f_n$ vanishes outside $U$.}
+    [0,1/n]$ that separates points from closed sets.}
     \begin{proof}
         \step{a}{\pick\ a countable basis $\BB$ for $X$.}
         \step{b}{For all $B, C \in \BB$ with $\overline{B} \subseteq C$,
@@ -683,6 +681,19 @@ This example shows the converse does not hold:
     \end{proof}
     \qed
 \end{proof}
+
+\begin{example}
+    Not every second countable Hausdorff space is metrizable.
+
+    The space $\RR_K$ is second countable and Hausdorff but not metrizable.
+\end{example}
+
+\begin{example}
+    There exists a space that is perfectly normal, first countable, Lindel\"{o}f,
+    and separable, but not metrizable.
+
+    The space $\RR_l$ is such a space.
+\end{example}
 
 \section{Real Linear Algebra}
 
@@ -1440,6 +1451,14 @@ We prove this is a metric.
         \pf\ Since $\diam B \leq n$.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{corollary}
+    A compact Hausdorff space is metrizable if and only if it is second countable.
+\end{corollary}
+
+\begin{proof}
+    \pf\ By this Proposition and the Urysohn Metrization Theorem. \qed
 \end{proof}
 
 \begin{example}
