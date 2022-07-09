@@ -9131,6 +9131,92 @@ The following example shows:
     Topology} Example 75.
 \end{example}
 
+\begin{theorem}[Tietze Extension Theorem (Choice)]
+    \label{theorem:tietze}
+    Let $X$ be a normal space. Let $A \subseteq X$ be closed. Any continuous function
+    $f : A \rightarrow [-1,1]$ can be extended to a continuous function $X \rightarrow [-1,1]$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{For any $r > 0$ and any continuous function $f : A \rightarrow [-r,r]$,
+    there exists a continuous function $g : X \rightarrow [-r/3,r/3]$ such that,
+    for all $a \in A$, we have $|g(a) - f(a)| \leq 2r/3$.}
+    \begin{proof}
+        \step{a}{\pflet{$I_1 = [-r,-r/3]$}}
+        \step{b}{\pflet{$I_2 = [-r/3,r/3]$}}
+        \step{c}{\pflet{$I_3 = [r/3,r]$}}
+        \step{d}{\pflet{$B = \inv{f}(I_1)$}}
+        \step{e}{\pflet{$C = \inv{f}(I_3)$}}
+        \step{f}{\pick\ a continuous $g : X \rightarrow [-r/3,r/3]$ such that
+        $g(x) = -r/3$ for all $x \in B$ and $g(x) = r/3$ for all $x \in C$.}
+        \begin{proof}
+            \pf\ By the Urysohn Lemma.
+        \end{proof}
+        \step{g}{For all $a \in A$, $|g(a) - f(a)| \leq 2r/3$}
+        \begin{proof}
+            \pf\ $f(a)$ and $g(a)$ are both in the same interval out of $I_1$,
+            $I_2$ and $I_3$.
+        \end{proof}
+    \end{proof}
+    \step{2}{\pflet{$f : A \rightarrow [-1,1]$ be continuous.}}
+    \step{3}{\pick\ a sequence $(g_n)_{n \geq 1}$ of continuous functions
+    $g_n : X \rightarrow [-2^n/3^[n+1],2^n/3^{n+1}]$ such that, for all $a \in A$,
+    we have $|f(a) - g_1(a) - \cdots - g_n(a)| \leq (2/3)^n$}
+    \begin{proof}
+        \pf\ Applying \stepref{1} repeatedly to $f - g_1 - \cdots - g_n$.
+    \end{proof}
+    \step{4}{Define $g : X \rightarrow [-1,1]$ by $g(x) = \sum_{n=1}^\infty g_n(x)$}
+    \begin{proof}
+        \pf\ The sum always converges to a value in $[-1,1]$ by the Comparison Test.
+    \end{proof}
+    \step{5}{$g$ is continuous.}
+    \begin{proof}
+        \pf\ By the Weierstrass $M$-test.
+    \end{proof}
+    \step{6}{For all $a \in A$, $g(a) = f(a)$}
+    \begin{proof}
+        \pf\ Since
+        $|f(a) - g_1(a) - \cdots - g_n(a)| \rightarrow 0$ as $n \rightarrow \infty$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Tietze Extension Theorem (Choice)]
+    Let $X$ be a normal space. Let $A \subseteq X$ be closed. Any continuous function
+    $f : A \rightarrow \RR$ can be extended to a continuous function $X \rightarrow \RR§$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Any continuous function
+    $f : A \rightarrow (-1,1)$ can be extended to a continuous function $X \rightarrow (-1,1)$.}
+    \begin{proof}
+        \step{a}{\pflet{$f : A \rightarrow (-1,1)$ be continuous}}
+        \step{b}{\pick\ a continuous extension $g : X \rightarrow [-1,1]$ of $f$.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:tietze}.
+        \end{proof}
+        \step{c}{\pflet{$D = \inv{g}(-1) \cup \inv{g}(1)$}}
+        \step{d}{$D$ is closed}
+        \step{e}{$D \cap A = \emptyset$}
+        \step{f}{\pick\ a continuous $\phi : X \rightarrow [0,1]$ such that
+        $\phi(D) = \{0\}$ and $\phi(A) = \{1\}$.}
+        \begin{proof}
+            \pf\ By the Urysohn Lemma.
+        \end{proof}
+        \step{g}{Define $h : X \rightarrow [-1,1]$ by $h(x) = \phi(x)g(x)$}
+        \step{h}{$h$ is continuous.}
+        \step{i}{$h$ is an extension of $f$.}
+        \step{j}{$h(X) \subseteq (-1,1)$}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $(-1,1) \cong \RR$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Completely Normal Spaces}
 
 \begin{definition}[Completely Normal]

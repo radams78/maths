@@ -497,28 +497,74 @@ We prove this is a metric.
     The space $\overline{S_\Omega}$ is not metrizable by Example \ref{example:S_Omega_bar_not_first_countable}.
 \end{example}
 
+\begin{proposition}[Choice]
+    Let $X$ be a metrizable space. The following are equivalent:
+    \begin{enumerate}
+        \item $X$ is bounded under every metric that induces the topology of $X$.
+        \item Every continuous function $X \rightarrow \RR$ is bounded.
+        \item $X$ is compact.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$1 \Rightarrow 2$}
+    \begin{proof}
+        \step{a}{\assume{$X$ is bounded under every metric that induces the topology of $X$.}}
+        \step{b}{\pflet{$\phi : X \rightarrow \RR$ be continuous.}}
+        \step{c}{Define $F : X \rightarrow X \times \RR$ by $F(x) = (x,\phi(x))$}
+        \step{d}{$F$ is an imbedding.}
+        \step{e}{\pick\ a metric $d$ on $X$ that induces its topology.}
+        \step{f}{Define $d' : X^2 \rightarrow \RR$ by: $d'(x,y) = d(x,y) + |\phi(x) - \phi(y)|$}
+        \step{g}{$d'$ is a metric that induces the topology on $X$.}
+        \begin{proof}
+            \pf\ It induces the product topology on $X \times \RR$ hence on $F(X)$.
+        \end{proof}
+        \step{h}{$d'$ is bounded.}
+        \step{i}{\pick\ $B$ such that $d'(x,y) < B$ for all $x,y$}
+        \step{j}{$|\phi(x)-\phi(y)| < B$ for all $x,y \in X$}
+    \end{proof}
+    \step{2}{$2 \Rightarrow 3$}
+    \begin{proof}
+        \step{a}{\assume{Every continuous function $X \rightarrow \RR$
+        is bounded.}}
+        \step{b}{\assume{For a contradiction $A \subseteq X$ is infinite and has no limit point.}}
+        \step{c}{\pick\ a surjection $\phi : A \twoheadrightarrow \ZZ^+$}
+        \step{d}{$\phi$ is continuous.}
+        \begin{proof}
+            \pf\ Since $A$ is discrete.
+        \end{proof}
+        \step{e}{$\phi$ is bounded.}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the fact that $\phi$ is surjective.
+        \end{proof}
+    \end{proof}
+    \step{3}{$3 \rightarrow 1$}
+    \begin{proof}
+        \step{1}{\assume{$X$ is compact.}}
+        \step{1a}{\pflet{$d$ be any metric that induces the topology of $X$.}}
+        \step{2}{\pick\ $a \in X$}
+        \step{3}{$\{ B(a,n) \mid n \in \ZZ^+ \}$ covers $X$}
+        \step{4}{\pick\ a finite subcover $\{ B(a,n_1), \ldots, B(a,n_k) \}$}
+        \step{5}{\pflet{$N = \max(n_1, \ldots, n_k)$}}
+        \step{6}{For all $x, y \in X$ we have $d(x,y) < 2N$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                d(x,y) & \leq d(x,a) + d(a,y) \\
+                & < N + N
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
 \begin{proposition}
     \label{proposition:bounded_compact}
     A compact subspace of a metric space is bounded.
 \end{proposition}
 
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a metric space and $A \subseteq X$ be compact.}}
-    \step{2}{\pick\ $a \in A$}
-    \step{3}{$\{ B(a,n) \mid n \in \ZZ^+ \}$ covers $A$}
-    \step{4}{\pick\ a finite subcover $\{ B(a,n_1), \ldots, B(a,n_k) \}$}
-    \step{5}{\pflet{$N = \max(n_1, \ldots, n_k)$}}
-    \step{6}{For all $x, y \in A$ we have $d(x,y) < 2N$}
-    \begin{proof}
-        \pf
-        \begin{align*}
-            d(x,y) & \leq d(x,a) + d(a,y) \\
-            & < N + N
-        \end{align*}
-    \end{proof}
-    \qed
-\end{proof}
 
 This example shows the converse does not hold:
 
