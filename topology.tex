@@ -2630,6 +2630,57 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \pf\ From Proposition \ref{theorem:closed_subspace}.
 \end{proof}
 
+\begin{theorem}
+    Let $X$ be a $T_1$ space. Let $\{ f_\alpha \}_{\alpha \in J}$ be a family of
+    continuous functions $X \rightarrow \RR$ such that, for every $x_0 \in X$
+    and open neighbourhood $U$ of $x_0$, there exists $\alpha \in J$ such that
+    $f_\alpha(x_0) > 0$ and $f_\alpha$ vanishes outside $U$. Define $F : X
+    \rightarrow \RR^J$ by
+    \[ F(x) = (f_\alpha(x))_{\alpha \in J} \enspace . \]
+    Then $F$ is an imbedding.
+
+    If, in addition, $f_\alpha(x) \in [0,1]$ for all $\alpha \in J$ and $x \in X$,
+    then $F$ is an imbedding of $X$ into $[0,1]^J$.
+\end{theorem}
+
+\begin{proof}
+    \step{a}{$F$ is continuous.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:product_continuous}.
+    \end{proof}
+    \step{b}{$F$ is injective.}
+    \begin{proof}
+        \step{i}{\pflet{$x, y \in X$ with $x \neq y$}}
+        \step{ii}{\pick\ $\alpha \in J$ such that $f_\alpha(x) > 0$ and
+        $f_\alpha$ vanishes outside $X - \{y\}$}
+        \begin{proof}
+            \pf\ By \stepref{2}.
+        \end{proof}
+        \step{iii}{$F(x)_\alpha > 0$ and $F(y)_\alpha = 0$}
+    \end{proof}
+    \step{c}{$F : X \rightarrow F(X)$ is an open map.}
+    \begin{proof}
+        \step{i}{\pflet{$U$ be open in $X$.}}
+        \step{ii}{\pflet{$z_0 \in U$} \prove{There exists $W$ open in $F(X)$
+        such that $z_0 \in W \subseteq F(U)$}}
+        \step{iii}{\pflet{$x_0 = \inv{F}(z_0)$}}
+        \step{iv}{\pick\ $\alpha \in J$ such that $f_\alpha(x_0) > 0$ and $f_\alpha$
+        vanishes outside $U$.}
+        \step{v}{\pflet{$V = \inv{\pi_\alpha}((0, + \infty))$}}
+        \step{vi}{\pflet{$W = V \cap F(X)$}}
+        \step{vii}{$z_0 \in W$}
+        \step{viii}{$W \subseteq F(U)$}
+        \begin{proof}
+            \step{one}{\pflet{$z \in W$}}
+            \step{two}{\pflet{$x = \inv{F}(z)$}}
+            \step{three}{$f_\alpha(x) > 0$}
+            \step{four}{$x \in U$}
+            \step{five}{$z \in F(U)$}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Hausdorff Spaces}
 
 \begin{definition}[Hausdorff Space]

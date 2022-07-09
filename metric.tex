@@ -585,40 +585,7 @@ This example shows the converse does not hold:
     \step{3}{Define $F : X \rightarrow [0,1]^{\mathcal{F}}$ by $F(x) = (f(x))_{f \in \mathcal{F}}$}
     \step{4}{$F$ is an imedding.}
     \begin{proof}
-        \step{a}{$F$ is continuous.}
-        \begin{proof}
-            \pf\ Theorem \ref{theorem:product_continuous}.
-        \end{proof}
-        \step{b}{$F$ is injective.}
-        \begin{proof}
-            \step{i}{\pflet{$x, y \in X$ with $x \neq y$}}
-            \step{ii}{\pick\ $f \in \mathcal{F}$ such that $f(x) > 0$ and
-            $f$ vanishes outside $X - \{y\}$}
-            \begin{proof}
-                \pf\ By \stepref{2}.
-            \end{proof}
-            \step{iii}{$F(x)_f > 0$ and $F(y)_f = 0$}
-        \end{proof}
-        \step{c}{$F : X \rightarrow F(X)$ is an open map.}
-        \begin{proof}
-            \step{i}{\pflet{$U$ be open in $X$.}}
-            \step{ii}{\pflet{$z_0 \in U$} \prove{There exists $W$ open in $F(X)$
-            such that $z_0 \in W \subseteq F(U)$}}
-            \step{iii}{\pflet{$x_0 = \inv{F}(z_0)$}}
-            \step{iv}{\pick\ $f \in \mathcal{F}$ such that $f(x_0) > 0$ and $f$
-            vanishes outside $U$.}
-            \step{v}{\pflet{$V = \inv{\pi_f}((0, + \infty))$}}
-            \step{vi}{\pflet{$W = V \cap F(X)$}}
-            \step{vii}{$z_0 \in W$}
-            \step{viii}{$W \subseteq F(U)$}
-            \begin{proof}
-                \step{one}{\pflet{$z \in W$}}
-                \step{two}{\pflet{$x = \inv{F}(z)$}}
-                \step{three}{$f(x) > 0$}
-                \step{four}{$x \in U$}
-                \step{five}{$z \in F(U)$}
-            \end{proof}
-        \end{proof}
+        \pf\ By the Imbedding Theorem.
     \end{proof}
     \qedstep
     \begin{proof}
