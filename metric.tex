@@ -682,6 +682,10 @@ This example shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{corollary}
+    Every second countable locally compact Hausdorff space is metrizable.
+\end{corollary}
+
 \begin{example}
     Not every second countable Hausdorff space is metrizable.
 
@@ -694,6 +698,44 @@ This example shows the converse does not hold:
 
     The space $\RR_l$ is such a space.
 \end{example}
+
+\begin{proposition}
+    Let $X$ be a compact Hausdorff space that is the union of the closed
+    subspaces $X_1$ and $X_2$. If $X_1$ and $X_2$ are metrizable then $X$
+    is metrizable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ countable bases $\BB_1$ and $\BB_2$ for $X_1$ and $X_2$
+    respectively.}
+    \step{2}{For $B \in \BB_1$, \pick\ an open set
+    $U_B$ in $X$ such that $U_B \cap X_1 = B$}
+    \step{3}{For $B \in \BB_2$, \pick\ an open set
+    $V_B$ in $X$ such that $V_B \cap X_2 = B$}
+    \step{4}{\pflet{$\AA = \{ U_B \mid B \in \BB_1 \}
+    \cup \{ V_B \mid B \in \BB_2 \} \cup \{ X_1 - X_2, X_2 - X_1 \}$}}
+    \step{5}{\pflet{$\BB$ be the set of all finite intersections of
+    elements of $\AA$.} \prove{$\BB$ is a basis for $X$.}}
+    \step{6}{\pflet{$x \in X$}}
+    \step{7}{\pflet{$U$ be an open neighbourhood of $x$}}
+    \step{8}{\case{$x \in X_1 - X_2$}}
+    \begin{proof}
+        \step{a}{\pick\ $B \in \BB_1$ such that $x \in B \subseteq U \cap X_1$}
+        \step{b}{$x \in U_B \cap (X_1 - X_2) \subseteq U$}
+    \end{proof}
+    \step{9}{\case{$x \in X_2 - X_1$}}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{10}{\case{$x \in X_1 \cap X_2$}}
+    \begin{proof}
+        \step{a}{\pick\ $B \in \BB_1$ such that $x \in B \subseteq U \cap X_1$}
+        \step{b}{\pick\ $B' \in \BB_1$ such that $x \in B' \subseteq U \cap X_2$}
+        \step{c}{$x \in U_B \cap V_{B'} \subseteq U$}
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Real Linear Algebra}
 
@@ -2202,3 +2244,42 @@ a compact metric space' to '$X$ is a complete metric space'.
 %TODO:     Let $X$ be a complete metric space. 
 % Let $f : X \rightarrow X$ be a contraction.
 %    Then $f$ has a unique fixed point.
+
+\section{Locally Metrizable Spaces}
+
+\begin{definition}[Locally Metrizable]
+    A topological space is \emph{locally metrizable} if and only if
+    every point has a metrizable open neighbourhood.
+\end{definition}
+
+\begin{proposition}
+    Every locally metrizable regular Lindel\"{o}f space is metrizable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a locally metrizable regular Lindel\"{o}f space.}}
+    \step{2}{Every point in $X$ has a second countable open neightbourhood.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ a metrizable open neighbourhood $U$ of $x$.}
+        \step{c}{\pick\ an open neighbourhood $V$ of $x$ such that
+        $\overline{V} \subseteq U$.}
+        \step{d}{$V$ is second countable.}
+        \begin{proof}
+            \pf\ It is Lindel\"{o}f and metrizable.
+        \end{proof}
+    \end{proof}
+    \step{3}{There exists a finite open cover of $X$ by
+    second countable subspaces.}
+    \step{4}{$X$ is second countable.}
+    \step{5}{$X$ is metrizable.}
+    \begin{proof}
+        \pf\ By the Urysohn Metrizable Theorem.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Every locally metrizable compact Hausdorff space is metrizable.
+\end{corollary}
