@@ -183,7 +183,6 @@ INPUT /usr/share/texmf/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texmf/fonts/tfm/jknappen/ec/tcti1000.tfm
 OUTPUT /home/robin/fun/maths/metric.aux
 INPUT /home/robin/fun/maths/metric.tex
 INPUT /home/robin/fun/maths/metric.tex
