@@ -2329,3 +2329,52 @@ a compact metric space' to '$X$ is a complete metric space'.
 \begin{corollary}
     Every locally metrizable compact Hausdorff space is metrizable.
 \end{corollary}
+
+\chapter{Manifolds}
+
+\section{Manifolds}
+
+\begin{definition}[Manifold]
+    Let $m \geq 1$. An \emph{$m$-manifold} is a second countable Hausdorff space such that every point has a neighbourhood that is
+    homeomorphic to an open subset of $\RR^m$.
+
+    A \emph{curve} is a 1-manifold.
+
+    A \emph{surface} is a 2-manifold.
+\end{definition}
+
+\begin{theorem}
+    Every compact manifold is imbeddable in $\RR^N$ for some $N$.
+\end{theorem}
+
+\begin{proof}
+    \pf\ From Theorem \ref{theorem:imbed_in_RN}. \qed
+\end{proof}
+
+\begin{proposition}
+    Every manifold is regular.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be an $m$-manifold.}}
+    \step{2}{\pflet{$x \in X$}}
+    \step{3}{\pflet{$U$ be an open neighbourhood of $x$.}}
+    \step{4}{\pick\ an open neighbourhood $V$ of $x$ that is homeomorphic to an open subspace of $\RR^m$.}
+    \step{5}{$V$ is regular.}
+    \step{6}{There exists an open neighbourhood $W$ of $x$ such that $\overline{W} \subseteq U \cap V$.}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Every manifold is metrizable.
+\end{corollary}
+
+\begin{proposition}
+    Let $X$ be a compact Hausdorff space such that every point has an open neighbourhood homeomorphic with an open subspace of $\RR^m$.
+    Then $X$ is an $m$-manifold.
+\end{proposition}
+
+\begin{proof}
+    \pf\ By Theorem \ref{theorem:imbed_in_RN}, $X$ can be embedded in $\RR^N$ for some $N$, hence is second countable. \qed
+\end{proof}

@@ -1,3 +1,5 @@
+\newcommand{\support}{\ensuremath{\operatorname{support}}}
+
 \chapter{Topological Spaces}
 
 \section{Topologies}
@@ -9662,6 +9664,105 @@ Let $X$ be a set and $f : X \rightarrow [0,1]$. Let $A \subseteq X$. Then $f$
         \pf\ Proposition \ref{proposition:coherent_continuous}.
     \end{proof}
     \step{5}{$f$ separates $A$ from $B$.}
+    \qed
+\end{proof}
+
+\section{Support}
+
+\begin{definition}[Support]
+    Let $X$ be a topological space. Let $\phi : X \rightarrow \RR$. The \emph{support} of $\phi$ is
+    \[ \support \phi = \overline{\inv{\phi}(\RR - \{0\}} \enspace . \]
+\end{definition}
+
+\section{Partitions of Unity}
+
+\begin{definition}[Partition of Unity]
+    Let $X$ be a topological space.
+    Let $(U_1, \ldots, U_n)$ be a finite open covering of $X$. A \emph{partition of unity dominated by $(U_1, \ldots, U_n)$}
+    is an $n$-tuple of continuous functions $\phi_1, \ldots, \phi_n : X \rightarrow I$ such that:
+    \begin{itemize}
+        \item For each $i$ we have $\support \phi_i \subseteq U_i$
+        \item For $x \in X$ we have $\sum_{i=1}^n \phi_i(x) = 1$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    \label{theorem:partition_of_unity}
+    Let $X$ be a normal space. Let $(U_1, \ldots, U_n)$ be a finite open covering of $X$. Then there exists a partition of unity
+    dominated by $(U_1, \ldots, U_n)$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a finite open covering $(V_1, \ldots, V_n)$ such that, for each $i$, $\overline{V_i} \subseteq U_i$}
+    \begin{proof}
+        \step{a}{\assume{as induction hypothesis there exist $V_1$, \ldots, $V_k$ such that $\overline{V_i} \subseteq U_i$ for $1 \leq i \leq k$
+        and $(V_1, \ldots, V_k, U_{k+1}, \ldots, U_n)$ covers $X$.}}
+        \step{b}{\pflet{$A = X - V_1 - \cdots - V_k - U_{k+2} - \cdots - U_n$}}
+        \step{c}{$A$ is closed and $A \subseteq U_{k+1}$}
+        \step{d}{\pick\ $V_{k+1}$ open such that $A \subseteq V_{k+1}$ and $\overline{V_{k+1}} \subseteq U_{k+1}$}
+    \end{proof}
+    \step{2}{\pick\ a finite open covering $(W_1, \ldots, W_n)$ such that, for each $i$, $\overline{W_i} \subseteq V_i$}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \step{3}{For each $i$, \pick\ a continuous $\psi_i : X \rightarrow I$ such that $\psi_i(\overline{W_i}) = \{1\}$ and $\psi_i(X-V_i) = \{0\}$}
+    \begin{proof}
+        \pf\ Urysohn Lemma.
+    \end{proof}
+    \step{4}{For each $i$, $\support \psi_i \subseteq U_i$}
+    \step{5}{For all $x \in X$, we have $\sum_{i=1}^n \psi_i(x) > 0$}
+    \step{6}{For each $i$, define $\phi_i : X \rightarrow I$ by $\phi_i(x) = \psi_i(x) / \sum_{j=1}^n \psi_j(x)$}
+    \step{7}{$(\phi_1, \ldots, \phi_n)$ is a partition of unity dominated by $(U_1, \ldots, U_n)$.}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    \label{theorem:imbed_in_RN}
+    Let $X$ be a compact Hausdorff space such that, for every $x \in X$, there exists an open neighbourhood $U$ of $x$ and a positive integer $k$
+    such that $U$ can be imbedded in $\RR^k$. Then there exists $N$ such that $X$ can be imbedded in $\RR^N$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{2}{\pick\ a finite open covering $(U_1, \ldots, U_n)$ of $X$ such that each $U_i$ is homeomorphic to an open subset of $\RR^{k_i}$
+    via $g_i : U_i \rightarrow \RR^{k_i}$.}
+    \step{3}{$X$ is normal.}
+    \begin{proof}
+        \pf\ Since it is compact Hausdorff.
+    \end{proof}
+    \step{4}{\pick\ a partition of unity $(\phi_1, \ldots, \phi_n)$ dominated by $(U_1, \ldots, U_n)$.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:partition_of_unity}.
+    \end{proof}
+    \step{5}{For all $i$, \pflet{$A_i = \support \phi_i$}}
+    \step{6}{For all $i$, define $h_i : X \rightarrow \RR^{k_i}$ by
+    \[ h_i(x) = \begin{cases}
+        \phi_i(x) g_i(x) & \text{if } x \in U_i \\
+        0 & \text{if } x \in X - A_i
+    \end{cases} \]}
+    \step{7}{For all $i$, $h_i$ is continuous.}
+    \begin{proof}
+        \pf\ Pasting Lemma.
+    \end{proof}
+    \step{8}{Define $F : X \rightarrow \RR^{n + k_1 + \cdots + k_n}$ by $F(x)$ is the concatenation of $(\phi_1(x), \ldots, \phi_n(x))$ and $h_1(x)$, \ldots,
+    $h_n(x)$}
+    \step{9}{$F$ is continuous.}
+    \step{10}{$F$ is injective.}
+    \begin{proof}
+        \step{a}{\pflet{$x, y \in X$}}
+        \step{b}{\assume{$F(x) = F(y)$}}
+        \step{c}{\pick\ $i$ such that $\phi_i(x) > 0$}
+        \step{d}{$\phi_i(y) > 0$}
+        \step{e}{$x, y \in U_i$}
+        \step{f}{$h_i(x) = h_i(y)$}
+        \step{g}{$g_i(x) = g_i(y)$}
+        \step{h}{$x = y$}
+    \end{proof}
+    \step{11}{$F$ is an imbedding.}
+    \begin{proof}
+        \pf\ Since $X$ is compact.
+    \end{proof}
     \qed
 \end{proof}
 

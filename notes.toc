@@ -157,18 +157,22 @@
 \contentsline {section}{\numberline {11.65}Vanish Precisely}{194}{section.11.65}%
 \contentsline {section}{\numberline {11.66}Perfectly Normal Spaces}{195}{section.11.66}%
 \contentsline {section}{\numberline {11.67}Coherent Topology}{195}{section.11.67}%
-\contentsline {chapter}{\numberline {12}Topological Groups}{197}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Actions}{205}{section.12.1}%
-\contentsline {section}{\numberline {12.2}The Metric Topology}{210}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Real Linear Algebra}{220}{section.12.3}%
-\contentsline {section}{\numberline {12.4}The Uniform Topology}{228}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Uniform Convergence}{232}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Isometric Imbeddings}{233}{section.12.6}%
-\contentsline {section}{\numberline {12.7}Distance to a Set}{234}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{235}{section.12.8}%
-\contentsline {section}{\numberline {12.9}Uniform Continuity}{237}{section.12.9}%
-\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{238}{section.12.10}%
-\contentsline {section}{\numberline {12.11}Isometry}{240}{section.12.11}%
-\contentsline {section}{\numberline {12.12}Shrinking Maps}{241}{section.12.12}%
-\contentsline {section}{\numberline {12.13}Contractions}{242}{section.12.13}%
-\contentsline {section}{\numberline {12.14}Locally Metrizable Spaces}{242}{section.12.14}%
+\contentsline {section}{\numberline {11.68}Support}{196}{section.11.68}%
+\contentsline {section}{\numberline {11.69}Partitions of Unity}{196}{section.11.69}%
+\contentsline {chapter}{\numberline {12}Topological Groups}{199}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Actions}{207}{section.12.1}%
+\contentsline {section}{\numberline {12.2}The Metric Topology}{212}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Real Linear Algebra}{222}{section.12.3}%
+\contentsline {section}{\numberline {12.4}The Uniform Topology}{230}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Uniform Convergence}{234}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Isometric Imbeddings}{235}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Distance to a Set}{236}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{237}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Uniform Continuity}{239}{section.12.9}%
+\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{240}{section.12.10}%
+\contentsline {section}{\numberline {12.11}Isometry}{242}{section.12.11}%
+\contentsline {section}{\numberline {12.12}Shrinking Maps}{243}{section.12.12}%
+\contentsline {section}{\numberline {12.13}Contractions}{244}{section.12.13}%
+\contentsline {section}{\numberline {12.14}Locally Metrizable Spaces}{244}{section.12.14}%
+\contentsline {chapter}{\numberline {13}Manifolds}{245}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Manifolds}{245}{section.13.1}%
