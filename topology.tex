@@ -3033,6 +3033,10 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{corollary}
+    The Sorgenfrey plane is first countable.
+\end{corollary}
+
 \begin{proposition}
     The image of a first countable space under a continuous open map is first countable.
 \end{proposition}
@@ -4061,6 +4065,14 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \qed
 \end{proof}
 
+\begin{corollary}
+    The Sorgenfrey plane is disconnected.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Since $\RR_l$ is the continuous image of $\RR_l^2$ under the continuous map $\pi_1$ and $\RR_l$ is disconnected. \qed
+\end{proof}
+
 \begin{theorem}
     The product of a family of connected spaces is connected.
 \end{theorem}
@@ -4585,6 +4597,10 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \begin{example}
     The space $\RR_l$ is not path connected, because it is not connected.
 \end{example}
+
+\begin{corollary}
+    The Sorgenfrey plane is not path connected.
+\end{corollary}
 
 An example that shows the converse does not hold:
 \begin{example}
@@ -5322,6 +5338,17 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    The Sorgenfrey plane is not locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction that there is a connected open neighbourhood $U$ of $(0,0)$}}
+    \step{2}{\pick\ $x$, $y$ such that $[0,x) \times [0,y) \subseteq U$}
+    \step{3}{$[0,x/2)\times[0,y/2)$ is clopen in $U$.}
+    \qed
+\end{proof}
 \section{Local Path Connectedness}
 
 \begin{definition}[Locally Path-Connected]
@@ -5352,6 +5379,10 @@ An example that shows the converse does not hold:
 \begin{example}
     The space $\RR_l$ is not locally path connected, because it is not locally connected.
 \end{example}
+
+\begin{corollary}
+    The Sorgenfrey plane is not locally path connected.
+\end{corollary}
 
 \begin{theorem}
     \label{theorem:open_path_component_locally_path_connected}
@@ -5731,6 +5762,10 @@ The following is an example of a Lindel\"{o}f space that is not first countable.
     The space $\RR_l$ is separable. The set $\QQ$ is dense.
 \end{example}
 
+\begin{corollary}
+    The Sorgenfrey plane is separable.
+\end{corollary}
+
 The following example shows that a closed subspace of a separable space is not
 necessarily separable.
 \begin{example}[AC]
@@ -5878,6 +5913,10 @@ The following is an example of a separable space that is not first countable.
 \begin{proof}
     \pf\ From Proposition \ref{proposition:lindelof_basis}.
 \end{proof}
+
+\begin{corollary}
+    The Sorgenfrey plane is not second countable.
+\end{corollary}
 
 \begin{example}
     The space $S_\Omega$ is not second countable, because it is not Lindel\"{o}f.
@@ -6223,6 +6262,14 @@ Topology} Example 112.
 \begin{example}
     The space $\RR_l$ is not limit point compact. The set $\ZZ$ has no limit point.
 \end{example}
+
+\begin{proposition}
+    The Sorgenfrey plane is not limit point compact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The set $\ZZ^2$ has no limit point. \qed
+\end{proof}
 
 \section{Countable Compactness}
 
@@ -7513,6 +7560,18 @@ The following examples show that not every limit point compact space is compact.
     \qed
 \end{proof}
 
+\begin{proposition}
+    Every compact space is Lindel\"{o}f.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\begin{corollary}
+    The Sorgenfrey plane is not compact.
+\end{corollary}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
@@ -7845,6 +7904,14 @@ is not necessarily locally compact.
         \pf Proposition \ref{proposition:closed_subspace_compact}.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{corollary}
+    The Sorgenfrey plane is not locally compact.
+\end{corollary}
+
+\begin{proof}
+    \pf\ It has a closed subspace homeomorphic to $\RR_l$. \qed
 \end{proof}
 
 \begin{proposition}
@@ -8776,6 +8843,10 @@ order topology is completely regular.
         \qed
     \end{proof}
 \end{example}
+
+\begin{corollary}
+    The Sorgenfrey plane is completely regular.
+\end{corollary}
 
 The following example shows that:
 \begin{itemize}
