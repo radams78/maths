@@ -2720,6 +2720,10 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \qed
 \end{proof}
 
+\begin{example}
+    In particular, $S_\Omega$ and $\overline{S_\Omega}$ are Hausdorff.
+\end{example}
+
 \begin{theorem}
     \label{theorem:subspace_Haudorff}
     A subspace of a Hausdorff space is Hausdorff.
@@ -3023,26 +3027,6 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \step{5}{$\BB$ is a countable local basis for $(x_n)$}
     \qed
 \end{proof}
-
-\begin{example}
-    The space $S_\Omega$ is first countable. For any $x \in S_\Omega$,
-    the set $\{ [0, x+1) \} \cup \{ (y, x+1) \mid y < x \}$ is a countable local
-    basis at $x$.
-\end{example}
-
-\begin{example}
-    The space $\overline{S_\Omega}$ is not first countable.
-
-    \begin{proof}
-        \pf
-        \step{1}{\assume{for a contradiction $\BB$ is a countable local basis at $\Omega$.}}
-        \step{2}{For $B \in \BB$, \pflet{$a_B$ be least such that $(a_B, \Omega] \subseteq B$.}}
-        \step{3}{\pflet{$b = \sup_{B \in \BB} a_B$}}
-        \step{4}{$b < \Omega$}
-        \step{5}{There is no $B \in \BB$ such that $\Omega \in B \subseteq (b + 1, \Omega]$}
-        \qed
-    \end{proof}
-\end{example}
 
 \begin{proposition}
     The image of a first countable space under a continuous open map is first countable.
@@ -3824,6 +3808,10 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \qed
 \end{proof}
 
+\begin{example}
+    In particular, $S_\Omega$ and $\overline{S_\Omega}$ are regular.
+\end{example}
+
 \begin{proposition}
     \label{proposition:regular_space_compact_closed}
     Let $X$ be a regular space. Let $A$ be compact in $X$ and $B$ be
@@ -3863,6 +3851,14 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \begin{definition}[Connected]
     A topological space is \emph{connected} if and only if it has no separation; otherwise it is \emph{disconnected}.
 \end{definition}
+
+\begin{example}
+    The space $S_\Omega$ is not connected, because $\{0\}$ and $(0, +\infty)$ form a separation.
+\end{example}
+
+\begin{example}
+    The space $\overline{S_\Omega}$ is not connected, because $\{0\}$ and $(0, +\infty)$ form a separation.
+\end{example}
 
 \begin{proposition}
     \label{proposition:open_closed_connective}
@@ -4479,55 +4475,6 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \end{proof}
 \end{proof}
 
-\begin{proposition}
-    Give $\RR^\omega$ the box topology. Let $x, y \in \RR^\omega$. Then $x$ and $y$ lie in the same comoponent if and only if $x-y$ is eventually zero, i.e.
-    there exists $N$ such that, for all $n \geq N$,
-    we have $x_n = y_n$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{The component containing 0 is the set of sequences that are eventually zero.}
-    \begin{proof}
-        \step{a}{\pflet{$B$ be the set of sequences that are eventually zero.}}
-        \step{b}{$B$ is path-connected.}
-        \begin{proof}
-            \step{i}{\pflet{$x, y \in B$}}
-            \step{o}{\pick\ $N$ such that, for all $n \geq N$, we have $x_n = y_n = 0$}
-            \step{ii}{\pflet{$p : [0,1] \rightarrow \RR^\omega$, $p(t) = (1-t)x + ty$} \prove{$p$ is continuous.}}
-            \step{iii}{\pflet{$t \in [0,1]$ and $\prod_j U_j$ be a basic open neighbourhood of $p(t)$, where each $U_j$ is open in $\RR$}}
-            \step{iv}{\pick\ $\delta$ such that, for all $n < N$ and all $s \in [0,1]$, if $|s-t| < \delta$ then $p(s)_n \in U_n$}
-            \step{v}{For all $s \in [0,1]$, if $|s-t| < \delta$ then $p(s) \in \prod_j U_j$}
-        \end{proof}
-        \step{bb}{$B$ is connected.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:connected_path_connected}.
-        \end{proof}
-        \step{c}{If $C$ is connected and $B \subseteq C$ then $B = C$.}
-        \begin{proof}
-            \step{i}{\assume{$C$ is connected and $B \subseteq C$}}
-            \step{ii}{\assume{for a contradiction $x \in C \setminus B$}}
-            \step{iii}{For $n \geq 1$, \pflet{$c_n = 1$ if $x_n = 0$, $c_n = n / x_n$ otherwise}}
-            \step{iv}{\pflet{$h : \RR^\omega \rightarrow \RR^\omega$ be the function $h(x) = (c_n x_n)_{n \geq 1}$}}
-            \step{v}{$h$ is a homeomorphism of $\RR^\omega$ with itself.}
-            \step{vi}{$h(x)$ is unbounded.}
-            \begin{proof}
-                \pf\ For any $b > 0$, pick $N > b$ such that $x_N \neq 0$. Then $h(x)_N > b$.
-            \end{proof}
-            \step{vii}{$\inv{h}(\{ \text{bounded sequences} \}) \cap C$ and $\inv{h}(\{ \text{unbounded sequences} \}) \cap C$ form a separation of $C$}
-            \qedstep
-            \begin{proof}
-                \pf\ This contradicts \stepref{i}.
-            \end{proof}
-        \end{proof}
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Since $\lambda x.x-y$ is a homeomorphism of $\RR^\omega$ with itself.
-    \end{proof}
-    \qed
-\end{proof}
-
 \begin{example}
     The space $\RR_K$ is connected.
 \end{example}
@@ -4612,6 +4559,14 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{example}
+    The space $S_\Omega$ is not path connected, because it is not connected.
+\end{example}
+
+\begin{example}
+    The space $\overline{S_\Omega}$ is not path connected, because it is not connected.
+\end{example}
 
 An example that shows the converse does not hold:
 \begin{example}
@@ -4781,6 +4736,55 @@ An example that shows the converse does not hold:
 
     We have $\QQ^\circ = \emptyset$ and $\partial \QQ = \RR$ are connected but $\QQ$ is not connected.
 \end{example}
+
+\begin{proposition}
+    Give $\RR^\omega$ the box topology. Let $x, y \in \RR^\omega$. Then $x$ and $y$ lie in the same comoponent if and only if $x-y$ is eventually zero, i.e.
+    there exists $N$ such that, for all $n \geq N$,
+    we have $x_n = y_n$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{The component containing 0 is the set of sequences that are eventually zero.}
+    \begin{proof}
+        \step{a}{\pflet{$B$ be the set of sequences that are eventually zero.}}
+        \step{b}{$B$ is path-connected.}
+        \begin{proof}
+            \step{i}{\pflet{$x, y \in B$}}
+            \step{o}{\pick\ $N$ such that, for all $n \geq N$, we have $x_n = y_n = 0$}
+            \step{ii}{\pflet{$p : [0,1] \rightarrow \RR^\omega$, $p(t) = (1-t)x + ty$} \prove{$p$ is continuous.}}
+            \step{iii}{\pflet{$t \in [0,1]$ and $\prod_j U_j$ be a basic open neighbourhood of $p(t)$, where each $U_j$ is open in $\RR$}}
+            \step{iv}{\pick\ $\delta$ such that, for all $n < N$ and all $s \in [0,1]$, if $|s-t| < \delta$ then $p(s)_n \in U_n$}
+            \step{v}{For all $s \in [0,1]$, if $|s-t| < \delta$ then $p(s) \in \prod_j U_j$}
+        \end{proof}
+        \step{bb}{$B$ is connected.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:connected_path_connected}.
+        \end{proof}
+        \step{c}{If $C$ is connected and $B \subseteq C$ then $B = C$.}
+        \begin{proof}
+            \step{i}{\assume{$C$ is connected and $B \subseteq C$}}
+            \step{ii}{\assume{for a contradiction $x \in C \setminus B$}}
+            \step{iii}{For $n \geq 1$, \pflet{$c_n = 1$ if $x_n = 0$, $c_n = n / x_n$ otherwise}}
+            \step{iv}{\pflet{$h : \RR^\omega \rightarrow \RR^\omega$ be the function $h(x) = (c_n x_n)_{n \geq 1}$}}
+            \step{v}{$h$ is a homeomorphism of $\RR^\omega$ with itself.}
+            \step{vi}{$h(x)$ is unbounded.}
+            \begin{proof}
+                \pf\ For any $b > 0$, pick $N > b$ such that $x_N \neq 0$. Then $h(x)_N > b$.
+            \end{proof}
+            \step{vii}{$\inv{h}(\{ \text{bounded sequences} \}) \cap C$ and $\inv{h}(\{ \text{unbounded sequences} \}) \cap C$ form a separation of $C$}
+            \qedstep
+            \begin{proof}
+                \pf\ This contradicts \stepref{i}.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $\lambda x.x-y$ is a homeomorphism of $\RR^\omega$ with itself.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{The Topologist's Sine Curve}
 
@@ -5193,6 +5197,14 @@ An example that shows the converse does not hold:
     The rationals $\QQ$ are neither connected nor locally connected.
 \end{example}
 
+\begin{example}
+    The space $S_\Omega$ is not locally connected, because $\omega$ has no connected neighbourhood.
+\end{example}
+
+\begin{example}
+    The space $\overline{S_\Omega}$ is not locally connected, because $\omega$ has no connected neighbourhood.
+\end{example}
+
 \begin{theorem}
     \label{theorem:open_component_locally_connected}
     A topological space $X$ is locally connected if and only if, for every
@@ -5294,6 +5306,18 @@ An example that shows the converse does not hold:
     The space $X$ is \emph{locally path-connected} if and only if it is locally
     path-connected at every point.
 \end{definition}
+
+\begin{proposition}
+    Every locally path connected space is locally connected.
+\end{proposition}
+
+\begin{example}
+    The space $S_\Omega$ is not locally path connected, because it is not locally connected.
+\end{example}
+
+\begin{example}
+    The space $\overline{S_\Omega}$ is not locally path connected, because it is not locally connected.
+\end{example}
 
 \begin{theorem}
     \label{theorem:open_path_component_locally_path_connected}
@@ -5532,7 +5556,7 @@ An example that shows the converse does not hold:
 \begin{proof}
     \pf\ The following are equivalent.
     \begin{enumerate}
-        \item $X$ is compact.
+        \item $X$ is Lindel\"{o}f.
         \item Every open covering of $X$ has a countable subcovering.
         \item For any set $\CC$ of closed sets, if $\{ X \setminus C \mid C \in \CC \}$ covers $X$ then there is a countable subset $\CC_0$ such that
         $\{ X \setminus C \mid C \in \CC_0 \}$ covers $X$
@@ -6062,6 +6086,34 @@ necessarily Lindel\"{o}f.
     infinite set has a limit point.
 \end{definition}
 
+\begin{example}
+    The space $S_\Omega$ is limit point compact.
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A$ be an infinite subset of $S_\Omega$.}}
+    \step{2}{\pick\ $B \subseteq A$ that is countably infinite.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:countable_subset}.
+    \end{proof}
+    \step{3}{\pflet{$b = \sup B$}}
+    \step{4}{$B \subseteq [0,b]$}
+    \step{5}{$[0,b]$ is compact.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_interval_compact}.
+    \end{proof}
+    \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b]$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:limit_point_compact_compact}.
+    \end{proof}
+    \step{7}{$x$ is a limit point of $A$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:limit_point_subset}.
+    \end{proof}
+    \qed
+\end{proof}
+\end{example}
+
 \begin{proposition}
     \label{proposition:limit_point_compact_sequentially_compact}
     Every limit point compact $T_1$ space is sequentially compact.
@@ -6087,11 +6139,6 @@ necessarily Lindel\"{o}f.
     \end{proof}
     \qed
 \end{proof}
-
-\begin{corollary}
-    \label{corollary:compact_sequentially_compact}
-    Every compact $T_1$ spact is sequentially compact.
-\end{corollary}
 
 \begin{example}
     The space $[0,1]^\omega$ under the uniform topology is not limit point compact.
@@ -6377,7 +6424,6 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \end{proof}
     \qed
 \end{proof}
-
 
 \section{Compact Spaces}
 
@@ -7030,6 +7076,10 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     Every closed interval in $\RR$ is compact.
 \end{corollary}
 
+\begin{corollary}
+    The space $\overline{S_\Omega}$ is compact.
+\end{corollary}
+
 \begin{theorem}[Extreme Value Theorem]
     Any linearly ordered set under the order topology that is compact has
     a greatest and a least element.
@@ -7232,33 +7282,7 @@ The following examples show that not every limit point compact space is compact.
 \begin{example}
     The space $S_\Omega$ is limit point compact but not compact.
 
-    \begin{proof}
-        \pf
-        \step{0}{$S_\Omega$ is not compact.}
-        \begin{proof}
-            \pf\ From the Extreme Value Theorem, since $S_\Omega$ has no greatest element.
-        \end{proof}
-        \step{1}{\pflet{$A$ be an infinite subset of $S_\Omega$.}}
-        \step{2}{\pick\ $B \subseteq A$ that is countably infinite.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:countable_subset}.
-        \end{proof}
-        \step{3}{\pflet{$b = \sup B$}}
-        \step{4}{$B \subseteq [0,b]$}
-        \step{5}{$[0,b]$ is compact.}
-        \begin{proof}
-            \pf\ Corollary \ref{corollary:closed_interval_compact}.
-        \end{proof}
-        \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b]$.}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:limit_point_compact_compact}.
-        \end{proof}
-        \step{7}{$x$ is a limit point of $A$.}
-        \begin{proof}
-            \pf\ Lemma \ref{lemma:limit_point_subset}.
-        \end{proof}
-        \qed
-    \end{proof}
+    It is not compact by the Extreme Value Theorem since it has no greatest element.
 \end{example}
 
 \begin{proposition}[AC]
@@ -7681,6 +7705,8 @@ is not necessarily locally compact.
     For any point $x$, pick a basic open set $B$ such that $x \in B$. Then
     $x \in B \subseteq \overline{B}$ and $\overline{B}$ is a closed interval,
     hence compact (Corollary \ref{corollary:closed_interval_compact}).
+
+    In particular, $S_\Omega$ and $\overline{S_\Omega}$ are locally compact.
 \end{example}
 
 \begin{proposition}
@@ -8520,6 +8546,9 @@ locally compact.
     \pf\ By the Imbedding Theorem. \qed
 \end{proof}
 
+See also Corollary \ref{corollary:order_topology_completely_regular}: Every linearly ordered set under the
+order topology is completely regular.
+
 \section{Normal Spaces}
 
 \begin{definition}[Normal]
@@ -8829,6 +8858,15 @@ The following example shows that:
     \pf\ See L. A. Steen and J. A. Seerbach Jr. \emph{Counterexamples in
     Topology} Example 39. \qed
 \end{proof}
+
+\begin{corollary}
+    \label{corollary:order_topology_completely_regular}
+    Every linearly ordered set under the order topology is completely regular.
+\end{corollary}
+
+\begin{example}
+    In particular, $S_\Omega$ and $\overline{S_\Omega}$ are normal.
+\end{example}
 
 \begin{proposition}
     \label{proposition:closed_subspace_normal}
