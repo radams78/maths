@@ -3851,7 +3851,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 
 \begin{definition}[Separation]
     A \emph{separation} of a topological space $X$ is a pair of disjoint open sets $U$, $V$ such that $U \cup V = \emptyset$.
-\end{definition}<<
+\end{definition}
 
 \begin{definition}[Connected]
     A topological space is \emph{connected} if and only if it has no separation; otherwise it is \emph{disconnected}.
@@ -5830,6 +5830,11 @@ The following is an example of a separable space that is not first countable.
     under the box topology is separable, because it is countable.
 \end{example}
 
+\begin{example}
+    The ordered square is not separable, because any dense subset must include
+    an element from $\{x\} \times [0,1]$ for every $x \in [0,1]$.
+\end{example}
+
 \section{The Second Countability Axiom}
 
 \begin{definition}[Second Countability Axiom]
@@ -6107,6 +6112,10 @@ necessarily Lindel\"{o}f.
     \step{9}{$y \in f(B) \subseteq V$}
     \qed
 \end{proof}
+
+\begin{example}
+    The ordered square is not second countable, because it is not separable.
+\end{example}
 
 \section{Sequential Compactness}
 
@@ -6714,7 +6723,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 
 \begin{theorem}
     Let $X$ be a topological space and $Y$ a compact space. Let $f : X \rightarrow Y$ be a function. 
-    If the granh of $f$ is closed in $X \times Y$ then $f$ is continuous.
+    If the graph of $f$ is closed in $X \times Y$ then $f$ is continuous.
 \end{theorem}
 
 \begin{proof}
@@ -7116,6 +7125,10 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
 \begin{corollary}
     The space $\overline{S_\Omega}$ is compact.
 \end{corollary}
+
+\begin{example}
+    The ordered square is compact.
+\end{example}
 
 \begin{example}
     The space $S_\Omega$ is limit point compact.

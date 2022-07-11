@@ -141,15 +141,15 @@
 \contentsline {section}{\numberline {11.48}Countable Compactness}{148}{section.11.48}%
 \contentsline {section}{\numberline {11.49}Subnets}{150}{section.11.49}%
 \contentsline {section}{\numberline {11.50}Accumulation Points}{150}{section.11.50}%
-\contentsline {section}{\numberline {11.51}Compact Spaces}{151}{section.11.51}%
+\contentsline {section}{\numberline {11.51}Compact Spaces}{152}{section.11.51}%
 \contentsline {section}{\numberline {11.52}Perfect Maps}{166}{section.11.52}%
 \contentsline {section}{\numberline {11.53}Isolated Points}{168}{section.11.53}%
-\contentsline {section}{\numberline {11.54}Local Compactness}{169}{section.11.54}%
+\contentsline {section}{\numberline {11.54}Local Compactness}{170}{section.11.54}%
 \contentsline {section}{\numberline {11.55}Compactifications}{174}{section.11.55}%
 \contentsline {section}{\numberline {11.56}$G_\delta $ Sets}{176}{section.11.56}%
-\contentsline {section}{\numberline {11.57}Separated by a Continuous Function}{176}{section.11.57}%
+\contentsline {section}{\numberline {11.57}Separated by a Continuous Function}{177}{section.11.57}%
 \contentsline {section}{\numberline {11.58}Separate Points from Closed Sets}{177}{section.11.58}%
-\contentsline {section}{\numberline {11.59}Completely Regular Spaces}{177}{section.11.59}%
+\contentsline {section}{\numberline {11.59}Completely Regular Spaces}{178}{section.11.59}%
 \contentsline {section}{\numberline {11.60}Normal Spaces}{182}{section.11.60}%
 \contentsline {section}{\numberline {11.61}Universal Extension Property}{191}{section.11.61}%
 \contentsline {section}{\numberline {11.62}Absolute Retracts}{193}{section.11.62}%
