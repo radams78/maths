@@ -3012,6 +3012,11 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not first countable, because it has a subspace homeomorphic
+    to $\overline{S_\Omega}$.
+\end{example}
+
 \begin{proposition}[AC]
     A countable product of first countable spaces is first countable.
 \end{proposition}
@@ -3860,6 +3865,11 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     The space $\overline{S_\Omega}$ is not connected, because $\{0\}$ and $(0, +\infty)$ form a separation.
 \end{example}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not connected because $\{(0,0)\}$
+    and $S_\Omega \times \overline{S_\Omega} - \{(0,0)\}$ form a separation.
+\end{example}
+
 \begin{proposition}
     \label{proposition:open_closed_connective}
     A topological space $X$ is connected if and only if the only sets that are both open and closed are $X$ and $\emptyset$.
@@ -4568,6 +4578,10 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     The space $\overline{S_\Omega}$ is not path connected, because it is not connected.
 \end{example}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not path connected, because it is not connected.
+\end{example}
+
 An example that shows the converse does not hold:
 \begin{example}
     The ordered square is not path connected.
@@ -5205,6 +5219,10 @@ An example that shows the converse does not hold:
     The space $\overline{S_\Omega}$ is not locally connected, because $\omega$ has no connected neighbourhood.
 \end{example}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not locally connected, because $(\omega,0)$ has no connected neighbourhood.
+\end{example}
+
 \begin{theorem}
     \label{theorem:open_component_locally_connected}
     A topological space $X$ is locally connected if and only if, for every
@@ -5317,6 +5335,10 @@ An example that shows the converse does not hold:
 
 \begin{example}
     The space $\overline{S_\Omega}$ is not locally path connected, because it is not locally connected.
+\end{example}
+
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not locally path connected, because it is not locally connected.
 \end{example}
 
 \begin{theorem}
@@ -5658,6 +5680,11 @@ necessarily Lindel\"{o}f.
     \qed
 \end{proof}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not Lindel\"{o}f, because its image $S_\Omega$
+    under $\pi_1$ is not Lindel\"{o}f.
+\end{example}
+
 The following is an example of a Lindel\"{o}f space that is not first countable.
 \begin{example}[Choice]
     Let $\QQ^\infty$ be the set of all sequences of rationals that end in an
@@ -5725,6 +5752,11 @@ necessarily separable.
     \step{7}{$f(a) \in V \cap f(D)$}
     \qed
 \end{proof}
+
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not separable, because its continuous image $S_\Omega$
+    under $\pi_1$ is not separable.
+\end{example}
 
 \begin{proposition}[Choice]
     In a separable space, every set of disjoint open sets is countable.
@@ -5882,6 +5914,10 @@ necessarily Lindel\"{o}f.
     \step{4}{$\{ B \in \BB \mid x \in B \}$ is a countable local basis at $x$.}
     \qed
 \end{proof}
+
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not second countable, because it is not first countable.
+\end{example}
 
 \begin{proposition}[AC]
     A countable product of second countable spaces is second countable.
@@ -6085,34 +6121,6 @@ necessarily Lindel\"{o}f.
     A topological space is \emph{limit point compact} if and only if every
     infinite set has a limit point.
 \end{definition}
-
-\begin{example}
-    The space $S_\Omega$ is limit point compact.
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$A$ be an infinite subset of $S_\Omega$.}}
-    \step{2}{\pick\ $B \subseteq A$ that is countably infinite.}
-    \begin{proof}
-        \pf\ Proposition \ref{proposition:countable_subset}.
-    \end{proof}
-    \step{3}{\pflet{$b = \sup B$}}
-    \step{4}{$B \subseteq [0,b]$}
-    \step{5}{$[0,b]$ is compact.}
-    \begin{proof}
-        \pf\ Corollary \ref{corollary:closed_interval_compact}.
-    \end{proof}
-    \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b]$.}
-    \begin{proof}
-        \pf\ Proposition \ref{proposition:limit_point_compact_compact}.
-    \end{proof}
-    \step{7}{$x$ is a limit point of $A$.}
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:limit_point_subset}.
-    \end{proof}
-    \qed
-\end{proof}
-\end{example}
 
 \begin{proposition}
     \label{proposition:limit_point_compact_sequentially_compact}
@@ -6882,6 +6890,35 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is limit point compact.
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A$ be an infinite subset of $S_\Omega \times \overline{S_\Omega}$.}}
+    \step{2}{\pick\ $B \subseteq A$ that is countably infinite.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:countable_subset}.
+    \end{proof}
+    \step{3}{\pflet{$b = \sup \pi_1(B)$ and $c = \sup \pi_2(B)$}}
+    \step{4}{$B \subseteq [0,b] \times [0,c]$}
+    \step{5}{$[0,b] \times [0,c]$ is compact.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_interval_compact}, Tychonoff Theorem.
+    \end{proof}
+    \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b] \times [0,c]$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:limit_point_compact_compact}.
+    \end{proof}
+    \step{7}{$x$ is a limit point of $A$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:limit_point_subset}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\end{example}
+
 \begin{lemma}
     \label{lemma:preTychonoff}
     Let $X$ and $Y$ be topological spaces.
@@ -7080,6 +7117,34 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     The space $\overline{S_\Omega}$ is compact.
 \end{corollary}
 
+\begin{example}
+    The space $S_\Omega$ is limit point compact.
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$A$ be an infinite subset of $S_\Omega$.}}
+    \step{2}{\pick\ $B \subseteq A$ that is countably infinite.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:countable_subset}.
+    \end{proof}
+    \step{3}{\pflet{$b = \sup B$}}
+    \step{4}{$B \subseteq [0,b]$}
+    \step{5}{$[0,b]$ is compact.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_interval_compact}.
+    \end{proof}
+    \step{6}{\pick\ a limit point $x$ of $B$ in $[0,b]$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:limit_point_compact_compact}.
+    \end{proof}
+    \step{7}{$x$ is a limit point of $A$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:limit_point_subset}.
+    \end{proof}
+    \qed
+\end{proof}
+\end{example}
+
 \begin{theorem}[Extreme Value Theorem]
     Any linearly ordered set under the order topology that is compact has
     a greatest and a least element.
@@ -7103,6 +7168,14 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \end{proof}
     \qed
 \end{proof}
+
+\begin{example}
+    The space $S_\Omega$ is not compact, because it has no greatest element.
+\end{example}
+
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not compact, because it has a closed subspace $S_\Omega \times \{0\}$ homeomorphic to $S_\Omega$.
+\end{example}
 
 \begin{proposition}
     Every linearly ordered set in which every closed interval is compact
@@ -7277,12 +7350,6 @@ The following examples show that not every limit point compact space is compact.
     Then $\ZZ^+ \times Y$ is limit point compact, since every nonempty set has
     a limit point. It is not compact, since $\{ \{ n \} \times Y \mid n \in \ZZ^+ \}$
     has no finite subcover.
-\end{example}
-
-\begin{example}
-    The space $S_\Omega$ is limit point compact but not compact.
-
-    It is not compact by the Extreme Value Theorem since it has no greatest element.
 \end{example}
 
 \begin{proposition}[AC]
@@ -7831,6 +7898,10 @@ compact Hausdorff.
     \qed
 \end{proof}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is locally compact.
+\end{example}
+
 The following example shows that the continuous image of a locally compact space is not necessarily
 locally compact.
 
@@ -8304,6 +8375,10 @@ locally compact.
     \qed
 \end{proof}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is completely regular.
+\end{example}
+
 \begin{example}[Choice]
     Not every regular space is completely regular.
     
@@ -8331,8 +8406,7 @@ locally compact.
         $(x,y) \in X$ such that $x > m$.
     \end{itemize}
 
-    Then $\mathcal{B}$ is a basis for a topology on $X$ that is completely regular
-    but not normal.
+    Then $\mathcal{B}$ is a basis for a topology on $X$ that is regular but not completely regular.
     
     \begin{proof}
         \pf
@@ -8986,7 +9060,7 @@ The following example shows:
 \end{proof}
 
 \begin{itemize}
-    \item A regular space is not necessarily normal.
+    \item A completely regular space is not necessarily normal.
     \item A subspace of a normal space is not necessarily normal.
     \item A product of two normal spaces is not necessarily normal.
 \end{itemize}

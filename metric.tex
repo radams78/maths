@@ -497,6 +497,10 @@ We prove this is a metric.
     The space $\overline{S_\Omega}$ is not metrizable by Example \ref{example:S_Omega_bar_not_first_countable}.
 \end{example}
 
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not metrizable because it is not first countable.
+\end{example}
+
 \begin{proposition}[Choice]
     Let $X$ be a metrizable space. The following are equivalent:
     \begin{enumerate}
@@ -2336,6 +2340,25 @@ a compact metric space' to '$X$ is a complete metric space'.
 
 \begin{example}
     The space $\overline{S_\Omega}$ is not locally metrizable, because it is compact Hausdorff but not metrizable.
+\end{example}
+
+\begin{proposition}
+    Every subspace of a locally metrizable space is locally metrizable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be locally metrizable.}}
+    \step{2}{\pflet{$Y \subseteq X$}}
+    \step{3}{\pflet{$y \in Y$}}
+    \step{4}{\pick\ a metrizable open neighbourhood $U$ of $y$ in $X$.}
+    \step{5}{$U \cap Y$ is a metrizable open neighbourhood of $y$ in $Y$.}
+    \qed
+\end{proof}
+
+\begin{example}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not locally metrizable, because it has a subspace homemorphic to
+    $\overline{S_\Omega}$.    
 \end{example}
 
 \chapter{Manifolds}
