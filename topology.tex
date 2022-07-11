@@ -4582,6 +4582,10 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     The space $S_\Omega \times \overline{S_\Omega}$ is not path connected, because it is not connected.
 \end{example}
 
+\begin{example}
+    The space $\RR_l$ is not path connected, because it is not connected.
+\end{example}
+
 An example that shows the converse does not hold:
 \begin{example}
     The ordered square is not path connected.
@@ -5223,6 +5227,10 @@ An example that shows the converse does not hold:
     The space $S_\Omega \times \overline{S_\Omega}$ is not locally connected, because $(\omega,0)$ has no connected neighbourhood.
 \end{example}
 
+\begin{example}
+    The space $\RR_l$ is not locally connected.
+\end{example}
+
 \begin{theorem}
     \label{theorem:open_component_locally_connected}
     A topological space $X$ is locally connected if and only if, for every
@@ -5339,6 +5347,10 @@ An example that shows the converse does not hold:
 
 \begin{example}
     The space $S_\Omega \times \overline{S_\Omega}$ is not locally path connected, because it is not locally connected.
+\end{example}
+
+\begin{example}
+    The space $\RR_l$ is not locally path connected, because it is not locally connected.
 \end{example}
 
 \begin{theorem}
@@ -5871,23 +5883,6 @@ The following is an example of a separable space that is not first countable.
     The space $S_\Omega$ is not second countable, because it is not Lindel\"{o}f.
 \end{example}
 
-The following example shows that the product of two Lindel\"{o}f spaces is not
-necessarily Lindel\"{o}f.
-\begin{example}
-    The Sorgenfrey plane is not Lindel\"{o}f.
-    
-    \begin{proof}
-        \pf
-        \step{1}{\pflet{$L = \{ (x, -x) \mid x \in \RR \}$}}
-        \step{2}{$L$ is closed in $\RR_l^2$}
-        \step{3}{\pflet{$\UU = \{ [a,b) \times [a,-d) \mid a,b,d \in \RR \}$}}
-        \step{4}{$\UU \cup \{ \RR \setminus L \}$ covers $\RR_l^2$}
-        \step{5}{Every element of $\UU$ intersects $L$ at exactly one point.}
-        \step{6}{No countable subset of $\UU$ covers $\RR_l^2$.}
-        \qed
-    \end{proof}
-\end{example}
-
 \begin{proposition}
     The long line $L$ is not second countable.
 \end{proposition}
@@ -6017,6 +6012,23 @@ necessarily Lindel\"{o}f.
             \pf\ Proposition \ref{proposition:lindelof_basis}.
         \end{proof}
         \step{7}{$\AA' \cup \AA''$ covers $\RR_l$.}
+        \qed
+    \end{proof}
+\end{example}
+
+The following example shows that the product of two Lindel\"{o}f spaces is not
+necessarily Lindel\"{o}f.
+\begin{example}
+    The Sorgenfrey plane is not Lindel\"{o}f.
+    
+    \begin{proof}
+        \pf
+        \step{1}{\pflet{$L = \{ (x, -x) \mid x \in \RR \}$}}
+        \step{2}{$L$ is closed in $\RR_l^2$}
+        \step{3}{\pflet{$\UU = \{ [a,b) \times [a,-d) \mid a,b,d \in \RR \}$}}
+        \step{4}{$\UU \cup \{ \RR \setminus L \}$ covers $\RR_l^2$}
+        \step{5}{Every element of $\UU$ intersects $L$ at exactly one point.}
+        \step{6}{No countable subset of $\UU$ covers $\RR_l^2$.}
         \qed
     \end{proof}
 \end{example}
@@ -6207,6 +6219,10 @@ necessarily Lindel\"{o}f.
 For an example that shows that the product of two limit point compact spaces is not necessarily
 limit point compact, see L. A. Steen and J. A. Seerbach Jr. \emph{Counterexamples in
 Topology} Example 112.
+
+\begin{example}
+    The space $\RR_l$ is not limit point compact. The set $\ZZ$ has no limit point.
+\end{example}
 
 \section{Countable Compactness}
 
@@ -6447,6 +6463,10 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \begin{definition}[Compact]
     A topological space is \emph{compact} if and only if every open covering has a finite subcovering.
 \end{definition}
+
+\begin{example}
+    The space $\RR_l$ is not compact. The open covering $\{ [n,n+1) \mid n \in \ZZ \}$ has no finite subcovering.
+\end{example}
 
 \begin{lemma}
     \label{lemma:finite_subcovering_subspace}
@@ -7787,6 +7807,25 @@ is not necessarily locally compact.
     hence compact (Corollary \ref{corollary:closed_interval_compact}).
 
     In particular, $S_\Omega$ and $\overline{S_\Omega}$ are locally compact.
+\end{example}
+
+\begin{example}
+    The space $\RR_l$ is not locally compact.
+
+    \begin{proof}
+        \pf
+        \step{1}{\assume{for a contradiction $C \subseteq \RR_l$ is compact and includes an open neighbourhood $U$ of 0.}}
+        \step{2}{\pick\ $a > 0$ such that $[0,a) \subseteq U$}
+        \step{3}{\pick\ a sequence of points $(a_n)$ such that $0 < a_1 < a_2 < \cdots < a$ such that $a = \sup_n a_n$}
+        \step{4}{\pflet{$UU = \{ [0,a_1), [a_1,a_2), [a_2,a_3), \ldots \} \cup \{ \RR_l - [0,a) \}$}}
+        \step{5}{$\UU$ is a set of open sets that covers $C$}
+        \step{6}{No finite subset covers $C$.}
+        \qedstep
+        \begin{proof}
+            \pf\ This is a contradiction.
+        \end{proof}
+        \qed
+    \end{proof}
 \end{example}
 
 \begin{proposition}
