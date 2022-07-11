@@ -4074,6 +4074,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:product_connected}
     The product of a family of connected spaces is connected.
 \end{theorem}
 
@@ -4142,6 +4143,10 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{corollary}
+    The space $\RR^\omega$ is connected.
+\end{corollary}
 
 \begin{example}
     The set $\RR^\omega$ is disconnected under the box topology. The set of bounded sequences and the set of unbounded sequences form
@@ -4646,6 +4651,7 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{proposition}[AC]
+    \label{proposition:product_path_connected}
     The product of a family of path-connected spaces is path-connected.
 \end{proposition}
 
@@ -4664,6 +4670,10 @@ An example that shows the converse does not hold:
     \end{proof}
     \qed
 \end{proof}
+
+\begin{corollary}
+    The space $\RR^\omega$ is path connected.
+\end{corollary}
 
 \begin{proposition}
     The continuous image of a path-connected space is path-connected.
@@ -5247,6 +5257,14 @@ An example that shows the converse does not hold:
     The space $\RR_l$ is not locally connected.
 \end{example}
 
+\begin{proposition}
+    The space $\RR^\omega$ is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Every basic open set is connected by Theorem \ref{theorem:product_connected}. \qed
+\end{proof}
+
 \begin{theorem}
     \label{theorem:open_component_locally_connected}
     A topological space $X$ is locally connected if and only if, for every
@@ -5349,6 +5367,7 @@ An example that shows the converse does not hold:
     \step{3}{$[0,x/2)\times[0,y/2)$ is clopen in $U$.}
     \qed
 \end{proof}
+
 \section{Local Path Connectedness}
 
 \begin{definition}[Locally Path-Connected]
@@ -5359,6 +5378,15 @@ An example that shows the converse does not hold:
     The space $X$ is \emph{locally path-connected} if and only if it is locally
     path-connected at every point.
 \end{definition}
+
+\begin{proposition}
+    The space $\RR^\omega$ is locally path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Every basic open neighbourhood is path connected by
+    Proposition \ref{proposition:product_path_connected}. \qed
+\end{proof}
 
 \begin{proposition}
     Every locally path connected space is locally connected.
@@ -5972,6 +6000,18 @@ The following is an example of a separable space that is not first countable.
     \qed
 \end{proof}
 
+\begin{corollary}
+    The space $\RR^\omega$ is second countable.
+\end{corollary}
+
+\begin{corollary}
+    The space $\RR^\omega$ is Lindel\"{o}f.
+\end{corollary}
+
+\begin{corollary}
+    The space $\RR^\omega$ is separable.
+\end{corollary}
+
 \begin{proposition}[AC]
     Any discrete subspace of a second countable space is countable.
 \end{proposition}
@@ -6207,12 +6247,6 @@ necessarily Lindel\"{o}f.
     \end{proof}
     \qed
 \end{proof}
-
-\begin{example}
-    The space $[0,1]^\omega$ under the uniform topology is not limit point compact.
-
-    The infinite set $\{0,1\}^\omega$ has no limit point.
-\end{example}
 
 \begin{example}
     The space $[0,1]$ under the lower limit topology is not limit point compact.
@@ -6556,6 +6590,11 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \step{5}{$\UU_0 \cap \UU$ is a finite subset of $\UU$ that covers $Y$.}
     \qed
 \end{proof}
+
+\begin{corollary}
+    The space $\RR^\omega$ is not compact, because it has a
+    closed subspace homeomorphic to $\RR$.
+\end{corollary}
 
 \begin{theorem}
     \label{theorem:continuous_image_compact}
@@ -8016,6 +8055,10 @@ compact Hausdorff.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{corollary}
+    The space $\RR^\omega$ is not locally compact.
+\end{corollary}
 
 \begin{example}
     The space $S_\Omega \times \overline{S_\Omega}$ is locally compact.
