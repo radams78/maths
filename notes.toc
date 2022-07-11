@@ -86,8 +86,9 @@
 \contentsline {section}{\numberline {9.1}The Cantor Set}{58}{section.9.1}%
 \contentsline {chapter}{\numberline {10}Finite Sets}{59}{chapter.10}%
 \contentsline {section}{\numberline {10.1}The Finite Intersection Property}{60}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Real Analysis}{62}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Group Theory}{63}{section.10.3}%
+\contentsline {section}{\numberline {10.2}Point-Finite Indexed Families}{61}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Real Analysis}{62}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Group Theory}{63}{section.10.4}%
 \contentsline {chapter}{\numberline {11}Topological Spaces}{64}{chapter.11}%
 \contentsline {section}{\numberline {11.1}Topologies}{64}{section.11.1}%
 \contentsline {section}{\numberline {11.2}Closed Set}{65}{section.11.2}%
@@ -152,27 +153,28 @@
 \contentsline {section}{\numberline {11.60}Normal Spaces}{180}{section.11.60}%
 \contentsline {section}{\numberline {11.61}Universal Extension Property}{189}{section.11.61}%
 \contentsline {section}{\numberline {11.62}Absolute Retracts}{191}{section.11.62}%
-\contentsline {section}{\numberline {11.63}Completely Normal Spaces}{192}{section.11.63}%
-\contentsline {section}{\numberline {11.64}Separated Sets}{192}{section.11.64}%
+\contentsline {section}{\numberline {11.63}Completely Normal Spaces}{193}{section.11.63}%
+\contentsline {section}{\numberline {11.64}Separated Sets}{193}{section.11.64}%
 \contentsline {section}{\numberline {11.65}Vanish Precisely}{194}{section.11.65}%
 \contentsline {section}{\numberline {11.66}Perfectly Normal Spaces}{195}{section.11.66}%
-\contentsline {section}{\numberline {11.67}Coherent Topology}{195}{section.11.67}%
-\contentsline {section}{\numberline {11.68}Support}{196}{section.11.68}%
-\contentsline {section}{\numberline {11.69}Partitions of Unity}{196}{section.11.69}%
-\contentsline {chapter}{\numberline {12}Topological Groups}{199}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Actions}{207}{section.12.1}%
-\contentsline {section}{\numberline {12.2}The Metric Topology}{212}{section.12.2}%
-\contentsline {section}{\numberline {12.3}Real Linear Algebra}{222}{section.12.3}%
-\contentsline {section}{\numberline {12.4}The Uniform Topology}{230}{section.12.4}%
-\contentsline {section}{\numberline {12.5}Uniform Convergence}{234}{section.12.5}%
-\contentsline {section}{\numberline {12.6}Isometric Imbeddings}{235}{section.12.6}%
-\contentsline {section}{\numberline {12.7}Distance to a Set}{236}{section.12.7}%
-\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{237}{section.12.8}%
-\contentsline {section}{\numberline {12.9}Uniform Continuity}{239}{section.12.9}%
-\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{240}{section.12.10}%
-\contentsline {section}{\numberline {12.11}Isometry}{242}{section.12.11}%
-\contentsline {section}{\numberline {12.12}Shrinking Maps}{243}{section.12.12}%
-\contentsline {section}{\numberline {12.13}Contractions}{244}{section.12.13}%
-\contentsline {section}{\numberline {12.14}Locally Metrizable Spaces}{244}{section.12.14}%
-\contentsline {chapter}{\numberline {13}Manifolds}{245}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Manifolds}{245}{section.13.1}%
+\contentsline {section}{\numberline {11.67}Coherent Topology}{196}{section.11.67}%
+\contentsline {section}{\numberline {11.68}Support}{197}{section.11.68}%
+\contentsline {section}{\numberline {11.69}Partitions of Unity}{197}{section.11.69}%
+\contentsline {section}{\numberline {11.70}The Line With Two Origins}{198}{section.11.70}%
+\contentsline {chapter}{\numberline {12}Topological Groups}{200}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Actions}{208}{section.12.1}%
+\contentsline {section}{\numberline {12.2}The Metric Topology}{213}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Real Linear Algebra}{223}{section.12.3}%
+\contentsline {section}{\numberline {12.4}The Uniform Topology}{231}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Uniform Convergence}{235}{section.12.5}%
+\contentsline {section}{\numberline {12.6}Isometric Imbeddings}{236}{section.12.6}%
+\contentsline {section}{\numberline {12.7}Distance to a Set}{237}{section.12.7}%
+\contentsline {section}{\numberline {12.8}Lebesgue Numbers}{238}{section.12.8}%
+\contentsline {section}{\numberline {12.9}Uniform Continuity}{240}{section.12.9}%
+\contentsline {section}{\numberline {12.10}Epsilon-neighbourhoods}{241}{section.12.10}%
+\contentsline {section}{\numberline {12.11}Isometry}{243}{section.12.11}%
+\contentsline {section}{\numberline {12.12}Shrinking Maps}{244}{section.12.12}%
+\contentsline {section}{\numberline {12.13}Contractions}{245}{section.12.13}%
+\contentsline {section}{\numberline {12.14}Locally Metrizable Spaces}{245}{section.12.14}%
+\contentsline {chapter}{\numberline {13}Manifolds}{246}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Manifolds}{246}{section.13.1}%
