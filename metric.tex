@@ -2421,6 +2421,46 @@ a compact metric space' to '$X$ is a complete metric space'.
     open neighbourhood. For 0, the set $(-1,1) - K$ is a metrizable open neighbourhood. \qed
 \end{proof}
 
+\begin{proposition}
+    The product of two locally metrizable spaces is locally metrizable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ and $Y$ be locally metrizable spaces.}}
+    \step{2}{\pflet{$(x,y) \in X \times Y$}}
+    \step{3}{\pflet{$U$ be a neighbourhood of $(x,y)$}}
+    \step{4}{\pick\ neighbourhoods $V$ of $x$ and $W$ of $y$
+    such that $V \times W \subseteq U$}
+    \step{5}{\pick\ metrizable neighbourhoods $V'$ of $x$ and
+    $W'$ of $y$ with $V' \subseteq V$ and $W' \subseteq W$}
+    \step{6}{$V' \times W'$ is connected.}
+    \step{7}{$(x,y) \in V' \times W' \subseteq U$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The product of a countable family of locally metrizable spaces is
+    not necessarily locally metrizable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a space $X$ that is locally metrizable but not metrizable. \prove{$X^\omega$ is not locally metrizable.}}
+    \step{2}{\pflet{$x \in X^\omega$}}
+    \step{3}{\assume{for a contradiction $x$ has a metrizable neighbourhood $U$}}
+    \step{4}{\pick\ a basic open neighbourhood $\prod_n U_n$ with $\prod_n U_n \subseteq U$
+    and $U_n = X$ for all but finitely many $n$}
+    \step{5}{$X$ is metrizable}
+    \begin{proof}
+        \pf\ It is homeomorphic to a subspace of $U$.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This is a contradiction.
+    \end{proof}
+    \qed
+\end{proof}
 \chapter{Manifolds}
 
 \section{Manifolds}

@@ -5431,6 +5431,46 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    The product of two locally connected spaces is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ and $Y$ be locally connected spaces.}}
+    \step{2}{\pflet{$(x,y) \in X \times Y$}}
+    \step{3}{\pflet{$U$ be a neighbourhood of $(x,y)$}}
+    \step{4}{\pick\ neighbourhoods $V$ of $x$ and $W$ of $y$
+    such that $V \times W \subseteq U$}
+    \step{5}{\pick\ connected neighbourhoods $V'$ of $x$ and
+    $W'$ of $y$ with $V' \subseteq V$ and $W' \subseteq W$}
+    \step{6}{$V' \times W'$ is connected.}
+    \step{7}{$(x,y) \in V' \times W' \subseteq U$}
+    \qed
+\end{proof}
+
+The following example shows that the product of a countable family of locally connected spaces
+is not necessarily locally connected.
+
+\begin{proposition}
+    The space $(\RR - \{0\})^\omega$ is not locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$p = (1, 1, \ldots)$}}
+    \step{2}{\assume{for a contradiction $U$ is a connected open neighbourhood of $p$ in $(\RR - \{0\})^\omega$}}
+    \step{3}{\pick\ a basic open set $\prod_n U_n$ with $p \in \prod_n U_n \subseteq U$
+    and $U_n = \RR - \{0\}$ for all but finitely many $n$.}
+    \step{4}{\pick\ $n$ such that $U_n = \RR - \{0\}$}
+    \step{5}{$\pi_n(U) = \RR - \{0\}$ is connected.}
+    \qedstep
+    \begin{proof}
+        \pf\ This is a contradiction.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Local Path Connectedness}
 
 \begin{definition}[Locally Path-Connected]
@@ -5605,6 +5645,35 @@ An example that shows the converse does not hold:
     such that $V \subseteq U$}
     \step{7}{$V$ is a path-connected open neightbourhood of $y$ in $Y$.}
     \qed
+\end{proof}
+
+\begin{proposition}
+    The product of two locally path-connected spaces is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ and $Y$ be locally path-connected spaces.}}
+    \step{2}{\pflet{$(x,y) \in X \times Y$}}
+    \step{3}{\pflet{$U$ be a neighbourhood of $(x,y)$}}
+    \step{4}{\pick\ neighbourhoods $V$ of $x$ and $W$ of $y$
+    such that $V \times W \subseteq U$}
+    \step{5}{\pick\ path-connected neighbourhoods $V'$ of $x$ and
+    $W'$ of $y$ with $V' \subseteq V$ and $W' \subseteq W$}
+    \step{6}{$V' \times W'$ is connected.}
+    \step{7}{$(x,y) \in V' \times W' \subseteq U$}
+    \qed
+\end{proof}
+
+The following example shows that the product of a countable family of locally path-connected spaces
+is not necessarily locally path-connected.
+
+\begin{proposition}
+    The space $(\RR - \{0\})^\omega$ is not locally path-connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ It is not locally connected. \qed
 \end{proof}
 
 \section{Weak Local Connectedness}
@@ -8035,6 +8104,21 @@ The following examples show that not every limit point compact space is compact.
     \times (x_n - 1, x_n + 1) \subseteq [x_1 - 1, x_1 + 1] \times \cdots
     \times [x_n - 1, x_n + 1]$.
 \end{example}
+
+\begin{proposition}
+    The product of two locally compact spaces is locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ and $Y$ be locally compact.}}
+    \step{2}{\pflet{$(x,y) \in X \times Y$}}
+    \step{3}{\pick\ compact subspaces $C \subseteq X$ and
+    $D \subseteq Y$ that include the open neighbourhoods
+    $U$ of $x$ and $V$ of $y$.}
+    \step{4}{$(x,y) \in U \times V \subseteq C \times D$}
+    \qed
+\end{proof}
 
 The following example shows that a countable product of locally compact spaces
 is not necessarily locally compact.
