@@ -2880,6 +2880,14 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \qed
 \end{proof}
 
+\begin{proposition}
+    The space $\RR_K$ is Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Since its topology is finer than $\RR$. \qed
+\end{proof}
+
 \section{The First Countability Axiom}
 
 \begin{definition}[First Countability Axiom]
@@ -5286,6 +5294,15 @@ An example that shows the converse does not hold:
     \pf\ Every basic open set is connected by Theorem \ref{theorem:product_connected}. \qed
 \end{proof}
 
+\begin{proposition}
+    The space $\RR_K$ is not locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The open neighbourhood $(-1,1) - K$ of 0 contains
+    no connected open neighbourhood of 0. \qed
+\end{proof}
+
 \begin{theorem}
     \label{theorem:open_component_locally_connected}
     A topological space $X$ is locally connected if and only if, for every
@@ -5397,6 +5414,23 @@ An example that shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    An open subspace of a locally connected space is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be locally connected.}}
+    \step{2}{\pflet{$Y \subseteq X$ be open.}}
+    \step{3}{\pflet{$y \in Y$}}
+    \step{4}{\pflet{$U$ be an open neighbourhood of $y$ in $Y$}}
+    \step{5}{$U$ is an open neighbourhood of $y$ in $X$.}
+    \step{6}{\pick\ a connected open neighbourhood $V$ of $y$ in $X$
+    such that $V \subseteq U$}
+    \step{7}{$V$ is a connected open neightbourhood of $y$ in $Y$.}
+    \qed
+\end{proof}
+
 \section{Local Path Connectedness}
 
 \begin{definition}[Locally Path-Connected]
@@ -5432,6 +5466,10 @@ An example that shows the converse does not hold:
 
 \begin{corollary}
     The space $\RR^\omega$ under the box topology is not locally path connected.
+\end{corollary}
+
+\begin{corollary}
+    The space $\RR_K$ is not locally path connected.
 \end{corollary}
 
 \begin{example}
@@ -5549,6 +5587,23 @@ An example that shows the converse does not hold:
     \begin{proof}
         \pf\ Otherwise $P$ and $Q$ form a separation of $U$.
     \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    An open subspace of a locally connected space is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be locally connected.}}
+    \step{2}{\pflet{$Y \subseteq X$ be open.}}
+    \step{3}{\pflet{$y \in Y$}}
+    \step{4}{\pflet{$U$ be an open neighbourhood of $y$ in $Y$}}
+    \step{5}{$U$ is an open neighbourhood of $y$ in $X$.}
+    \step{6}{\pick\ a path-connected open neighbourhood $V$ of $y$ in $X$
+    such that $V \subseteq U$}
+    \step{7}{$V$ is a path-connected open neightbourhood of $y$ in $Y$.}
     \qed
 \end{proof}
 
@@ -5836,9 +5891,26 @@ The following is an example of a Lindel\"{o}f space that is not first countable.
     The Sorgenfrey plane is separable.
 \end{corollary}
 
+\begin{proposition}
+    An open subspace of a separable space is separable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a separable space.}}
+    \step{2}{\pflet{$Y \subseteq X$ be open.}}
+    \step{3}{\pick\ a countable set $D$ dense in $X$. \prove{$D \cap Y$ is dense in $Y$.}}
+    \step{4}{\pflet{$U$ be a nonempty open set in $Y$}}
+    \step{5}{$U$ is open in $X$}
+    \step{6}{$U$ intersects $D$}
+    \step{7}{$U$ intersects $D \cap Y$}
+    \qed
+\end{proof}
+
 The following example shows that a closed subspace of a separable space is not
 necessarily separable.
-\begin{example}[AC]
+
+\begin{example}
     The space $\RR_l^2$ is separable, but $\{ (x, -x) \mid x \in \RR \}$ as a
     subspace is uncountable and discrete, and hence not separable.
 \end{example}
@@ -5964,6 +6036,15 @@ The following is an example of a separable space that is not first countable.
 
     The set $\{ (a,b) \mid a,b \in \QQ \}$ is a basis.
 \end{example}
+
+\begin{proposition}
+    The space $\RR_K$ is second countable.
+\end{proposition}
+
+\begin{proof}
+    The set $\{ (a,b) \mid a,b \in \QQ \} \cup \{ (a,b) - K \mid a,b \in \QQ \}$
+    is a basis. \qed
+\end{proof}
 
 \begin{proposition}
     \label{proposition:second_countable_subspace}
@@ -6360,6 +6441,14 @@ Topology} Example 112.
     The space $\RR^I$ is not limit point compact. The set $\ZZ^I$ has no limit point.
 \end{proposition}
 
+\begin{proposition}
+    The space $\RR_K$ is not limit point compact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The set $\ZZ$ has no limit point. \qed
+\end{proof}
+
 \section{Countable Compactness}
 
 \begin{definition}[Countably Compact]
@@ -6603,6 +6692,18 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \begin{example}
     The space $\RR_l$ is not compact. The open covering $\{ [n,n+1) \mid n \in \ZZ \}$ has no finite subcovering.
 \end{example}
+
+\begin{proposition}
+    The space $\RR$ is not compact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The open covering $\{ (n,n+2) \mid n \in \ZZ \}$ has no finite subcovering. \qed
+\end{proof}
+
+\begin{corollary}
+    The space $\RR_K$ is not compact.
+\end{corollary}
 
 \begin{lemma}
     \label{lemma:finite_subcovering_subspace}
@@ -8282,6 +8383,22 @@ locally compact.
     \qed
 \end{proof}
 
+\begin{proposition}
+    The space $\RR_K$ is not locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction there is a compact
+    subspace $C$ that includes the open neighbourhood $U$ of 0.}}
+    \step{2}{\pick\ $\epsilon$ with $0 < \epsilon < 1$ such that $(-\epsilon,\epsilon)-K \subseteq U$}
+    \step{3}{$\overline{(-\epsilon,\epsilon)-K} = [-\epsilon,\epsilon]$ is compact under the $K$-topology.}
+    \step{4}{For all $n \geq 2$, \pflet{$U_n = (1/(n+1),1/(n-1))$}}
+    \step{5}{$\{(-1.1) - K, (1/2, +\infty) \} \cup \{ U_n \mid n \geq 2 \}$ covers $[-\epsilon,\epsilon]$.}
+    \step{6}{There is no finite subcover.}
+    \qed
+\end{proof}
+
 \section{Compactifications}
 
 \begin{definition}[Compactification]
@@ -8571,6 +8688,10 @@ locally compact.
     open neighbourhoods of $x_0$ and $A$  respectively.}
     \qed
 \end{proof}
+
+\begin{corollary}
+    The space $\RR_K$ is not completely regular.
+\end{corollary}
 
 \begin{proposition}
     A subspace of a completely regular space is completely regular.
@@ -8884,6 +9005,10 @@ order topology is completely regular.
 \begin{proof}
     \pf\ Immediate from definitions. \qed
 \end{proof}
+
+\begin{corollary}
+    The space $\RR_K$ is not normal.
+\end{corollary}
 
 \begin{proposition}
     \label{proposition:normal_neighbourhoods}
