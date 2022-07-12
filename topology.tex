@@ -2947,7 +2947,7 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 \end{proof}
 
 \begin{example}[CC]
-    The space $\RR^\omega$ under the box product is not first countable.
+    The space $\RR^\omega$ under the box topology is not first countable.
 \end{example}
 
 \begin{proof}
@@ -4148,6 +4148,10 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     The space $\RR^\omega$ is connected.
 \end{corollary}
 
+\begin{corollary}
+    The space $\RR^I$ is connected.
+\end{corollary}
+
 \begin{example}
     The set $\RR^\omega$ is disconnected under the box topology. The set of bounded sequences and the set of unbounded sequences form
     a separation.
@@ -4679,6 +4683,10 @@ An example that shows the converse does not hold:
     The space $\RR^\omega$ is path connected.
 \end{corollary}
 
+\begin{corollary}
+    The space $\RR^I$ is path connected.
+\end{corollary}
+
 \begin{proposition}
     The continuous image of a path-connected space is path-connected.
 \end{proposition}
@@ -4786,6 +4794,7 @@ An example that shows the converse does not hold:
 \end{example}
 
 \begin{proposition}
+    \label{proposition:components_box_topology}
     Give $\RR^\omega$ the box topology. Let $x, y \in \RR^\omega$. Then $x$ and $y$ lie in the same comoponent if and only if $x-y$ is eventually zero, i.e.
     there exists $N$ such that, for all $n \geq N$,
     we have $x_n = y_n$.
@@ -4833,18 +4842,6 @@ An example that shows the converse does not hold:
     \end{proof}
     \qed
 \end{proof}
-
-\begin{corollary}
-    The space $\RR^\omega$ under the box topology is not locally connected.
-\end{corollary}
-
-\begin{proof}
-    \pf\ Since the components are not open. \qed
-\end{proof}
-
-\begin{corollary}
-    The space $\RR^\omega$ under the box topology is not locally path connected.
-\end{corollary}
 
 \section{The Topologist's Sine Curve}
 
@@ -5281,6 +5278,14 @@ An example that shows the converse does not hold:
     \pf\ Every basic open set is connected by Theorem \ref{theorem:product_connected}. \qed
 \end{proof}
 
+\begin{proposition}
+    The space $\RR^I$ is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Every basic open set is connected by Theorem \ref{theorem:product_connected}. \qed
+\end{proof}
+
 \begin{theorem}
     \label{theorem:open_component_locally_connected}
     A topological space $X$ is locally connected if and only if, for every
@@ -5315,6 +5320,14 @@ An example that shows the converse does not hold:
         \step{d}{The component of $U$ that contains $a$ is a connected neighbourhood of $a$ included in $U$.}
     \end{proof}
     \qed
+\end{proof}
+
+\begin{corollary}
+    The space $\RR^\omega$ under the box topology is not locally connected.
+\end{corollary}
+
+\begin{proof}
+    \pf\ Since the components are not open (Proposition \ref{proposition:components_box_topology}).
 \end{proof}
 
 \begin{example}
@@ -5405,8 +5418,21 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{proposition}
+    The space $\RR^I$ is locally path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Every basic open neighbourhood is path connected by
+    Proposition \ref{proposition:product_path_connected}. \qed
+\end{proof}
+
+\begin{proposition}
     Every locally path connected space is locally connected.
 \end{proposition}
+
+\begin{corollary}
+    The space $\RR^\omega$ under the box topology is not locally path connected.
+\end{corollary}
 
 \begin{example}
     The space $S_\Omega$ is not locally path connected, because it is not locally connected.
@@ -6328,6 +6354,10 @@ Topology} Example 112.
 \begin{proposition}
     The space $\RR^\omega$ under the box topology is not limit point compact.
     The set $\ZZ^\omega$ has no limit point.
+\end{proposition}
+
+\begin{proposition}
+    The space $\RR^I$ is not limit point compact. The set $\ZZ^I$ has no limit point.
 \end{proposition}
 
 \section{Countable Compactness}
@@ -7493,6 +7523,10 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \qed
 \end{proof}
 
+\begin{corollary}
+    The space $\RR^I$ is not compact.
+\end{corollary}
+
 The following examples show that not every limit point compact space is compact.
 \begin{example}
     Let $Y$ be a set with two elements under the indiscrete topology.
@@ -7904,27 +7938,28 @@ The following examples show that not every limit point compact space is compact.
 The following example shows that a countable product of locally compact spaces
 is not necessarily locally compact.
 
-\begin{example}
-    The space $\RR^\omega$ is not locally compact.
+\begin{proposition}
+    For any infinite set $J$, the space $\RR^J$ is not locally compact.
+\end{proposition}
 
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $0 \in U \subseteq C$ where $U$
+    is open and $C$ is compact.}}
+    \step{2}{\pick\ a basic open set 
+    $B = \prod_{\alpha \in J} B_\alpha$ such that $0 \in B \subseteq U$,
+    where $B_\alpha = (a_{\alpha_i}, b_{\alpha_i})$ for $\alpha = \alpha_1, \ldots, \alpha_n$
+    and $B_\alpha = \RR$ for all other $\alpha$.}
+    \step{3}{$\overline{B} = \prod_{\alpha \in J} \overline{B_\alpha}$ is compact.}
     \begin{proof}
-        \pf
-        \step{1}{\assume{for a contradiction $0 \in U \subseteq C$ where $U$
-        is open and $C$ is compact.}}
-        \step{2}{\pick\ a basic open set $B = (a_1, b_1) \times \cdots \times (a_n, b_n)
-        \times \RR \times \RR \times \cdots$ such that $0 \in B \subseteq U$}
-        \step{3}{$\overline{B} = [a_1, b_1] \times \cdots \times [a_n, b_n]
-        \times \RR \times \RR \times \cdots$ is compact.}
-        \begin{proof}
-            \pf Proposition \ref{proposition:closed_subspace_compact}.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ This is a contradiction.
-        \end{proof}
-        \qed
+        \pf Proposition \ref{proposition:closed_subspace_compact}.
     \end{proof}
-\end{example}
+    \qedstep
+    \begin{proof}
+        \pf\ This is a contradiction since $\RR$ is not compact.
+    \end{proof}
+    \qed
+\end{proof}
 
 \begin{example}
     Every linearly ordered set $X$ with the least upper bound property is locally
@@ -9334,6 +9369,10 @@ The following example shows:
 
 \begin{corollary}
     The space $\RR^\omega$ is normal.
+\end{corollary}
+
+\begin{corollary}
+    The space $\RR^I$ is not Lindel\"{o}f.
 \end{corollary}
 
 \begin{theorem}[Urysohn Lemma]
