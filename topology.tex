@@ -2888,6 +2888,16 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \pf\ Since its topology is finer than $\RR$. \qed
 \end{proof}
 
+\begin{proposition}
+    The image of a Hausdorff space under a continuous map is
+    not necessarily Hausdorff.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Take the identity function from a set under the
+    discrete topology to the same set under the indiscrete topology. \qed
+\end{proof}
+
 \section{The First Countability Axiom}
 
 \begin{definition}[First Countability Axiom]
@@ -3850,6 +3860,16 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     \step{7}{$U$ and $V$ are disjoint open neighbourhoods of $A$ and $B$
     respectively.}
     \qed
+\end{proof}
+
+\begin{proposition}
+    The image of a regular space under a continuous map is
+    not necessarily regular.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Take the identity function from a set under the
+    discrete topology to the same set under the indiscrete topology. \qed
 \end{proof}
 
 \section{Dense Sets}
@@ -5365,6 +5385,28 @@ An example that shows the converse does not hold:
 \end{example}
 
 \begin{proposition}
+    Any discrete topological space is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ For any point $x$, the singleton $\{x\}$ is a connected open neighbourhood. \qed
+\end{proof}
+
+\begin{proposition}
+    The continuous image of a locally connected space is not necessarily locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a topological space $X$ that is not locally connected.}
+    \step{2}{\pflet{$X'$ be the same set as $X$ under the discrete topology.}}
+    \step{3}{\pflet{$i : X' \rightarrow X$ be the identity function.}}
+    \step{4}{$X'$ is locally connected.}
+    \step{5}{$i$ is continuous.}
+    \qed
+\end{proof}
+
+\begin{proposition}
     Let $X$ and $Y$ be topological spaces and $p : X \twoheadrightarrow Y$ be a quotient map. If $X$ is locally connected then so is $Y$.
 \end{proposition}
 
@@ -5674,6 +5716,20 @@ is not necessarily locally path-connected.
 
 \begin{proof}
     \pf\ It is not locally connected. \qed
+\end{proof}
+
+\begin{proposition}
+    The continuous image of a locally path connected space is not necessarily locally path connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a topological space $X$ that is not locally path connected.}
+    \step{2}{\pflet{$X'$ be the same set as $X$ under the discrete topology.}}
+    \step{3}{\pflet{$i : X' \rightarrow X$ be the identity function.}}
+    \step{4}{$X'$ is locally path connected.}
+    \step{5}{$i$ is continuous.}
+    \qed
 \end{proof}
 
 \section{Weak Local Connectedness}
@@ -9074,6 +9130,16 @@ locally compact.
 See also Corollary \ref{corollary:order_topology_completely_regular}: Every linearly ordered set under the
 order topology is completely regular.
 
+\begin{proposition}
+    The image of a completely regular space under a continuous map is
+    not necessarily completely regular.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Take the identity function from a set under the
+    discrete topology to the same set under the indiscrete topology. \qed
+\end{proof}
+
 \section{Normal Spaces}
 
 \begin{definition}[Normal]
@@ -9292,6 +9358,16 @@ The following example shows that:
     \step{5}{$U$ and $V$ are disjoint open neighbourhoods of $A$ and $B$ respectively
     with disjoit closures.}
     \qed
+\end{proof}
+
+\begin{proposition}
+    The image of a normal space under a continuous map is
+    not necessarily normal.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Take the identity function from a set under the
+    discrete topology to the same set under the indiscrete topology. \qed
 \end{proof}
 
 \begin{proposition}
