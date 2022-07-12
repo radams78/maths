@@ -1843,31 +1843,6 @@ We prove this is a basis for a topology.
 \end{proof}
 
 \begin{proposition}
-    Let $\{ A_i \}_{i \in I}$ be a family of topological spaces. For $i \in I$, let $\BB_i$ be a basis for the topology on $A_i$. Then $\BB = \{ \prod_{i \in I} B_i \mid
-    \forall i \in I. B_i \in \BB_i, B_i = A_i \text{ for all but finitely many } i \}$ is a basis for the box topology on $\prod_{i \in I} A_i$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{Every set in $\BB$ is open.}
-    \step{2}{For every point $a \in \prod_{i \in I} A_i$ and every open set $U$ with $a \in U$, there exists $B \in \BB$ such that $a \in B \subseteq U$.}
-    \begin{proof}
-        \step{a}{\pflet{$U$ be open and $a \in U$}}
-        \step{b}{\pick\ a family $\{ U_i \}_{i \in I}$ such that each $U_i$ is open in $A_i$, such that $U_i = A_i$ except for $i = i_1, \ldots, i_n$, and 
-        such that $a \in \prod_{i \in I} U_i \subseteq U$.}
-        \step{c}{For $j = 1, \ldots, n$, \pick\ $B_{i_j} \in \BB_{i_j}$ such that $a_{i_j} \in B_{i_j} \subseteq U_{i_j}$}
-        \step{d}{\pflet{$B = \prod_{i \in I} B_i$ where $B_i = A_i$ for $i \neq i_1, \ldots, i_n$}}
-        \step{e}{$B \in \BB$}
-        \step{f}{$a \in B \subseteq U$}
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:basis}.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}
     \label{proposition:open_map_projections}
     Let $\{ A_i \}_{i \in I}$ be a family of topological spaces. Then the projections $\pi_i : \prod_{i \in I} A_i \rightarrow A_i$ are open maps.
 \end{proposition}
@@ -2542,6 +2517,31 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     Let $U_n$ be an open interval around $a_n$ that does not contain $0$ if $a_n \neq 0$, and $U_n = \RR$ if $a_n = 0$.
     Then $\prod_{n \geq 0} U_n$ is a neighbourhood of $(a_n)$ that does not intersect $\RR^\infty$.
 \end{example}
+
+\begin{proposition}
+    Let $\{ A_i \}_{i \in I}$ be a family of topological spaces. For $i \in I$, let $\BB_i$ be a basis for the topology on $A_i$. Then $\BB = \{ \prod_{i \in I} B_i \mid
+    \forall i \in I. B_i \in \BB_i, B_i = A_i \text{ for all but finitely many } i \}$ is a basis for the box topology on $\prod_{i \in I} A_i$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{Every set in $\BB$ is open.}
+    \step{2}{For every point $a \in \prod_{i \in I} A_i$ and every open set $U$ with $a \in U$, there exists $B \in \BB$ such that $a \in B \subseteq U$.}
+    \begin{proof}
+        \step{a}{\pflet{$U$ be open and $a \in U$}}
+        \step{b}{\pick\ a family $\{ U_i \}_{i \in I}$ such that each $U_i$ is open in $A_i$, such that $U_i = A_i$ except for $i = i_1, \ldots, i_n$, and 
+        such that $a \in \prod_{i \in I} U_i \subseteq U$.}
+        \step{c}{For $j = 1, \ldots, n$, \pick\ $B_{i_j} \in \BB_{i_j}$ such that $a_{i_j} \in B_{i_j} \subseteq U_{i_j}$}
+        \step{d}{\pflet{$B = \prod_{i \in I} B_i$ where $B_i = A_i$ for $i \neq i_1, \ldots, i_n$}}
+        \step{e}{$B \in \BB$}
+        \step{f}{$a \in B \subseteq U$}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:basis}.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{$T_1$ Spaces}
 
@@ -5998,6 +5998,10 @@ The following is an example of a separable space that is not first countable.
     \qed
 \end{proof}
 
+\begin{corollary}
+    The space $\RR^\omega$ under the box topology is not second countable.
+\end{corollary}
+
 \begin{example}
     The space $S_\Omega \times \overline{S_\Omega}$ is not second countable, because it is not first countable.
 \end{example}
@@ -6321,6 +6325,11 @@ Topology} Example 112.
     \pf\ The set $\ZZ^2$ has no limit point. \qed
 \end{proof}
 
+\begin{proposition}
+    The space $\RR^\omega$ under the box topology is not limit point compact.
+    The set $\ZZ^\omega$ has no limit point.
+\end{proposition}
+
 \section{Countable Compactness}
 
 \begin{definition}[Countably Compact]
@@ -6612,6 +6621,10 @@ The following example shows we cannot remove the hypothesis that the space is $T
     closed subspace homeomorphic to $\RR$.
 \end{corollary}
 
+\begin{corollary}
+    The space $\RR^\omega$ under the box topology is not compact.
+\end{corollary}
+
 \begin{theorem}
     \label{theorem:continuous_image_compact}
     The continuous image of a compact space is compact.
@@ -6703,6 +6716,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:compact_hausdorff_incomparable}
     If $\TT$ and $\TT'$ are two compact Hausdorff topologies on the same set $X$, then either $\TT = \TT'$ or $\TT$ and $\TT'$ are incomparable.
 \end{corollary}
 
@@ -8210,6 +8224,25 @@ locally compact.
     \step{9}{$p(C)$ is compact.}
     \begin{proof}
         \pf\ Theorem \ref{theorem:continuous_image_compact}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The space $\RR^\omega$ under the box topology is not locally compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{for a contradiction $\RR^\omega$ under the box topology is locally compact.}}
+    \step{2}{\pick\ an open neighbourhood $U$ of 0 such that $\overline{U}$ is compact.}
+    \step{3}{$\overline{U}$ is compact under the product topology.}
+    \begin{proof}
+        \pf\ Since the product topology is coarser.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts Corollary \ref{corollary:compact_hausdorff_incomparable}.
     \end{proof}
     \qed
 \end{proof}
