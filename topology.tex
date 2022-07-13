@@ -3261,6 +3261,7 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 \end{corollary}
 
 \begin{corollary}
+    \label{corollary:closed_map_quotient}
     Every surjective continuous closed map is a quotient map.
 \end{corollary}
 
@@ -8827,6 +8828,37 @@ locally compact.
     $f : X \rightarrow C$, there exists a unique continuous function $g : \beta(X) \rightarrow C$ such that
     $f = g \circ i$.
 \end{definition}
+
+\begin{proposition}
+    Let $X$ be a completely regular space. Every compactification of $X$ is a quotient of $i : X \rightarrow \beta(X)$.
+    That is, if $j : X \hookrightarrow Y$ is a compactification of $X$, then the continuous map
+    $q : \beta(X) \rightarrow Y$ such that $j = q \circ i$ is a quotient map.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$q$ is surjective.}
+    \begin{proof}
+        \step{a}{$q(\beta(X))$ is closed}
+        \begin{proof}
+            \pf\ Because it is compact.
+        \end{proof}
+        \step{b}{$Y \subseteq q(\beta(X))$}
+        \begin{proof}
+            \pf\ Since $Y = \overline{j(X)}$
+        \end{proof}
+        \step{c}{$q(\beta(X)) = Y$}
+    \end{proof}
+    \step{2}{$q$ is a closed map.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closed_map_compact_Hausdorff},
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:closed_map_quotient}.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{$G_\delta$ Sets}
 
