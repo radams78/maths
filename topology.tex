@@ -1772,6 +1772,40 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
+\begin{proposition}
+    Every continuous function $S_\Omega \rightarrow \RR$
+    is eventually constant.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f : S_\Omega \rightarrow \RR$ be continuous.}}
+    \step{2}{For every $\epsilon > 0$, there exists $\alpha \in S_\Omega$
+    such that, for all $\beta > \alpha$, we have $|f(\beta) - f(\alpha)| < \epsilon$}
+    \begin{proof}
+        \step{a}{\pflet{$\epsilon > 0$}}
+        \step{b}{\assume{for a contradiction that, for all $\alpha \in S_\Omega$,
+        there exists $\beta > \alpha$ such that $|f(\beta) - f(\alpha)| \geq \epsilon$}}
+        \step{c}{Define the sequence $(\alpha_n)$ in $S_\Omega$ by:
+        $\alpha_0 = 0$; $\alpha_{n+1}$ is the least element $> \alpha_n$
+        such that $|f(\alpha_{n+1}) - f(\alpha_n)| \geq \epsilon$}
+        \step{d}{\pflet{$\beta = \sup_n \alpha_n$}}
+        \step{e}{$f(\alpha_n) \rightarrow f(\beta)$ as $n \rightarrow \infty$}
+        \step{f}{There exists $N$ such that, for all $n \geq N$, we have $|f(\alpha_n) - f(\beta)| < \epsilon / 2$}
+        \step{g}{$|f(\alpha_N) - f(\alpha_{N+1})| < \epsilon$}
+        \qedstep
+        \qed
+    \end{proof}
+    \step{3}{For $n \in \ZZ^+$, \pflet{$\alpha_n$ be the least element in $S_\Omega$
+    such that, for all $\beta > \alpha_n$, we have $|f(\beta) - f(\alpha_n)| < 1/n$}}
+    \step{4}{\pflet{$\beta = \sup_n \alpha_n$}}
+    \step{5}{For all $\gamma > \beta$ we have $f(\gamma) = f(\beta)$}
+    \begin{proof}
+        \pf\ Since $|f(\gamma) - f(\beta)| < 1/n$ for all $n \in \ZZ^+$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The nth Root Function}
 
 \begin{proposition}
