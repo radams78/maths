@@ -2797,6 +2797,7 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:agree_on_closure}
     Let $X$ be a topological space. Let $Y$ a Hausdorff space. Let $A \subseteq X$. Let $f, g : \overline{A} \rightarrow Y$ be continuous.
     If $f$ and $g$ agree on $A$ then $f = g$.
 \end{proposition}
@@ -8543,12 +8544,12 @@ locally compact.
 
 \begin{definition}[Compactification]
     Let $X$ be a topological space. A \emph{compactification} of $X$ consists of a compact Hausdorff
-    space $Y$ and an imbedding $X \rightarrow Y$.
+    space $Y$ and an imbedding $i : X \rightarrow Y$ such that $Y = \overline{i(X)}$.
 \end{definition}
 
 \begin{definition}[One-Point Compactification]
     Let $X$ be a topological space. A \emph{one-point compactification} of $X$ is a compactification
-    $i : X \rightarrow Y$ such that $Y - i(x)$ consists of a single point.
+    $i : X \rightarrow Y$ such that $Y - i(X)$ consists of a single point.
 \end{definition}
 
 \begin{theorem}
@@ -8704,6 +8705,128 @@ locally compact.
     \pf\ It is a subspace of its one-point compactification, which is regular since
     it is compact Hausdorff. \qed
 \end{proof}
+
+\subsection{Equivalent Compactifications}
+
+\begin{definition}[Equivalent Compactifications]
+    Let $i : X \rightarrow Y$ and $j : X \rightarrow Z$ be compactifications of $X$. Then these compactifications
+    are \emph{equivalent} if and only if there exists a homeomorphism $\phi : Y \cong Z$ such that $j = \phi \circ i$.
+\end{definition}
+
+\begin{lemma}
+    Let $X$ be a topological space. Let $Z$ be a compact Hausdorff space. Let $h : X \rightarrow Z$ be an embedding.
+    Then there exists a compactification $i : X \hookrightarrow Y$ of $X$ unique up to equivalence such that there
+    exists an embedding $H : Y \hookrightarrow Z$ such that $h = H \circ i$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$Y = \overline{h(X)}$ and $i : X \hookrightarrow Y$ be the corestriction of $h$.}}
+    \step{2}{$i$ is a compactification of $X$.}
+    \step{3}{Let $H : Y \rightarrow Z$ be the inclusion.}
+    \step{4}{$H$ is an embedding.}
+    \step{5}{$h = H \circ i$}
+    \step{6}{\pflet{$i' : X \rightarrow Y'$ be any compactification of $X$ and $H' : Y' \hookrightarrow Z$ be an embedding
+    such that $h = H' \circ i'$}}
+    \step{7}{Define $\phi : Y \rightarrow Y'$ by: $\phi(y)$ is the unique element in $Y'$ such that $H'(y) = H(y)$}
+    \begin{proof}
+        \pf\ This exists since $H(Y) = H'(Y') = \overline{h(X)}$.
+    \end{proof}
+    \step{8}{$\phi$ is a homeomorphism.}
+    \step{9}{$i' = \phi \circ i$}
+    \step{10}{$\phi$ is unique.}
+    \qed
+\end{proof}
+
+\begin{definition}[Induced Compactification]
+    Let $X$ be a topological space. Let $Z$ be a compact Hausdorff space. Let $h : X \rightarrowtail Z$ be an embedding.
+    Then the compactification of $X$ \emph{induced} by $h$ is the compactification $i : X \rightarrowtail Y$ such that
+    there exists an embedding $H : Y \rightarrowtail Z$ such that $h = H \circ i$.
+\end{definition}
+
+\begin{theorem}
+    Let $X$ be a completely regular space. Then there exists a compactification $i : X \rightarrow Y$ such that, for every
+    bounded continuous function $f : X \rightarrow \RR$, there exists a unique continuous function $g : Y \rightarrow \RR$
+    such that $f = g \circ i$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$J$ be the set of all bounded continuous functions $X \rightarrow \RR$}}
+    \step{2}{For $\alpha \in J$, \pflet{$I_\alpha = [\inf \alpha(X), \sup \alpha(X)]$}}
+    \step{3}{Define $h : X \rightarrow \prod_{\alpha \in J} I_\alpha$ by $h(x) = (\alpha(x))_{\alpha \in J}$}
+    \step{4}{$\prod_{\alpha \in J} I_\alpha$ is compact Hausdorff.}
+    \begin{proof}
+        \pf\ Tychonoff Theorem.
+    \end{proof}
+    \step{6}{$h$ is an embedding.}
+    \begin{proof}
+        \step{5}{$J$ separates points from closed sets in $X$.}
+        \begin{proof}
+            \pf\ Since $X$ is completely regular.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By the Embedding Theorem.
+        \end{proof}
+    \end{proof}
+    \step{7}{\pflet{$i : X \hookrightarrow Y$ be the compactification induced by $h$ with embedding $H : Y \rightarrowtail \prod_{\alpha \in J} I_\alpha$
+    such that $h = H \circ i$}}
+    \step{8}{\pflet{$f : X \rightarrow \RR$ be any bounded continuous function.}}
+    \step{9}{\pflet{$g : Y \rightarrow \RR$ be $\pi_f \circ H$}}
+    \step{10}{$f = g \circ i$}
+    \step{11}{If $g' : Y \rightarrow \RR$ and $f = g' \circ i$ then $g' = g$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:agree_on_closure}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a completely regular space. Let $i : X \rightarrowtail Y$ be a compactification
+    such that, for every
+    bounded continuous function $f : X \rightarrow \RR$, there exists a unique continuous function $g : Y \rightarrow \RR$
+    such that $f = g \circ i$.
+    Let $C$ be a compact Hausdorff space. Let $f : X \rightarrow C$ be continuous. Then there exists a unique continuous
+    function $g : Y \rightarrow C$ such that $f = g \circ i$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a set $J$ and an embedding $j : C \rightarrowtail [0,1]^J$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:completely_regular_embedded_in_IJ}.
+    \end{proof}
+    \step{2}{For $\alpha \in J$, \pflet{$g_\alpha : Y \rightarrow \RR$ be the unique 
+    continuous function such that $\pi_\alpha \circ j \circ f = g_\alpha \circ i$.}}
+    \step{3}{\pflet{$h = \langle g_\alpha \mid \alpha \in J \rangle : Y \rightarrow \RR^J$}}
+    \step{4}{$h \circ i = j \circ f$}
+    \step{4}{$h(Y) \subseteq j(C)$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            h(Y) & = h(\overline{i(X)}) \\
+            & \subseteq \overline{h(i(X))} \\
+            & = \overline{j(f(X))} \\
+            & \subseteq \overline{j(C)} \\
+            & = j(C) & (\text{$C$ is closed, $j$ is an embedding})
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a completely regular space. Then the compactification $i : X \rightarrowtail Y$
+    such that, for every bounded continuous $f : X \rightarrow \RR$, there exists a unique continuous
+    $g : Y \rightarrow \RR$ such that $f = g \circ i$ is unique up to equivalence.
+\end{corollary}
+
+\begin{definition}[Stone-\u{C}ech Compactification]
+    Let $X$ be a completely regular space. The \emph{Stone-\u{C}ech compactification} of $X$ is the compactification
+    $i : X \rightarrowtail \beta(X)$ such that, for any compact Hausdorff space $C$ and continuous function
+    $f : X \rightarrow C$, there exists a unique continuous function $g : \beta(X) \rightarrow C$ such that
+    $f = g \circ i$.
+\end{definition}
 
 \section{$G_\delta$ Sets}
 
@@ -9119,6 +9242,7 @@ locally compact.
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:completely_regular_embedded_in_IJ}
     A topological space is completely regular if and only if it is homeomorphic to
     a subspace of $[0,1]^J$ for some set $J$.
 \end{theorem}

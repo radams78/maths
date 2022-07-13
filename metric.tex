@@ -720,6 +720,36 @@ This example shows the converse does not hold:
     to the same set under the indiscrete topology. \qed
 \end{proof}
 
+\begin{proposition}
+    Let $X$ be a metrizable space. Then $X$ has a metrizable compactification if and only if $X$ is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $X$ has a metrizable compactification then $X$ is second countable.}
+    \begin{proof}
+        \step{a}{\assume{$X$ has a metrizable compactification.}}
+        \step{b}{\pick\ a metrizable compactification $Y$ of $X$.}
+        \step{c}{$Y$ is second countable.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:Lindelof_metrizable_second_countable}.
+        \end{proof}
+        \step{d}{$X$ is second countable.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:second_countable_subspace}.
+        \end{proof}
+    \end{proof}
+    \step{2}{If $X$ is second countable then it has a metrizable compactification.}
+    \begin{proof}
+        \step{a}{\assume{$X$ is second countable.}}
+        \step{b}{\pick\ an embedding $e : X \rightarrow [0,1]^\omega$}
+        \begin{proof}
+            \pf\ By the Urysohn Metrization Theorem.
+        \end{proof}
+        \step{c}{$e : X \rightarrow \overline{e(X)}$ is a metrizable compactification of $X$.}
+    \end{proof}
+\end{proof}
+
 \section{Real Linear Algebra}
 
 \begin{definition}[Square Metric]
@@ -1474,7 +1504,8 @@ We prove this is a metric.
     \qed
 \end{proof}
 
-\begin{proposition}[AC]
+\begin{proposition}[Choice]
+    \label{proposition:Lindelof_metrizable_second_countable}
     Every Lindel\"{o}f metrizable space is second countable.
 \end{proposition}
 
