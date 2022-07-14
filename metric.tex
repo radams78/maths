@@ -750,6 +750,30 @@ This example shows the converse does not hold:
     \end{proof}
 \end{proof}
 
+\begin{proposition}
+    Let $X$ be a completely regular space. If $\beta(X)$ is metrizable then $X$ is compact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{$\beta(X)$ is metrizable}}
+    \step{2}{$X$ is metrizable.}
+    \step{3}{$X$ is normal.}
+    \step{4}{$\beta(X) = X$}
+    \begin{proof}
+        \step{4}{\pflet{$y \in \beta(X)$}}
+        \step{5}{There exists a sequence in $X$ that converges to $y$.}
+        \begin{proof}
+            \pf\ By the Sequence Lemma since $\beta(X)$ is first countable.
+        \end{proof}
+        \step{a}{$y \in X$}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:stone_cech_sequence}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Real Linear Algebra}
 
 \begin{definition}[Square Metric]

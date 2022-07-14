@@ -339,6 +339,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:closure_union}
     \[ \overline{A \cup B} = \overline{A} \cup \overline{B} \]
 \end{proposition}
 
@@ -6124,6 +6125,7 @@ necessarily separable.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:RRI_separable}
     The product space $\RR^I$ is separable.
 \end{proposition}
 
@@ -8733,11 +8735,11 @@ locally compact.
 \end{example}
 
 \begin{proposition}
-    Every locally compact Hausdorff space is regular.
+    Every locally compact Hausdorff space is completely regular.
 \end{proposition}
 
 \begin{proof}
-    \pf\ It is a subspace of its one-point compactification, which is regular since
+    \pf\ It is a subspace of its one-point compactification, which is completely regular since
     it is compact Hausdorff. \qed
 \end{proof}
 
@@ -8890,6 +8892,210 @@ locally compact.
     \qedstep
     \begin{proof}
         \pf\ Corollary \ref{corollary:closed_map_quotient}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The one-point compactification and the Stone-\u{C}ech compactification of $S_\Omega$ are equivalent.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$i : S_\Omega \rightarrow \overline{S_\Omega}$ be the inclusion.}}
+    \step{2}{For every continuous function $f : S_\Omega \rightarrow \RR$, there exists a unique continuous $g : \overline{S_\Omega}
+    \rightarrow \RR$ such that $f = g \circ i$.}
+    \begin{proof}
+        \step{a}{\pflet{$f : S_\Omega \rightarrow \RR$ be continuous.}}
+        \step{b}{\pflet{$\alpha$ be least such that, for all $\beta > \alpha$, we have $f(\beta) = f(\alpha)$}}
+        \step{c}{\pflet{$l = f(\alpha)$}}
+        \step{d}{$g : \overline{S_\Omega} \rightarrow \RR$ is continuous and satisfies $f = g \circ i$ iff $g(\gamma) = f(\gamma)$
+        for all $\gamma < \Omega$, and $g(\Omega) = l$.}
+    \end{proof}
+    \step{3}{$i$ is the Stone-\u{C}ech compactification of $S_\Omega$.}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Every compactification of $S_\Omega$ is equivalent to $\overline{S_\Omega}$.
+\end{corollary}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$i : S_\Omega \rightarrowtail C$ be any compactification.}}
+    \step{2}{\pflet{$j : S_\Omega \rightarrowtail \overline{S_\Omega}$ be the inclusion.}}
+    \step{3}{\pflet{$q : \overline{S_\Omega} \twoheadrightarrow C$ be the quotient map such that $q \circ j = i$}}
+    \step{4}{$q$ is injective.}
+    \begin{proof}
+        \pf
+        \step{a}{For $x,y \in \S_\Omega$, if $q(j(x)) = q(j(y))$ then $x = y$}
+        \step{b}{For $x \in S_\Omega$ we have $q(j(x)) \neq q(\Omega)$}
+        \begin{proof}
+            \pf\ Otherwise $C = i(S_\Omega)$ which is a contradiction since $i(S_\Omega) \cong S_\Omega$ is not compact.
+        \end{proof}
+    \end{proof}
+    \step{5}{$q$ is a homeomorphism.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a completely regular space. Then $X$ is connected if and only if $\beta(X)$ is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $X$ is connected then $\beta(X)$ is connected.}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:connected_closure}.
+    \end{proof}
+    \step{2}{If $\beta(X)$ is connected then $X$ is connected.}
+    \begin{proof}
+        \step{a}{\assume{$\beta(X)$ is connected.}}
+        \step{b}{\assume{for a contradiction $A$ and $B$ form a separation of $X$.}}
+        \step{c}{Define $f : X \rightarrow \RR$ by $f(x) = 0$ for $x \in A$, and $f(x) = 1$ for $x \in B$}
+        \step{d}{$f$ is continuous.}
+        \step{e}{\pflet{$g : \beta(X) \rightarrow \RR$ be the unique extension of $f$ to $\beta(X)$}}
+        \step{f}{$g(\beta(X)) = \{0,1\}$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                g(\beta(X)) & = g(\overline{X}) \\
+                & \subseteq \overline{g(X)} \\
+                & = \overline{\{0,1\}} \\
+                & = \{0,1\}
+            \end{align*}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts Theorem \ref{theorem:connected_continuous_image}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:discrete_space_compactification}
+    Let $X$ be a discrete space. Let $A \subseteq X$. Then the closures of $A$ and $X - A$ in $\beta(X)$ are disjoint.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{Define $f : X \rightarrow \RR$ by $f(x) = 0$ for $x \in A$ and $f(x) = 1$ for $x \in X - A$}
+    \step{2}{$f$ is continuous.}
+    \step{3}{\pflet{$g : \beta(X) \rightarrow \RR$ be the continuous extension of $f$.}}
+    \step{4}{$g(\overline{A}) = \{0\}$}
+    \step{5}{$g(\overline{X - A}) = \{1\}$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:discrete_open_closure_compactification}
+    Let $X$ be a discrete space. Let $U$ be an open set in $\beta(X)$. Then $\overline{U}$ is open in $\beta(X)$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{U} = \overline{U \cap X}$}
+    \begin{proof}
+        \step{a}{$\overline{U} \subseteq \overline{U \cap X}$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in \overline{U}$}}
+            \step{ii}{\pflet{$V$ be any neighbourhood of $x$.}}
+            \step{iii}{$V \cap U \neq \emptyset$}
+            \step{iv}{$V \cap U \cap X \neq \emptyset$}
+            \begin{proof}
+                \pf\ Since $X$ is dense in $\beta(X)$.
+            \end{proof}
+        \end{proof}
+        \step{b}{$\overline{U \cap X} \subseteq \overline{U}$}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:closure_monotone}.
+        \end{proof}
+    \end{proof}
+    \step{2}{$\overline{U}$ and $\overline{X - U}$ are disjoint.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:discrete_space_compactification} gives us $\overline{U \cap X}$
+        and $\overline{X - U}$ are disjoint.
+    \end{proof}
+    \step{3}{$\overline{U} = \beta(X) - \overline{X - U}$}
+    \begin{proof}
+        \pf\ Since
+        \begin{align*}
+            \overline{U} \cup \overline{X - U} & = \overline{X \cup U} & (\text{Proposition \ref{proposition:closure_union}}) \\
+            & = \beta(X)
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The Stone-\u{C}ech compactification of a discrete space is totally disconnected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a discrete space.}}
+    \step{2}{\pflet{$Y \subseteq X$}}
+    \step{3}{\pflet{$x, y \in Y$}}
+    \step{4}{\assume{$x \neq y$} \prove{$Y$ is not connected.}}
+    \step{5}{\pick\ $U$ open in $X$ such that $x \in U$ and $y \notin U$}
+    \step{6}{$Y \cap \overline{U}$ and $Y - \overline{U}$ form a separation of $Y$.}
+    \begin{proof}
+        \step{a}{$Y \cap \overline{U}$ is open in $Y$}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:discrete_open_closure_compactification}.
+        \end{proof}
+        \step{b}{$Y - \overline{U}$ is open in $Y$}
+        \step{c}{$(Y \cap \overline{U}) \cap (Y - \overline{U}) = \emptyset$}
+        \step{d}{$(Y \cap \overline{U}) \cup (Y - \overline{U}) = Y$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:stone_cech_closed_disjoint}
+    Let $X$ be a normal space. Let $A$ and $B$ be disjoint closed sets in $X$.
+    Then the closures of $A$ and $B$ in $\beta(X)$ are disjoint.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a continuous function $f : X \rightarrow [0,1]$ with $f(A) = \{0\}$
+    and $f(B) = \{1\}$}
+    \step{2}{\pflet{$g : \beta(X) \rightarrow [0,1]$ be the extension of $f$.}}
+    \step{3}{$g(\overline{A}) = \{0\}$ and $g(\overline{B}) = \{1\}$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:stone_cech_sequence}
+    Let $X$ be a normal space. Let $y \in \beta(X)$.
+    If $y$ is the limit of a sequence of points of $X$ then $y \in X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a sequence $(x_n)$ in $X$ that converges to $y$.}
+    \step{2}{\assume{w.l.o.g. the elements of $(x_n)$ are all distinct.}}
+    \step{3}{\pflet{$A = \{x_{2n} \mid n \in \ZZ^+\}$ and $B = \{x_{2n+1} \mid n \in \ZZ^+\}$}}
+    \step{4}{$y \in \overline{A} \cap \overline{B}$}
+    \step{5}{$A$ and $B$ are closed in $X$}
+    \begin{proof}
+        \step{a}{$A$ is closed in $X$.}
+        \begin{proof}
+            \step{i}{\pflet{$z \in X - A$}}
+            \step{ii}{\pick\ disjoint open sets $U$ and $V$ in $\beta(X)$ such that $z \in U$ and $y \in V$}
+            \step{iii}{\pick\ $N$ such that for all $n \geq N$ we have $x_n \in V$.}
+            \step{iv}{$z \in U - \{ x_1, x_2, \ldots, x_{N-1} \} \subseteq X - A$}
+        \end{proof}
+        \step{b}{$B$ is closed in $X$.}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ This contradicts Proposition \ref{proposition:stone_cech_closed_disjoint}.
     \end{proof}
     \qed
 \end{proof}
