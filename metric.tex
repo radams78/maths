@@ -611,47 +611,6 @@ This example shows the converse does not hold:
     \qed
 \end{proof}
 
-\begin{theorem}[Urysohn Metrization Theorem (Choice)]
-    Every second countable regular space is metrizable.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a second countable regular space.}}
-    \step{2}{There exists a countable set $\mathcal{F}$ of continuous functions $X \rightarrow
-    [0,1]$ that separates points from closed sets.}
-    \begin{proof}
-        \step{a}{\pick\ a countable basis $\BB$ for $X$.}
-        \step{b}{For all $B, C \in \BB$ with $\overline{B} \subseteq C$,
-        \pick\ a continuous $g_{BC} : X \rightarrow [0,1]$ such that
-        $g_{BC}(\overline{B}) = \{1\}$ and $g_{BC}(X - C) = \{0\}$}
-        \begin{proof}
-            \pf\ By the Urysohn Lemma.
-        \end{proof}
-        \step{c}{\pflet{$\mathcal{F} = \{ g_{BC} \mid B, C \in \BB, \overline{B}
-        \subseteq C \}$}}
-        \step{d}{\pflet{$x_0 \in X$}}
-        \step{e}{\pflet{$U$ be a neighbourhood of $x_0$}}
-        \step{f}{\pick\ $C \in \BB$ such that $x_0 \in C \subseteq U$}
-        \step{g}{\pick\ $V$ an open neighbourhood of $x_0$ such that $\overline{V}
-        \subseteq C$}
-        \step{h}{\pick\ $B \in \BB$ such that $x_0 \in B \subseteq V$}
-        \step{i}{$\overline{B} \subseteq C$}
-        \step{j}{$g_{BC}(x_0) > 0$ and $g_{BC}$ vanishes outside $U$}
-    \end{proof}
-    \step{3}{Define $F : X \rightarrow [0,1]^{\mathcal{F}}$ by $F(x) = (f(x))_{f \in \mathcal{F}}$}
-    \step{4}{$F$ is an imedding.}
-    \begin{proof}
-        \pf\ By the Imbedding Theorem.
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Since $[0,1]^{\mathcal{F}}$ is metrizable by Proposition
-        \ref{proposition:countable_product_metrizable}.
-    \end{proof}
-    \qed
-\end{proof}
-
 \begin{corollary}
     Every second countable locally compact Hausdorff space is metrizable.
 \end{corollary}
@@ -2209,6 +2168,7 @@ to $A$ being closed:
 \end{corollary}
 
 \begin{proposition}[Choice]
+    \label{proposition:countably_locally_finite_refinement}
     Let $X$ be a metrizable space. Let $\AA$ be an open covering of $X$.
     Then there exists a countably locally finite open covering of $X$ that refines $\AA$.
 \end{proposition}
@@ -2244,6 +2204,112 @@ to $A$ being closed:
     \end{proof}
     \qed
 \end{proof}
+
+\begin{theorem}[Nagata-Smirnov Metrization Theorem (Choice)]
+    A topological space is metrizable if and only if it is regular and has a countably locally finite basis.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Every metrizable space is regular.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:metrizable_normal}.
+    \end{proof}
+    \step{2}{Every metrizable space has a countably locally finite basis.}
+    \begin{proof}
+        \step{a}{\pflet{$X$ be a metrizable space.}}
+        \step{b}{\pick\ a metric $d$ that induces the topology on $X$.}
+        \step{c}{For $m \in \ZZ^+$, \pflet{$\AA_m$ be the set of all open balls of radius $1/m$.}}
+        \step{d}{For $m \in \ZZ^+$, \pick\ a countably locally finite open refinement $\BB_m$ of $\AA_m$ that covers $X$.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:countably_locally_finite_refinement}.
+        \end{proof}
+        \step{e}{For $m \in \ZZ^+$, every element of $\BB_m$ has diameter at most $2 / m$.}
+        \step{f}{\pflet{$\BB = \bigcup_m \BB_m$}}
+        \step{g}{$\BB$ is countably locally finite.}
+        \step{h}{$\BB$ is a basis for $X$.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$}}
+            \step{ii}{\pflet{$\epsilon > 0$}}
+            \step{iii}{\pick\ $m$ such that $1 / m < \epsilon / 2$}
+            \step{iv}{\pick\ $B \in \BB_m$ such that $x \in B$}
+            \begin{proof}
+                \pf\ Since $\BB_m$ covers $X$.
+            \end{proof}
+            \step{v}{$B \subseteq B(x,\epsilon)$}
+        \end{proof}
+    \end{proof}
+    \step{3}{Every regular space with a countably locally finite basis is metrizable.}
+    \begin{proof}
+        \step{a}{\pflet{$X$ be a regular space with a countably locally finite basis.}}
+        \step{b}{\pick\ a countably locally basis $\BB$ for $X$.}
+        \step{c}{$X$ is perfectly normal.}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:regular_countably_locally_finite_basis_perfectly_normal}.
+        \end{proof}
+        \step{d}{\pick\ a sequence $(\BB_n)$ of locally finite sets such that $\BB = \bigcup_n \BB_n$}
+        \step{e}{For $n \in \ZZ^+$ and $B \in \BB_n$, \pick\ a continuous $f_{nB} : X \rightarrow [0,1/n]$
+        such that $\inv{f_{nB}}(0) = X - B$}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:vanish_precisely_closed_gdelta}.
+        \end{proof}
+        \step{f}{$\{ f_{nB} \mid n \in \ZZ^+, B \in \BB_n \}$ separates points from closed sets.}
+        \begin{proof}
+            \step{i}{\pflet{$x_0 \in X$}}
+            \step{ii}{\pflet{$U$ be an open neightbourhood of $x_0$.}}
+            \step{iii}{\pick\ $B \in \BB$ such that $x_0 \in B \subseteq U$.}
+            \step{iv}{\pick\ $n$ such that $B \in \BB_n$.}
+            \step{v}{$f_{nB}(x_0) > 0$}
+            \step{vi}{$f_{nB}(x_0)$ vanishes outside $U$.}
+        \end{proof}
+        \step{g}{\pflet{$J = \Sigma_{n \in \ZZ^+} \BB_n$} \prove{$X$ is embeddable in $[0,1]^J$ under the uniform topology.}}
+        \step{h}{Define $F : X \rightarrow [0,1]^J$ by: $F(x) = (f_{nB}(x))_{(n,B) \in J}$}
+        \step{j}{$F$ is an embedding with respect to the product topology.}
+        \begin{proof}
+            \pf\ By the Embedding Theorem.
+        \end{proof}
+        \step{k}{$F$ is an embedding with respect to the uniform topology.}
+        \begin{proof}
+            \step{i}{$F$ is injective.}
+            \begin{proof}
+                \pf\ From \stepref{j}.
+            \end{proof}
+            \step{ii}{$F$ is continuous with respect to the product topology.}
+            \begin{proof}
+                \step{one}{\pflet{$\rho$ be the uniform metric on $[0,1]^J$}}
+                \step{two}{For $x, y \in X$ we have $\rho(x,y) = \sup_{\alpha \in J} |x_\alpha - y_\alpha|$}
+                \step{three}{\pflet{$x_0 \in X$}}
+                \step{four}{\pflet{$\epsilon > 0$}}
+                \step{five}{For $n \in \ZZ^+$, \pick\ an open neighbourhood $U_n$ of $x_0$
+                that intersects only finitely many elements of $\BB_n$, say $B_{n1}$, \ldots, $B_{nk_n}$}
+                \step{six}{For $n \in \ZZ^+$, \pick\ an open neighbourhood $V_n$ of $x_0$
+                such that, for $1 \leq i \leq k_n$, $f_{nB_{ni}}(V_n) \subseteq B(f_{nB_{ni}}(x_0),\epsilon/2)$}
+                \step{seven}{\pick\ $N$ such that $1/N \leq \epsilon / 2$}
+                \step{eight}{\pflet{$W = V_1 \cap \cdots \cap V_N$}}
+                \step{nine}{$W$ is an open neighbourhood of $x_0$}
+                \step{ten}{For all $x \in W$ we have $\rho(F(x),F(x_0)) < \epsilon$}
+                \begin{proof}
+                    \step{A}{\pflet{$x \in W$}}
+                    \step{B}{For $n \leq N$ and $B \in \BB_n$ we have $|f_{nB}(x) - f_{nB}(x_0)| \leq \epsilon / 2$}
+                    \step{C}{For $n > N$ and $B \in \BB_n$ we have $|f_{nB}(x) - f_{nB}(x_0)| < \epsilon / 2$}
+                    \begin{proof}
+                        \pf\ Since $f_{nB}(X) \subseteq [0,1/n]$ and $1/n < \epsilon / 2$.
+                    \end{proof}
+                    \step{D}{$\rho(F(x),F(x_0)) \leq \epsilon / 2$}
+                \end{proof}
+            \end{proof}
+            \step{iii}{$F$ maps open sets to open subsets of $F(X)$.}
+            \begin{proof}
+                \pf\ From \stepref{j} since the product topology is coarser.
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}[Urysohn Metrization Theorem (Choice)]
+    Every second countable regular space is metrizable.
+\end{corollary}
 
 \section{Isometry}
 

@@ -10952,6 +10952,85 @@ except the Hausdorff condition.
     $\BB$ is the union of countably many sets, each locally finite.
 \end{definition}
 
+\begin{proposition}
+    Let $X$ be a second countable space and $\AA \subseteq \pow X$. Then $\AA$ is countably locally finite if and only if it is countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{0}{Every locally finite set is countable.}
+    \begin{proof}
+        \step{a}{\pflet{$\mathcal{C}$ be locally finite.}}
+        \step{aa}{\assume{w.l.o.g. $\emptyset \notin \mathcal{C}$}}
+        \step{b}{\pick\ a countable basis $\BB$ of $X$.}
+        \step{c}{For $B \in \BB$ that intersects only finitely many elements of $\mathcal{C}$, let those elements of $\mathcal{C}$
+        be $C_{B1}$, \ldots, $C_{Bn_B}$.}
+        \step{d}{$\mathcal{C} = \{ C_{Bk} \mid B \in \BB, B \text{ intersects only finitely many elements of } \mathcal{C},
+        1 \leq k \leq n_B \}$}
+        \begin{proof}
+            \step{i}{\pflet{$C \in \mathcal{C}$}}
+            \step{ii}{\pick\ $x \in C$}
+            \step{iii}{\pick\ $B \in \BB$ such that $x \in B$ and $B$ intersects only finitely many elements of $\mathcal{C}$}
+            \step{iv}{$B$ intersects $C$}
+            \step{v}{$C = C_{Bk}$ for some $k$.}
+        \end{proof}
+    \end{proof}
+    \step{1}{If $\AA$ is countably locally finite then it is countable.}
+    \step{2}{If $\AA$ is countable then it is countably locally finite.}
+    \begin{proof}
+        \pf\ Since it is a countable union of finite sets.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:regular_countably_locally_finite_basis_perfectly_normal}
+    Every regular space with a countably locally finite basis is perfectly normal.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a regular space with a countably locally finite basis.}}
+    \step{2}{\pick\ a countably locally finite basis $\BB$ for $X$.}
+    \step{3}{\pick\ a sequence $(\BB_n)$ of locally finite sets such that $\BB = \bigcup_n \BB_n$}
+    \step{3}{For every open set $W$, there exists a countable set $\UU$ of open sets such that $W = \bigcup \UU = \bigcup \{ \overline{U}
+    \mid U \in \UU \}$}
+    \begin{proof}
+        \step{a}{\pflet{$W$ be open in $X$.}}
+        \step{b}{For $n \in \ZZ^+$, \pflet{$\mathcal{C}_n = \{ B \in \BB_n \mid \overline{B} \subseteq W \}$}}
+        \step{c}{For $n \in \ZZ^+$, $\mathcal{C}_n$ is locally finite.}
+        \step{d}{For $n \in \ZZ^+$, \pflet{$U_n = \bigcup \mathcal{C}_n$}}
+        \step{e}{For $n \in \ZZ^+$, $U_n$ is open.}
+        \step{f}{For $n \in \ZZ^+$, $\overline{U_n} = \bigcup_{B \in \mathcal{C}_n} \overline{B}$}
+        \step{g}{For $n \in \ZZ^+$, $\overline{U_n} \subseteq W$}
+        \step{h}{$\bigcup_n U_n \subseteq \bigcup_n \overline{U_n} \subseteq W$}
+        \step{i}{$W \subseteq \bigcup_n U_n$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in W$}}
+            \step{ii}{\pick\ $B \in \BB$ such that $x \in B$ and $\overline{B} \in W$}
+            \step{iii}{\pick\ $n$ such that $B \in \BB_n$}
+            \step{iv}{$B \in \mathcal{C}_n$}
+            \step{v}{$x \in U_n$}
+        \end{proof}
+    \end{proof}
+    \step{4}{Every closed set is $G_\delta$.}
+    \begin{proof}
+        \step{a}{\pflet{$C$ be closed in $X$.}}
+        \step{b}{\pick\ a countable set $\UU$ of open sets such that $X - C = \bigcup_{U \in \UU} \overline{U}$}
+        \step{c}{$C = \bigcap_{U \in \UU} (X - \overline{U})$}
+    \end{proof}
+    \step{5}{$X$ is normal.}
+    \begin{proof}
+        \step{a}{\pflet{$C$ and $D$ be disjoint closed sets.}}
+        \step{b}{\pick\ a countable sequence $(U_n)$ of open sets such that $X - D = \bigcup_n U_n = \bigcup_n \overline{U_n}$}
+        \step{e}{\pick\ a countable sequence $(V_n)$ of open sets such that $X - C = \bigcup_n V_n = \bigcup_n \overline{V_n}$}
+        \step{f}{For $n \in \ZZ^+$, \pflet{$U_n' = U_n - \bigcup_{i=1}^n \overline{V_i}$ and $V_n' = V_n - \bigcup_{i=1}^n \overline{U_i}$}}
+        \step{g}{\pflet{$U' = \bigcup_n U_n'$ and $V' = \bigcup_n V_n'$}}
+        \step{h}{$U'$ and $V'$ are disjoint open neighbourhoods of $C$ and $D$ respectively.}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Open Refinements}
 
 \begin{definition}[Open Refinement]
