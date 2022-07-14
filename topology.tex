@@ -9100,6 +9100,12 @@ locally compact.
     \qed
 \end{proof}
 
+\begin{definition}
+    Extend $\beta$ to a functor $\mathbf{Top} \rightarrow \mathbf{CompHaus}$ by defining,
+    for $f : X \rightarrow Y$ a continuous function, $\beta(f) : \beta(X) \rightarrow \beta(Y)$
+    to be the unique continuous extension of $f$.
+\end{definition}
+
 \section{$G_\delta$ Sets}
 
 \begin{definition}[$G_\delta$ Set]
@@ -10875,6 +10881,90 @@ except the Hausdorff condition.
 \begin{proof}
     \pf\ Easy. \qed
 \end{proof}
+
+\section{Local Finiteness}
+
+\begin{definition}[Locally Finite]
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a family of subsets of $X$. Then $\{A_\alpha\}_{\alpha \in J}$ is
+    \emph{locally finite} if and only if every point in $X$ has an open neighbourhood that intersects $A_\alpha$ for only finitely many
+    $\alpha$.
+\end{definition}
+
+\begin{lemma}
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
+    Then every subfamily of $\{A_\alpha\}_{\alpha \in J}$ is locally finite.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{2}{\pflet{$\{ A_\alpha \}_{\alpha \in K}$ be a subfamily.}}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
+    \step{5}{$U$ intersects $A_\alpha$ for only finitely many $\alpha \in K$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
+    Then $\{ \overline{A_\alpha} \}_{\alpha \in J}$ is locally finite.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in X$}}
+    \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
+    \step{3}{For all $\alpha \in J$, if $U$ intersects $\overline{A_\alpha}$ then $U$ intersects $A_\alpha$.}
+    \step{4}{$U$ intersects $\overline{A_\alpha}$ for only finitely many $\alpha \in J$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
+    Then $\overline{\bigcup_{\alpha \in J} A_\alpha} = \bigcup_{\alpha \in J} \overline{A_\alpha}$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{\bigcup_{\alpha \in J} A_\alpha} \subseteq \bigcup_{\alpha \in J} \overline{A_\alpha}$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in \overline{\bigcup_{\alpha \in J} A_\alpha}$}}
+        \step{b}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely
+        $\alpha \in J$, say $\alpha_1$, \ldots, $\alpha_n$}
+        \step{c}{\assume{for a contradiction $x$ is not in any of $\overline{A_{\alpha_1}}$, \ldots, $\overline{A_{\alpha_n}}$}}
+        \step{d}{$U - \overline{A_{\alpha_1}} - \cdots - \overline{A_{\alpha_n}}$ is a neighbourhood of $x$ that does not intersect 
+        $\bigcup_{\alpha \in J} A_\alpha$}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{a}.
+        \end{proof}
+    \end{proof}
+    \step{2}{$\bigcup_{\alpha \in J} \overline{A_\alpha} \subseteq \overline{\bigcup_{\alpha \in J} A_\alpha}$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closure_monotone}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Countably Locally Finite Sets}
+
+\begin{definition}[Countably Locally Finite]
+    Let $X$ be a topological space and $\BB \subseteq \pow X$. Then $\BB$ is \emph{countably locally finite} if and only if
+    $\BB$ is the union of countably many sets, each locally finite.
+\end{definition}
+
+\section{Open Refinements}
+
+\begin{definition}[Open Refinement]
+    Let $X$ be a topological space. Let $\AA, \BB \subseteq \pow X$. Then $\BB$ is an \emph{open refinement} of
+    $\AA$ if and only if $\BB$ refines $\AA$ and every element of $\BB$ is open.
+\end{definition}
+
+\section{Closed Refinements}
+
+\begin{definition}[Closed Refinement]
+    Let $X$ be a topological space. Let $\AA, \BB \subseteq \pow X$. Then $\BB$ is an \emph{closed refinement} of
+    $\AA$ if and only if $\BB$ refines $\AA$ and every element of $\BB$ is closed.
+\end{definition}
 
 \chapter{Topological Groups}
 

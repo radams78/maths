@@ -2208,6 +2208,43 @@ to $A$ being closed:
     The space $\RR_K$ is not metrizable.
 \end{corollary}
 
+\begin{proposition}[Choice]
+    Let $X$ be a metrizable space. Let $\AA$ be an open covering of $X$.
+    Then there exists a countably locally finite open covering of $X$ that refines $\AA$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a well-ordering $<$ on $\AA$.}
+    \step{2}{\pick\ a metric $d$ on $X$ that induces its topology.}
+    \step{3}{For $n \in \ZZ^+$ and $U \in \AA$, \pflet{$S_n(U) = \{ x \in X \mid B(x, 1/n) \subseteq U \}$}}
+    \step{3}{For $n \in \ZZ^+$ and $U \in \AA$, \pflet{$T_n(U) = S_n(U) - \bigcup_{V < U} V$}}
+    \step{4}{For any distinct elements $V, W \in \AA$ and $n \in \ZZ^+$, if $x \in T_n(V)$ and $y \in T_n(W)$ then $d(x,y) \geq 1/n$}
+    \begin{proof}
+        \step{a}{\assume{w.l.o.g.  $V < W$}}
+        \step{b}{$B(x, 1/n) \subseteq V$}
+        \step{c}{$y \notin V$}
+    \end{proof}
+    \step{5}{For $n \in \ZZ^+$ and $U \in \AA$, \pflet{$E_n(U) = B(T_n(U),\epsilon / 3)$}}
+    \step{4}{For any distinct elements $V, W \in \AA$ and $n \in \ZZ^+$, if $x \in E_n(V)$ and $y \in E_n(W)$ then $d(x,y) \geq 1/3n$}
+    \step{6}{For $n \in \ZZ^+$ and $U \in \AA$, we have $E_n(U) \subseteq U$}
+    \step{7}{For $n \in \ZZ^+$, \pflet{$\mathcal{E}_n = \{ E_n(U) \mid U \in \AA \}$}}
+    \step{8}{For $n \in \ZZ^+$, we have $\mathcal{E}_n$ is locally finite.}
+    \begin{proof}
+        \pf\ For $x \in X$, we have $B(x,1/6n)$ intersects at most one element of $\mathcal{E}_n$.
+    \end{proof}
+    \step{8}{For $n \in \ZZ^+$, we have $\mathcal{E}_n$ refines $\AA$.}
+    \step{9}{\pflet{$\mathcal{E} = \bigcup_{n \in \ZZ^+} \mathcal{E}_n$}}
+    \step{10}{$\mathcal{E}$ covers $X$.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ $U \in \AA$ such that $x \in U$}
+        \step{c}{\pick\ $n$ such that $B(x,1/n) \subseteq U$}
+        \step{d}{$x \in E_n(U) \in \mathcal{E}$}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Isometry}
 
 \begin{definition}[Isometry]
