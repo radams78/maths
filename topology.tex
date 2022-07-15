@@ -1074,6 +1074,34 @@ We have simultaneously proved:
     intersects $A_\alpha$ for only finitely many $\alpha$.
 \end{definition}
 
+\begin{proposition}
+    A $T_1$ space with a locally finite basis is discrete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a $T_1$ space with a locally finite basis.}}
+    \step{2}{\pick\ a locally finite basis $\BB$.}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x$ that intersects only finitely many elements of $\BB$, say $B_1$, \ldots, $B_n$.}
+    \step{5}{$U \cap B_1 \cap \cdots \cap B_n = \{x\}$}
+    \begin{proof}
+        \step{i}{\pflet{$y \in U \cap B_1 \cap \cdots \cap B_n$}}
+        \step{ii}{\assume{for a contradiction $x \neq y$}}
+        \step{iii}{\pick\ $B \in \BB$ such that $y \in B \subseteq X - \{x\}$}
+        \step{iv}{\pick\ $i$ such that $B = B_i$}
+        \begin{proof}
+            \pf\ Since $U$ intersects $B$ in $y$.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the fact that $x \in B_i$.
+        \end{proof}
+    \end{proof}
+    \step{6}{$\{x\}$ is open.}
+    \qed
+\end{proof}
+
 \section{Open Maps}
 
 \begin{definition}[Open Map]
@@ -9849,19 +9877,6 @@ The following example shows that:
 \end{proof}
 
 \begin{theorem}
-    Every compact Hausdorff space is normal.
-\end{theorem}
-
-\begin{proof}
-    \pf\ From Propositions \ref{proposition:disjoint_neighbourhoods_compact_Hausdorff}
-    and \ref{proposition:closed_subspace_compact}. \qed
-\end{proof}
-
-\begin{corollary}
-    Every locally compact Hausdorff space is completely regular.
-\end{corollary}
-
-\begin{theorem}
     Every linearly ordered set under the order topology is normal.
 \end{theorem}
 
@@ -10905,6 +10920,7 @@ except the Hausdorff condition.
 \end{proof}
 
 \begin{lemma}
+    \label{lemma:closures_locally_finite}
     Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
     Then $\{ \overline{A_\alpha} \}_{\alpha \in J}$ is locally finite.
 \end{lemma}
@@ -10944,6 +10960,11 @@ except the Hausdorff condition.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{corollary}
+    \label{corollary:union_locally_finite_closed}
+    The union of a locally finite set of closed sets is closed.
+\end{corollary}
 
 \section{Countably Locally Finite Sets}
 
@@ -11044,6 +11065,251 @@ except the Hausdorff condition.
     Let $X$ be a topological space. Let $\AA, \BB \subseteq \pow X$. Then $\BB$ is an \emph{closed refinement} of
     $\AA$ if and only if $\BB$ refines $\AA$ and every element of $\BB$ is closed.
 \end{definition}
+
+\section{$F_\sigma$ Sets}
+
+\begin{definition}[$F_\sigma$ Set]
+    Let $X$ be a topological space. Let $W \subseteq X$. Then $W$ is \emph{$F_\sigma$} if and only if
+    it is a countable union of closed sets.
+\end{definition}
+
+\begin{proposition}
+    Let $X$ be a topological space. Let $W \subseteq X$. Then $W$ is $F_\sigma$ if and only if $X - W$
+    is $G_\delta$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Immediate from definitions. \qed
+\end{proof}
+
+\section{Locally Discrete Sets}
+
+\begin{definition}[Locally Discrete Set]
+    Let $X$ be a topological space. Let $\AA \subseteq \pow X$. Then $\AA$ is \emph{locally discrete}
+    if and only if every point has a neighbourhood that intersects exactly one element of $\AA$.
+\end{definition}
+
+\section{Countably Locally Discrete Sets}
+
+\begin{definition}[Countably Locally Discrete Set]
+    Let $X$ be a topological space. Let $\AA \subseteq \pow X$. Then $\AA$ is \emph{countably locally discrete}
+    if and only if $\AA$ is a countable union of locally discrete sets.
+\end{definition}
+
+\section{Paracompactness}
+
+\begin{definition}[Paracompact Space]
+    A topological space $X$ is \emph{paracompact} if and only if every open covering of $X$ has a locally finite open
+    refinement that covers $X$.
+\end{definition}
+
+\begin{proposition}
+    Every paracompact Hausdorff space is normal.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a paracompact Hausdorff space.}}
+    \step{2}{$X$ is regular.}
+    \begin{proof}
+        \step{a}{\pflet{$a \in X$}}
+        \step{b}{\pflet{$B$ be a closed set in $X$ disjoint from $a$.}}
+        \step{c}{\pflet{$\AA = \{ U \text{ open in } X \mid a \notin \overline{U} \} \cup \{ X - B \}$}}
+        \step{d}{$\AA$ is an open cover of $X$.}
+        \begin{proof}
+            \pf\ For all $x \in B$ there exists an open neighbourhood $U$ of $x$ such that $a \notin \overline{U}$
+            since $X$ is Hausdorff.
+        \end{proof}
+        \step{e}{\pick\ a localy finite open refinement $\mathcal{C}$ that covers $X$.}
+        \step{f}{\pflet{$\DD = \{ C \in \mathcal{C} \mid C \text{ intersects } B \}$}}
+        \step{g}{$\DD$ covers $B$.}
+        \step{h}{For all $D \in \DD$, $a \notin \overline{D}$}
+        \step{i}{\pflet{$V = \bigcup \DD$}}
+        \step{j}{$V$ is an open neighbourhood of $B$.}
+        \step{k}{$\overline{V} = \bigcup_{D \in \DD} \overline{D}$}
+        \step{l}{$a \notin \overline{V}$}
+    \end{proof}
+    \step{3}{Any two disjoint closed sets in $X$ have disjoint open neighbourhoods.}
+    \begin{proof}
+        \step{a}{\pflet{$A$ and $B$ be disjoint closed sets in $X$.}}
+        \step{c}{\pflet{$\AA = \{ U \text{ open in } X \mid A \cap \overline{U} = \emptyset \} \cup \{ X - B \}$}}
+        \step{d}{$\AA$ is an open cover of $X$.}
+        \begin{proof}
+            \pf\ For all $x \in B$, there exists an open neighbourhood $U$ of $x$ such that $A \cap \overline{U} = \emptyset$
+            by \stepref{2}.
+        \end{proof}
+        \step{e}{\pick\ a localy finite open refinement $\mathcal{C}$ that covers $X$.}
+        \step{f}{\pflet{$\DD = \{ C \in \mathcal{C} \mid C \text{ intersects } B \}$}}
+        \step{g}{$\DD$ covers $B$.}
+        \step{h}{For all $D \in \DD$, $A \cap \overline{D} = \emptyset$}
+        \step{i}{\pflet{$V = \bigcup \DD$}}
+        \step{j}{$V$ is an open neighbourhood of $B$.}
+        \step{k}{$\overline{V} = \bigcup_{D \in \DD} \overline{D}$}
+        \step{l}{$A \cap \overline{V} = \emptyset$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Every compact Hausdorff space is normal.
+\end{corollary}
+
+\begin{corollary}
+    Every locally compact Hausdorff space is completely regular.
+\end{corollary}
+
+\begin{theorem}
+    Every closed subspace of a paracompact space is paracompact.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a paracompact space.}}
+    \step{2}{\pflet{$Y \subseteq X$ be closed.}}
+    \step{3}{\pflet{$\AA$ be an open covering of $Y$.}}
+    \step{4}{\pflet{$\BB = \{ U \text{ open in } X \mid U \cap Y \in \AA \} \cup \{ X - Y \}$}}
+    \step{5}{$\BB$ is an open covering of $X$.}
+    \step{6}{\pick\ a locally finite open refinement $\CC$ that covers $X$.}
+    \step{7}{\pflet{$\DD = \{ C \cap Y \mid C \in \CC \}$}
+    \prove{$\DD$ is a locally finite open refinement of $\AA$ that covers $Y$.}}
+    \step{8}{$\DD$ is locally finite.}
+    \step{9}{$\DD$ refines $\AA$}
+    \step{10}{$\DD$ covers $Y$.}
+    \qed
+\end{proof}
+
+The following example shows that an open subspace of a paracompact space is not necessarily paracompact.
+
+\begin{proposition}
+    The space $S_\Omega \times \overline{S_\Omega}$ is not paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Since it is Hausdorff but not normal. \qed
+\end{proof}
+
+\begin{lemma}[E. Michael (Choice)]
+    Let $X$ be a regular space. Then the following are equivalent.
+    \begin{enumerate}
+        \item Every open covering of $X$ has a countably locally finite open refinement that covers $X$.
+        \item Every open covering of $X$ has a locally finite refinement that covers $X$.
+        \item Every open covering of $X$ has a locally finite closed refinement that covers $X$.
+        \item $X$ is paracompact.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{$1 \Rightarrow 2$}
+    \begin{proof}
+        \step{a}{\assume{1}}
+        \step{b}{\pflet{$\AA$ be an open covering of $X$.}}
+        \step{c}{\pick\ a countably locally finite open refinement $\BB$ of $\AA$ that covers $X$.}
+        \step{d}{\pick\ a sequence $(\BB_n)$ of locally finite sets such thath $\BB = \bigcup_n \BB_n$}
+        \step{e}{For $i \in \ZZ^+$, \pflet{$V_i = \bigcup \BB_i$}}
+        \step{f}{For $n \in \ZZ^+$ and $U \in \BB_n$, \pflet{$S_n(U) = U - \bigcup_{i < n} V_i$}}
+        \step{f}{For $n \in \ZZ^+$, \pflet{$\mathcal{C}_n = \{ S_n(U) \mid U \in \BB_n \}$}}
+        \step{g}{For all $n \in \ZZ^+$, $\mathcal{C}_n$ refines $\mathcal{B}_n$.}
+        \step{h}{\pflet{$\mathcal{C} = \bigcup_n \mathcal{C}_n$} \prove{$\mathcal{C}$ is a locally finite refinement of $\AA$
+        that covers $X$.}}
+        \step{i}{$\mathcal{C}$ covers $X$.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$}}
+            \step{ii}{\pflet{$N$ be least such that $x \in \bigcup \BB_N$}}
+            \step{iii}{\pick\ $U \in \BB_N$ such that $x \in U$}
+            \step{iv}{$x \in S_N(U)$}
+        \end{proof}
+        \step{j}{$\mathcal{C}$ is locally finite.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$}}
+            \step{ii}{\pflet{$N$ be least such that $x \in \bigcup \BB_N$}}
+            \step{iii}{\pick\ $U \in \BB_N$ such that $x \in U$}
+            \step{iv}{For $n = 1, \ldots, N$, \pick\ a neighbourhood $W_n$ of $x$ that intersects only finitely many
+            elements of $\BB_n$}
+            \step{v}{For $n = 1, \ldots, N$ and $V \in \BB_n$, if $W_n$ intersects $S_n(V)$ then $W_n$ intersects $V$.}
+            \step{vi}{For $n = 1, \ldots, N$, $W_n$ intersects only finitely many elements of $\mathcal{C}_n$.}
+            \step{vii}{For $n = 1, \ldots, N$, $U$ intersects no elements of $\mathcal{C}_n$.}
+            \step{viii}{$W_1 \cap \cdots \cap W_N \cap U$ is an open neighbourhood of $x$ that intersects only finitely many elements of
+            $\mathcal{C}$.}
+        \end{proof}
+    \end{proof}
+    \step{2}{$2 \Rightarrow 3$}
+    \begin{proof}
+        \step{a}{\assume{2}}
+        \step{b}{\pflet{$\AA$ be an open covering of $X$.}}
+        \step{c}{\pflet{$\BB = \{ U \text{ open in } X \mid \exists V \in \AA. \overline{U} \subseteq V \}$}}
+        \step{d}{$\BB$ covers $X$.}
+        \begin{proof}
+            \pf\ Since $X$ is regular.
+        \end{proof}
+        \step{e}{\pick\ a locally finite refinement $\CC$ of $\BB$ that covers $X$.}
+        \begin{proof}
+            \pf\ By \stepref{a}.
+        \end{proof}
+        \step{f}{\pflet{$\DD = \{ \overline{C} \mid C \in \CC \}$}}
+        \step{g}{$\DD$ covers $X$.}
+        \step{g}{$\DD$ is locally finite.}
+        \begin{proof}
+            \pf\ Lemma \ref{lemma:closures_locally_finite}.
+        \end{proof}
+        \step{h}{$\DD$ refines $\AA$.}
+    \end{proof}
+    \step{3}{$3 \Rightarrow 4$}
+    \begin{proof}
+        \step{a}{\assume{3}}
+        \step{b}{\pflet{$\AA$ be an open covering of $X$.}}
+        \step{c}{\pick\ a locally finite refinement $\BB$ of $\AA$ that covers $X$.}
+        \begin{proof}
+            \pf\ By \stepref{a}.
+        \end{proof}
+        \step{d}{$\{ U \text{ open in } X \mid U \text{ intersects only finitely many elements of } \BB \}$ is an open cover of $X$.}
+        \step{e}{\pick\ a locally finite closed refinement $\mathcal{C}$ of 
+        $\{ U \text{ open in } X \mid U \text{ intersects only finitely many elements of } \BB \}$
+        that covers $X$.}
+        \begin{proof}
+            \pf\ By \stepref{a}.
+        \end{proof}
+        \step{f}{Every element of $\mathcal{C}$ intersects only finitely many elements of $\BB$.}
+        \step{g}{For $B \in \BB$, \pflet{$\mathcal{C}(B) = \{ C \in \mathcal{C} \mid C \subseteq X - B \}$}}
+        \step{h}{For $B \in \BB$, \pflet{$E(B) = X - \bigcup \mathcal{C}(B)$}}
+        \step{i}{The union of any subset of $\mathcal{C}$ is closed.}
+        \begin{proof}
+            \pf\ Corollary \ref{corollary:union_locally_finite_closed}.
+        \end{proof}
+        \step{j}{For all $B \in \BB$, $E(B)$ is open.}
+        \step{k}{For all $B \in \BB$, $B \subseteq E(B)$}
+        \step{l}{For all $B \in \BB$, \pick\ $F(B) \in \AA$ such that $B \subseteq F(B)$}
+        \begin{proof}
+            \pf\ Since $\BB$ refines $\AA$ (\stepref{c}).
+        \end{proof}
+        \step{m}{\pflet{$\DD = \{ E(B) \cap F(B) \mid B \in \BB \}$}}
+        \step{n}{$\DD$ refines $\AA$.}
+        \step{o}{$\DD$ covers $X$.}
+        \step{p}{$\DD$ is locally finite.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$}}
+            \step{ii}{\pick\ a neighbourhood $W$ of $x$ that intersects only finitely many elements of $\mathcal{C}$
+            \prove{$W$ intersects only finitely many elements of $\DD$}}
+            \step{iii}{\pflet{$C_1$, \ldots, $C_k$ be the elements of $\mathcal{C}$ that intersect $W$.}}
+            \step{iv}{$W \subseteq C_1 \cup \cdots \cup C_k$}
+            \step{v}{Every element of $\mathcal{C}$ intersects only finitely many elements of $\DD$.}
+            \begin{proof}
+                \step{one}{\pflet{$C \in \mathcal{C}$}}
+                \step{two}{For $B \in \BB$, if $C$ intersects $E(B) \cap F(B)$ then $C$ intersects $B$.}
+                \qedstep
+                \begin{proof}
+                    \pf\ By \stepref{f}.
+                \end{proof}
+            \end{proof}
+            \step{vi}{$W$ intersects only finitely many elements of $\DD$.}
+        \end{proof}
+    \end{proof}
+    \step{4}{$4 \Rightarrow 1$}
+    \begin{proof}
+        \pf\ Trivial.
+    \end{proof}
+    \qed
+\end{proof}
 
 \chapter{Topological Groups}
 

@@ -2168,9 +2168,9 @@ to $A$ being closed:
 \end{corollary}
 
 \begin{proposition}[Choice]
-    \label{proposition:countably_locally_finite_refinement}
+    \label{proposition:countably_locally_discrete_refinement}
     Let $X$ be a metrizable space. Let $\AA$ be an open covering of $X$.
-    Then there exists a countably locally finite open covering of $X$ that refines $\AA$.
+    Then there exists a countably locally discrete open covering of $X$ that refines $\AA$.
 \end{proposition}
 
 \begin{proof}
@@ -2189,7 +2189,7 @@ to $A$ being closed:
     \step{4}{For any distinct elements $V, W \in \AA$ and $n \in \ZZ^+$, if $x \in E_n(V)$ and $y \in E_n(W)$ then $d(x,y) \geq 1/3n$}
     \step{6}{For $n \in \ZZ^+$ and $U \in \AA$, we have $E_n(U) \subseteq U$}
     \step{7}{For $n \in \ZZ^+$, \pflet{$\mathcal{E}_n = \{ E_n(U) \mid U \in \AA \}$}}
-    \step{8}{For $n \in \ZZ^+$, we have $\mathcal{E}_n$ is locally finite.}
+    \step{8}{For $n \in \ZZ^+$, we have $\mathcal{E}_n$ is locally discrete.}
     \begin{proof}
         \pf\ For $x \in X$, we have $B(x,1/6n)$ intersects at most one element of $\mathcal{E}_n$.
     \end{proof}
@@ -2205,8 +2205,13 @@ to $A$ being closed:
     \qed
 \end{proof}
 
-\begin{theorem}[Nagata-Smirnov Metrization Theorem (Choice)]
-    A topological space is metrizable if and only if it is regular and has a countably locally finite basis.
+\begin{theorem}[Nagata-Smirnov Metrization Theorem, Bing Metrization Theorem (Choice)]
+    Let $X$ be a topological space. Then the following are equivalent.
+    \begin{enumerate}
+        \item $X$ is metrizable.
+        \item $X$ is regular and has a countably locally finite basis.
+        \item $X$ is regular and has a countably locally discrete basis.
+    \end{enumerate}
 \end{theorem}
 
 \begin{proof}
@@ -2215,18 +2220,18 @@ to $A$ being closed:
     \begin{proof}
         \pf\ Proposition \ref{proposition:metrizable_normal}.
     \end{proof}
-    \step{2}{Every metrizable space has a countably locally finite basis.}
+    \step{2}{Every metrizable space has a countably locally discrete basis.}
     \begin{proof}
         \step{a}{\pflet{$X$ be a metrizable space.}}
         \step{b}{\pick\ a metric $d$ that induces the topology on $X$.}
         \step{c}{For $m \in \ZZ^+$, \pflet{$\AA_m$ be the set of all open balls of radius $1/m$.}}
-        \step{d}{For $m \in \ZZ^+$, \pick\ a countably locally finite open refinement $\BB_m$ of $\AA_m$ that covers $X$.}
+        \step{d}{For $m \in \ZZ^+$, \pick\ a countably locally discrete open refinement $\BB_m$ of $\AA_m$ that covers $X$.}
         \begin{proof}
-            \pf\ Proposition \ref{proposition:countably_locally_finite_refinement}.
+            \pf\ Proposition \ref{proposition:countably_locally_discrete_refinement}.
         \end{proof}
         \step{e}{For $m \in \ZZ^+$, every element of $\BB_m$ has diameter at most $2 / m$.}
         \step{f}{\pflet{$\BB = \bigcup_m \BB_m$}}
-        \step{g}{$\BB$ is countably locally finite.}
+        \step{g}{$\BB$ is countably locally discrete.}
         \step{h}{$\BB$ is a basis for $X$.}
         \begin{proof}
             \step{i}{\pflet{$x \in X$}}
@@ -2309,6 +2314,10 @@ to $A$ being closed:
 
 \begin{corollary}[Urysohn Metrization Theorem (Choice)]
     Every second countable regular space is metrizable.
+\end{corollary}
+
+\begin{corollary}[Bing Metrization Theorem]
+    A topological space is 
 \end{corollary}
 
 \section{Isometry}
