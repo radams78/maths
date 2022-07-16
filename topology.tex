@@ -1102,6 +1102,67 @@ We have simultaneously proved:
     \qed
 \end{proof}
 
+\begin{lemma}
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
+    Then every subfamily of $\{A_\alpha\}_{\alpha \in J}$ is locally finite.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{2}{\pflet{$\{ A_\alpha \}_{\alpha \in K}$ be a subfamily.}}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
+    \step{5}{$U$ intersects $A_\alpha$ for only finitely many $\alpha \in K$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:closures_locally_finite}
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
+    Then $\{ \overline{A_\alpha} \}_{\alpha \in J}$ is locally finite.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in X$}}
+    \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
+    \step{3}{For all $\alpha \in J$, if $U$ intersects $\overline{A_\alpha}$ then $U$ intersects $A_\alpha$.}
+    \step{4}{$U$ intersects $\overline{A_\alpha}$ for only finitely many $\alpha \in J$.}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
+    Then $\overline{\bigcup_{\alpha \in J} A_\alpha} = \bigcup_{\alpha \in J} \overline{A_\alpha}$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{\bigcup_{\alpha \in J} A_\alpha} \subseteq \bigcup_{\alpha \in J} \overline{A_\alpha}$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in \overline{\bigcup_{\alpha \in J} A_\alpha}$}}
+        \step{b}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely
+        $\alpha \in J$, say $\alpha_1$, \ldots, $\alpha_n$}
+        \step{c}{\assume{for a contradiction $x$ is not in any of $\overline{A_{\alpha_1}}$, \ldots, $\overline{A_{\alpha_n}}$}}
+        \step{d}{$U - \overline{A_{\alpha_1}} - \cdots - \overline{A_{\alpha_n}}$ is a neighbourhood of $x$ that does not intersect 
+        $\bigcup_{\alpha \in J} A_\alpha$}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts \stepref{a}.
+        \end{proof}
+    \end{proof}
+    \step{2}{$\bigcup_{\alpha \in J} \overline{A_\alpha} \subseteq \overline{\bigcup_{\alpha \in J} A_\alpha}$}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closure_monotone}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    \label{corollary:union_locally_finite_closed}
+    The union of a locally finite set of closed sets is closed.
+\end{corollary}
+
 \section{Open Maps}
 
 \begin{definition}[Open Map]
@@ -7967,6 +8028,21 @@ The following examples show that not every limit point compact space is compact.
     The Sorgenfrey plane is not compact.
 \end{corollary}
 
+\begin{proposition}[Choice]
+    \label{proposition:countable_compact_lindelof}
+    A topological space that is a countable union of compact subspaces is Lindel\"{o}f.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topoogical space.}}
+    \step{2}{\pflet{$\AA$ be a countable set of compact subspaces of $X$ such that $X = \bigcup \AA$}}
+    \step{3}{\pflet{$\UU$ be any open cover of $X$.}}
+    \step{4}{For $A \in \AA$, \pick\ a finite subset $\UU_A$ that covers $A$.}
+    \step{5}{$\bigcup_A \UU_A$ is a countable subset of $\UU$ that covers $X$.}
+    \qed
+\end{proof}
+
 \section{Perfect Maps}
 
 \begin{definition}[Perfect Map]
@@ -9867,16 +9943,6 @@ The following example shows that:
 \end{proof}
 
 \begin{theorem}
-    If the Continuum Hypothesis is true then $\RR^\omega$ under the box topology
-    is normal.
-\end{theorem}
-
-\begin{proof}
-    \pf\ See M. E. Rudin. The box product of countably many compact metric spaces.
-    \emph{General Topology and its Applications}, 2:293--298, 1972. \qed
-\end{proof}
-
-\begin{theorem}
     Every linearly ordered set under the order topology is normal.
 \end{theorem}
 
@@ -10897,75 +10963,6 @@ except the Hausdorff condition.
     \pf\ Easy. \qed
 \end{proof}
 
-\section{Local Finiteness}
-
-\begin{definition}[Locally Finite]
-    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a family of subsets of $X$. Then $\{A_\alpha\}_{\alpha \in J}$ is
-    \emph{locally finite} if and only if every point in $X$ has an open neighbourhood that intersects $A_\alpha$ for only finitely many
-    $\alpha$.
-\end{definition}
-
-\begin{lemma}
-    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
-    Then every subfamily of $\{A_\alpha\}_{\alpha \in J}$ is locally finite.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{2}{\pflet{$\{ A_\alpha \}_{\alpha \in K}$ be a subfamily.}}
-    \step{3}{\pflet{$x \in X$}}
-    \step{4}{\pick\ an open neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
-    \step{5}{$U$ intersects $A_\alpha$ for only finitely many $\alpha \in K$.}
-    \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:closures_locally_finite}
-    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
-    Then $\{ \overline{A_\alpha} \}_{\alpha \in J}$ is locally finite.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$x \in X$}}
-    \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
-    \step{3}{For all $\alpha \in J$, if $U$ intersects $\overline{A_\alpha}$ then $U$ intersects $A_\alpha$.}
-    \step{4}{$U$ intersects $\overline{A_\alpha}$ for only finitely many $\alpha \in J$.}
-    \qed
-\end{proof}
-
-\begin{lemma}
-    Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
-    Then $\overline{\bigcup_{\alpha \in J} A_\alpha} = \bigcup_{\alpha \in J} \overline{A_\alpha}$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{$\overline{\bigcup_{\alpha \in J} A_\alpha} \subseteq \bigcup_{\alpha \in J} \overline{A_\alpha}$}
-    \begin{proof}
-        \step{a}{\pflet{$x \in \overline{\bigcup_{\alpha \in J} A_\alpha}$}}
-        \step{b}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely
-        $\alpha \in J$, say $\alpha_1$, \ldots, $\alpha_n$}
-        \step{c}{\assume{for a contradiction $x$ is not in any of $\overline{A_{\alpha_1}}$, \ldots, $\overline{A_{\alpha_n}}$}}
-        \step{d}{$U - \overline{A_{\alpha_1}} - \cdots - \overline{A_{\alpha_n}}$ is a neighbourhood of $x$ that does not intersect 
-        $\bigcup_{\alpha \in J} A_\alpha$}
-        \qedstep
-        \begin{proof}
-            \pf\ This contradicts \stepref{a}.
-        \end{proof}
-    \end{proof}
-    \step{2}{$\bigcup_{\alpha \in J} \overline{A_\alpha} \subseteq \overline{\bigcup_{\alpha \in J} A_\alpha}$}
-    \begin{proof}
-        \pf\ Proposition \ref{proposition:closure_monotone}.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{corollary}
-    \label{corollary:union_locally_finite_closed}
-    The union of a locally finite set of closed sets is closed.
-\end{corollary}
-
 \section{Countably Locally Finite Sets}
 
 \begin{definition}[Countably Locally Finite]
@@ -11312,7 +11309,369 @@ The following example shows that an open subspace of a paracompact space is not 
     \qed
 \end{proof}
 
+\begin{corollary}
+    \label{corollary:regular_Lindelof_paracompact}
+    Every regular Lindel\"{o}f space is paracompact.
+\end{corollary}
+
+\begin{corollary}
+    The space $\RR_l$ is paracompact.
+\end{corollary}
+
+The following example shows that the product of two paracompact spaces is not necessarily paracompact.
+
+\begin{proposition}
+    The Sorgenfrey plane is not paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ It is Hausdorff but not normal. \qed
+\end{proof}
+
+\begin{theorem}
+    If the Continuum Hypothesis is true then $\RR^\omega$ under the box topology
+    is paracompact.
+\end{theorem}
+
+\begin{proof}
+    \pf\ See M. E. Rudin. The box product of countably many compact metric spaces.
+    \emph{General Topology and its Applications}, 2:293--298, 1972. \qed
+\end{proof}
+
+\begin{corollary}
+    If the Continuum Hypothesis is true then $\RR^\omega$ under the box topology is normal.
+\end{corollary}
+
+\begin{proposition}
+    For $J$ uncountable, the space $\RR^J$ is not paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ It is Hausdorff but not normal. \qed
+\end{proof}
+
+\section{Precise Refinements}
+
+\begin{definition}[Precise Refinement]
+    Let $X$ be a topological space. Let $\{ U_\alpha \}_{\alpha \in J}$ and $\{ V_\alpha \}_{\alpha \in J}$
+    be two families of subsets of $X$ indexed by the same set $J$. Then $\{ U_\alpha \}_{\alpha \in J}$
+    is a \emph{precise refinement} of $\{ V_\alpha \}_{\alpha \in J}$ if and only if
+    $\forall \alpha \in J. \overline{U_\alpha} \subseteq V_\alpha$.
+\end{definition}
+
+\begin{lemma}[Shrinking Lemma (Choice]
+    Let $X$ be a paracompact Hausdorff space. Let $\{ U_\alpha \}_{\alpha \in J}$ be an open covering of $X$.
+    Then there exists a locally finite open precise refinement $\{ V_\alpha \}_{\alpha \in J}$ 
+    that covers $X$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\AA = \{ A \text{ open in } X \mid \exists \alpha \in J. \overline{A} \subseteq U_\alpha \}$}}
+    \step{2}{$\AA$ covers $X$.}
+    \begin{proof}
+        \pf\ Since $X$ is regular.
+    \end{proof}
+    \step{3}{\pick\ a locally finite open refinement $\BB$ of $\AA$ that covers $X$.}
+    \step{4}{\pick\ a function $f : \BB \rightarrow J$ such that $\forall B \in \BB. \overline{B} \subseteq U_{f(B)}$}
+    \step{5}{For $\alpha \in J$, \pflet{$V_\alpha = \bigcup \inv{f}(\alpha)$}}
+    \step{6}{$\forall \alpha \in J. \overline{V_\alpha} = \bigcup_{f(B) = \alpha} \overline{B}$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closures_locally_finite}.
+    \end{proof}
+    \step{7}{$\forall \alpha \in J. \overline{V_\alpha} \subseteq U_\alpha$}
+    \step{8}{$\{ V_\alpha \}_{\alpha \in J}$ is locally finite.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ a neighbourhood $W$ of $x$ that intersects only finitely many elements of $\BB$.}
+        \step{c}{If $W$ intersects $V_\alpha$ then $W$ intersects $B$ for some $B \in \BB$ such that $f(B) = \alpha$}
+        \step{d}{$W$ intersects $V_\alpha$ for only finitely many $\alpha$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{theorem}[Choice]
+    Let $X$ be a paracompact Hausdorff space. Let $\{ U_\alpha \}_{\alpha \in J}$ be an open cover of $X$.
+    Then there exists a partition of unity dominated by $\{ U_\alpha \}_{\alpha \in J}$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a locally finite open precise refinement $\{ V_\alpha \}_{\alpha \in J}$ of $\{ U_\alpha \}_{\alpha \in J}$
+    that covers $X$.}
+    \begin{proof}
+        \pf\ Shrinking Lemma.
+    \end{proof}
+    \step{2}{\pick\ a locally finite open precise refinement $\{ W_\alpha \}_{\alpha \in J}$ of $\{ V_\alpha \}_{\alpha \in J}$
+    that covers $X$.}
+    \begin{proof}
+        \pf\ Shrinking Lemma.
+    \end{proof}
+    \step{3}{For $\alpha \in J$, \pick\ a continuous function $\psi_\alpha : X \rightarrow [0,1]$ such that
+    $\psi_\alpha(\overline{W_\alpha}) = \{1\}$ and $\psi_\alpha(X - V_\alpha) = \{0\}$.}
+    \begin{proof}
+        \pf\ Urysohn Lemma.
+    \end{proof}
+    \step{4}{$\forall \alpha \in J. \support \psi_\alpha \subseteq \overline{V_\alpha}$}
+    \step{5}{$\{ \overline{V_\alpha} \}_{\alpha \in J}$ is locally finite.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closures_locally_finite}.
+    \end{proof}
+    \step{6}{$\{ \support \psi_\alpha \}_{\alpha \in J}$ is locally finite.}
+    \step{7}{$\forall x \in X. \exists \alpha \in J. \psi_\alpha(x) > 0$}
+    \step{8}{Define $\Psi : X \rightarrow \RR$ by $\Psi(x) = \sum_{\alpha \in J} \psi_\alpha(x)$.}
+    \step{9}{$\Psi$ is continuous.}
+    \begin{proof}
+        \pf\ Since $\Psi \restriction W_\alpha$ is continuous for all $\alpha \in J$.
+    \end{proof}
+    \step{10}{$\forall x \in X. \Psi(x) > 0$}
+    \step{11}{For $\alpha \in J$, define $\phi_\alpha : X \rightarrow \RR$ by $\phi_\alpha(x) = \psi_\alpha(x) / \Psi(x)$.}
+    \step{12}{$\{ \phi_\alpha \}_{\alpha \in J}$ is a partition of unity dominated by $\{ U_\alpha \}_{\alpha \in J}$.}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a paracompact Hausdorff space. Let $\mathcal{C} \subseteq \pow X$ be locally finite. Let $\{ \epsilon_C \}_{C \in \mathcal{C}}$
+    be a family of positive reals. Then there exists a continuous function $f : X \rightarrow \RR$ such that $\forall x \in X. f(x) > 0$,
+    and $\forall C \in \mathcal{C}. \forall x \in C. f(x) < \epsilon_C$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$J$ be the set of all open sets $U$ that intersect only finitely many elements of $\mathcal{C}$.}}
+    \step{2}{\pick\ a partition of unity $\{ \phi_U \}_{U \in J}$ dominated by $\{ U \}_{U \in J}$.}
+    \step{3}{For $U \in J$, \pflet{$\delta_U = \min \{ \epsilon_C \mid C \in \mathcal{C}, C \cap U \neq \emptyset \}$,
+    or $\delta_U = 1$ if $U$ intersects no elements of $\mathcal{C}$}}
+    \step{4}{Define $f : X \rightarrow \RR$ by $f(x) = \sum_{U \in J} \delta_U \phi_U(x)$}
+    \step{5}{$\forall x \in X. f(x) > 0$}
+    \step{6}{$\forall C \in \mathcal{C}. \forall x \in C. f(x) < \epsilon_C$}
+    \begin{proof}
+        \step{a}{\pflet{$C \in \mathcal{C}$}}
+        \step{b}{\pflet{$x \in C$}}
+        \step{c}{$\forall U \in J. \delta_U \phi_U(x) \leq \epsilon_C \phi_U(x)$}
+        \begin{proof}
+            \step{i}{\pflet{$U \in J$}}
+            \step{ii}{\case{$x \in \support \phi_U$}}
+            \begin{proof}
+                \pf\ In this case $\delta_U \leq \epsilon_U$.
+            \end{proof}
+            \step{iii}{\case{$x \notin \support \phi_U$}}
+            \begin{proof}
+                \pf\ In this case $\phi_U(x) = 0$
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[Choice]
+    The product of a paracompact space and a compact space is paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a compact space and $Y$ a paracompact space.}}
+    \step{2}{\pflet{$\AA$ be an open cover of $X \times Y$.}}
+    \step{3}{For all $y \in Y$, there exists a finite subset of $\AA$ that covers $X \times \{y\}$}
+    \begin{proof}
+        \pf\ Since $X \times \{y\}$ is compact.
+    \end{proof}
+    \step{4}{For all $y \in Y$, there exists an open neighbourhood $V$ of $y$ such that $X \times V$ can be covered by finitely
+    many elements of $\AA$}
+    \begin{proof}
+        \pf\ By the Tube Lemma.
+    \end{proof}
+    \step{5}{$\{ V \text{ open in } Y \mid X \times V \text{ can be covered by finitely many elements of } \AA \}$ is an open
+    cover of $Y$.}
+    \step{6}{\pick\ a locally finite open refinement $\PP$}
+    \step{7}{For all $P \in \PP$, \pick\ a finite subset $\BB_P$ of $\AA$ such that $X \times P \subseteq \bigcup \BB_P$}
+    \step{8}{\pflet{$\BB = \{ (X \times P) \cap A \mid P \in \PP, A \in \BB_P \}$}}
+    \step{8}{$\BB$ is locally finite.}
+    \begin{proof}
+        \step{a}{\pflet{$(x,y) \in X \times Y$}}
+        \step{b}{\pick\ an open neighbourhood $V$ of $y$ that intersects only finitely many elements of $\PP$.}
+        \step{c}{$X \times V$ is an open neighbourhood of $(x,y)$ that intersects only finitely many elements of $\BB$.}
+    \end{proof}
+    \step{9}{$\BB$ refines $\AA$.}
+    \step{10}{$\BB$ covers $X \times Y$.}
+    \begin{proof}
+        \step{a}{\pflet{$(x,y) \in X \times Y$}}
+        \step{b}{\pick\ $P \in \PP$ such that $y \in P$}
+        \step{c}{\pick\ $A \in \BB_P$ such that $(x,y) \in A$}
+        \step{d}{$(x,y) \in (X \times P) \cap A \in \BB$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    The space $S_\Omega$ is not paracompact.
+\end{corollary}
+
+\begin{corollary}
+    Not every locally compact Hausdorff space is paracompact.
+\end{corollary}
+
+\begin{proposition}
+    Every discrete space is paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a discrete space.}}
+    \step{2}{\pflet{$\AA$ be an open cover of $X$.}}
+    \step{3}{$\{ \{x\} \mid x \in X \}$ is a locally finite open refinement of $\AA$ that covers $X$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The continuous image of a paracompact space is not necessarily paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Pick any non-paracompact space $X$. Let $X'$ be the same set under the discrete topology.
+    The identity function is continuous as a map $X' \rightarrow X$. \qed
+\end{proof}
+
+\begin{lemma}[Expansion Lemma]
+    Let $X$ be a paracompact Hausdorff space. Let $\{B_\alpha \}_{\alpha \in J}$ be a locally finite family of subsets of $X$.
+    Then there exists a locally finite family of open sets $\{ U_\alpha \}_{\alpha \in J}$ such that $\forall \alpha \in J. B_\alpha
+    \subseteq U_\alpha$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ a locally finite closed refinement $\mathcal{C}$ of $\{ U \text{ open in } X \mid
+    \text{for only finitely many } \alpha \in J. U \cap B_\alpha \neq \emptyset \}$}
+    \step{2}{For $\alpha \in J$, \pflet{$\mathcal{C}_\alpha = \{ C \in \mathcal{C} \mid C \subseteq X - B_\alpha \}$}}
+    \step{3}{For $\alpha \in J$, \pflet{$U_\alpha = X - \bigcup \mathcal{C}_\alpha$}}
+    \step{4}{$\{ U_\alpha \}_{\alpha \in J}$ is locally finite.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ a neighbourhood $W$ of $x$ that intersects only finitely many elements of $\mathcal{C}$.}
+        \step{c}{Each element of $\mathcal{C}$ intersects $U_\alpha$ for only finitely many $\alpha$.}
+        \begin{proof}
+            \step{i}{\pflet{$C \in \mathcal{C}$}}
+            \step{ii}{$C$ intersects $B_\alpha$ for only finitely many $\alpha$.}
+            \step{iii}{For all $\alpha \in J$, if $C$ intersects $U_\alpha$ then $C$ intersects $B_\alpha$.}
+        \end{proof}
+        \step{d}{$W$ is covered by the finitely many elements of $\mathcal{C}$ that it intersects.}
+        \step{e}{$W$ intersects $U_\alpha$ for only finitely many $\alpha$.}
+    \end{proof}
+    \step{5}{For all $\alpha \in J$, $U_\alpha$ is open.}
+    \step{6}{$\forall \alpha \in J. B_\alpha \subseteq U_\alpha$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    A regular space that is a countable union of closed paracompact subspaces whose interiors cover $X$ is paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a regular space that is a countable union of closed paracompact subspaces whose interiors cover $X$.}}
+    \step{2}{\pick\ a sequence $(X_n)$ of closed paracompact subspaces such that $X = \bigcup_n (X_n)^\circ$}
+    \step{3}{\pflet{$\UU$ be an open covering of $X$.}}
+    \step{4}{For $n \in \ZZ^+$, \pick\ a set $\VV_n'$ of subsets of $X$ such that $\{ V \cap X_n \mid V \in \VV_n' \}$
+    is a locally finite open refinement in $X_n$ of $\{ U \cap X_n \mid U \in \UU \}$}
+    \step{5}{For $n \in \ZZ^+$, \pflet{$\VV_n = \{ V \cap (X_n)^\circ \mid V \in \VV_n' \}$}}
+    \step{6}{\pflet{$\VV = \bigcup_n \VV_n$}}
+    \step{7}{$\VV$ is countably locally finite.}
+    \begin{proof}
+        \step{a}{\pflet{$n \in \ZZ^+$} \prove{$\VV_n$ is locally finite.}}
+        \step{b}{\pflet{$x \in X$}}
+        \step{c}{\case{$x \in X_n$}}
+        \begin{proof}
+            \step{i}{\pick\ an open neighbourhood $W$ of $x$ such that $W \cap X_n$ intersects only finitely many elements of $\VV_n'$}
+            \step{ii}{$W$ intersects only finitely many elements of $\VV_n$}
+        \end{proof}
+        \step{d}{\case{$x \notin X_n$}}
+        \begin{proof}
+            \pf\ $X - X_n$ is an open neighbourhood of $x$ that intersects no elements of $\VV_n$.
+        \end{proof}
+    \end{proof}
+    \step{8}{$\VV$ refines $\UU$.}
+    \step{9}{$\VV$ covers $X$.}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    The space $\RR^\infty$ as a subspace of $\RR^\omega$ under the box topology is paracompact.
+\end{corollary}
+
+\begin{proposition}
+    Let $p : X \twoheadrightarrow Y$ be a perfect map. If $Y$ is paracompact then so is $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\AA$ be an open covering of $X$.}}
+    \step{2}{$\{ V \text{ open in } Y \mid \inv{p}(V) \text{ can be covered by finitely many elements of } \AA \}$ is an open cover
+    of $Y$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:closed_map_neighbourhoods}.
+    \end{proof}
+    \step{3}{\pick\ a locally finite open refinement $\BB$ of $\{ V \text{ open in } Y \mid \inv{p}(V) \text{ can be covered by finitely many elements of } \AA \}$}
+    \step{4}{\pflet{$\mathcal{C} = \{ \inv{p}(V) \cap A \mid V \in \BB, A \in \AA \}$}}
+    \step{5}{$\mathcal{C}$ is locally finite.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ an open neighbourhood $W$ of $p(x)$
+        that intersects only finitely many $V \in \BB$,
+        say $V_1$, \ldots, $V_m$.}
+        \step{c}{There are only finitely many elements of $A$
+        that intersect one of the $\inv{p}(V_i)$}
+        \step{d}{$\inv{p}(W)$ intersects only finitely many elements
+        of $\mathcal{C}$}
+    \end{proof}
+    \step{6}{$\mathcal{C}$ refines $\AA$}
+    \step{7}{$\mathcal{C}$ covers $X$.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in X$}}
+        \step{b}{\pick\ $V \in \BB$ such that $p(x) \in V$}
+        \step{c}{\pick\ $A \in \AA$ such that $x \in A$}
+        \step{d}{$x \in \inv{p}(V) \cap A$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $p : X \twoheadrightarrow Y$ be a perfect map.
+    If $X$ is paracompact and Hausdorff then so is $Y$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$Y$ is Hausdorff.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:perfect_image_Hausdorff}.
+    \end{proof}
+    \step{2}{$Y$ is paracompact.}
+    \begin{proof}
+        \step{a}{\pflet{$\AA$ be an open covering of $Y$.}}
+        \step{b}{$\{ \inv{p}(A) \mid A \in \AA \}$ is an open covering of $X$.}
+        \step{c}{\pick\ a locally finite refinement $\BB$ that covers $X$.}
+        \step{d}{\pflet{$\mathcal{C} = \{ p(B) \mid B \in \BB \}$}}
+        \step{e}{$\mathcal{C}$ is locally finite.}
+        \begin{proof}
+            \step{i}{\pflet{$y \in Y$}}
+            \step{ii}{\pick\ an open neighbourhood $U$ of $\inv{p}(y)$ that intersects only finitely many elements of $\BB$.}
+            \begin{proof}
+                \step{one}{For all $x \in \inv{p}(y)$, there exists an open neighbourhood $U$ of $x$ that intersects only finitely many elements of $\BB$.}
+                \step{two}{\pick\ finitely many open sets $U_1$, \ldots, $U_n$, each of which intersects only finitely many elements of $\mathcal{C}$, that together cover $\inv{p}(y)$}
+                \step{three}{\pflet{$U = U_1 \cup \cdots \cup U_n$}}
+            \end{proof}
+            \step{iii}{\pick\ an open neighbourhood $V$ of $y$ such that $\inv{p}(V) \subseteq U$}
+            \step{iv}{$V$ intersects only finitely many elements of $\mathcal{C}$.}
+        \end{proof}
+        \step{f}{$\mathcal{C}$ refines $\AA$.}
+        \step{g}{$\mathcal{C}$ covers $Y$.}
+    \end{proof}
+    \qed
+\end{proof}
+
 \chapter{Topological Groups}
+
+\section{Topological Groups}
 
 \begin{definition}[Topological Group]
     A \emph{topological group} $G$ consists of a $T_1$ space $G$ and continuous maps
@@ -11404,6 +11763,7 @@ The following example shows that an open subspace of a paracompact space is not 
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:translation_homeomorphism}
     Let $G$ be a topological group and $\alpha \in G$. Then the maps
     $l_\alpha, r_\alpha : G \rightarrow G$ defined by $l_\alpha(x) = \alpha x$,
     $r_\alpha(x) = x\alpha$ are homeomorphisms of $G$ with itself.
@@ -11961,6 +12321,76 @@ The following example shows that an open subspace of a paracompact space is not 
     \qed
 \end{proof}
 
+\begin{lemma}
+    \label{lemma:open_subgroup_closed}
+    Every open subgroup of a topological group is closed.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a topological group.}}
+    \step{2}{\pflet{$H$ be an open subgroup of $G$.}}
+    \step{3}{$H = G - \bigcup_{x \in G - H} xH$}
+    \qed
+\end{proof}
+
+\begin{proposition}[Choice]
+    Every locally compact topological group is paracompact.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$G$ be a locally compact topological group.}}
+    \step{2}{\pick\ a symmetric neighbourhood $U$ of $e$ with compact closure.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:symmetric_subneighbourhood}.
+    \end{proof}
+    \step{3}{\pflet{$L = \bigcup_{n=1}^\infty U^n$}}
+    \step{4}{$L$ is open.}
+    \step{6}{$L$ is a subgroup of $G$.}
+    \step{5}{$L$ is closed.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:open_subgroup_closed}.
+    \end{proof}
+    \step{7}{$\overline{U} \subseteq U^2$} %TODO Extract lemma?
+    \begin{proof}
+        \step{a}{\pflet{$x \in \overline{U}$}}
+        \step{b}{$xU$ is an open neighbourhood of $x$}
+        \step{c}{\pick\ $y \in xU \cap U$}
+        \step{d}{\pick\ $u \in U$ such that $y = xu$}
+        \step{e}{$x = y \inv{u} \in U^2$}
+    \end{proof}
+    \step{8}{$L = \bigcup_{n=1}^\infty \overline{U}^n$}
+    \step{9}{$L$ is Lindel\"{o}f.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:countable_compact_lindelof}.
+    \end{proof}
+    \step{10}{For all $x \in G$, $xL$ is Lindel\"{o}f.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:translation_homeomorphism}.
+    \end{proof}
+    \step{11}{\pflet{$\VV$ be any open cover of $G$.}}
+    \step{12}{For all $x \in G$, \pick\ a countable subset $\VV_x$ of $\VV$ that covers $xL$.}
+    \step{13}{\pflet{$\WW = \{ xL \cap V \mid x \in G, V \in \VV_x \}$}}
+    \step{14}{$\WW$ is countably locally finite.}
+    \begin{proof}
+        \step{a}{For every coset $xL$ of $L$, \pick\ an enumeration $\VV_x = \{ V_{xL,n} \}_{n \in \ZZ^+}$.}
+        \step{b}{\pflet{$\WW_n = \{ xL \cap V_{xL,n} \mid xL \in G / L \}$ }}
+        \step{c}{Each $\WW_n$ is locally discrete.}
+        \begin{proof}
+            \pf\ For $x \in G$, the only member of $\WW_n$ that contains $x$ is $xL \cap V_{xL,n}$.
+        \end{proof}
+        \step{d}{$\WW = \bigcup_n \WW_n$}
+    \end{proof}
+    \step{15}{Every element of $\WW$ is open.}
+    \step{16}{$\WW$ refines $\VV$.}
+    \step{17}{$\WW$ covers $G$.}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Every locally compact topological group is normal.
+\end{corollary}
 \section{Actions}
 
 \begin{definition}[Action]
