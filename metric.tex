@@ -1,4 +1,6 @@
 
+\chapter{Metric Spaces}
+
 \section{The Metric Topology}
 
 \begin{definition}[Metric]
@@ -733,6 +735,23 @@ This example shows the converse does not hold:
     \qed
 \end{proof}
 
+\begin{proposition}
+    Every separable metrizable space is second countable.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a separable metrizable space.}}
+    \step{2}{\pick\ a countable dense subset $D$. \prove{$\{ B(x,1/n) \mid x \in D,
+    n \in \ZZ^+ \}$ is a basis for $X$}}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pflet{$U$ be a neighbourhood of $x$.}}
+    \step{5}{\pick\ $n$ such that $B(x,1/n) \subseteq U$.}
+    \step{6}{\pick\ $d \in D \cap B(x,1/2n)$}
+    \step{7}{$x \in B(d,1/2n) \subseteq U$.}
+    \qed
+\end{proof}
+
 \section{Real Linear Algebra}
 
 \begin{definition}[Square Metric]
@@ -1277,11 +1296,12 @@ We prove this is a metric.
 \section{The Uniform Topology}
 
 \begin{definition}[Uniform Metric]
-    Let $J$ be a set. The \emph{uniform metric} $\overline{\rho}$ on $\RR^J$ is defined by
+    Let $Y$ be a metric space.
+    Let $J$ be a set. The \emph{uniform metric} $\overline{\rho}$ on $Y^J$ is defined by
     \[ \overline{\rho}(a,b) = \sup_{j \in J} \overline{d}(a_j, b_j) \]
-    where $\overline{d}$ is the standard bounded metric on $\RR$.
+    where $\overline{d}$ is the standard bounded metric corresponding to the metric on $Y$.
 
-    The \emph{uniform topology} on $\RR^J$ is the topology induced by the uniform metric.
+    The \emph{uniform topology} on $Y^J$ is the topology induced by the uniform metric.
 \end{definition}
 
 We prove this is a metric.
@@ -1314,29 +1334,29 @@ We prove this is a metric.
 \end{proof}
 
 \begin{proposition}
-    The uniform topology on $\RR^J$ is finer than the product topology.
+    The uniform topology on $Y^J$ is finer than the product topology.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$j \in J$ and $U$ be open in $\RR$} \prove{$\inv{\pi_j}(U)$ is open in the uniform topology.}}
+    \step{1}{\pflet{$j \in J$ and $U$ be open in $Y$} \prove{$\inv{\pi_j}(U)$ is open in the uniform topology.}}
     \step{2}{\pflet{$a \in \inv{\pi_j}(U)$}}
-    \step{3}{\pick\ $\epsilon > 0$ such that $(a_j - \epsilon, a_j + \epsilon) \subseteq U$}
+    \step{3}{\pick\ $\epsilon > 0$ such that $B(a_j,\epsilon) \subseteq U$}
     \step{4}{$B_{\overline{\rho}}(a, \epsilon) \subseteq \inv{\pi_j}(U)$}
     \qed
 \end{proof}
 
 \begin{proposition}
-    The uniform topology on $\RR^J$ is coarser than the box topology.
+    The uniform topology on $Y^J$ is coarser than the box topology.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$a \in \RR^J$ and $\epsilon > 0$} \prove{$B(a, \epsilon)$ is open in the box topology.}}
+    \step{1}{\pflet{$a \in Y^J$ and $\epsilon > 0$} \prove{$B(a, \epsilon)$ is open in the box topology.}}
     \step{2}{\pflet{$b \in B(a, \epsilon)$}}
-    \step{3}{For $j \in J$ we have $|a_j - b_j| < \epsilon$}
-    \step{4}{For $j \in J$, \pflet{$\delta_j = (\epsilon - |a_j - b_j|) / 2$}}
-    \step{5}{$\prod_{j \in J} (b_j - \delta_j, b_j + \delta_j) \subseteq B(a, \epsilon)$}
+    \step{3}{For $j \in J$ we have $\overline{d}(a_j,b_j) < \epsilon$}
+    \step{4}{For $j \in J$, \pflet{$\delta_j = (\epsilon - \overline{d}(a_j,b_j)) / 2$}}
+    \step{5}{$\prod_{j \in J} B(b_j,\delta_j) \subseteq B(a, \epsilon)$}
     \qed
 \end{proof}
 
@@ -1470,23 +1490,6 @@ We prove this is a metric.
     The space $\RR^\omega$ under the box topology is not separable.
 \end{corollary}
 
-\begin{proposition}
-    Every separable metrizable space is second countable.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a separable metrizable space.}}
-    \step{2}{\pick\ a countable dense subset $D$. \prove{$\{ B(x,1/n) \mid x \in D,
-    n \in \ZZ^+ \}$ is a basis for $X$}}
-    \step{3}{\pflet{$x \in X$}}
-    \step{4}{\pflet{$U$ be a neighbourhood of $x$.}}
-    \step{5}{\pick\ $n$ such that $B(x,1/n) \subseteq U$.}
-    \step{6}{\pick\ $d \in D \cap B(x,1/2n)$}
-    \step{7}{$x \in B(d,1/2n) \subseteq U$.}
-    \qed
-\end{proof}
-
 \begin{proposition}[Choice]
     \label{proposition:Lindelof_metrizable_second_countable}
     Every Lindel\"{o}f metrizable space is second countable.
@@ -1606,6 +1609,21 @@ We prove this is a metric.
     The space $\RR^\omega$ under the uniform topology is not compact.
 \end{corollary}
 
+\begin{theorem}
+    Let $X$ be a topological space and $Y$ a metric space. The set $\mathcal{B}(X,Y)$ of bounded functions from $X$ to $Y$
+    is closed in $Y^X$ under the uniform topology.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(f_n)$ be a sequence of bounded functions.}}
+    \step{2}{\pflet{$f_n \rightarrow f$ as $n \rightarrow \infty$} \prove{$f$ is bounded.}}
+    \step{3}{\pick\ $N$ such that $\forall n \geq N. \overline{\rho}(f_n,f) < 1/2$}
+    \step{4}{$\forall x \in X. d(f_N(x),f(x)) < 1/2$}
+    \step{5}{$\diam f(X) \leq \diam f_N(X) + 1$}
+    \qed
+\end{proof}
+
 \section{Uniform Convergence}
 
 \begin{definition}[Uniform Convergence]
@@ -1702,6 +1720,16 @@ We prove this is a metric.
     \end{proof}
     \qed
 \end{proof}
+
+\begin{corollary}
+    Let $X$ be a topological space and $Y$ a metric space. The set $\mathcal{C}(X,Y)$ of all continuous functions from $X$ to $Y$
+    is closed in $Y^X$ under the uniform topology.
+\end{corollary}
+
+\begin{proof}
+    \pf\ By the Uniform Limit Theorem. \qed
+\end{proof}
+
 
 \section{Isometric Imbeddings}
 
@@ -2206,12 +2234,14 @@ to $A$ being closed:
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:metrizable_paracompact}
     Every metrizable space is paracompact.
 \end{corollary}
 
 \begin{proof}
     \pf\ By Lemma \ref{lemma:paracompactness}. \qed
 \end{proof}
+
 \begin{theorem}[Nagata-Smirnov Metrization Theorem, Bing Metrization Theorem (Choice)]
     Let $X$ be a topological space. Then the following are equivalent.
     \begin{enumerate}
@@ -2321,10 +2351,6 @@ to $A$ being closed:
 
 \begin{corollary}[Urysohn Metrization Theorem (Choice)]
     Every second countable regular space is metrizable.
-\end{corollary}
-
-\begin{corollary}[Bing Metrization Theorem]
-    A topological space is 
 \end{corollary}
 
 \section{Isometry}
@@ -2652,6 +2678,276 @@ a compact metric space' to '$X$ is a complete metric space'.
 \begin{proof}
     \pf\ Take the identity function from a set under the discrete topology
     to the same set under the indiscrete topology. \qed
+\end{proof}
+
+\begin{theorem}[Smirnov Metrization Theorem (Choice)]
+    A topological space is metrizable if and only if it is paracompact, Hausdorff, and locally metrizable.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Every metrizable space is paracompact.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:metrizable_paracompact}.        
+    \end{proof}
+    \step{2}{Every metrizable space is Hausdorff.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:metrizable_Hausdorff}.
+    \end{proof}
+    \step{3}{Every metrizable space is locally metrizable.}
+    \begin{proof}
+        \pf\ Trivial.
+    \end{proof}
+    \step{4}{Every paracompact Hausdorff locally metrizable space is metrizable.}
+    \begin{proof}
+        \step{a}{\pflet{$X$ be a paracompact Hausdorff locally metrizable space.}}
+        \step{b}{$X$ has a countably locally finite basis.}
+        \begin{proof}
+            \step{i}{\pick\ a locally finite set $\mathcal{C}$ of metrizable open subsets of $X$ that cover $X$.}
+            \step{ii}{For $C \in \mathcal{C}$, \pick\ a metric $d_C : C^2 \rightarrow \RR$ that induces the subspace topology.}
+            \step{iii}{For all $C \in \mathcal{C}$, $x \in C$ and $\epsilon > 0$, we have $B_C(x,\epsilon)$ is open in $X$.}
+            \step{iv}{For $m \in \ZZ^+$, \pflet{$\AA_m = \{ B_C(x, 1/m) \mid C \in \mathcal{C}, x \in C \}$}}
+            \step{v}{For $m \in \ZZ^+$, \pick\ a locally finite open refinement $\DD_m$ of $\AA_m$ that covers $X$.}
+            \step{vi}{\pflet{$\DD = \bigcup_m \DD_m$} \prove{$\DD$ is a basis for $X$.}}
+            \step{vii}{\pflet{$x \in X$}}
+            \step{viii}{\pflet{$U$ be an open neighbourhood of $x$.}}
+            \step{ix}{\pflet{$C_1$, \ldots, $C_k$ be the elements of $\mathcal{C}$ such that $x \in C_i$}}
+            \step{x}{For $1 \leq i \leq k$, \pick\ $\epsilon_i > 0$ such that $B_{C_i}(x,\epsilon_i) \subseteq U$}
+            \step{xi}{\pick\ $m$ such that $2 / m \leq \min(\epsilon_1, \ldots, \epsilon_k)$}
+            \step{xii}{\pick\ $D \in \DD_m$ such that $x \in D$}
+            \step{xiii}{\pick\ $C \in \mathcal{C}$ and $y \in C$ such that $D \subseteq B_C(y,1/m)$}
+            \step{xiv}{$x \in B_C(y, 1/m)$}
+            \step{xv}{\pick\ $i$ such that $C = C_i$}
+            \step{xvi}{$D \subseteq U$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    D & \subseteq B_{C_i}(y,1/m) & (\text{\stepref{xiii}, \stepref{xv}})\\
+                    & \subseteq B_{C_i}(x,\epsilon_i) & (\diam B_{C_i}(y,1/m) \leq 2/m \leq \epsilon_i) \\
+                    & \subseteq U & (\text{\stepref{x}})
+                \end{align*}
+            \end{proof}
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ By the Nagata-Smirnov Metrization Theorem.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Cauchy Sequences}
+
+\begin{definition}[Cauchy Sequence]
+    Let $X$ be a metric space. A sequence of points $(x_n)$ in $X$ is a \emph{Cauchy} sequence if and only if
+    $\forall \epsilon > 0. \exists N. \forall m,n \geq N. d(x_m,x_n) < \epsilon$.
+\end{definition}
+
+\begin{proposition}
+    Every convergent sequence is Cauchy.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pflet{$(x_n)$ be a convergent sequence in $X$.}}
+    \step{3}{\pflet{$l = \lim_{n \rightarrow \infty} x_n$}}
+    \step{4}{\pflet{$\epsilon > 0$}}
+    \step{5}{\pick\ $N$ such that $\forall n \geq N. d(x_n,l) < \epsilon / 2$}
+    \step{6}{$\forall m,n \geq N. d(x_m,x_n) < \epsilon$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:Cauchy_standard_bounded_metric}
+    Let $d$ be a metric on a set $X$. Let $\overline{d}$ be the corresponding standard bounded metric.
+    Let $(x_n)$ be a sequence of points in $X$. Then $(x_n)$ is Cauchy under $d$ if and only if
+    it is Cauchy under $\overline{d}$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{If $(x_n)$ is Cauchy under $d$ then $(x_n)$ is Cauchy under $\overline{d}$.}
+    \begin{proof}
+        \step{a}{\assume{$(x_n)$ is Cauchy under $d$}}
+        \step{b}{\pflet{$\epsilon > 0$}}
+        \step{c}{\pick\ $N$ such that $\forall m,n \geq N. d(x_m,x_n) < \epsilon$}
+        \step{d}{$\forall m,n \geq N. \overline{d}(x_m,x_n) < \epsilon$}
+    \end{proof}
+    \step{2}{If $(x_n)$ is Cauchy under $\overline{d}$ then $(x_n)$ is Cauchy under $d$.}
+    \begin{proof}
+        \step{a}{\assume{$(x_n)$ is Cauchy under $\overline{d}$}}
+        \step{b}{\pflet{$\epsilon > 0$}}
+        \step{c}{\pick\ $N$ such that $\forall m,n \geq N. \overline{d}(x_m,x_n) < \min(\epsilon,1/2)$}
+        \step{d}{$\forall m,n \geq N. d(x_m,x_n) < \epsilon$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Complete Metric Spaces}
+
+\begin{definition}[Complete Metric Space]
+    A metric space is \emph{complete} if and only if every Cauchy sequence converges.
+\end{definition}
+
+\begin{proposition}
+    A closed subspace of a complete metric space is complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a complete metric space.}}
+    \step{2}{\pflet{$Y \subseteq X$ be closed.}}
+    \step{3}{\pflet{$(y_n)$ be a Cauchy sequence in $Y$.}}
+    \step{4}{$(y_n)$ is a Cauchy sequence in $X$.}
+    \step{5}{\pflet{$y_n \rightarrow l$ as $n \rightarrow \infty$ in $X$.}}
+    \step{6}{$l \in Y$}
+    \step{7}{$y_n \rightarrow l$ as $n \rightarrow \infty$ in $Y$.}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a topological space and $Y$ a complete metric space. The space $\mathcal{C}(X,Y)$ of all continuous functions
+    $X \rightarrow Y$ under the uniform metric is complete.
+\end{corollary}
+
+\begin{corollary}
+    Let $X$ be a set and $Y$ a complete metric space. The space $\mathcal{B}(X,Y)$ of all bounded functions $X \rightarrow Y$
+    under the uniform metric is complete.
+\end{corollary}
+
+\begin{proposition}
+    Let $X$ be a set. Let $d$ be a metric on $X$. Let $\overline{d}$ be the corresponding
+    standard bounded metric. Then the metric space $(X,d)$ is complete if and only if $(X,\overline{d})$
+    is complete.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Using Proposition \ref{proposition:Cauchy_standard_bounded_metric}. \qed
+\end{proof}
+
+\begin{lemma}
+    A metric space is complete if and only if every Cauchy sequence has a convergent subsequence.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{If $X$ is complete then every Cauchy sequence has a convergent subsequence.}
+    \begin{proof}
+        \pf\ If $X$ is complete then, for every Cauchy sequence $(x_n)$, we have $(x_n)$ is a convergent subsequence of itself.
+    \end{proof}
+    \step{3}{If every Cauchy sequence in $X$ has a convergent subsequence then $X$ is complete.}
+    \begin{proof}
+        \step{a}{\assume{Every Cauchy sequence in $X$ has a convergent subsequence.}}
+        \step{b}{\pflet{$(x_n)$ be a Cauchy sequence in $X$.}}
+        \step{c}{\pick\ a convergent subsequence $(x_{n_r})$.}
+        \step{d}{\pflet{$l = \lim_{r \rightarrow \infty} x_{n_r}$} \prove{$x_n \rightarrow l$ as $n \rightarrow \infty$}}
+        \step{e}{\pflet{$\epsilon > 0$}}
+        \step{f}{\pick\ $N$ such that $\forall m,n \geq N. d(x_m,x_n) < \epsilon / 2$ and
+        $\forall r (n_r \geq N \Rightarrow d(x_{n_r},l) < \epsilon / 2)$}
+        \step{g}{$\forall n \geq N. d(x_n,l) < \epsilon$}
+        \begin{proof}
+            \step{i}{\pflet{$n \geq N$}}
+            \step{ii}{\pick\ $r$ such that $n_r \geq N$}
+            \step{iii}{$d(x_n,l) < \epsilon$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    d(x_n,l) & \leq d(x_n,x_{n_r}) + d(x_{n_r},l) \\
+                    & < \epsilon / 2 + \epsilon / 2 \\
+                    & = \epsilon
+                \end{align*}
+            \end{proof}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Every compact metric space is complete.
+\end{corollary}
+
+\begin{proposition}
+    For $k \geq 1$, the Euclidean space $\RR^k$ is complete under the square metric.
+\end{proposition}
+
+\begin{proof}
+    \pf\ A Cauchy sequence is bounded hence a Cauchy sequence in the compact subspace $[-B,B]^k$
+    for some $B$. \qed
+\end{proof}
+
+\begin{proposition}
+    For $k \geq 1$, the Euclidean space $\RR^k$ is complete under the Euclidean metric.
+\end{proposition}
+
+\begin{proof}
+    \pf\ A sequence is Cauchy under the Euclidean metric if and only if it is Cauchy under the
+    square metric, and converges under the Euclidean metric if and only if it converges under
+    the square metric. \qed
+\end{proof}
+
+\begin{proposition}
+    There exists a metric on $\RR^\omega$ which induces the product topology under which $\RR^\omega$
+    is complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\overline{d}$ be the standard bounded metric on $\RR$.}}
+    \step{2}{Define $D : (\RR^\omega)^2 \rightarrow \RR$ by $D(x.y) = \sup_n \overline{d}(x_n,y_n) / n$}
+    \step{3}{$D$ induces the product topology.}
+    \step{4}{$\RR^\omega$ is complete under $D$.}
+    \begin{proof}
+        \step{a}{\pflet{$(x_n)$ be a Cauchy sequence under $D$.}}
+        \step{b}{For all $i$, $(\pi_i(x_n))_n$ is a Cauchy sequence in $\RR$.}
+        \step{c}{For all $i$, \pflet{$l_i = \lim_{n \rightarrow \infty} \pi_i(x_n)$}}
+        \step{d}{$x_n \rightarrow (l_i)_i$ as $n \rightarrow \infty$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The space $\QQ$ is not complete.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The sequence $(1,1.4,1.41,\ldots)$ of decimal approximations to $\sqrt{2}$ is Cauchy but does not converge. \qed
+\end{proof}
+
+\begin{proposition}
+    The space $(0,1)$ is not complete.
+\end{proposition}
+
+\begin{proof}
+    \pf\ The sequence $(1/n)$ is Cauchy but does not converge. \qed
+\end{proof}
+
+\begin{corollary}
+    There exists a metrizable space that is complete under one metric but not under another metric that induces the same topology.
+\end{corollary}
+
+\begin{proof}
+    \pf\ The space $\RR$ is complete under its usual metric but homeomorphic to the incomplete space $(0,1)$. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $Y$ be a complete metric space and $J$ a set. Then $Y^J$ is complete under the uniform metric.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(f_n)$ be a Cauchy sequence in $Y^J$.}}
+    \step{2}{For all $\alpha \in J$, the sequence $(f_n(\alpha))$ is Cauchy in $Y$.}
+    \step{3}{For all $\alpha \in J$, \pflet{$y_\alpha = \lim_{n \rightarrow \infty} f_n(\alpha)$}}
+    \step{4}{Define $y : J \rightarrow Y$ by $y(\alpha) = y_\alpha$. \prove{$f_n \rightarrow y$ as $n \rightarrow \infty$}}
+    \step{5}{\pflet{$\epsilon > 0$}}
+    \step{6}{\pick\ $N$ such that $\forall m,n \geq N. \overline{\rho}(f_m,f_n) < \epsilon / 2$}
+    \step{7}{$\forall m,n \geq N. \forall \alpha \in J. \overline{d}(f_m(\alpha),f_n(\alpha)) < \epsilon / 2$}
+    \step{8}{$\forall n \geq N, \forall \alpha \in J. \overline{d}(f_n(\alpha),y_\alpha) < \epsilon / 2$}
+    \step{9}{$\forall n \geq N. \overline{\rho}(f_n,y) \leq \epsilon / 2$}
+    \step{10}{$\forall n \geq N. \overline{\rho}(f_n,y) < \epsilon$}
+    \qed
 \end{proof}
 
 \chapter{Manifolds}
