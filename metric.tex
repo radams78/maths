@@ -2778,6 +2778,7 @@ a compact metric space' to '$X$ is a complete metric space'.
 \end{definition}
 
 \begin{proposition}
+    \label{proposition:closed_subspace_complete}
     A closed subspace of a complete metric space is complete.
 \end{proposition}
 
@@ -2793,10 +2794,10 @@ a compact metric space' to '$X$ is a complete metric space'.
     \qed
 \end{proof}
 
-\begin{corollary}
+\begin{proposition}
     Let $X$ be a topological space and $Y$ a complete metric space. The space $\mathcal{C}(X,Y)$ of all continuous functions
     $X \rightarrow Y$ under the uniform metric is complete.
-\end{corollary}
+\end{proposition}
 
 \begin{corollary}
     Let $X$ be a set and $Y$ a complete metric space. The space $\mathcal{B}(X,Y)$ of all bounded functions $X \rightarrow Y$
@@ -3185,6 +3186,120 @@ a compact metric space' to '$X$ is a complete metric space'.
     \step{3}{$\phi$ is an isometry.}
     \qed
 \end{proof}
+
+\section{Topolgically Complete Spaces}
+
+\begin{definition}[Topologically Complete]
+    A topological space $X$ is \emph{topologically complete} if and only if there exists a metric that induces the topology on $X$
+    under which $X$ is complete.
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:closed_subspace_topolgically_complete}
+    Every closed subspace of a topologically complete space is topologically complete.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Proposition \ref{proposition:closed_subspace_complete}. \qed
+\end{proof}
+
+\begin{proposition}[Choice]
+    \label{proposition:product_topologically_complete}
+    A product of topologically complete spaces is topologically complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\{X_\alpha\}_{\alpha \in J}$ be a sequence of topologically complete spaces.}}
+    \step{2}{For each $\alpha \in C$, \pick\ a metric $d_\alpha$ that induces the topology on $X_n$
+    under which $X_\alpha$ is complete.}
+    \step{3}{For each $\alpha$, \pflet{$\overline{d_\alpha}$ be the standard bounded metric
+    associated with $d_\alpha$.}}
+    \step{4}{\pflet{$X = \prod_\alpha X_\alpha$}}
+    \step{5}{Define $D : X^2 \rightarrow \RR$ by:
+    \[ D(a,b) = \sup_\alpha \overline{d_\alpha}(a(\alpha), b(\alpha)) \]}
+    \step{6}{$D$ is a metric on $X$.}
+    \step{7}{$X$ is complete under $D$.}
+    \begin{proof}
+        \step{a}{\pflet{$(f_n)$ be a Cauchy sequence in $X$.}}
+        \step{b}{For $\alpha \in J$, we have $(f_n(\alpha))$ is a Cauchy sequence is $X_\alpha$}
+        \step{c}{For $\alpha \in J$, \pflet{$l(\alpha) = \lim_{n \rightarrow \infty} f_n(\alpha)$}}
+        \step{d}{$f_n \rightarrow l$ as $n \rightarrow \infty$}
+    \end{proof}
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:open_subspace_topologically_complete}
+    An open subspace of a topologically complete space is topologically complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topologically complete space.}}
+    \step{2}{\pick\ a metric $d$ on $X$ that induces the topology on $X$
+    under which $X$ is complete.}
+    \step{3}{\pflet{$U$ be open in $X$.}}
+    \step{3.5}{\assume{w.l.o.g. $U \neq X$}}
+    \step{4}{Define $\phi : U \rightarrow \RR$ by $\phi(x) = 1 / d(x, X - U)$}
+    \step{5}{Define $f : U \rightarrow X \times \RR$ by $f(x) = (x, \phi(x))$}
+    \step{6}{$f$ is an embedding.}
+    \begin{proof}
+        \step{a}{$f$ is injective.}
+        \step{b}{$f$ is continuous.}
+        \step{c}{$f$ maps open sets to open sets in $f(U)$}
+        \begin{proof}
+            \pf\ For any $V \subseteq U$ open, we have $f(V) = (V \times \RR) \cap f(U)$ is open in $f(U)$.
+        \end{proof}
+    \end{proof}
+    \step{7}{$f(U)$ is closed in $X \times \RR$}
+    \begin{proposition}
+        \pf\ Proposition \ref{proposition:graph_closed}.
+    \end{proposition}
+    \qedstep
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closed_subspace_topolgically_complete}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every $G_\delta$ subspace of a topologically complete space is topologically complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topologically complete space.}}
+    \step{2}{\pick\ a metric $d$ on $X$ that induces the topology on $X$
+    under which $X$ is complete.}
+    \step{3}{\pflet{$A$ be a $G_\delta$ set in $X$.}}
+    \step{4}{\pick\ a sequence $(U_n)$ of open sets such that $A = \bigcap_n U_n$.}
+    \step{5}{Define $f : A \rightarrow \prod_n U_n$ by $f(a) = (a, a, \ldots)$}
+    \step{6}{$f$ is an embedding.}
+    \step{7}{$f(A)$ is closed in $\prod_n U_n$}
+    \begin{proof}
+        \pf\ It is $\prod_n U_n \cap \Delta$.
+    \end{proof}
+    \step{8}{$\prod_n U_n$ is topologically complete.}
+    \begin{proof}
+        \step{a}{Each $U_n$ is topologically complete.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:open_subspace_topologically_complete}.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:product_topologically_complete}.
+        \end{proof}
+    \end{proof}
+    \step{9}{$A$ is topologically complete.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closed_subspace_topologically_complete}.
+    \end{proof}
+\qed
+\end{proof}
+
+\begin{corollary}
+    The space $\RR - \QQ$ of irrationals is topologically complete.
+\end{corollary}
 
 \chapter{Manifolds}
 

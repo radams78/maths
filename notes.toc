@@ -193,5 +193,6 @@
 \contentsline {section}{\numberline {13.16}Complete Metric Spaces}{279}{section.13.16}%
 \contentsline {section}{\numberline {13.17}Sup Metric}{284}{section.13.17}%
 \contentsline {section}{\numberline {13.18}Completion}{285}{section.13.18}%
-\contentsline {chapter}{\numberline {14}Manifolds}{286}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Manifolds}{286}{section.14.1}%
+\contentsline {section}{\numberline {13.19}Topolgically Complete Spaces}{285}{section.13.19}%
+\contentsline {chapter}{\numberline {14}Manifolds}{287}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Manifolds}{287}{section.14.1}%
