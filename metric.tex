@@ -1,4 +1,3 @@
-
 \chapter{Metric Spaces}
 
 \section{The Metric Topology}
@@ -199,53 +198,45 @@ We prove this is a metric.
     \qed
 \end{proof}
 
+\section{Metrically Equivalent}
+
+\begin{definition}[Metrically Equivalent]
+    Let $d$ and $d'$ be metrics on the same set $X$. Then $d$ and $d'$ are \emph{metrically equivalent} if and only if the identity map
+    is uniformly continuous as a map $(X,d) \rightarrow (X,d')$ and as a map $(X,d') \rightarrow (X,d)$
+\end{definition}
+
 \begin{proposition}
-    \label{proposition:standard_bounded_metric}
-    Let $d$ be a metric on the set $X$. Then the standard bounded metric $\overline{d}$ induces the same metric as $d$.
+    For any metric $d$ on a set $X$, the standard bounded metric $\overline{d}$ is metrically equivalent to $d$.
 \end{proposition}
 
 \begin{proof}
-    \pf\ This follows from Lemma \ref{lemma:basis_radius_less_than_one} since the open balls with radius $< 1$ are the same under both metrics. \qed
+    \pf
+    \step{1}{$i:(X,d) \rightarrow (X,d')$ is unifomly continuous.}
+    \begin{proof}
+        \pf\ For $\epsilon > 0$ and $x,y \in X$, if $d(x,y) < \epsilon$ then $\overline{d}[x,y) < \epsilon$.
+    \end{proof}
+    \step{2}{$i:(X,d') \rightarrow (X,d)$ is unifomly continuous.}
+    \begin{proof}
+        \pf\ For $\epsilon > 0$ and $x,y \in X$, if $\overline{d}(x,y) < \min(\epsilon,1/2)$ then $d[x,y) < \epsilon$.
+    \end{proof}
+    \qed
 \end{proof}
 
-\begin{lemma}
-    \label{lemma:metrics_same_topology}
-    Let $d$ and $d'$ be two metrics on the same set $X$. Let $\TT$ and $\TT'$ be the topologies they induce. Then $\TT \subseteq \TT'$ if and only if,
-    for all $x \in X$ and $\epsilon > 0$, there exists $\delta > 0$ such that
-    \[ B_{d'}(x, \delta) \subseteq B_d(x, \epsilon) \enspace . \]
-\end{lemma}
+\begin{proposition}
+    If $d$ and $d'$ are metrically equivalent metrics on the same set $X$, then they induce the same topology.
+\end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{If $\TT \subseteq \TT'$ then,
-    for all $x \in X$ and $\epsilon > 0$, there exists $\delta > 0$ such that
-    $B_{d'}(x, \delta) \subseteq B_d(x, \epsilon)$}
+    \step{1}{Every open set under $d$ is open under $d'$.}
     \begin{proof}
-        \pf\ From Proposition \ref{proposition:open_in_metric_space} since $x \in B_d(x, \epsilon) \in \TT'$.
+        \step{a}{\pflet{$x \in X$ and $\epsilon > 0$}}
+        \step{b}{\pick\ $\delta > 0$ such that, for all $y, z \in X$, if $d'(y,z) < \delta$ then $d(y,z) < \epsilon$}
+        \step{c}{$B_{d'}(x,\delta) \subseteq B_d(x,\epsilon)$}
     \end{proof}
-    \step{2}{If, for all $x \in X$ and $\epsilon > 0$, there exists $\delta > 0$ such that
-    $B_{d'}(x, \delta) \subseteq B_d(x, \epsilon)$, then $\TT \subseteq \TT'$}
+    \step{1}{Every open set under $d'$ is open under $d$.}
     \begin{proof}
-        \step{a}{\assume{For all $x \in X$ and $\epsilon > 0$, there exists $\delta > 0$ such that
-        $B_{d'}(x, \delta) \subseteq B_d(x, \epsilon)$}}
-        \step{b}{\pflet{$U \in \TT$}}
-        \step{c}{For all $x \in U$ there exists $\delta > 0$ such that $B_{d'}(x, \delta) \subseteq U$.}
-        \begin{proof}
-            \step{i}{\pflet{$x \in U$}}
-            \step{ii}{\pick\ $\epsilon > 0$ such that $B_d(x, \epsilon) \subseteq U$}
-            \begin{proof}
-                \pf\ Proposition \ref{proposition:open_in_metric_space}
-            \end{proof}
-            \step{iii}{\pick\ $\delta > 0$ such that $B_{d'}(x, \delta) \subseteq B_d(x, \epsilon)$}
-            \begin{proof}
-                \pf\ By \stepref{a}
-            \end{proof}
-            \step{iv}{$B_{d'}(x, \delta) \subseteq U$}
-        \end{proof}
-        \step{d}{$U \in \TT'$}
-        \begin{proof}
-            \pf\ Proposition \ref{proposition:open_in_metric_space}.
-        \end{proof}
+        \pf\ Similar.
     \end{proof}
     \qed
 \end{proof}
@@ -2416,7 +2407,7 @@ to $A$ being closed:
 \end{definition}
 
 \begin{proposition}
-    Let $X$ be a compact metric space. Let $f : X \rightarrow X$ be a contraction.
+    Let $X$ be a compact metric space. Let $f : X \rightarrow X$ be a shrinking map.
     Then $f$ has a unique fixed point.
 \end{proposition}
 
@@ -2504,10 +2495,6 @@ a compact metric space' to '$X$ is a complete metric space'.
     \emph{contraction} if and only if there exists $\alpha < 1$ such that,
     for all $x, y \in X$, we have $d(f(x),f(y)) \leq \alpha d(x,y)$.
 \end{definition}
-
-%TODO:     Let $X$ be a complete metric space. 
-% Let $f : X \rightarrow X$ be a contraction.
-%    Then $f$ has a unique fixed point.
 
 \section{Locally Metrizable Spaces}
 
@@ -2817,14 +2804,44 @@ a compact metric space' to '$X$ is a complete metric space'.
 \end{corollary}
 
 \begin{proposition}
-    Let $X$ be a set. Let $d$ be a metric on $X$. Let $\overline{d}$ be the corresponding
-    standard bounded metric. Then the metric space $(X,d)$ is complete if and only if $(X,\overline{d})$
+    Let $d$ and $d'$ be metrically equivalent metrics on a set $X$. Then $(X,d)$ is complete if and only if $(X,d')$
     is complete.
 \end{proposition}
 
 \begin{proof}
-    \pf\ Using Proposition \ref{proposition:Cauchy_standard_bounded_metric}. \qed
+    \pf
+    \step{1}{If $(X,d)$ is complete then $(X,d')$ is complete.}
+    \begin{proof}
+        \step{a}{\assume{$(X,d)$ is complete.}}
+        \step{b}{\pflet{$(x_n)$ be a Cauchy sequence under $d'$.}}
+        \step{c}{$(x_n)$ is a Cauchy sequence under $d$.}
+        \begin{proof}
+            \step{i}{\pflet{$\epsilon > 0$}}
+            \step{ii}{\pick\ $\delta > 0$ such that, for all $x,y \in X$, if $d'(x,y) < \delta$ then $d(x,y) < \epsilon$}
+            \step{iii}{\pick\ $N$ such that $\forall m,n \geq N. d'(x_m,x_n) < \delta$}
+            \step{iv}{$\forall m,n \geq N. d(x_m,x_n) < \epsilon$}
+        \end{proof}
+        \step{d}{\pflet{$l$ be the limit of $(x_n)$ under $d$.}}
+        \step{e}{$(x_n)$ converges to $l$ under $d'$.}
+        \begin{proof}
+            \step{i}{\pflet{$\epsilon > 0$}}
+            \step{ii}{\pick\ $\delta > 0$ such that, for all $x,y \in X$, if $d(x,y) < \delta$ then $d'(x,y) < \epsilon$}
+            \step{iii}{\pick\ $N$ such that $\forall n \geq N. d(x_n,l) < \delta$}
+            \step{iv}{$\forall n \geq N, d'(x_n,l) < \epsilon$}
+        \end{proof}
+    \end{proof}
+    \step{2}{If $(X,d')$ is complete then $(X,d)$ is complete.}
+    \begin{proof}
+        \pf\ Similar.
+    \end{proof}
+    \qed
 \end{proof}
+
+\begin{corollary}
+    Let $X$ be a set. Let $d$ be a metric on $X$. Let $\overline{d}$ be the corresponding
+    standard bounded metric. Then the metric space $(X,d)$ is complete if and only if $(X,\overline{d})$
+    is complete.
+\end{corollary}
 
 \begin{lemma}
     A metric space is complete if and only if every Cauchy sequence has a convergent subsequence.
@@ -2947,6 +2964,225 @@ a compact metric space' to '$X$ is a complete metric space'.
     \step{8}{$\forall n \geq N, \forall \alpha \in J. \overline{d}(f_n(\alpha),y_\alpha) < \epsilon / 2$}
     \step{9}{$\forall n \geq N. \overline{\rho}(f_n,y) \leq \epsilon / 2$}
     \step{10}{$\forall n \geq N. \overline{\rho}(f_n,y) < \epsilon$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a metric space. Suppose that there exists $\epsilon > 0$ such that every closed ball of radius $\epsilon$
+    is compact. Then $X$ is complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(x_n)$ be a Cauchy sequence in $X$.}}
+    \step{2}{\pick\ $N$ such that $\forall m,n \geq N. d(x_m,x_n) < \epsilon$}
+    \step{3}{$(x_n)_{n \geq N}$ is a Cauchy sequence in $\overline{B(x_N,\epsilon)}$}
+    \step{4}{$(x_n)$ converges.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ and $Y$ be metric spaces. Suppose $Y$ is complete. Let $A \subseteq X$. Let $f : A \rightarrow Y$
+    be uniformly continuous. Then there exists a unique continuous extension $g : \overline{A} \rightarrow Y$
+    of $f$, and this extension $g$ is uniformly continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{Define $g : \overline{A} \rightarrow Y$ as follows. Given $x \in \overline{A}$, pick a sequence $(a_n)$
+    in $A$ that converges to $x$. Then $g(x) = \lim_{n \rightarrow \infty} f(a_n)$.}
+    \step{2}{$g$ is uniformly continuous.}
+    \begin{proof}
+        \step{a}{\pflet{$\epsilon > 0$}}
+        \step{b}{Pick $\delta$ such that, for all $x, y \in X$, if $d(x,y) < \delta$ then $d(f(x),f(y)) < \epsilon / 2$}
+        \step{c}{\pflet{$x,y \in X$ with $d(x,y) < \delta/3$}}
+        \step{d}{\pick\ sequences $(a_n)$, $(b_n)$ in $A$ that converge to $x$ and $y$ respectively.}
+        \step{e}{There exists $N$ such that $\forall n \geq N. d(a_n,b_n) < \delta$}
+        \step{e}{$d(g(x),g(y)) < \epsilon$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                d(g(x),g(y)) & = d(\lim_{n \rightarrow \infty} f(a_n), \lim_{n \rightarrow \infty} f(b_n)) \\
+                & = \lim_{n \rightarrow \infty} d(f(a_n),f(b_n)) \\
+                & \leq \epsilon / 2
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{22}{$g$ extends $f$.}
+    \step{3}{If $h : \overline{A} \rightarrow Y$ is a continuous extension of $f$ then $h = g$.}
+\end{proof}
+
+\begin{proposition}[Choice]
+    Let $X$ be a metric space. Then $X$ is complete if and only if, for every nested sequence $A_1 \supseteq A_2 \supseteq \cdots$
+    of nonempty closed sets such that $\diam A_n \rightarrow 0$, then $\bigcap_n A_n$ is nonempty.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\Rightarrow$}
+    \begin{proof}
+        \step{a}{\assume{$X$ is complete.}}
+        \step{b}{\pflet{$(A_n)$ be a nested sequence of nonempty closed sets such that $\diam A_n \rightarrow 0$}}
+        \step{c}{For all $n$, \pick\ $a_n \in A_n$}
+        \step{d}{$(a_n)$ is Cauchy.}
+        \begin{proof}
+            \step{i}{\pflet{$\epsilon > 0$}}
+            \step{ii}{\pick\ $N$ such that $\diam A_N < \epsilon$}
+            \step{iii}{$\forall m,n \geq N. d(a_m,a_n) < \epsilon$}
+            \begin{proof}
+                \pf\ Since $a_m,a_n \in A_N$.
+            \end{proof}
+        \end{proof}
+        \step{e}{\pflet{$l = \lim_n a_n$} \prove{$l \in \bigcap_n A_n$}}
+        \step{f}{\pflet{$n \in \ZZ^+$} \prove{$l \in A_n$}}
+        \step{g}{\pflet{$\epsilon > 0$} \prove{$B(l,\epsilon)$ intersects $A_n$}}
+        \step{h}{\pick\ $m$ such that $m \geq n$ and $d(a_m,l) < \epsilon$}
+        \step{i}{$a_m \in B(l,\epsilon) \cap A_n$}
+    \end{proof}
+    \step{2}{$\Leftarrow$}
+    \begin{proof}
+        \step{a}{\assume{Every nested sequence of nonempty closed sets with diameters converging to 0 has nonempty intersection.}}
+        \step{b}{\pflet{$(x_n)$ be a Cauchy sequence in $X$.}}
+        \step{c}{For all $i$, \pick\ $N_i$ such that $\forall m,n \geq N_i. d(x_m,x_n) < 1/2^i$}
+        \step{d}{$(\overline{B(x_{N_i},1/2^{i-1})})$ is a nested sequence of nonempty closed sets with diameters converging to 0.}
+        \begin{proof}
+            \step{i}{\pflet{$y \in \overline{B(x_{N_{i+1}},1/2^i)}$} \prove{$y \in \overline{B(x_{N_i},1/2^{i-1})}$}}
+            \step{ii}{$d(x_{N_i},y) < 1/i$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    d(x_{N_i},y) & \leq d(x_{N_i},x_{N_{i+1}}) + d(x_{N_{i+1}},y) \\
+                    & < 1/2^i + 1/2^i \\
+                    & = 1/2^{i-1}
+                \end{align*}
+            \end{proof}
+        \end{proof}
+        \step{e}{\pick\ $l \in \bigcap_i \overline{B(x_{N_i},1/2^i)}$}
+        \step{f}{$x_n \rightarrow l$ as $n \rightarrow \infty$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a complete metric space. Let $f : X \rightarrow X$ be a contraction.
+    Then $f$ has a unique fixed point.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pick\ $\alpha < 1$ such that $\forall x,y \in X. d(f(x),f(y)) \leq \alpha d(x,y)$.}
+    \step{2}{\pick\ $x_0 \in X$}
+    \step{3}{$(f^n(x_0))$ is Cauchy.}
+    \begin{proof}
+        \step{a}{\pflet{$\epsilon > 0$}}
+        \step{b}{Pick $N$ such that $\alpha^N / (1-\alpha) d(x_0,f(x_0)) < \epsilon$}
+        \step{c}{\pflet{$m,n \geq N$}}
+        \step{d}{\assume{w.l.o.g. $m \leq n$}}
+        \step{d}{$d(f^m(x_0),f^n(x_0)) < \epsilon$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                d(f^m(x_0),f^n(x_0)) & \leq \alpha^m d(x_0,f^{n-m}(x_0)) \\
+                & = \alpha^m (d(x_0,f(x_0)) + d(f(x_0),f^2(x_0)) + \cdots d(f^{n-m-1}(x_0),d^{n-m}(x_0))) \\
+                & \leq \alpha^m (1 + \alpha + \cdots + \alpha^{n-m-1}) d(x_0,f(x_0)) \\
+                & = \alpha^m (1 - \alpha^{n-m})/(1 - \alpha) d(x_0,f(x_0))  \\
+                & \leq \alpha^N / (1 - \alpha) d(x_0, f(x_0)) \\ 
+                & < \epsilon
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{4}{\pflet{$l = \lim_{n \rightarrow \infty} f^n(x_0)$}}
+    \step{5}{$f(l) = l$}
+    \step{6}{If $f(m) = m$ then $m = l$}
+    \begin{proof}
+        \pf\ Since $d(m,l) = d(f(m),f(l)) \leq \alpha d(m,l)$.
+    \end{proof}
+    \qed
+\end{proof}
+
+%TODO:     Let $X$ be a complete metric space. 
+% Let $f : X \rightarrow X$ be a contraction.
+%    Then $f$ has a unique fixed point.
+
+\section{Sup Metric}
+
+\begin{definition}[Sup Metric]
+    Let $X$ be a set and $Y$ a metric space. 
+    
+    The \emph{sup metric} $\rho$ on $\mathcal{B}(X,Y)$ is defined by
+    \[ \rho(f,g) = \sup_{x \in X} d(f(x),g(x)) \]
+    It is easy to prove that this is a metric.
+\end{definition}
+
+\begin{proposition}
+    The uniform metric $\overline{\rho}$ is the standard bounded metric associated with the sup metric.
+\end{proposition}
+
+\begin{corollary}
+    The uniform metric and the sup metric induce the same topology on $\mathcal{B}(X,Y)$, namely the uniform topology.
+\end{corollary}
+
+\begin{corollary}
+    If $Y$ is complete then $\mathcal{B}(X,Y)$ is complete under the sup metric.
+\end{corollary}
+
+\begin{proposition}
+    Let $X$ be a compact space and $Y$ a metric space. The $\mathcal{C}(X,Y) \subseteq \mathcal{B}(X,Y)$.
+\end{proposition}
+
+\begin{corollary}
+    If $X$ is a compact space and $Y$ a complete metric space then $\mathcal{C}(X,Y)$ is complete under the sup metric.
+\end{corollary}
+
+\begin{theorem}
+    Every metric space can be isometrically embedded in a complete metric space. Specifically, any metric space $X$ can be
+    isometrically embedded in $\mathcal{B}(X,\RR)$ under the sup metric.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pick\ $x_0 \in X$}
+    \begin{proof}
+        \pf\ If $X$ is empty then the unique function $X \rightarrow \mathcal{B}(X, \RR)$ is an isometric embedding.
+    \end{proof}
+    \step{2}{Define $\Phi : X \rightarrow \mathcal{B}(X, \RR)$ by $\Phi(a)(b) = d(a,b) - d(b,x_0)$}
+    \begin{proof}
+        \pf\ For $a \in X$, we have $\Phi(a)$ is bounded since $|\Phi(a)(b)| \leq d(a,x_0)$ for all $b \in X$.
+    \end{proof}
+    \step{3}{$\Phi$ is an isometric embedding.}
+    \begin{proof}
+        \step{a}{\pflet{$x, y \in X$}}
+        \step{b}{$\rho(\Phi(x),\Phi(y)) = d(x,y)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                \rho(\Phi(x),\Phi(y)) & = \sup_{z \in X} |\Phi(x)(z) - \Phi(y)(z)| \\
+                & = \sup_{z \in X}|d(x,z) - d(y,z)| \\
+                & = d(x,y)
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Completion}
+
+\begin{definition}[Completion]
+    The \emph{completion} of a metric space $X$ consists of a complete metric space $Y$ and isometric embedding
+    $i : X \rightarrow Y$ such that $Y = \overline{i(X)}$.
+\end{definition}
+
+\begin{theorem}
+    The completion of a metric space is unique up to isometry.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$i : X \rightarrow Y$ and $j : X \rightarrow Z$ be completions of $X$.}}
+    \step{2}{Define $\phi : Y \rightarrow Z$ as follows. Given $y \in Y$, pick a sequence $(x_n)$ in $X$
+    such that $i(x_n) \rightarrow y$ as $n \rightarrow \infty$. Then $\phi(y) = \lim_{n \rightarrow \infty} j(x_n)$}
+    \step{3}{$\phi$ is an isometry.}
     \qed
 \end{proof}
 
