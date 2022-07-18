@@ -504,6 +504,7 @@ We prove this is a metric.
 \end{example}
 
 \begin{proposition}[Choice]
+    \label{proposition:compact_bounded}
     Let $X$ be a metrizable space. The following are equivalent:
     \begin{enumerate}
         \item $X$ is bounded under every metric that induces the topology of $X$.
@@ -1721,6 +1722,30 @@ We prove this is a metric.
     \pf\ By the Uniform Limit Theorem. \qed
 \end{proof}
 
+\begin{proposition}
+    Let $X$ be a topological space and $Y$ a metric space. Give $\mathcal{C}(X,Y)$ the uniform topology. Then the evaluation map
+    $e : X \times \mathcal{C}(X,Y) \rightarrow Y$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x \in X$}}
+    \step{2}{\pflet{$f \in \mathcal{C}(X,Y)$}}
+    \step{3}{\pflet{$\epsilon > 0$}}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x$ such that $\forall y \in U. d(f(x),f(y)) < \epsilon / 2$}
+    \step{5}{\pflet{$y \in U$}}
+    \step{6}{\pflet{$g \in \mathcal{C}(X,Y)$}}
+    \step{7}{\assume{$\overline{\rho}(f,g) < \min(\epsilon / 2, 1/2)$}}
+    \step{8}{$d(f(x),g(y)) < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(f(x),g(y)) & \leq d(f(x),f(y)) + d(f(y),g(y)) \\
+            & < \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Isometric Imbeddings}
 
@@ -2883,6 +2908,7 @@ a compact metric space' to '$X$ is a complete metric space'.
 \end{proof}
 
 \begin{corollary}
+    \label{corollary:compact_complete}
     Every compact metric space is complete.
 \end{corollary}
 
@@ -3101,9 +3127,43 @@ a compact metric space' to '$X$ is a complete metric space'.
     \qed
 \end{proof}
 
-%TODO:     Let $X$ be a complete metric space. 
-% Let $f : X \rightarrow X$ be a contraction.
-%    Then $f$ has a unique fixed point.
+\begin{proposition}
+    The space \[ L^2 = \left\{ (x_n) \in \RR^\omega \mid \sum_{n=0}^\infty x_n^2 \text{ converges} \right\} \] under the
+    $l^2$ metric is complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$((x_{mn})_n)_m$ be a Cauchy sequence in $L^2$.}}
+    \step{2}{For all $n$, the sequence $(x_{mn})_m$ is Cauchy in $\RR$}
+    \begin{proof}
+        \step{o}{\pflet{$n \in \ZZ^+$}}
+        \step{a}{\pflet{$\epsilon > 0$}}
+        \step{b}{Pick $M$ such that $\forall m_1,m_2 \geq M. l^2(x_{m_1},x_{m_2}) < \epsilon$}
+        \step{c}{\pflet{$m_1,m_2 \geq M$}}
+        \step{d}{$|x_{m_1n} - x_{m_2n}| < \epsilon$}
+        \begin{proof}
+            \pf\ Since $|x_{m_1n} - x_{m_2n}| \leq l^2((x_{m_1},x_{m_2}))$.
+        \end{proof}
+    \end{proof}
+    \step{3}{For all $\epsilon > 0$, there exists $M$ such that $\forall m \geq M. \| x_m - l \|^2 \leq \epsilon^2$}
+    \begin{proof}
+        \step{a}{\pflet{$\epsilon > 0$}}
+        \step{b}{\pick\ $M$ such thath $\forall m_1,m_2 \geq M. l^2(x_{m_1},x_{m_2}) < \epsilon$}
+        \step{c}{$\forall N. \forall m_1, m_2 \geq M. \sum_{i=1}^N |x_{m_1i} - x_{m_2i}| < \epsilon^2$}
+        \step{d}{$\forall N. \forall m \geq M. \sum_{i=1}^N |x_{mi} - l_i| \leq \epsilon^2$}
+        \step{e}{$\forall m \geq M. l^2(x_m,l) \leq \epsilon$}
+    \end{proof}
+    \step{4}{$l \in L^2$}
+    \begin{proof}
+        \pf\ We have $x_m - l \in L^2$ by \stepref{3} so $l = x^m - (x^m - l) \in L^2$.
+    \end{proof}
+    \step{5}{$x_m \rightarrow l$ as $m \rightarrow \infty$}
+    \begin{proof}
+        \pf\ From \stepref{3}.
+    \end{proof}
+    \qed
+\end{proof}
 
 \section{Sup Metric}
 
@@ -3136,6 +3196,7 @@ a compact metric space' to '$X$ is a complete metric space'.
 \end{corollary}
 
 \begin{theorem}
+    \label{theorem:completion}
     Every metric space can be isometrically embedded in a complete metric space. Specifically, any metric space $X$ can be
     isometrically embedded in $\mathcal{B}(X,\RR)$ under the sup metric.
 \end{theorem}
@@ -3167,6 +3228,11 @@ a compact metric space' to '$X$ is a complete metric space'.
     \qed
 \end{proof}
 
+\begin{proposition}
+    Let $Z$ be a metric space and $A \subseteq Z$. If $A$ is dense and every Cauchy sequence in $A$ converges in $Z$,
+    then $Z$ is complete.
+\end{proposition}
+
 \section{Completion}
 
 \begin{definition}[Completion]
@@ -3184,6 +3250,21 @@ a compact metric space' to '$X$ is a complete metric space'.
     \step{2}{Define $\phi : Y \rightarrow Z$ as follows. Given $y \in Y$, pick a sequence $(x_n)$ in $X$
     such that $i(x_n) \rightarrow y$ as $n \rightarrow \infty$. Then $\phi(y) = \lim_{n \rightarrow \infty} j(x_n)$}
     \step{3}{$\phi$ is an isometry.}
+    \qed
+\end{proof}
+
+Existence follows from Theorem \ref{theorem:completion}. An alternative proof:
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a metric space.}}
+    \step{2}{\pflet{$Y$ be the set of all Cauchy sequences in $X$, quotiented by: $(x_n) = (y_n)$ iff $d(x_n,y_n) \rightarrow 0$
+    as $n \rightarrow \infty$}}
+    \step{3}{Define $D : Y^2 \rightarrow \RR$ by $D((x_n),(y_n)) = \lim_{n \rightarrow \infty} d(x_n,y_n)$}
+    \step{4}{$D$ is a metric on $Y$ under which $Y$ is complete.}
+    \step{5}{Define $h : X \rightarrow Y$ by $h(x) = (x, x, x, \ldots)$}
+    \step{6}{$h$ is an embedding.}
+    \step{7}{$h(X)$ is dense in $Y$.}
     \qed
 \end{proof}
 
@@ -3299,6 +3380,405 @@ a compact metric space' to '$X$ is a complete metric space'.
 
 \begin{corollary}
     The space $\RR - \QQ$ of irrationals is topologically complete.
+\end{corollary}
+
+\section{Peano Spaces}
+
+\begin{definition}[Peano Space]
+    A \emph{Peano space} is a Hausdorff space that is the continuous image of $I$.
+\end{definition}
+
+\begin{theorem}
+    $I^2$ is a Peano space.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Define the sequence of functions $f_n : I \rightarrow I^2$ as follows. $f_0$ is the path consisting of two line segments
+    from $(0,0)$ to $(1/2,1/2)$ and from $(1/2,1/2)$ to $(1,0)$. $f_{n+1}$ is the path obtained from $f_n$ by replacing every triangular
+    segment with four triangular segments (see p. 273 in Munkres).}
+    \step{2}{\pflet{$d$ be the square metric on $\RR^2$}}
+    \step{3}{\pflet{$\rho$ be the sup metric on $\mathcal{C}(I,I^2)$}}
+    \step{4}{$(f_n)$ is a Cauchy sequence with respect to $\rho$}
+    \begin{proof}
+        \pf\ Since $\rho(f_n,f_{n+1}) \leq 1/2^n$
+    \end{proof}
+    \step{5}{\pflet{$f : I \rightarrow I^2$ be the limit of $(f_n)$}}
+    \step{6}{$f$ is surjective.}
+    \begin{proof}
+        \step{a}{\pflet{$x \in I^2$}}
+        \step{b}{For all $\epsilon > 0$, every $\epsilon$-neighbourhood of $x$ intersects $f(I)$}
+        \begin{proof}
+            \pf\ Since $f_n$ passes through every small square of side $1/2^n$.
+        \end{proof}
+        \step{c}{$x \in f(I)$}
+        \begin{proof}
+            \pf\ Since $f(I)$ is compact, hence closed.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    For all $n \geq 1$, the space $I^n$ is a Peano space.
+\end{corollary}
+
+\begin{proposition}
+    There exists a continuous surjective map $\RR \rightarrow \RR^2$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Concatenate together a bunch of space-filling curves. \qed
+\end{proof}
+
+\begin{corollary}
+    For $n \geq 1$, there exists a continuous surjective map $\RR \rightarrow \RR^n$.
+\end{corollary}
+
+\begin{proposition}
+    Every Peano space is compact.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Theorem \ref{theorem:continuous_image_compact}. \qed
+\end{proof}
+
+\begin{proposition}
+    Every Peano space is connected.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Theorem \ref{theorem:connected_continuous_image}. \qed
+\end{proof}
+
+\begin{proposition}
+    Every Peano space is locally connected.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a Peano space.}}
+    \step{2}{\pflet{$f : I \twoheadrightarrow X$ be continuous and surjective.}}
+    \step{3}{\pflet{$y \in X$}}
+    \step{4}{\pflet{$V$ be a neighbourhood of $y$}}
+    \step{5}{\pick\ $x \in X$ such that $f(x) = y$}
+    \step{6}{\pick\ a connected open neighbourhood $U$ of $x$ such that $U \subseteq \inv{f}(V)$}
+    \step{7}{$f(U)$ is a connected open neighbourhood of $y$ that is included in $V$.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every Peano space is metrizable.
+\end{proposition}
+
+\begin{theorem}
+    \pf
+    \step{1}{\pflet{$X$ be a Peano space.}}
+    \step{2}{\pflet{$f : I \twoheadrightarrow X$ be continuous and surjective.}}
+    \step{3}{$f$ is a perfect map.} % TODO Extract lemma
+    \begin{proof}
+        \step{a}{$f$ is a closed map.}
+        \begin{proof}
+            \pf\ Proposition \ref{proposition:closed_map_compact_Hausdorff}.
+        \end{proof}
+        \step{b}{For all $y \in X$ we have $\inv{f}(y)$ is compact.}
+        \begin{proof}
+            \pf\ It is a closed subspace of a compact space.
+        \end{proof}
+    \end{proof}
+    \step{4}{$X$ is regular.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:perfect_image_regular}.
+    \end{proof}
+    \step{5}{$X$ is second countable.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:perfect_image_second_countable}.
+    \end{proof}
+    \step{6}{$X$ is metrizable.}
+    \begin{proof}
+        \pf\ Urysohn Metrization Theorem.
+    \end{proof}
+    \qed
+\end{theorem}
+
+\begin{theorem}[Hahn-Mazurkiewicz Theorem]
+    Every compact, connected, locally connected, metrizable space is a Peano space.
+\end{theorem}
+
+\begin{proof}
+    \pf\ See J. G. Hocking and G. S. Young. \emph{Topology}. 1961. p. 129. \qed
+\end{proof}
+
+\begin{corollary}
+    The space $I^\omega$ is a Peano space.
+\end{corollary}
+
+\section{Totally Bounded Metric Spaces}
+
+\begin{definition}[Totally Bounded]
+    A metric space $X$ is \emph{totally bounded} if and only if, for every $\epsilon > 0$, there exists a finite covering of $X$
+    by $\epsilon$-balls.
+\end{definition}
+
+\begin{proposition}
+    Every totally bounded metric space is bounded.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a totally bounded metric space.}}
+    \step{2}{\pick\ $x_1$, \ldots, $x_n$ such that $B(x_1,1)$, \ldots, $B(x_n,1)$ cover $X$.}
+    \step{3}{$\diam X \leq \max_{i,j} d(x_i,x_j) + 2$}
+    \qed
+\end{proof}
+
+The following example shows that not every totally bounded space is bounded.
+
+\begin{proposition}
+    The real line $\RR$ is totally bounded under the metric $d(a,b) = \min(1,|a-b|)$.
+\end{proposition}
+
+\begin{theorem}[Choice]
+    \label{theorem:compact_complete_totally_bounded}
+    A metric space is compact if and only if it is complete and totally bounded.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{Every compact metric space is complete.}
+    \begin{proof}
+        \pf\ Corollary \ref{corollary:compact_complete}.
+    \end{proof}
+    \step{2}{Every compact metric space is totally bounded.}
+    \begin{proof}
+        \pf\ Trivial.
+    \end{proof}
+    \step{3}{Every complete, totally bounded metric space is compact.}
+    \begin{proof}
+        \step{a}{\pflet{$X$ be a complete, totally bounded metric space.}}
+        \step{b}{\pflet{$(x_n)$ be a sequence in $X$.}}
+        \step{c}{\pick\ a sequence of infinite sets $\ZZ^+ \supseteq J_1 \supseteq J_2 \supseteq \cdots$
+        such that, for each $k$, there exists an open ball $B$ of radius $1/k$ such that $\forall n \in J_k. x_n \in B$}
+        \begin{proof}
+            \step{i}{\assume{as induction hypothesis we have chosen $J_1$, \ldots, $J_k$}}
+            \step{ii}{\pick\ an open ball $B$ of radius $1/(k+1)$ such that, for infinitely many $n \in J_k$, we have $x_n \in B$}
+            \begin{proof}
+                \pf\ Such a ball must exist since $X$ can be covered by finitely many open balls of radius $1 / (k+1)$.
+            \end{proof}
+            \step{iii}{\pflet{$J_{k+1} = \{ n \in J_k \mid x_n \in B \}$}}
+        \end{proof}
+        \step{d}{\pick\ a sequence of integers $n_1 < n_2 < \cdots$ such that $\forall r. n_r \in J_r$.}
+        \begin{proof}
+            \pf\ This is possible since each $J_r$ is infinite.
+        \end{proof}
+        \step{e}{$(x_{n_r})$ is a Cauchy sequence.}
+        \begin{proof}
+            \pf\ For $i,j \geq k$ we have $d(x_{n_i},x_{n_j}) \leq 2/k$.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Equicontinuity}
+
+\begin{definition}[Equicontinuous]
+    Let $X$ be a topological space. Let $Y$ be a metric space. Let $\mathcal{F}$ be a set of continuous functions from $X$ to $Y$.
+    Let $x_0 \in X$. Then $\mathcal{F}$ is \emph{equicontinuous at $x_0$} if and only if, for all $\epsilon > 0$, there exists a
+    neighbourhood $U$ of $x_0$ such that, for all $x \in U$ and $f \in \mathcal{F}$,
+    \[ d(f(x),f(x_0)) < \epsilon \enspace . \]
+
+    The set $\mathcal{F}$ is \emph{equicontinuous} if and only if it is equicontinuous at $x_0$ for all $x_0 \in X$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:totally_bounded_equicontinuous}
+    Let $X$ be a topological space. Let $Y$ be a metric space. Let $\mathcal{F} \subseteq \mathcal{C}(X,Y)$. If $\mathcal{F}$
+    is totally bounded under the uniform metric, then $\mathcal{F}$ is equicontinuous.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x_0 \in X$}}
+    \step{2}{\pflet{$\epsilon > 0$}}
+    \step{3}{\pick\ a finite set of $\epsilon/3$-balls $B(f_1,\epsilon/3)$, \ldots, $B(f_n,\epsilon/3)$ that cover $\mathcal{F}$.}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x_0$ such that, for all $x \in U$ and all $1 \leq i \leq n$, $d(f_i(x),f_i(x_0)) < \epsilon / 3$}
+    \step{5}{\pflet{$x \in U$ and $f \in \mathcal{F}$}}
+    \step{6}{\pick\ $i$ such that $f \in B(f_i,\epsilon)$}
+    \step{7}{$d(f(x),f(x_0)) < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(f(x),f(x_0)) & \leq d(f(x),f_i(x)) + d(f_i(x),f_i(x_0)) + d(f_i(x_0),f(x_0)) \\
+            & < \epsilon / 3 + \epsilon / 3 + \epsilon / 3 \\
+            & = \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}[Choice]
+    \label{lemma:equicontinuous_totally_bounded}
+    Let $X$ be a compact space. Let $Y$ be a compact metric space. Let $\mathcal{F} \subseteq \mathcal{C}(X,Y)$. If $\mathcal{F}$
+    is equicontinuous then $\mathcal{F}$ is totally bounded under the sup metric.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\rho$ be the sup metric.}}
+    \step{2}{\assume{$\mathcal{F}$ is equicontinuous.}}
+    \step{3}{\pflet{$\epsilon > 0$}}
+    \step{4}{\pflet{$\delta = \epsilon / 3$}}
+    \step{5}{For $a \in X$, \pick\ an open neighbourhood $U_a$ of $a$ such that $\forall x \in U_a. \forall f \in \mathcal{F}. d(f(x),f(a)) < \delta$}
+    \step{6}{\pick\ finitely many of these sets $U_{a_1}$, \ldots, $U_{a_k}$ that covers $X$.}
+    \step{7}{\pick\ a finite open cover $V_1$, \ldots, $V_m$ of $Y$ by sets of diameter $< \delta$.}
+    \step{8}{\pflet{$J$ be the set of all functions $\{1, \ldots, m \} \rightarrow \{1, \ldots, k\}$}}
+    \step{9}{For all $\alpha \in J$ such that there exsits $f \in \mathcal{F}$ such that $\forall i. f(a_i) \in V_{\alpha(i)}$,
+    \pick\ $f_\alpha \in \mathcal{F}$ such that $\forall i. f_\alpha(a_i) \in V_{\alpha(i)}$.
+    \prove{The open balls $B(f_\alpha,\epsilon)$ cover $\mathcal{F}$.}}
+    \step{10}{\pflet{$f \in \mathcal{F}$}}
+    \step{11}{\pick\ $\alpha$ such that $\forall i. f(a_i) \in V_{\alpha(i)}$ \prove{$f \in B(f_\alpha, \epsilon)$}}
+    \step{12}{\pflet{$x \in X$}}
+    \step{13}{\pick\ $i$ such that $x \in U_i$}
+    \step{14}{$d(f(x),f_\alpha(x)) < \epsilon$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            d(f(x),f_\alpha(x)) & \leq d(f(x),f(a_i)) + d(f(a_i),f_\alpha(a_i)) + d(f_\alpha(a_i),f_\alpha(x)) \\
+            & < \delta + \delta + \delta \\
+            & = \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    \label{corollary:equicontinuous_totally_bounded}
+    Let $X$ be a compact space. Let $Y$ be a compact metric space. Let $\mathcal{F} \subseteq \mathcal{C}(X,Y)$. If $\mathcal{F}$
+    is equicontinuous then $\mathcal{F}$ is totally bounded under the uniform metric.
+\end{corollary}
+
+\section{Pointwise Bounded Sets}
+
+\begin{definition}[Pointwise Bounded]
+    Let $X$ be a set. Let $Y$ be a metric space. Let $\mathcal{F} \subseteq Y^X$. Then $\mathcal{F}$ is \emph{pointwise bounded}
+    if and only if, for all $x \in X$, the set $\{ f(x) \mid f \in \mathcal{F} \}$ is bounded.
+\end{definition}
+
+\begin{theorem}[Ascoli's Theorem, Classical Version]
+    Let $X$ be a compact space. Give $\RR^n$ either the square or the Euclidean metric. Give $\mathcal{C}(X, \RR^n)$ the uniform topology.
+    Let $\mathcal{F} \subseteq \mathcal{C}(X, \RR^n)$. Then $\overline{\mathcal{F}}$ is compact if and only if
+    $\mathcal{F}$ is equicontinuous and pointwise bounded.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\rho$ be the sup metric on $\mathcal{C}(X, \RR^n)$}}
+    \step{2}{\pflet{$\mathcal{G} = \overline{\mathcal{F}}$}}
+    \step{3}{If $\mathcal{G}$ is compact then $\mathcal{G}$ is equicontinuous.}
+    \begin{proof}
+        \step{a}{\assume{$\mathcal{G}$ is compact.}}
+        \step{b}{$\mathcal{G}$ is totally bounded under $\overline{\rho}$.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:compact_complete_totally_bounded}.
+        \end{proof}
+        \step{c}{$\mathcal{G}$ is equicontinuous.}
+        \begin{proof}
+            \pf\ \ref{lemma:totally_bounded_equicontinuous}.
+        \end{proof}
+    \end{proof}
+    \step{4}{If $\mathcal{G}$ is compact then $\mathcal{G}$ is pointwise bounded.}
+    \begin{proof}
+        \step{a}{\assume{$\mathcal{G}$ is compact.}}
+        \step{b}{$\mathcal{G}$ is bounded under $\rho$.}
+        \begin{proof}
+            \pf\ \ref{proposition:compact_bounded}.
+        \end{proof}
+        \step{c}{$\mathcal{G}$ is pointwise bounded.}
+    \end{proof}
+    \step{5}{If $\mathcal{F}$ is equicontinuous and pointwise bounded then $\mathcal{G}$ is equicontinuous.}
+    \begin{proof}
+        \step{a}{\assume{$\mathcal{F}$ is equicontinuous and pointwise bounded.}}
+        \step{b}{\pflet{$x_0 \in X$}}
+        \step{c}{\pflet{$\epsilon > 0$}}
+        \step{d}{\pick\ an open neighbourhood $U$ of $x_0$ such that $\forall x \in U. \forall f \in \mathcal{F}. d(f(x),f(x_0)) < \epsilon / 3$}
+        \step{e}{\pflet{$x \in U$}}
+        \step{f}{\pflet{$g \in \mathcal{G}$}}
+        \step{g}{\pick\ $f \in \mathcal{F}$ such that $\rho(f,g) < \epsilon / 3$}
+        \step{h}{$d(g(x),g(x_0)) < \epsilon$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                d(g(x),g(x_0)) & \leq d(g(x),f(x)) + d(f(x),f(x_0)) + d(f(x_0),g(x_0)) \\
+                & < \epsilon /  3 + \epsilon / 3 + \epsilon / 3 \\
+                & = \epsilon
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{6}{If $\mathcal{F}$ is equicontinuous and pointwise bounded then $\mathcal{G}$ is pointwise bounded.}
+    \begin{proof}
+        \step{a}{\assume{$\mathcal{F}$ is equicontinuous and pointwise bounded.}}
+        \step{b}{\pflet{$a \in X$}}
+        \step{c}{\pflet{$M = \diam \{ f(a) \mid f \in \mathcal{F} \}$}}
+        \step{d}{\pflet{$g, g' \in \mathcal{G}$}}
+        \step{e}{\pick\ $f, f' \in \mathcal{F}$ such that $\rho(f,g) < 1$ and $\rho(f',g') < 1$}
+        \step{f}{$d(g(a),g'(a)) < M + 2$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+                d(g(a),g'(a)) & \leq d(g(a),f(a)) + d(f(a),f'(a)) + d(f'(a).g'(a)) \\
+                & < 1 + M + 1 \\
+                & = M + 2
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{7}{If $\mathcal{G}$ is equicontinuous and pointwise bounded then there exists a compact $Y \subseteq \RR^n$
+    such that $\forall g \in \mathcal{G}. g(X) \subseteq Y$}
+    \begin{proof}
+        \step{a}{\assume{$\mathcal{G}$ is equicontinuous and pointwise bounded.}}
+        \step{b}{For $a \in X$, \pick\ an open neighbourhood $U_a$ of $a$ such that $\forall x \in U_a. \forall g \in \mathcal{G}, d(g(a),g(x)) < 1$}
+        \step{c}{\pick\ finitely many of these sets $U_{a_1}$, \ldots, $U_{a_n}$ that cover $X$.}
+        \step{d}{\pick\ $N$ such that $U_{a_1} \cup \cdots \cup U_{a_n} \subseteq B(0,N)$}
+        \step{e}{$\forall g \in \mathcal{g}, g(X) \subseteq B(0,N+1)$}
+        \step{f}{$\forall g \in \mathcal{g}, g(X) \subseteq \overline{B(0,N+1)}$}
+    \end{proof}
+    \step{8}{If $\mathcal{F}$ is equicontinuous and pointwise bounded then $\mathcal{G}$ is compact.}
+    \begin{proof}
+        \step{a}{\assume{$\mathcal{F}$ is equicontinuous and pointwise bounded.}}
+        \step{b}{$\mathcal{G}$ is complete under $\rho$.}
+        \begin{proof}
+            \pf\ It is a closed subspace of the complete metric space $\mathcal{C}(X, \RR^n)$ under $\rho$.
+        \end{proof}
+        \step{c}{$\mathcal{G}$ is totally bounded under $\rho$.}
+        \begin{proof}
+            \step{i}{$\mathcal{G}$ is equicontinuous.}
+            \begin{proof}
+                \pf\ \stepref{5}
+            \end{proof}
+            \step{ii}{$\mathcal{G}$ is pointwise bounded.}
+            \begin{proof}
+                \pf\ \stepref{6}
+            \end{proof}
+            \step{iii}{There exists a compact subspace $Y$ of $\RR^n$ such that $\mathcal{G} \subseteq \mathcal{C}(X,Y)$}
+            \begin{proof}
+                \pf\ \stepref{7}
+            \end{proof}
+            \step{iv}{$\mathcal{G}$ is totally bounded under $\rho$}
+            \begin{proof}
+                \pf\ Lemma \ref{lemma:equicontinuous_totally_bounded}.
+            \end{proof}
+        \end{proof}
+        \step{d}{$\mathcal{G}$ is compact.}
+        \begin{proof}
+            \pf\ Theorem \ref{theorem:compact_complete_totally_bounded}.
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a compact space. Give $\RR^n$ either the square or the Euclidean metric. Give $\mathcal{C}(X, \RR^n)$ the uniform topology.
+    Let $\mathcal{F} \subseteq \mathcal{C}(X, \RR^n)$. Then $\mathcal{F}$ is compact if and only if it is closed, bounded under the
+    sup metric, and equicontinuous.
 \end{corollary}
 
 \chapter{Manifolds}
