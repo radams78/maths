@@ -3471,7 +3471,7 @@ Existence follows from Theorem \ref{theorem:completion}. An alternative proof:
     Every Peano space is metrizable.
 \end{proposition}
 
-\begin{theorem}
+\begin{proof}
     \pf
     \step{1}{\pflet{$X$ be a Peano space.}}
     \step{2}{\pflet{$f : I \twoheadrightarrow X$ be continuous and surjective.}}
@@ -3499,7 +3499,7 @@ Existence follows from Theorem \ref{theorem:completion}. An alternative proof:
         \pf\ Urysohn Metrization Theorem.
     \end{proof}
     \qed
-\end{theorem}
+\end{proof}
 
 \begin{theorem}[Hahn-Mazurkiewicz Theorem]
     Every compact, connected, locally connected, metrizable space is a Peano space.
@@ -3576,6 +3576,26 @@ The following example shows that not every totally bounded space is bounded.
             \pf\ For $i,j \geq k$ we have $d(x_{n_i},x_{n_j}) \leq 2/k$.
         \end{proof}
     \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[Choice]
+    Let $(X_n)$ be a sequence of totally bounded metric spaces. Then $\prod_n X_n$ is totally bounded under the metric
+    $D(x,y) = \sup_n \overline{d}(x_n,y_n)/n$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\epsilon > 0$}}
+    \step{2}{\pick\ $N$ such that $1/N \leq \epsilon$}
+    \step{3}{\pick\ $K$ such that each of $X_1$, \ldots, $X_N$ can be covered by $K$ $\epsilon$-balls.}
+    \step{3}{For $1 \leq i \leq N$, \pick\ a covering $B(x_{i1},i \epsilon)$, \ldots, $B(x_{iK},\epsilon)$ of $X_i$ by $i \epsilon$-balls.}
+    \step{4}{\pick\ $x_i \in X_i$ for $i > N$}
+    \step{4}{For $\alpha : \{ 1, \ldots, N \} \rightarrow \{1, \ldots, K \}$, \pflet{$x_\alpha$ be the point with $(x_\alpha)_i = x_{i\alpha(i)}$
+    for $i \leq N$, and $(x_\alpha)_i = x_i$ for $i > N$} \prove{$\{B(x_\alpha,\epsilon)\}_\alpha$ covers $\prod_n X_n$}}
+    \step{5}{\pflet{$y \in \prod_n X_n$}}
+    \step{6}{\pick\ $\alpha$ such that for $1 \leq i \leq N$, $y_i \in B(x_{i\alpha_i}, i \epsilon)$}
+    \step{7}{$y \in B(x_\alpha, \epsilon)$}
     \qed
 \end{proof}
 

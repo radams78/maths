@@ -198,6 +198,6 @@
 \contentsline {section}{\numberline {13.20}Peano Spaces}{288}{section.13.20}%
 \contentsline {section}{\numberline {13.21}Totally Bounded Metric Spaces}{290}{section.13.21}%
 \contentsline {section}{\numberline {13.22}Equicontinuity}{291}{section.13.22}%
-\contentsline {section}{\numberline {13.23}Pointwise Bounded Sets}{292}{section.13.23}%
+\contentsline {section}{\numberline {13.23}Pointwise Bounded Sets}{293}{section.13.23}%
 \contentsline {chapter}{\numberline {14}Manifolds}{295}{chapter.14}%
 \contentsline {section}{\numberline {14.1}Manifolds}{295}{section.14.1}%
