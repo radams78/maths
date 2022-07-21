@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  19 JUL 2022 08:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  21 JUL 2022 03:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -711,7 +711,7 @@ Overfull \hbox (53.2884pt too wide) detected at line 1650
 [263]
 WARNING: proof step "f" (<2>7) already defined
 [264] [265] [266] [267] [268]
-Overfull \hbox (13.03685pt too wide) detected at line 2076
+Overfull \hbox (13.03685pt too wide) detected at line 2077
 []
  []
 
@@ -721,23 +721,23 @@ WARNING: proof step "4" (<1>7) already defined
 WARNING: proof step "8" (<1>11) already defined
 [271] [272] [273]
 
-LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 274 undefined on input line 2414.
+LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 274 undefined on input line 2415.
 
 [274]
 
-LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 275 undefined on input line 2461.
+LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 275 undefined on input line 2462.
 
 WARNING: proof step "i" (<4>1) already defined
 WARNING: proof step "ii" (<4>2) already defined
 WARNING: proof step "iii" (<4>3) already defined
 WARNING: proof step "iv" (<4>4) already defined
 [275]
-Overfull \hbox (8.71161pt too wide) in paragraph at lines 2565--2566
+Overfull \hbox (8.71161pt too wide) in paragraph at lines 2566--2567
 []\OT1/cmr/bx/n/10 Corollary 13.14.3.1. \OT1/cmr/m/it/10 Ev-ery lo-cally metriz-able com-pact Haus-dorff space is metriz-
  []
 
 [276] [277] [278] [279] [280] [281]
-Overfull \hbox (5.0891pt too wide) in paragraph at lines 2959--2960
+Overfull \hbox (5.0891pt too wide) in paragraph at lines 2960--2961
 []\OT1/cmr/m/sc/10 Proof\OT1/cmr/m/n/10 : The se-quence $(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 41\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 )$ of dec-i-mal ap-prox-i-ma-tions to $[]$ is Cauchy
  []
 
@@ -746,7 +746,7 @@ WARNING: proof step "e" (<2>6) already defined
 [283]
 WARNING: proof step "d" (<2>5) already defined
 
-Overfull \hbox (60.0619pt too wide) detected at line 3118
+Overfull \hbox (60.0619pt too wide) detected at line 3119
 []
  []
 
@@ -755,13 +755,13 @@ WARNING: proof step "2" (<1>3) already defined
 [286] [287]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
-(Font)              using `OT1/cmr/m/sc' instead on input line 3337.
+(Font)              using `OT1/cmr/m/sc' instead on input line 3338.
 
 
-LaTeX Warning: Reference `proposition:closed_subspace_topologically_complete' on page 288 undefined on input line 3376.
+LaTeX Warning: Reference `proposition:closed_subspace_topologically_complete' on page 288 undefined on input line 3377.
 
 [288] [289]
-Overfull \hbox (4.13953pt too wide) in paragraph at lines 3535--3536
+Overfull \hbox (4.13953pt too wide) in paragraph at lines 3536--3537
 []\OT1/cmr/m/n/10 The fol-low-ing ex-am-ple shows that not ev-ery to-tally bounded space is bounded. 
  []
 
@@ -769,13 +769,18 @@ Overfull \hbox (4.13953pt too wide) in paragraph at lines 3535--3536
 WARNING: proof step "3" (<1>4) already defined
 WARNING: proof step "4" (<1>6) already defined
 [291] [292]
-Overfull \hbox (32.59381pt too wide) in paragraph at lines 3723--3723
+Overfull \hbox (19.33342pt too wide) in paragraph at lines 3696--3696
+[]\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 an open neigh-bour-hood $\OML/cmm/m/it/10 U$ \OT1/cmr/m/n/10 of $\OML/cmm/m/it/10 x[]$ \OT1/cmr/m/n/10 such that $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 N:\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 U:d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 <
+ []
+
+[293]
+Overfull \hbox (32.59381pt too wide) in paragraph at lines 3775--3775
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 an open neigh-bour-hood $\OML/cmm/m/it/10 U$ \OT1/cmr/m/n/10 of $\OML/cmm/m/it/10 x[]$ \OT1/cmr/m/n/10 such that $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 U:\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 F\OML/cmm/m/it/10 :d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 <
  []
 
-[293] [294]
+[294] [295] [296] [297] [298] [299] [300]
 Chapter 14.
-) [295
+) [301
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
@@ -784,7 +789,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: F80B6EB5A79B033D6B4374361605D8F8;13126.
+(rerunfilecheck)             Checksum: FCBE29890FC85C403F3C916C8C8BDD4A;13265.
 
 
 LaTeX Warning: There were undefined references.
@@ -792,18 +797,18 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 8441 strings out of 481239
- 121580 string characters out of 5920377
- 368581 words of memory out of 5000000
- 21674 multiletter control sequences out of 15000+600000
+ 8465 strings out of 481239
+ 121947 string characters out of 5920377
+ 368696 words of memory out of 5000000
+ 21679 multiletter control sequences out of 15000+600000
  544959 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,14n,35p,265b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/robin/fun/maths/notes.pdf (296 pages, 1108282 bytes).
+Output written on /home/robin/fun/maths/notes.pdf (302 pages, 1123185 bytes).
 PDF statistics:
- 4652 PDF objects out of 5155 (max. 8388607)
- 4231 compressed objects within 43 object streams
- 1894 named destinations out of 2073 (max. 500000)
- 1625 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4706 PDF objects out of 5155 (max. 8388607)
+ 4279 compressed objects within 43 object streams
+ 1913 named destinations out of 2073 (max. 500000)
+ 1641 words of extra memory for PDF output out of 10000 (max. 10000000)
 

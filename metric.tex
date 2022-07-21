@@ -1723,6 +1723,7 @@ We prove this is a metric.
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:evaluation_continuous}
     Let $X$ be a topological space and $Y$ a metric space. Give $\mathcal{C}(X,Y)$ the uniform topology. Then the evaluation map
     $e : X \times \mathcal{C}(X,Y) \rightarrow Y$ is continuous.
 \end{proposition}
@@ -3677,6 +3678,56 @@ The following example shows that not every totally bounded space is bounded.
     is equicontinuous then $\mathcal{F}$ is totally bounded under the uniform metric.
 \end{corollary}
 
+\begin{proposition}
+    Every finite set of functions is equicontinuous.
+\end{proposition}
+
+\begin{proposition}
+    If $(f_n)$ is a sequence of functions in $\mathcal{C}(X,Y)$ that converges uniformly then $\{ f_n \mid n \geq 1 \}$
+    is equicontinuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{0}{\pflet{$f = \lim_{n \rightarrow \infty} f_n$}}
+    \step{1}{\pflet{$x_0 \in X$}}
+    \step{2}{\pflet{$\epsilon > 0$}}
+    \step{3}{\pick\ $N$ such that $\forall n \geq N. \forall x \in X. d(f_n(x),f(x)) < \epsilon$}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x_0$ such that $\forall i \leq N. \forall x \in U. d(f_i(x),f(x)) < \epsilon$}
+    \step{5}{$\forall n. \forall x \in U. d(f_n(x),f(x)) < \epsilon$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $\mathcal{F}$ be a set of differentiable functions $f : \RR \rightarrow \RR$ such that, for all $x \in \RR$,
+    there exists an open neighbourhood $U$ of $x$ such that $\{ f' \mid f \in \mathcal{F} \}$ is uniformly bounded on $U$.
+    Then $\mathcal{F}$ is equicontinuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$x_0 \in X$}}
+    \step{2}{\pflet{$\epsilon > 0$}}
+    \step{3}{\pick\ an open neighbourhood $U$ of $x_0$ such that $\{ f' \mid f \in \mathcal{f} \}$ is uniformly bounded on $U$.}
+    \step{4}{\pick\ $M$ such that $\forall f \in \mathcal{F}. \forall x \in U. |f'(x)| \leq M$}
+    \step{5}{\pick\ $\delta > 0$ such that $\delta < \epsilon / M$ and $(x_0 - \delta, x_0 + \delta) \subseteq U$}
+    \step{6}{\pflet{$f \in \mathcal{F}$}}
+    \step{7}{\pflet{$x \in (x_0 - \delta, x_0 + \delta)$} \prove{$|f(x_0) - f(x)| \leq \epsilon$}}
+    \step{8}{\assume{w.l.o.g. $x \neq x_0$}}
+    \step{9}{\pick\ $a$ between $x$ and $x_0$ such that $f'(a) = (f(x)-f(x_0))/(x - x_0)$}
+    \step{10}{$|f'(a)| \leq M$}
+    \step{11}{}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            |f(x_0)-f(x)| & = |f'(a)||x-x0| \\
+            & < M \delta \\
+            & \leq \epsilon
+        \end{align*}
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{Pointwise Bounded Sets}
 
 \begin{definition}[Pointwise Bounded]
@@ -3685,14 +3736,15 @@ The following example shows that not every totally bounded space is bounded.
 \end{definition}
 
 \begin{theorem}[Ascoli's Theorem, Classical Version]
-    Let $X$ be a compact space. Give $\RR^n$ either the square or the Euclidean metric. Give $\mathcal{C}(X, \RR^n)$ the uniform topology.
-    Let $\mathcal{F} \subseteq \mathcal{C}(X, \RR^n)$. Then $\overline{\mathcal{F}}$ is compact if and only if
+    Let $X$ be a compact space. Let $Y$ be a metric space in which closed bounded subspaces are compact. 
+    Give $\mathcal{C}(X, Y)$ the uniform topology.
+    Let $\mathcal{F} \subseteq \mathcal{C}(X, Y)$. Then $\overline{\mathcal{F}}$ is compact if and only if
     $\mathcal{F}$ is equicontinuous and pointwise bounded.
 \end{theorem}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$\rho$ be the sup metric on $\mathcal{C}(X, \RR^n)$}}
+    \step{1}{\pflet{$\rho$ be the sup metric on $\mathcal{C}(X, Y)$}}
     \step{2}{\pflet{$\mathcal{G} = \overline{\mathcal{F}}$}}
     \step{3}{If $\mathcal{G}$ is compact then $\mathcal{G}$ is equicontinuous.}
     \begin{proof}
@@ -3766,7 +3818,7 @@ The following example shows that not every totally bounded space is bounded.
         \step{a}{\assume{$\mathcal{F}$ is equicontinuous and pointwise bounded.}}
         \step{b}{$\mathcal{G}$ is complete under $\rho$.}
         \begin{proof}
-            \pf\ It is a closed subspace of the complete metric space $\mathcal{C}(X, \RR^n)$ under $\rho$.
+            \pf\ It is a closed subspace of the complete metric space $\mathcal{C}(X, Y)$ under $\rho$.
         \end{proof}
         \step{c}{$\mathcal{G}$ is totally bounded under $\rho$.}
         \begin{proof}
@@ -3796,10 +3848,292 @@ The following example shows that not every totally bounded space is bounded.
 \end{proof}
 
 \begin{corollary}
-    Let $X$ be a compact space. Give $\RR^n$ either the square or the Euclidean metric. Give $\mathcal{C}(X, \RR^n)$ the uniform topology.
-    Let $\mathcal{F} \subseteq \mathcal{C}(X, \RR^n)$. Then $\mathcal{F}$ is compact if and only if it is closed, bounded under the
+    Let $X$ be a compact space. Let $Y$ be a metric space in which closed bounded subspaces are compact.
+    Give $\mathcal{C}(X, Y)$ the uniform topology.
+    Let $\mathcal{F} \subseteq \mathcal{C}(X, Y)$. Then $\mathcal{F}$ is compact if and only if it is closed, bounded under the
     sup metric, and equicontinuous.
 \end{corollary}
+
+\begin{theorem}[Arzaela's Theorem]
+    Let $X$ be a compact space. Let $(f_n)$ be a sequence of continuous functions $X \rightarrow \RR^n$. If $\{f_n \mid n \geq 1 \}$
+    is pointwise bounded and equicontinuous, then $(f_n)$ has a uniformly convergent subsequence.
+\end{theorem}
+
+\begin{proof}
+    \pf\ By Ascoli's Theorem, $\overline\{f_n \mid n \geq 1 \}$ under the uniform topology is compact hence sequentially compact. \qed
+\end{proof}
+
+\section{Vanishing at Infinity}
+
+\begin{definition}[Vanish at Infinity]
+    Let $X$ be a topological space. Let $f : X \rightarrow \RR$ be continuous. Then $f$ \emph{vanishes at infinity}
+    if and only if, for every $\epsilon > 0$, there exists a compact $C \subseteq X$ such that $\forall x \in X - C. |f(x)| < \epsilon$.
+
+    We write $\mathcal{C}_0(X, \RR)$ for the set of continuous functions that vanish at infinity.
+\end{definition}
+
+\begin{definition}[Vanish Uniformly at Infinity]
+    Let $X$ be a topological space. Let $\mathcal{F} \subseteq \mathcal{C}(X,\RR)$. Then $\mathcal{F}$ \emph{vanishes uniformly at infinity}
+    if and only if, for every $\epsilon > 0$, there exists a compact $C \subseteq X$ such that $\forall x \in X - C. \forall f \in \mathcal{F}.
+    |f(x)| < \epsilon$.
+\end{definition}
+
+\begin{theorem}
+    Let $X$ be a locally compact Hausdorff space. Give $\mathcal{C}_0(X, \RR)$ the uniform topology. Let $\mathcal{F} \subseteq
+    \mathcal{C}_0(X, \RR)$. Then $\overline{\mathcal{F}}$ is compact if and only if $\mathcal{F}$ is pointwise bounded,
+    equicontinuous, and vanishes uniformly at infinity.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$Y$ be the one-point compactification of $X$.}}
+    \step{2}{Give $\mathcal{C_0}(X,\RR)$ and $\mathcal{C}(Y,\RR)$ the sup metric.}
+    \step{3}{Define $i : \mathcal{C_0}(X, \RR) \rightarrow \mathcal{C}(Y, \RR)$ by: $i(f)(x) = f(x)$ for $x \in X$,
+    $i(f)(\infty) = 0$.}
+    \begin{proof}
+        \step{a}{\pflet{$f \in \mathcal{C_0}(X, \RR)$}}
+        \step{b}{For all $x \in X$, $i(f)$ is continuous at $x$.}
+        \begin{proof}
+            \step{i}{\pflet{$x \in X$}}
+            \step{ii}{\pflet{$\epsilon > 0$}}
+            \step{iii}{\pick\ an open neighbourhood $U$ of $x$ in $X$ such that $f(U) \subseteq (f(x) - \epsilon, f(x) + \epsilon)$}
+            \step{iv}{$U$ is an open neighbourhood of $x$ in $Y$ such that $i(f)(U) \subseteq (f(x) - \epsilon, f(x) + \epsilon)$}
+        \end{proof}
+        \step{c}{$i(f)$ is continuous at $\infty$.}
+        \begin{proof}
+            \step{i}{\pflet{$\epsilon > 0$}}
+            \step{ii}{\pick\ a compact $C \subseteq X$ such that $\forall x \in X - C. |f(x)| < \epsilon$}
+            \step{iii}{$Y - C$ is an open neighbourhood of $\infty$ such that $i(f)(Y - C) \subseteq (-\epsilon,\epsilon)$}
+        \end{proof}
+    \end{proof}
+    \step{4}{$i$ is an isometric embedding.}
+    \begin{proof}
+        \step{a}{\pflet{$f, g \in \mathcal{C}_0(X, \RR)$}}
+        \step{b}{$\rho(i(f),i(g)) = \rho(f,g)$}
+        \begin{proof}
+            \pf
+            \begin{align*}
+            \rho(i(f),i(g)) & = \sup_{y \in Y} |i(f)(y) - i(g)(y)| \\
+            & = \max(\sup_{x \in X} |f(x) - g(x)|, |i(f)(\infty) - i(g)(\infty)|) \\
+            & = \max(\rho(f,g),0) \\
+            & = \rho(f,g)
+            \end{align*}
+        \end{proof}
+    \end{proof}
+    \step{5}{$\ran i$ is closed.}
+    \begin{proof}
+        \step{a}{\pflet{$(f_n)$ be a sequence of functions in $\mathcal{C}_0(X,\RR)$ and $i(f_n) \rightarrow g$
+        in $\mathcal{C}(Y, \RR)$} \prove{$g \in i(\mathcal{C}_0(X, \RR))$}}
+        \step{b}{\pflet{$f = g \restriction X$}}
+        \step{c}{$g(\infty) = 0$}
+        \begin{proof}
+            \pf $g(\infty) = \lim_{n \rightarrow \infty} f_n(\infty) = 0$ by
+            Propostion \ref{proposition:evaluation_continuous}.
+        \end{proof}
+        \step{d}{$f \in \mathcal{C}_0(X, \RR)$}
+        \begin{proof}
+            \step{i}{\pflet{$\epsilon > 0$}}
+            \step{ii}{\pick\ $C \subseteq X$ compact such that
+            $Y - C \subseteq \inv{g}((-\epsilon, \epsilon))$}
+            \step{iii}{$\forall x \in X - C. |f(x)| < \epsilon$}
+        \end{proof}
+        \step{e}{$i(f) = g$}
+    \end{proof}
+    \step{6}{$i(\mathcal{F})$ is pointwise bounded if and only if $\mathcal{F}$ is pointwise bounded.}
+    \step{7}{For $x \in X$, we have $i(\mathcal{F})$ is equicontinuous at $x$ if and only if $\mathcal{F}$ is equicontinuous at $x$.}
+    \step{8}{$i(\mathcal{F})$ is equicontinuous at $\infty$ if and only if $\mathcal{F}$ vanishes uniformly at infinity.}
+    \step{9}{$\overline{\mathcal{F}}$ is compact if and only if $\mathcal{F}$ is pointwise bounded,
+    equicontinuous, and vanishes uniformly at infinity.}
+    \begin{proof}
+        \pf\ By Ascoli's Theorem.
+    \end{proof}
+    \qed
+\end{proof}
+
+\section{Hausdorff Metric}
+
+\begin{definition}
+    Let $X$ be a metric space. Let $\mathcal{H}$ be the set of all nonempty closed bounded subsets of $X$. The \emph{Hausdorff metric}
+    $D : \mathcal{H}^2 \rightarrow \RR$ is defined by: $D(A,B) = \inf \{ \epsilon \mid A \subseteq U(B, \epsilon) \text{ and } B \subseteq U(A, \epsilon) \}$.
+
+    We prove this is a metric.
+\end{definition}
+
+\begin{proof}
+    \pf
+    \step{0}{For all $A, B \in \mathcal{H}$, there exists $\epsilon$ such that $A \in U(B, \epsilon)$.}
+    \begin{proof}
+        \step{a}{\pick\ $a \in A$ and $b \in B$}
+        \step{b}{\pflet{$\epsilon = \diam A + d(a,b)$}}
+        \step{c}{\pflet{$x \in A$}}
+        \step{d}{$d(x,b) \leq \epsilon$}
+        \step{e}{$d(x,B) \leq \epsilon$}
+        \step{f}{$x \in U(B, \epsilon + 1)$}
+    \end{proof}
+    \step{1}{$\forall A,B \in \mathcal{H}. D(A,B) \geq 0$}
+    \begin{proof}
+        \pf\ Trivial.
+    \end{proof}
+    \step{2}{$\forall A,B \in \mathcal{H}. D(A,B) = 0 \Rightarrow A = B$}
+    \begin{proof}
+        \step{a}{\pflet{$A, B \in \mathcal{H}$}}
+        \step{b}{\assume{$D(A,B) = 0$}}
+        \step{c}{$A \subseteq B$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in A$}}
+            \step{ii}{\pflet{$\epsilon > 0$} \prove{$B(x,\epsilon)$ intersects $B$}}
+            \step{iii}{\pick\ $\delta < \epsilon$ such that $A \subseteq U(B, \delta)$}
+            \step{iv}{$x \in U(B, \delta)$}
+            \step{v}{$d(x,B) < \delta$}
+            \step{vi}{\pick\ $b \in B$ such that $d(x,b) < \delta$}
+            \step{vii}{$b \in B(x, \epsilon) \cap B$}
+        \end{proof}
+        \step{d}{$B \subseteq A$}
+        \begin{proof}
+            \pf\ Similar.
+        \end{proof}
+    \end{proof}
+    \step{3}{$\forall A, B \in \mathcal{H}. D(A,B) = D(A,B)$}
+    \begin{proof}
+        \pf\ Trivial.
+    \end{proof}
+    \step{4}{$\forall A, B, C \in \mathcal{H}. D(A,C) \leq D(A,B) + D(B,C)$}
+    \begin{proof}
+        \step{a}{\pflet{$A, B, C \in \mathcal{H}$}}
+        \step{b}{For all $\delta > D(A,B)$ and $\epsilon > D(B,C)$, we have $A \subseteq U(C, \delta + \epsilon)$ and
+        $C \subseteq U(A, \delta + \epsilon)$.}
+        \begin{proof}
+            \step{i}{\pflet{$\delta > D(A,B)$}}
+            \step{ii}{\pflet{$\epsilon > D(B,C)$}}
+            \step{iii}{\pflet{$a \in A$}}
+            \step{iv}{$a \in U(B, \delta)$}
+            \step{v}{\pick\ $b \in B$ such that $d(a,b) < \delta$}
+            \step{vi}{$b \in U(C, \epsilon)$}
+            \step{vii}{\pick\ $c \in C$ such that $d(b,c) < \epsilon$}
+            \step{viii}{$d(a,c) < \delta + \epsilon$}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[Choice]
+    \label{proposition:Hausdorff_metric_complete}
+    Let $X$ be a complete metric space. Then the set $\mathcal{H}$ of all nonempty closed bounded subsets of $X$ under the Hausdorff metric
+    is complete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$(A_n)$ be a Cauchy sequence in $\mathcal{H}$}}
+    \step{2}{\assume{w.l.o.g. $D(A_n,A_{n+1}) < 1/2^n$ for all $n$.}}
+    \step{3}{\pflet{$A$ be the set of all points $l$ that are the limit of some sequence $(x_n)$ in $X$
+    with $x_n \in A_n$ for all $n$.}}
+    \step{4}{$\overline{A} \in \mathcal{H}$}
+    \begin{proof}
+        \step{a}{$A$ is nonempty.}
+        \begin{proof}
+            \step{i}{\pick\ a sequence $(a_n)$ such that $\forall n. a_n \in A_n$}
+            \step{ii}{$(a_n)$ is Cauchy.}
+            \begin{proof}
+                \pf\ For all $n$ we have $d(a_n,a_{n+1}) < 1/2^n$.
+            \end{proof}
+            \step{iii}{$\lim_{n \rightarrow \infty} a_n \in A$}
+        \end{proof}
+        \step{bb}{$A$ is bounded.}
+        \begin{proof}
+            \step{i}{\pflet{$x, y \in A$}}
+            \step{ii}{\pick\ sequences $(x_n)$, $(y_n)$ with $x_n, y_n \in A_n$
+            such that $x_n \rightarrow x$ and $y_n \rightarrow y$}
+            \step{iii}{$d(x,y) < \diam A_1 + 2$}
+            \begin{proof}
+                \pf
+                \begin{align*}
+                    d(x,y) & \leq d(x,x_1) + d(x_1, y_1) + d(y_1,y) \\
+                    & < 1 + \diam A_1 + 1 \\
+                    & = \diam A_1 + 2
+                \end{align*}
+            \end{proof}
+        \end{proof}
+        \step{b}{$\overline{A}$ is bounded.} % TODO Extract lemma
+        \begin{proof}
+            \step{i}{\pflet{$x,y \in \overline{A}$}}
+            \step{ii}{\pick\ $a \in A \cap B(x,1)$}
+            \step{iii}{\pick\ $b \in A \cap B(y,1)$}
+            \step{iv}{$d(a,b) \leq \diam A$}
+            \step{v}{$d(x,y) \leq \diam A + 2$}
+        \end{proof}
+    \end{proof}
+    \step{5}{$A_n \rightarrow \overline{A}$ as $n \rightarrow \infty$}
+    \begin{proof}
+        \step{a}{\pflet{$\epsilon > 0$}}
+        \step{b}{\pick\ $N \geq 3$ such that $1/2^{N-3} < \epsilon$}
+        \step{c}{\pflet{$n \geq N$} \prove{$D(A_n, \overline{A}) \leq \epsilon / 2$}}
+        \step{d}{$A_n \subseteq U(\overline{A}, \epsilon / 2)$}
+        \begin{proof}
+            \step{i}{\pflet{$x_n \in A_n$} \prove{$d(x, \overline{A}) < \epsilon / 2$}}
+            \step{ii}{Extend $x_n$ to a sequence $(x_m)_m$ where $x_m \in X_m$ for all $m$}
+            \step{iii}{$(x_m)$ is Cauchy}
+            \step{iv}{\pflet{$l = \lim_{m \rightarrow \infty} x_m$}}
+            \step{v}{$\forall m \geq n. d(x_n,x_m) < 1/2^{n-1}$}
+            \step{vi}{$d(x_n,l) < 1/2^{n-1}$}
+            \step{vii}{$d(x_n,l) < \epsilon / 2$}
+        \end{proof}
+        \step{e}{$\overline{A} \subseteq U(A_n, \epsilon / 2)$}
+        \begin{proof}
+            \step{i}{\pflet{$x \in \overline{A}$}}
+            \step{ii}{\pick{$y \in A$ such that $d(x,y) < \epsilon / 4$}}
+            \step{iii}{\pick\ a sequence $(x_m)$ with limit $y$ such that $\forall m. x_m \in A_m$}
+            \step{iv}{$d(x,x_n) < \epsilon / 2$}
+        \end{proof}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}[Choice]
+    \label{proposition:Hausdorff_metric_totally_bounded}
+    Let $X$ be a totally bounded metric space. Then the set $\mathcal{H}$ of all nonempty closed bounded subsets of $X$ under the Hausdorff metric
+    is totally bounded.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$\epsilon > 0$}}
+    \step{2}{\pflet{$\delta = \epsilon / 2$}}
+    \step{3}{\pick\ $S$ a finite subset of $X$ such that $\{ B(s,\delta) \mid s \in S \}$ covers $X$.}
+    \step{4}{\pflet{$\mathcal{A} = \pow S - \{ \emptyset \}$} \prove{$\{ B(A,\epsilon) \mid A \in \mathcal{A} \}$ covers $\mathcal{H}$}}
+    \step{5}{$\mathcal{A} \subseteq \mathcal{H}$}
+    \step{6}{\pflet{$B \in \mathcal{H}$}}
+    \step{7}{\pflet{$A = U(B,\delta) \cap S$}}
+    \step{8}{$A \in \mathcal{A}$}
+    \begin{proof}
+        \step{i}{\pick\ $b \in B$}
+        \step{ii}{\pick\ $s \in S$ such thath $b \in B(s, \delta)$}
+        \step{iii}{$s \in A$}
+        \step{iv}{$A \neq \emptyset$}
+    \end{proof}
+    \step{9}{$A \subseteq U(B, \delta)$}
+    \step{10}{$B \subseteq U(A, \delta)$}
+    \begin{proof}
+        \step{a}{\pflet{$x \in B$}}
+        \step{b}{\pick\ $s \in S$ such that $x \in B(s, \delta)$}
+        \step{c}{$s \in A$}
+        \step{d}{$d(x,s) < \delta$}
+    \end{proof}
+    \step{11}{$B \in B(A,\epsilon)$}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ be a compact metric space. Then the set $\mathcal{H}$ of all nonempty closed bounded subsets of $X$ under the Hausdorff metric
+    is compact.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Theorem \ref{theorem:compact_complete_totally_bounded},
+    Proposition \ref{proposition:Hausdorff_metric_complete},
+    Proposition \ref{proposition:Hausdorff_metric_totally_bounded}.
+    \qed
+\end{proof}
 
 \chapter{Manifolds}
 
