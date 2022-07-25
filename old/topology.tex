@@ -3049,6 +3049,29 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     discrete topology to the same set under the indiscrete topology. \qed
 \end{proof}
 
+\section{Compactly Generated Spaces}
+
+\begin{definition}[Compactly Generated]
+    Let $X$ be a topological space. Then $X$ is \emph{compactly generated} if and only if, for all $A \subseteq X$,
+    we have $A$ is open in $X$ if and only if, for every compact subspace $C$ of $X$, $A \cap C$ is open in $C$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma:compactly_generated_continuous}
+    Let $X$ be a compactly generated space. Let $Y$ be a topological space. Let $f : X \rightarrow Y$. Supposet that,
+    for every compact $C \subseteq X$, we have $f \restriction C : C \rightarrow Y$ is continuous. Then $f$ is continuous.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$V$ be open in $Y$.}}
+    \step{2}{For every compact $C \subseteq X$, we have $\inv{f}(V) \cap C$ is open in $C$.}
+    \begin{proof}
+        \pf\ Since $\inv{f}(V) \cap C = \inv{(f \restriction C)}(V)$.
+    \end{proof}
+    \step{3}{$\inv{f}(V)$ is open in $X$.}
+    \qed
+\end{proof}
 \section{The First Countability Axiom}
 
 \begin{definition}[First Countability Axiom]
@@ -3243,6 +3266,27 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
         \qed
     \end{proof}
 \end{example}
+
+\begin{proposition}
+    Every first countable space is compactly generated.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a first countable space.}}
+    \step{2}{\pflet{$B \subseteq X$}}
+    \step{3}{\assume{for every compact $C \subseteq X$ we have $B \cap C$ is closed in $C$.} \prove{$B$ is closed in $X$.}}
+    \step{4}{\pflet{$x \in \overline{B}$} \prove{$x \in B$}}
+    \step{5}{\pick\ a sequence $(x_n)$ in $B$ that converges to $x$.}
+    \begin{proof}
+        \pf\ By the Sequence Lemma.
+    \end{proof}
+    \step{6}{\pflet{$C = \{ x_n \mid n \in \ZZ^+ \} \cup \{x\}$}}
+    \step{7}{$C$ is compact.}
+    \step{8}{$B \cap C$ is closed.}
+    \step{9}{$x \in B \cap C$.}
+    \qed
+\end{proof}
 
 \section{Strong Continuity}
 
@@ -8704,6 +8748,24 @@ locally compact.
     \step{4}{For all $n \geq 2$, \pflet{$U_n = (1/(n+1),1/(n-1))$}}
     \step{5}{$\{(-1.1) - K, (1/2, +\infty) \} \cup \{ U_n \mid n \geq 2 \}$ covers $[-\epsilon,\epsilon]$.}
     \step{6}{There is no finite subcover.}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Every locally compact space is compactly generated.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be locally compact.}}
+    \step{2}{\pflet{$A \subseteq X$}}
+    \step{3}{\assume{for every compact $C \subseteq X$ we have $A \cap C$ is open in $C$.} \prove{$A$ is open.}}
+    \step{4}{\pflet{$x \in A$}}
+    \step{5}{\pick\ $C \subseteq X$ compact and $U \subseteq C$ an open neighbourhood of $x$.}
+    \step{6}{$A \cap C$ is open in $C$.}
+    \step{7}{$A \cap U$ is open in $U$.}
+    \step{8}{$A \cap U$ is open in $X$.}
+    \step{9}{$x \in A \cap U \subseteq A$}
     \qed
 \end{proof}
 

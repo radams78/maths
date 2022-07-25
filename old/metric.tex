@@ -4285,6 +4285,7 @@ The following example shows that not every totally bounded space is bounded.
 \end{proof}
 
 \begin{theorem}
+    \label{theorem:converge_topology_compact_convergence}
     Let $X$ be a topological space. Let $Y$ be a metric space. Let $(f_n)$ be a sequence of functions $X \rightarrow Y$
     and $f : X \rightarrow Y$. Then $f_n \rightarrow f$ in the topology of compact convergence if and only if, for every
     compact subspace $C$ of $X$, we have $f_n \restriction C$ converges uniformly to $f \restriction C$.
@@ -4325,6 +4326,89 @@ The following example shows that not every totally bounded space is bounded.
     \qed
 \end{proof}
 
+\begin{theorem}[Choice]
+    Let $X$ be a compactly generated space. Let $Y$ be a metric space. Then $\mathcal{C}(X,Y)$ is closed in $Y^X$
+    under the topology of compact convergence.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$f$ be a limit point of $\mathcal{C}(X,Y)$.} \prove{$f$ is continuous.}}
+    \step{2}{\pflet{$C \subseteq X$ be compact.} \prove{$f \restriction C : C \rightarrow Y$ is continuous.}}
+    \step{3}{For all $n \in \ZZ^+$, \pick\ $f_n \in B_C(f,1/n) \cap \mathcal{C}(X,Y)$}
+    \step{4}{$f_n \restriction C$ converges uniformly to $f \restriction C$}
+    \begin{proof}
+        \pf\ Theorem \ref{theorem:converge_topology_compact_convergence}.
+    \end{proof}
+    \step{5}{$f \restriction C$ is continuous.}
+    \begin{proof}
+        \pf\ By the Uniform Limit Theorem.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:compactly_generated_continuous}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a compactly generated space. Let $Y$ be a metric space. Let $f_n : X \rightarrow Y$ be a sequence
+    of continuous functions. Let $f : X \rightarrow Y$. If $f_n \rightarrow f$ in the topology of compact convergence,
+    then $f$ is continuous.
+\end{corollary}
+
+\begin{proposition}
+    The topology of compact convergence is finer than the product topology.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space and $Y$ a metric space.}}
+    \step{2}{\pflet{$x \in X$ and $V \subseteq Y$ be open.} \prove{$\inv{\pi_x}(V)$ is open in the topology of compact convergence.}}
+    \step{3}{\pflet{$f \in \inv_{\pi_x}(V)$}}
+    \step{4}{\pick\ $\epsilon > 0$ such that $B(f(x),\epsilon) \subseteq V$}
+    \step{5}{$f \in B_{\{x\}}(f,\epsilon) \subseteq \inv{\pi_x}(V)$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a discrete topological space and $Y$ a metric space. Then the topology of compact convergence
+    is the same as the product topology on $Y^X$.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$C \subseteq X$ be compact, $f : X \rightarrow Y$ and $\epsilon > 0$}
+    \prove{$B_C(f,\epsilon)$ is open in the product topology.}}
+    \step{2}{\pflet{$C = \{ x_1, \ldots, x_n \}$}}
+    \begin{proof}
+        \pf\ In a discrete space, every compact subspace is finite.
+    \end{proof}
+    \step{2}{\pflet{$g \in B_C(f, \epsilon)$}}
+    \step{3}{\pick\ $\delta < \epsilon - d(f(x_i),g(x_i))$ for all $i$.} 
+    \step{4}{$\bigcap_{i=1}^n \inv{\pi_{x_i}}((g(x_i)-\delta,g(x_i)+\delta))
+    \subseteq B_C(f, \epsilon)$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    The topology of compact convergence is coarser than the uniform topology.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a topological space and $Y$ a metric space.}}
+    \step{2}{\pflet{$C \subseteq X$ be compact, $f : X \rightarrow Y$, $\epsilon > 0$} \prove{$B_C(f,\epsilon)$ is open in the
+    uniform topology.}}
+    \step{3}{\pflet{$g \in B_C(f,\epsilon)$}}
+    \step{4}{\pflet{$\delta = \epsilon - \sup_{x \in C} d(f(x),g(x))$}}
+    \step{5}{$B(g,\delta) \subseteq B_C(f,\epsilon)$}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a compact space and $Y$ a metric space. Then the topology of compact convergence and the uniform topology 
+\end{proposition}
 \chapter{Manifolds}
 
 \section{Manifolds}
