@@ -26,6 +26,7 @@
 
 \newcommand{\BB}{\ensuremath{\mathcal{B}}}
 \newcommand{\CC}{\ensuremath{\mathcal{C}}}
+\newcommand{\DD}{\ensuremath{\mathcal{D}}}
 \newcommand{\PP}{\ensuremath{\mathcal{P}}}
 \newcommand{\TT}{\ensuremath{\mathcal{T}}}
 
@@ -34,6 +35,7 @@
 \newcommand{\op}[1]{\ensuremath{[#1]^{\mathrm{op}}}}
 \newcommand{\pow}[1]{\ensuremath{\PP {#1}}}
 \newcommand{\Real}{\ensuremath{\mathbb{R}}}
+\newcommand{\Set}{\ensuremath{\mathbf{Set}}}
 
 \begin{document}
 
@@ -63,11 +65,11 @@
 \end{definition}
 
 \begin{definition}[Category of Sets]
-    The \emph{category of sets} $\mathbf{Set}$ is the category with objects all sets and morphisms all functions.
+    The \emph{category of sets} $\Set$ is the category with objects all sets and morphisms all functions.
 \end{definition}
 
 \begin{definition}[Category of Pointed Sets]
-    The \emph{category of pointed sets} $\mathbf{Set}_*$ is the category with objects all pairs $(A,a)$ such that $A$ is a set and $a \in A$;
+    The \emph{category of pointed sets} $\Set_*$ is the category with objects all pairs $(A,a)$ such that $A$ is a set and $a \in A$;
     and morphisms $f : (A,a) \rightarrow (B,b)$ all functions $f : A \rightarrow B$ such that $f(a) = b$.
 \end{definition}
 
@@ -112,7 +114,7 @@
 \end{proposition}
 
 \begin{proposition}
-    A function is an isomorphism in $\mathbf{Set}$ if and only if it is bijective.
+    A function is an isomorphism in $\Set$ if and only if it is bijective.
 \end{proposition}
 
 \begin{theorem}
@@ -123,6 +125,31 @@
         \item For all $X$, the function $\CC[-,f] : \CC[X,A] \rightarrow \CC[X,B]$ is a bijection.
     \end{enumerate}
 \end{theorem}
+
+\section{Functors}
+
+\begin{definition}[Functor]
+    Let $\CC$ and $\DD$ be categories. A \emph{functor} $F : \CC \rightarrow \DD$ consists of:
+    \begin{itemize}
+        \item for every object $A \in \CC$, an object $FA \in \DD$
+        \item for every morphism $f : A \rightarrow B : \CC$, a morphism $Ff : FA \rightarrow FB : \DD$
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item for every object $A \in \CC$, we have $F \id{A} = \id{FA}$
+        \item for any morphisms $f : A \rightarrow B$ and $g : B \rightarrow C$ in $\CC$, we have $F(g \circ f) = Fg \circ Ff$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Hom-Set Functor]
+    Let $\CC$ be a category. The \emph{hom-set functor} $\CC[-,-] : \op{\CC} \times \CC \rightarrow \Set$ is the functor defined by:
+    \begin{itemize}
+        \item Given objects $A, B \in \CC$, we have $\CC[A,B]$ is the set of all morphisms from $A$ to $B$.
+        \item Given morphisms $f : A \rightarrow A'$ and $g : B \rightarrow B'$, then $\CC[f,g] : \CC[A',B] \rightarrow \CC[A,B']$
+        is defined by
+        \[ \CC[f,g](h) = g \circ h \circ f \]
+    \end{itemize}
+\end{definition}
 
 \chapter{Topology}
 
