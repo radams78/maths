@@ -1031,34 +1031,6 @@ We have simultaneously proved:
     intersects $A_\alpha$ for only finitely many $\alpha$.
 \end{definition}
 
-\begin{proposition}
-    A $T_1$ space with a locally finite basis is discrete.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$X$ be a $T_1$ space with a locally finite basis.}}
-    \step{2}{\pick\ a locally finite basis $\BB$.}
-    \step{3}{\pflet{$x \in X$}}
-    \step{4}{\pick\ an open neighbourhood $U$ of $x$ that intersects only finitely many elements of $\BB$, say $B_1$, \ldots, $B_n$.}
-    \step{5}{$U \cap B_1 \cap \cdots \cap B_n = \{x\}$}
-    \begin{proof}
-        \step{i}{\pflet{$y \in U \cap B_1 \cap \cdots \cap B_n$}}
-        \step{ii}{\assume{for a contradiction $x \neq y$}}
-        \step{iii}{\pick\ $B \in \BB$ such that $y \in B \subseteq X - \{x\}$}
-        \step{iv}{\pick\ $i$ such that $B = B_i$}
-        \begin{proof}
-            \pf\ Since $U$ intersects $B$ in $y$.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ This contradicts the fact that $x \in B_i$.
-        \end{proof}
-    \end{proof}
-    \step{6}{$\{x\}$ is open.}
-    \qed
-\end{proof}
-
 \begin{lemma}
     Let $X$ be a topological space. Let $\{A_\alpha\}_{\alpha \in J}$ be a locally finite family of subsets of $X$. 
     Then every subfamily of $\{A_\alpha\}_{\alpha \in J}$ is locally finite.
@@ -1084,6 +1056,9 @@ We have simultaneously proved:
     \step{1}{\pflet{$x \in X$}}
     \step{2}{\pick\ a neighbourhood $U$ of $x$ that intersects $A_\alpha$ for only finitely many $\alpha \in J$.}
     \step{3}{For all $\alpha \in J$, if $U$ intersects $\overline{A_\alpha}$ then $U$ intersects $A_\alpha$.}
+    \begin{proof}
+        \pf\ Proposition \ref{proposition:closure_neighbourhood}.
+    \end{proof}
     \step{4}{$U$ intersects $\overline{A_\alpha}$ for only finitely many $\alpha \in J$.}
     \qed
 \end{proof}
@@ -2822,6 +2797,34 @@ The following example shows that Proposition \ref{proposition:converge_product} 
 
 \begin{proof}
     \pf\ From Proposition \ref{theorem:closed_subspace}.
+\end{proof}
+
+\begin{proposition}
+    A $T_1$ space with a locally finite basis is discrete.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$X$ be a $T_1$ space with a locally finite basis.}}
+    \step{2}{\pick\ a locally finite basis $\BB$.}
+    \step{3}{\pflet{$x \in X$}}
+    \step{4}{\pick\ an open neighbourhood $U$ of $x$ that intersects only finitely many elements of $\BB$, say $B_1$, \ldots, $B_n$.}
+    \step{5}{$U \cap B_1 \cap \cdots \cap B_n = \{x\}$}
+    \begin{proof}
+        \step{i}{\pflet{$y \in U \cap B_1 \cap \cdots \cap B_n$}}
+        \step{ii}{\assume{for a contradiction $x \neq y$}}
+        \step{iii}{\pick\ $B \in \BB$ such that $y \in B \subseteq X - \{x\}$}
+        \step{iv}{\pick\ $i$ such that $B = B_i$}
+        \begin{proof}
+            \pf\ Since $U$ intersects $B$ in $y$.
+        \end{proof}
+        \qedstep
+        \begin{proof}
+            \pf\ This contradicts the fact that $x \in B_i$.
+        \end{proof}
+    \end{proof}
+    \step{6}{$\{x\}$ is open.}
+    \qed
 \end{proof}
 
 \section{Hausdorff Spaces}
