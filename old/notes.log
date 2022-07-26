@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  21 JUL 2022 03:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.14)  26 JUL 2022 11:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/robin/fun/maths/notes.tex
-(/home/robin/fun/maths/notes.tex
+**/home/robin/fun/maths/old/notes.tex
+(/home/robin/fun/maths/old/notes.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2019/12/20 v1.4l Standard LaTeX document class
@@ -226,7 +226,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count279
 \l__pdf_internal_box=\box48
-) (/home/robin/fun/maths/notes.aux (/home/robin/fun/maths/set.aux) (/home/robin/fun/maths/order.aux) (/home/robin/fun/maths/number.aux) (/home/robin/fun/maths/analysis.aux) (/home/robin/fun/maths/group.aux) (/home/robin/fun/maths/topology.aux) (/home/robin/fun/maths/metric.aux))
+) (/home/robin/fun/maths/old/notes.aux (/home/robin/fun/maths/old/set.aux) (/home/robin/fun/maths/old/order.aux) (/home/robin/fun/maths/old/number.aux) (/home/robin/fun/maths/old/analysis.aux) (/home/robin/fun/maths/old/group.aux) (/home/robin/fun/maths/old/topology.aux) (/home/robin/fun/maths/old/metric.aux))
 \openout1 = `notes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -259,7 +259,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 61.
 LaTeX Info: Redefining \pageref on input line 61.
 LaTeX Info: Redefining \nameref on input line 61.
- (/home/robin/fun/maths/notes.out) (/home/robin/fun/maths/notes.out)
+ (/home/robin/fun/maths/old/notes.out) (/home/robin/fun/maths/old/notes.out)
 \@outlinefile=\write3
 \openout3 = `notes.out'.
 
@@ -272,178 +272,217 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/robin/fun/maths/notes.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/robin/fun/maths/old/notes.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 ...\numberline {3.7}Inverse}{15}{section.3.7}
+l.34 ...\numberline {3.7}Inverse}{16}{section.3.7}
                                                   % [1
 
-] [2] [3] [4])
+] [2] [3] [4] [5])
 \tf@toc=\write4
 \openout4 = `notes.toc'.
 
- [5] [6
+ [6] [7
 
 ]
 \openout2 = `set.aux'.
 
- (/home/robin/fun/maths/set.tex
+ (/home/robin/fun/maths/old/set.tex
 Chapter 1.
-[7
+[8
 
 
-] [8]
+] [9]
 Chapter 2.
-[9
+[10
 
 ]
 Overfull \hbox (3.31049pt too wide) in paragraph at lines 176--179
 []\OT1/cmr/bx/n/10 Axiom Schema 2.7.1 \OT1/cmr/m/n/10 (Sub-set Ax-ioms, Aus-son-derung Ax-ioms)\OT1/cmr/bx/n/10 . \OT1/cmr/m/it/10 For any classes
  []
 
-[10] [11] [12]
+[11] [12] [13]
 Chapter 3.
-[13
+[14
 
-] [14] [15] [16] [17] [18] [19] [20]
+] [15] [16] [17] [18] [19] [20] [21]
 WARNING: proof step "2" (<1>3) already defined
-[21]
+[22]
 Chapter 4.
-[22
+[23
 
-] [23]
+] [24]
 Overfull \hbox (13.68341pt too wide) in paragraph at lines 1105--1107
 []\OT1/cmr/bx/n/10 Theorem 4.3.3. \OT1/cmr/m/it/10 Let $\OT1/cmr/bx/n/10 F$ \OT1/cmr/m/it/10 be a one-to-one func-tion and $\OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 2 [] \OT1/cmr/bx/n/10 F$\OT1/cmr/m/it/10 . Then $\OT1/cmr/bx/n/10 F\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 F[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )) =
  []
 
-[24] [25] [26]
+[25] [26] [27]
 WARNING: proof step "d" (<2>5) already defined
-[27] [28] [29]
+[28] [29] [30]
 Chapter 5.
-[30
+[31
 
-]) [31]
+]) [32]
 \openout2 = `order.aux'.
 
- (/home/robin/fun/maths/order.tex [32
+ (/home/robin/fun/maths/old/order.tex [33
 
 
-] [33] [34] [35]
+] [34] [35] [36]
 WARNING: proof step "1" (<2>2) already defined
 
-LaTeX Warning: Reference `lemma:choice_function' on page 36 undefined on input line 394.
+LaTeX Warning: Reference `lemma:choice_function' on page 37 undefined on input line 394.
 
-[36]
+[37]
 WARNING: proof step "a" (<3>1) already defined
 WARNING: proof step "b" (<3>2) already defined
 WARNING: proof step "c" (<3>3) already defined
 WARNING: proof step "d" (<3>4) already defined
-[37]
+[38]
 WARNING: proof step "e" (<3>5) already defined
 WARNING: proof step "f" (<3>6) already defined
 WARNING: proof step "b" (<2>3) already defined
-[38] [39] [40] [41]
+[39] [40] [41] [42]
 Overfull \hbox (50.61745pt too wide) in paragraph at lines 772--772
 []$\OMS/cmsy/m/n/10 H \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f;g [ f\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 j 9\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 B:A[]\OMS/cmsy/m/n/10 g$ 
  []
 
-[42] [43] [44] [45] [46]) [47]
+[43] [44] [45] [46] [47]) [48]
 \openout2 = `number.aux'.
 
- (/home/robin/fun/maths/number.tex
+ (/home/robin/fun/maths/old/number.tex
 Chapter 6.
 
 Overfull \hbox (6.92381pt too wide) in paragraph at lines 46--47
 []\OT1/cmr/bx/n/10 Definition 6.3.1 \OT1/cmr/m/n/10 (Nat-u-ral Num-ber (Ex-ten-sion-al-ity, Empty Set, Pair-ing, Union))\OT1/cmr/bx/n/10 .
  []
 
-[48
+[49
 
 
 
-] [49]
+] [50]
 WARNING: proof step "1" (<2>1) already defined
 WARNING: proof step "2" (<2>2) already defined
-[50] [51] [52]
+[51] [52] [53]
 Chapter 7.
-[53
+[54
 
-] [54]
+] [55]
 Chapter 8.
-[55
+[56
 
-] [56]
+] [57]
 Chapter 9.
-[57
+[58
 
-] [58]
+] [59]
 Chapter 10.
-[59
+[60
 
-] [60]) [61]
+] [61]) [62]
 \openout2 = `analysis.aux'.
 
- (/home/robin/fun/maths/analysis.tex) [62
+ (/home/robin/fun/maths/old/analysis.tex) [63
 
 
 ]
 \openout2 = `group.aux'.
 
- (/home/robin/fun/maths/group.tex) [63
+ (/home/robin/fun/maths/old/group.tex) [64
 
 
 ]
 \openout2 = `topology.aux'.
 
- (/home/robin/fun/maths/topology.tex
+ (/home/robin/fun/maths/old/topology.tex
 Chapter 11.
-[64
+[65
 
 
 
-] [65] [66] [67]
-WARNING: proof step "c" (<2>4) already defined
-[68] [69] [70] [71] [72] [73] [74]
+] [66] [67] [68] [69] [70] [71] [72] [73]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 74 undefined on input line 769.
+
+[74]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 75 undefined on input line 784.
+
+[75] [76]
 WARNING: proof step "1" (<2>1) already defined
 WARNING: proof step "2" (<2>2) already defined
-[75] [76] [77] [78] [79] [80] [81] [82] [83]
+[77] [78] [79] [80]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 81 undefined on input line 1274.
+
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 81 undefined on input line 1279.
+
+[81]
+
+LaTeX Warning: Reference `lemma:open' on page 82 undefined on input line 1322.
+
+[82] [83]
 WARNING: proof step "1" (<2>5) already defined
-[84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94]
+[84] [85] [86] [87] [88] [89] [90] [91]
+
+LaTeX Warning: Reference `lemma:closure_subset' on page 92 undefined on input line 2066.
+
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 92 undefined on input line 2095.
+
+[92]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 93 undefined on input line 2119.
+
+[93] [94] [95] [96]
 WARNING: proof step "2" (<2>2) already defined
-[95] [96] [97] [98]
+[97] [98] [99]
+
+LaTeX Warning: Reference `lemma:closure_subset' on page 100 undefined on input line 2663.
+
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 100 undefined on input line 2678.
+
+[100]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2670.
+(hyperref)                removing `math shift' on input line 2738.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 2670.
+(hyperref)                removing `subscript' on input line 2738.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2670.
+(hyperref)                removing `math shift' on input line 2738.
 
-[99] [100] [101]
-Overfull \hbox (2.27855pt too wide) in paragraph at lines 2866--2868
-[]\OT1/cmr/bx/n/10 Corollary 11.21.7.1. \OT1/cmr/m/it/10 For any fam-ily of nonempty spaces $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$\OT1/cmr/m/it/10 , if $[][] \OML/cmm/m/it/10 X[]$
+[101] [102]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 103 undefined on input line 2846.
+
+[103]
+Overfull \hbox (2.27855pt too wide) in paragraph at lines 2934--2936
+[]\OT1/cmr/bx/n/10 Corollary 11.22.7.1. \OT1/cmr/m/it/10 For any fam-ily of nonempty spaces $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$\OT1/cmr/m/it/10 , if $[][] \OML/cmm/m/it/10 X[]$
  []
 
-[102]
+[104]
 WARNING: proof step "5" (<1>6) already defined
-[103] [104] [105] [106] [107] [108] [109]
+[105] [106] [107] [108] [109] [110] [111] [112]
 WARNING: proof step "b" (<2>2) already defined
-[110]
+[113]
 WARNING: proof step "3" (<1>8) already defined
-[111] [112]
+[114] [115]
 WARNING: proof step "7a" (<1>9) already defined
-[113] [114]
-Overfull \hbox (2.27855pt too wide) in paragraph at lines 3807--3809
-[]\OT1/cmr/bx/n/10 Corollary 11.29.4.1. \OT1/cmr/m/it/10 For any fam-ily of nonempty spaces $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$\OT1/cmr/m/it/10 , if $[][] \OML/cmm/m/it/10 X[]$
+[116] [117]
+Overfull \hbox (2.27855pt too wide) in paragraph at lines 3919--3921
+[]\OT1/cmr/bx/n/10 Corollary 11.31.4.1. \OT1/cmr/m/it/10 For any fam-ily of nonempty spaces $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$\OT1/cmr/m/it/10 , if $[][] \OML/cmm/m/it/10 X[]$
  []
 
-[115] [116] [117] [118] [119]
+[118] [119] [120] [121]
 WARNING: proof step "3" (<2>1) already defined
-[120] [121] [122] [123]
+[122] [123] [124] [125] [126]
 WARNING: proof step "1" (<3>6) already defined
 WARNING: proof step "2" (<3>7) already defined
 WARNING: proof step "3" (<3>8) already defined
@@ -461,94 +500,113 @@ WARNING: proof step "a" (<4>1) already defined
 WARNING: proof step "b" (<4>2) already defined
 WARNING: proof step "c" (<4>3) already defined
 WARNING: proof step "d" (<4>4) already defined
-[124]
 WARNING: proof step "b" (<3>3) already defined
-[125]
+[127] [128]
 WARNING: proof step "3" (<1>4) already defined
-[126] [127] [128] [129] [130] [131]
+[129] [130] [131] [132] [133]
 WARNING: proof step "4" (<1>5) already defined
+[134]
 WARNING: proof step "ii" (<2>3) already defined
-[132] [133]
-Overfull \hbox (12.83513pt too wide) in paragraph at lines 5231--5234
+[135]
+Overfull \hbox (12.83513pt too wide) in paragraph at lines 5343--5346
 []\OT1/cmr/m/sc/10 Proof\OT1/cmr/m/n/10 : For $\OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$\OT1/cmr/m/n/10 , the $\OMS/cmsy/m/n/10 ^^X$\OT1/cmr/m/n/10 -equivalence class of $\OML/cmm/m/it/10 a$ \OT1/cmr/m/n/10 is $[]\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 A[]; a \OMS/cmsy/m/n/10 2
  []
 
-[134] [135] [136] [137] [138]
-Overfull \hbox (1.64685pt too wide) in paragraph at lines 5649--5651
+[136]
+
+LaTeX Warning: Reference `lemma:closure_closed' on page 137 undefined on input line 5394.
+
+[137] [138]
+
+LaTeX Warning: Reference `lemma:open' on page 139 undefined on input line 5586.
+
+[139] [140] [141]
+Overfull \hbox (1.64685pt too wide) in paragraph at lines 5761--5763
 []\OT1/cmr/m/n/10 The space $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 is \OT1/cmr/m/it/10 lo-cally path-connected \OT1/cmr/m/n/10 if and only if it is lo-cally path-connected
  []
 
-[139] [140] [141] [142] [143]
-Overfull \hbox (6.25055pt too wide) in paragraph at lines 6005--6006
+[142]
+
+LaTeX Warning: Reference `lemma:open' on page 143 undefined on input line 5837.
+
+[143] [144]
+
+LaTeX Warning: Reference `lemma:open' on page 145 undefined on input line 6000.
+
+[145] [146]
+Overfull \hbox (6.25055pt too wide) in paragraph at lines 6117--6118
 []\OT1/cmr/m/n/10 Any set of closed sets with the count-able in-ter-sec-tion prop-erty has nonempty
  []
 
-[144] [145] [146] [147] [148] [149] [150] [151] [152]
+[147] [148] [149] [150] [151] [152] [153] [154] [155]
 WARNING: proof step "3" (<1>4) already defined
-[153] [154] [155] [156] [157] [158] [159] [160] [161] [162]
+[156] [157] [158] [159] [160] [161] [162] [163]
+
+LaTeX Warning: Reference `lemma:open' on page 164 undefined on input line 7335.
+
+[164]
 WARNING: proof step "b" (<2>3) already defined
-[163] [164]
-
-LaTeX Warning: Reference `proposition:countable_subset' on page 165 undefined on input line 7429.
-
 [165] [166]
+
+LaTeX Warning: Reference `proposition:countable_subset' on page 167 undefined on input line 7541.
+
+[167] [168]
 WARNING: proof step "g" (<2>8) already defined
-[167]
+[169]
 
-LaTeX Warning: Reference `proposition:countable_subset' on page 168 undefined on input line 7660.
+LaTeX Warning: Reference `proposition:countable_subset' on page 170 undefined on input line 7772.
 
-[168]
+[170]
 WARNING: proof step "5" (<1>6) already defined
-[169] [170] [171] [172] [173]
-Overfull \hbox (6.31589pt too wide) in paragraph at lines 8099--8099
+[171] [172] [173] [174] [175]
+Overfull \hbox (6.31589pt too wide) in paragraph at lines 8211--8211
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 neigh-bour-hoods $\OML/cmm/m/it/10 V[]$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 V[]$ \OT1/cmr/m/n/10 of $\OML/cmm/m/it/10 y$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 y[]$ \OT1/cmr/m/n/10 re-spec-tively such that $\OML/cmm/m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^R
  []
 
-[174] [175] [176] [177] [178]
+[176] [177] [178] [179] [180] [181]
 WARNING: proof step "1" (<2>1) already defined
-[179]
-Overfull \hbox (12.11667pt too wide) in paragraph at lines 8519--8522
-[]\OT1/cmr/bx/n/10 Example 11.54.14. \OT1/cmr/m/n/10 Pick an enu-mer-a-tion $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 q[]; q[]; []\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 of $\U/msb/m/n/10 Q$\OT1/cmr/m/n/10 . Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = [][](\OML/cmm/m/it/10 n; n \OT1/cmr/m/n/10 +
+
+Overfull \hbox (12.11667pt too wide) in paragraph at lines 8631--8634
+[]\OT1/cmr/bx/n/10 Example 11.56.14. \OT1/cmr/m/n/10 Pick an enu-mer-a-tion $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 q[]; q[]; []\OMS/cmsy/m/n/10 g$ \OT1/cmr/m/n/10 of $\U/msb/m/n/10 Q$\OT1/cmr/m/n/10 . Let $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = [][](\OML/cmm/m/it/10 n; n \OT1/cmr/m/n/10 +
  []
 
-[180] [181] [182] [183] [184]
-Overfull \hbox (0.93742pt too wide) in paragraph at lines 8883--8886
-[]\OT1/cmr/bx/n/10 Definition 11.55.11 \OT1/cmr/m/n/10 (In-duced Com-pact-i-fi-ca-tion)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 be a topo-log-i-cal space.
+[182] [183] [184] [185] [186]
+Overfull \hbox (0.93742pt too wide) in paragraph at lines 9013--9016
+[]\OT1/cmr/bx/n/10 Definition 11.57.11 \OT1/cmr/m/n/10 (In-duced Com-pact-i-fi-ca-tion)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 be a topo-log-i-cal space.
  []
 
-[185]
+[187]
 WARNING: proof step "4" (<1>5) already defined
-[186] [187] [188]
+[188] [189] [190] [191]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 9213.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 9213.
+(hyperref)                removing `math shift' on input line 9343.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\delta' on input line 9213.
+(hyperref)                removing `subscript' on input line 9343.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 9213.
+(hyperref)                removing `\delta' on input line 9343.
 
-[189]
-Overfull \hbox (2.0208pt too wide) in paragraph at lines 9246--9250
-[]\OT1/cmr/bx/n/10 Definition 11.57.1 \OT1/cmr/m/n/10 (Sep-a-rated by a Con-tin-u-ous Func-tion)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 be a topoloci-
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 9343.
+
+[192]
+Overfull \hbox (2.0208pt too wide) in paragraph at lines 9376--9380
+[]\OT1/cmr/bx/n/10 Definition 11.59.1 \OT1/cmr/m/n/10 (Sep-a-rated by a Con-tin-u-ous Func-tion)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 X$ \OT1/cmr/m/n/10 be a topoloci-
  []
 
-[190]
 WARNING: proof step "2" undefined
-[191]
-Overfull \hbox (80.58759pt too wide) detected at line 9402
+[193] [194]
+Overfull \hbox (80.58759pt too wide) detected at line 9532
 \OML/cmm/m/it/10 C[] \OT1/cmr/m/n/10 = (\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + 1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =k\OMS/cmsy/m/n/10 g ^^B \OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0]) \OMS/cmsy/m/n/10 [ \OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1 + 1\OML/cmm/m/it/10 =k\OMS/cmsy/m/n/10 g ^^B \OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0]) \OMS/cmsy/m/n/10 [ f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 j \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = (1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 =k\OT1/cmr/m/n/10 )[][]\OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0\OMS/cmsy/m/n/10 g
  []
 
-[192]
 WARNING: proof step "1" (<2>1) already defined
+[195]
 WARNING: proof step "b" (<3>3) already defined
 WARNING: proof step "b" (<3>4) already defined
 WARNING: proof step "a" (<3>5) already defined
@@ -557,239 +615,255 @@ WARNING: proof step "b" (<3>7) already defined
 WARNING: proof step "a" (<3>8) already defined
 WARNING: proof step "b" (<3>9) already defined
 WARNING: proof step "a" (<3>10) already defined
-[193]
+[196]
 WARNING: proof step "ii" (<3>3) already defined
-[194] [195] [196]
+[197] [198] [199]
 WARNING: proof step "a" (<2>1) already defined
 WARNING: proof step "b" (<2>2) already defined
 WARNING: proof step "c" (<2>3) already defined
 WARNING: proof step "d" (<2>4) already defined
 WARNING: proof step "e" (<2>5) already defined
 WARNING: proof step "f" (<2>6) already defined
-[197] [198] [199]
-Overfull \hbox (9.67767pt too wide) in paragraph at lines 9982--9984
-[]\OT1/cmr/bx/n/10 Corollary 11.60.11.1. \OT1/cmr/m/it/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$ \OT1/cmr/m/it/10 be a fam-ily of nonempty spaces. If $[][] \OML/cmm/m/it/10 X[]$
+[200] [201]
+Overfull \hbox (9.67767pt too wide) in paragraph at lines 10112--10114
+[]\OT1/cmr/bx/n/10 Corollary 11.62.11.1. \OT1/cmr/m/it/10 Let $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 X[]\OMS/cmsy/m/n/10 g[]$ \OT1/cmr/m/it/10 be a fam-ily of nonempty spaces. If $[][] \OML/cmm/m/it/10 X[]$
  []
 
-[200]
-Overfull \hbox (88.78862pt too wide) in paragraph at lines 10039--10039
+[202]
+Overfull \hbox (88.78862pt too wide) in paragraph at lines 10169--10169
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 se-quences $(\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )$ and $(\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$ such that, for all $\OML/cmm/m/it/10 i$\OT1/cmr/m/n/10 , we have $\OML/cmm/m/it/10 U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 ; B[]\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 ))) \OMS/cmsy/m/n/10 ^^R
  []
 
-
-Overfull \hbox (4.29726pt too wide) in paragraph at lines 10067--10070
+[203]
+Overfull \hbox (4.29726pt too wide) in paragraph at lines 10197--10200
 []\OT1/cmr/m/sc/10 Proof\OT1/cmr/m/n/10 : This is a con-tra-dic-tion since $\OML/cmm/m/it/10 U\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 ; B[]\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 ))) \OMS/cmsy/m/n/10 ^^R
  []
 
-[201] [202]
+[204] [205]
 WARNING: proof step "i" (<3>1) already defined
-[203]
-Overfull \hbox (23.81165pt too wide) in paragraph at lines 10291--10291
+[206]
+Overfull \hbox (23.81165pt too wide) in paragraph at lines 10421--10421
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 a se-quence $(\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 )$ such that $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n:[] \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 U[]$ \OT1/cmr/m/n/10 and $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 n:\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V[]; [] ; V[]; U[]; U[]; []\OT1/cmr/m/n/10 )$
  []
 
-[204] [205] [206]
+[207] [208] [209]
 WARNING: proof step "iii" (<3>4) already defined
-[207] [208] [209] [210] [211] [212]
-Overfull \hbox (22.189pt too wide) in paragraph at lines 10902--10902
+[210] [211] [212] [213] [214] [215]
+Overfull \hbox (22.189pt too wide) in paragraph at lines 11032--11032
 []\OT1/cmr/m/n/10 Define $\OML/cmm/m/it/10 F \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R[]$ \OT1/cmr/m/n/10 by $\OML/cmm/m/it/10 F\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ is the con-cate-na-tion of $(\OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; [] ; ^^^[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ))$
  []
 
-[213]
+[216]
 WARNING: proof step "3" (<1>4) already defined
-[214]
+[217]
 WARNING: proof step "i" (<3>1) already defined
-[215]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 11066.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 11066.
+(hyperref)                removing `math shift' on input line 11196.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 11066.
+(hyperref)                removing `subscript' on input line 11196.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 11066.
+(hyperref)                removing `\sigma' on input line 11196.
 
-[216] [217]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 11196.
+
+[218] [219] [220]
 WARNING: proof step "f" (<2>7) already defined
 WARNING: proof step "i" (<3>1) already defined
 WARNING: proof step "i" (<3>1) already defined
-[218]
 WARNING: proof step "g" (<2>8) already defined
-
-Overfull \hbox (7.3059pt too wide) in paragraph at lines 11263--11263
+[221]
+Overfull \hbox (7.3059pt too wide) in paragraph at lines 11393--11393
 []$\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 U[]X \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 U[]\OMS/cmsy/m/n/10 Bg$ \OT1/cmr/m/n/10 is an open
  []
 
 
-Overfull \hbox (144.49898pt too wide) in paragraph at lines 11266--11266
+Overfull \hbox (144.49898pt too wide) in paragraph at lines 11396--11396
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 a lo-cally fi-nite closed re-fine-ment $\OMS/cmsy/m/n/10 C$ \OT1/cmr/m/n/10 of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 U[]X \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 U[]\OMS/cmsy/m/n/10 Bg$
  []
 
 WARNING: proof step "i" (<3>1) already defined
-[219] [220] [221]
+[222] [223] [224]
 WARNING: proof step "8" (<1>9) already defined
-[222]
-Overfull \hbox (45.97597pt too wide) in paragraph at lines 11544--11544
+[225]
+Overfull \hbox (45.97597pt too wide) in paragraph at lines 11674--11674
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 a lo-cally fi-nite closed re-fine-ment $\OMS/cmsy/m/n/10 C$ \OT1/cmr/m/n/10 of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 U[]X \OMS/cmsy/m/n/10 j []\OML/cmm/m/it/10  \OMS/cmsy/m/n/10 2
  []
 
-[223]
-Overfull \hbox (0.80804pt too wide) in paragraph at lines 11609--11609
+[226]
+Overfull \hbox (0.80804pt too wide) in paragraph at lines 11739--11739
 []$\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 V[]Y \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 )[]\OMS/cmsy/m/n/10 Ag$ \OT1/cmr/m/n/10 is
  []
 
 
-Overfull \hbox (169.52478pt too wide) in paragraph at lines 11613--11613
+Overfull \hbox (169.52478pt too wide) in paragraph at lines 11743--11743
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 a lo-cally fi-nite open re-fine-ment $\OMS/cmsy/m/n/10 B$ \OT1/cmr/m/n/10 of $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 V[]Y \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 )[]\OMS/cmsy/m/n/10 Ag$ 
  []
 
-[224] [225]
+[227] [228]
 Chapter 12.
-[226
+[229
 
-] [227]
-Overfull \hbox (0.39728pt too wide) in paragraph at lines 11896--11898
+]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 230 undefined on input line 11892.
+
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 230 undefined on input line 11897.
+
+[230]
+Overfull \hbox (0.39728pt too wide) in paragraph at lines 12026--12028
 []\OT1/cmr/bx/n/10 Definition 12.1.12 \OT1/cmr/m/n/10 (Sym-met-ric Neigh-bour-hood)\OT1/cmr/bx/n/10 . \OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 G$ \OT1/cmr/m/n/10 be a topo-log-i-cal group.
  []
 
-[228] [229]
+[231] [232]
 WARNING: proof step "a" (<3>1) already defined
 WARNING: proof step "b" (<3>2) already defined
 WARNING: proof step "c" (<3>3) already defined
-[230] [231]
+[233] [234]
 WARNING: proof step "b" (<2>3) already defined
 WARNING: proof step "3" (<1>7) already defined
-[232] [233]
+[235] [236]
 WARNING: proof step "8" (<1>9) already defined
-[234] [235] [236] [237]
+[237] [238] [239] [240]
 WARNING: proof step "6" (<1>11) already defined
 WARNING: proof step "i" (<3>1) already defined
-[238]) [239]
+[241]) [242]
 \openout2 = `metric.aux'.
 
- (/home/robin/fun/maths/metric.tex
+ (/home/robin/fun/maths/old/metric.tex
 Chapter 13.
-[240
+[243
 
 
 
-] [241] [242]
+] [244] [245]
 WARNING: proof step "1" (<1>2) already defined
-[243] [244]
+[246] [247]
 
-LaTeX Warning: Reference `proposition:standard_bounded_metric' on page 245 undefined on input line 380.
+LaTeX Warning: Reference `proposition:standard_bounded_metric' on page 248 undefined on input line 380.
 
-[245] [246]
+[248] [249]
 WARNING: proof step "1" (<2>1) already defined
 WARNING: proof step "2" (<2>3) already defined
 WARNING: proof step "3" (<2>4) already defined
-[247] [248]
+[250] [251]
 WARNING: proof step "4" (<2>1) already defined
-[249] [250] [251]
+[252] [253] [254]
 
-LaTeX Warning: Reference `lemma:metrics_same_topology' on page 252 undefined on input line 927.
+LaTeX Warning: Reference `lemma:metrics_same_topology' on page 255 undefined on input line 927.
 
-[252] [253] [254] [255] [256] [257] [258] [259]
+[255] [256] [257] [258] [259] [260] [261] [262]
 WARNING: proof step "a" (<2>3) already defined
 
 Overfull \hbox (2.98419pt too wide) in paragraph at lines 1487--1488
 []\OT1/cmr/bx/n/10 Proposition 13.4.11 \OT1/cmr/m/n/10 (Choice)\OT1/cmr/bx/n/10 . \OT1/cmr/m/it/10 Ev-ery Lin-del^^?of metriz-able space is sec-ond count-
  []
 
-[260] [261] [262]
+[263] [264] [265]
 Overfull \hbox (53.2884pt too wide) detected at line 1650
 []
  []
 
-[263]
+[266]
 WARNING: proof step "f" (<2>7) already defined
-[264] [265] [266] [267] [268]
+[267] [268]
+
+LaTeX Warning: Reference `theorem:closure_neighbourhood' on page 269 undefined on input line 1856.
+
+[269] [270] [271]
 Overfull \hbox (13.03685pt too wide) detected at line 2077
 []
  []
 
-[269] [270]
+[272] [273]
 WARNING: proof step "3" (<1>4) already defined
 WARNING: proof step "4" (<1>7) already defined
 WARNING: proof step "8" (<1>11) already defined
-[271] [272] [273]
+[274] [275] [276]
 
-LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 274 undefined on input line 2415.
+LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 277 undefined on input line 2415.
 
-[274]
+[277]
 
-LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 275 undefined on input line 2462.
+LaTeX Warning: Reference `corollary:compact_sequentially_compact' on page 278 undefined on input line 2462.
 
 WARNING: proof step "i" (<4>1) already defined
 WARNING: proof step "ii" (<4>2) already defined
 WARNING: proof step "iii" (<4>3) already defined
 WARNING: proof step "iv" (<4>4) already defined
-[275]
+[278]
 Overfull \hbox (8.71161pt too wide) in paragraph at lines 2566--2567
 []\OT1/cmr/bx/n/10 Corollary 13.14.3.1. \OT1/cmr/m/it/10 Ev-ery lo-cally metriz-able com-pact Haus-dorff space is metriz-
  []
 
-[276] [277] [278] [279] [280] [281]
+[279] [280] [281] [282] [283] [284]
 Overfull \hbox (5.0891pt too wide) in paragraph at lines 2960--2961
 []\OT1/cmr/m/sc/10 Proof\OT1/cmr/m/n/10 : The se-quence $(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 41\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 )$ of dec-i-mal ap-prox-i-ma-tions to $[]$ is Cauchy
  []
 
-[282]
+[285]
 WARNING: proof step "e" (<2>6) already defined
-[283]
+[286]
 WARNING: proof step "d" (<2>5) already defined
 
 Overfull \hbox (60.0619pt too wide) detected at line 3119
 []
  []
 
-[284] [285]
+[287] [288]
 WARNING: proof step "2" (<1>3) already defined
-[286] [287]
+[289] [290]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/scit' undefined
 (Font)              using `OT1/cmr/m/sc' instead on input line 3338.
 
 
-LaTeX Warning: Reference `proposition:closed_subspace_topologically_complete' on page 288 undefined on input line 3377.
+LaTeX Warning: Reference `proposition:closed_subspace_topologically_complete' on page 291 undefined on input line 3377.
 
-[288] [289]
+[291] [292]
 Overfull \hbox (4.13953pt too wide) in paragraph at lines 3536--3537
 []\OT1/cmr/m/n/10 The fol-low-ing ex-am-ple shows that not ev-ery to-tally bounded space is bounded. 
  []
 
-[290]
+[293]
 WARNING: proof step "3" (<1>4) already defined
 WARNING: proof step "4" (<1>6) already defined
-[291] [292]
+[294] [295]
 Overfull \hbox (19.33342pt too wide) in paragraph at lines 3696--3696
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 an open neigh-bour-hood $\OML/cmm/m/it/10 U$ \OT1/cmr/m/n/10 of $\OML/cmm/m/it/10 x[]$ \OT1/cmr/m/n/10 such that $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 N:\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 U:d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 <
  []
 
-[293]
+[296]
 Overfull \hbox (32.59381pt too wide) in paragraph at lines 3775--3775
 []\OT1/cmr/m/sc/10 Pick \OT1/cmr/m/n/10 an open neigh-bour-hood $\OML/cmm/m/it/10 U$ \OT1/cmr/m/n/10 of $\OML/cmm/m/it/10 x[]$ \OT1/cmr/m/n/10 such that $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 U:\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 F\OML/cmm/m/it/10 :d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )) \OML/cmm/m/it/10 <
  []
 
-[294] [295] [296] [297] [298] [299] [300]
+[297] [298] [299] [300] [301] [302] [303]
+Overfull \hbox (33.70216pt too wide) in paragraph at lines 4248--4251
+\OT1/cmr/m/n/10 the topol-ogy gen-er-ated by the ba-sis $\OMS/cmsy/m/n/10 B \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 B[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f; ^^O\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 C \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 X[]; f \OMS/cmsy/m/n/10 2
+ []
+
+[304] [305]
+WARNING: proof step "2" (<1>3) already defined
+[306] [307]
 Chapter 14.
-) [301
+) [308
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
- (/home/robin/fun/maths/notes.aux (/home/robin/fun/maths/set.aux) (/home/robin/fun/maths/order.aux) (/home/robin/fun/maths/number.aux) (/home/robin/fun/maths/analysis.aux) (/home/robin/fun/maths/group.aux) (/home/robin/fun/maths/topology.aux) (/home/robin/fun/maths/metric.aux))
+ (/home/robin/fun/maths/old/notes.aux (/home/robin/fun/maths/old/set.aux) (/home/robin/fun/maths/old/order.aux) (/home/robin/fun/maths/old/number.aux) (/home/robin/fun/maths/old/analysis.aux) (/home/robin/fun/maths/old/group.aux) (/home/robin/fun/maths/old/topology.aux) (/home/robin/fun/maths/old/metric.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: FCBE29890FC85C403F3C916C8C8BDD4A;13265.
+(rerunfilecheck)             Checksum: 7ACB5D23D40780BE8411092E4E6632A8;13500.
 
 
 LaTeX Warning: There were undefined references.
@@ -797,18 +871,18 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 8465 strings out of 481239
- 121947 string characters out of 5920377
- 368696 words of memory out of 5000000
- 21679 multiletter control sequences out of 15000+600000
+ 8519 strings out of 481239
+ 123044 string characters out of 5920377
+ 369790 words of memory out of 5000000
+ 21688 multiletter control sequences out of 15000+600000
  544959 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,14n,35p,265b,632s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,14n,35p,269b,649s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on /home/robin/fun/maths/notes.pdf (302 pages, 1123185 bytes).
+Output written on /home/robin/fun/maths/old/notes.pdf (309 pages, 1142622 bytes).
 PDF statistics:
- 4706 PDF objects out of 5155 (max. 8388607)
- 4279 compressed objects within 43 object streams
- 1913 named destinations out of 2073 (max. 500000)
- 1641 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4761 PDF objects out of 5155 (max. 8388607)
+ 4340 compressed objects within 44 object streams
+ 1958 named destinations out of 2073 (max. 500000)
+ 1665 words of extra memory for PDF output out of 10000 (max. 10000000)
 

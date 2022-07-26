@@ -151,6 +151,44 @@
     \end{itemize}
 \end{definition}
 
+\begin{definition}[Faithful]
+    A functor $F : \CC \rightarrow \DD$ is \emph{faithful} if and only if, for any objects $A, B \in \CC$ and morphisms $f, g : A \rightarrow B$,
+    if $Ff = Fg$ then $f = g$.
+\end{definition}
+
+\begin{definition}[Full]
+    A functor $F : \CC \rightarrow \DD$ is \emph{full} if and only if, for any objects $A, B \in \CC$ and morphism $g : FA \rightarrow FB$,
+    there exists $f : A \rightarrow B$ such that $Ff = g$.
+\end{definition}
+
+\begin{definition}[Fully Faithful]
+    A functor is \emph{fully faithful} if and only if it is full and faithful.
+\end{definition}
+
+\begin{definition}[Full Embedding (Evil)]
+    A functor is a \emph{full embedding} if and only if it is fully faithful and injective on objects.
+\end{definition}
+
+\begin{proposition}
+    Functors preserve isomorphisms.
+
+    That is, let $F : \CC \rightarrow \DD$ and let $f : A \cong B$ be an isomorphism in $\CC$. Then $Ff : FA \cong FB$ and
+    $\inv{(Ff)} = F \inv{f}$.
+\end{proposition}
+
+\section{Natural Transformations}
+
+\begin{definition}[Natural Transformation]
+    Let $F, G : \CC \rightarrow \DD$. A \emph{natural transformation} $\eta : F \rightarrow G$ consists of:
+    \begin{itemize}
+        \item for every object $X \in \CC$, a morphism $\eta_X : FX \rightarrow GX$
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item for every morphism $f : A \rightarrow B$ in $\CC$, the following di
+    \end{itemize}
+\end{definition}
+
 \chapter{Topology}
 
 \section{Topologies and Topological Spaces}
@@ -363,6 +401,11 @@ Given a metric space $(X,d)$ and a set $Y \subseteq X$, we will write just $Y$ f
     of $G$ and composition is the group multiplication.
 \end{definition}
 
+\begin{definition}[Forgetful Functor]
+    The \emph{forgetful functor} $U : \mathbf{Grp} \rightarrow \Set$ is the functor that maps a group $G$ to the set $G$, and a group
+    homomorphism $f$ to $f$.
+\end{definition}
+
 \chapter{Ring Theory}
 
 \section{Modules}
@@ -370,6 +413,10 @@ Given a metric space $(X,d)$ and a set $Y \subseteq X$, we will write just $Y$ f
 \begin{definition}[Category of Modules]
     Let $R$ be a ring. The \emph{category of $R$-modules} $R\mathbf{-Mod}$ is the category with objects the modules over $R$
     and morphisms the $R$-linear maps.
+\end{definition}
+
+\begin{definition}[Homology Theory]
+    A \emph{homology theory} is a functor $\mathbf{Top} \rightarrow R \mathbf{-Mod}$.
 \end{definition}
 
 \chapter{Linear Algebra}

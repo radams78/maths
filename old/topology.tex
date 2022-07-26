@@ -26,12 +26,12 @@
 \end{definition}
 
 \begin{definition}[Finite Complement Topology]
-    For any set $X$, the \emph{finite complement topology} on $X$ is $\{ U \in \pow X \mid X \setminus U \text{ is finite} \} 
+    For any set $X$, the \emph{finite complement topology} on $X$ is $\{ U \in \pow X \mid X - U \text{ is finite} \} 
     \cup \{ \emptyset \}$.
 \end{definition}
 
 \begin{definition}[Countable Complement Topology]
-    For any set $X$, the \emph{countable complement topology} on $X$ is $\{ U \in \pow X \mid X \setminus U \text{ is countable} \} 
+    For any set $X$, the \emph{countable complement topology} on $X$ is $\{ U \in \pow X \mid X - U \text{ is countable} \} 
     \cup \{ \emptyset \}$.
 \end{definition}
 
@@ -42,11 +42,27 @@
     $\TT'$ if either $\TT' \supseteq \TT$ or $\TT \supseteq \TT'$.
 \end{definition}
 
-\begin{lemma}
-    \label{lemma:open}
+\begin{proposition}
+    On any set $X$, the discrete topology is the finest topology.
+\end{proposition}
+
+\begin{proposition}
+    On any set $X$, the indiscrete topology is the coarsest topology.
+\end{proposition}
+
+\begin{proposition}
+    On any set $X$, the countable complement topology is finer than the finite complement topology.
+\end{proposition}
+
+\begin{definition}[Open Neighbourhood]
+    Let $X$ be a topological space and $x \in X$. An \emph{open neighbourhood} of $x$ is an open set $U$ such that $x \in U$.
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:open}
     Let $X$ be a topological space and $U \subseteq X$. Then $U$ is open if and only if, for all $x \in U$,
-    there exists an open set $V$ such that $x \in V \subseteq U$.
-\end{lemma}
+    there exists an open neighbourhood $V$ of $x$ such that $V \subseteq U$.
+\end{proposition}
 
 \begin{proof}
     \pf
@@ -61,10 +77,9 @@
     \qed
 \end{proof}
 
-\begin{lemma}
-    Let $X$ be a set and $\TT$ a nonempty set of topologies on $X$. Then $\bigcap \TT$ is a topology on $X$,
-    and is the finest topology that is coarser than every member of $\TT$.
-\end{lemma}
+\begin{proposition}
+    Let $X$ be a set and $\TT$ a nonempty set of topologies on $X$. Then $\bigcap \TT$ is a topology on $X$.
+\end{proposition}
 
 \begin{proof}
     \pf
@@ -89,28 +104,37 @@
     \qed
 \end{proof}
 
-\begin{lemma}
-    Let $X$ be a set and $\TT$ a set of topologies on $X$. Then there exists a unique coarsest topology
-    that is finer than every member of $\TT$.
-\end{lemma}
+\begin{corollary}
+    For any set $X$, the set of topologies on $X$ is a complete lattice under $\subseteq$.
+\end{corollary}
 
-\begin{proof}
-    \pf\ The required topology is given by
-    \[ \bigcap \{ T \in \pow \pow X \mid T \emph{ is a topology on $X$ that is
-    finer than every member of $\TT$} \} \enspace , \] 
-    The set is nonempty since it contains the discrete topology. \qed
-\end{proof}
-
-\begin{definition}[Neighbourhood]
-    A \emph{neighbourhood} of a point $x$ is an open set that contains $x$.
-\end{definition}
-
-\section{Closed Set}
+\section{Closed Sets}
 
 \begin{definition}[Closed Set]
-    Let $X$ be a topological space and $A \subseteq X$. Then $A$ is \emph{closed} if and only if $X \setminus
+    Let $X$ be a topological space and $A \subseteq X$. Then $A$ is \emph{closed} if and only if $X -
     A$ is open.
 \end{definition}
+
+\begin{proposition}
+    In a discrete space, every set is closed.
+\end{proposition}
+
+\begin{proposition}
+    In an indiscrete space $X$, the only closed sets are $\emptyset$ and $X$.
+\end{proposition}
+
+\begin{proposition}
+    In the finite complement topology on $X$, the closed sets are the finite sets and $X$.
+\end{proposition}
+
+\begin{proposition}
+    In the countable complement topology on $X$, the closed sets are the countable sets and $X$.
+\end{proposition}
+
+\begin{proposition}
+    Let $\TT$ and $\TT'$ be two topologies on a set $X$. Then $\TT \subseteq \TT'$ if and only if every closed set in $\TT$
+    is closed in $\TT'$.
+\end{proposition}
 
 \begin{lemma}
     The empty set is closed.
@@ -122,7 +146,7 @@
 
 \begin{lemma}
     \label{lemma:closed_whole_set}
-    The topological space $X$ is closed.
+    In any topological space $X$, the set $X$ is closed.
 \end{lemma}
 
 \begin{proof}
@@ -135,8 +159,8 @@
 \end{lemma}
 
 \begin{proof}
-    \pf\ Let $\mathcal{C}$ be a nonempty set of closed sets. Then $X \setminus \bigcap \mathcal{C}
-    = \bigcup \{ X \setminus C \mid C \in \mathcal{C} \}$ is open. \qed
+    \pf\ Let $\mathcal{C}$ be a nonempty set of closed sets. Then $X - \bigcap \mathcal{C}
+    = \bigcup \{ X - C \mid C \in \mathcal{C} \}$ is open. \qed
 \end{proof}
 
 \begin{lemma}
@@ -145,7 +169,7 @@
 \end{lemma}
 
 \begin{proof}
-    \pf\ Let $C$ and $D$ be closed. Then $X \setminus (C \cup D) = (X \setminus C) \cap (X \setminus D)$
+    \pf\ Let $C$ and $D$ be closed. Then $X - (C \cup D) = (X - C) \cap (X - D)$
     is open. \qed
 \end{proof}
 
@@ -158,12 +182,12 @@
         \item For all $C, D \in \mathcal{C}$ we have $C \cup D \in \mathcal{C}$.
     \end{enumerate}
     Then there exists a unique topology $\TT$ such that $\mathcal{C}$ is the set of closed sets, namely
-    \[ \TT = \{ X \setminus C \mid C \in \mathcal{C} \} \]
+    \[ \TT = \{ X - C \mid C \in \mathcal{C} \} \]
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$\TT = \{ X \setminus C \mid C \in \mathcal{C} \}$}}
+    \step{1}{\pflet{$\TT = \{ X - C \mid C \in \mathcal{C} \}$}}
     \step{2}{$\TT$ is a topology}
     \begin{proof}
         \step{a}{$X \in \TT$}
@@ -179,13 +203,13 @@
             \end{proof}
             \step{iii}{\case{$\UU \neq \emptyset$}}
             \begin{proof}
-                \pf\ In this case $X \setminus \bigcup \UU = \bigcap \{ X \setminus U \mid U \in \UU \} \in
+                \pf\ In this case $X - \bigcup \UU = \bigcap \{ X - U \mid U \in \UU \} \in
                 \mathcal{C}$.
             \end{proof}
         \end{proof}
         \step{c}{For all $U, V \in \TT$ we have $U \cap V \in \TT$}
         \begin{proof}
-            \pf\ Since $X \setminus (U \cap V) = (X \setminus U) \cup (X \setminus V) \in \mathcal{C}$.
+            \pf\ Since $X - (U \cap V) = (X - U) \cup (X - V) \in \mathcal{C}$.
         \end{proof}
     \end{proof}
     \step{3}{$\mathcal{C}$ is the set of all closed sets in $\TT$}
@@ -193,7 +217,7 @@
         \pf
         \begin{align*}
             & C \text{ is closed in } \TT \\
-            \Leftrightarrow & X \setminus C \in \TT \\
+            \Leftrightarrow & X - C \in \TT \\
             \Leftrightarrow & C \in \mathcal{C}
         \end{align*}
     \end{proof}
@@ -204,8 +228,8 @@
         We have
         \begin{align*}
             & U \in \TT \\
-            \Leftrightarrow & X \setminus U \in \mathcal{C} \\
-            \Leftrightarrow & X \setminus U \text{ is closed in } \TT' \\
+            \Leftrightarrow & X - U \in \mathcal{C} \\
+            \Leftrightarrow & X - U \text{ is closed in } \TT' \\
             \Leftrightarrow & U \in \TT'
         \end{align*}
     \end{proof}
@@ -213,19 +237,19 @@
 \end{proof}
 
 \begin{proposition}
-    If $U$ is open and $A$ is closed then $U \setminus A$ is open.
+    If $U$ is open and $A$ is closed then $U - A$ is open.
 \end{proposition}
 
 \begin{proof}
-    \pf\ $U \setminus A = U \cap (X \setminus A)$ is the intersection of two open sets. \qed
+    \pf\ $U - A = U \cap (X - A)$ is the intersection of two open sets. \qed
 \end{proof}
 
 \begin{proposition}
-    If $U$ is open and $A$ is closed then $A \setminus U$ is closed.
+    If $U$ is open and $A$ is closed then $A - U$ is closed.
 \end{proposition}
 
 \begin{proof}
-    \pf\ $A \setminus U = A \cap (X \setminus U)$ is the intersection of two closed sets. \qed
+    \pf\ $A - U = A \cap (X - U)$ is the intersection of two closed sets. \qed
 \end{proof}
 
 \section{Interior}
@@ -235,40 +259,31 @@
     of all the open subsets of $A$.
 \end{definition}
 
-\begin{lemma}
-    \label{lemma:interior_open}
-    The interior of a set is open.
-\end{lemma}
+\begin{proposition}
+    In a discrete space, we have $\Int A = A$.
+\end{proposition}
 
-\begin{proof}
-    \pf\ It is a union of open sets. \qed
-\end{proof}
+\begin{proposition}
+    In an indiscrete space $X$, we have $\Int X = X$, and $\Int A = \emptyset$ for $A \subset X$.
+\end{proposition}
 
-\begin{lemma}
-    \[ \Int A \subseteq A \]
-\end{lemma}
+\begin{proposition}
+    In a finite complement or countable complement topology, we have $\Int A = A$ if $A$ is open, and $\Int A = \emptyset$ otherwise.
+\end{proposition}
 
-\begin{proof}
-    \pf\ Immediate from definition. \qed
-\end{proof}
-
-\begin{lemma}
-    If $U$ is open and $U \subseteq A$ then $U \subseteq \Int A$
-\end{lemma}
+\begin{proposition}
+    \label{proposition:interior_open}
+    The interior of a set $A$ is the largest open set $U$ such that $U \subseteq A$.
+\end{proposition}
 
 \begin{proof}
     \pf\ Immediate from definition. \qed
 \end{proof}
 
-\begin{lemma}
-    \label{lemma:open_interior}
+\begin{corollary}
+    \label{corollary:open_interior}
     A set $A$ is open if and only if $A = \Int A$.
-\end{lemma}
-
-\begin{proof}
-    \pf\ If $A = \Int A$ then $A$ is open by Lemma \ref{lemma:interior_open}. Conversely if
-    $A$ is open then $A \subseteq \Int A$ by the definition of interior and so $A = \Int A$.
-\end{proof}
+\end{corollary}
 
 \section{Closure}
 
@@ -279,45 +294,37 @@
 
 This intersection exists since $X$ is a closed set that includes A (Lemma \ref{lemma:closed_whole_set}).
 
-\begin{lemma}
-    The closure of a set is closed.
-\end{lemma}
+\begin{proposition}
+    In a discrete space, we have $\overline{A} = A$.
+\end{proposition}
 
-\begin{proof}
-    \pf\ Dual to Lemma \ref{lemma:interior_open}. \qed
-\end{proof}
+\begin{proposition}
+    In an indiscrete space, we have $\overline{\emptyset} = \emptyset$, and $\overline{A} = X$ for any nonempty $A$.
+\end{proposition}
 
-\begin{lemma}
-    \label{lemma:closure_subset}
-    \[ A \subseteq \overline{A} \]
-\end{lemma}
+\begin{proposition}
+    In a finite complement or countable complement topology on a set $X$, we have $\overline{A} = A$ if $A$ is closed,
+    and $\overline{A} = X$ otherwise.
+\end{proposition}
 
-\begin{proof}
-    \pf\ Immediate from definition. \qed
-\end{proof}
-
-\begin{lemma}
-    If $C$ is closed and $A \subseteq C$ then $\overline{A} \subseteq C$.
-\end{lemma}
+\begin{proposition}
+    \label{proposition:closure_smallest}
+    The closure of a set $A$ is the smallest closed set $C$ such that $A \subseteq C$.
+\end{proposition}
 
 \begin{proof}
     \pf\ Immediate from definition. \qed
 \end{proof}
 
-\begin{lemma}
-    \label{lemma:closure_closed}
+\begin{corollary}
     A set $A$ is closed if and only if $A = \overline{A}$.
-\end{lemma}
+\end{corollary}
 
-\begin{proof}
-    \pf\ Dual to Lemma \ref{lemma:open_interior}. \qed
-\end{proof}
-
-\begin{theorem}
-    \label{theorem:closure_neighbourhood}
+\begin{proposition}
+    \label{proposition:closure_neighbourhood}
     Let $X$ be a topological space, $A \subseteq X$ and $x \in X$. Then $x \in \overline{A}$ if and only if
-    every neighbourhood of $x$ intersects $A$.
-\end{theorem}
+    every ooen neighbourhood of $x$ intersects $A$.
+\end{proposition}
 
 \begin{proof}
     \pf\ We have
@@ -339,6 +346,36 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{proposition}
+    \label{proposition:closure_int_complement}
+    \[ \overline{X - A} = X - \Int A \]
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$\overline{X - A} \subseteq X - \Int A$}
+    \begin{proof}
+        \step{a}{$\Int A \subseteq A$}
+        \step{b}{$X - A \subseteq X - \Int A$}
+        \step{c}{$\overline{X - A} \subseteq X - \Int A$}
+    \end{proof}
+    \step{2}{$X - \Int A \subseteq \overline{X - A}$}
+    \begin{proof}
+        \step{a}{$X - A \subseteq \overline{X - A}$}
+        \step{b}{$X - \overline{X - A} \subseteq A$}
+        \step{c}{$X - \overline{X - A} \subseteq \Int A$}
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \[ X - \overline{A} = \Int (X - A) \]
+\end{proposition}
+
+\begin{proof}
+    \pf\ Dual. \qed
+\end{proof}
+
+\begin{proposition}
     \label{proposition:closure_union}
     \[ \overline{A \cup B} = \overline{A} \cup \overline{B} \]
 \end{proposition}
@@ -355,24 +392,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \end{proof}
     \step{3}{$\overline{A \cup B} \subseteq \overline{A} \cup \overline{B}$}
     \begin{proof}
-        \step{a}{\pflet{$x \in \overline{A \cup B}$}}
-        \step{b}{\assume{$x \notin \overline{A}$} \prove{$x \in \overline{B}$}}
-        \step{c}{\pick\ a neighbourhood $U$ of $x$ that does not intersect $A$}
-        \step{c}{\pflet{$V$ be any neighbourhood of $x$}}
-        \step{d}{$U \cap V$ is a neighbourhood of $x$}
-        \step{e}{$U \cap V$ intersects $A \cup B$}
-        \begin{proof}
-            \pf\ From \stepref{a} and Theorem \ref{theorem:closure_neighbourhood}.
-        \end{proof}
-        \step{f}{$U \cap V$ intersects $B$}
-        \begin{proof}
-            \pf\ From \stepref{c}
-        \end{proof}
-        \step{g}{$V$ intersects $B$}
-        \qedstep
-        \begin{proof}
-            \pf\ We have $x \in \overline{B}$ from Theorem \ref{theorem:closure_neighbourhood}.
-        \end{proof}
+        \pf\ Since $\overline{A} \cup \overline{B}$ is a closed set that includes $A \cup B$.
     \end{proof}
     \qed
 \end{proof}
@@ -383,7 +403,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     Then the following are equivalent:
     \begin{enumerate}
         \item For all $D \in \DD$ we have $x \in \overline{D}$
-        \item Every neighbourhood of $x$ is in $\DD$.
+        \item Every open neighbourhood of $x$ is in $\DD$.
     \end{enumerate}
 \end{proposition}
 
@@ -391,8 +411,8 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \pf
     \step{1}{$1 \Rightarrow 2$}
     \begin{proof}
-        \step{a}{For all $D \in \DD$ we have $x \in \overline{D}$}
-        \step{b}{\pflet{$U$ be a neighbourhood of $x$}}
+        \step{a}{\assume{For all $D \in \DD$ we have $x \in \overline{D}$}}
+        \step{b}{\pflet{$U$ be an open neighbourhood of $x$}}
         \step{c}{$\DD \cup \{U\}$ satisfies the finite intersection property.}
         \begin{proof}
             \step{i}{\pflet{$D_1, \ldots, D_n \in \DD$}}
@@ -406,7 +426,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
             \end{proof}
             \step{iv}{$D_1 \cap \cdots \cap D_n \cap U \neq \emptyset$}
             \begin{proof}
-                \pf\ Theorem \ref{theorem:closure_neighbourhood}, \stepref{b}, \stepref{iii}.
+                \pf\ Proposition \ref{proposition:closure_neighbourhood}, \stepref{b}, \stepref{iii}.
             \end{proof}
         \end{proof}
         \step{d}{$\DD = \DD \cup \{U\}$}
@@ -425,7 +445,7 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
         \end{proof}
         \step{d}{$x \in \overline{D}$}
         \begin{proof}
-            \pf\ Theorem \ref{theorem:closure_neighbourhood}, \stepref{c}.
+            \pf\ Proposition \ref{proposition:closure_neighbourhood}, \stepref{c}.
         \end{proof}
     \end{proof}
     \qed
@@ -434,16 +454,25 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \section{Boundary}
 
 \begin{definition}[Boundary]
-    The \emph{boundary} of a set $A$ is the set $\partial A = \overline{A} \cap \overline{X \setminus A}$.
+    The \emph{boundary} of a set $A$ is the set $\partial A = \overline{A} \cap \overline{X - A}$.
 \end{definition}
 
 \begin{proposition}
-    \label{proposition:int_partial_disjoint}
+    In a discrete space we have $\partial A = \emptyset$.
+\end{proposition}
+
+\begin{proposition}
+    In an indiscrete space $X$, we have $\partial A = \emptyset$ if $A = \emptyset$ or $A = X$,
+    and $\partial A = X$ for all other $X$.
+\end{proposition}
+
+\begin{proposition}
+    \label{proposition:int_boundary_disjoint}
     \[ \Int A \cap \partial A = \emptyset \]
 \end{proposition}
 
 \begin{proof}
-    \pf\ Since $\overline{X \setminus A} = X \setminus \Int A$. \qed
+    \pf\ Since $\overline{X - A} = X - \Int A$ (Proposition \ref{proposition:closure_int_complement}). \qed
 \end{proof}
 
 \begin{proposition}
@@ -454,8 +483,8 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \begin{proof}
     \pf
     \begin{align*}
-        \Int A \cup \partial A & = \Int A \cup (\overline{A} \cap \overline{X \setminus A}) \\
-        & = (\Int A \cup \overline{A}) \cap (\Int A \cup \overline{X \setminus A}) \\
+        \Int A \cup \partial A & = \Int A \cup (\overline{A} \cap \overline{X - A}) \\
+        & = (\Int A \cup \overline{A}) \cap (\Int A \cup \overline{X - A}) \\
         & = \overline{A} \cap X \\
         & = \overline{A}
     \end{align*}
@@ -470,14 +499,22 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 \end{proof}
 
 \begin{proposition}
-    A set $U$ is open if and only if $\partial U = \overline{U} \setminus U$.
+    \[ \partial A = \overline{A} - \Int A \]
 \end{proposition}
+
+\begin{proof}
+    \pf\ Propositions \ref{proposition:int_boundary_disjoint}, \ref{proposition:closure_int_boundary}. \qed
+\end{proof}
+
+\begin{corollary}
+    A set $U$ is open if and only if $\partial U = \overline{U} - U$.
+\end{corollary}
 
 \begin{proof}
     \pf
     \begin{align*}
-        & \partial U = \overline{U} \setminus U \\
-        \Leftrightarrow & \overline{U} \setminus \Int U = \overline{U} \setminus U & (\text{Propositions \ref{proposition:int_partial_disjoint}, \ref{proposition:closure_int_boundary}})\\
+        & \partial U = \overline{U} - U \\
+        \Leftrightarrow & \overline{U} - \Int U = \overline{U} - U \\
         \Leftrightarrow & \Int U = U & \qed
     \end{align*}
 \end{proof}
@@ -486,16 +523,30 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
 
 \begin{definition}[Limit Point]
     Let $X$ be a topological space, $a \in X$ and $A \subseteq X$. Then $a$ is a \emph{limit point},
-    \emph{cluster point} or \emph{point of accumulation} for $A$ if and only if every neighbourhood of $a$
+    \emph{cluster point} or \emph{point of accumulation} for $A$ if and only if every open neighbourhood of $a$
     intersects $A$ at a point other than $a$.
 \end{definition}
 
+\begin{proposition}
+    In a discrete space, no set has a limit point.
+\end{proposition}
+
+\begin{proposition}
+    \label{proposition:indiscrete_limit_point}
+    In an indiscrete topology, every point is a limit point of any set that has more than one point.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Let $X$ be an indiscrete space. Let $A$ be a set with more than one point and $x$ be a point.
+    The only neighbourhood of $x$ is $X$, which must intersect $A$ at a point other than $x$. \qed
+\end{proof}
+
 \begin{lemma}
-    The point $a$ is an accumulation point for $A$ if and only if $a \in \overline{A \setminus \{a\}}$.
+    The point $a$ is an accumulation point for $A$ if and only if $a \in \overline{A - \{a\}}$.
 \end{lemma}
 
 \begin{proof}
-    \pf\ From Theorem \ref{theorem:closure_neighbourhood}. \qed
+    \pf\ From Proposition \ref{proposition:closure_neighbourhood}. \qed
 \end{proof}
 
 \begin{theorem}
@@ -508,15 +559,15 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \pf
     \step{1}{For all $x \in \overline{A}$, if $x \notin A$ then $x \in A'$}
     \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
+        \pf\ From Proposition \ref{proposition:closure_neighbourhood}.
     \end{proof}
     \step{2}{$A \subseteq \overline{A}$}
     \begin{proof}
-        \pf\ Lemma \ref{lemma:closure_subset}.
+        \pf\ Proposition \ref{proposition:closure_smallest}.
     \end{proof}
     \step{3}{$A' \subseteq \overline{A}$}
     \begin{proof}
-        \pf\ From Theorem \ref{theorem:closure_neighbourhood}.
+        \pf\ From Proposition \ref{proposition:closure_neighbourhood}.
     \end{proof}
     \qed
 \end{proof}
@@ -525,16 +576,6 @@ This intersection exists since $X$ is a closed set that includes A (Lemma \ref{l
     \label{corollary:closed_limit_point}
     A set is closed if and only if it contains all its limit points.
 \end{corollary}
-
-\begin{proposition}
-    \label{proposition:indiscrete_limit_point}
-    In an indiscrete topology, every point is a limit point of any set that has more than one point.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Let $X$ be an indiscrete space. Let $A$ be a set with more than one point and $x$ be a point.
-    The only neighbourhood of $x$ is $X$, which must intersect $A$ at a point other than $x$. \qed
-\end{proof}
 
 \begin{lemma}
     \label{lemma:limit_point_subset}
@@ -773,7 +814,7 @@ We prove this is a basis for a topology.
     Let $K = \{ 1/n \mid n \in \ZZ^+ \}$.
 
     The \emph{$K$-topology on the real line} is the topology on $\RR$ generated by the basis consisting of all open intervals
-    $(a,b)$ and all sets of the form $(a,b) \setminus K$.
+    $(a,b)$ and all sets of the form $(a,b) - K$.
 
     We write $\RR_K$ for the topological space $\RR$ under the $K$-topology.
 \end{definition}
@@ -793,10 +834,10 @@ We prove this is a basis for a topology.
         \begin{proof}
             \pf\ Take $B_3 = (\max (a,c), \min (b,d))$.
         \end{proof}
-        \step{b}{\case{$B_1 = (a,b)$ or $(a,b) \setminus K$, $B_2 = (c,d)$ or $(c,d) \setminus K$, and they are
+        \step{b}{\case{$B_1 = (a,b)$ or $(a,b) - K$, $B_2 = (c,d)$ or $(c,d) - K$, and they are
         not both open intervals.}}
         \begin{proof}
-            \pf\ Take $B_3 = (\max (a,c), \min (b,d)) \setminus K$.
+            \pf\ Take $B_3 = (\max (a,c), \min (b,d)) - K$.
         \end{proof}
     \end{proof}
     \qed
@@ -811,15 +852,17 @@ We prove this is a basis for a topology.
     \step{1}{The interval $[10,11)$ is not open in the $K$-topology.}
     \begin{proof}
         \pf\ There is no open interval $(a,b)$ such that $10 \in (a,b) \subseteq [10,11)$ or
-        $10 \in (a,b) \setminus K \subseteq [10,11)$.
+        $10 \in (a,b) - K \subseteq [10,11)$.
     \end{proof}
-    \step{2}{The set $(-1,1) \setminus K$ is not open in the lower limit topology.}
+    \step{2}{The set $(-1,1) - K$ is not open in the lower limit topology.}
     \begin{proof}
-        \pf\ There is no half-open interval $[a,b)$ such that $0 \in [a,b) \subseteq (-1,1) \setminus K$, since
+        \pf\ There is no half-open interval $[a,b)$ such that $0 \in [a,b) \subseteq (-1,1) - K$, since
         there must be a positive integer $n$ with $1/n \in [a,b)$.
     \end{proof}
     \qed
 \end{proof}
+
+\section{Subbases}
 
 \begin{definition}[Subbasis]
     A \emph{subbasis} $\mathcal{S}$ for a topology on $X$ is a set $\mathcal{S} \subseteq \pow X$ such that
@@ -875,7 +918,7 @@ We have simultaneously proved:
 \section{Local Basis at a Point}
 
 \begin{definition}[Local Basis]
-    Let $X$ be a topological space and $a \in X$. A \emph{(local) basis at $a$} is a set $\BB$ of neighbourhoods of $a$ such that every neighbourhood of $a$ includes some
+    Let $X$ be a topological space and $a \in X$. A \emph{(local) basis at $a$} is a set $\BB$ of open neighbourhoods of $a$ such that every neighbourhood of $a$ includes some
     member of $\BB$.
 \end{definition}
 
@@ -888,7 +931,7 @@ We have simultaneously proved:
     \pf\ Given a countable local basis $\{ C_n \mid n \geq 1 \}$, take $B_n = C_1 \cap \cdots \cap C_n$. \qed
 \end{proof}
 
-\section{Nets}
+\section{Nets and Convergence}
 
 \begin{definition}[Net]
     Let $X$ be a topological space. A \emph{net} in $X$ consists of a directed poset $J$
@@ -898,11 +941,11 @@ We have simultaneously proved:
 \begin{definition}[Convergence]
     Let $X$ be a topological space. Let $(x_\alpha)_{\alpha \in J}$ be a net in $X$
     and $l \in X$. Then $(x_\alpha)$ \emph{converges} to the \emph{limit} $l$
-    iff, for every limit $U$ of $l$, there exists $\alpha \in J$ such that,
+    iff, for every open neighbourhood $U$ of $l$, there exists $\alpha \in J$ such that,
     for all $\beta \geq \alpha$, we have $x_\beta \in U$.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}[Choice]
     \label{lemma:closure_net}
     Let $X$ be a topological space. Let $A \subseteq X$ and $l \in X$. 
     Then $l \in \overline{A}$ if and only if there exists a net of points in $A$
@@ -915,27 +958,27 @@ We have simultaneously proved:
     that converges to $l$.}
     \begin{proof}
         \step{a}{\assume{$l \in \overline{A}$}}
-        \step{b}{\pflet{$J$ be the set of neighbourhoods of $l$ under $\supseteq$}}
+        \step{b}{\pflet{$J$ be the set of open neighbourhoods of $l$ under $\supseteq$}}
         \step{c}{For $U \in J$, \pick\ $a_U \in U \cap A$ \prove{$a_U \rightarrow l$
         as $U \rightarrow \infty$}}
         \begin{proof}
-            \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+            \pf\ Such an $a_U$ exists by Proposition \ref{proposition:closure_neighbourhood}.
         \end{proof}
-        \step{d}{\pflet{$U$ be a neighbourhood of $l$.}}
-        \step{e}{For any $V \subseteq U$ we have $a_V \in V$.}
+        \step{d}{\pflet{$U$ be an open neighbourhood of $l$.}}
+        \step{e}{For any $V \subseteq U$ we have $a_V \in U$.}
     \end{proof}
     \step{2}{If there exists a net of points in $A$ that coverges to $l$,
     then $l \in \overline{A}$.}
     \begin{proof}
         \step{1}{\pflet{$(a_\alpha)_{\alpha \in J}$ be a sequence of points in 
         $A$ that converges to $l$.}}
-        \step{2}{\pflet{$U$ be a neighbourhood of $l$.}}
+        \step{2}{\pflet{$U$ be an open neighbourhood of $l$.}}
         \step{3}{\pick\ $\alpha \in J$ such that,
         for all $\beta \geq \alpha$, we have $a_\beta \in U$.}
         \step{4}{$a_\alpha \in U \cap A$}
         \qedstep
         \begin{proof}
-            \pf\ Theorem \ref{theorem:closure_neighbourhood}.
+            \pf\ Proposition \ref{proposition:closure_neighbourhood}.
         \end{proof}
     \end{proof}
     \qed
@@ -944,127 +987,41 @@ We have simultaneously proved:
 \begin{proposition}
     \label{proposition:convergence_basis}
     Let $X$ be a topological space. Let $\BB$ be a basis for the topology on $X$.
-    Let $(a_n)$ be a sequence in $X$ and $l \in X$. Then $a_n \rightarrow l$ as
-    $n \rightarrow \infty$ if and only if, for every $B \in \BB$ with $l \in B$,
-    there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$.
+    Let $(a_\alpha)$ be a net in $X$ and $l \in X$. Then $a_\alpha \rightarrow l$ if and only if, for every $B \in \BB$ with $l \in B$,
+    there exists $\alpha$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in B$.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{If $a_n \rightarrow l$ as
-    $n \rightarrow \infty$ then, for every $B \in \BB$ with $l \in B$,
-    there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$.}
+    \step{1}{If $a_\alpha \rightarrow l$ then, for every $B \in \BB$ with $l \in B$,
+    there exists $\alpha$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in B$.}
     \begin{proof}
         \pf\ Since every element of $\BB$ is open (Corollary \ref{cor:basis_open}).
     \end{proof}
     \step{2}{If, for every $B \in \BB$ with $l \in B$,
-    there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$,
-    then $a_n \rightarrow l$ as $n \rightarrow \infty$.}
+    there exists $\alpha$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in B$,
+    then $a_\alpha \rightarrow l$ as $n \rightarrow \infty$.}
     \begin{proof}
-        \step{a}{\assume{for every $B \in \BB$ with $l \in B$, there exists $N$ such that, for all $n \geq N$, we have $a_n \in B$}}
+        \step{a}{\assume{for every $B \in \BB$ with $l \in B$, there exists $\alpha$ such that, for all $\beta \geq \alpha$,
+        we have $a_\beta \in B$}}
         \step{b}{\pflet{$U$ be a neighbourhood of $l$.}}
         \step{c}{\pick\ $B \in \BB$ such that $l \in B \subseteq U$}
-        \step{d}{\pick\ $N$ such that, for all $n \geq N$, we have $a_n \in B$}
+        \step{d}{\pick\ $\alpha$ such that, for all $\beta \geq \alpha$, we have $a_\beta \in B$}
         \begin{proof}
             \pf\ From \stepref{a}.
         \end{proof}
-        \step{e}{For all $n \geq N$ we have $a_n \in U$}
+        \step{e}{For all $\beta \geq \alpha$ we have $a_\beta \in U$}
     \end{proof}
     \qed
 \end{proof}
 
 \begin{lemma}
     \label{lemma:converge_constant}
-    If a sequence $(a_n)$ is constant with $a_n = l$ for all $n$, then $a_n \rightarrow l$ as $n \rightarrow \infty$.
+    If a net $(a_\alpha)$ is constant with $a_\alpha = l$ for all $\alpha$, then $a_\alpha \rightarrow l$.
 \end{lemma}
 
 \begin{proof}
     \pf\ Immediate from definitions. \qed
-\end{proof}
-
-\begin{theorem}
-    Let $X$ be a linearly ordered set. Let $(s_n)$ be a monotone increasing sequence in $X$ with a supremum $s$.
-    Then $s_n \rightarrow s$ as $n \rightarrow \infty$.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\assume{$s$ is not least in $X$.}}
-    \begin{proof}
-        \pf\ Otherwise $(s_n)$ is the constant sequence $s$ and the result follows from Lemma \ref{lemma:converge_constant}.
-    \end{proof}
-    \step{2}{\pflet{$U$ be a neighbourhood of $s$.}}
-    \step{3}{\pick{$a < s$ such that $(a,s] \subseteq U$}}
-    \step{4}{\pick\ $N$ such that $a < a_N$.}
-    \step{5}{For all $n \geq N$ we have $a_n \in (a,s]$}
-    \step{6}{For all $n \geq N$ we have $a_n \in U$.}
-    \qed
-\end{proof}
-
-\begin{theorem}
-    If $\sum_{i=0}^\infty a_i = s$ and $\sum_{i=0}^\infty b_i = t$ then $\sum_{i=0}^\infty (ca_i + b_i) = cs+t$.
-\end{theorem}
-
-\begin{proof}
-    \pf $\sum_{i=0}^N (ca_i + b_i) = c \sum_{i=0}^N a_i + \sum_{i=0}^N b_i \rightarrow cs+t$ as $n \rightarrow \infty$. \qed
-\end{proof}
-
-\begin{theorem}[Comparison Test]
-    If $|a_i| \leq b_i$ for all $i$ and $\sum_{i=0}^\infty b_i$ converges then $\sum_{i=0}^\infty a_i$ converges.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{$\sum_{i=0}^\infty |a_i|$ converges}
-    \begin{proof}
-        \pf\ The partial sums $\sum_{i=0}^N |a_i|$ form an increasing sequence bounded above by $\sum_{i=0}^\infty b_i$.
-    \end{proof}
-    \step{2}{\pflet{$c_i = |a_i| + a_i$ for all $i$}}
-    \step{3}{$\sum_{i=0}^\infty c_i$ converges}
-    \begin{proof}
-        \pf\ Each $c_i$ is either $2|a_i|$ or 0. So the partial sums $\sum_{i=0}^N c_i$ form an increasing sequence bounded above by $2 \sum_{i=0}^\infty b_i$.
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Since $a_i = c_i - |a_i|$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{corollary}
-    If $\sum_{i=0}^\infty |a_i|$ converges then $\sum_{i=0}^\infty a_i$ converges.
-\end{corollary}
-
-\begin{theorem}[Weierstrass $M$-test]
-    Let $X$ be a set and $(f_n : X \rightarrow \RR)$ be a sequence of functions. Let
-    \[ s_n(x) = \sum_{i=0}^n f_i(x) \]
-    for all $n$, $x$. Suppose $|f_i(x)| \leq M_i$ for all $i \geq 0$ and $x \in X$.
-    If the series $\sum_{i=0}^\infty M_i$ converges, then the sequence $(s_n)$ converges uniformly to
-    \[ s(x) = \sum_{i=0}^\infty f_i(x) \enspace . \]
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$r_n = \sum_{i=n+1}^\infty M_i$ for all $n$}}
-    \step{2}{Given $0 \leq n < k$, we have $|s_k(x) - s_n(x)| \leq r_n$}
-    \begin{proof}
-        \pf
-        \begin{align*}
-            |s_k(x) - s_n(x)| & = |\sum_{i=n+1}^k f_i(x)| \\
-            & \leq \sum_{i=n+1}^k |f_i(x)| \\
-            & \leq \sum_{i=n+1}^k M_i \\
-            & \leq r_n
-        \end{align*}
-    \end{proof}
-    \step{3}{Given $n \geq 0$ we have $|s(x) - s_n(x)| \leq r_n$}
-    \begin{proof}
-        \pf\ By taking the limit $k \rightarrow \infty$ in \stepref{2}.
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Since $r_n \rightarrow 0$ as $n \rightarrow \infty$.
-    \end{proof}
-    \qed
 \end{proof}
 
 \section{Locally Finite Sets}
@@ -1342,9 +1299,9 @@ We have simultaneously proved:
     \begin{proof}
         \step{a}{\assume{3}}
         \step{b}{\pflet{$V$ be open in $Y$}}
-        \step{c}{$Y \setminus V$ is closed in $Y$}
-        \step{d}{$\inv{f}(Y \setminus V)$ is closed in $X$}
-        \step{e}{$X \setminus \inv{f}(V)$ is closed in $X$}
+        \step{c}{$Y - V$ is closed in $Y$}
+        \step{d}{$\inv{f}(Y - V)$ is closed in $X$}
+        \step{e}{$X - \inv{f}(V)$ is closed in $X$}
         \step{f}{$\inv{f}(V)$ is open in $X$}
     \end{proof}
     \step{4}{$1 \Rightarrow 4$}
@@ -1779,9 +1736,9 @@ We prove this is a basis for a topology.
     \begin{proof}
         \pf\ Corollary \ref{cor:basis_open}.
     \end{proof}
-    \step{2}{The set $(-1,1) \setminus K$ is not open in the standard topology.}
+    \step{2}{The set $(-1,1) - K$ is not open in the standard topology.}
     \begin{proof}
-        \pf\ There is no open interval $(a,b)$ such that $0 \in (a,b) \subseteq (-1,1) \setminus K$, since
+        \pf\ There is no open interval $(a,b)$ such that $0 \in (a,b) \subseteq (-1,1) - K$, since
         there must be a positive integer $n$ with $1/n \in (a,b)$.
     \end{proof}
     \qed
@@ -1795,8 +1752,8 @@ We prove this is a basis for a topology.
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$x \in X \setminus C$}}
-    \step{2}{$f(x) > g(x)$ \prove{There exists a neighbourhood $U$ of $x$ such that $U \subseteq X \setminus C$}}
+    \step{1}{\pflet{$x \in X - C$}}
+    \step{2}{$f(x) > g(x)$ \prove{There exists a neighbourhood $U$ of $x$ such that $U \subseteq X - C$}}
     \step{3}{\case{There exists $y$ such that $g(x) < y < f(x)$}}
     \begin{proof}
         \pf\ Take $U = \inv{g}((-\infty, y)) \cup \inv{f}(y,+\infty)$.
@@ -1896,6 +1853,91 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
+\begin{theorem}
+    Let $X$ be a linearly ordered set. Let $(s_n)$ be a monotone increasing sequence in $X$ with a supremum $s$.
+    Then $s_n \rightarrow s$ as $n \rightarrow \infty$.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\assume{$s$ is not least in $X$.}}
+    \begin{proof}
+        \pf\ Otherwise $(s_n)$ is the constant sequence $s$ and the result follows from Lemma \ref{lemma:converge_constant}.
+    \end{proof}
+    \step{2}{\pflet{$U$ be a neighbourhood of $s$.}}
+    \step{3}{\pick{$a < s$ such that $(a,s] \subseteq U$}}
+    \step{4}{\pick\ $N$ such that $a < a_N$.}
+    \step{5}{For all $n \geq N$ we have $a_n \in (a,s]$}
+    \step{6}{For all $n \geq N$ we have $a_n \in U$.}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    If $\sum_{i=0}^\infty a_i = s$ and $\sum_{i=0}^\infty b_i = t$ then $\sum_{i=0}^\infty (ca_i + b_i) = cs+t$.
+\end{theorem}
+
+\begin{proof}
+    \pf $\sum_{i=0}^N (ca_i + b_i) = c \sum_{i=0}^N a_i + \sum_{i=0}^N b_i \rightarrow cs+t$ as $n \rightarrow \infty$. \qed
+\end{proof}
+
+\begin{theorem}[Comparison Test]
+    If $|a_i| \leq b_i$ for all $i$ and $\sum_{i=0}^\infty b_i$ converges then $\sum_{i=0}^\infty a_i$ converges.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{$\sum_{i=0}^\infty |a_i|$ converges}
+    \begin{proof}
+        \pf\ The partial sums $\sum_{i=0}^N |a_i|$ form an increasing sequence bounded above by $\sum_{i=0}^\infty b_i$.
+    \end{proof}
+    \step{2}{\pflet{$c_i = |a_i| + a_i$ for all $i$}}
+    \step{3}{$\sum_{i=0}^\infty c_i$ converges}
+    \begin{proof}
+        \pf\ Each $c_i$ is either $2|a_i|$ or 0. So the partial sums $\sum_{i=0}^N c_i$ form an increasing sequence bounded above by $2 \sum_{i=0}^\infty b_i$.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $a_i = c_i - |a_i|$.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{corollary}
+    If $\sum_{i=0}^\infty |a_i|$ converges then $\sum_{i=0}^\infty a_i$ converges.
+\end{corollary}
+
+\begin{theorem}[Weierstrass $M$-test]
+    Let $X$ be a set and $(f_n : X \rightarrow \RR)$ be a sequence of functions. Let
+    \[ s_n(x) = \sum_{i=0}^n f_i(x) \]
+    for all $n$, $x$. Suppose $|f_i(x)| \leq M_i$ for all $i \geq 0$ and $x \in X$.
+    If the series $\sum_{i=0}^\infty M_i$ converges, then the sequence $(s_n)$ converges uniformly to
+    \[ s(x) = \sum_{i=0}^\infty f_i(x) \enspace . \]
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$r_n = \sum_{i=n+1}^\infty M_i$ for all $n$}}
+    \step{2}{Given $0 \leq n < k$, we have $|s_k(x) - s_n(x)| \leq r_n$}
+    \begin{proof}
+        \pf
+        \begin{align*}
+            |s_k(x) - s_n(x)| & = |\sum_{i=n+1}^k f_i(x)| \\
+            & \leq \sum_{i=n+1}^k |f_i(x)| \\
+            & \leq \sum_{i=n+1}^k M_i \\
+            & \leq r_n
+        \end{align*}
+    \end{proof}
+    \step{3}{Given $n \geq 0$ we have $|s(x) - s_n(x)| \leq r_n$}
+    \begin{proof}
+        \pf\ By taking the limit $k \rightarrow \infty$ in \stepref{2}.
+    \end{proof}
+    \qedstep
+    \begin{proof}
+        \pf\ Since $r_n \rightarrow 0$ as $n \rightarrow \infty$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The nth Root Function}
 
 \begin{proposition}
@@ -1966,7 +2008,7 @@ We prove this is a basis for a topology.
 
 \begin{proof}
     \pf
-    \[ (\prod_{i \in I} X_i) \setminus (\prod_{i \in I} A_i) = \bigcup_{j \in I} \left( \prod_{i \in I} X_i \setminus \inv{\pi_j}(A_j) \right) \qed \]
+    \[ (\prod_{i \in I} X_i) - (\prod_{i \in I} A_i) = \bigcup_{j \in I} \left( \prod_{i \in I} X_i - \inv{\pi_j}(A_j) \right) \qed \]
 \end{proof}
 
 \begin{proposition}
@@ -2241,9 +2283,9 @@ We prove this is a topology.
     We have
     \begin{align*}
         & A \text{ is closed in } Y \\
-        \Leftrightarrow & Y \setminus A \text{ is open in } Y \\
-        \Leftrightarrow & \exists U \text{ open in } X. Y \setminus A = Y \cap U \\
-        \Leftrightarrow & \exists C \text{ closed in } X. Y \setminus A = Y \cap (X \setminus U) \\
+        \Leftrightarrow & Y - A \text{ is open in } Y \\
+        \Leftrightarrow & \exists U \text{ open in } X. Y - A = Y \cap U \\
+        \Leftrightarrow & \exists C \text{ closed in } X. Y - A = Y \cap (X - U) \\
         \Leftrightarrow & \exists C \text{ closed in } X. A = Y \cap U & \qed
     \end{align*}
 \end{proof}
@@ -2721,15 +2763,15 @@ The following example shows that Proposition \ref{proposition:converge_product} 
         \step{a}{\assume{$a$ is a limit point of $A$.}}
         \step{b}{\pflet{$U$ be a neighbourhood of $a$.}}
         \step{c}{\assume{for a contradiction $U$ contains only finitely many points of $A$.}}
-        \step{d}{$(U \cap A) \setminus \{a\}$ is closed.}
+        \step{d}{$(U \cap A) - \{a\}$ is closed.}
         \begin{proof}
             \pf\ By the $T_1$ axiom.
         \end{proof}
-        \step{e}{$(U \setminus A) \cup \{a\}$ is open.}
+        \step{e}{$(U - A) \cup \{a\}$ is open.}
         \begin{proof}
-            \pf\ It is $U \setminus ((U \cap A) \setminus \{a\})$.
+            \pf\ It is $U - ((U \cap A) - \{a\})$.
         \end{proof}
-        \step{f}{$(U \setminus A) \cup \{a\}$ intersects $A$ in a point other than $a$.}
+        \step{f}{$(U - A) \cup \{a\}$ intersects $A$ in a point other than $a$.}
         \begin{proof}
             \pf\ From \stepref{a}.
         \end{proof}
@@ -2767,7 +2809,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
         \step{b}{\pflet{$a \in X$}}
         \step{c}{$\{a\}$ is closed.}
         \begin{proof}
-            \pf\ For all $b \neq a$ there exists a neighbourhood $U$ of $b$ such that $U \subseteq X \setminus \{a\}$.
+            \pf\ For all $b \neq a$ there exists a neighbourhood $U$ of $b$ such that $U \subseteq X - \{a\}$.
         \end{proof}
     \end{proof}
     \qed
@@ -2826,8 +2868,8 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \step{3}{There are no disjoint neighbourhoods $U$ of $a$ and $V$ of $b$.}
     \begin{proof}
         \step{a}{\pflet{$U$ be a neighbourhood of $a$ and $V$ a neighbourhood of $b$.}}
-        \step{b}{$X \setminus U$ and $X \setminus V$ are finite.}
-        \step{c}{\pick\ $c \in X$ that is not in $X \setminus U$ or $X \setminus V$.}
+        \step{b}{$X - U$ and $X - V$ are finite.}
+        \step{c}{\pick\ $c \in X$ that is not in $X - U$ or $X - V$.}
         \step{d}{$c \in U \cap V$}
     \end{proof}
     \qed
@@ -2902,7 +2944,7 @@ The following example shows that Proposition \ref{proposition:converge_product} 
     \begin{align*}
         & X \text{ is Hausdorff} \\
         \Leftrightarrow & \forall x,y \in X. x \neq y \Rightarrow \exists V, W \text{ open}. x \in V \wedge y \in W \wedge V \cap W = \emptyset \\
-        \Leftrightarrow & \forall (x,y) \in X^2 \setminus \Delta. \exists V,W \text{ open}. (x,y) \subseteq V \times W \subseteq X^2 \setminus \Delta \\
+        \Leftrightarrow & \forall (x,y) \in X^2 - \Delta. \exists V,W \text{ open}. (x,y) \subseteq V \times W \subseteq X^2 - \Delta \\
         \Leftrightarrow & \Delta \text{ is closed} & \qed
     \end{align*}
 \end{proof}
@@ -2942,7 +2984,7 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 \end{proposition}
 
 \begin{proof}
-    \pf\ Let $U$ be any neighbourhood of $l$. Since $X \setminus U$ is finite, there must exist $N$
+    \pf\ Let $U$ be any neighbourhood of $l$. Since $X - U$ is finite, there must exist $N$
     such that, for all $n \geq N$, we have $a_n \in U$. \qed
 \end{proof}
 
@@ -3301,7 +3343,7 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
 \end{proposition}
 
 \begin{proof}
-    \pf\ Since $X \setminus \inv{f}(C) = \inv{f}(Y \setminus C)$. \qed
+    \pf\ Since $X - \inv{f}(C) = \inv{f}(Y - C)$. \qed
 \end{proof}
 
 \begin{proposition}
@@ -3700,7 +3742,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
     Let $Y$ be the resulting quotient space $X/R$ in the quotient topology
     and $p : X \twoheadrightarrow Y$ the canonical surjection.
     
-    Let $A=\{1\} \cup (0 ,1/2] \setminus \{1/n:n \geq 2\} \subseteq X$.
+    Let $A=\{1\} \cup (0 ,1/2] - \{1/n:n \geq 2\} \subseteq X$.
     Then $A$ is saturated under $p$ but the restriction $q$ of $p$ to $A$
     is not a quotient map because it maps the saturated open set $\{1\}$
     to $\{1\}$ which is not open in $p(A)$.
@@ -3827,7 +3869,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
         \step{a}{\assume{$X$ is regular.}}
         \step{b}{\pflet{$x \in X$}}
         \step{c}{\pflet{$U$ be an open neighbourhood of $x$.}}
-        \step{d}{\pick\ disjoint open sets $V$ and $W$ such that $X \setminus U \subseteq W$
+        \step{d}{\pick\ disjoint open sets $V$ and $W$ such that $X - U \subseteq W$
         and $x \in V$}
         \step{e}{$\overline{V} \subseteq U$}
         \begin{proof}
@@ -4133,7 +4175,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
             \begin{proof}
                 \step{one}{$B$ is closed in $Y$}
                 \begin{proof}
-                    \pf\ Since $A$ is open in $Y$ and $B = Y \setminus A$ from \stepref{a}.
+                    \pf\ Since $A$ is open in $Y$ and $B = Y - A$ from \stepref{a}.
                 \end{proof}
                 \qedstep
                 \begin{proof}
@@ -4177,7 +4219,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
             \end{proof}
             \qedstep
             \begin{proof}
-                \pf\ Since $A = Y \setminus B$.
+                \pf\ Since $A = Y - B$.
             \end{proof}
         \end{proof}
         \step{c}{$B$ is open in $Y$}
@@ -4341,7 +4383,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
         \begin{proof}
             \pf\ We may assume $X \neq \emptyset$ as the empty space is connected.
         \end{proof}
-        \step{4}{For every finite subset $K$ of $J$, \pflet{$X_K = \{ x \in X \mid \forall \alpha \in J \setminus K. x_\alpha = a_\alpha \}$}}
+        \step{4}{For every finite subset $K$ of $J$, \pflet{$X_K = \{ x \in X \mid \forall \alpha \in J - K. x_\alpha = a_\alpha \}$}}
         \step{5}{For every finite $K \subseteq J$, we have $X_K$ is connected.}
         \begin{proof}
             \pf\ From \stepref{Two} since $X_K \cong \prod_{\alpha \in K} X_K$.
@@ -4425,11 +4467,11 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{proposition}
-    Let $X$ be a topological space. Let $A, C \subseteq X$. If $C$ is connected and intersects both $A$ and $X \setminus A$ then $C$ intersects $\partial A$.
+    Let $X$ be a topological space. Let $A, C \subseteq X$. If $C$ is connected and intersects both $A$ and $X - A$ then $C$ intersects $\partial A$.
 \end{proposition}
 
 \begin{proof}
-    \pf\ Otherwise $C \cap A^\circ$ and $C \setminus \overline{A}$ would form a separation of $C$. \qed
+    \pf\ Otherwise $C \cap A^\circ$ and $C - \overline{A}$ would form a separation of $C$. \qed
 \end{proof}
 
 \begin{example}
@@ -4437,21 +4479,21 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{example}
 
 \begin{proposition}
-    Let $X$ and $Y$ be connected spaces. Let $A$ be a proper subset of $X$ and $B$ a proper subset of $Y$. Then $(X \times Y) \setminus (A \times B)$ is connected.
+    Let $X$ and $Y$ be connected spaces. Let $A$ be a proper subset of $X$ and $B$ a proper subset of $Y$. Then $(X \times Y) - (A \times B)$ is connected.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{\pick\ $a \in X \setminus A$ and $b \in Y \setminus B$}
-    \step{2}{For $x \in X \setminus A$ we have $(X \times \{b\}) \cup (\{x\} \times Y)$ is connected.}
+    \step{1}{\pick\ $a \in X - A$ and $b \in Y - B$}
+    \step{2}{For $x \in X - A$ we have $(X \times \{b\}) \cup (\{x\} \times Y)$ is connected.}
     \begin{proof}
         \pf\ Theorem \ref{theorem:connected_union} since $(x,b)$ is a common point.
     \end{proof}
-    \step{3}{For $y \in Y \setminus B$ we have $(X \times \{y\}) \cup (\{a\} \times Y)$ is connected.}
+    \step{3}{For $y \in Y - B$ we have $(X \times \{y\}) \cup (\{a\} \times Y)$ is connected.}
     \begin{proof}
         \pf\ Theorem \ref{theorem:connected_union} since $(a,y)$ is a common point.
     \end{proof}
-    \step{4}{$(X \times Y) \setminus (A \times B)$ is connected.}
+    \step{4}{$(X \times Y) - (A \times B)$ is connected.}
     \begin{proof}
         \pf\ Theorem \ref{theorem:connected_union} since it is the union of the sets in \stepref{2} and \stepref{3} with $(a,b)$ as a common point.
     \end{proof}
@@ -4483,7 +4525,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
 \end{proof}
 
 \begin{proposition}
-    Let $X$ be a connected space and $Y$ a connected subspace of $X$. Suppose $A$ and $B$ form a separation of $X \setminus Y$. Then $Y \cup A$ and $Y \cup B$ are both connected.
+    Let $X$ be a connected space and $Y$ a connected subspace of $X$. Suppose $A$ and $B$ form a separation of $X - Y$. Then $Y \cup A$ and $Y \cup B$ are both connected.
 \end{proposition}
 
 \begin{proof}
@@ -4494,8 +4536,8 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
         \step{b}{\assume{without loss of generality $Y \subseteq C$}}
         \step{c}{\pick\ open sets $A_1$, $B_1$, $C_1$, $D_1$ in $X$ with
         \begin{align*}
-            A & = A_1 \setminus Y \\
-            B & = B_1 \setminus Y \\
+            A & = A_1 - Y \\
+            B & = B_1 - Y \\
             C & = C_1 \cap (Y \cup A) \\
             D & = D_1 \cap (Y \cup A)
         \end{align*}
@@ -4665,7 +4707,7 @@ Proposition \ref{proposition:quotient_restriction} except that $A$ is saturated.
             \end{proof}
             \step{h}{$L = U \cup V$}
             \begin{proof}
-                \step{i}{\pflet{$x \in L \setminus U$}}
+                \step{i}{\pflet{$x \in L - U$}}
                 \step{ii}{\pick\ $y \in X$ such that $x < y$}
                 \step{iii}{For all $u \in U$ we have $x < y \leq u$}
                 \step{iv}{$x \in V$}
@@ -4943,17 +4985,17 @@ An example that shows the converse does not hold:
 \end{proof}
 
 \begin{proposition}
-    Let $A \subseteq \RR^2$ be countable. Then $\RR^2 \setminus A$ is path-connected.
+    Let $A \subseteq \RR^2$ be countable. Then $\RR^2 - A$ is path-connected.
 \end{proposition}
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$a, b \in \RR^2 \setminus A$}}
+    \step{1}{\pflet{$a, b \in \RR^2 - A$}}
     \step{2}{\pick\ a line $l$ in $\RR^2$ with $a$ on one side and $b$ on the other.}
     \step{3}{For every point $x$ on $l$, \pflet{$p_x$ be the path in $\RR^2$ consisting of a line from $a$ to $x$ then a line from $x$ to $b$}}
     \step{4}{For $x \neq y$ we have $p_x$ and $p_y$ have no points in common except $a$ and $b$}
     \step{5}{There are only countably many $x$ such that a point of $A$ lies on $p_x$.}
-    \step{6}{There exists $x$ such that $p_x$ is a path from $a$ to $b$ in $\RR^2 \setminus A$.}
+    \step{6}{There exists $x$ such that $p_x$ is a path from $a$ to $b$ in $\RR^2 - A$.}
     \qed
 \end{proof}
 
@@ -5045,7 +5087,7 @@ An example that shows the converse does not hold:
         \step{c}{If $C$ is connected and $B \subseteq C$ then $B = C$.}
         \begin{proof}
             \step{i}{\assume{$C$ is connected and $B \subseteq C$}}
-            \step{ii}{\assume{for a contradiction $x \in C \setminus B$}}
+            \step{ii}{\assume{for a contradiction $x \in C - B$}}
             \step{iii}{For $n \geq 1$, \pflet{$c_n = 1$ if $x_n = 0$, $c_n = n / x_n$ otherwise}}
             \step{iv}{\pflet{$h : \RR^\omega \rightarrow \RR^\omega$ be the function $h(x) = (c_n x_n)_{n \geq 1}$}}
             \step{v}{$h$ is a homeomorphism of $\RR^\omega$ with itself.}
@@ -5467,7 +5509,7 @@ An example that shows the converse does not hold:
 \end{example}
 
 \begin{example}
-    The space $\RR \setminus \{0\}$ is disconnected but locally connected.
+    The space $\RR - \{0\}$ is disconnected but locally connected.
 \end{example}
 
 \begin{example}
@@ -6069,8 +6111,8 @@ is not necessarily locally path-connected.
     \begin{enumerate}
         \item $X$ is Lindel\"{o}f.
         \item Every open covering of $X$ has a countable subcovering.
-        \item For any set $\CC$ of closed sets, if $\{ X \setminus C \mid C \in \CC \}$ covers $X$ then there is a countable subset $\CC_0$ such that
-        $\{ X \setminus C \mid C \in \CC_0 \}$ covers $X$
+        \item For any set $\CC$ of closed sets, if $\{ X - C \mid C \in \CC \}$ covers $X$ then there is a countable subset $\CC_0$ such that
+        $\{ X - C \mid C \in \CC_0 \}$ covers $X$
         \item For any set $\CC$ of closed sets, if $\bigcap \CC = \emptyset$ then there is a countable subset $\CC_0$ with empty intersection.
         \item Any set of closed sets with the countable intersection property has nonempty intersection.
     \end{enumerate}
@@ -6520,17 +6562,17 @@ The following is an example of a separable space that is not first countable.
     \begin{proof}
         \step{1}{\pflet{$\AA$ be a covering of $\RR_l$ by basic open sets of the form $[a,b)$}}
         \step{2}{\pflet{$C = \bigcup \{ (a,b) \mid [a,b) \in \AA \}$}}
-        \step{3}{$\RR \setminus C$ is countable.}
+        \step{3}{$\RR - C$ is countable.}
         \begin{proof}
-            \step{a}{For every $x \in \RR \setminus C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
+            \step{a}{For every $x \in \RR - C$, \pick\ a rational $q_x$ such that $(x,q_x) \subseteq C$}
             \begin{proof}
-                \step{i}{\pflet{$x \in \RR \setminus C$}}
+                \step{i}{\pflet{$x \in \RR - C$}}
                 \step{ii}{\pick\ $b$ such that $[x,b) \in \AA$}
                 \step{iii}{\pick\ a rational $q$ such that $q \in (x,b)$}
             \end{proof}
-            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR \setminus C \rightarrow \QQ$}
+            \step{b}{The mapping $x \mapsto q_x$ is an injection $\RR - C \rightarrow \QQ$}
         \end{proof}
-        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR \setminus C$}
+        \step{4}{\pick\ a countable $\AA' \subseteq \AA$ that covers $\RR - C$}
         \step{5}{Under the standard topology on $\RR$, $C$ is second countable.}
         \begin{proof}
             \pf\ Proposition \ref{proposition:second_countable_subspace}.
@@ -6554,7 +6596,7 @@ necessarily Lindel\"{o}f.
         \step{1}{\pflet{$L = \{ (x, -x) \mid x \in \RR \}$}}
         \step{2}{$L$ is closed in $\RR_l^2$}
         \step{3}{\pflet{$\UU = \{ [a,b) \times [a,-d) \mid a,b,d \in \RR \}$}}
-        \step{4}{$\UU \cup \{ \RR \setminus L \}$ covers $\RR_l^2$}
+        \step{4}{$\UU \cup \{ \RR - L \}$ covers $\RR_l^2$}
         \step{5}{Every element of $\UU$ intersects $L$ at exactly one point.}
         \step{6}{No countable subset of $\UU$ covers $\RR_l^2$.}
         \qed
@@ -7063,7 +7105,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \pf
     \step{1}{\pflet{$X$ be a compact space and $Y \subseteq X$ be closed.}}
     \step{2}{\pflet{$\UU$ be a covering of $Y$ by sets open in $X$.}}
-    \step{3}{$\UU \cup \{ X \setminus Y \}$ is an open covering of $X$.}
+    \step{3}{$\UU \cup \{ X - Y \}$ is an open covering of $X$.}
     \step{4}{\pick\ a finite subcovering $\UU_0$}
     \step{5}{$\UU_0 \cap \UU$ is a finite subset of $\UU$ that covers $Y$.}
     \qed
@@ -7143,8 +7185,8 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \begin{enumerate}
         \item $X$ is compact.
         \item Every open covering of $X$ has a finite subcovering.
-        \item For any set $\CC$ of closed sets, if $\{ X \setminus C \mid C \in \CC \}$ covers $X$ then there is a finite subset $\CC_0$ such that
-        $\{ X \setminus C \mid C \in \CC_0 \}$ covers $X$
+        \item For any set $\CC$ of closed sets, if $\{ X - C \mid C \in \CC \}$ covers $X$ then there is a finite subset $\CC_0$ such that
+        $\{ X - C \mid C \in \CC_0 \}$ covers $X$
         \item For any set $\CC$ of closed sets, if $\bigcap \CC = \emptyset$ then there is a finite subset $\CC_0$ with empty intersection.
         \item Any set of closed sets with the finite intersection property has nonempty intersection.
     \end{enumerate}
@@ -7214,7 +7256,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \end{proposition}
 
 \begin{proof}
-    \pf\ From Theorem \ref{theorem:generalized_tube_lemma} with $N = X^2 \setminus \{ (x,x) \mid x \in X \}$. \qed
+    \pf\ From Theorem \ref{theorem:generalized_tube_lemma} with $N = X^2 - \{ (x,x) \mid x \in X \}$. \qed
 \end{proof}
 
 \begin{corollary}
@@ -7282,15 +7324,15 @@ The following example shows we cannot remove the hypothesis that the space is $T
 \begin{proof}
     \pf
     \step{1}{\pflet{$A \subseteq X \times Y$ be closed.}}
-    \step{2}{\pflet{$x \in X \setminus \pi_1(A)$}}
-    \step{3}{\pick\ a neighbourhood $U$ of $x$ such that $U \times Y \subseteq (X \times Y) \setminus A$}
+    \step{2}{\pflet{$x \in X - \pi_1(A)$}}
+    \step{3}{\pick\ a neighbourhood $U$ of $x$ such that $U \times Y \subseteq (X \times Y) - A$}
     \begin{proof}
         \pf\ By the Tube Lemma.
     \end{proof}
-    \step{8}{$x \in U \subseteq X \setminus \pi_1(A)$}
+    \step{8}{$x \in U \subseteq X - \pi_1(A)$}
     \qedstep
     \begin{proof}
-        \pf\ So $X \setminus \pi_1(A)$ is open by Lemma \ref{lemma:open}.
+        \pf\ So $X - \pi_1(A)$ is open by Lemma \ref{lemma:open}.
     \end{proof}
     \qed
 \end{proof}
@@ -7304,7 +7346,7 @@ The following example shows we cannot remove the hypothesis that the space is $T
 
 \begin{proof}
     \step{a}{\assume{$f$ is continuous.}}
-    \step{b}{\pflet{$(x,y) \in (X \times Y) \setminus G_f$}}
+    \step{b}{\pflet{$(x,y) \in (X \times Y) - G_f$}}
     \step{c}{\pick\ disjoint neighbourhoods $U$ and $V$ of $y$ and $f(x)$ respectively.}
     \step{d}{$\inv{f}(V) \times U$ is a neighbourhood of $(x,y)$ disjoint from $G_f$.}
     \qed
@@ -7319,12 +7361,12 @@ The following example shows we cannot remove the hypothesis that the space is $T
     \pf
         \step{a}{\assume{$G_f$ is closed.}}
         \step{b}{\pflet{$x \in X$ and $V$ be a neighbourhood of $f(x)$.}}
-        \step{c}{$G_f \cap (X \times (Y \setminus V))$ is closed.}
-        \step{d}{$\pi_1(G_f \cap (X \times (Y \setminus V)))$ is closed.}
+        \step{c}{$G_f \cap (X \times (Y - V))$ is closed.}
+        \step{d}{$\pi_1(G_f \cap (X \times (Y - V)))$ is closed.}
         \begin{proof}
             \pf\ Proposition \ref{proposition:closed_map_compact_projection}.
         \end{proof}
-        \step{e}{\pflet{$U = X \setminus \pi_1(G_f \cap (X \times (Y \setminus V)))$}}
+        \step{e}{\pflet{$U = X - \pi_1(G_f \cap (X \times (Y - V)))$}}
         \step{f}{$U$ is a neighbourhood of $x$}
         \step{g}{$f(U) \subseteq V$}
     \qed
@@ -7400,10 +7442,10 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
     \begin{proof}
         \pf\ Proposition \ref{proposition:disjoint_neighbourhoods_compact_Hausdorff}.
     \end{proof}
-    \step{3}{$\{ A \setminus (U \cup V) \mid A \in \AA \}$ is a set of closed sets with the finite intersection property.}
+    \step{3}{$\{ A - (U \cup V) \mid A \in \AA \}$ is a set of closed sets with the finite intersection property.}
     \begin{proof}
-        \step{a}{For all $A \in \AA$ we have $A \setminus (U \cup V)$ is closed.}
-        \step{b}{For all $A_1, \ldots, A_n \in \AA$ we have $(A_1 \cap \cdots \cap A_n) \setminus (U \cup V)$ is nonempty.}
+        \step{a}{For all $A \in \AA$ we have $A - (U \cup V)$ is closed.}
+        \step{b}{For all $A_1, \ldots, A_n \in \AA$ we have $(A_1 \cap \cdots \cap A_n) - (U \cup V)$ is nonempty.}
         \begin{proof}
             \pf
             \step{i}{\pflet{$A_1, \ldots, A_n \in \AA$}}
@@ -7411,21 +7453,21 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
             \begin{proof}
                 \pf\ Since $\AA$ is a chain.
             \end{proof}
-            \step{iii}{$A_1 \setminus (U \cup V)$ is nonempty}
+            \step{iii}{$A_1 - (U \cup V)$ is nonempty}
             \begin{proof}
                 \pf\ Otherwise $(A_1 \cap \cdots \cap A_n \cap U)$ and $(A_1 \cap \cdots \cap A_n \cap V)$
                 would form a separation of $A_n$.
             \end{proof}
         \end{proof}
     \end{proof}
-    \step{4}{$\bigcap \AA \setminus (U \cup V)$ is nonempty.}
+    \step{4}{$\bigcap \AA - (U \cup V)$ is nonempty.}
     \begin{proof}
         \pf\ Theorem \ref{theorem:compact_closed_sets}.
     \end{proof}
     \qedstep
     \begin{proof}
-        \pf\ This contradicts \stepref{1} since $\bigcap AA \setminus (U \cup V)
-        = \bigcap \AA \setminus (C \cup D)$.
+        \pf\ This contradicts \stepref{1} since $\bigcap AA - (U \cup V)
+        = \bigcap \AA - (C \cup D)$.
     \end{proof}
     \qed
 \end{proof}
@@ -7549,20 +7591,20 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
         \step{a}{\pflet{$BB \subseteq \AA$ be a chain.}}
         \step{b}{\assume{for a contradiction $U$ and $V$ form a separation of $\bigcap \BB$ with $x \in U$ and $y \in V$}}
         \step{c}{\pick\ disjoint open sets $U'$, $V'$ in $X$ such that $U \subseteq U'$ and $V \subseteq V'$}
-        \step{d}{$\{ B \setminus (U' \cup V') \mid B \in \BB \}$ satisfies the finite intersection property.}
+        \step{d}{$\{ B - (U' \cup V') \mid B \in \BB \}$ satisfies the finite intersection property.}
         \begin{proof}
             \step{i}{\pflet{$B_1, \ldots, B_n \in \BB$}}
             \step{ii}{\assume{without loss of generality $B_1 \subseteq \cdots \subseteq B_n$}}
             \begin{proof}
                 \pf\ Since $\BB$ is a chain.
             \end{proof}
-            \step{iii}{$\bigcap \{ B_1 \setminus (U' \cup V'), \ldots, B_n \setminus (U' \cup V') \} = B_1 \setminus (U' \cup V')$}
-            \step{iv}{$B_1 \setminus (U' \cup V')$ is nonempty}
+            \step{iii}{$\bigcap \{ B_1 - (U' \cup V'), \ldots, B_n - (U' \cup V') \} = B_1 - (U' \cup V')$}
+            \step{iv}{$B_1 - (U' \cup V')$ is nonempty}
             \begin{proof}
                 \pf\ Otherwise $B_1 \cap U'$ and $B_1 \cap V'$ would form a separation of $B_1$, contradicting the fact that $x$ and $y$ are in the same quasicomponent of $B_1$.
             \end{proof}
         \end{proof}
-        \step{e}{$\bigcap \BB \setminus (U \cup V)$ is nonempty}
+        \step{e}{$\bigcap \BB - (U \cup V)$ is nonempty}
         \begin{proof}
             \pf\ Theorem \ref{theorem:compact_closed_sets}.
         \end{proof}
@@ -7621,7 +7663,7 @@ An example to show that we cannot remove the hypothesis that $(f_n)$ is monotone
         \begin{proof}
             \pf\ Since $i \leq \alpha$ so $x_i = p_i$
         \end{proof}
-        \step{g}{For $i \in J \setminus J_A$ we have $x_i \in \pi_i(A)$}
+        \step{g}{For $i \in J - J_A$ we have $x_i \in \pi_i(A)$}
         \begin{proof}
             \pf\ Since $\pi_i(A) = X_i$
         \end{proof}
@@ -9771,7 +9813,7 @@ order topology is completely regular.
         \step{a}{\assume{$X$ is regular.}}
         \step{b}{\pflet{$A$ be closed in $X$}}
         \step{c}{\pflet{$U$ be an open neighbourhood of $A$.}}
-        \step{d}{\pick\ disjoint open sets $V$ and $W$ such that $X \setminus U \subseteq W$
+        \step{d}{\pick\ disjoint open sets $V$ and $W$ such that $X - U \subseteq W$
         and $A \subseteq V$}
         \step{e}{$\overline{V} \subseteq U$}
         \begin{proof}
@@ -12069,7 +12111,7 @@ The following example shows that the product of two paracompact spaces is not ne
     \pf
     \step{1}{\pflet{$G$ be a topological group.}}
     \step{2}{\pflet{$x, y \in G$ with $x \neq y$}}
-    \step{3}{\pflet{$U = G \setminus \{x\inv[y]\}$}}
+    \step{3}{\pflet{$U = G - \{x\inv[y]\}$}}
     \step{4}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VV \subseteq U$}
     \begin{proof}
         \step{a}{$U$ is open}
@@ -12122,7 +12164,7 @@ The following example shows that the product of two paracompact spaces is not ne
     \pf
     \step{1}{\pflet{$G$ be a topological group.}}
     \step{2}{\pflet{$A \subseteq G$ be a closed set and $a \notin A$.}}
-    \step{3}{\pflet{$U = G \setminus A \inv{a}$}}
+    \step{3}{\pflet{$U = G - A \inv{a}$}}
     \step{4}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VV \subseteq U$}
     \begin{proof}
         \step{a}{$U$ is open}
@@ -12183,14 +12225,14 @@ The following example shows that the product of two paracompact spaces is not ne
 \begin{proof}
     \pf
     \step{0}{\pflet{$p : G \twoheadrightarrow G / H$ be the canonical surjection.}}
-    \step{1}{\pflet{$A$ be a closed set in $G / H$ and $aH \in (G / H) \setminus A$.}}
+    \step{1}{\pflet{$A$ be a closed set in $G / H$ and $aH \in (G / H) - A$.}}
     \step{2}{\pflet{$B = \inv{p}(A)$}}
     \step{3}{$B$ is a closed saturated set in $G$.}
     \step{4}{$B \cap aH = \emptyset$}
     \step{5}{$B = BH$}
     \step{6}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VB$ does not intersect $Va$}
     \begin{proof}
-        \step{a}{\pflet{$U = G \setminus B \inv{a}$}}
+        \step{a}{\pflet{$U = G - B \inv{a}$}}
         \step{b}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $VV \subseteq U$}
         \begin{proof}
             \step{i}{$U$ is open}
@@ -12277,7 +12319,7 @@ The following example shows that the product of two paracompact spaces is not ne
     \step{1}{For all $b \in B$ there exists a symmetric neighbourhood $V$ of $e$ such that $bV^2 \cap A = \emptyset$}
     \begin{proof}
         \step{a}{\pflet{$b \in B$}}
-        \step{c}{\pflet{$W = \inv{b} (G \setminus A)$}}
+        \step{c}{\pflet{$W = \inv{b} (G - A)$}}
         \step{d}{$W$ is a neighbourhood of $e$ and $bW \cap A = \emptyset$}
         \step{e}{\pick\ a symmetric neighbourhood $V$ of $e$ such that $V^2 \subseteq W$}
     \end{proof}
@@ -12298,7 +12340,7 @@ The following example shows that the product of two paracompact spaces is not ne
 
 \begin{proof}
     \pf
-    \step{1}{\pflet{$x \in G \setminus AB$}}
+    \step{1}{\pflet{$x \in G - AB$}}
     \step{2}{$\inv{A} x \cap B = \emptyset$}
     \step{3}{$\inv{A} x$ is closed.}
     \step{4}{\pick\ a symmetric neighbourhood $U$ of $e$ such that $\inv{A} x U \cap BU = \emptyset$}
@@ -12306,7 +12348,7 @@ The following example shows that the product of two paracompact spaces is not ne
     \begin{proof}
         \pf\ Lemma \ref{lemma:open_subset_mult}.
     \end{proof}
-    \step{6}{$x \in x U^2 \subseteq G \setminus AB$}
+    \step{6}{$x \in x U^2 \subseteq G - AB$}
     \qed
 \end{proof}
 

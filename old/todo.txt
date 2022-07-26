@@ -1,0 +1,19 @@
+Apply each idea to:
+
+discrete topology
+indiscrete topology
+finite complement topology
+countable complement topology
+Lower limit topology
+K-topology
+
+Ideas to apply:
+
+Finer, coarser
+(Neighbourhood)
+Closed set
+Interior
+Closure
+Boundary
+Limit point
+Basis
