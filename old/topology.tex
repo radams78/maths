@@ -1095,35 +1095,6 @@ We have simultaneously proved:
     The union of a locally finite family of closed sets is closed.
 \end{corollary}
 
-\section{Open Maps}
-
-\begin{definition}[Open Map]
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Then $f$ is an \emph{open map} if and
-    only if, for every open set $U$ in $X$, the set $f(U)$ is open in $Y$.
-\end{definition}
-
-\begin{lemma}
-    \label{lemma:open_map_basis}
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\BB$ be a basis for the topology on $X$.
-    If $f(B)$ is open in $Y$ for all $B \in \BB$, then $f$ is an open map.
-\end{lemma}
-
-\begin{proof}
-    \pf\ From Lemma \ref{lemma:basis_unions}. \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:open_map_basis}
-    Let $X$ and $Y$ be topological spaces. Let $\BB$ be a basis for the topology on $X$.
-    Let $f : X \rightarrow Y$. Suppose that, for all $B \in \BB$, we have $f(B)$
-    is open tn $Y$. Then $f$ is an open map.
-\end{proposition}
-
-\begin{proof}
-    \pf\ For any $\AA \subseteq \BB$, we have $f(\bigcup \AA) = \bigcup_{B \in \BB} f(B)$
-    is open in $Y$. The result follows from Lemma \ref{lemma:basis_unions}. \qed
-\end{proof}
-
 \section{Continuous Functions}
 
 \begin{definition}[Continuous]
@@ -1191,33 +1162,6 @@ We have simultaneously proved:
     \qed
 \end{proof}
 
-\begin{proposition}
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Let $\SS$ be a basis for $Y$. Then $f$
-    is continuous if and only if, for all $V \in \SS$, we have $\inv{f}(V)$ is open in $X$.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{If $f$ is continuous then, for all $V \in \SS$, we have $\inv{f}(V)$ is open in $X$.}
-    \begin{proof}
-        \pf\ Since every element of $\SS$ is open.
-    \end{proof}
-    \step{2}{Suppose that, for all $V \in \SS$, we have $\inv{f}(V)$ is open in $X$. Then $f$ is continuous.}
-    \begin{proof}
-        \step{a}{\assume{For all $V \in \SS$, we have $\inv{f}(V)$ is open in $X$.}}
-        \step{b}{For every set $B$ that is the finite intersection of elemets of $\SS$, we have
-        $\inv{f}(B)$ is open in $X$.}
-        \begin{proof}
-            \pf\ Because $\inv{f}(V_1 \cap \cdots \cap V_n) = \inv{f}(V_1) \cap \cdots \cap \inv{f}(V_n)$.
-        \end{proof}
-        \qedstep
-        \begin{proof}
-            \pf\ From Propositions \ref{proposition:subbasis_basis} and \ref{proposition:continuous_basis}.
-        \end{proof}
-    \end{proof}
-    \qed
-\end{proof}
-
 \begin{definition}[Continuous at a Point]
     Let $X$ and $Y$ be topological spaces. Let $f : X \rightarrow Y$ and $x \in X$. Then $f$ is
     \emph{continuous at $x$} if and only if, for every neighbourhood $V$ of $f(x)$, there exists a
@@ -1246,12 +1190,12 @@ We have simultaneously proved:
         \step{e}{$\inv{f}(V)$ is a neighbourhood of $x$}
         \step{f}{\pick\ $y \in A \cap \inv{f}(V)$}
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
+            \pf\ By Proposition \ref{proposition:closure_neighbourhood}.
         \end{proof}
         \step{g}{$f(y) \in V \cap f(A)$}
         \qedstep
         \begin{proof}
-            \pf\ By Theorem \ref{theorem:closure_neighbourhood}.
+            \pf\ By Proposition \ref{proposition:closure_neighbourhood}.
         \end{proof}
     \end{proof}
     \step{2}{$2 \Rightarrow 3$}
@@ -1294,7 +1238,7 @@ We have simultaneously proved:
         \step{f}{$x \in U \subseteq \inv{f}(V)$}
         \qedstep
         \begin{proof}
-            \pf\ By Lemma \ref{lemma:open}.
+            \pf\ By Proposition \ref{proposition:open}.
         \end{proof}
     \end{proof}
     \qed
@@ -1318,57 +1262,6 @@ We have simultaneously proved:
 \begin{proof}
     \pf\ Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$ be continuous. For any $V$ open in $Z$,
     we have $\inv{(g \circ f)}(V) = \inv{f}(\inv{g}(V))$ is open in $X$. \qed
-\end{proof}
-
-\begin{theorem}
-    \label{theorem:continuous_restriction}
-    Let $f : X \rightarrow Y$ be a continuous function and $A$ be a subspace of $X$. Then the restriction
-    $f \restriction A : A \rightarrow Y$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf\ Let $V$ be open in $Y$. Then $\inv{(f \restriction A)}(V) = \inv{f}(V) \cap A$ is open in $A$. \qed
-\end{proof}
-
-\begin{theorem}
-    Let $f : X \rightarrow Y$ be continuous. Let $Z$ be a subspace of $Y$ such that $f(X) \subseteq Z$. Then
-    the corestriction $f : X \rightarrow Z$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$V$ be open in $Z$.}}
-    \step{2}{\pick\ $U$ open in $Y$ such that $V = U \cap Z$.}
-    \step{3}{$\inv{f}(V) = \inv{f}(U)$}
-    \step{4}{$\inv{f}(V)$ is open in $X$.}
-    \qed
-\end{proof}
-
-\begin{theorem}
-    Let $f : X \rightarrow Y$ be continuous. Let $Z$ be a space such that $Y$ is a subspace of $Z$.
-    Then the expansion $f : X \rightarrow Z$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf\ Let $V$ be open in $Z$. Then $\inv{f}(V) = \inv{f}(V \cap Y)$ is open in $X$. \qed
-\end{proof}
-
-\begin{theorem}
-    Let $X$ and $Y$ be topological spaces. Let $f : X \rightarrow Y$. Suppose $\UU$ is a set of open sets
-    in $X$ such that $X = \bigcup \UU$ and, for all $U \in \UU$, we have $f \restriction U : U \rightarrow Y$
-    is continuous. Then $f$ is continuous.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$V$ be open in $Y$}}
-    \step{2}{$\inv{f}(V) = \bigcup_{U \in \UU} \inv{(f \restriction U)}(V)$}
-    \step{3}{For all $U \in \UU$, we have $\inv{(f \restriction U)}(V)$ is open in $U$.}
-    \step{4}{For all $U \in \UU$, we have $\inv{(f \restriction U)}(V)$ is open in $X$.}
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:subspace_open}.
-    \end{proof}
-    \qed
 \end{proof}
 
 \begin{proposition}
@@ -1408,22 +1301,6 @@ We have simultaneously proved:
         \step{d}{\pick\ $b$, $c$ such that $a \in [b,c) \subset U$}
         \step{e}{\pflet{$\delta = c - a$}}
         \step{f}{For all $x$, if $a < x < a + \delta$ then $|f(x)-f(a)| < \epsilon$}
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{lemma}
-    \label{lemma:continuous_open_subspace}
-    Let $f : X \rightarrow Y$. Let $Z$ be an open subspace of $X$ and $a \in Z$. If $f \restriction Z$ is continuous at $a$ then $f$ is continuous at $a$.
-\end{lemma}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$V$ be a neighbourhood of $f(x)$}}
-    \step{2}{\pick\ a neighbourhood $W$ of $x$ in $Z$ such that $f(W) \subseteq V$}
-    \step{3}{$W$ is a neighbourhood of $x$ in $X$ such that $f(W) \subseteq V$}
-    \begin{proof}
-        \pf\ Lemma \ref{lemma:subspace_open}.
     \end{proof}
     \qed
 \end{proof}
@@ -1486,6 +1363,25 @@ We have simultaneously proved:
     \qed
 \end{proof}
 
+\section{Open Maps}
+
+\begin{definition}[Open Map]
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Then $f$ is an \emph{open map} if and
+    only if, for every open set $U$ in $X$, the set $f(U)$ is open in $Y$.
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:open_map_basis}
+    Let $X$ and $Y$ be topological spaces. Let $\BB$ be a basis for the topology on $X$.
+    Let $f : X \rightarrow Y$. Suppose that, for all $B \in \BB$, we have $f(B)$
+    is open tn $Y$. Then $f$ is an open map.
+\end{proposition}
+
+\begin{proof}
+    \pf\ For any $\AA \subseteq \BB$, we have $f(\bigcup \AA) = \bigcup_{B \in \BB} f(B)$
+    is open in $Y$. The result follows from Lemma \ref{lemma:basis_unions}. \qed
+\end{proof}
+
 \section{Closed Maps}
 
 \begin{definition}[Closed Map]
@@ -1520,6 +1416,66 @@ We have simultaneously proved:
     \qed
 \end{proof}
 
+\section{Strong Continuity}
+
+\begin{definition}[Strongly Continuous]
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be a function. Then $f$ is \emph{strongly continuous} if and only if, for every subset $U \subseteq Y$,
+    we have $U$ is open in $Y$ if and only if $\inv{f}(U)$ is open in $X$.
+\end{definition}
+
+\begin{proposition}
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be a function. Then $f$ is \emph{strongly continuous} if and only if, for every subset $C \subseteq Y$,
+    we have $C$ is closed in $Y$ if and only if $\inv{f}(C)$ is closed in $X$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Since $X - \inv{f}(C) = \inv{f}(Y - C)$. \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:strongly_continuous_composite}
+    Let $X$, $Y$ and $Z$ be topological spaces. Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$. If $f$ and $g$ are strongly continuous then so is $g \circ f$.
+\end{proposition}
+
+\begin{proof}
+    \pf\ Since $\inv{(g \circ f)}(U) = \inv{f}(\inv{g}(U))$. \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:continuous_strongly_continuous}
+    Let $X$, $Y$ and $Z$ be topological spaces.
+    Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$.
+    If $g \circ f$ is continuous and $f$ is strongly continuous then 
+    $g$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{b}{\pflet{$V \subseteq Z$ be open.}}
+    \step{c}{$\inv{f}(\inv{g}(V))$ is open in $X$.}
+    \begin{proof}
+        \pf\ Since $g \circ f$ is continuous.
+    \end{proof}
+    \step{d}{$\inv{f}(V)$ is open in $Y$.}
+    \begin{proof}
+        \pf\ Since $g$ is strongly continuous.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{proposition}
+    \label{proposition:strongly_continuous_strongly_continuous}
+    Let $X$, $Y$ and $Z$ be topological spaces.
+    Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$.
+    If $g \circ f$ is strongly continuous and $f$ is strongly continuous then 
+    $g$ is strongly continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf\ For $V \subseteq Z$, we have $V$ is open iff $\inv{f}(\inv{g}(V))$ is
+    open iff $\inv{g}(V)$ is open.
+\end{proof}
+
 \section{Homeomorphisms}
 
 \begin{definition}[Homeomorphism]
@@ -1535,7 +1491,7 @@ We have simultaneously proved:
         \item $f$ is a homeomorphism.
         \item $f$ is continuous and an open map.
         \item $f$ is continuous and a closed map.
-        \item For any $U \subseteq X$, we have $U$ is open if and only if $f(U)$ is open.
+        \item $f$ is strongly continuous.
     \end{enumerate}
 \end{lemma}
 
@@ -1556,30 +1512,6 @@ We have simultaneously proved:
     Let $P$ be a property of topological spaces. Then $P$ is a \emph{topological} property if and only if,
     for any spaces $X$ and $Y$, if $P$ holds of $X$ and $X \cong Y$ then $P$ holds of $Y$.
 \end{definition}
-
-\begin{definition}[Topological Imbedding]
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Then $f$ is a \emph{topological
-    imbedding} if and only if the corestriction $f : X \rightarrow f(X)$ is a homeomorphism.
-\end{definition}
-
-\begin{proposition}
-    \label{proposition:imbedding_product}
-    Let $X$ and $Y$ be topological spaces and $a \in X$. The function $i : Y \rightarrow X \times Y$ that maps $y$ to $(a,y)$ is an imbedding.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{1}{$i$ is injective}
-    \step{2}{$i$ is continuous.}
-    \begin{proof}
-        \pf\ For $U$ open in $X$ and $V$ open in $Y$, we have $\inv{i}(U \times V)$ is $V$ if $a \in U$, and $\emptyset$ if $a \notin U$.
-    \end{proof}
-    \step{3}{$i : Y \rightarrow i(Y)$ is an open map.}
-    \begin{proof}
-        \pf\ For $V$ open in $Y$ we have $i(V) = (X \times V) \cap i(Y)$.
-    \end{proof}
-    \qed
-\end{proof}
 
 \section{The Order Topology}
 
@@ -2189,7 +2121,7 @@ We prove this is a basis for a topology.
 
 \begin{proof}
     \pf\ For $a \in X$, the function $\lambda y \in Y. F(a,y)$ is $F \circ i$ where $i : Y \rightarrow X \times Y$ maps $y$ to $(a,y)$.
-    We have $i$ is continuous by Proposition \ref{proposition:imbedding_product}, hence $F \circ i$ is continuous by Theorem \ref{theorem:continuous_composite}.
+    We have $i$ is continuous by Proposition \ref{proposition:embedding_product}, hence $F \circ i$ is continuous by Theorem \ref{theorem:continuous_composite}.
 
     Similarly for $\lambda x \in X. F(x,b)$ for $b \in Y$. \qed
 \end{proof}
@@ -2554,6 +2486,74 @@ This example shows that we cannot remove the hypothesis that $Y$ is an interval:
     \pf\ For any $V$ open in $X$, we have $\inv{j}(V) = V \cap A$ is open in $A$. \qed
 \end{proof}
 
+\begin{theorem}
+    \label{theorem:continuous_restriction}
+    Let $f : X \rightarrow Y$ be a continuous function and $A$ be a subspace of $X$. Then the restriction
+    $f \restriction A : A \rightarrow Y$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Let $V$ be open in $Y$. Then $\inv{(f \restriction A)}(V) = \inv{f}(V) \cap A$ is open in $A$. \qed
+\end{proof}
+
+\begin{theorem}
+    Let $X$ and $Y$ be topological spaces. Let $f : X \rightarrow Y$. Suppose $\UU$ is a set of open sets
+    in $X$ such that $X = \bigcup \UU$ and, for all $U \in \UU$, we have $f \restriction U : U \rightarrow Y$
+    is continuous. Then $f$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$V$ be open in $Y$}}
+    \step{2}{$\inv{f}(V) = \bigcup_{U \in \UU} \inv{(f \restriction U)}(V)$}
+    \step{3}{For all $U \in \UU$, we have $\inv{(f \restriction U)}(V)$ is open in $U$.}
+    \step{4}{For all $U \in \UU$, we have $\inv{(f \restriction U)}(V)$ is open in $X$.}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subspace_open}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{lemma}
+    \label{lemma:continuous_open_subspace}
+    Let $f : X \rightarrow Y$. Let $Z$ be an open subspace of $X$ and $a \in Z$. If $f \restriction Z$ is continuous at $a$ then $f$ is continuous at $a$.
+\end{lemma}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$V$ be a neighbourhood of $f(x)$}}
+    \step{2}{\pick\ a neighbourhood $W$ of $x$ in $Z$ such that $f(W) \subseteq V$}
+    \step{3}{$W$ is a neighbourhood of $x$ in $X$ such that $f(W) \subseteq V$}
+    \begin{proof}
+        \pf\ Lemma \ref{lemma:subspace_open}.
+    \end{proof}
+    \qed
+\end{proof}
+
+\begin{definition}[Topological Embedding]
+    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$. Then $f$ is a \emph{topological
+    embedding} if and only if the corestriction $f : X \rightarrow f(X)$ is a homeomorphism.
+\end{definition}
+
+\begin{proposition}
+    \label{proposition:embedding_product}
+    Let $X$ and $Y$ be topological spaces and $a \in X$. The function $i : Y \rightarrow X \times Y$ that maps $y$ to $(a,y)$ is an embedding.
+\end{proposition}
+
+\begin{proof}
+    \pf
+    \step{1}{$i$ is injective}
+    \step{2}{$i$ is continuous.}
+    \begin{proof}
+        \pf\ For $U$ open in $X$ and $V$ open in $Y$, we have $\inv{i}(U \times V)$ is $V$ if $a \in U$, and $\emptyset$ if $a \notin U$.
+    \end{proof}
+    \step{3}{$i : Y \rightarrow i(Y)$ is an open map.}
+    \begin{proof}
+        \pf\ For $V$ open in $Y$ we have $i(V) = (X \times V) \cap i(Y)$.
+    \end{proof}
+    \qed
+\end{proof}
+
 \section{The Box Topology}
 
 \begin{definition}[Box Topology]
@@ -2708,6 +2708,29 @@ The following example shows that Proposition \ref{proposition:converge_product} 
         \pf\ Lemma \ref{lemma:basis}.
     \end{proof}
     \qed
+\end{proof}
+
+\begin{theorem}
+    Let $f : X \rightarrow Y$ be continuous. Let $Z$ be a subspace of $Y$ such that $f(X) \subseteq Z$. Then
+    the corestriction $f : X \rightarrow Z$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf
+    \step{1}{\pflet{$V$ be open in $Z$.}}
+    \step{2}{\pick\ $U$ open in $Y$ such that $V = U \cap Z$.}
+    \step{3}{$\inv{f}(V) = \inv{f}(U)$}
+    \step{4}{$\inv{f}(V)$ is open in $X$.}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $f : X \rightarrow Y$ be continuous. Let $Z$ be a space such that $Y$ is a subspace of $Z$.
+    Then the expansion $f : X \rightarrow Z$ is continuous.
+\end{theorem}
+
+\begin{proof}
+    \pf\ Let $V$ be open in $Z$. Then $\inv{f}(V) = \inv{f}(V \cap Y)$ is open in $X$. \qed
 \end{proof}
 
 \section{$T_1$ Spaces}
@@ -3331,66 +3354,6 @@ To see this is not always true in spaces that are $T_1$ but not Hausdorff:
     \step{8}{$B \cap C$ is closed.}
     \step{9}{$x \in B \cap C$.}
     \qed
-\end{proof}
-
-\section{Strong Continuity}
-
-\begin{definition}[Strongly Continuous]
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be a function. Then $f$ is \emph{strongly continuous} if and only if, for every subset $U \subseteq Y$,
-    we have $U$ is open in $Y$ if and only if $\inv{f}(U)$ is open in $X$.
-\end{definition}
-
-\begin{proposition}
-    Let $X$ and $Y$ be topological spaces and $f : X \rightarrow Y$ be a function. Then $f$ is \emph{strongly continuous} if and only if, for every subset $C \subseteq Y$,
-    we have $C$ is closed in $Y$ if and only if $\inv{f}(C)$ is closed in $X$.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Since $X - \inv{f}(C) = \inv{f}(Y - C)$. \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:strongly_continuous_composite}
-    Let $X$, $Y$ and $Z$ be topological spaces. Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$. If $f$ and $g$ are strongly continuous then so is $g \circ f$.
-\end{proposition}
-
-\begin{proof}
-    \pf\ Since $\inv{(g \circ f)}(U) = \inv{f}(\inv{g}(U))$. \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:continuous_strongly_continuous}
-    Let $X$, $Y$ and $Z$ be topological spaces.
-    Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$.
-    If $g \circ f$ is continuous and $f$ is strongly continuous then 
-    $g$ is continuous.
-\end{proposition}
-
-\begin{proof}
-    \pf
-    \step{b}{\pflet{$V \subseteq Z$ be open.}}
-    \step{c}{$\inv{f}(\inv{g}(V))$ is open in $X$.}
-    \begin{proof}
-        \pf\ Since $g \circ f$ is continuous.
-    \end{proof}
-    \step{d}{$\inv{f}(V)$ is open in $Y$.}
-    \begin{proof}
-        \pf\ Since $g$ is strongly continuous.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{proposition}
-    \label{proposition:strongly_continuous_strongly_continuous}
-    Let $X$, $Y$ and $Z$ be topological spaces.
-    Let $f : X \rightarrow Y$ and $g : Y \rightarrow Z$.
-    If $g \circ f$ is strongly continuous and $f$ is strongly continuous then 
-    $g$ is strongly continuous.
-\end{proposition}
-
-\begin{proof}
-    \pf\ For $V \subseteq Z$, we have $V$ is open iff $\inv{f}(\inv{g}(V))$ is
-    open iff $\inv{g}(V)$ is open.
 \end{proof}
 
 \section{Saturated Sets}
@@ -8818,7 +8781,7 @@ locally compact.
 
 \begin{definition}[Compactification]
     Let $X$ be a topological space. A \emph{compactification} of $X$ consists of a compact Hausdorff
-    space $Y$ and an imbedding $i : X \rightarrow Y$ such that $Y = \overline{i(X)}$.
+    space $Y$ and an embedding $i : X \rightarrow Y$ such that $Y = \overline{i(X)}$.
 \end{definition}
 
 \begin{definition}[One-Point Compactification]
@@ -8848,7 +8811,7 @@ locally compact.
             \pf\ Theorem \ref{theorem:subspace_Haudorff}.
         \end{proof}
     \end{proof}
-    \step{2}{For any locally compact Hausdorff space $X$, there exists a compact Hausdorff space $Y$ and imbedding
+    \step{2}{For any locally compact Hausdorff space $X$, there exists a compact Hausdorff space $Y$ and embedding
     $i : X \rightarrow Y$ such that $Y - i(X)$ is a single point.}
     \begin{proof}
         \step{a}{\pflet{$X$ be a locally compact Hausdorff space.}}
@@ -8915,7 +8878,7 @@ locally compact.
             \end{proof}
         \end{proof}
         \step{f}{Let $i : X \rightarrow Y$ be the inclusion.}
-        \step{g}{$i$ is an imbedding.}
+        \step{g}{$i$ is an embedding.}
         \begin{proof}
             \step{i}{$i$ is continuous}
             \step{ii}{$i$ is an open map.}
@@ -8923,7 +8886,7 @@ locally compact.
         \step{h}{$Y - i(X) = \{ \infty \}$}
     \end{proof}
     \step{3}{If $X$ is locally compact Hausdorff, $Y$ and $Y'$ are compact Hausdorff, and $i : X \rightarrow Y$,
-    $i' :  \rightarrow Y'$ are imbeddings such that $Y - i(X)$ and $Y' - i'(X)$ each have just one point,
+    $i' :  \rightarrow Y'$ are embeddings such that $Y - i(X)$ and $Y' - i'(X)$ each have just one point,
     then there exists a unique homeomorphism $\theta : Y \cong Y'$ such that $\theta \circ i = i'$.}
     \begin{proof}
         \step{a}{\pflet{$Y - i(X) = \{a\}$ and $Y' - i'(X) = \{b\}$}}
@@ -9392,16 +9355,16 @@ locally compact.
     such that $f(x_0) > 0$ and $f$ vanishes outside $U$.
 \end{definition}
 
-\begin{theorem}[Imbedding Theorem]
+\begin{theorem}[embedding Theorem]
     Let $X$ be a $T_1$ space. Let $\{ f_\alpha \}_{\alpha \in J}$ be a family of
     continuous functions $X \rightarrow \RR$ that separates points from
     closed sets. Define $F : X
     \rightarrow \RR^J$ by
     \[ F(x) = (f_\alpha(x))_{\alpha \in J} \enspace . \]
-    Then $F$ is an imbedding.
+    Then $F$ is an embedding.
 
     If, in addition, $f_\alpha(x) \in [0,1]$ for all $\alpha \in J$ and $x \in X$,
-    then $F$ is an imbedding of $X$ into $[0,1]^J$.
+    then $F$ is an embedding of $X$ into $[0,1]^J$.
 \end{theorem}
 
 \begin{proof}
@@ -9763,7 +9726,7 @@ locally compact.
 \end{theorem}
 
 \begin{proof}
-    \pf\ By the Imbedding Theorem. \qed
+    \pf\ By the embedding Theorem. \qed
 \end{proof}
 
 See also Corollary \ref{corollary:order_topology_completely_regular}: Every linearly ordered set under the
@@ -10569,7 +10532,7 @@ The following example shows:
 
 \begin{definition}[Absolute Retract]
     Let $Y$ be a topological space. Then $Y$ is an \emph{absolute retract} if and only if $Y$ is normal and,
-    for every normal space $Z$ and imbedding $i : Y \rightarrow Z$ such that $i(Y)$ is closed in $Z$,
+    for every normal space $Z$ and embedding $i : Y \rightarrow Z$ such that $i(Y)$ is closed in $Z$,
     we have $i(Y)$ is a retract of $Z$.
 \end{definition}
 
@@ -10581,7 +10544,7 @@ The following example shows:
     \pf
     \step{1}{\pflet{$Y$ be a space with the universal extension property.}}
     \step{2}{\pflet{$Z$ be a normal space.}}
-    \step{3}{\pflet{$i : Y \rightarrow Z$ be an imbedding such that $i(Y)$ is closed.}}
+    \step{3}{\pflet{$i : Y \rightarrow Z$ be an embedding such that $i(Y)$ is closed.}}
     \step{4}{\pick\ a continuous extension $r : Z \rightarrow Y$ of $\inv{i} : i(Y) \rightarrow Y$}
     \step{5}{$r \circ i = \id{Y}$}
     \qed
@@ -10646,7 +10609,7 @@ The following example shows:
             \step{vii}{$l$ separactes $C$ from $D$.}
         \end{proof}
     \end{proof}
-    \step{9}{$p \restriction Y : Y \rightarrow Z_f$ is an imbedding.}
+    \step{9}{$p \restriction Y : Y \rightarrow Z_f$ is an embedding.}
     \step{10}{$p(Y)$ is closed in $Z_f$.}
     \step{11}{\pick\ a retraction $r : Z_f \rightarrow Y$ such that $r \circ (p \restriction Y) = \id{Y}$.}
     \step{12}{$r \circ (p \restriction X) : X \rightarrow Y$ extends $f$.}
@@ -11045,7 +11008,7 @@ Let $X$ be a set and $f : X \rightarrow [0,1]$. Let $A \subseteq X$. Then $f$
         \step{g}{$g_i(x) = g_i(y)$}
         \step{h}{$x = y$}
     \end{proof}
-    \step{11}{$F$ is an imbedding.}
+    \step{11}{$F$ is an embedding.}
     \begin{proof}
         \pf\ Since $X$ is compact.
     \end{proof}
