@@ -1651,6 +1651,11 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
+\begin{definition}
+    Let $\Omega$ be the first uncountable ordinal. We write $S_\Omega$ for the set $\{ \alpha \mid \alpha < \Omega \}$
+    under the order topology, and $\overline{S_\Omega}$ for $\{ \alpha \mid \alpha \leq \Omega \}$.
+\end{definition}
+
 \begin{lemma}
     \label{lemma:order_topology_closed}
     Let $X$ be a topological space.
@@ -1670,16 +1675,6 @@ We prove this is a basis for a topology.
         \pf\ Take $U = \inv{g}((-\infty, f(x))) \cup \inv{f}(g(x),+\infty)$.
     \end{proof}
     \qed
-\end{proof}
-
-\begin{proposition}
-    Let $X$ be a topological space.
-    Let $Y$ be a linearly ordered set in the order topology. Let $f, g : X \rightarrow Y$ be continuous. Define $h : X \rightarrow Y$ by $h(x) = \min(f(x),g(x))$.
-    Then $h$ is continuous.
-\end{proposition}
-
-\begin{proof}
-    \pf\ By the Pasting Lemma applied to $\{ x \in X \mid f(x) \leq g(x) \}$ and $\{ x \in X \mid g(x) \leq f(x) \}$, which are closed by Lemma \ref{lemma:order_topology_closed}.
 \end{proof}
 
 \begin{proposition}
@@ -1779,74 +1774,6 @@ We prove this is a basis for a topology.
     \qed
 \end{proof}
 
-\begin{theorem}
-    If $\sum_{i=0}^\infty a_i = s$ and $\sum_{i=0}^\infty b_i = t$ then $\sum_{i=0}^\infty (ca_i + b_i) = cs+t$.
-\end{theorem}
-
-\begin{proof}
-    \pf $\sum_{i=0}^N (ca_i + b_i) = c \sum_{i=0}^N a_i + \sum_{i=0}^N b_i \rightarrow cs+t$ as $n \rightarrow \infty$. \qed
-\end{proof}
-
-\begin{theorem}[Comparison Test]
-    If $|a_i| \leq b_i$ for all $i$ and $\sum_{i=0}^\infty b_i$ converges then $\sum_{i=0}^\infty a_i$ converges.
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{$\sum_{i=0}^\infty |a_i|$ converges}
-    \begin{proof}
-        \pf\ The partial sums $\sum_{i=0}^N |a_i|$ form an increasing sequence bounded above by $\sum_{i=0}^\infty b_i$.
-    \end{proof}
-    \step{2}{\pflet{$c_i = |a_i| + a_i$ for all $i$}}
-    \step{3}{$\sum_{i=0}^\infty c_i$ converges}
-    \begin{proof}
-        \pf\ Each $c_i$ is either $2|a_i|$ or 0. So the partial sums $\sum_{i=0}^N c_i$ form an increasing sequence bounded above by $2 \sum_{i=0}^\infty b_i$.
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Since $a_i = c_i - |a_i|$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\begin{corollary}
-    If $\sum_{i=0}^\infty |a_i|$ converges then $\sum_{i=0}^\infty a_i$ converges.
-\end{corollary}
-
-\begin{theorem}[Weierstrass $M$-test]
-    Let $X$ be a set and $(f_n : X \rightarrow \RR)$ be a sequence of functions. Let
-    \[ s_n(x) = \sum_{i=0}^n f_i(x) \]
-    for all $n$, $x$. Suppose $|f_i(x)| \leq M_i$ for all $i \geq 0$ and $x \in X$.
-    If the series $\sum_{i=0}^\infty M_i$ converges, then the sequence $(s_n)$ converges uniformly to
-    \[ s(x) = \sum_{i=0}^\infty f_i(x) \enspace . \]
-\end{theorem}
-
-\begin{proof}
-    \pf
-    \step{1}{\pflet{$r_n = \sum_{i=n+1}^\infty M_i$ for all $n$}}
-    \step{2}{Given $0 \leq n < k$, we have $|s_k(x) - s_n(x)| \leq r_n$}
-    \begin{proof}
-        \pf
-        \begin{align*}
-            |s_k(x) - s_n(x)| & = |\sum_{i=n+1}^k f_i(x)| \\
-            & \leq \sum_{i=n+1}^k |f_i(x)| \\
-            & \leq \sum_{i=n+1}^k M_i \\
-            & \leq r_n
-        \end{align*}
-    \end{proof}
-    \step{3}{Given $n \geq 0$ we have $|s(x) - s_n(x)| \leq r_n$}
-    \begin{proof}
-        \pf\ By taking the limit $k \rightarrow \infty$ in \stepref{2}.
-    \end{proof}
-    \qedstep
-    \begin{proof}
-        \pf\ Since $r_n \rightarrow 0$ as $n \rightarrow \infty$.
-    \end{proof}
-    \qed
-\end{proof}
-
-\section{The nth Root Function}
-
 \begin{proposition}
     For all $n \geq 1$, the function $f : \RR_{\geq 0} \rightarrow \RR_{\geq 0}$ defined by $f(x) = x^n$ is a homemorphism.
 \end{proposition}
@@ -1924,7 +1851,7 @@ We prove this is a basis for a topology.
 \end{proposition}
 
 \begin{proof}
-    \pf\ From Lemma \ref{lemma:open_map_basis}. \qed
+    \pf\ From Proposition \ref{proposition:open_map_basis}. \qed
 \end{proof}
 
 \begin{example}
@@ -2330,6 +2257,16 @@ The following example shows that we cannot remove the assumption of local finite
     Define $f : [-1,1] \rightarrow \RR$ by: $f(x) = 1$ if $x < -1$, $f(x) = 0$ if $x > 1$. Let $C_n = [-1,-1/n]$ for $n \geq 1$, and $D = [0,1]$. Then
     $[-1,1] = \bigcup_{n=1}^\infty C_n \cup D$ and $f$ is continuous on each $C_n$ and each $D$, but $f$ is not continuous on $[-1,1]$.    
 \end{example}
+
+\begin{proposition}
+    Let $X$ be a topological space.
+    Let $Y$ be a linearly ordered set in the order topology. Let $f, g : X \rightarrow Y$ be continuous. Define $h : X \rightarrow Y$ by $h(x) = \min(f(x),g(x))$.
+    Then $h$ is continuous.
+\end{proposition}
+
+\begin{proof}
+    \pf\ By the Pasting Lemma applied to $\{ x \in X \mid f(x) \leq g(x) \}$ and $\{ x \in X \mid g(x) \leq f(x) \}$, which are closed by Lemma \ref{lemma:order_topology_closed}.
+\end{proof}
 
 \begin{theorem}
     Let $\{ X_i \}_{i \in I}$ be a family of topological spaces. Let $A_i$ be a subspace of $X_i$ for all $i \in I$.
