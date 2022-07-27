@@ -109,99 +109,98 @@
 \BOOKMARK [1][-]{section.11.16}{Homeomorphisms}{chapter.11}% 109
 \BOOKMARK [1][-]{section.11.17}{The Order Topology}{chapter.11}% 110
 \BOOKMARK [1][-]{section.11.18}{The Product Topology}{chapter.11}% 111
-\BOOKMARK [2][-]{subsection.11.18.1}{Continuous in Each Variable Separately}{section.11.18}% 112
-\BOOKMARK [1][-]{section.11.19}{The Subspace Topology}{chapter.11}% 113
-\BOOKMARK [1][-]{section.11.20}{The Box Topology}{chapter.11}% 114
-\BOOKMARK [1][-]{section.11.21}{T1 Spaces}{chapter.11}% 115
-\BOOKMARK [1][-]{section.11.22}{Hausdorff Spaces}{chapter.11}% 116
-\BOOKMARK [1][-]{section.11.23}{Compactly Generated Spaces}{chapter.11}% 117
-\BOOKMARK [1][-]{section.11.24}{The First Countability Axiom}{chapter.11}% 118
-\BOOKMARK [1][-]{section.11.25}{Saturated Sets}{chapter.11}% 119
-\BOOKMARK [1][-]{section.11.26}{Quotient Maps}{chapter.11}% 120
-\BOOKMARK [1][-]{section.11.27}{Quotient Topology}{chapter.11}% 121
-\BOOKMARK [1][-]{section.11.28}{Retractions}{chapter.11}% 122
-\BOOKMARK [1][-]{section.11.29}{Homogeneous Spaces}{chapter.11}% 123
-\BOOKMARK [1][-]{section.11.30}{Regular Spaces}{chapter.11}% 124
-\BOOKMARK [1][-]{section.11.31}{Dense Sets}{chapter.11}% 125
-\BOOKMARK [1][-]{section.11.32}{Connected Spaces}{chapter.11}% 126
-\BOOKMARK [1][-]{section.11.33}{Totally Disconnected Spaces}{chapter.11}% 127
-\BOOKMARK [1][-]{section.11.34}{Paths and Path Connectedness}{chapter.11}% 128
-\BOOKMARK [1][-]{section.11.35}{The Topologist's Sine Curve}{chapter.11}% 129
-\BOOKMARK [1][-]{section.11.36}{The Long Line}{chapter.11}% 130
-\BOOKMARK [1][-]{section.11.37}{Components}{chapter.11}% 131
-\BOOKMARK [1][-]{section.11.38}{Path Components}{chapter.11}% 132
-\BOOKMARK [1][-]{section.11.39}{Local Connectedness}{chapter.11}% 133
-\BOOKMARK [1][-]{section.11.40}{Local Path Connectedness}{chapter.11}% 134
-\BOOKMARK [1][-]{section.11.41}{Weak Local Connectedness}{chapter.11}% 135
-\BOOKMARK [1][-]{section.11.42}{Quasicomponents}{chapter.11}% 136
-\BOOKMARK [1][-]{section.11.43}{Open Coverings}{chapter.11}% 137
-\BOOKMARK [1][-]{section.11.44}{Lindel\366f Spaces}{chapter.11}% 138
-\BOOKMARK [1][-]{section.11.45}{Separable Spaces}{chapter.11}% 139
-\BOOKMARK [1][-]{section.11.46}{The Second Countability Axiom}{chapter.11}% 140
-\BOOKMARK [1][-]{section.11.47}{Sequential Compactness}{chapter.11}% 141
-\BOOKMARK [1][-]{section.11.48}{Limit Point Compactness}{chapter.11}% 142
-\BOOKMARK [1][-]{section.11.49}{Countable Compactness}{chapter.11}% 143
-\BOOKMARK [1][-]{section.11.50}{Subnets}{chapter.11}% 144
-\BOOKMARK [1][-]{section.11.51}{Accumulation Points}{chapter.11}% 145
-\BOOKMARK [1][-]{section.11.52}{Compact Spaces}{chapter.11}% 146
-\BOOKMARK [1][-]{section.11.53}{Perfect Maps}{chapter.11}% 147
-\BOOKMARK [1][-]{section.11.54}{Isolated Points}{chapter.11}% 148
-\BOOKMARK [1][-]{section.11.55}{Local Compactness}{chapter.11}% 149
-\BOOKMARK [1][-]{section.11.56}{Compactifications}{chapter.11}% 150
-\BOOKMARK [2][-]{subsection.11.56.1}{Equivalent Compactifications}{section.11.56}% 151
-\BOOKMARK [1][-]{section.11.57}{G Sets}{chapter.11}% 152
-\BOOKMARK [1][-]{section.11.58}{Separated by a Continuous Function}{chapter.11}% 153
-\BOOKMARK [1][-]{section.11.59}{Separate Points from Closed Sets}{chapter.11}% 154
-\BOOKMARK [1][-]{section.11.60}{Completely Regular Spaces}{chapter.11}% 155
-\BOOKMARK [1][-]{section.11.61}{Normal Spaces}{chapter.11}% 156
-\BOOKMARK [1][-]{section.11.62}{Universal Extension Property}{chapter.11}% 157
-\BOOKMARK [1][-]{section.11.63}{Absolute Retracts}{chapter.11}% 158
-\BOOKMARK [1][-]{section.11.64}{Completely Normal Spaces}{chapter.11}% 159
-\BOOKMARK [1][-]{section.11.65}{Separated Sets}{chapter.11}% 160
-\BOOKMARK [1][-]{section.11.66}{Vanish Precisely}{chapter.11}% 161
-\BOOKMARK [1][-]{section.11.67}{Perfectly Normal Spaces}{chapter.11}% 162
-\BOOKMARK [1][-]{section.11.68}{Coherent Topology}{chapter.11}% 163
-\BOOKMARK [1][-]{section.11.69}{Support}{chapter.11}% 164
-\BOOKMARK [1][-]{section.11.70}{Partitions of Unity}{chapter.11}% 165
-\BOOKMARK [1][-]{section.11.71}{The Line With Two Origins}{chapter.11}% 166
-\BOOKMARK [1][-]{section.11.72}{Countably Locally Finite Sets}{chapter.11}% 167
-\BOOKMARK [1][-]{section.11.73}{Open Refinements}{chapter.11}% 168
-\BOOKMARK [1][-]{section.11.74}{Closed Refinements}{chapter.11}% 169
-\BOOKMARK [1][-]{section.11.75}{F Sets}{chapter.11}% 170
-\BOOKMARK [1][-]{section.11.76}{Locally Discrete Sets}{chapter.11}% 171
-\BOOKMARK [1][-]{section.11.77}{Countably Locally Discrete Sets}{chapter.11}% 172
-\BOOKMARK [1][-]{section.11.78}{Paracompactness}{chapter.11}% 173
-\BOOKMARK [1][-]{section.11.79}{Precise Refinements}{chapter.11}% 174
-\BOOKMARK [1][-]{section.11.80}{Evaluation Map}{chapter.11}% 175
-\BOOKMARK [0][-]{chapter.12}{Topological Groups}{part.1}% 176
-\BOOKMARK [1][-]{section.12.1}{Topological Groups}{chapter.12}% 177
-\BOOKMARK [1][-]{section.12.2}{Actions}{chapter.12}% 178
-\BOOKMARK [0][-]{chapter.13}{Metric Spaces}{part.1}% 179
-\BOOKMARK [1][-]{section.13.1}{The Metric Topology}{chapter.13}% 180
-\BOOKMARK [1][-]{section.13.2}{Metrically Equivalent}{chapter.13}% 181
-\BOOKMARK [1][-]{section.13.3}{Real Linear Algebra}{chapter.13}% 182
-\BOOKMARK [1][-]{section.13.4}{The Uniform Topology}{chapter.13}% 183
-\BOOKMARK [1][-]{section.13.5}{Uniform Convergence}{chapter.13}% 184
-\BOOKMARK [1][-]{section.13.6}{Isometric Imbeddings}{chapter.13}% 185
-\BOOKMARK [1][-]{section.13.7}{Distance to a Set}{chapter.13}% 186
-\BOOKMARK [1][-]{section.13.8}{Lebesgue Numbers}{chapter.13}% 187
-\BOOKMARK [1][-]{section.13.9}{Uniform Continuity}{chapter.13}% 188
-\BOOKMARK [1][-]{section.13.10}{Epsilon-neighbourhoods}{chapter.13}% 189
-\BOOKMARK [1][-]{section.13.11}{Isometry}{chapter.13}% 190
-\BOOKMARK [1][-]{section.13.12}{Shrinking Maps}{chapter.13}% 191
-\BOOKMARK [1][-]{section.13.13}{Contractions}{chapter.13}% 192
-\BOOKMARK [1][-]{section.13.14}{Locally Metrizable Spaces}{chapter.13}% 193
-\BOOKMARK [1][-]{section.13.15}{Cauchy Sequences}{chapter.13}% 194
-\BOOKMARK [1][-]{section.13.16}{Complete Metric Spaces}{chapter.13}% 195
-\BOOKMARK [1][-]{section.13.17}{Sup Metric}{chapter.13}% 196
-\BOOKMARK [1][-]{section.13.18}{Completion}{chapter.13}% 197
-\BOOKMARK [1][-]{section.13.19}{Topolgically Complete Spaces}{chapter.13}% 198
-\BOOKMARK [1][-]{section.13.20}{Peano Spaces}{chapter.13}% 199
-\BOOKMARK [1][-]{section.13.21}{Totally Bounded Metric Spaces}{chapter.13}% 200
-\BOOKMARK [1][-]{section.13.22}{Equicontinuity}{chapter.13}% 201
-\BOOKMARK [1][-]{section.13.23}{Pointwise Bounded Sets}{chapter.13}% 202
-\BOOKMARK [1][-]{section.13.24}{Vanishing at Infinity}{chapter.13}% 203
-\BOOKMARK [1][-]{section.13.25}{Hausdorff Metric}{chapter.13}% 204
-\BOOKMARK [1][-]{section.13.26}{Topology of Compact Convergence}{chapter.13}% 205
-\BOOKMARK [0][-]{chapter.14}{Manifolds}{part.1}% 206
-\BOOKMARK [1][-]{section.14.1}{Manifolds}{chapter.14}% 207
+\BOOKMARK [1][-]{section.11.19}{The Subspace Topology}{chapter.11}% 112
+\BOOKMARK [1][-]{section.11.20}{The Box Topology}{chapter.11}% 113
+\BOOKMARK [1][-]{section.11.21}{T1 Spaces}{chapter.11}% 114
+\BOOKMARK [1][-]{section.11.22}{Hausdorff Spaces}{chapter.11}% 115
+\BOOKMARK [1][-]{section.11.23}{Compactly Generated Spaces}{chapter.11}% 116
+\BOOKMARK [1][-]{section.11.24}{The First Countability Axiom}{chapter.11}% 117
+\BOOKMARK [1][-]{section.11.25}{Saturated Sets}{chapter.11}% 118
+\BOOKMARK [1][-]{section.11.26}{Quotient Maps}{chapter.11}% 119
+\BOOKMARK [1][-]{section.11.27}{Quotient Topology}{chapter.11}% 120
+\BOOKMARK [1][-]{section.11.28}{Retractions}{chapter.11}% 121
+\BOOKMARK [1][-]{section.11.29}{Homogeneous Spaces}{chapter.11}% 122
+\BOOKMARK [1][-]{section.11.30}{Regular Spaces}{chapter.11}% 123
+\BOOKMARK [1][-]{section.11.31}{Dense Sets}{chapter.11}% 124
+\BOOKMARK [1][-]{section.11.32}{Connected Spaces}{chapter.11}% 125
+\BOOKMARK [1][-]{section.11.33}{Totally Disconnected Spaces}{chapter.11}% 126
+\BOOKMARK [1][-]{section.11.34}{Paths and Path Connectedness}{chapter.11}% 127
+\BOOKMARK [1][-]{section.11.35}{The Topologist's Sine Curve}{chapter.11}% 128
+\BOOKMARK [1][-]{section.11.36}{The Long Line}{chapter.11}% 129
+\BOOKMARK [1][-]{section.11.37}{Components}{chapter.11}% 130
+\BOOKMARK [1][-]{section.11.38}{Path Components}{chapter.11}% 131
+\BOOKMARK [1][-]{section.11.39}{Local Connectedness}{chapter.11}% 132
+\BOOKMARK [1][-]{section.11.40}{Local Path Connectedness}{chapter.11}% 133
+\BOOKMARK [1][-]{section.11.41}{Weak Local Connectedness}{chapter.11}% 134
+\BOOKMARK [1][-]{section.11.42}{Quasicomponents}{chapter.11}% 135
+\BOOKMARK [1][-]{section.11.43}{Open Coverings}{chapter.11}% 136
+\BOOKMARK [1][-]{section.11.44}{Lindel\366f Spaces}{chapter.11}% 137
+\BOOKMARK [1][-]{section.11.45}{Separable Spaces}{chapter.11}% 138
+\BOOKMARK [1][-]{section.11.46}{The Second Countability Axiom}{chapter.11}% 139
+\BOOKMARK [1][-]{section.11.47}{Sequential Compactness}{chapter.11}% 140
+\BOOKMARK [1][-]{section.11.48}{Limit Point Compactness}{chapter.11}% 141
+\BOOKMARK [1][-]{section.11.49}{Countable Compactness}{chapter.11}% 142
+\BOOKMARK [1][-]{section.11.50}{Subnets}{chapter.11}% 143
+\BOOKMARK [1][-]{section.11.51}{Accumulation Points}{chapter.11}% 144
+\BOOKMARK [1][-]{section.11.52}{Compact Spaces}{chapter.11}% 145
+\BOOKMARK [1][-]{section.11.53}{Perfect Maps}{chapter.11}% 146
+\BOOKMARK [1][-]{section.11.54}{Isolated Points}{chapter.11}% 147
+\BOOKMARK [1][-]{section.11.55}{Local Compactness}{chapter.11}% 148
+\BOOKMARK [1][-]{section.11.56}{Compactifications}{chapter.11}% 149
+\BOOKMARK [2][-]{subsection.11.56.1}{Equivalent Compactifications}{section.11.56}% 150
+\BOOKMARK [1][-]{section.11.57}{G Sets}{chapter.11}% 151
+\BOOKMARK [1][-]{section.11.58}{Separated by a Continuous Function}{chapter.11}% 152
+\BOOKMARK [1][-]{section.11.59}{Separate Points from Closed Sets}{chapter.11}% 153
+\BOOKMARK [1][-]{section.11.60}{Completely Regular Spaces}{chapter.11}% 154
+\BOOKMARK [1][-]{section.11.61}{Normal Spaces}{chapter.11}% 155
+\BOOKMARK [1][-]{section.11.62}{Universal Extension Property}{chapter.11}% 156
+\BOOKMARK [1][-]{section.11.63}{Absolute Retracts}{chapter.11}% 157
+\BOOKMARK [1][-]{section.11.64}{Completely Normal Spaces}{chapter.11}% 158
+\BOOKMARK [1][-]{section.11.65}{Separated Sets}{chapter.11}% 159
+\BOOKMARK [1][-]{section.11.66}{Vanish Precisely}{chapter.11}% 160
+\BOOKMARK [1][-]{section.11.67}{Perfectly Normal Spaces}{chapter.11}% 161
+\BOOKMARK [1][-]{section.11.68}{Coherent Topology}{chapter.11}% 162
+\BOOKMARK [1][-]{section.11.69}{Support}{chapter.11}% 163
+\BOOKMARK [1][-]{section.11.70}{Partitions of Unity}{chapter.11}% 164
+\BOOKMARK [1][-]{section.11.71}{The Line With Two Origins}{chapter.11}% 165
+\BOOKMARK [1][-]{section.11.72}{Countably Locally Finite Sets}{chapter.11}% 166
+\BOOKMARK [1][-]{section.11.73}{Open Refinements}{chapter.11}% 167
+\BOOKMARK [1][-]{section.11.74}{Closed Refinements}{chapter.11}% 168
+\BOOKMARK [1][-]{section.11.75}{F Sets}{chapter.11}% 169
+\BOOKMARK [1][-]{section.11.76}{Locally Discrete Sets}{chapter.11}% 170
+\BOOKMARK [1][-]{section.11.77}{Countably Locally Discrete Sets}{chapter.11}% 171
+\BOOKMARK [1][-]{section.11.78}{Paracompactness}{chapter.11}% 172
+\BOOKMARK [1][-]{section.11.79}{Precise Refinements}{chapter.11}% 173
+\BOOKMARK [1][-]{section.11.80}{Evaluation Map}{chapter.11}% 174
+\BOOKMARK [0][-]{chapter.12}{Topological Groups}{part.1}% 175
+\BOOKMARK [1][-]{section.12.1}{Topological Groups}{chapter.12}% 176
+\BOOKMARK [1][-]{section.12.2}{Actions}{chapter.12}% 177
+\BOOKMARK [0][-]{chapter.13}{Metric Spaces}{part.1}% 178
+\BOOKMARK [1][-]{section.13.1}{The Metric Topology}{chapter.13}% 179
+\BOOKMARK [1][-]{section.13.2}{Metrically Equivalent}{chapter.13}% 180
+\BOOKMARK [1][-]{section.13.3}{Real Linear Algebra}{chapter.13}% 181
+\BOOKMARK [1][-]{section.13.4}{The Uniform Topology}{chapter.13}% 182
+\BOOKMARK [1][-]{section.13.5}{Uniform Convergence}{chapter.13}% 183
+\BOOKMARK [1][-]{section.13.6}{Isometric Imbeddings}{chapter.13}% 184
+\BOOKMARK [1][-]{section.13.7}{Distance to a Set}{chapter.13}% 185
+\BOOKMARK [1][-]{section.13.8}{Lebesgue Numbers}{chapter.13}% 186
+\BOOKMARK [1][-]{section.13.9}{Uniform Continuity}{chapter.13}% 187
+\BOOKMARK [1][-]{section.13.10}{Epsilon-neighbourhoods}{chapter.13}% 188
+\BOOKMARK [1][-]{section.13.11}{Isometry}{chapter.13}% 189
+\BOOKMARK [1][-]{section.13.12}{Shrinking Maps}{chapter.13}% 190
+\BOOKMARK [1][-]{section.13.13}{Contractions}{chapter.13}% 191
+\BOOKMARK [1][-]{section.13.14}{Locally Metrizable Spaces}{chapter.13}% 192
+\BOOKMARK [1][-]{section.13.15}{Cauchy Sequences}{chapter.13}% 193
+\BOOKMARK [1][-]{section.13.16}{Complete Metric Spaces}{chapter.13}% 194
+\BOOKMARK [1][-]{section.13.17}{Sup Metric}{chapter.13}% 195
+\BOOKMARK [1][-]{section.13.18}{Completion}{chapter.13}% 196
+\BOOKMARK [1][-]{section.13.19}{Topolgically Complete Spaces}{chapter.13}% 197
+\BOOKMARK [1][-]{section.13.20}{Peano Spaces}{chapter.13}% 198
+\BOOKMARK [1][-]{section.13.21}{Totally Bounded Metric Spaces}{chapter.13}% 199
+\BOOKMARK [1][-]{section.13.22}{Equicontinuity}{chapter.13}% 200
+\BOOKMARK [1][-]{section.13.23}{Pointwise Bounded Sets}{chapter.13}% 201
+\BOOKMARK [1][-]{section.13.24}{Vanishing at Infinity}{chapter.13}% 202
+\BOOKMARK [1][-]{section.13.25}{Hausdorff Metric}{chapter.13}% 203
+\BOOKMARK [1][-]{section.13.26}{Topology of Compact Convergence}{chapter.13}% 204
+\BOOKMARK [0][-]{chapter.14}{Manifolds}{part.1}% 205
+\BOOKMARK [1][-]{section.14.1}{Manifolds}{chapter.14}% 206
